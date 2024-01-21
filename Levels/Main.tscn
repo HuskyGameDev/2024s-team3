@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=6 format=3 uid="uid://pvvnkdn6u7y5"]
 
-[ext_resource type="Script" path="res://Main.gd" id="1_fsqkp"]
-[ext_resource type="PackedScene" uid="uid://dv8sysvwkgfoq" path="res://Dragable Object.tscn" id="2_gtbc8"]
-[ext_resource type="Texture2D" uid="uid://c1na8wlk3ld7h" path="res://icon.svg" id="3_hxi6g"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_fsqkp"]
+[ext_resource type="Texture2D" uid="uid://c1na8wlk3ld7h" path="res://Sprites/icon.svg" id="3_hxi6g"]
+[ext_resource type="Texture2D" uid="uid://1cavnjgart7f" path="res://Sprites/Cauldron Test 320x180.png" id="3_w1jpk"]
+[ext_resource type="PackedScene" uid="uid://dv8sysvwkgfoq" path="res://Scenes/Draggable Object.tscn" id="4_rgbcw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aqou"]
-size = Vector2(1154, 41)
+size = Vector2(417, 39.5)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_fsqkp")
@@ -13,59 +14,62 @@ script = ExtResource("1_fsqkp")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Room" type="Node2D" parent="."]
+scale = Vector2(6, 6)
 
 [node name="Floor" type="StaticBody2D" parent="Room"]
-position = Vector2(617, 660)
+position = Vector2(276, 206)
 
 [node name="Sprite2D" type="Sprite2D" parent="Room/Floor"]
-position = Vector2(-41, -11)
-scale = Vector2(9.01563, 0.3125)
+position = Vector2(-115.5, -10)
+scale = Vector2(3.25781, 0.3125)
 texture = ExtResource("3_hxi6g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Floor"]
-position = Vector2(-41, -10.5)
+position = Vector2(-115.5, -10.25)
 shape = SubResource("RectangleShape2D_1aqou")
 
 [node name="Floor2" type="StaticBody2D" parent="Room"]
-position = Vector2(1, 134)
-rotation = 1.5708
+position = Vector2(272, -6)
 
 [node name="Sprite2D" type="Sprite2D" parent="Room/Floor2"]
-position = Vector2(-41, -11)
-scale = Vector2(9.01563, 0.3125)
+position = Vector2(-115.5, -10)
+scale = Vector2(3.25781, 0.3125)
 texture = ExtResource("3_hxi6g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Floor2"]
-position = Vector2(-41, -10.5)
+position = Vector2(-115.5, -10.25)
 shape = SubResource("RectangleShape2D_1aqou")
 
 [node name="Floor3" type="StaticBody2D" parent="Room"]
-position = Vector2(1122, 133)
+position = Vector2(327, 192)
 rotation = 1.5708
 
 [node name="Sprite2D" type="Sprite2D" parent="Room/Floor3"]
-position = Vector2(-41, -11)
-scale = Vector2(9.01563, 0.3125)
+position = Vector2(-115.5, -10)
+scale = Vector2(3.25781, 0.3125)
 texture = ExtResource("3_hxi6g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Floor3"]
-position = Vector2(-41, -10.5)
+position = Vector2(-115.5, -10.25)
 shape = SubResource("RectangleShape2D_1aqou")
 
 [node name="Floor4" type="StaticBody2D" parent="Room"]
-position = Vector2(612, 12)
+position = Vector2(-6, -44)
+rotation = 4.71239
 
 [node name="Sprite2D" type="Sprite2D" parent="Room/Floor4"]
-position = Vector2(-41, -11)
-scale = Vector2(9.01563, 0.3125)
+position = Vector2(-115.5, -10)
+scale = Vector2(3.25781, 0.3125)
 texture = ExtResource("3_hxi6g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Floor4"]
-position = Vector2(-41, -10.5)
+position = Vector2(-115.5, -10.25)
 shape = SubResource("RectangleShape2D_1aqou")
 
-[node name="Ingredient" parent="." instance=ExtResource("2_gtbc8")]
-position = Vector2(624, 283)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(965, 857)
+scale = Vector2(6, 6)
+texture = ExtResource("3_w1jpk")
 
-[node name="Ingredient2" parent="." instance=ExtResource("2_gtbc8")]
-position = Vector2(288, 263)
+[node name="Draggable Object" parent="." instance=ExtResource("4_rgbcw")]
+position = Vector2(1289, 776)

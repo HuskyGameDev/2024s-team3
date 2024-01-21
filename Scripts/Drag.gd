@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+@export var min_impulse_catch : Vector2 = Vector2(-10,-10)
+@export var max_impulse_catch : Vector2 = Vector2 (10,10)
 signal clicked
 
 var held = false

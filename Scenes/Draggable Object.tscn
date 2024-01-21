@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv8sysvwkgfoq"]
+
+[ext_resource type="Script" path="res://Scripts/Drag.gd" id="1_y7la7"]
+[ext_resource type="Texture2D" uid="uid://cpiu2shqy8d6l" path="res://Sprites/Ingredient Default.png" id="2_pp4sf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xvb2h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wjw1p"]
+radius = 8.0
+
+[node name="Draggable Object" type="RigidBody2D" groups=["pickable"]]
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_xvb2h")
+gravity_scale = 5.513
+script = ExtResource("1_y7la7")
+min_impulse_catch = Vector2(-200, -200)
+max_impulse_catch = Vector2(200, 200)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(6, 6)
+texture = ExtResource("2_pp4sf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+scale = Vector2(6, 6)
+shape = SubResource("CircleShape2D_wjw1p")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
