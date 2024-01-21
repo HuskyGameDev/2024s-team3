@@ -65,16 +65,7 @@ position = Vector2(-41, -10.5)
 shape = SubResource("RectangleShape2D_1aqou")
 
 [node name="Ingredient" parent="." instance=ExtResource("2_gtbc8")]
-position = Vector2(451, 296)
+position = Vector2(624, 283)
 
 [node name="Ingredient2" parent="." instance=ExtResource("2_gtbc8")]
-position = Vector2(591, 236)
-
-[node name="Ingredient3" parent="." instance=ExtResource("2_gtbc8")]
-position = Vector2(646, 313)
-
-[node name="Ingredient4" parent="." instance=ExtResource("2_gtbc8")]
-position = Vector2(830, 243)
-
-[node name="Ingredient5" parent="." instance=ExtResource("2_gtbc8")]
-position = Vector2(719, 152)
+position = Vector2(288, 263)

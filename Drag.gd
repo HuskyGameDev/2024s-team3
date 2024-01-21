@@ -10,19 +10,23 @@ func _on_input_event(viewport, event, shape_idx):
 			print("clicked")
 			clicked.emit(self)
 
+
 func _physics_process(delta):
 	if held:
 		global_transform.origin = get_global_mouse_position()
-		
+
+
 func pickup():
 	if held:
 		return
 	freeze = true
 	held = true
-	
+
+
 func drop(impulse):
 	if held:
 		freeze = false
+		print(impulse)
 		apply_central_impulse(impulse)
 		held = false
 
