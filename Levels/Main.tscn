@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://pvvnkdn6u7y5"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_fsqkp"]
+[ext_resource type="PackedScene" uid="uid://dv8sysvwkgfoq" path="res://Dragable Object.tscn" id="2_gtbc8"]
+[ext_resource type="Texture2D" uid="uid://c1na8wlk3ld7h" path="res://icon.svg" id="3_hxi6g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1aqou"]
+size = Vector2(1154, 41)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_fsqkp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Room" type="Node2D" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="Room"]
+position = Vector2(617, 660)
+
+[node name="Sprite2D" type="Sprite2D" parent="Room/Floor"]
+position = Vector2(-41, -11)
+scale = Vector2(9.01563, 0.3125)
+texture = ExtResource("3_hxi6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Floor"]
+position = Vector2(-41, -10.5)
+shape = SubResource("RectangleShape2D_1aqou")
+
+[node name="Floor2" type="StaticBody2D" parent="Room"]
+position = Vector2(1, 134)
+rotation = 1.5708
+
+[node name="Sprite2D" type="Sprite2D" parent="Room/Floor2"]
+position = Vector2(-41, -11)
+scale = Vector2(9.01563, 0.3125)
+texture = ExtResource("3_hxi6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Floor2"]
+position = Vector2(-41, -10.5)
+shape = SubResource("RectangleShape2D_1aqou")
+
+[node name="Floor3" type="StaticBody2D" parent="Room"]
+position = Vector2(1122, 133)
+rotation = 1.5708
+
+[node name="Sprite2D" type="Sprite2D" parent="Room/Floor3"]
+position = Vector2(-41, -11)
+scale = Vector2(9.01563, 0.3125)
+texture = ExtResource("3_hxi6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Floor3"]
+position = Vector2(-41, -10.5)
+shape = SubResource("RectangleShape2D_1aqou")
+
+[node name="Floor4" type="StaticBody2D" parent="Room"]
+position = Vector2(612, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="Room/Floor4"]
+position = Vector2(-41, -11)
+scale = Vector2(9.01563, 0.3125)
+texture = ExtResource("3_hxi6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Floor4"]
+position = Vector2(-41, -10.5)
+shape = SubResource("RectangleShape2D_1aqou")
+
+[node name="Ingredient" parent="." instance=ExtResource("2_gtbc8")]
+position = Vector2(451, 296)
+
+[node name="Ingredient2" parent="." instance=ExtResource("2_gtbc8")]
+position = Vector2(591, 236)
+
+[node name="Ingredient3" parent="." instance=ExtResource("2_gtbc8")]
+position = Vector2(646, 313)
+
+[node name="Ingredient4" parent="." instance=ExtResource("2_gtbc8")]
+position = Vector2(830, 243)
+
+[node name="Ingredient5" parent="." instance=ExtResource("2_gtbc8")]
+position = Vector2(719, 152)

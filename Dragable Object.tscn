@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv8sysvwkgfoq"]
+
+[ext_resource type="Script" path="res://Drag.gd" id="1_3iqei"]
+[ext_resource type="Texture2D" uid="uid://c1na8wlk3ld7h" path="res://icon.svg" id="2_lx31j"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1m0an"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yh0nr"]
+size = Vector2(128, 127)
+
+[node name="Ingredient" type="RigidBody2D" groups=["pickable"]]
+input_pickable = true
+mass = 100.0
+physics_material_override = SubResource("PhysicsMaterial_1m0an")
+freeze_mode = 1
+continuous_cd = 1
+script = ExtResource("1_3iqei")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_lx31j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_yh0nr")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
