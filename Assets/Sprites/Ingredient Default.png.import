@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1cavnjgart7f"
-path="res://.godot/imported/Cauldron Test 320x180.png-f97d0ea94b135bdfe0d726fabd7bf673.ctex"
+uid="uid://cpiu2shqy8d6l"
+path="res://.godot/imported/Ingredient Default.png-3db23667931d54fda5b676e78a49dc10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Cauldron Test 320x180.png"
-dest_files=["res://.godot/imported/Cauldron Test 320x180.png-f97d0ea94b135bdfe0d726fabd7bf673.ctex"]
+source_file="res://Assets/Sprites/Ingredient Default.png"
+dest_files=["res://.godot/imported/Ingredient Default.png-3db23667931d54fda5b676e78a49dc10.ctex"]
 
 [params]
 

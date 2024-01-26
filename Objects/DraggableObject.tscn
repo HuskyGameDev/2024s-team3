@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dv8sysvwkgfoq"]
 
-[ext_resource type="Script" path="res://Scripts/Drag.gd" id="1_y7la7"]
-[ext_resource type="Texture2D" uid="uid://cpiu2shqy8d6l" path="res://Sprites/Ingredient Default.png" id="2_pp4sf"]
+[ext_resource type="Script" path="res://Objects/draggable.gd" id="1_y7la7"]
+[ext_resource type="Texture2D" uid="uid://cpiu2shqy8d6l" path="res://Assets/Sprites/Ingredient Default.png" id="2_pp4sf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xvb2h"]
 
