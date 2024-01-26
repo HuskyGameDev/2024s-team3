@@ -13,8 +13,6 @@ input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_xvb2h")
 gravity_scale = 5.513
 script = ExtResource("1_y7la7")
-min_impulse_catch = Vector2(-200, -200)
-max_impulse_catch = Vector2(200, 200)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(6, 6)
