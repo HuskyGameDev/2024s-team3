@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cfvwaggw11t5t"]
+
+[ext_resource type="Script" path="res://Objects/Potions/potion_data.gd" id="1_7r8x0"]
+
+[resource]
+script = ExtResource("1_7r8x0")
+id = 2
+potion_name = "Simple Poison"
+description = ""
+recipe = Array[int]([2, 3])
