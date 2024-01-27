@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Texture2D" uid="uid://c1na8wlk3ld7h" path="res://Assets/Sprites/icon.svg" id="3_hxi6g"]
-[ext_resource type="Texture2D" uid="uid://1cavnjgart7f" path="res://Assets/Sprites/Cauldron Test 320x180.png" id="3_w1jpk"]
-[ext_resource type="PackedScene" uid="uid://dv8sysvwkgfoq" path="res://Objects/DraggableObject.tscn" id="4_rgbcw"]
+[ext_resource type="PackedScene" uid="uid://cjjarcohy2vqe" path="res://Objects/Stations/Cauldron.tscn" id="3_linin"]
+[ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://Objects/Ingredients/IngredientBase.tscn" id="4_2mp38"]
 
 [sub_resource type="GDScript" id="GDScript_jaq21"]
 script/source = "extends Node2D
@@ -70,10 +70,10 @@ texture = ExtResource("3_hxi6g")
 position = Vector2(-115.5, -10.25)
 shape = SubResource("RectangleShape2D_1aqou")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(965, 857)
+[node name="Cauldron" parent="." instance=ExtResource("3_linin")]
+position = Vector2(994, 871)
 scale = Vector2(6, 6)
-texture = ExtResource("3_w1jpk")
 
-[node name="Draggable Object" parent="." instance=ExtResource("4_rgbcw")]
-position = Vector2(1289, 776)
+[node name="Ingredient" parent="." instance=ExtResource("4_2mp38")]
+position = Vector2(419, 711)
+id = 10

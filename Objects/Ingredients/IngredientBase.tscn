@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://6acoxw3otoc3"]
+
+[ext_resource type="PackedScene" uid="uid://dv8sysvwkgfoq" path="res://Objects/DraggableObject.tscn" id="1_ej0v7"]
+[ext_resource type="Script" path="res://Objects/Ingredients/ingredient_info.gd" id="3_nv0cd"]
+
+[node name="IngredientBase" type="Node2D"]
+script = ExtResource("3_nv0cd")
+
+[node name="DraggableObject" parent="." instance=ExtResource("1_ej0v7")]
+position = Vector2(-4, -1)
+
+[connection signal="ready" from="DraggableObject" to="." method="_on_draggable_object_ready"]
