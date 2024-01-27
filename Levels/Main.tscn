@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=8 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Texture2D" uid="uid://c1na8wlk3ld7h" path="res://Assets/Sprites/icon.svg" id="3_hxi6g"]
 [ext_resource type="PackedScene" uid="uid://cjjarcohy2vqe" path="res://Objects/Stations/Cauldron.tscn" id="3_linin"]
-[ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://Objects/Ingredients/IngredientBase.tscn" id="4_2mp38"]
+[ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://Objects/Ingredients/Ingredient.tscn" id="4_2mp38"]
+[ext_resource type="Resource" uid="uid://co3ioqsw3cskg" path="res://Objects/Ingredients/Resources/thistle_root.tres" id="4_ajrum"]
+[ext_resource type="Resource" uid="uid://cpu7godbyopie" path="res://Objects/Ingredients/Resources/nightshade_petals.tres" id="5_rir7j"]
 
 [sub_resource type="GDScript" id="GDScript_jaq21"]
 script/source = "extends Node2D
@@ -76,4 +78,8 @@ scale = Vector2(6, 6)
 
 [node name="Ingredient" parent="." instance=ExtResource("4_2mp38")]
 position = Vector2(419, 711)
-id = 10
+data = ExtResource("4_ajrum")
+
+[node name="Ingredient2" parent="." instance=ExtResource("4_2mp38")]
+position = Vector2(1452, 677)
+data = ExtResource("5_rir7j")
