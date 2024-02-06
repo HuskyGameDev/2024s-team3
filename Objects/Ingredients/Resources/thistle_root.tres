@@ -1,9 +1,11 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://co3ioqsw3cskg"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://co3ioqsw3cskg"]
 
 [ext_resource type="Script" path="res://Objects/Ingredients/ingredient_data.gd" id="1_154eg"]
+[ext_resource type="Texture2D" uid="uid://cbnjnkfq7dsfm" path="res://Assets/Sprites/Thistle_Root.png" id="1_j6ldu"]
 
 [resource]
 script = ExtResource("1_154eg")
 id = 1
 ingredient_name = "Thistle Root"
 description = ""
+image = ExtResource("1_j6ldu")

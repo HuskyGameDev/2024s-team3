@@ -14,7 +14,7 @@ physics_material_override = SubResource("PhysicsMaterial_xvb2h")
 gravity_scale = 5.513
 script = ExtResource("1_y7la7")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="DraggableSprite" type="Sprite2D" parent="."]
 scale = Vector2(6, 6)
 texture = ExtResource("2_pp4sf")
 

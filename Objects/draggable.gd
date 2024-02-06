@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+############ Drag and Drop Functions ############
 var beingHeld = false
 
 func _on_input_event(_viewport, _event, _shape_idx):
@@ -18,3 +19,13 @@ func _physics_process(_delta):
 
 
 ##set_collision_mask_value(1,false)
+
+############# Object Data Functions #############
+@export_enum("Potion", "Ingredient") var object_type: String
+@export var object_data:Resource
+
+func data_updated():
+	if object_data.image:
+		$"DraggableSprite".texture = object_data.image
+
+

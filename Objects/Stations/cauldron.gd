@@ -9,8 +9,8 @@ func _on_recipes_recipes_loaded(recipe_dict):
 	
 
 func _on_body_enter_cauldron(body):
-	if body.has_meta("ingredient"):
-		var addedIngredient = body.get_meta("ingredient").data
+	if body.get("object_type") == "Ingredient":
+		var addedIngredient = body.get("object_data")
 		body.queue_free()
 		currentIngredients.push_back(addedIngredient.id)
 
