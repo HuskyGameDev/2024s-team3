@@ -25,7 +25,7 @@ func _physics_process(_delta):
 @export var object_data:Resource
 
 func data_updated():
-	if object_data.image:
+	if object_data and object_data.image != null:
 		$"DraggableSprite".texture = object_data.image
 
 
