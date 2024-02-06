@@ -2,7 +2,9 @@ extends Node2D
 
 var currentIngredients: Array[String] = []
 var recipes = {}
+var potion = preload("res://Objects/Potions/Potion.tscn")
 
+signal potion_made(potion)
 
 func _on_recipes_recipes_loaded(recipe_dict):
 	recipes = recipe_dict
@@ -37,8 +39,12 @@ func check_potion_made():
 	Either way, clear out the ingredient array after checking.
 	"""
 	if made_potion:
-		print("Made " + made_potion.potion_name)
-		# TODO: Actually make a potion
+		var newPotion = potion.instantiate()
+		newPotion.data = made_potion
+		newPotion.position = self.position
+		# we subtract 100 to move the potion up
+		newPotion.position -= Vector2(0, 100)
+		potion_made.emit(newPotion)
 	else:
 		print("Did not make potion")
 		# TODO: Actually find what failed potion was made

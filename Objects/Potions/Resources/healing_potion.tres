@@ -1,5 +1,6 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b54jr4mldew77"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b54jr4mldew77"]
 
+[ext_resource type="Texture2D" uid="uid://cbnjnkfq7dsfm" path="res://Assets/Sprites/Thistle_Root.png" id="1_8ejgc"]
 [ext_resource type="Script" path="res://Objects/Potions/potion_data.gd" id="1_84a12"]
 
 [resource]
@@ -7,4 +8,5 @@ script = ExtResource("1_84a12")
 id = ""
 potion_name = "Healing Potion"
 description = ""
+image = ExtResource("1_8ejgc")
 recipe = Array[String](["nightshadepetals", "thistleroot"])
