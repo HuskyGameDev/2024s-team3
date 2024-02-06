@@ -20,7 +20,8 @@ func _on_body_enter_cauldron(body):
 
 func _on_cauldron_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click"):
-		check_potion_made()
+		if currentIngredients.size() > 0:
+			check_potion_made()
 
 
 func check_potion_made():
