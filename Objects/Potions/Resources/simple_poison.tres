@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_7r8x0")
-id = ""
+id = "simple_poison"
 potion_name = "Simple Poison"
 description = ""
 recipe = Array[String](["burdockroot", "nightshadepetals"])

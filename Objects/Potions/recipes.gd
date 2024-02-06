@@ -20,6 +20,7 @@ func _ready():
 
 
 func add_recipe_to_dictionary(recipe_data):
+	recipe_data.recipe.sort()
 	var recipe_hash = recipe_data.recipe.hash()
 	var found_hash = recipes.get(recipe_hash)
 	if found_hash != null:
