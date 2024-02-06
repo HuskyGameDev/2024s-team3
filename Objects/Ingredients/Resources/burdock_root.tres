@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_8lcrb")
-id = 3
+id = "burdockroot"
 ingredient_name = "Burdock Root"
 description = ""

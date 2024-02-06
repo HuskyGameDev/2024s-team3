@@ -1,6 +1,6 @@
 extends Node2D
 
-var currentIngredients: Array[int] = []
+var currentIngredients: Array[String] = []
 var recipes = {}
 
 
@@ -13,6 +13,7 @@ func _on_body_enter_cauldron(body):
 		var addedIngredient = body.get("object_data")
 		body.queue_free()
 		currentIngredients.push_back(addedIngredient.id)
+		print(addedIngredient.ingredient_name + " entered cauldron")
 
 
 func _on_cauldron_input_event(_viewport, _event, _shape_idx):
@@ -21,11 +22,27 @@ func _on_cauldron_input_event(_viewport, _event, _shape_idx):
 
 
 func check_potion_made():
-	currentIngredients.sort()
-	var made_potion = recipes.get(currentIngredients.hash())
+	currentIngredients.sort() # Sorts the array of ingredients
+	print("Current Ingredients: ")
+	for ingredient in currentIngredients:
+		print(ingredient)
+	if currentIngredients.size() == 0:
+		print("None")
+	
+	var made_potion = recipes.get(currentIngredients.hash()) # Hashes the array of ingredients and finds the corresponding recipe
+	
+	"""
+	If the recipe made by the ingredients in the cauldron matches a working recipe, make the corresponding potion.
+	Otherwise, run a script to find out what failed potion was made.
+	Either way, clear out the ingredient array after checking.
+	"""
 	if made_potion:
 		print("Made " + made_potion.potion_name)
+		# TODO: Actually make a potion
 	else:
 		print("Did not make potion")
+		# TODO: Actually find what failed potion was made
+	currentIngredients.clear()
+	
 
 
