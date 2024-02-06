@@ -1,6 +1,6 @@
 extends Node2D
 
-var currentIngredients: Array[int] = []
+var currentIngredients: Array[String] = []
 var recipes = {}
 var potion = preload("res://Objects/Potions/Potion.tscn")
 

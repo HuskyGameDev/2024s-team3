@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_qlefo")
-id = 2
+id = "nightshade_petals"
 ingredient_name = "Nightshade Petals"
 description = ""

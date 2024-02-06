@@ -87,11 +87,11 @@ position = Vector2(994, 871)
 scale = Vector2(6, 6)
 
 [node name="Ingredient" parent="." instance=ExtResource("4_2mp38")]
-position = Vector2(993, 601)
+position = Vector2(1493, 919)
 data = ExtResource("4_ajrum")
 
 [node name="Ingredient2" parent="." instance=ExtResource("4_2mp38")]
-position = Vector2(970, 382)
+position = Vector2(474, 940)
 data = ExtResource("5_rir7j")
 
 [connection signal="potion_made" from="Cauldron" to="." method="_on_cauldron_potion_made"]

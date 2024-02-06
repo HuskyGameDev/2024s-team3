@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_154eg")
-id = 1
+id = "thistle_root"
 ingredient_name = "Thistle Root"
 description = ""
 image = ExtResource("1_j6ldu")
