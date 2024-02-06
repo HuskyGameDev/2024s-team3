@@ -2,7 +2,9 @@ extends Node2D
 
 var currentIngredients: Array[int] = []
 var recipes = {}
+var potion = preload("res://Objects/Potions/Potion.tscn")
 
+signal potion_made(potion)
 
 func _on_recipes_recipes_loaded(recipe_dict):
 	recipes = recipe_dict
@@ -23,8 +25,14 @@ func _on_cauldron_input_event(_viewport, _event, _shape_idx):
 func check_potion_made():
 	currentIngredients.sort()
 	var made_potion = recipes.get(currentIngredients.hash())
+	currentIngredients.clear()
 	if made_potion:
-		print("Made " + made_potion.potion_name)
+		var newPotion = potion.instantiate()
+		newPotion.data = made_potion
+		newPotion.position = self.position
+		# we subtract 100 to move the potion up
+		newPotion.position -= Vector2(0, 100)
+		potion_made.emit(newPotion)
 	else:
 		print("Did not make potion")
 
