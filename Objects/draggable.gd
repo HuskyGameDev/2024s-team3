@@ -6,10 +6,12 @@ var beingHeld = false
 func _on_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click"):
 		beingHeld = true
-		freeze = true
+		set_deferred("freeze", true)
+		set_collision_layer(32)
 	elif Input.is_action_just_released("click"):
 		beingHeld = false
-		freeze = false
+		set_deferred("freeze", false)
+		set_collision_layer(1)
 		self.apply_central_impulse((Input.get_last_mouse_velocity()/2))
 
 
