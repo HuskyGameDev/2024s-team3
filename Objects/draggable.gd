@@ -8,6 +8,8 @@ func _on_input_event(_viewport, _event, _shape_idx):
 		beingHeld = true
 		set_deferred("freeze", true)
 		set_collision_layer(32)
+		var tween = create_tween()
+		tween.tween_property(self, "rotation", 0, 0.1)
 	elif Input.is_action_just_released("click"):
 		beingHeld = false
 		set_deferred("freeze", false)
@@ -18,16 +20,15 @@ func _on_input_event(_viewport, _event, _shape_idx):
 func _physics_process(_delta):
 	if beingHeld:
 		global_transform.origin = get_global_mouse_position()
-
+		
 
 ##set_collision_mask_value(1,false)
 
-############# Object Data Functions #############
+############### Object Functions ################
 @export_enum("Potion", "Ingredient") var object_type: String
 @export var object_data:Resource
 
 func data_updated():
 	if object_data and object_data.image != null:
 		$"DraggableSprite".texture = object_data.image
-
 
