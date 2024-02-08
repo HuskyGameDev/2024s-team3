@@ -6,7 +6,7 @@ var potion = preload("res://Objects/Potions/Potion.tscn")
 
 signal potion_made(potion)
 
-func _on_recipes_recipes_loaded(recipe_dict):
+func _on_recipes_loaded(recipe_dict):
 	recipes = recipe_dict
 	
 
@@ -60,5 +60,3 @@ func check_potion_made():
 		# TODO: Actually find what failed potion was made
 	currentIngredients.clear()
 	
-
-

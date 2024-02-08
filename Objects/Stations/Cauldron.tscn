@@ -25,9 +25,9 @@ shape = SubResource("CircleShape2D_ymlov")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-26, -7, -32, 4, -29, 18, -14, 30, -1, 32, 12, 29, 26, 18, 30, 4, 24, -9, 19, -4, 9, -2, -10, -2, -20, -4)
 
-[node name="Recipes" type="Node" parent="."]
+[node name="RecipeLoader" type="Node" parent="."]
 script = ExtResource("3_87jks")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_enter_cauldron"]
 [connection signal="input_event" from="Area2D" to="." method="_on_cauldron_input_event"]
-[connection signal="recipes_loaded" from="Recipes" to="." method="_on_recipes_recipes_loaded"]
+[connection signal="recipes_loaded" from="RecipeLoader" to="." method="_on_recipes_loaded"]
