@@ -19,10 +19,9 @@ func _on_input_event(_viewport, _event, _shape_idx):
 
 func _physics_process(_delta):
 	if beingHeld:
+		#global_transform.origin += get_local_mouse_position()
 		global_transform.origin = get_global_mouse_position()
 		
-
-##set_collision_mask_value(1,false)
 
 ############### Object Functions ################
 @export_enum("Potion", "Ingredient") var object_type: String
