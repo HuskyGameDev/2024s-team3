@@ -8,14 +8,18 @@ func _unhandled_input(event):
 	if not Input.is_action_pressed("click") and beingHeld:
 		beingHeld = false
 		set_deferred("gravity_scale", 1)
-		set_collision_layer(1)
+		set_collision_layer_value(1, true)
+		set_collision_mask_value(1, true)
+		set_collision_mask_value(32, false)
 
 
 func _on_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click"):
 		beingHeld = true
 		set_deferred("gravity_scale", 0)
-		set_collision_layer(32)
+		set_collision_layer_value(1, false)
+		set_collision_mask_value(1, false)
+		set_collision_mask_value(32, true)
 		var tween = create_tween()
 		tween.tween_property(self, "rotation", 0, 0.1)
 	
