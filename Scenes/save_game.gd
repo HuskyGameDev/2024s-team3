@@ -5,7 +5,7 @@ const SAVE_LOCATION = "user://savegame.save"
 
 func _ready():
 	var save = load_game()
-	print(save.name)
+	#print(save.name)
 	
 
 func save_game():
