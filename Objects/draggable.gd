@@ -4,7 +4,7 @@ extends RigidBody2D
 var beingHeld = false
 
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if not Input.is_action_pressed("click") and beingHeld:
 		beingHeld = false
 		set_deferred("gravity_scale", 1)
@@ -24,7 +24,7 @@ func _on_input_event(_viewport, _event, _shape_idx):
 		tween.tween_property(self, "rotation", 0, 0.1)
 	
 	
-func _integrate_forces(state):
+func _integrate_forces(_state):
 	if beingHeld:
 		var mousePos = get_global_mouse_position()
 		var distance = global_position.distance_to(mousePos)
