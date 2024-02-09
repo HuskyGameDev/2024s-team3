@@ -8,5 +8,3 @@ script = ExtResource("1_we4u2")
 
 [node name="DraggableObject" parent="." instance=ExtResource("2_dx3t5")]
 position = Vector2(1, -5)
-
-[connection signal="ready" from="DraggableObject" to="." method="_on_draggable_object_ready"]

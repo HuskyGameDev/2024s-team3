@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=9 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Texture2D" uid="uid://c1na8wlk3ld7h" path="res://Assets/Sprites/icon.svg" id="3_hxi6g"]
 [ext_resource type="PackedScene" uid="uid://cjjarcohy2vqe" path="res://Objects/Stations/Cauldron.tscn" id="3_linin"]
 [ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://Objects/Ingredients/Ingredient.tscn" id="4_2mp38"]
 [ext_resource type="Resource" uid="uid://co3ioqsw3cskg" path="res://Objects/Ingredients/Resources/thistle_root.tres" id="4_ajrum"]
 [ext_resource type="Resource" uid="uid://cpu7godbyopie" path="res://Objects/Ingredients/Resources/nightshade_petals.tres" id="5_rir7j"]
+[ext_resource type="Script" path="res://Levels/save_game.gd" id="6_d8n68"]
 
 [sub_resource type="GDScript" id="GDScript_jaq21"]
 script/source = "extends Node2D
@@ -98,5 +99,8 @@ data = ExtResource("4_ajrum")
 [node name="Ingredient2" parent="." instance=ExtResource("4_2mp38")]
 position = Vector2(474, 940)
 data = ExtResource("5_rir7j")
+
+[node name="SaveGame" type="Node2D" parent="."]
+script = ExtResource("6_d8n68")
 
 [connection signal="potion_made" from="Cauldron" to="." method="_on_cauldron_potion_made"]
