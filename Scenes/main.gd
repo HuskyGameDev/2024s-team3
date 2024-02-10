@@ -4,8 +4,8 @@ var potionScene = preload("res://Objects/Potions/Potion.tscn")
 
 
 func _on_cauldron_potion_made(potion:Potion):
-	print(potion.potion_name)
 	var newPotionObj = potionScene.instantiate()
+	newPotionObj.setType(potion)
 	newPotionObj.global_position = $"Cauldron".global_position - Vector2(0, 100)
 	add_child(newPotionObj)
 	## "throws" potion
