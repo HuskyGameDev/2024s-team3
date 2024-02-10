@@ -116,4 +116,5 @@ scale = Vector2(331.25, 11.25)
 texture = SubResource("PlaceholderTexture2D_c4ekw")
 
 [connection signal="potion_made" from="Cauldron" to="." method="_on_cauldron_potion_made"]
+[connection signal="potion_made" from="Cauldron" to="SaveGame" method="_on_potion_made"]
 [connection signal="body_entered" from="shelfArea" to="." method="_on_shelf_body_entered"]

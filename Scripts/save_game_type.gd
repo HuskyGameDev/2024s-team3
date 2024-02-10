@@ -1,4 +1,4 @@
 extends Resource
 class_name SaveGameFile
 
-var name:String = ""
+var madePotions:Array[String] = []
