@@ -1,6 +1,6 @@
 extends Node
 
-@export var data: Resource
+@export var data: Potion
 var rigidbody: RigidBody2D
 
 func _ready():

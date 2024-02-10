@@ -1,6 +1,6 @@
 extends Node
 
-@export var data: Resource
+@export var data: Ingredient
 
 func _ready():
 	$"DraggableObject".set("object_type", "Ingredient")
