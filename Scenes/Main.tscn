@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://Objects/Ingredients/Ingredient.tscn" id="4_2mp38"]
 [ext_resource type="Resource" uid="uid://co3ioqsw3cskg" path="res://Objects/Ingredients/Resources/thistle_root.tres" id="4_ajrum"]
 [ext_resource type="Resource" uid="uid://cpu7godbyopie" path="res://Objects/Ingredients/Resources/nightshade_petals.tres" id="5_rir7j"]
-[ext_resource type="Script" path="res://Scenes/save_game.gd" id="6_d8n68"]
+[ext_resource type="Script" path="res://Scripts/save_game.gd" id="6_d8n68"]
 
 [sub_resource type="GDScript" id="GDScript_jaq21"]
 script/source = "extends Node2D
@@ -116,14 +116,12 @@ script = ExtResource("6_d8n68")
 
 [node name="shelfArea" type="Area2D" parent="."]
 position = Vector2(0.000244141, 6.10352e-05)
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shelfArea"]
 position = Vector2(1721, 574)
 shape = SubResource("RectangleShape2D_kyrvs")
 
 [node name="shelf" type="StaticBody2D" parent="shelfArea"]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shelfArea/shelf"]
 position = Vector2(1721, 627)
