@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://jj235s2l56j6"]
+[gd_scene load_steps=3 format=3 uid="uid://jj235s2l56j6"]
 
 [ext_resource type="Texture2D" uid="uid://buywfsmyfaf7n" path="res://Assets/Sprites/customers/customer2.png" id="1_2qsw2"]
+[ext_resource type="Script" path="res://Scripts/customer.gd" id="2_s15qn"]
 
-[node name="Customer2" type="Sprite2D"]
+[node name="needscoffeeguy" type="Sprite2D"]
 texture = ExtResource("1_2qsw2")
+script = ExtResource("2_s15qn")
