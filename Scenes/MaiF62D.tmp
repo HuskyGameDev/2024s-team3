@@ -117,7 +117,6 @@ scale = Vector2(331.25, 11.25)
 texture = SubResource("PlaceholderTexture2D_c4ekw")
 
 [node name="Customers" type="Sprite2D" parent="."]
-position = Vector2(917, 321)
 script = ExtResource("9_jtbro")
 
 [connection signal="potion_made" from="Cauldron" to="." method="_on_cauldron_potion_made"]
