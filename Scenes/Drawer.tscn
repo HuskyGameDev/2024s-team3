@@ -1,0 +1,595 @@
+[gd_scene load_steps=4 format=3 uid="uid://br236elfur261"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ufkek"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_p7ntj"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ksx5s"]
+specular_color = Color(0.65098, 0.301961, 0.0470588, 1)
+
+[node name="Drawer-inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1000.0
+offset_top = 200.0
+offset_right = -320.0
+offset_bottom = -190.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_ufkek")
+
+[node name="M" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 19
+theme_override_constants/margin_top = 11
+theme_override_constants/margin_right = 19
+theme_override_constants/margin_bottom = 11
+
+[node name="V" type="VBoxContainer" parent="Background/M"]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="Background/M/V"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background/M/V"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="Background/M/V/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
+
+[node name="Slot1" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot2" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot3" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot4" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot5" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot6" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot7" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot8" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot9" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot9"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot10" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot10"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot11" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot11"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot12" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot12"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot13" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot13"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot14" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot14"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot15" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot15"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot16" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot16"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot17" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot17"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot18" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot18"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot19" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot19"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot20" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot20"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot21" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot21"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot22" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot22"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot23" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot23"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot24" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot24"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot25" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot25"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot26" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot26"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot27" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot27"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot28" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot28"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot29" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot29"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot30" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot30"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot31" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = SubResource("CanvasTexture_p7ntj")
+
+[node name="Icon" type="TextureRect" parent="Background/M/V/ScrollContainer/GridContainer/Slot31"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tab" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.097
+anchor_bottom = 0.242
+offset_right = -0.200001
+offset_bottom = 0.019989
+texture = SubResource("CanvasTexture_ksx5s")

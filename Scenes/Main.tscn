@@ -99,6 +99,8 @@ script = ExtResource("6_d8n68")
 
 [node name="shelfArea" type="Area2D" parent="."]
 position = Vector2(0.000244141, 6.10352e-05)
+collision_layer = 2147483649
+collision_mask = 2147483649
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shelfArea"]
 position = Vector2(1721, 574)
