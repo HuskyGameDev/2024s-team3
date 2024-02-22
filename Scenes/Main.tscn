@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://pvvnkdn6u7y5"]
 
-[ext_resource type="Script" path="res://Scenes/main.gd" id="1_lxcpq"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_lxcpq"]
 [ext_resource type="Texture2D" uid="uid://c1na8wlk3ld7h" path="res://Assets/Sprites/icon.svg" id="3_hxi6g"]
-[ext_resource type="PackedScene" uid="uid://cjjarcohy2vqe" path="res://Objects/Stations/Cauldron.tscn" id="3_linin"]
-[ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://Objects/Ingredients/Ingredient.tscn" id="4_2mp38"]
-[ext_resource type="Resource" uid="uid://co3ioqsw3cskg" path="res://Objects/Ingredients/Resources/thistle_root.tres" id="4_ajrum"]
-[ext_resource type="Resource" uid="uid://cpu7godbyopie" path="res://Objects/Ingredients/Resources/nightshade_petals.tres" id="5_rir7j"]
-[ext_resource type="Script" path="res://Scripts/save_game.gd" id="6_d8n68"]
+[ext_resource type="PackedScene" uid="uid://cjjarcohy2vqe" path="res://Scenes/Cauldron.tscn" id="3_linin"]
+[ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://Scenes/Ingredient.tscn" id="4_2mp38"]
+[ext_resource type="Resource" uid="uid://co3ioqsw3cskg" path="res://Assets/Sprites/Ingredients/Resources/thistle_root.tres" id="4_ajrum"]
+[ext_resource type="Resource" uid="uid://cpu7godbyopie" path="res://Assets/Sprites/Ingredients/Resources/nightshade_petals.tres" id="5_rir7j"]
+[ext_resource type="Script" path="res://Scripts/Singletons/save_game.gd" id="6_d8n68"]
 [ext_resource type="Script" path="res://Scripts/spawnCustomers.gd" id="9_jtbro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aqou"]

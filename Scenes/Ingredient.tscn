@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://6acoxw3otoc3"]
 
-[ext_resource type="PackedScene" uid="uid://dv8sysvwkgfoq" path="res://Objects/DraggableObject.tscn" id="1_ej0v7"]
-[ext_resource type="Script" path="res://Objects/Ingredients/ingredient.gd" id="1_wdr4g"]
+[ext_resource type="PackedScene" uid="uid://dv8sysvwkgfoq" path="res://Scenes/DraggableObject.tscn" id="1_ej0v7"]
+[ext_resource type="Script" path="res://Scripts/ingredient.gd" id="1_wdr4g"]
 
 [node name="Ingredient" type="Node2D"]
 script = ExtResource("1_wdr4g")

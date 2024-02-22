@@ -17,8 +17,8 @@ config/icon="res://Assets/Sprites/icon.svg"
 
 [autoload]
 
-PlayerData="*res://Singletons/PlayerData.gd"
-GameData="*res://Singletons/GameData.gd"
+PlayerData="*res://Scripts/Singletons/PlayerData.gd"
+GameData="*res://Scripts/Singletons/GameData.gd"
 
 [display]
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cjjarcohy2vqe"]
 
-[ext_resource type="Script" path="res://Objects/Stations/cauldron.gd" id="1_ygt0y"]
+[ext_resource type="Script" path="res://Scripts/cauldron.gd" id="1_ygt0y"]
 [ext_resource type="Texture2D" uid="uid://1cavnjgart7f" path="res://Assets/Sprites/Cauldron.png" id="2_srlk7"]
-[ext_resource type="Script" path="res://Objects/Potions/recipes.gd" id="3_87jks"]
+[ext_resource type="Script" path="res://Scripts/recipes.gd" id="3_87jks"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ymlov"]
 radius = 27.0
