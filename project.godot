@@ -19,6 +19,7 @@ config/icon="res://Assets/Sprites/icon.svg"
 
 PlayerData="*res://Scripts/Singletons/PlayerData.gd"
 RecipeData="*res://Scripts/Singletons/RecipeData.gd"
+GameTime="*res://Scripts/Singletons/GameTime.gd"
 
 [display]
 
