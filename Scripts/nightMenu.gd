@@ -1,0 +1,16 @@
+extends Node
+
+
+func _on_buy_button_pressed():
+	print("buying ingredients not implemented yet")
+	get_tree().change_scene_to_file("res://Scenes/Levels/Main.tscn")
+
+
+func _on_forage_button_pressed():
+	print("foraging not implemented yet")
+	get_tree().change_scene_to_file("res://Scenes/Levels/Main.tscn")
+
+
+func _on_move_button_pressed():
+	print("moving not implemented yet")
+	get_tree().change_scene_to_file("res://Scenes/Levels/Main.tscn")

@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://2eug02cntw3g"]
+
+[ext_resource type="Theme" uid="uid://c4l3g5vcxwkhn" path="res://Assets/Themes/NightMenuTheme.tres" id="1_2ycl4"]
+[ext_resource type="Script" path="res://Scripts/nightMenu.gd" id="2_h8500"]
+
+[node name="NightMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_2ycl4")
+script = ExtResource("2_h8500")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="SalesLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 128
+text = "Today's Sales"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 128
+
+[node name="SalesNumber" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "$1000"
+horizontal_alignment = 1
+
+[node name="ReputationNumber" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "+10 Reputation"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="BuyButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Buy Ingredients"
+
+[node name="ForageButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Forage"
+
+[node name="MoveButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Move"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ForageButton" to="." method="_on_forage_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MoveButton" to="." method="_on_move_button_pressed"]
