@@ -1,12 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=12 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_lxcpq"]
 [ext_resource type="Texture2D" uid="uid://c1na8wlk3ld7h" path="res://Assets/Sprites/icon.svg" id="3_hxi6g"]
 [ext_resource type="PackedScene" uid="uid://cjjarcohy2vqe" path="res://Scenes/Cauldron.tscn" id="3_linin"]
 [ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://Scenes/Ingredient.tscn" id="4_2mp38"]
-[ext_resource type="Resource" uid="uid://co3ioqsw3cskg" path="res://Assets/Sprites/Ingredients/Resources/thistle_root.tres" id="4_ajrum"]
-[ext_resource type="Resource" uid="uid://cpu7godbyopie" path="res://Assets/Sprites/Ingredients/Resources/nightshade_petals.tres" id="5_rir7j"]
-[ext_resource type="Script" path="res://Scripts/Singletons/save_game.gd" id="6_d8n68"]
+[ext_resource type="Resource" uid="uid://co3ioqsw3cskg" path="res://Assets/Ingredients/Resources/thistle_root.tres" id="4_ajrum"]
+[ext_resource type="Resource" uid="uid://cpu7godbyopie" path="res://Assets/Ingredients/Resources/nightshade_petals.tres" id="5_rir7j"]
 [ext_resource type="Script" path="res://Scripts/spawnCustomers.gd" id="9_jtbro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aqou"]
@@ -94,9 +93,6 @@ data = ExtResource("4_ajrum")
 position = Vector2(474, 940)
 data = ExtResource("5_rir7j")
 
-[node name="SaveGame" type="Node2D" parent="."]
-script = ExtResource("6_d8n68")
-
 [node name="shelfArea" type="Area2D" parent="."]
 position = Vector2(0.000244141, 6.10352e-05)
 collision_layer = 2147483649
@@ -123,5 +119,4 @@ position = Vector2(917, 321)
 script = ExtResource("9_jtbro")
 
 [connection signal="potion_made" from="Cauldron" to="." method="_on_cauldron_potion_made"]
-[connection signal="potion_made" from="Cauldron" to="SaveGame" method="_on_potion_made"]
 [connection signal="body_entered" from="shelfArea" to="." method="_on_shelf_body_entered"]

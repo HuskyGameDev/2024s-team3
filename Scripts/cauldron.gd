@@ -1,13 +1,8 @@
 extends Node2D
 
 var currentIngredients: Array[String] = []
-var recipes = {}
 
 signal potion_made(potion:Potion)
-
-func _on_recipes_loaded(recipe_dict):
-	recipes = recipe_dict
-	
 
 func _on_body_enter_cauldron(body):
 	if body.get("object_type") == "Ingredient":
@@ -40,7 +35,7 @@ func check_potion_made():
 	if currentIngredients.size() == 0:
 		print("None")
 	
-	var made_potion = recipes.get(currentIngredients.hash()) # Hashes the array of ingredients and finds the corresponding recipe
+	var made_potion = RecipeData.recipes.get(currentIngredients.hash()) # Hashes the array of ingredients and finds the corresponding recipe
 	
 	"""
 	If the recipe made by the ingredients in the cauldron matches a working recipe, make the corresponding potion.

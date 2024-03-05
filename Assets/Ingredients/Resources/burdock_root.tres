@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://d3geweou3625w"]
 
-[ext_resource type="Script" path="res://Scripts/Singletons/ingredient_data.gd" id="1_8lcrb"]
+[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_8lcrb"]
 
 [resource]
 script = ExtResource("1_8lcrb")

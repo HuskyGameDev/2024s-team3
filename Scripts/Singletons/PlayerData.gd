@@ -1,11 +1,38 @@
 extends Node
 
+################# Game Saving ###################
+const SAVE_LOCATION = "user://savegame.save"
+@export var save:SaveGameFile
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	save = load_game()
+	
+
+func save_game():
+	var save_file = FileAccess.open(SAVE_LOCATION, FileAccess.WRITE)
+	save_file.store_var(var_to_str(save))
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func load_game() -> SaveGameFile:
+	## Load from file
+	if not FileAccess.file_exists(SAVE_LOCATION):
+		print("No save found")
+		return SaveGameFile.new()
+	var save_file = FileAccess.open(SAVE_LOCATION, FileAccess.READ)
+	var loaded_save = str_to_var(save_file.get_var())
+	if loaded_save is SaveGameFile:
+		return loaded_save
+	else:
+		print("error reading save file")
+		return SaveGameFile.new()
+
+
+func clear_save():
+	DirAccess.remove_absolute(SAVE_LOCATION)
+
+
+################ Event Triggers #################
+
+func _on_potion_made(potion:Potion):
+	if not save.madePotions.has(potion.id):
+		save.madePotions.append(potion.id)

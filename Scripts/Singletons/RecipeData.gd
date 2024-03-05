@@ -6,7 +6,7 @@ var recipes = {}
 
 # Load all potion recipes
 func _ready():
-	var path = "res://Objects/Potions/Resources/"
+	var path = "res://Assets/Potions/Resources/"
 	var dir = DirAccess.open(path)
 	if dir:
 		dir.list_dir_begin()

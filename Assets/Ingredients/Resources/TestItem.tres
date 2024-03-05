@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://c4xoyi8pgpxq3"]
 
-[ext_resource type="Texture2D" uid="uid://cbnjnkfq7dsfm" path="res://Assets/Sprites/Thistle_Root.png" id="1_frtxf"]
+[ext_resource type="Texture2D" uid="uid://cbnjnkfq7dsfm" path="res://Assets/Ingredients/Sprites/Thistle_Root.png" id="1_frtxf"]
 [ext_resource type="Script" path="res://Scripts/Item.gd" id="2_d6xf2"]
 
 [resource]

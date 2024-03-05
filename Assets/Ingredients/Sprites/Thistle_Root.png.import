@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbnjnkfq7dsfm"
-path="res://.godot/imported/Thistle_Root.png-dd953eab8aa01124a11868ec3c78631f.ctex"
+path="res://.godot/imported/Thistle_Root.png-aa6dd3a4cc3f333ac3af6a84459ae573.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Thistle_Root.png"
-dest_files=["res://.godot/imported/Thistle_Root.png-dd953eab8aa01124a11868ec3c78631f.ctex"]
+source_file="res://Assets/Ingredients/Sprites/Thistle_Root.png"
+dest_files=["res://.godot/imported/Thistle_Root.png-aa6dd3a4cc3f333ac3af6a84459ae573.ctex"]
 
 [params]
 

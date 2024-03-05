@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://cfvwaggw11t5t"]
 
-[ext_resource type="Script" path="res://Scripts/Singletons/potion_data.gd" id="1_7r8x0"]
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_7r8x0"]
 
 [resource]
 script = ExtResource("1_7r8x0")
