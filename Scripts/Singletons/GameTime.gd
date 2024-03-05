@@ -2,7 +2,7 @@ extends Timer
 
 const STORE_OPEN_TIME = 9;
 const STORE_CLOSE_TIME = 17;
-const GAME_TIME_SCALE = 1; # The number of irl seconds per 1 in game hour
+const GAME_TIME_SCALE = 60; # The number of irl seconds per 1 in game hour
 
 signal end_of_day;
 signal start_of_day;
