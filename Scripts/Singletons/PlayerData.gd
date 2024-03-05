@@ -6,6 +6,7 @@ const SAVE_LOCATION = "user://savegame.save"
 
 func _ready():
 	save = load_game()
+	GameTime.connect("end_of_day", _on_end_of_day);
 	
 
 func save_game():
@@ -33,6 +34,9 @@ func clear_save():
 
 ################ Event Triggers #################
 
+func _on_end_of_day():
+	save_game();
+	
 func _on_potion_made(potion:Potion):
 	if not save.madePotions.has(potion.id):
 		save.madePotions.append(potion.id)
