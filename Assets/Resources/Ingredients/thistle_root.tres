@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://cugyrbnghr2mb"]
+
+[ext_resource type="Texture2D" uid="uid://cbnjnkfq7dsfm" path="res://Assets/Sprites/Ingredients/thistle_root.png" id="1_vj1v0"]
+[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="2_04duh"]
+
+[resource]
+script = ExtResource("2_04duh")
+id = "thistle_root"
+ingredient_name = "Thistle Root"
+description = "Like a burdock root, but nicer on the taste buds."
+image = ExtResource("1_vj1v0")

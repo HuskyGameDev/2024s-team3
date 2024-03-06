@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c41rmxoo7mvhy"]
 
-[ext_resource type="Texture2D" uid="uid://bamvagd72jwqq" path="res://Assets/Sprites/customers/customer3.png" id="1_6t5ca"]
+[ext_resource type="Texture2D" uid="uid://bamvagd72jwqq" path="res://Assets/Sprites/Customers/customer3.png" id="1_6t5ca"]
 [ext_resource type="Script" path="res://Scripts/customer.gd" id="2_byskr"]
 
 [node name="hand waving guy" type="Sprite2D"]

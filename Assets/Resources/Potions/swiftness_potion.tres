@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://j1712o0cshou"]
+
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_xrrqb"]
+
+[resource]
+script = ExtResource("1_xrrqb")
+id = "swiftness_potion"
+potion_name = "Swiftness Potion"
+description = "Grants a nice burst of speed."
+recipe = Array[String](["burdock_root", "nightshade_petals"])

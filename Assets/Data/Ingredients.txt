@@ -1,0 +1,5 @@
+Name,Description
+Burdock Root,"Like a thistle root, but more bitter."
+Thistle Root,"Like a burdock root, but nicer on the taste buds."
+Nightshade Petals,The opposite of what most believe them to be.
+Peppermint Leaves,Just the smell alone is invigorating.

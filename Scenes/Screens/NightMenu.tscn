@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://2eug02cntw3g"]
 
-[ext_resource type="Theme" uid="uid://c4l3g5vcxwkhn" path="res://Assets/Themes/NightMenuTheme.tres" id="1_2ycl4"]
-[ext_resource type="Script" path="res://Scripts/nightMenu.gd" id="2_h8500"]
+[ext_resource type="Theme" uid="uid://c4l3g5vcxwkhn" path="res://Assets/Themes/NightMenuTheme.tres" id="1_my5in"]
+[ext_resource type="Script" path="res://Scripts/nightMenu.gd" id="2_6rx57"]
 
 [node name="NightMenu" type="Control"]
 layout_mode = 3
@@ -12,8 +12,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_2ycl4")
-script = ExtResource("2_h8500")
+theme = ExtResource("1_my5in")
+script = ExtResource("2_6rx57")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

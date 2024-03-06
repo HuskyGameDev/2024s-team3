@@ -1,0 +1,3 @@
+Name,Description,Ingredients
+Healing Potion,Helps anything from stomachaches to stab wounds.,"[""thistle_root"", ""nightshade_petals""]"
+Swiftness Potion,Grants a nice burst of speed.,"[""burdock_root"", ""nightshade_petals""]"

@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://km3q7ylf5fre"]
-
-[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_5wvnr"]
-
-[resource]
-script = ExtResource("1_5wvnr")
-id = "peppermintleaves"
-ingredient_name = "Peppermint Leaves"
-description = ""
