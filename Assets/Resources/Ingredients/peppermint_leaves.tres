@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://dalcpgs66cyu7"]
 
-[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_l4lds"]
+[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_jwm6r"]
 
 [resource]
-script = ExtResource("1_l4lds")
+script = ExtResource("1_jwm6r")
 id = "peppermint_leaves"
 ingredient_name = "Peppermint Leaves"
 description = "Just the smell alone is invigorating."

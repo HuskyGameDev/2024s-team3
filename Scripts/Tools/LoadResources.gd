@@ -4,6 +4,7 @@ extends EditorScript
 const RESOURCES_PATH = "res://Assets/Resources"
 const INGREDIENTS_DATA_PATH = "res://Assets/Data/Ingredients.txt"
 const POTIONS_DATA_PATH = "res://Assets/Data/Potions.txt"
+const LOCATIONS_DATA_PATH = "res://Assets/Data/Locations.txt"
 
 func _run():
 	## Recreate resources folder
@@ -13,6 +14,7 @@ func _run():
 	## Load each type of resource
 	load_ingredients()
 	load_potions()
+	load_locations()
 	
 
 func load_ingredients():
@@ -51,3 +53,23 @@ func load_potions():
 		ResourceSaver.save(potion, potionDirPathName + "/" + potion.id + ".tres")
 	
 
+func load_locations():
+	const locationDirPathName = RESOURCES_PATH + "/Locations"
+	if not DirAccess.dir_exists_absolute(locationDirPathName):
+		DirAccess.make_dir_absolute(locationDirPathName)
+	var locationsFile = FileAccess.open(LOCATIONS_DATA_PATH, FileAccess.READ)
+	if not locationsFile: 
+		print("No locations data file exists")
+		return
+	locationsFile.get_line() # skip the first line
+	while not locationsFile.eof_reached():
+		var location = Location.new()
+		var csvLine = locationsFile.get_csv_line()
+		if csvLine.size() < 3:
+			continue
+		location._setup(csvLine[0], 
+			JSON.parse_string(csvLine[1]), 
+			JSON.parse_string(csvLine[2]), 
+			JSON.parse_string(csvLine[3]))
+		ResourceSaver.save(location, locationDirPathName + "/" + location.id + ".tres")
+	
