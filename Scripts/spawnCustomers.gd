@@ -13,9 +13,9 @@ var customerEndLocation = (Vector2(400,50))
 var sizeOfCustomers = 3
 var t = 0.0 # time
 
-var customer1 = preload("res://Scenes/customers/customer1.tscn")
-var customer2 = preload("res://Scenes/customers/customer2.tscn")
-var customer3 = preload("res://Scenes/customers/customer3.tscn")
+var customer1 = preload("res://Scenes/Customers/customer1.tscn")
+var customer2 = preload("res://Scenes/Customers/customer2.tscn")
+var customer3 = preload("res://Scenes/Customers/customer3.tscn")
 
 var rng = RandomNumberGenerator.new() # just for a random speed
 
