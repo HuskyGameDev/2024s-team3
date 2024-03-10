@@ -7,7 +7,10 @@ func _on_buy_button_pressed():
 
 
 func _on_forage_button_pressed():
-	print("foraging not implemented yet")
+	var foragedItems = PlayerData.save.currentLocation.forage_items(3)
+	print("Foraged items:")
+	for i in foragedItems:
+		print("  -" + i.ingredient_name)
 	get_tree().change_scene_to_file("res://Scenes/Levels/Main.tscn")
 
 

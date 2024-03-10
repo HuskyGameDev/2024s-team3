@@ -3,7 +3,7 @@ extends Node2D
 var potionScene = preload("res://Scenes/Potion.tscn")
 
 func _ready():
-	GameTime.connect("end_of_day", func(): get_tree().change_scene_to_file("res://Scenes/Levels/NightMenu.tscn"));
+	GameTime.connect("end_of_day", func(): get_tree().change_scene_to_file("res://Scenes/Screens/NightMenu.tscn"));
 	
 func _on_cauldron_potion_made(potion:Potion):
 	var newPotionObj = potionScene.instantiate()

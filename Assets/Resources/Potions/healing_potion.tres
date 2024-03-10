@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://d3fupcelkjl7c"]
 
-[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_2kc61"]
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_mdfnx"]
 
 [resource]
-script = ExtResource("1_2kc61")
+script = ExtResource("1_mdfnx")
 id = "healing_potion"
 potion_name = "Healing Potion"
 description = "Helps anything from stomachaches to stab wounds."

@@ -61,7 +61,6 @@ func load_locations():
 	if not locationsFile: 
 		print("No locations data file exists")
 		return
-	locationsFile.get_line() # skip the first line
 	while not locationsFile.eof_reached():
 		var location = Location.new()
 		var csvLine = locationsFile.get_csv_line()
