@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bamvagd72jwqq"
-path="res://.godot/imported/customer3.png-147c4fbc5f04ef7eed1d3e32f184b19e.ctex"
+uid="uid://bgr0j54ert0ee"
+path="res://.godot/imported/pine_resin.png-4e48c7abc4a2a4b00e6ba36a51136f9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Customers/customer3.png"
-dest_files=["res://.godot/imported/customer3.png-147c4fbc5f04ef7eed1d3e32f184b19e.ctex"]
+source_file="res://Assets/Sprites/Ingredients/pine_resin.png"
+dest_files=["res://.godot/imported/pine_resin.png-4e48c7abc4a2a4b00e6ba36a51136f9d.ctex"]
 
 [params]
 
