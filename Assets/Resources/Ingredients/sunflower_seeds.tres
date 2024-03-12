@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://bs5kplnr37gpi"]
+
+[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_7itvs"]
+
+[resource]
+script = ExtResource("1_7itvs")
+id = "sunflower_seeds"
+ingredient_name = "Sunflower Seeds"
+description = "Always faces the sun."
+stackSize = 5

@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="Location" load_steps=3 format=3 uid="uid://bxi4vuy80ico"]
 
-[ext_resource type="Resource" uid="uid://c3557v37n0qi0" path="res://Assets/Resources/Ingredients/burdock_root.tres" id="1_33xxx"]
-[ext_resource type="Script" path="res://Scripts/Types/location_data.gd" id="1_eg6sc"]
+[ext_resource type="Resource" uid="uid://c3557v37n0qi0" path="res://Assets/Resources/Ingredients/burdock_root.tres" id="1_tuavx"]
+[ext_resource type="Script" path="res://Scripts/Types/location_data.gd" id="2_5tn70"]
 
 [resource]
-script = ExtResource("1_eg6sc")
+script = ExtResource("2_5tn70")
 id = "money_manor"
 name = "Money Manor"
 forage_table = {
-"common": [ExtResource("1_33xxx")],
+"common": [ExtResource("1_tuavx")],
 "rare": [],
 "super_rare": [],
 "uncommon": []

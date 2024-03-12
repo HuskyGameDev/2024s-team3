@@ -8,4 +8,5 @@ script = ExtResource("2_04duh")
 id = "thistle_root"
 ingredient_name = "Thistle Root"
 description = "Like a burdock root, but nicer on the taste buds."
+stackSize = 5
 image = ExtResource("1_vj1v0")

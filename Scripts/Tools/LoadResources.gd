@@ -29,9 +29,9 @@ func load_ingredients():
 	while not ingredientsFile.eof_reached():
 		var ingredient = Ingredient.new()
 		var csvLine = ingredientsFile.get_csv_line()
-		if csvLine.size() < 2:
+		if csvLine.size() < 3:
 			continue
-		ingredient._setup(csvLine[0], csvLine[1])
+		ingredient._setup(csvLine[0], csvLine[2], int(csvLine[1]))
 		ResourceSaver.save(ingredient, ingredientDirPathName + "/" + ingredient.id + ".tres")
 	
 

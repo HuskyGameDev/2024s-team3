@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://b5w54ye34m24m"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://b5w54ye34m24m"]
 
+[ext_resource type="Texture2D" uid="uid://dnynu6kp1nswf" path="res://Assets/Sprites/Ingredients/nightshade_petals.png" id="1_cmiml"]
 [ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_tjkp2"]
 
 [resource]
@@ -7,3 +8,5 @@ script = ExtResource("1_tjkp2")
 id = "nightshade_petals"
 ingredient_name = "Nightshade Petals"
 description = "The opposite of what most believe them to be."
+stackSize = 5
+image = ExtResource("1_cmiml")

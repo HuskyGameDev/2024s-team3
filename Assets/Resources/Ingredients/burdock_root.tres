@@ -7,3 +7,4 @@ script = ExtResource("1_o6ypg")
 id = "burdock_root"
 ingredient_name = "Burdock Root"
 description = "Like a thistle root, but more bitter."
+stackSize = 5

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://cakl8u2750ach"]
+
+[ext_resource type="Texture2D" uid="uid://bgr0j54ert0ee" path="res://Assets/Sprites/Ingredients/pine_resin.png" id="1_yb2ky"]
+[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="2_qrpg2"]
+
+[resource]
+script = ExtResource("2_qrpg2")
+id = "pine_resin"
+ingredient_name = "Pine Resin"
+description = "Sticks to you, sticks with you."
+stackSize = 5
+image = ExtResource("1_yb2ky")

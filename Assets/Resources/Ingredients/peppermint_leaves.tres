@@ -1,9 +1,12 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://dalcpgs66cyu7"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://dalcpgs66cyu7"]
 
-[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_ibif3"]
+[ext_resource type="Texture2D" uid="uid://dbrst6yicxjg1" path="res://Assets/Sprites/Ingredients/peppermint_leaves.png" id="1_gqoin"]
+[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="2_037ub"]
 
 [resource]
-script = ExtResource("1_ibif3")
+script = ExtResource("2_037ub")
 id = "peppermint_leaves"
 ingredient_name = "Peppermint Leaves"
 description = "Just the smell alone is invigorating."
+stackSize = 5
+image = ExtResource("1_gqoin")
