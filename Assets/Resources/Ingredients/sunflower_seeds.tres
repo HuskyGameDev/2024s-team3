@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://bs5kplnr37gpi"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://bs5kplnr37gpi"]
 
 [ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_7itvs"]
+[ext_resource type="Texture2D" uid="uid://k1s0jbcfp0sn" path="res://Assets/Sprites/Ingredients/sunflower_seeds.png" id="1_no2h0"]
 
 [resource]
 script = ExtResource("1_7itvs")
@@ -8,3 +9,4 @@ id = "sunflower_seeds"
 ingredient_name = "Sunflower Seeds"
 description = "Always faces the sun."
 stackSize = 5
+image = ExtResource("1_no2h0")

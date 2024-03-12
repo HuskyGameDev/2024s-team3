@@ -1,12 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=15 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_0ufrw"]
 [ext_resource type="Texture2D" uid="uid://c1na8wlk3ld7h" path="res://Assets/Sprites/icon.svg" id="2_q6xwt"]
 [ext_resource type="PackedScene" uid="uid://cjjarcohy2vqe" path="res://Scenes/Cauldron.tscn" id="3_qla3h"]
 [ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://Scenes/Ingredient.tscn" id="4_spw6y"]
 [ext_resource type="Resource" uid="uid://cugyrbnghr2mb" path="res://Assets/Resources/Ingredients/thistle_root.tres" id="5_136gt"]
+[ext_resource type="Resource" uid="uid://dalcpgs66cyu7" path="res://Assets/Resources/Ingredients/peppermint_leaves.tres" id="6_u3n4o"]
 [ext_resource type="Resource" uid="uid://b5w54ye34m24m" path="res://Assets/Resources/Ingredients/nightshade_petals.tres" id="6_w60o3"]
+[ext_resource type="Resource" uid="uid://cakl8u2750ach" path="res://Assets/Resources/Ingredients/pine_resin.tres" id="7_1j6wr"]
 [ext_resource type="Script" path="res://Scripts/spawnCustomers.gd" id="7_bs1qt"]
+[ext_resource type="Resource" uid="uid://bs5kplnr37gpi" path="res://Assets/Resources/Ingredients/sunflower_seeds.tres" id="8_ufrn0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aqou"]
 size = Vector2(417, 39.5)
@@ -86,11 +89,23 @@ position = Vector2(994, 871)
 scale = Vector2(6, 6)
 
 [node name="Ingredient" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(1493, 919)
+position = Vector2(1504, 986)
 data = ExtResource("5_136gt")
 
 [node name="Ingredient2" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(474, 940)
+position = Vector2(151, 992)
+data = ExtResource("6_u3n4o")
+
+[node name="Ingredient3" parent="." instance=ExtResource("4_spw6y")]
+position = Vector2(289, 992)
+data = ExtResource("7_1j6wr")
+
+[node name="Ingredient4" parent="." instance=ExtResource("4_spw6y")]
+position = Vector2(429, 991)
+data = ExtResource("8_ufrn0")
+
+[node name="Ingredient5" parent="." instance=ExtResource("4_spw6y")]
+position = Vector2(567, 994)
 data = ExtResource("6_w60o3")
 
 [node name="shelfArea" type="Area2D" parent="."]
