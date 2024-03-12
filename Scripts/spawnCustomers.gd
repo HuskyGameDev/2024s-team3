@@ -55,8 +55,8 @@ func _ready():
 	var my_random_number = rng.randf_range(.4, 1.4) # walking speed range
 	tempCust.setCustomerSpeed(my_random_number) # reference the current instance of a customer and modify it, AFTER they are instatiated 
 	
-	print(tempCust.name, " has entered with a speed of: ", my_random_number, "\n")
-	print(tempCust.name, " wants a ", tempCust.foodOrder)
+	print(tempCust.name, " has entered with a speed of: ", my_random_number, "\n") # name of object or the actual name
+	print(tempCust.customerName, " wants a ", tempCust.foodOrder)
 	
 func _physics_process(delta): # testing a small movement without animating it, godot makes this strange idk
 	# x

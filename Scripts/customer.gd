@@ -26,7 +26,7 @@ func _on_area_2d_body_entered(body):
 		var recievedPotion = body.get("object_data")
 		
 		if (recievedPotion.id == foodOrder): # check if they got the right one
-			print(customerName, "recieved a ", foodOrder)
+			print(customerName, " recieved a ", foodOrder)
 		else: print(customerName, " wanted a: ", foodOrder, " but got a " ,recievedPotion.id, " instead.")
 		
 		## Add potion recieved to an array 
