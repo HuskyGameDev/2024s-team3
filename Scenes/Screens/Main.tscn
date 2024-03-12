@@ -115,6 +115,7 @@ scale = Vector2(331.25, 11.25)
 texture = SubResource("PlaceholderTexture2D_c4ekw")
 
 [node name="CustomerSpawner" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(917, 321)
 script = ExtResource("7_bs1qt")
 
