@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://b5w54ye34m24m" path="res://Assets/Resources/Ingredients/nightshade_petals.tres" id="6_w60o3"]
 [ext_resource type="Resource" path="res://Assets/Resources/Ingredients/pine_resin.tres" id="7_1j6wr"]
 [ext_resource type="Script" path="res://Scripts/spawnCustomers.gd" id="7_bs1qt"]
-[ext_resource type="Resource" uid="uid://dqtod5yoemanx" path="res://Assets/Resources/Ingredients/sunflower_seeds.tres" id="8_ufrn0"]
+[ext_resource type="Resource" path="res://Assets/Resources/Ingredients/sunflower_seeds.tres" id="8_ufrn0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aqou"]
 size = Vector2(417, 39.5)

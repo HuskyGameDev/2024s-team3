@@ -57,11 +57,13 @@ func Insert(item : Resource, quantity : int):
 					UpdateButton(item, item.stackSize, index)					
 					print("a")
 					Insert(item, slotAmount + quantity - item.stackSize)
+					PlayerData.write_inv(inv_data)
 					return
 				else:
 					inv_data[slot.name]["Quantity"] = slotAmount + quantity					
 					print("b")
 					UpdateButton(item, inv_data[slot.name]["Quantity"] , index)
+					PlayerData.write_inv(inv_data)
 					return
 		if inv_data[slot.name]["Item"] == null:
 			if quantity > 0:
@@ -70,6 +72,7 @@ func Insert(item : Resource, quantity : int):
 					inv_data[slot.name]["Quantity"] = quantity					
 					print("c")
 					UpdateButton(item, quantity, index)
+					PlayerData.write_inv(inv_data)
 					return
 				else:
 					inv_data[slot.name]["Item"] = item.id
@@ -77,10 +80,10 @@ func Insert(item : Resource, quantity : int):
 					UpdateButton(item, item.stackSize, index)					
 					print("d")
 					Insert(item, quantity - item.stackSize)
+					PlayerData.write_inv(inv_data)
 					return
 			else:
 				return
-							
 		index = index + 1
 	#UpdateButton(item, quantity, index)
 
