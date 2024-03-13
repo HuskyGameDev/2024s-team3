@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ty3ib64sn5o4"]
+[gd_scene load_steps=4 format=3 uid="uid://ty3ib64sn5o4"]
 
 [ext_resource type="Script" path="res://Scripts/InventoryButton.gd" id="1_3je7l"]
+[ext_resource type="Script" path="res://Scripts/dragIcon.gd" id="2_gh42m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m3nvt"]
 size = Vector2(94.5, 94.5)
@@ -24,8 +25,11 @@ offset_right = -4.0
 offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_gh42m")
 
-[node name="Label" type="Label" parent="Icon"]
+[node name="Quantity" type="Label" parent="Icon"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

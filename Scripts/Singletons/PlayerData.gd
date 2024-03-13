@@ -10,7 +10,6 @@ func _ready():
 	create_new_inv()
 	save = load_game()
 	GameTime.connect("end_of_day", _on_end_of_day);
-	
 
 func save_game(content):	
 	if content != null:
@@ -18,10 +17,8 @@ func save_game(content):
 		file.store_string(JSON.stringify(content))
 		file.close
 		file = null
-		
 	var save_file = FileAccess.open(SAVE_LOCATION, FileAccess.WRITE)
 	save_file.store_var(var_to_str(save))
-
 
 func load_game() -> SaveGameFile:
 	## Load from file
@@ -55,7 +52,7 @@ func clear_save():
 
 func _on_end_of_day():
 	save_game(null)
-	
+
 func _on_potion_made(potion:Potion):
 	if not save.madePotions.has(potion.id):
 		save.madePotions.append(potion.id)

@@ -1,24 +1,32 @@
 extends Control
 
-var gridContainer : GridContainer
 var items :Array
 var template_inv_slot = preload("res://Scenes/UI/Drawer_button.tscn")
 @onready var gridcontainer = get_node("Background/M/V/ScrollContainer/GridContainer")
 var inv_data
 var slots = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	inv_data = PlayerData.read_inv()
 	for i in inv_data:
 		slots.push_front(i)
 		print(i)
-		#var inv_slot_new = template_inv_slot.instantiate()
-		#if PlayerData.inv_data[i]["Item"] != null:
-			#var item_name = PlayerData.item_data[str(PlayerData.inv_data[i]["Item"])]["Name"]
-			#var icon_texture = load("res://Assets/Resources/Ingredients/" + item_name + ".tres")
-			#inv_slot_new.get_node("Icon").set_texture(icon_texture)
-		#gridcontainer.add_child(inv_slot_new, true)
-	populateButtons()
+		var inv_slot_new = template_inv_slot.instantiate()
+		inv_slot_new.name = i
+		gridcontainer.add_child(inv_slot_new, true)
+		if inv_data[i]["Item"] != null:
+			var quantity = str(inv_data[i]["Quantity"])
+			var item_name = str(inv_data[i]["Item"])
+			var path = "res://Assets/Resources/Ingredients/" + str(item_name) + ".tres"
+			var resource = ResourceLoader.load(path)
+			#Insert(resource, inv_data[i]["Quantity"])
+			print(resource.id)
+			inv_slot_new.get_node("Icon").set_texture(resource.image)
+			print(quantity)
+			inv_slot_new.get_node("Icon/Quantity").set_text(quantity)
+
+	#populateButtons()
 	pass # Replace with function body.
 
 
@@ -36,43 +44,40 @@ func populateButtons():
 func OnButtonClicked(index, curItem):
 	print("Clicked!")
 
+func Insert(item : Resource, quantity : int):
+	var index = 0;
+	for slot in  gridcontainer.get_children():
+		if slot.get_node("Icon").texture == item.image:
+			var label = int(slot.get_node("Icon/Quantity").text)
+			if  label != item.stackSize:
+				if label + quantity > item.stackSize:
+					quantity = -( quantity - item.stackSize)
+					UpdateButton(item, quantity, index)
+					print(1)
+				else:
+					label += quantity
+					quantity = 0
+					UpdateButton(item, quantity, index)
+					print(2)
+		if slot.get_node("Icon").texture == null:
+			if quantity > 0:
+				if quantity < item.stackSize:
+					UpdateButton(item, quantity, index)
+					print(3)
+				else:
+					UpdateButton(item, quantity, index)
+					Insert(item, quantity - item.stackSize)
+					print(4)		
+		index = index + 1
+	UpdateButton(item, quantity, index)
 
-func Add(item : Resource):
-	var curItem = item.duplicate()
-	for i in items.size() :
-		if items[i].ID == curItem.ID && items[i].Quantity != items[i].StackSize:
-			if items[i].Quantity + curItem.Quantity > items[i].StackSize:
-				items[i].Quantity = curItem.StackSize
-				curItem.Quantity = -( curItem.Quantity - items[i].StackSize)
-				UpdateButton(i)
-				print(1)
-			else:
-				items[i].Quantity += curItem.Quantity
-				curItem.Quantity = 0
-				UpdateButton(i)
-				print(2)
-	if curItem.Quantity > 0:
-		if curItem.Quantity < curItem.StackSize:
-			items.append(curItem)
-			UpdateButton(items.size() - 1)
-			print(3)
-		else:
-			var tempItem = curItem.duplicate()
-			tempItem.Quantity = curItem.StackSize
-			items.append(tempItem)
-			UpdateButton(items.size() - 1)
-			curItem.Quantity -= curItem.StackSize
-			Add(curItem)
-			print(4)
-			
-	UpdateButton(items.size() - 1)
-	
-func UpdateButton( index : int ):
-	if range(items.size()).has((index)):
-		gridContainer.get_child(index).UpdateItem(items[index], index)
+
+func UpdateButton( item : Resource, quantity : int, index : int):
+	if index < gridcontainer.get_child_count():
+		gridcontainer.get_child(index).UpdateItem(item, quantity, index)
 	else:
-		gridContainer.get_child(index).UpdateItem(null, index)
-		
+		print(index)
+		#gridcontainer.get_child(index).UpdateItem(null, 0, index)
 
 func _on_button_button_down():
-	Add(ResourceLoader.load("res://Assets/Sprites/Ingredients/Resources/TestItem.tres"))
+	Insert(ResourceLoader.load("res://Assets/Resources/Ingredients/thistle_root.tres"), 2)
