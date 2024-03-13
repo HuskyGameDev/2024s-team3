@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://pfkwq4x1374y"]
+
+[ext_resource type="FontFile" uid="uid://hv6s8x4ynyvt" path="res://Assets/Themes/Fonts/Journal.ttf" id="1_5a5me"]
+[ext_resource type="FontFile" uid="uid://b7v1xeoebsq10" path="res://Assets/Themes/Fonts/User_Interface.ttf" id="2_egab8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3qki"]
+bg_color = Color(0.686275, 0.584314, 0.443137, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.498039, 0.278431, 0.0862745, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 5
+shadow_offset = Vector2(2, 2)
+
+[resource]
+Label/colors/font_color = Color(0.184314, 0.0588235, 0, 1)
+Label/font_sizes/font_size = 35
+Label/fonts/font = ExtResource("1_5a5me")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_v3qki")
+TooltipLabel/base_type = &"Label"
+TooltipLabel/font_sizes/font_size = 40
+TooltipLabel/fonts/font = ExtResource("2_egab8")

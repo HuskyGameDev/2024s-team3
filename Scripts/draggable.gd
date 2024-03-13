@@ -36,6 +36,11 @@ func _integrate_forces(_state):
 ############### Object Functions ################
 @export_enum("Potion", "Ingredient") var object_type: String
 @export var object_data:Resource
+var tooltipScene = preload("res://Scenes/UI/Tooltip.tscn")
+var tooltip;
+
+func _ready():
+	tooltip = tooltipScene.instantiate()
 
 func data_updated():
 	if object_data and object_data.image != null:
@@ -45,4 +50,7 @@ func data_updated():
 		colliderShape.radius = imageSize[0] / 2
 		$"Collider".set_shape(colliderShape)
 		$"DraggableSprite".texture = object_data.image
-
+		tooltip.set_text(
+			object_data.ingredient_name if object_type == "Ingredient" else object_data.potion_name, 
+			object_data.description)
+		
