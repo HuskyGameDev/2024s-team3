@@ -47,29 +47,42 @@ func OnButtonClicked(index, curItem):
 func Insert(item : Resource, quantity : int):
 	var index = 0;
 	for slot in  gridcontainer.get_children():
-		if slot.get_node("Icon").texture == item.image:
-			var label = int(slot.get_node("Icon/Quantity").text)
-			if  label != item.stackSize:
-				if label + quantity > item.stackSize:
-					quantity = -( quantity - item.stackSize)
-					UpdateButton(item, quantity, index)
-					print(1)
+		print(inv_data[slot.name]["Item"])
+		print(item.id)
+		if inv_data[slot.name]["Item"] == item.id:
+			var slotAmount = inv_data[slot.name]["Quantity"]
+			if  slotAmount != item.stackSize:
+				if slotAmount + quantity > item.stackSize:
+					inv_data[slot.name]["Quantity"] = item.stackSize
+					UpdateButton(item, item.stackSize, index)					
+					print("a")
+					Insert(item, slotAmount + quantity - item.stackSize)
+					return
 				else:
-					label += quantity
-					quantity = 0
-					UpdateButton(item, quantity, index)
-					print(2)
-		if slot.get_node("Icon").texture == null:
+					inv_data[slot.name]["Quantity"] = slotAmount + quantity					
+					print("b")
+					UpdateButton(item, inv_data[slot.name]["Quantity"] , index)
+					return
+		if inv_data[slot.name]["Item"] == null:
 			if quantity > 0:
-				if quantity < item.stackSize:
+				if quantity <= item.stackSize:
+					inv_data[slot.name]["Item"] = item.id
+					inv_data[slot.name]["Quantity"] = quantity					
+					print("c")
 					UpdateButton(item, quantity, index)
-					print(3)
+					return
 				else:
-					UpdateButton(item, quantity, index)
+					inv_data[slot.name]["Item"] = item.id
+					inv_data[slot.name]["Quantity"] = item.stackSize
+					UpdateButton(item, item.stackSize, index)					
+					print("d")
 					Insert(item, quantity - item.stackSize)
-					print(4)		
+					return
+			else:
+				return
+							
 		index = index + 1
-	UpdateButton(item, quantity, index)
+	#UpdateButton(item, quantity, index)
 
 
 func UpdateButton( item : Resource, quantity : int, index : int):
@@ -80,4 +93,4 @@ func UpdateButton( item : Resource, quantity : int, index : int):
 		#gridcontainer.get_child(index).UpdateItem(null, 0, index)
 
 func _on_button_button_down():
-	Insert(ResourceLoader.load("res://Assets/Resources/Ingredients/thistle_root.tres"), 2)
+	Insert(ResourceLoader.load("res://Assets/Resources/Ingredients/thistle_root.tres"), 10)
