@@ -1,10 +1,10 @@
+#Wade Canavan
+#drags item texture with mouse and places item in selected inventory slot
 extends TextureRect
 
-
-
+#gets data about the item and slot it started in. Moves texture with mouse
 func _get_drag_data(at_position):
 	var inv_data = PlayerData.read_inv()
-	#var equipment_slot = get_parent().get_name()
 	var inv_slot = get_parent().get_name()
 	print(inv_data[inv_slot]["Item"])
 	if inv_data[inv_slot]["Item"] != null:
@@ -25,7 +25,7 @@ func _get_drag_data(at_position):
 		set_drag_preview(control)
 		return data
 
-#basically doesnt matter rn. checks if we are able to place item in this slot. places data in array for us to move
+#gets data about the slot we want to place the item in
 func _can_drop_data(at_position, data):
 	var inv_data = PlayerData.read_inv()
 	var target_inv_slot = get_parent().get_name()		
@@ -36,22 +36,48 @@ func _can_drop_data(at_position, data):
 		data["target_quantity"] = 0
 		return true
 	else:
-
 		data["target_item_id"] = inv_data[target_inv_slot]["Item"]
 		data["target_texture"] = texture
 		data["target_quantity"] = inv_data[target_inv_slot]["Quantity"]
 		return true
 		
 
+#if we can put the item in the slot, updates new slot, starting slot, and json
 func _drop_data(at_position, data):
 	var inv_data = PlayerData.read_inv()
 	var target_slot = get_parent().get_name()
 	var origin_slot = data["origin_node"].get_parent().get_name()
-	
-	if inv_data[origin_slot]["Quantity"] == 1 || Input.is_physical_key_pressed(KEY_SHIFT) : #stack only contains one or we are moving whole stack
+	if data["origin_item_id"] == data["target_item_id"] && target_slot != origin_slot:  #if target slot is same item as starting slot, merge the slots
+		var item_name = str(data["origin_item_id"])
+		var path = "res://Assets/Resources/Ingredients/" + str(item_name) + ".tres"
+		var item = ResourceLoader.load(path)
+		if Input.is_physical_key_pressed(KEY_SHIFT) : # we are moving whole stack
+			if data["target_quantity"] + data["origin_quantity"] > item.stackSize: #if adding this quantity to the amount in the stack would be larger than max stack size
+				inv_data[target_slot]["Quantity"] = item.stackSize #fill the target slot
+				inv_data[origin_slot]["Quantity"] = data["origin_quantity"] - (item.stackSize -  data["target_quantity"])#leave the remaining in the staring slot
+				data["target_slot"].get_node("Icon/Quantity").set_text( str(item.stackSize))
+				data["origin_node"].get_node("Quantity").set_text( str(data["origin_quantity"] - (item.stackSize -  data["target_quantity"])))
+			else: #else just move all of the item to target slot and update the quantity
+				inv_data[origin_slot]["Item"] = null
+				data["origin_node"].texture = null
+				inv_data[target_slot]["Quantity"] = data["origin_quantity"] + data["target_quantity"]
+				inv_data[origin_slot]["Quantity"] = 0
+				data["origin_node"].get_node("Quantity").set_text(" ")
+				data["target_slot"].get_node("Icon/Quantity").set_text( str(data["origin_quantity"] + data["target_quantity"]))
+		elif data["target_quantity"] + 1 <= item.stackSize: #move just one item
+			inv_data[target_slot]["Quantity"] = data["target_quantity"] + 1
+			inv_data[origin_slot]["Quantity"] = data["origin_quantity"] - 1
+			if data["origin_quantity"] == 1:			
+				inv_data[origin_slot]["Item"] = null
+				data["origin_node"].texture = null
+				data["origin_node"].get_node("Quantity").set_text(" ")
+			else: 
+				data["origin_node"].get_node("Quantity").set_text(str(data["origin_quantity"] - 1))
+			data["target_slot"].get_node("Icon/Quantity").set_text(str(data["target_quantity"] + 1))
+	elif inv_data[origin_slot]["Quantity"] == 1 || Input.is_physical_key_pressed(KEY_SHIFT) : #stack only contains one or we are moving whole stack
 		inv_data[origin_slot]["Item"] = data["target_item_id"]
-		data["origin_node"].texture = data["target_texture"]
 		inv_data[target_slot]["Item"] = data["origin_item_id"]
+		data["origin_node"].texture = data["target_texture"]
 		texture = data["origin_texture"]
 		inv_data[origin_slot]["Quantity"] = data["target_quantity"]
 		inv_data[target_slot]["Quantity"] = data["origin_quantity"]
@@ -60,9 +86,9 @@ func _drop_data(at_position, data):
 		else:
 			data["origin_node"].get_node("Quantity").set_text( str(data["target_quantity"]))
 		data["target_slot"].get_node("Icon/Quantity").set_text( str(data["origin_quantity"]))
-		
 	elif inv_data[target_slot]["Quantity"] == 0 : # move only one item in larger stack
 		inv_data[target_slot]["Item"] = data["origin_item_id"]
+		print(data["origin_item_id"])
 		texture = data["origin_texture"]
 		inv_data[origin_slot]["Quantity"] = data["origin_quantity"] - 1
 		inv_data[target_slot]["Quantity"] = 1

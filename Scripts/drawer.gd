@@ -1,3 +1,5 @@
+#Wade Canavan
+#adds ingredients to next available inventory slot 
 extends Control
 
 var items :Array
@@ -7,6 +9,7 @@ var inv_data
 var slots = []
 
 # Called when the node enters the scene tree for the first time.
+#reads from inventory json file, creates each slot of inventory and fills it according to json
 func _ready():
 	inv_data = PlayerData.read_inv()
 	for i in inv_data:
@@ -20,7 +23,6 @@ func _ready():
 			var item_name = str(inv_data[i]["Item"])
 			var path = "res://Assets/Resources/Ingredients/" + str(item_name) + ".tres"
 			var resource = ResourceLoader.load(path)
-			#Insert(resource, inv_data[i]["Quantity"])
 			print(resource.id)
 			inv_slot_new.get_node("Icon").set_texture(resource.image)
 			print(quantity)
@@ -29,63 +31,51 @@ func _ready():
 	#populateButtons()
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func populateButtons():
-	for i in inv_data:
-		var packedScene = ResourceLoader.load("res://Scenes/UI/Drawer_button.tscn")
-		var itemButton = packedScene.instantiate()
-		itemButton.connect("OnButtonClick", OnButtonClicked)
-		$Background/M/V/ScrollContainer/GridContainer.add_child(itemButton)
-
-func OnButtonClicked(index, curItem):
-	print("Clicked!")
-
+#insert an item of ingredient resource and quantity amount
 func Insert(item : Resource, quantity : int):
 	var index = 0;
-	for slot in  gridcontainer.get_children():
-		print(inv_data[slot.name]["Item"])
-		print(item.id)
-		if inv_data[slot.name]["Item"] == item.id:
-			var slotAmount = inv_data[slot.name]["Quantity"]
-			if  slotAmount != item.stackSize:
-				if slotAmount + quantity > item.stackSize:
-					inv_data[slot.name]["Quantity"] = item.stackSize
-					UpdateButton(item, item.stackSize, index)					
-					print("a")
-					Insert(item, slotAmount + quantity - item.stackSize)
-					PlayerData.write_inv(inv_data)
-					return
-				else:
-					inv_data[slot.name]["Quantity"] = slotAmount + quantity					
-					print("b")
-					UpdateButton(item, inv_data[slot.name]["Quantity"] , index)
-					PlayerData.write_inv(inv_data)
-					return
-		if inv_data[slot.name]["Item"] == null:
+	inv_data = PlayerData.read_inv()	
+	for slot in  gridcontainer.get_children(): #find next available slot to put item
+		
+		var slotAmount = inv_data[slot.name]["Quantity"]
+		if inv_data[slot.name]["Item"] == item.id && slotAmount != item.stackSize: #if this ingredient already exists in inventory
+			if slotAmount + quantity > item.stackSize: #if adding this quantity to the amount in the stack would be larger than stack size
+				inv_data[slot.name]["Quantity"] = item.stackSize #fill the slot
+				UpdateButton(item, item.stackSize, index)					
+				print("a")
+				PlayerData.write_inv(inv_data)
+				Insert(item, slotAmount + quantity - item.stackSize) #add the rest to a different slot
+				break
+			else: #else just update the quantity
+				inv_data[slot.name]["Quantity"] = slotAmount + quantity					
+				print("b")
+				UpdateButton(item, slotAmount , index)
+				break
+		elif inv_data[slot.name]["Item"] == null: #if this slot is empty 
 			if quantity > 0:
-				if quantity <= item.stackSize:
+				if quantity <= item.stackSize: #if quantity is not greater than allowed stack size add item to this slot
+					print(inv_data[slot.name]["Item"])
 					inv_data[slot.name]["Item"] = item.id
 					inv_data[slot.name]["Quantity"] = quantity					
 					print("c")
 					UpdateButton(item, quantity, index)
-					PlayerData.write_inv(inv_data)
-					return
-				else:
+					print(slot.name)
+
+					break
+				else: #else add max stack size to this slot and add the excess to another slot
 					inv_data[slot.name]["Item"] = item.id
 					inv_data[slot.name]["Quantity"] = item.stackSize
 					UpdateButton(item, item.stackSize, index)					
 					print("d")
-					Insert(item, quantity - item.stackSize)
+					print(slot.name)
+					print(inv_data[slot.name]["Item"])
 					PlayerData.write_inv(inv_data)
-					return
+					Insert(item, quantity - item.stackSize)
+					break
 			else:
 				return
 		index = index + 1
-	#UpdateButton(item, quantity, index)
+	PlayerData.write_inv(inv_data)
 
 
 func UpdateButton( item : Resource, quantity : int, index : int):
