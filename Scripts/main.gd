@@ -1,9 +1,12 @@
 extends Node2D
 
 var potionScene = preload("res://Scenes/Potion.tscn")
+var IngredientScene = preload("res://Scenes/Ingredient.tscn")
 
 func _ready():
 	GameTime.connect("end_of_day", func(): get_tree().change_scene_to_file("res://Scenes/Screens/NightMenu.tscn"));
+	var drawer = get_node("Drawer-inventory")
+	drawer.make_inv_object.connect(_on_inv_dragged)
 	
 func _on_cauldron_potion_made(potion:Potion):
 	var newPotionObj = potionScene.instantiate()
@@ -16,6 +19,24 @@ func _on_cauldron_potion_made(potion:Potion):
 	if(bool(randi_range(0, 1))):
 		throwAngle *= -1
 	newPotionObj.rigidbody.apply_central_impulse(Vector2(throwAngle, -2000))
+
+func _on_inv_dragged(inv_slot):
+	print(inv_slot)
+	var inv_data = PlayerData.read_inv()
+	var itemID = inv_data[inv_slot]["Item"]
+	var quantity = inv_data[inv_slot]["Quantity"]
+	if itemID != null:
+		var newItem = IngredientScene.instantiate()
+		newItem.data = ResourceLoader.load("res://Assets/Resources/Ingredients/" + str(itemID) + ".tres")
+		newItem.global_position = get_viewport().get_mouse_position()
+		add_child(newItem)
+		if quantity == 1:
+			inv_data[inv_slot]["Item"] = null
+			inv_data[inv_slot]["Quantity"] = 0 
+		else:
+			inv_data[inv_slot]["Quantity"] = quantity - 1
+		print(inv_data[inv_slot]["Item"])
+		PlayerData.write_inv(inv_data)
 
 func _on_shelf_body_entered(body):
 	body.rotation = 0

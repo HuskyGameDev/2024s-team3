@@ -6,14 +6,13 @@ extends TextureRect
 func _get_drag_data(at_position):
 	var inv_data = PlayerData.read_inv()
 	var inv_slot = get_parent().get_name()
-	print(inv_data[inv_slot]["Item"])
 	if inv_data[inv_slot]["Item"] != null:
 		var data = { }
 		data["origin_node"] = self
 		data["origin_item_id"] = inv_data[inv_slot]["Item"]
 		data["origin_texture"] = texture
 		data["origin_quantity"] = inv_data[inv_slot]["Quantity"]
-		
+		find_parent("Drawer-inventory")._get_dragging(inv_slot)
 		var drag_texture = TextureRect.new( )
 		drag_texture.expand = true
 		drag_texture.texture = texture
@@ -40,7 +39,6 @@ func _can_drop_data(at_position, data):
 		data["target_texture"] = texture
 		data["target_quantity"] = inv_data[target_inv_slot]["Quantity"]
 		return true
-		
 
 #if we can put the item in the slot, updates new slot, starting slot, and json
 func _drop_data(at_position, data):
@@ -88,7 +86,6 @@ func _drop_data(at_position, data):
 		data["target_slot"].get_node("Icon/Quantity").set_text( str(data["origin_quantity"]))
 	elif inv_data[target_slot]["Quantity"] == 0 : # move only one item in larger stack
 		inv_data[target_slot]["Item"] = data["origin_item_id"]
-		print(data["origin_item_id"])
 		texture = data["origin_texture"]
 		inv_data[origin_slot]["Quantity"] = data["origin_quantity"] - 1
 		inv_data[target_slot]["Quantity"] = 1

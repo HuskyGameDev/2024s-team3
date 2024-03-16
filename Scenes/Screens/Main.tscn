@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=16 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_0ufrw"]
 [ext_resource type="Texture2D" uid="uid://c1na8wlk3ld7h" path="res://Assets/Sprites/icon.svg" id="2_q6xwt"]
@@ -9,7 +9,8 @@
 [ext_resource type="Resource" uid="uid://b5w54ye34m24m" path="res://Assets/Resources/Ingredients/nightshade_petals.tres" id="6_w60o3"]
 [ext_resource type="Resource" path="res://Assets/Resources/Ingredients/pine_resin.tres" id="7_1j6wr"]
 [ext_resource type="Script" path="res://Scripts/spawnCustomers.gd" id="7_bs1qt"]
-[ext_resource type="Resource" path="res://Assets/Resources/Ingredients/sunflower_seeds.tres" id="8_ufrn0"]
+[ext_resource type="Resource" uid="uid://bs5kplnr37gpi" path="res://Assets/Resources/Ingredients/sunflower_seeds.tres" id="8_ufrn0"]
+[ext_resource type="PackedScene" uid="uid://br236elfur261" path="res://Scenes/UI/Drawer.tscn" id="10_tnf6t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aqou"]
 size = Vector2(417, 39.5)
@@ -88,26 +89,6 @@ shape = SubResource("RectangleShape2D_1aqou")
 position = Vector2(994, 871)
 scale = Vector2(6, 6)
 
-[node name="Ingredient" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(1504, 986)
-data = ExtResource("5_136gt")
-
-[node name="Ingredient2" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(151, 992)
-data = ExtResource("6_u3n4o")
-
-[node name="Ingredient3" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(289, 992)
-data = ExtResource("7_1j6wr")
-
-[node name="Ingredient4" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(429, 991)
-data = ExtResource("8_ufrn0")
-
-[node name="Ingredient5" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(567, 994)
-data = ExtResource("6_w60o3")
-
 [node name="shelfArea" type="Area2D" parent="."]
 position = Vector2(0.000244141, 6.10352e-05)
 collision_layer = 2147483649
@@ -128,6 +109,38 @@ shape = SubResource("RectangleShape2D_1qc2w")
 position = Vector2(1721, 626.5)
 scale = Vector2(331.25, 11.25)
 texture = SubResource("PlaceholderTexture2D_c4ekw")
+
+[node name="Drawer-inventory" parent="." instance=ExtResource("10_tnf6t")]
+custom_minimum_size = Vector2(600, 690)
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1860.0
+offset_top = 197.0
+offset_right = 2460.0
+offset_bottom = 887.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Ingredient" parent="." instance=ExtResource("4_spw6y")]
+position = Vector2(1504, 986)
+data = ExtResource("5_136gt")
+
+[node name="Ingredient2" parent="." instance=ExtResource("4_spw6y")]
+position = Vector2(151, 992)
+data = ExtResource("6_u3n4o")
+
+[node name="Ingredient3" parent="." instance=ExtResource("4_spw6y")]
+position = Vector2(289, 992)
+data = ExtResource("7_1j6wr")
+
+[node name="Ingredient4" parent="." instance=ExtResource("4_spw6y")]
+position = Vector2(429, 991)
+data = ExtResource("8_ufrn0")
+
+[node name="Ingredient5" parent="." instance=ExtResource("4_spw6y")]
+position = Vector2(567, 994)
+data = ExtResource("6_w60o3")
 
 [node name="CustomerSpawner" type="Sprite2D" parent="."]
 visible = false

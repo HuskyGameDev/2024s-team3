@@ -9,6 +9,7 @@ func _unhandled_input(_event):
 		beingHeld = false
 		set_deferred("gravity_scale", 1)
 		set_collision_layer_value(1, true)
+		set_collision_layer_value(32, false)
 		set_collision_mask_value(1, true)
 		set_collision_mask_value(32, false)
 
@@ -18,6 +19,7 @@ func _on_input_event(_viewport, _event, _shape_idx):
 		beingHeld = true
 		set_deferred("gravity_scale", 0)
 		set_collision_layer_value(1, false)
+		set_collision_layer_value(32, true)
 		set_collision_mask_value(1, false)
 		set_collision_mask_value(32, true)
 		var tween = create_tween()

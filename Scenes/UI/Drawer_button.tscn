@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m3nvt"]
 size = Vector2(94.5, 94.5)
 
-[node name="Button" type="Button"]
+[node name="InvSlot" type="Button"]
 custom_minimum_size = Vector2(95, 95)
 anchors_preset = -1
 anchor_right = 0.05
@@ -42,13 +42,17 @@ grow_horizontal = 0
 grow_vertical = 0
 horizontal_alignment = 2
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="InvArea" type="Area2D" parent="."]
 position = Vector2(1, 1)
+collision_layer = 2147483648
+collision_mask = 2147483648
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvArea"]
 position = Vector2(47.25, 47.25)
 shape = SubResource("RectangleShape2D_m3nvt")
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
-[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
-[connection signal="area_shape_exited" from="Area2D" to="." method="_on_area_2d_area_shape_exited"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="body_entered" from="InvArea" to="." method="_on_inv_area_body_entered"]
+[connection signal="body_exited" from="InvArea" to="." method="_on_inv_area_body_exited"]
+[connection signal="input_event" from="InvArea" to="." method="_on_inv_area_input_event"]

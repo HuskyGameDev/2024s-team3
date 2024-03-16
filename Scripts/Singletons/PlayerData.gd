@@ -2,21 +2,39 @@ extends Node
 
 ################# Game Saving ###################
 const SAVE_LOCATION = "user://savegame.save"
-var INV_LOCATION = "user://inv_data_file.json"
-var data = {}
+var TEMP_INV_LOCATION = "user://temp_inv_data_file.json" #inventory we save to during gameplay
+var INV_LOCATION = "user://inv_data_file.json" #inventory we save to when each day is done
 @export var save:SaveGameFile
 
 func _ready():
-	create_new_inv()
+	create_temp_inv()
+	if !FileAccess.file_exists(INV_LOCATION): 
+		create_new_inv()
+	else: #write inv to temporary inventory
+		var file = FileAccess.open(INV_LOCATION, FileAccess.READ)
+		var content = JSON.parse_string(file.get_as_text())
+		file.close
+		file.close
+		file = null
+		var temp_file = FileAccess.open(TEMP_INV_LOCATION, FileAccess.WRITE)
+		temp_file.store_string(JSON.stringify(content))
+		temp_file.close
+		temp_file = null
+	
 	save = load_game()
 	GameTime.connect("end_of_day", _on_end_of_day);
 
-func save_game(content):	
-	if content != null:
-		var file = FileAccess.open(INV_LOCATION, FileAccess.WRITE)
-		file.store_string(JSON.stringify(content))
-		file.close
-		file = null
+func save_game():
+	#saves temp inv to actual inventory
+	var temp_file = FileAccess.open(TEMP_INV_LOCATION, FileAccess.READ)
+	var content = JSON.parse_string(temp_file.get_as_text())
+	temp_file.close
+	temp_file = null
+	var file = FileAccess.open(INV_LOCATION, FileAccess.WRITE)
+	file.store_string(JSON.stringify(content))
+	file.close
+	file = null
+	
 	var save_file = FileAccess.open(SAVE_LOCATION, FileAccess.WRITE)
 	save_file.store_var(var_to_str(save))
 
@@ -33,32 +51,53 @@ func load_game() -> SaveGameFile:
 		print("error reading save file")
 		return SaveGameFile.new()
 
-func read_inv():
-	var file = FileAccess.open(INV_LOCATION, FileAccess.READ)
+func read_inv(): #reads temporoay inventory to output
+	var file = FileAccess.open(TEMP_INV_LOCATION, FileAccess.READ)
 	var content = JSON.parse_string(file.get_as_text())
 	file.close()
 	return content
 	
-func write_inv(content):
-	var file = FileAccess.open(INV_LOCATION, FileAccess.WRITE)
-	file.store_string(JSON.stringify(content))
+func write_inv(data): # writes input to temporary inventory
+	var file = FileAccess.open(TEMP_INV_LOCATION, FileAccess.WRITE)
+	file.store_string(JSON.stringify(data))
 	file.close()
 	return 
 	
-func create_new_inv():
-	var file = FileAccess.open("res://Assets/Data/inv_data_file.json", FileAccess.READ)
-	var content = JSON.parse_string(file.get_as_text())
-	data =  content
-	save_game(content)
+func create_new_inv(): #creates inventory and fills it with the contents of temp
+	var temp_file = FileAccess.open(TEMP_INV_LOCATION, FileAccess.READ)
+	var content = JSON.parse_string(temp_file.get_as_text())
+	temp_file.close
+	temp_file = null
+	var file = FileAccess.open("res://Assets/Data/inv_data_file.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(content))
+	file.close
+	file = null
+
+func create_temp_inv(): #creates temporary inventoey
+	if !FileAccess.file_exists(INV_LOCATION): #if inventory exits, copies it to temp inventory
+		var file = FileAccess.open(INV_LOCATION, FileAccess.READ)
+		var content = JSON.parse_string(file.get_as_text())
+		file.close
+		file.close
+		file = null
+		var temp_file = FileAccess.open(TEMP_INV_LOCATION, FileAccess.WRITE)
+		temp_file.store_string(JSON.stringify(content))
+		temp_file.close
+		temp_file = null
+	else: # else copy json to temp inv
+		var file = FileAccess.open(TEMP_INV_LOCATION, FileAccess.WRITE)
+		var content = JSON.parse_string(file.get_as_text())
+		file.store_string(JSON.stringify(content))
+		file.close
+		file = null
 
 func clear_save():
 	DirAccess.remove_absolute(SAVE_LOCATION)
 
-
 ################ Event Triggers #################
 
 func _on_end_of_day():
-	save_game(null)
+	save_game()
 
 func _on_potion_made(potion:Potion):
 	if not save.madePotions.has(potion.id):

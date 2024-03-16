@@ -2,19 +2,19 @@
 #adds ingredients to next available inventory slot 
 extends Control
 
+signal make_inv_object(item:Resource)
 var items :Array
 var template_inv_slot = preload("res://Scenes/UI/Drawer_button.tscn")
 @onready var gridcontainer = get_node("Background/M/V/ScrollContainer/GridContainer")
 var inv_data
 var slots = []
-
+var dragSlot = null;
 # Called when the node enters the scene tree for the first time.
 #reads from inventory json file, creates each slot of inventory and fills it according to json
 func _ready():
 	inv_data = PlayerData.read_inv()
 	for i in inv_data:
 		slots.push_front(i)
-		print(i)
 		var inv_slot_new = template_inv_slot.instantiate()
 		inv_slot_new.name = i
 		gridcontainer.add_child(inv_slot_new, true)
@@ -23,13 +23,24 @@ func _ready():
 			var item_name = str(inv_data[i]["Item"])
 			var path = "res://Assets/Resources/Ingredients/" + str(item_name) + ".tres"
 			var resource = ResourceLoader.load(path)
-			print(resource.id)
 			inv_slot_new.get_node("Icon").set_texture(resource.image)
-			print(quantity)
 			inv_slot_new.get_node("Icon/Quantity").set_text(quantity)
 
-	#populateButtons()
-	pass # Replace with function body.
+func _get_dragging(inv_slot):
+	dragSlot = inv_slot
+
+func _notification(notification_type):
+	match notification_type:
+		NOTIFICATION_DRAG_END:
+			if !is_drag_successful():
+				make_inv_object.emit(dragSlot)
+				var quantityNode = get_node("Background/M/V/ScrollContainer/GridContainer/" + str(dragSlot) + "/Icon/Quantity")
+				if int(quantityNode.text) == 1:
+					var iconNode = get_node("Background/M/V/ScrollContainer/GridContainer/" + str(dragSlot) + "/Icon" )
+					iconNode.texture = null
+					quantityNode.text = ""
+				else:
+					quantityNode.text =  str(int(quantityNode.text) - 1)
 
 #insert an item of ingredient resource and quantity amount
 func Insert(item : Resource, quantity : int):
@@ -42,33 +53,25 @@ func Insert(item : Resource, quantity : int):
 			if slotAmount + quantity > item.stackSize: #if adding this quantity to the amount in the stack would be larger than stack size
 				inv_data[slot.name]["Quantity"] = item.stackSize #fill the slot
 				UpdateButton(item, item.stackSize, index)					
-				print("a")
 				PlayerData.write_inv(inv_data)
 				Insert(item, slotAmount + quantity - item.stackSize) #add the rest to a different slot
 				break
 			else: #else just update the quantity
 				inv_data[slot.name]["Quantity"] = slotAmount + quantity					
-				print("b")
 				UpdateButton(item, slotAmount , index)
 				break
 		elif inv_data[slot.name]["Item"] == null: #if this slot is empty 
 			if quantity > 0:
 				if quantity <= item.stackSize: #if quantity is not greater than allowed stack size add item to this slot
-					print(inv_data[slot.name]["Item"])
+
 					inv_data[slot.name]["Item"] = item.id
 					inv_data[slot.name]["Quantity"] = quantity					
-					print("c")
 					UpdateButton(item, quantity, index)
-					print(slot.name)
-
 					break
 				else: #else add max stack size to this slot and add the excess to another slot
 					inv_data[slot.name]["Item"] = item.id
 					inv_data[slot.name]["Quantity"] = item.stackSize
 					UpdateButton(item, item.stackSize, index)					
-					print("d")
-					print(slot.name)
-					print(inv_data[slot.name]["Item"])
 					PlayerData.write_inv(inv_data)
 					Insert(item, quantity - item.stackSize)
 					break
@@ -85,5 +88,32 @@ func UpdateButton( item : Resource, quantity : int, index : int):
 		print(index)
 		#gridcontainer.get_child(index).UpdateItem(null, 0, index)
 
-func _on_button_button_down():
-	Insert(ResourceLoader.load("res://Assets/Resources/Ingredients/thistle_root.tres"), 10)
+#adds an inventory slot
+func add_inv_slot(): # just put this where we call it
+	inv_data = PlayerData.read_inv()#reads from json	
+	var numChild = str(gridcontainer.get_child_count()+1)
+	inv_data["Inv" + numChild] = { #adds another inventory slot to inv_data
+		"Item" : null,
+		"Quantity" : 0 
+	}
+	PlayerData.write_inv(inv_data) #writes in_data to json
+	var inv_slot_new = template_inv_slot.instantiate()
+	inv_slot_new.name = "Inv" + numChild
+	gridcontainer.add_child(inv_slot_new, true)
+
+#testing
+func _on_add_button_down():
+	add_inv_slot()
+	#Insert(ResourceLoader.load("res://Assets/Resources/Ingredients/thistle_root.tres"), 10)
+
+#move drawer off screen
+func _on_tab_button_down():
+	self.position.x = 1200
+	$Tab.visible = false
+	$add.visible = false
+
+#move drawer on screen
+func _on_exit_button_down():
+	self.position.x = 1865
+	$Tab.visible = true
+	$add.visible = false
