@@ -1,18 +1,18 @@
 [gd_resource type="Resource" script_class="Location" load_steps=4 format=3 uid="uid://dpd3y2as120bf"]
 
-[ext_resource type="Resource" uid="uid://c3557v37n0qi0" path="res://Assets/Resources/Ingredients/burdock_root.tres" id="1_iix0u"]
-[ext_resource type="Resource" uid="uid://cugyrbnghr2mb" path="res://Assets/Resources/Ingredients/thistle_root.tres" id="2_0vc2w"]
-[ext_resource type="Script" path="res://Scripts/Types/location_data.gd" id="3_r00m4"]
+[ext_resource type="Resource" uid="uid://c3557v37n0qi0" path="res://Assets/Resources/Ingredients/burdock_root.tres" id="1_hr530"]
+[ext_resource type="Resource" uid="uid://cugyrbnghr2mb" path="res://Assets/Resources/Ingredients/thistle_root.tres" id="2_a43yj"]
+[ext_resource type="Script" path="res://Scripts/Types/location_data.gd" id="3_gpshh"]
 
 [resource]
-script = ExtResource("3_r00m4")
+script = ExtResource("3_gpshh")
 id = "grassy_clearing"
 name = "Grassy Clearing"
 forage_table = {
-"common": [ExtResource("1_iix0u")],
+"common": [ExtResource("1_hr530")],
 "rare": [],
 "super_rare": [],
-"uncommon": [ExtResource("2_0vc2w")]
+"uncommon": [ExtResource("2_a43yj")]
 }
 ingredients_shop_table = {
 "common": [{
@@ -21,7 +21,10 @@ ingredients_shop_table = {
 }, {
 "cost": 10.0,
 "item": "nightshade_petals"
-}]
+}],
+"rare": [],
+"super_rare": [],
+"uncommon": []
 }
 customer_request_table = {
 "common": [{
@@ -29,9 +32,11 @@ customer_request_table = {
 "repChange": 10.0,
 "request": "healing_potion"
 }],
+"rare": [],
 "super_rare": [{
 "moneyChange": 10.0,
 "repChange": 5.0,
 "request": "swiftness_potion"
-}]
+}],
+"uncommon": []
 }

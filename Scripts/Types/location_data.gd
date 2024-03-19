@@ -21,12 +21,21 @@ func _setup(newName, forageTable, shopTable, customerTable):
 	name = newName
 	id = name.to_snake_case()
 	for rarity in forageTable:
-		var resourceArr = []
+		var forageArr = []
 		for ingredientId in forageTable[rarity]:
-			resourceArr.append(ResourceLoader.load("res://Assets/Resources/Ingredients/" + ingredientId + ".tres"))
-		forage_table[rarity] = resourceArr
+			forageArr.append(ResourceLoader.load("res://Assets/Resources/Ingredients/" + ingredientId + ".tres"))
+		forage_table[rarity] = forageArr
+		
+		var customerRequestArr = []
+		for dict in customerTable[rarity]:
+			var potion = ResourceLoader.load("res://Assets/Resources/Potions/" + dict.request + ".tres")
+			customerRequestArr.append({ 
+				"moneyChange": dict.moneyChange, 
+				"repChange": dict.repChange, 
+				"potion": potion 
+			})
+		customerRequestArr[rarity] = customerRequestArr
 	ingredients_shop_table = shopTable
-	customer_request_table = customerTable
 
 ## Get Random Item Functions
 func forage_items(count:int) -> Array:
@@ -51,4 +60,19 @@ func get_shop_offerings(count:int) -> Array:
 	return []
 	
 func get_customer_requests(count:int) -> Array:
-	return []
+	var requests = []
+	while true:
+		var f = randf()
+		var options:Array;
+		if f < COMMON_CHANCE: # 74% chance
+			options = customer_request_table["common"]
+		elif f < UNCOMMON_CHANCE: # 20% chance
+			options = customer_request_table["uncommon"]
+		elif f < RARE_CHANCE: # 5% chance
+			options = customer_request_table["rare"]
+		else: # 1% chance
+			options = customer_request_table["super_rare"]
+		if options.size() == 0: continue
+		requests.append(options[randi() % options.size()])
+		if requests.size() == count: break
+	return requests

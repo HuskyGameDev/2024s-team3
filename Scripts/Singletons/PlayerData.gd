@@ -37,6 +37,7 @@ func save_game():
 	
 	var save_file = FileAccess.open(SAVE_LOCATION, FileAccess.WRITE)
 	save_file.store_var(var_to_str(save))
+	save_file.close
 
 func load_game() -> SaveGameFile:
 	## Load from file

@@ -45,13 +45,14 @@ func _ready():
 	tooltip = tooltipScene.instantiate()
 
 func data_updated():
-	if object_data and object_data.image != null:
-		var imageSize = object_data.image.get_size()
-		var colliderShape = CapsuleShape2D.new()
-		colliderShape.height = imageSize[1]
-		colliderShape.radius = imageSize[0] / 2
-		$"Collider".set_shape(colliderShape)
-		$"DraggableSprite".texture = object_data.image
+	if object_data:
+		if object_data.image != null:
+			var imageSize = object_data.image.get_size()
+			var colliderShape = CapsuleShape2D.new()
+			colliderShape.height = imageSize[1]
+			colliderShape.radius = imageSize[0] / 2
+			$"Collider".set_shape(colliderShape)
+			$"DraggableSprite".texture = object_data.image
 		tooltip.set_text(
 			object_data.ingredient_name if object_type == "Ingredient" else object_data.potion_name, 
 			object_data.description)
