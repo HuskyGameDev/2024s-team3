@@ -68,16 +68,15 @@ func create_new_inv(): #creates inventory and fills it with the contents of temp
 	var content = JSON.parse_string(temp_file.get_as_text())
 	temp_file.close
 	temp_file = null
-	var file = FileAccess.open("res://Assets/Data/inv_data_file.json", FileAccess.WRITE)
+	var file = FileAccess.open(INV_LOCATION, FileAccess.WRITE)
 	file.store_string(JSON.stringify(content))
 	file.close
 	file = null
 
 func create_temp_inv(): #creates temporary inventoey
-	if !FileAccess.file_exists(INV_LOCATION): #if inventory exits, copies it to temp inventory
+	if FileAccess.file_exists(INV_LOCATION): #if inventory exits, copies it to temp inventory
 		var file = FileAccess.open(INV_LOCATION, FileAccess.READ)
 		var content = JSON.parse_string(file.get_as_text())
-		file.close
 		file.close
 		file = null
 		var temp_file = FileAccess.open(TEMP_INV_LOCATION, FileAccess.WRITE)
@@ -85,8 +84,9 @@ func create_temp_inv(): #creates temporary inventoey
 		temp_file.close
 		temp_file = null
 	else: # else copy json to temp inv
+		var json = FileAccess.open("res://Assets/Data/inv_data_file.json", FileAccess.READ)
+		var content = JSON.parse_string(json.get_as_text())
 		var file = FileAccess.open(TEMP_INV_LOCATION, FileAccess.WRITE)
-		var content = JSON.parse_string(file.get_as_text())
 		file.store_string(JSON.stringify(content))
 		file.close
 		file = null

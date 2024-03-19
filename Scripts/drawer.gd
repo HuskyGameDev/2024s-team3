@@ -12,6 +12,7 @@ var dragSlot = null;
 # Called when the node enters the scene tree for the first time.
 #reads from inventory json file, creates each slot of inventory and fills it according to json
 func _ready():
+	PlayerData._ready()
 	inv_data = PlayerData.read_inv()
 	for i in inv_data:
 		slots.push_front(i)
