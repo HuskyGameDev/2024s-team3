@@ -10,6 +10,7 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 grow_vertical = 0
+mouse_filter = 1
 theme = ExtResource("1_ta6en")
 script = ExtResource("2_gx5m2")
 
@@ -21,18 +22,18 @@ anchor_bottom = 1.0
 offset_top = -56.0
 offset_right = 282.0
 grow_vertical = 0
+mouse_filter = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 
 [node name="Header" type="Label" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 theme_type_variation = &"TooltipLabel"
 text = "Header"
 
 [node name="Body" type="Label" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 text = "Test full of long text and hopefully a max text size"
-
-[connection signal="ready" from="PanelContainer/VBoxContainer/Header" to="." method="_on_header_ready"]
-[connection signal="ready" from="PanelContainer/VBoxContainer/Body" to="." method="_on_body_ready"]

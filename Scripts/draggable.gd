@@ -59,7 +59,8 @@ func data_updated():
 			object_data.description)
 		
 func _on_mouse_entered():
-	add_child(tooltip)
+	if not beingHeld:
+		add_child(tooltip)
 	
 func _on_mouse_exited():
 	remove_child(tooltip)
