@@ -8,6 +8,7 @@ signal end_of_day;
 signal start_of_day;
 
 var hour:int = 0
+var day:int = 1
 
 func _ready():
 	self.connect("timeout", _on_timer_timeout);
@@ -21,7 +22,8 @@ func _on_timer_timeout():
 		end_of_day.emit();
 		
 func _on_end_of_day():
-	print("End of day");
+	print("End of day " + str(day));
+	day += 1;
 	self.stop();
 	
 func _on_start_of_day():
