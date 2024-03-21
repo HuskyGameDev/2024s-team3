@@ -1,17 +1,15 @@
-extends Node
+extends Sprite2D
 # creates generic customers 
 
 var potionsRecieved: Array[String] = [] # Add potion recieved to an array for storage, can combine or add to one main array in the future to keep track of all potions
 var data:Customer 
-	
-func setCustomerSpeed(speed):
-	self.data.walkSpeed = speed # same as "this. in java"
-	
-func setCustomerName(name):
-	self.data.customerName = name 
 
 func _setup(customerData: Customer):
 	self.data = customerData
+	
+
+func set_sprite(sprite:Texture2D):
+	self.texture = sprite
 
 func _on_area_2d_input_event(viewport, event, shape_idx): # Godot signal I might use later
 	#if event is Potion: 

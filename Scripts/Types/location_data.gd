@@ -78,6 +78,8 @@ func get_customer_requests(count:int) -> Array[Customer]:
 		else: # 1% chance
 			options = customer_request_table["super_rare"]
 		if options.size() == 0: continue
-		requests.append(options[randi() % options.size()])
+		var chosenCustomer = options[randi() % options.size()]
+		requests.append(chosenCustomer)
+		chosenCustomer.walkSpeed = randf_range(.4, 1.4) # walking speed range
 		if requests.size() == count: break
 	return requests

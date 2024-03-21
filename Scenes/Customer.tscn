@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dodgotg7ctei"]
 
-[ext_resource type="Texture2D" uid="uid://ddje8hgao3dhw" path="res://Assets/Sprites/customers/customer1.png" id="1_kw13k"]
+[ext_resource type="Texture2D" uid="uid://ddje8hgao3dhw" path="res://Assets/Sprites/Customers/customer1.png" id="1_4qqfv"]
 [ext_resource type="Script" path="res://Scripts/customer.gd" id="2_pbsdo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhl48"]
@@ -8,7 +8,7 @@ size = Vector2(421, 521)
 
 [node name="joe" type="Sprite2D"]
 position = Vector2(6, 5)
-texture = ExtResource("1_kw13k")
+texture = ExtResource("1_4qqfv")
 script = ExtResource("2_pbsdo")
 
 [node name="Area2D" type="Area2D" parent="."]
