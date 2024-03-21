@@ -41,9 +41,11 @@ func _integrate_forces(_state):
 @export var object_data:Resource
 var tooltipScene = preload("res://Scenes/UI/Tooltip.tscn")
 var tooltip;
+var timer:Timer;
 
 func _ready():
 	tooltip = tooltipScene.instantiate()
+	timer = $Timer
 
 func data_updated():
 	if object_data:
@@ -60,7 +62,11 @@ func data_updated():
 		
 func _on_mouse_entered():
 	if not beingHeld:
-		add_child(tooltip)
-	
+		timer.start(1)
+		
 func _on_mouse_exited():
+	timer.stop()
 	remove_child(tooltip)
+
+func _on_timer_timeout():
+	add_child(tooltip)
