@@ -4,11 +4,13 @@ const NAMES_DATA_PATH = "res://Assets/Data/CustomerNames.txt"
 const SPRITES_DIR_PATH = "res://Assets/Sprites/Customers"
 const customerScene = preload("res://Scenes/Customer.tscn")
 
+var txtBox = preload("res://Scenes/UI/textBox.tscn") # general textbox
+
 # spawnCustomers 
 # If a customer is needed it will spawn one in and then assign it attributes. 
 # this class governs the customer.gd class by creating instances, it can create different combinations of customers you will encounter 
 # the customers can be created with different attributes in this script like walking speed, lore, order, ect. or default values 
-# more customers with different looks are made seperatly by creating a scence, the object itself is a scene that will be instatiated when it is needed later to save reasources
+# the object itself is a scene that will be instatiated when it is needed later to save reasources
 
 var custArray:Array[Customer] = []
 var customerNames:Array[String] = []
@@ -16,7 +18,7 @@ var customerSprites:Array[Texture2D] = []
 var currentCustomer
 
 var customerStartLocation = (Vector2(1200,50))
-var customerEndLocation = (Vector2(800,50)) # changing y value could create a walking bobbing effect
+var customerEndLocation = (Vector2(800,50)) 
 #var customerWalkFlip = true
 
 var sizeOfCustomers = 3
@@ -46,6 +48,7 @@ func _ready():
 	
 	spawn_customer()
 	
+	
 func spawn_customer():
 	# instatiate a customer scene
 	currentCustomer = customerScene.instantiate()
@@ -59,6 +62,12 @@ func spawn_customer():
 	
 	# print what the customer wants
 	print(currentCustomer.data.customerName, " wants a ", currentCustomer.data.order.potion_name)
+	
+	var currentTxtBox = txtBox.instantiate() # ready current textbox
+	var formatString = "%s wants a %s"
+	var actualString = formatString % [str(currentCustomer.data.customerName), str(currentCustomer.data.order.potion_name)]
+	currentTxtBox.order = actualString
+	add_child(currentTxtBox) # show 
 
 	
 func _physics_process(delta): # testing a small movement without animating it, godot makes this strange idk
