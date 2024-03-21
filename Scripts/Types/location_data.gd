@@ -20,21 +20,26 @@ func _ready():
 func _setup(newName, forageTable, shopTable, customerTable):
 	name = newName
 	id = name.to_snake_case()
+	
+	self.forage_table = {}
 	for rarity in forageTable:
 		var forageArr = []
 		for ingredientId in forageTable[rarity]:
 			forageArr.append(ResourceLoader.load("res://Assets/Resources/Ingredients/" + ingredientId + ".tres"))
-		forage_table[rarity] = forageArr
-		
+		self.forage_table[rarity] = forageArr
+	
+	self.customer_request_table = {}	
+	for rarity in customerTable:
 		var customerRequestArr = []
-		for dict in customerTable[rarity]:
-			var potion = ResourceLoader.load("res://Assets/Resources/Potions/" + dict.request + ".tres")
-			customerRequestArr.append({ 
-				"moneyChange": dict.moneyChange, 
-				"repChange": dict.repChange, 
-				"potion": potion 
-			})
-		customerRequestArr[rarity] = customerRequestArr
+		for dict in customerTable[rarity]: 
+			var newCustomer = Customer.new()
+			newCustomer.order = ResourceLoader.load("res://Assets/Resources/Potions/" + dict.get("request") + ".tres")
+			newCustomer.orderPrice = dict.get("moneyChange")
+			newCustomer.reputationChange = dict.get("repChange")
+			customerRequestArr.append(newCustomer)
+		self.customer_request_table[rarity] = customerRequestArr
+	
+	self.ingredients_shop_table = {}
 	ingredients_shop_table = shopTable
 
 ## Get Random Item Functions
@@ -59,8 +64,8 @@ func forage_items(count:int) -> Array:
 func get_shop_offerings(count:int) -> Array:
 	return []
 	
-func get_customer_requests(count:int) -> Array:
-	var requests = []
+func get_customer_requests(count:int) -> Array[Customer]:
+	var requests:Array[Customer] = []
 	while true:
 		var f = randf()
 		var options:Array;

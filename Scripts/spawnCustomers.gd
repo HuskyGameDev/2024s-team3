@@ -6,12 +6,13 @@ extends Node
 # the customers can be created with different attributes in this script like walking speed, lore, order, ect. or default values 
 # more customers with different looks are made seperatly by creating a scence, the object itself is a scene that will be instatiated when it is needed later to save reasources
 
-var tempCust
+var custArray:Array[Customer] = []
+var currentCustomer
+
 var customerStartLocation = (Vector2(1200,50))
 var customerEndLocation = (Vector2(800,50)) # changing y value could create a walking bobbing effect
 #var customerWalkFlip = true
 
-#var custspawned = false;
 var sizeOfCustomers = 3
 var t = 0.0 # interpolation t walk value for the x direction
 #var y = 0.0 # interpolation t up and down walk value for the y direction
@@ -22,54 +23,42 @@ var rng = RandomNumberGenerator.new() # just for a random speed
 
 # Called when the node enters the scene tree for the first time.
 func _ready(): 
+	# create a customer array with all of the orders for the day
+	custArray = PlayerData.save.currentLocation.get_customer_requests(sizeOfCustomers)
+	spawn_customer()
 	
-	# create a customer array to spawn in unique sprites, order details will be random but seperated from customer (for now, will change) 
-	var custArray = PlayerData.save.currentLocation.get_customer_requests(sizeOfCustomers)
+func spawn_customer():
+	# instatiate a customer scene
+	currentCustomer = customerScene.instantiate()
+	currentCustomer.position = customerStartLocation
+	add_child(currentCustomer) # add new customer to the main scene so you can see it
 	
-	print("\nuninstantiated customers in array:")
-	for n in sizeOfCustomers:
-		print(custArray[n])
-	print("")
-	custArray.shuffle() # will randomize the array, sweet
+	# set up the customer's data
+	currentCustomer._setup(custArray[0])
+	currentCustomer.setCustomerName("customerOne")
+	var walking_speed = rng.randf_range(.4, 1.4) # walking speed range
+	currentCustomer.setCustomerSpeed(walking_speed) # reference the current instance of a customer and modify it, AFTER they are instatiated 
 	
-	# instatiate number 1 test
-	tempCust = customerScene.instantiate()
-	tempCust.position = customerStartLocation
-	add_child(tempCust) # add new customer to the main scene so you can see it
-	#custspawned = true
-	
-	# generate customer data example
-	#todo 
-	tempCust.setCustomerName("customerOne")
-	tempCust.setCustomerOrder(custArray[0])
-	
-	# generate customers one after another 
-	# how many per area?
-	#todo
-	
-	var my_random_number = rng.randf_range(.4, 1.4) # walking speed range
-	tempCust.setCustomerSpeed(my_random_number) # reference the current instance of a customer and modify it, AFTER they are instatiated 
-	
-	print(tempCust.customerName, " has entered with a speed of: ", my_random_number, "\n") # name of object or the actual name
-	print(tempCust.customerName, " wants a ", tempCust.foodOrder)
+	print(currentCustomer.data.customerName, " has entered with a speed of: ", walking_speed, "\n")
+	print(currentCustomer.data.customerName, " wants a ", currentCustomer.data.order.potion_name)
+
 	
 func _physics_process(delta): # testing a small movement without animating it, godot makes this strange idk
 	# x
-	return
 	if(t < 1.7):
-		t += (delta * (tempCust.walkSpeed) )
+		t += (delta * (currentCustomer.data.walkSpeed) )
 		#print(t) 
-		tempCust.position = customerStartLocation.lerp(customerEndLocation, t) 
+		currentCustomer.position = customerStartLocation.lerp(customerEndLocation, t) 
 	
 	# y slow down walk at the end, and move in y direction
 	else:
 		customerEndLocation.y += 1
-		if(tempCust.walkSpeed > 1 ):
-			tempCust.walkSpeed -= .1
+		if(currentCustomer.data.walkSpeed > 1 ):
+			currentCustomer.data.walkSpeed -= .1
 		
-		t += (delta * (tempCust.walkSpeed) )
+		t += (delta * (currentCustomer.data.walkSpeed) )
 		#print(t) 
-		tempCust.position = customerStartLocation.lerp(customerEndLocation, t) 
+		currentCustomer.position = customerStartLocation.lerp(customerEndLocation, t) 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

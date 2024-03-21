@@ -1,18 +1,33 @@
-[gd_resource type="Resource" script_class="Location" load_steps=4 format=3 uid="uid://dpd3y2as120bf"]
+[gd_resource type="Resource" script_class="Location" load_steps=9 format=3 uid="uid://dtmqwdycxf4rm"]
 
-[ext_resource type="Resource" uid="uid://c3557v37n0qi0" path="res://Assets/Resources/Ingredients/burdock_root.tres" id="1_hr530"]
-[ext_resource type="Resource" uid="uid://cugyrbnghr2mb" path="res://Assets/Resources/Ingredients/thistle_root.tres" id="2_a43yj"]
-[ext_resource type="Script" path="res://Scripts/Types/location_data.gd" id="3_gpshh"]
+[ext_resource type="Resource" uid="uid://c3557v37n0qi0" path="res://Assets/Resources/Ingredients/burdock_root.tres" id="1_gd2m0"]
+[ext_resource type="Resource" uid="uid://d3fupcelkjl7c" path="res://Assets/Resources/Potions/healing_potion.tres" id="1_i416r"]
+[ext_resource type="Script" path="res://Scripts/Types/customer_data.gd" id="2_1bwky"]
+[ext_resource type="Resource" uid="uid://cugyrbnghr2mb" path="res://Assets/Resources/Ingredients/thistle_root.tres" id="2_d7sxm"]
+[ext_resource type="Script" path="res://Scripts/Types/location_data.gd" id="2_vr6l8"]
+[ext_resource type="Resource" uid="uid://j1712o0cshou" path="res://Assets/Resources/Potions/swiftness_potion.tres" id="3_13o7m"]
+
+[sub_resource type="Resource" id="Resource_ehv2d"]
+script = ExtResource("2_1bwky")
+order = ExtResource("1_i416r")
+orderPrice = 15
+reputationChange = 10
+
+[sub_resource type="Resource" id="Resource_5y3es"]
+script = ExtResource("2_1bwky")
+order = ExtResource("3_13o7m")
+orderPrice = 10
+reputationChange = 5
 
 [resource]
-script = ExtResource("3_gpshh")
+script = ExtResource("2_vr6l8")
 id = "grassy_clearing"
 name = "Grassy Clearing"
 forage_table = {
-"common": [ExtResource("1_hr530")],
+"common": [ExtResource("1_gd2m0")],
 "rare": [],
 "super_rare": [],
-"uncommon": [ExtResource("2_a43yj")]
+"uncommon": [ExtResource("2_d7sxm")]
 }
 ingredients_shop_table = {
 "common": [{
@@ -27,16 +42,8 @@ ingredients_shop_table = {
 "uncommon": []
 }
 customer_request_table = {
-"common": [{
-"moneyChange": 15.0,
-"repChange": 10.0,
-"request": "healing_potion"
-}],
+"common": [SubResource("Resource_ehv2d")],
 "rare": [],
-"super_rare": [{
-"moneyChange": 10.0,
-"repChange": 5.0,
-"request": "swiftness_potion"
-}],
+"super_rare": [SubResource("Resource_5y3es")],
 "uncommon": []
 }

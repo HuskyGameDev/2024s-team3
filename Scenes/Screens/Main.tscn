@@ -143,7 +143,6 @@ position = Vector2(567, 994)
 data = ExtResource("6_w60o3")
 
 [node name="CustomerSpawner" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(917, 321)
 script = ExtResource("7_bs1qt")
 
