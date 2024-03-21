@@ -17,6 +17,7 @@ func _unhandled_input(_event):
 func _on_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click"):
 		beingHeld = true
+		remove_child(tooltip)
 		set_deferred("gravity_scale", 0)
 		set_collision_layer_value(1, false)
 		set_collision_layer_value(32, true)
@@ -57,3 +58,8 @@ func data_updated():
 			object_data.ingredient_name if object_type == "Ingredient" else object_data.potion_name, 
 			object_data.description)
 		
+func _on_mouse_entered():
+	add_child(tooltip)
+	
+func _on_mouse_exited():
+	remove_child(tooltip)
