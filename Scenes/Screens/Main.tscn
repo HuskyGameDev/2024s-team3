@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_0ufrw"]
-[ext_resource type="Texture2D" uid="uid://c1na8wlk3ld7h" path="res://Assets/Sprites/icon.svg" id="2_q6xwt"]
+[ext_resource type="Texture2D" uid="uid://dbueov7x0qeqe" path="res://Assets/Sprites/320x180 Vision.png" id="2_u1ul0"]
 [ext_resource type="PackedScene" uid="uid://cjjarcohy2vqe" path="res://Scenes/Cauldron.tscn" id="3_qla3h"]
 [ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://Scenes/Ingredient.tscn" id="4_spw6y"]
 [ext_resource type="Resource" uid="uid://cugyrbnghr2mb" path="res://Assets/Resources/Ingredients/thistle_root.tres" id="5_136gt"]
@@ -26,67 +26,55 @@ size = Vector2(0.990187, 0.888833)
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0ufrw")
 
+[node name="CustomerSpawner" type="Sprite2D" parent="."]
+position = Vector2(917, 321)
+script = ExtResource("7_bs1qt")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Room" type="Node2D" parent="."]
 scale = Vector2(6, 6)
 
+[node name="Room Sprite" type="Sprite2D" parent="Room"]
+position = Vector2(160, 90)
+texture = ExtResource("2_u1ul0")
+
 [node name="Floor" type="StaticBody2D" parent="Room"]
 position = Vector2(276, 206)
 collision_layer = 2147483649
 
-[node name="Sprite2D" type="Sprite2D" parent="Room/Floor"]
-position = Vector2(-115.5, -10)
-scale = Vector2(3.25781, 0.3125)
-texture = ExtResource("2_q6xwt")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Floor"]
-position = Vector2(-115.5, -10.25)
+position = Vector2(-115.5, -21.75)
 shape = SubResource("RectangleShape2D_1aqou")
 
-[node name="Floor2" type="StaticBody2D" parent="Room"]
+[node name="Ceiling" type="StaticBody2D" parent="Room"]
 position = Vector2(272, -6)
 collision_layer = 2147483649
 
-[node name="Sprite2D" type="Sprite2D" parent="Room/Floor2"]
-position = Vector2(-115.5, -10)
-scale = Vector2(3.25781, 0.3125)
-texture = ExtResource("2_q6xwt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Floor2"]
-position = Vector2(-115.5, -10.25)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Ceiling"]
+position = Vector2(-115.5, -13.75)
 shape = SubResource("RectangleShape2D_1aqou")
 
-[node name="Floor3" type="StaticBody2D" parent="Room"]
+[node name="Rwall" type="StaticBody2D" parent="Room"]
 position = Vector2(327, 192)
 rotation = 1.5708
 collision_layer = 2147483649
 
-[node name="Sprite2D" type="Sprite2D" parent="Room/Floor3"]
-position = Vector2(-115.5, -10)
-scale = Vector2(3.25781, 0.3125)
-texture = ExtResource("2_q6xwt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Floor3"]
-position = Vector2(-115.5, -10.25)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Rwall"]
+position = Vector2(-115.5, -12.7501)
 shape = SubResource("RectangleShape2D_1aqou")
 
-[node name="Floor4" type="StaticBody2D" parent="Room"]
+[node name="Lwall" type="StaticBody2D" parent="Room"]
 position = Vector2(-6, -44)
 rotation = 4.71239
 collision_layer = 2147483649
 
-[node name="Sprite2D" type="Sprite2D" parent="Room/Floor4"]
-position = Vector2(-115.5, -10)
-scale = Vector2(3.25781, 0.3125)
-texture = ExtResource("2_q6xwt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Floor4"]
-position = Vector2(-115.5, -10.25)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Lwall"]
+position = Vector2(-115.5, -13.75)
 shape = SubResource("RectangleShape2D_1aqou")
 
 [node name="Cauldron" parent="." instance=ExtResource("3_qla3h")]
-position = Vector2(994, 871)
+position = Vector2(852, 840)
 scale = Vector2(6, 6)
 
 [node name="shelfArea" type="Area2D" parent="."]
@@ -123,28 +111,24 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Ingredient" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(1504, 986)
+position = Vector2(1577, 891)
 data = ExtResource("5_136gt")
 
 [node name="Ingredient2" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(151, 992)
+position = Vector2(159, 897)
 data = ExtResource("6_u3n4o")
 
 [node name="Ingredient3" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(289, 992)
+position = Vector2(294, 892)
 data = ExtResource("7_1j6wr")
 
 [node name="Ingredient4" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(429, 991)
+position = Vector2(429, 896)
 data = ExtResource("8_ufrn0")
 
 [node name="Ingredient5" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(567, 994)
+position = Vector2(541, 874)
 data = ExtResource("6_w60o3")
-
-[node name="CustomerSpawner" type="Sprite2D" parent="."]
-position = Vector2(917, 321)
-script = ExtResource("7_bs1qt")
 
 [connection signal="potion_made" from="Cauldron" to="." method="_on_cauldron_potion_made"]
 [connection signal="body_entered" from="shelfArea" to="." method="_on_shelf_body_entered"]

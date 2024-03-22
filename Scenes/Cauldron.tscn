@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cjjarcohy2vqe"]
 
 [ext_resource type="Script" path="res://Scripts/cauldron.gd" id="1_ygt0y"]
-[ext_resource type="Texture2D" uid="uid://1cavnjgart7f" path="res://Assets/Sprites/Cauldron.png" id="2_srlk7"]
+[ext_resource type="Texture2D" uid="uid://cv3kxe3sbuli0" path="res://Assets/Sprites/Cauldron Final.png" id="2_ffdd2"]
 [ext_resource type="Script" path="res://Scripts/Singletons/RecipeData.gd" id="3_87jks"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ymlov"]
@@ -11,7 +11,8 @@ radius = 27.0
 script = ExtResource("1_ygt0y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_srlk7")
+position = Vector2(-2, 8)
+texture = ExtResource("2_ffdd2")
 
 [node name="Area2D" type="Area2D" parent="."]
 
