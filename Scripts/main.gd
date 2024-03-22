@@ -6,7 +6,9 @@ var IngredientScene = preload("res://Scenes/Ingredient.tscn")
 func _ready():
 	GameTime.connect("end_of_day", func(): get_tree().change_scene_to_file("res://Scenes/Screens/NightMenu.tscn"));
 	var drawer = get_node("Drawer-inventory")
-	drawer.make_inv_object.connect(_on_inv_dragged)
+	var pedestal = get_node("Pedestal")
+	drawer.make_inv_object.connect(_on_inv_dragged) #moving object out of inventory
+	pedestal.make_ped_object.connect(_on_ped_pressed) #moving object out of pedestal
 	
 func _on_cauldron_potion_made(potion:Potion):
 	var newPotionObj = potionScene.instantiate()
@@ -37,6 +39,12 @@ func _on_inv_dragged(inv_slot):
 			inv_data[inv_slot]["Quantity"] = quantity - 1
 		print(inv_data[inv_slot]["Item"])
 		PlayerData.write_inv(inv_data)
+
+func _on_ped_pressed(item: Resource):
+	var newItem = IngredientScene.instantiate()
+	newItem.data = item
+	newItem.global_position = get_viewport().get_mouse_position()
+	add_child(newItem)
 
 func _on_shelf_body_entered(body):
 	body.rotation = 0

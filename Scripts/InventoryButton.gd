@@ -33,7 +33,6 @@ func _on_inv_area_body_entered(body):
 	if body.get("object_type") == "Ingredient":
 			var addedIngredient = body.get("object_data")
 			heldBody = body
-			print(addedIngredient.ingredient_name + " entered " + self.name)
 
 func _on_inv_area_body_exited(body):
 	heldBody = null
@@ -42,7 +41,6 @@ func _on_inv_area_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton && not event.pressed  && event.button_index == MOUSE_BUTTON_LEFT:
 		if heldBody != null:
 			var holding = heldBody.get("object_data")
-
 			var slot = self.name
 			print("putting " + holding.ingredient_name + " in " + slot)
 			var inv_data = PlayerData.read_inv()
@@ -54,7 +52,6 @@ func _on_inv_area_input_event(viewport, event, shape_idx):
 					heldBody.queue_free()
 					UpdateItem(item, slotAmount + 1, self.get_index())
 			elif inv_data[slot]["Item"] == null: #if this slot is empty 
-				print(inv_data[slot]["Item"])
 				inv_data[slot]["Item"] = item.id
 				inv_data[slot]["Quantity"] = 1
 				heldBody.queue_free()

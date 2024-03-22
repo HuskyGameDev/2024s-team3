@@ -85,8 +85,6 @@ func Insert(item : Resource, quantity : int):
 func UpdateButton( item : Resource, quantity : int, index : int):
 	if index < gridcontainer.get_child_count():
 		gridcontainer.get_child(index).UpdateItem(item, quantity, index)
-	else:
-		print(index)
 		#gridcontainer.get_child(index).UpdateItem(null, 0, index)
 
 #adds an inventory slot
