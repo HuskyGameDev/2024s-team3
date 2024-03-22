@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://cugyrbnghr2mb" path="res://Assets/Resources/Ingredients/thistle_root.tres" id="5_136gt"]
 [ext_resource type="Resource" uid="uid://dalcpgs66cyu7" path="res://Assets/Resources/Ingredients/peppermint_leaves.tres" id="6_u3n4o"]
 [ext_resource type="Resource" uid="uid://b5w54ye34m24m" path="res://Assets/Resources/Ingredients/nightshade_petals.tres" id="6_w60o3"]
-[ext_resource type="Resource" uid="uid://cakl8u2750ach" path="res://Assets/Resources/Ingredients/pine_resin.tres" id="7_1j6wr"]
+[ext_resource type="Resource" path="res://Assets/Resources/Ingredients/pine_resin.tres" id="7_1j6wr"]
 [ext_resource type="Script" path="res://Scripts/spawnCustomers.gd" id="7_bs1qt"]
 [ext_resource type="Resource" uid="uid://bs5kplnr37gpi" path="res://Assets/Resources/Ingredients/sunflower_seeds.tres" id="8_ufrn0"]
 [ext_resource type="PackedScene" uid="uid://br236elfur261" path="res://Scenes/UI/Drawer.tscn" id="10_tnf6t"]

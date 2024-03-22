@@ -2,7 +2,7 @@
 #adds ingredients to next available inventory slot 
 extends Control
 
-signal make_inv_object(item:Resource)
+signal make_inv_object(item:Resource) #emits to main scene to create ingredient object
 var items :Array
 var template_inv_slot = preload("res://Scenes/UI/Drawer_button.tscn")
 @onready var gridcontainer = get_node("Background/M/V/ScrollContainer/GridContainer")
