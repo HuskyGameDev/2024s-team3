@@ -24,7 +24,7 @@ shape = SubResource("CircleShape2D_ymlov")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-26, -7, -32, 4, -29, 18, -14, 30, -1, 32, 12, 29, 26, 18, 30, 4, 24, -9, 19, -4, 9, -2, -10, -2, -20, -4)
+polygon = PackedVector2Array(-26, -7, -32, 4, -45, 19, -44, 30, -20, 40, 14, 40, 38, 31, 41, 21, 30, 4, 24, -9, 19, -4, 9, -2, -10, -2, -20, -4)
 
 [node name="RecipeLoader" type="Node" parent="."]
 script = ExtResource("3_87jks")
