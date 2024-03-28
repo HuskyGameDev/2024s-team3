@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://l8jrjv0qfv3j"]
 
-[ext_resource type="Theme" uid="uid://pfkwq4x1374y" path="res://Assets/Themes/TooltipTheme.tres" id="1_ta6en"]
+[ext_resource type="Theme" uid="uid://pfkwq4x1374y" path="res://Assets/Themes/UiTheme.tres" id="1_a3qlo"]
 [ext_resource type="Script" path="res://Scripts/tooltip.gd" id="2_gx5m2"]
 
 [node name="Tooltip" type="Control"]
@@ -11,7 +11,7 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 grow_vertical = 0
 mouse_filter = 1
-theme = ExtResource("1_ta6en")
+theme = ExtResource("1_a3qlo")
 script = ExtResource("2_gx5m2")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]

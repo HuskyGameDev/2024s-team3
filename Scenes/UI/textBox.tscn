@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccsccje0muvta"]
 
 [ext_resource type="Script" path="res://Scripts/textBox.gd" id="1_uhhou"]
-[ext_resource type="Theme" uid="uid://pfkwq4x1374y" path="res://Assets/Themes/TooltipTheme.tres" id="2_gaxp1"]
+[ext_resource type="Theme" uid="uid://pfkwq4x1374y" path="res://Assets/Themes/UiTheme.tres" id="2_fbmh5"]
 
 [node name="TextBox" type="CanvasLayer"]
 offset = Vector2(-300, -650)
@@ -19,7 +19,7 @@ offset_right = -699.0
 offset_bottom = -121.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("2_gaxp1")
+theme = ExtResource("2_fbmh5")
 
 [node name="Label" type="Label" parent="TextboxContainer"]
 custom_minimum_size = Vector2(700, 5)
