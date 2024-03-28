@@ -22,6 +22,7 @@ shadow_size = 5
 shadow_offset = Vector2(2, 2)
 
 [resource]
+HeaderLarge/font_sizes/font_size = 80
 Label/colors/font_color = Color(0.184314, 0.0588235, 0, 1)
 Label/font_sizes/font_size = 35
 Label/fonts/font = ExtResource("1_5a5me")
