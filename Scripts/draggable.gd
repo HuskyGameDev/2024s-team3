@@ -44,7 +44,6 @@ var tooltip;
 var timer:Timer;
 
 func _ready():
-	tooltip = tooltipScene.instantiate()
 	timer = $Timer
 
 func data_updated():
@@ -58,7 +57,6 @@ func data_updated():
 			$"DraggableSprite".texture = object_data.image
 		if tooltip == null:
 			tooltip = tooltipScene.instantiate()
-		print(object_type)
 		tooltip.set_text(object_data.name, object_data.description)
 		
 func _on_mouse_entered():

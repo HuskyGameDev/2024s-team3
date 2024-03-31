@@ -1,12 +1,19 @@
 extends Control
 
+var description
+var label
+
 func _ready():
 	top_level = true
+	if description:
+		$PanelContainer/VBoxContainer/Body.text = description
+	if label:
+		$PanelContainer/VBoxContainer/Header.text = label
 
 
 func set_text(label, description):
-	$PanelContainer/VBoxContainer/Body.text = description
-	$PanelContainer/VBoxContainer/Header.text = label
+	self.description = description
+	self.label = label
 	
 
 func _process(delta):
