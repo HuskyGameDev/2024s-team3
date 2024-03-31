@@ -86,7 +86,7 @@ func _physics_process(delta): # testing a small movement without animating it, g
 		currentCustomer.position = customerStartLocation.lerp(customerEndLocation, t) 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if (t >= 2 || t < 0):
 		set_physics_process(false)
 		#t = 0.0

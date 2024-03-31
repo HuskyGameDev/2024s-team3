@@ -3,7 +3,7 @@
 extends TextureRect
 
 #gets data about the item and slot it started in. Moves texture with mouse
-func _get_drag_data(at_position):
+func _get_drag_data(_at_position):
 	var inv_data = PlayerData.read_inv()
 	var inv_slot = get_parent().get_name()
 	if inv_data[inv_slot]["Item"] != null:
@@ -25,7 +25,7 @@ func _get_drag_data(at_position):
 		return data
 
 #gets data about the slot we want to place the item in
-func _can_drop_data(at_position, data):
+func _can_drop_data(_at_position, data):
 	var inv_data = PlayerData.read_inv()
 	var target_inv_slot = get_parent().get_name()		
 	data["target_slot"] = get_parent()
@@ -41,7 +41,7 @@ func _can_drop_data(at_position, data):
 		return true
 
 #if we can put the item in the slot, updates new slot, starting slot, and json
-func _drop_data(at_position, data):
+func _drop_data(_at_position, data):
 	var inv_data = PlayerData.read_inv()
 	var target_slot = get_parent().get_name()
 	var origin_slot = data["origin_node"].get_parent().get_name()

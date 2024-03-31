@@ -17,7 +17,9 @@ func _unhandled_input(_event):
 func _on_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click"):
 		beingHeld = true
-		remove_child(tooltip)
+		if tooltipShowing:
+			remove_child(tooltip)
+			tooltipShowing = false
 		set_deferred("gravity_scale", 0)
 		set_collision_layer_value(1, false)
 		set_collision_layer_value(32, true)
@@ -41,6 +43,7 @@ func _integrate_forces(_state):
 @export var object_data:Resource
 var tooltipScene = preload("res://Scenes/UI/Tooltip.tscn")
 var tooltip;
+var tooltipShowing:bool = false;
 var timer:Timer;
 
 func _ready():
@@ -65,7 +68,10 @@ func _on_mouse_entered():
 		
 func _on_mouse_exited():
 	timer.stop()
-	remove_child(tooltip)
+	if tooltipShowing:
+		remove_child(tooltip)
+		tooltipShowing = false
 
 func _on_timer_timeout():
 	add_child(tooltip)
+	tooltipShowing = true

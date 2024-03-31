@@ -11,10 +11,10 @@ func _ready():
 		$PanelContainer/VBoxContainer/Header.text = label
 
 
-func set_text(label, description):
-	self.description = description
-	self.label = label
+func set_text(new_label, new_description):
+	self.description = new_description
+	self.label = new_label
 	
 
-func _process(delta):
+func _process(_delta):
 	global_position = get_global_mouse_position() + Vector2(0, 15)

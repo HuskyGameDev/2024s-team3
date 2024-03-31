@@ -11,10 +11,6 @@ func _setup(customerData: Customer):
 func set_sprite(sprite:Texture2D):
 	self.texture = sprite
 
-func _on_area_2d_input_event(viewport, event, shape_idx): # Godot signal I might use later
-	#if event is Potion: 
-		#print("customer got a : ", Potion) 
-		pass
 
 func _on_area_2d_body_entered(body):
 	if body.get("object_type") == "Potion":
@@ -25,5 +21,4 @@ func _on_area_2d_body_entered(body):
 		else: print(self.data.customerName, " wanted a: ",  self.data.order.name, " but got a ", recievedPotion.name, " instead.")
 		
 		## Add potion recieved to an array 
-		var addedPotion = body.get("object_data")
 		potionsRecieved.push_back(recievedPotion.id) # add

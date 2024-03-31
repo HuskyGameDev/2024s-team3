@@ -18,7 +18,7 @@ func hide_textbox():
 func show_textbox():
 	textbox_container.show()
 	
-func add_text(next_text):
+func add_text(_next_text):
 		label.text = order
 		show_textbox()
 

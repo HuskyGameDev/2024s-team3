@@ -7,8 +7,8 @@ class_name Ingredient
 @export var stackSize: int = 5
 @export var image: Texture2D = null
 
-func _setup(name: String, desc: String, stack: int):
-	self.name = name
+func _setup(ingredient_name: String, desc: String, stack: int):
+	self.name = ingredient_name
 	self.description = desc
 	self.id = self.name.to_snake_case()
 	self.stackSize = stack

@@ -13,31 +13,25 @@ func _ready():
 	else: #write inv to temporary inventory
 		var file = FileAccess.open(INV_LOCATION, FileAccess.READ)
 		var content = JSON.parse_string(file.get_as_text())
-		file.close
-		file.close
-		file = null
+		file.close()
 		var temp_file = FileAccess.open(TEMP_INV_LOCATION, FileAccess.WRITE)
 		temp_file.store_string(JSON.stringify(content))
-		temp_file.close
-		temp_file = null
+		temp_file.close()
 	
 	save = load_game()
-	GameTime.connect("end_of_day", _on_end_of_day);
 
 func save_game():
 	#saves temp inv to actual inventory
 	var temp_file = FileAccess.open(TEMP_INV_LOCATION, FileAccess.READ)
 	var content = JSON.parse_string(temp_file.get_as_text())
-	temp_file.close
-	temp_file = null
+	temp_file.close()
 	var file = FileAccess.open(INV_LOCATION, FileAccess.WRITE)
 	file.store_string(JSON.stringify(content))
-	file.close
-	file = null
+	file.close()
 	
 	var save_file = FileAccess.open(SAVE_LOCATION, FileAccess.WRITE)
 	save_file.store_var(var_to_str(save))
-	save_file.close
+	save_file.close()
 
 func load_game() -> SaveGameFile:
 	## Load from file
@@ -67,30 +61,25 @@ func write_inv(data): # writes input to temporary inventory
 func create_new_inv(): #creates inventory and fills it with the contents of temp
 	var temp_file = FileAccess.open(TEMP_INV_LOCATION, FileAccess.READ)
 	var content = JSON.parse_string(temp_file.get_as_text())
-	temp_file.close
-	temp_file = null
+	temp_file.close()
 	var file = FileAccess.open(INV_LOCATION, FileAccess.WRITE)
 	file.store_string(JSON.stringify(content))
-	file.close
-	file = null
+	file.close()
 
 func create_temp_inv(): #creates temporary inventoey
 	if FileAccess.file_exists(INV_LOCATION): #if inventory exits, copies it to temp inventory
 		var file = FileAccess.open(INV_LOCATION, FileAccess.READ)
 		var content = JSON.parse_string(file.get_as_text())
-		file.close
-		file = null
+		file.close()
 		var temp_file = FileAccess.open(TEMP_INV_LOCATION, FileAccess.WRITE)
 		temp_file.store_string(JSON.stringify(content))
-		temp_file.close
-		temp_file = null
+		temp_file.close()
 	else: # else copy json to temp inv
 		var json = FileAccess.open("res://Assets/Data/inv_data_file.json", FileAccess.READ)
 		var content = JSON.parse_string(json.get_as_text())
 		var file = FileAccess.open(TEMP_INV_LOCATION, FileAccess.WRITE)
 		file.store_string(JSON.stringify(content))
-		file.close
-		file = null
+		file.close()
 
 func clear_save():
 	DirAccess.remove_absolute(SAVE_LOCATION)

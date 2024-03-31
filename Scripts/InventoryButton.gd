@@ -12,12 +12,9 @@ func _ready():
 	curIcon = $Icon
 	curLabel = $Icon/Quantity
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
-func UpdateItem(item:Resource, quantity: int, index :int):
-	self.index = index
+func UpdateItem(item:Resource, quantity: int, newIndex :int):
+	self.index = newIndex
 	curItem = item
 	if curItem == null:
 		curIcon.texture= null
@@ -31,13 +28,12 @@ func _on_button_down():
 
 func _on_inv_area_body_entered(body):
 	if body.get("object_type") == "Ingredient":
-			var addedIngredient = body.get("object_data")
-			heldBody = body
+		heldBody = body
 
-func _on_inv_area_body_exited(body):
+func _on_inv_area_body_exited(_body):
 	heldBody = null
 
-func _on_inv_area_input_event(viewport, event, shape_idx):
+func _on_inv_area_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton && not event.pressed  && event.button_index == MOUSE_BUTTON_LEFT:
 		if heldBody != null:
 			var holding = heldBody.get("object_data")
