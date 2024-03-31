@@ -8,9 +8,7 @@ func _on_buy_button_pressed():
 
 func _on_forage_button_pressed():
 	var foragedItems = PlayerData.save.currentLocation.forage_items(3)
-	print("Foraged items:")
 	for i in foragedItems:
-		print("  -" + i.ingredient_name)
 		Insert(i, 1);
 	PlayerData._on_end_of_day()
 	get_tree().change_scene_to_file("res://Scenes/Screens/Main.tscn")
