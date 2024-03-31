@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://bfw8jhnppph26"]
 
-[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_unug7"]
+[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_ex0qv"]
 
 [resource]
-script = ExtResource("1_unug7")
+script = ExtResource("1_ex0qv")
 id = "clover_leaves"
-ingredient_name = "Clover Leaves"
+name = "Clover Leaves"
 description = "Make sure to hold four at a time."
 stackSize = 5

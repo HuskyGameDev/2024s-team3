@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://chvekqjlyq5wp"]
 
-[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_phfn1"]
+[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_gjsv6"]
 
 [resource]
-script = ExtResource("1_phfn1")
+script = ExtResource("1_gjsv6")
 id = "snowdrop_bulb"
-ingredient_name = "Snowdrop Bulb"
+name = "Snowdrop Bulb"
 description = "Thrives in the heaviest of snowstorms."
 stackSize = 1

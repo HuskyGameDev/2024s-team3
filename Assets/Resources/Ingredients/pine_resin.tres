@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_qrpg2")
 id = "pine_resin"
-ingredient_name = "Pine Resin"
+name = "Pine Resin"
 description = "Sticks to you, sticks with you."
 stackSize = 5
 image = ExtResource("1_yb2ky")

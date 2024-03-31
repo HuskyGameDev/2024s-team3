@@ -25,7 +25,7 @@ func add_recipe_to_dictionary(recipe_data):
 	var found_hash = recipes.get(recipe_hash)
 	if found_hash != null:
 		# If the hashes aren't unique it quits (because the game will not work without unique hashes)
-		print("Hash for recipes " + recipe_data.potion_name + " and " + found_hash.potion_name + " are the same")
+		print("Hash for recipes " + recipe_data.name + " and " + found_hash.name + " are the same")
 		get_tree().quit(-1)
 	else:
 		recipes[recipe_hash] = recipe_data

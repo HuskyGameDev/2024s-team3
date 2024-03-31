@@ -18,7 +18,7 @@ func _on_body_enter_cauldron(body):
 		var addedIngredient = body.get("object_data")
 		body.queue_free()
 		currentIngredients.push_back(addedIngredient.id)
-		print(addedIngredient.ingredient_name + " entered cauldron")
+		print(addedIngredient.name + " entered cauldron")
 
 
 func _on_cauldron_input_event(_viewport, _event, _shape_idx):
@@ -45,7 +45,7 @@ func check_potion_made():
 	if made_potion:
 		potion_made.emit(made_potion)
 		print("Made Potion:")
-		print(made_potion.potion_name)
+		print(made_potion.name)
 	else:
 		print("Did not make potion")
 		# TODO: Actually find what failed potion was made

@@ -1,13 +1,10 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://c3557v37n0qi0"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://c3557v37n0qi0"]
 
-[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_nd212"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_g77sj"]
+[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_0rprn"]
 
 [resource]
-script = ExtResource("1_nd212")
+script = ExtResource("1_0rprn")
 id = "burdock_root"
-ingredient_name = "Burdock Root"
+name = "Burdock Root"
 description = "Like a thistle root, but more bitter."
 stackSize = 5
-image = SubResource("PlaceholderTexture2D_g77sj")

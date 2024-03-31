@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_037ub")
 id = "peppermint_leaves"
-ingredient_name = "Peppermint Leaves"
+name = "Peppermint Leaves"
 description = "Just the smell alone is invigorating."
 stackSize = 5
 image = ExtResource("1_gqoin")

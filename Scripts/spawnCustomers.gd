@@ -61,11 +61,11 @@ func spawn_customer():
 	currentCustomer._setup(custArray[0])
 	
 	# print what the customer wants
-	print(currentCustomer.data.customerName, " wants a ", currentCustomer.data.order.potion_name)
+	print(currentCustomer.data.customerName, " wants a ", currentCustomer.data.order.name)
 	
 	var currentTxtBox = txtBox.instantiate() # ready current textbox
 	var formatString = "%s wants a %s"
-	var actualString = formatString % [str(currentCustomer.data.customerName), str(currentCustomer.data.order.potion_name)]
+	var actualString = formatString % [str(currentCustomer.data.customerName), str(currentCustomer.data.order.name)]
 	currentTxtBox.order = actualString
 	add_child(currentTxtBox) # show 
 

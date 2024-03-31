@@ -9,5 +9,6 @@ func _ready():
 
 func setType(type:Potion):
 	data = type
+	$"DraggableObject".set("object_type", "Potion")
 	$"DraggableObject".set("object_data", data)
 	$"DraggableObject".call("data_updated")

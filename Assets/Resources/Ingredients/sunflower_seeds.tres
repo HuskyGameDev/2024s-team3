@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_7itvs")
 id = "sunflower_seeds"
-ingredient_name = "Sunflower Seeds"
+name = "Sunflower Seeds"
 description = "Always faces the sun."
 stackSize = 5
 image = ExtResource("1_no2h0")

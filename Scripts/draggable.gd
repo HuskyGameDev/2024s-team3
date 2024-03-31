@@ -56,9 +56,10 @@ func data_updated():
 			colliderShape.radius = imageSize[0] / 2
 			$"Collider".set_shape(colliderShape)
 			$"DraggableSprite".texture = object_data.image
-		tooltip.set_text(
-			object_data.ingredient_name if object_type == "Ingredient" else object_data.potion_name, 
-			object_data.description)
+		if tooltip == null:
+			tooltip = tooltipScene.instantiate()
+		print(object_type)
+		tooltip.set_text(object_data.name, object_data.description)
 		
 func _on_mouse_entered():
 	if not beingHeld:

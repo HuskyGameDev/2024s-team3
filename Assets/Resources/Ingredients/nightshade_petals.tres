@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_tjkp2")
 id = "nightshade_petals"
-ingredient_name = "Nightshade Petals"
+name = "Nightshade Petals"
 description = "The opposite of what most believe them to be."
 stackSize = 5
 image = ExtResource("1_cmiml")
