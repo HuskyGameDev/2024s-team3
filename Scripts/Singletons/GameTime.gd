@@ -22,11 +22,9 @@ func _on_timer_timeout():
 		end_of_day.emit();
 		
 func _on_end_of_day():
-	print("End of day " + str(day));
 	day += 1;
 	self.stop();
 	
 func _on_start_of_day():
-	print("Start of day")
 	hour = STORE_OPEN_TIME;
 	self.start(GAME_TIME_SCALE);

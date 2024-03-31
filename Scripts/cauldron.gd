@@ -18,7 +18,6 @@ func _on_body_enter_cauldron(body):
 		var addedIngredient = body.get("object_data")
 		body.queue_free()
 		currentIngredients.push_back(addedIngredient.id)
-		print(addedIngredient.name + " entered cauldron")
 
 
 func _on_cauldron_input_event(_viewport, _event, _shape_idx):
@@ -29,11 +28,6 @@ func _on_cauldron_input_event(_viewport, _event, _shape_idx):
 
 func check_potion_made():
 	currentIngredients.sort() # Sorts the array of ingredients
-	print("Current Ingredients: ")
-	for ingredient in currentIngredients:
-		print(ingredient)
-	if currentIngredients.size() == 0:
-		print("None")
 	
 	var made_potion = RecipeData.recipes.get(currentIngredients.hash()) # Hashes the array of ingredients and finds the corresponding recipe
 	
@@ -44,10 +38,8 @@ func check_potion_made():
 	"""
 	if made_potion:
 		potion_made.emit(made_potion)
-		print("Made Potion:")
-		print(made_potion.name)
 	else:
-		print("Did not make potion")
+		pass
 		# TODO: Actually find what failed potion was made
 	currentIngredients.clear()
 	

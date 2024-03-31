@@ -48,4 +48,3 @@ func _on_ped_pressed(item: Resource):
 
 func _on_shelf_body_entered(body):
 	body.rotation = 0
-	print("entered")

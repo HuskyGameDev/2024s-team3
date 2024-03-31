@@ -60,9 +60,7 @@ func spawn_customer():
 	custArray[0].customerName = customerNames[randi() % customerNames.size()] # set customer's name randomly
 	currentCustomer._setup(custArray[0])
 	
-	# print what the customer wants
-	print(currentCustomer.data.customerName, " wants a ", currentCustomer.data.order.name)
-	
+	# display what the customer wants
 	var currentTxtBox = txtBox.instantiate() # ready current textbox
 	var formatString = "%s wants a %s"
 	var actualString = formatString % [str(currentCustomer.data.customerName), str(currentCustomer.data.order.name)]
