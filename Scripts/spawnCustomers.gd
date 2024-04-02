@@ -15,19 +15,20 @@ var custArray:Array[Customer] = []
 var customerNames:Array[String] = []
 var customerSprites:Array[Texture2D] = []
 var currentCustomer
-var dupWalkSpeed
 var order
 
-var customerStartLocation = (Vector2(1200,50))
-var customerEndLocation = (Vector2(800,50)) 
-var customerWalkOutLocation = (Vector2(-700,50))
+var outWalkSpeed # start walking out from a standstill but not with constant acceleration, change speed when walking out 
+const customerStartLocation = (Vector2(1200,200))
+var customerEndLocation = (Vector2(400,60)) 
+var customerWalkOutLocation = (Vector2(-650, 150))
 
 var sizeOfCustomers = 3
 var t = 0.0 # interpolation t walk value for the x direction
-#var y = 0.0 # interpolation t up and down walk value for the y direction
+var o = 0.0
 
 signal orderToBell
 var walkOut
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready(): 
@@ -54,11 +55,15 @@ func _ready():
 	
 func spawn_customer():
 	# instatiate a customer scene
+	#print("start location is: ", customerStartLocation, " end is: ", customerEndLocation, " Walk out is: ", customerWalkOutLocation)
+	
 	walkOut = false
 	currentCustomer = customerScene.instantiate()
 	currentCustomer.set_sprite(customerSprites[randi() % customerSprites.size()]) # set customer's sprite randomly
 	currentCustomer.position = customerStartLocation
 	add_child(currentCustomer) # add new customer to the main scene so you can see it
+	
+	print("valid cust? ",is_instance_valid(currentCustomer))
 	
 	# set up the customer's data
 	custArray[0].customerName = customerNames[randi() % customerNames.size()] # set customer's name randomly
@@ -75,54 +80,45 @@ func spawn_customer():
 	order = currentCustomer.data.order.name
 	orderToBell.emit(order)
 	
-	dupWalkSpeed = currentCustomer.data.walkSpeed/2
-	
-	
-func _physics_process(delta): # testing a small movement without animating it, copium
-	# x
-	if(t < 1.7 && !walkOut):
-		t += (delta * (currentCustomer.data.walkSpeed) )
-		#print(t) 
-		currentCustomer.position = customerStartLocation.lerp(customerEndLocation, t) 
-	
-	# y slow down walk at the end, and move in y direction
-	elif !walkOut:
-		customerEndLocation.y += 1
-		if(currentCustomer.data.walkSpeed > 1 ):
-			currentCustomer.data.walkSpeed -= .1
-		
-		t += (delta * (currentCustomer.data.walkSpeed) )
-		#print(t) 
-		currentCustomer.position = customerStartLocation.lerp(customerEndLocation, t) 
-		
-	if (t >= 2 || t < 0 && !walkOut):
-		set_physics_process(false)
-		currentCustomer.data.walkSpeed = currentCustomer.data.walkSpeed / 60
-		t = 0
-	
+	outWalkSpeed = currentCustomer.data.walkSpeed / 80
+	print("outwalkspeed is: ", outWalkSpeed)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):# this didnt work in _physics_process? so here for now
+func _process(delta): 
+	# x
+	if(!walkOut): # walk in
+		if(t < 1):
+			t += (delta * (currentCustomer.data.walkSpeed))
+			#print(t) 
+			currentCustomer.position = customerStartLocation.lerp(customerEndLocation, t) 
+		
+		#=================================================# w / o
 	# x
 	if(walkOut): 
-		if(t < 1.7):
-			t += (delta * (currentCustomer.data.walkSpeed+.05) )
+		#print("o at walkouit is: ", o)
+		if(o < 1 ): 
+			o += (delta * (outWalkSpeed) ) 
+			if(outWalkSpeed < 2): # slower, interpole was too fast
+				outWalkSpeed += .005
 			#print(t) 
-			currentCustomer.position = currentCustomer.position.lerp(customerWalkOutLocation, t) 
+			currentCustomer.position = customerEndLocation.lerp(customerWalkOutLocation, o) # careful child and parent coordinate issues
 			
-	if(currentCustomer.position.x <= customerWalkOutLocation.x && walkOut):
-		walkOut = false
-		t = 0
-		print("stop")
-		nextCust()
+		if(o >= 1):
+			nextCust()
+
 
 func _on_ring_bell_correct_go_to_cust_spawner(): # code gets here when there is a correct order
 	print(currentCustomer.data.customerName, " recieved a ",  order)
 	walkOut = true
+	o = 0 # need a reset
 	
 #func wait(seconds: float) -> void:
 	#await get_tree().create_timer(seconds).timeout
 
 func nextCust():
 	currentCustomer.queue_free()
+	t = 0
+	o = 0
 	spawn_customer()
+	

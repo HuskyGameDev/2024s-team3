@@ -1,7 +1,7 @@
 extends Sprite2D
 # creates generic customers 
 
-var potionsRecieved: Array[String] = [] # Add potion recieved to an array for storage, can combine or add to one main array in the future to keep track of all potions
+#var potionsRecieved: Array[String] = [] # Add potion recieved to an array for storage, can combine or add to one main array in the future to keep track of all potions
 var data:Customer 
 
 func _setup(customerData: Customer):
