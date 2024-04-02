@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://durlklodcw2nc"]
 
-[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_yg02t"]
+[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_kh3a4"]
 
 [resource]
-script = ExtResource("1_yg02t")
+script = ExtResource("1_kh3a4")
 id = "lupin_crop"
 name = "Lupin Crop"
 description = "Strong taste, strong will."
