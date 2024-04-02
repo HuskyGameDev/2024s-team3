@@ -1,33 +1,33 @@
 [gd_resource type="Resource" script_class="Location" load_steps=9 format=3 uid="uid://dtmqwdycxf4rm"]
 
-[ext_resource type="Resource" uid="uid://d3fupcelkjl7c" path="res://Assets/Resources/Potions/healing_potion.tres" id="1_e7j3w"]
-[ext_resource type="Script" path="res://Scripts/Types/customer_data.gd" id="2_sd6jm"]
-[ext_resource type="Resource" uid="uid://j1712o0cshou" path="res://Assets/Resources/Potions/swiftness_potion.tres" id="3_2wb8j"]
-[ext_resource type="Resource" uid="uid://c3557v37n0qi0" path="res://Assets/Resources/Ingredients/burdock_root.tres" id="4_eemn6"]
-[ext_resource type="Resource" uid="uid://cugyrbnghr2mb" path="res://Assets/Resources/Ingredients/thistle_root.tres" id="5_wvefy"]
-[ext_resource type="Script" path="res://Scripts/Types/location_data.gd" id="6_kuq4t"]
+[ext_resource type="Resource" uid="uid://d3fupcelkjl7c" path="res://Assets/Resources/Potions/healing_potion.tres" id="1_bisq4"]
+[ext_resource type="Script" path="res://Scripts/Types/customer_data.gd" id="2_agvqb"]
+[ext_resource type="Resource" uid="uid://j1712o0cshou" path="res://Assets/Resources/Potions/swiftness_potion.tres" id="3_fymwn"]
+[ext_resource type="Resource" uid="uid://c3557v37n0qi0" path="res://Assets/Resources/Ingredients/burdock_root.tres" id="4_pwjcl"]
+[ext_resource type="Resource" uid="uid://cugyrbnghr2mb" path="res://Assets/Resources/Ingredients/thistle_root.tres" id="5_pr1ya"]
+[ext_resource type="Script" path="res://Scripts/Types/location_data.gd" id="6_1swpe"]
 
-[sub_resource type="Resource" id="Resource_y184g"]
-script = ExtResource("2_sd6jm")
-order = ExtResource("1_e7j3w")
+[sub_resource type="Resource" id="Resource_0yca8"]
+script = ExtResource("2_agvqb")
+order = ExtResource("1_bisq4")
 orderPrice = 15
 reputationChange = 10
 
-[sub_resource type="Resource" id="Resource_jow08"]
-script = ExtResource("2_sd6jm")
-order = ExtResource("3_2wb8j")
+[sub_resource type="Resource" id="Resource_3elro"]
+script = ExtResource("2_agvqb")
+order = ExtResource("3_fymwn")
 orderPrice = 10
 reputationChange = 5
 
 [resource]
-script = ExtResource("6_kuq4t")
+script = ExtResource("6_1swpe")
 id = "grassy_clearing"
 name = "Grassy Clearing"
 forage_table = {
-"common": [ExtResource("4_eemn6")],
+"common": [ExtResource("4_pwjcl")],
 "rare": [],
 "super_rare": [],
-"uncommon": [ExtResource("5_wvefy")]
+"uncommon": [ExtResource("5_pr1ya")]
 }
 ingredients_shop_table = {
 "common": [{
@@ -42,8 +42,8 @@ ingredients_shop_table = {
 "uncommon": []
 }
 customer_request_table = {
-"common": [SubResource("Resource_y184g")],
+"common": [SubResource("Resource_0yca8")],
 "rare": [],
-"super_rare": [SubResource("Resource_jow08")],
+"super_rare": [SubResource("Resource_3elro")],
 "uncommon": []
 }

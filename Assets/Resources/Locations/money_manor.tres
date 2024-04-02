@@ -1,22 +1,22 @@
 [gd_resource type="Resource" script_class="Location" load_steps=6 format=3 uid="uid://cfq4sndagbclp"]
 
-[ext_resource type="Resource" uid="uid://d3fupcelkjl7c" path="res://Assets/Resources/Potions/healing_potion.tres" id="1_jruby"]
-[ext_resource type="Script" path="res://Scripts/Types/customer_data.gd" id="2_0wh1f"]
-[ext_resource type="Resource" uid="uid://c3557v37n0qi0" path="res://Assets/Resources/Ingredients/burdock_root.tres" id="3_pda4l"]
-[ext_resource type="Script" path="res://Scripts/Types/location_data.gd" id="4_8i0mg"]
+[ext_resource type="Resource" uid="uid://d3fupcelkjl7c" path="res://Assets/Resources/Potions/healing_potion.tres" id="1_lscg0"]
+[ext_resource type="Script" path="res://Scripts/Types/customer_data.gd" id="2_b1veg"]
+[ext_resource type="Resource" uid="uid://c3557v37n0qi0" path="res://Assets/Resources/Ingredients/burdock_root.tres" id="3_md1k1"]
+[ext_resource type="Script" path="res://Scripts/Types/location_data.gd" id="4_1dmit"]
 
-[sub_resource type="Resource" id="Resource_nlgi4"]
-script = ExtResource("2_0wh1f")
-order = ExtResource("1_jruby")
+[sub_resource type="Resource" id="Resource_xyg81"]
+script = ExtResource("2_b1veg")
+order = ExtResource("1_lscg0")
 orderPrice = 15
 reputationChange = 10
 
 [resource]
-script = ExtResource("4_8i0mg")
+script = ExtResource("4_1dmit")
 id = "money_manor"
 name = "Money Manor"
 forage_table = {
-"common": [ExtResource("3_pda4l")],
+"common": [ExtResource("3_md1k1")],
 "rare": [],
 "super_rare": [],
 "uncommon": []
@@ -31,7 +31,7 @@ ingredients_shop_table = {
 "uncommon": []
 }
 customer_request_table = {
-"common": [SubResource("Resource_nlgi4")],
+"common": [SubResource("Resource_xyg81")],
 "rare": [],
 "super_rare": [],
 "uncommon": []

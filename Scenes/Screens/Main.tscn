@@ -165,10 +165,10 @@ shape = SubResource("RectangleShape2D_jquh8")
 
 [node name="ringBell" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 100)
-offset_left = 276.0
-offset_top = 289.0
-offset_right = 376.0
-offset_bottom = 389.0
+offset_left = 271.0
+offset_top = 290.0
+offset_right = 371.0
+offset_bottom = 390.0
 toggle_mode = true
 text = "ring"
 script = ExtResource("13_klo3p")

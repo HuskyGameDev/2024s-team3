@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://j1712o0cshou"]
 
-[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_2d6v6"]
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_gsgo0"]
 
 [resource]
-script = ExtResource("1_2d6v6")
+script = ExtResource("1_gsgo0")
 id = "swiftness_potion"
 name = "Swiftness Potion"
 description = "Grants a nice burst of speed."
