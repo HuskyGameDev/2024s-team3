@@ -116,26 +116,6 @@ offset_bottom = 865.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Ingredient" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(1577, 891)
-data = ExtResource("5_136gt")
-
-[node name="Ingredient2" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(159, 897)
-data = ExtResource("6_u3n4o")
-
-[node name="Ingredient3" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(294, 892)
-data = ExtResource("7_1j6wr")
-
-[node name="Ingredient4" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(429, 896)
-data = ExtResource("8_ufrn0")
-
-[node name="Ingredient5" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(541, 874)
-data = ExtResource("6_w60o3")
-
 [node name="Pedestal" type="Button" parent="."]
 offset_left = 372.0
 offset_top = 538.0
@@ -162,6 +142,26 @@ collision_mask = 2147483648
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pedestal/InvArea"]
 position = Vector2(52.875, 49.875)
 shape = SubResource("RectangleShape2D_jquh8")
+
+[node name="Ingredient" parent="." instance=ExtResource("4_spw6y")]
+position = Vector2(1577, 891)
+data = ExtResource("5_136gt")
+
+[node name="Ingredient2" parent="." instance=ExtResource("4_spw6y")]
+position = Vector2(159, 897)
+data = ExtResource("6_u3n4o")
+
+[node name="Ingredient3" parent="." instance=ExtResource("4_spw6y")]
+position = Vector2(294, 892)
+data = ExtResource("7_1j6wr")
+
+[node name="Ingredient4" parent="." instance=ExtResource("4_spw6y")]
+position = Vector2(429, 896)
+data = ExtResource("8_ufrn0")
+
+[node name="Ingredient5" parent="." instance=ExtResource("4_spw6y")]
+position = Vector2(541, 874)
+data = ExtResource("6_w60o3")
 
 [node name="ringBell" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 100)

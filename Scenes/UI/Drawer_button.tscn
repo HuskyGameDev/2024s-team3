@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ty3ib64sn5o4"]
 
 [ext_resource type="Script" path="res://Scripts/InventoryButton.gd" id="1_3je7l"]
-[ext_resource type="Theme" uid="uid://pfkwq4x1374y" path="res://Assets/Themes/UiTheme.tres" id="1_8xihf"]
+[ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://Assets/Themes/UiTheme.tres" id="1_8xihf"]
 [ext_resource type="Script" path="res://Scripts/dragIcon.gd" id="2_gh42m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m3nvt"]

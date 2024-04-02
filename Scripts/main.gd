@@ -1,6 +1,6 @@
 extends Node2D
 
-var potionScene = preload("res://Scenes/Potion.tscn")
+var PotionScene = preload("res://Scenes/Potion.tscn")
 var IngredientScene = preload("res://Scenes/Ingredient.tscn")
 
 func _ready():
@@ -11,7 +11,7 @@ func _ready():
 	pedestal.make_ped_object.connect(_on_ped_pressed) #moving object out of pedestal
 	
 func _on_cauldron_potion_made(potion:Potion):
-	var newPotionObj = potionScene.instantiate()
+	var newPotionObj = PotionScene.instantiate()
 	newPotionObj.setType(potion)
 	newPotionObj.global_position = $"Cauldron".global_position - Vector2(0, 100)
 	add_child(newPotionObj)
@@ -41,8 +41,8 @@ func _on_inv_dragged(inv_slot):
 		PlayerData.write_inv(inv_data)
 
 func _on_ped_pressed(item: Resource):
-	var newItem = IngredientScene.instantiate()
-	newItem.data = item
+	var newItem = PotionScene.instantiate()
+	newItem.setType(item)
 	newItem.global_position = get_viewport().get_mouse_position()
 	add_child(newItem)
 
