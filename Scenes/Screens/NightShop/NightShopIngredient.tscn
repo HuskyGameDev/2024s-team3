@@ -79,7 +79,7 @@ text = "-"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 45
 text = "0"
 horizontal_alignment = 1
 
@@ -88,3 +88,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "+"
+
+[connection signal="pressed" from="AmountHBox/DecreaseButton" to="." method="_on_decrease_button_pressed"]
+[connection signal="pressed" from="AmountHBox/IncreaseButton" to="." method="_on_increase_button_pressed"]
