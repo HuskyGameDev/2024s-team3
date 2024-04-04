@@ -16,14 +16,17 @@ theme = ExtResource("1_egalq")
 script = ExtResource("2_xan1k")
 
 [node name="NameLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
+offset_left = -20.0
+offset_right = 20.0
 offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 38
-text = "Sunflower Seeds - $3"
+text = "Nightshade Petals - $31"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
