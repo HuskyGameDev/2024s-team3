@@ -1,53 +1,73 @@
-[gd_scene load_steps=2 format=3 uid="uid://dri47pkc6vp4w"]
+[gd_scene load_steps=4 format=3 uid="uid://dri47pkc6vp4w"]
 
-[ext_resource type="Texture2D" uid="uid://cpiu2shqy8d6l" path="res://Assets/Sprites/Ingredient Default.png" id="1_wskf1"]
+[ext_resource type="Theme" uid="uid://c4l3g5vcxwkhn" path="res://Assets/Themes/NightMenuTheme.tres" id="1_egalq"]
+[ext_resource type="Texture2D" uid="uid://bgr0j54ert0ee" path="res://Assets/Sprites/Ingredients/pine_resin.png" id="2_o2tt0"]
+[ext_resource type="Script" path="res://Scripts/nightShopIngredient.gd" id="2_xan1k"]
 
-[node name="NightShopIngredient" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="NightShopIngredient" type="VBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+offset_right = 290.0
+offset_bottom = 431.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("1_egalq")
+alignment = 1
+script = ExtResource("2_xan1k")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="NameLabel" type="Label" parent="VBoxContainer"]
+[node name="NameLabel" type="Label" parent="."]
 layout_mode = 2
+theme_override_font_sizes/font_size = 40
 text = "Sunflower Seeds - $3"
+horizontal_alignment = 1
+autowrap_mode = 3
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+[node name="ImageMargin" type="MarginContainer" parent="."]
 layout_mode = 2
-texture = ExtResource("1_wskf1")
-expand_mode = 5
-stretch_mode = 6
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
 
-[node name="AmountForSaleLabel" type="Label" parent="VBoxContainer"]
+[node name="ImageContainer" type="PanelContainer" parent="ImageMargin"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ImageMargin/ImageContainer"]
+layout_mode = 2
+texture = ExtResource("2_o2tt0")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="AmountForSaleLabel" type="Label" parent="ImageMargin/ImageContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 48
 text = "5"
 horizontal_alignment = 2
 
-[node name="AmountHBox" type="HBoxContainer" parent="VBoxContainer"]
+[node name="AmountHBox" type="HBoxContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 4
 
-[node name="DecreaseButton" type="Button" parent="VBoxContainer/AmountHBox"]
+[node name="DecreaseButton" type="Button" parent="AmountHBox"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 48
 text = "-"
 
-[node name="QuantityLabel" type="Label" parent="VBoxContainer/AmountHBox"]
+[node name="QuantityLabel" type="Label" parent="AmountHBox"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme_override_font_sizes/font_size = 48
 text = "0"
+horizontal_alignment = 1
 
-[node name="IncreaseButton" type="Button" parent="VBoxContainer/AmountHBox"]
+[node name="IncreaseButton" type="Button" parent="AmountHBox"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 48
 text = "+"
 
-[node name="TotalCostLabel" type="Label" parent="VBoxContainer"]
+[node name="TotalCostLabel" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
 text = "$0"

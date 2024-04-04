@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2j3rg4f5xnau"]
+[gd_scene load_steps=3 format=3 uid="uid://d2j3rg4f5xnau"]
 
 [ext_resource type="Script" path="res://Scripts/nightShop.gd" id="1_0wg31"]
+[ext_resource type="Theme" uid="uid://c4l3g5vcxwkhn" path="res://Assets/Themes/NightMenuTheme.tres" id="1_lylop"]
 
 [node name="NightShop" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_lylop")
 script = ExtResource("1_0wg31")
 
 [node name="ShopNameLabel" type="Label" parent="."]
@@ -45,3 +47,15 @@ text = "Total $24"
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Buy"
+
+[node name="OfferingsHBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -217.0
+offset_bottom = 217.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
