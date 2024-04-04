@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/spawnCustomers.gd" id="7_bs1qt"]
 [ext_resource type="Resource" uid="uid://bs5kplnr37gpi" path="res://Assets/Resources/Ingredients/sunflower_seeds.tres" id="8_ufrn0"]
 [ext_resource type="PackedScene" uid="uid://br236elfur261" path="res://Scenes/UI/Drawer.tscn" id="10_tnf6t"]
-[ext_resource type="Script" path="res://Scenes/Screens/ringBell.gd" id="13_klo3p"]
+[ext_resource type="Script" path="res://Scripts/ringBell.gd" id="13_klo3p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aqou"]
 size = Vector2(417, 39.5)
