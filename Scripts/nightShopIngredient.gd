@@ -12,5 +12,5 @@ func setData(offering:Dictionary):
 	
 func _updateLabels():
 	$"NameLabel".text = item.name + " - $" + str(cost)
-	$"ImageMargin/ImageContainer/AmountForSaleLabel".text = str(quantity)
-	$"ImageMargin/ImageContainer/TextureRect".texture = item.image
+	$"AmountForSaleLabel".text = str(quantity)
+	$"ItemTexture".texture = item.image
