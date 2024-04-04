@@ -15,7 +15,6 @@ var custArray:Array[Customer] = []
 var customerNames:Array[String] = []
 var customerSprites:Array[Texture2D] = []
 var currentCustomer
-var order
 
 var outWalkSpeed # start walking out from a standstill but not with constant acceleration, change speed when walking out 
 const customerStartLocation = (Vector2(1200,200))
@@ -77,8 +76,7 @@ func spawn_customer():
 	add_child(currentTxtBox) # show 
 	
 	# send data to Bell 
-	order = currentCustomer.data.order.name
-	orderToBell.emit(order)
+	orderToBell.emit(currentCustomer.data)
 	
 	outWalkSpeed = currentCustomer.data.walkSpeed / 80
 	print("outwalkspeed is: ", outWalkSpeed)
@@ -109,7 +107,7 @@ func _process(delta):
 
 
 func _on_ring_bell_correct_go_to_cust_spawner(): # code gets here when there is a correct order
-	print(currentCustomer.data.customerName, " recieved a ",  order)
+	print(currentCustomer.data.customerName, " recieved a ",  currentCustomer.data.order.name)
 	walkOut = true
 	o = 0 # need a reset
 	

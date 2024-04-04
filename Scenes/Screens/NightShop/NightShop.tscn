@@ -62,3 +62,5 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
 alignment = 1
+
+[connection signal="pressed" from="TotalInfoVBox/BuyButton" to="." method="_on_buy_button_pressed"]

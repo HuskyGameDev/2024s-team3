@@ -43,3 +43,7 @@ func _on_button_up():
 		dragging = null
 		curIcon.texture = null
 		
+
+func _on_customer_take_potion():
+	curIcon.texture = null
+	item == null

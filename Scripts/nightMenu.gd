@@ -8,7 +8,7 @@ func _on_forage_button_pressed():
 	var foragedItems = PlayerData.save.currentLocation.forage_items(3)
 	for i in foragedItems:
 		PlayerData.add_item_to_inventory(i, 1);
-	PlayerData._on_end_of_day()
+	PlayerData.save_game()
 	get_tree().change_scene_to_file("res://Scenes/Screens/Main.tscn")
 
 

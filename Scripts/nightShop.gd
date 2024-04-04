@@ -15,6 +15,7 @@ func _ready():
 		var newOffering = offeringScene.instantiate()
 		newOffering.call("setData", i)
 		hbox.add_child(newOffering)
+		newOffering.add_to_group("ingredientsForSale")
 		newOffering.totalChanged.connect(_updateTotal)
 	hbox.move_child(hbox.add_spacer(true), floor(NUMBER_OF_ITEMS/2))
 
@@ -22,3 +23,12 @@ func _ready():
 func _updateTotal(changeAmount:int):
 	totalCost += changeAmount
 	totalCostLabel.text = "Total $" + str(totalCost)
+	
+
+func _on_buy_button_pressed():
+	if PlayerData.save.money >= totalCost:
+		get_tree().call_group("ingredientsForSale", "handlePurchase")
+		PlayerData.save.money -= totalCost
+		get_tree().change_scene_to_file("res://Scenes/Screens/Main.tscn")
+	else:
+		print("Not enough money")

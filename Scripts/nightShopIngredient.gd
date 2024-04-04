@@ -22,12 +22,16 @@ func setData(offering:Dictionary):
 	self.item = offering.get("item")
 	self.quantityBuying = 0
 	_updateLabels()
-	
+
+func handlePurchase():
+	PlayerData.add_item_to_inventory(item, quantityBuying);
+	PlayerData.save_game()
+
+
 func _updateLabels():
 	$"NameLabel".text = item.name + " - $" + str(cost)
 	$"ItemTexture/AmountForSaleLabel".text = str(quantityAvailable)
 	$"ItemTexture".texture = item.image
-
 
 func _on_decrease_button_pressed():
 	quantityBuying -= 1
