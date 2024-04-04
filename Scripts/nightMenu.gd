@@ -1,9 +1,7 @@
 extends Node
 
-
 func _on_buy_button_pressed():
-	print("buying ingredients not implemented yet")
-	get_tree().change_scene_to_file("res://Scenes/Screens/Main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Screens/NightShop/NightShop.tscn")
 
 
 func _on_forage_button_pressed():

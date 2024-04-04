@@ -3,17 +3,17 @@
 [ext_resource type="Resource" uid="uid://d3fupcelkjl7c" path="res://Assets/Resources/Potions/healing_potion.tres" id="1_bisq4"]
 [ext_resource type="Script" path="res://Scripts/Types/customer_data.gd" id="2_agvqb"]
 [ext_resource type="Resource" uid="uid://j1712o0cshou" path="res://Assets/Resources/Potions/swiftness_potion.tres" id="3_fymwn"]
-[ext_resource type="Resource" uid="uid://c3557v37n0qi0" path="res://Assets/Resources/Ingredients/burdock_root.tres" id="4_pwjcl"]
+[ext_resource type="Resource" uid="uid://b5w54ye34m24m" path="res://Assets/Resources/Ingredients/nightshade_petals.tres" id="4_v6rii"]
 [ext_resource type="Resource" uid="uid://cugyrbnghr2mb" path="res://Assets/Resources/Ingredients/thistle_root.tres" id="5_pr1ya"]
 [ext_resource type="Script" path="res://Scripts/Types/location_data.gd" id="6_1swpe"]
 
-[sub_resource type="Resource" id="Resource_0yca8"]
+[sub_resource type="Resource" id="Resource_kqjkh"]
 script = ExtResource("2_agvqb")
 order = ExtResource("1_bisq4")
 orderPrice = 15
 reputationChange = 10
 
-[sub_resource type="Resource" id="Resource_3elro"]
+[sub_resource type="Resource" id="Resource_a8h6p"]
 script = ExtResource("2_agvqb")
 order = ExtResource("3_fymwn")
 orderPrice = 10
@@ -24,26 +24,28 @@ script = ExtResource("6_1swpe")
 id = "grassy_clearing"
 name = "Grassy Clearing"
 forage_table = {
-"common": [ExtResource("4_pwjcl")],
+"common": [ExtResource("4_v6rii")],
 "rare": [],
 "super_rare": [],
 "uncommon": [ExtResource("5_pr1ya")]
 }
 ingredients_shop_table = {
 "common": [{
-"cost": 5.0,
-"item": "burdock_root"
-}, {
 "cost": 10.0,
-"item": "nightshade_petals"
+"item": ExtResource("4_v6rii"),
+"quantity": 5.0
+}, {
+"cost": 5.0,
+"item": ExtResource("5_pr1ya"),
+"quantity": 10.0
 }],
 "rare": [],
 "super_rare": [],
 "uncommon": []
 }
 customer_request_table = {
-"common": [SubResource("Resource_0yca8")],
+"common": [SubResource("Resource_kqjkh")],
 "rare": [],
-"super_rare": [SubResource("Resource_3elro")],
+"super_rare": [SubResource("Resource_a8h6p")],
 "uncommon": []
 }

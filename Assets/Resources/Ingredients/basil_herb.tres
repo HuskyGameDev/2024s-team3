@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://r6xmjxasajlu"]
 
-[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_7pb5f"]
+[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_6cflq"]
 
 [resource]
-script = ExtResource("1_7pb5f")
+script = ExtResource("1_6cflq")
 id = "basil_herb"
 name = "Basil Herb"
 description = "Aromatic, with much more stored inside."
