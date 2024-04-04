@@ -92,3 +92,36 @@ func _on_end_of_day():
 func _on_potion_made(potion:Potion):
 	if not save.madePotions.has(potion.id):
 		save.madePotions.append(potion.id)
+
+func add_item_to_inventory(item : Resource, quantity : int):
+	var index = 0;
+	var inv_data = PlayerData.read_inv()	
+	for i in  inv_data: #find next available slot to put item
+		
+		var slotAmount = inv_data[i]["Quantity"]
+		if inv_data[i]["Item"] == item.id && slotAmount != item.stackSize: #if this ingredient already exists in inventory
+			if slotAmount + quantity > item.stackSize: #if adding this quantity to the amount in the stack would be larger than stack size
+				inv_data[i]["Quantity"] = item.stackSize #fill the slot
+				PlayerData.write_inv(inv_data)
+				add_item_to_inventory(item, slotAmount + quantity - item.stackSize) #add the rest to a different slot
+				break
+			else: #else just update the quantity
+				inv_data[i]["Quantity"] = slotAmount + quantity					
+				break
+		elif inv_data[i]["Item"] == null: #if this slot is empty 
+			if quantity > 0:
+				if quantity <= item.stackSize: #if quantity is not greater than allowed stack size add item to this slot
+
+					inv_data[i]["Item"] = item.id
+					inv_data[i]["Quantity"] = quantity					
+					break
+				else: #else add max stack size to this slot and add the excess to another slot
+					inv_data[i]["Item"] = item.id
+					inv_data[i]["Quantity"] = item.stackSize
+					PlayerData.write_inv(inv_data)
+					add_item_to_inventory(item, quantity - item.stackSize)
+					break
+			else:
+				return
+		index = index + 1
+	PlayerData.write_inv(inv_data)
