@@ -46,4 +46,4 @@ func _on_button_up():
 
 func _on_customer_take_potion():
 	curIcon.texture = null
-	item == null
+	item = null
