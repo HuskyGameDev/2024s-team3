@@ -8,6 +8,7 @@ var quantityBuying:int
 var increaseButton:Button
 var decreaseButton:Button
 var quantityLabel:Label
+signal totalChanged(changeAmount:int)
 
 func _ready():
 	increaseButton = $"AmountHBox/IncreaseButton"
@@ -31,10 +32,12 @@ func _updateLabels():
 func _on_decrease_button_pressed():
 	quantityBuying -= 1
 	_updateQuantityButtons()
+	totalChanged.emit(self.cost * -1)
 
 func _on_increase_button_pressed():
 	quantityBuying += 1
 	_updateQuantityButtons()
+	totalChanged.emit(self.cost)
 
 func _updateQuantityButtons():
 	quantityLabel.text = str(quantityBuying)
