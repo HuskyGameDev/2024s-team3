@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=21 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_0ufrw"]
 [ext_resource type="Texture2D" uid="uid://dbueov7x0qeqe" path="res://Assets/Sprites/320x180 Vision.png" id="2_u1ul0"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://bs5kplnr37gpi" path="res://Assets/Resources/Ingredients/sunflower_seeds.tres" id="8_ufrn0"]
 [ext_resource type="PackedScene" uid="uid://br236elfur261" path="res://Scenes/UI/Drawer.tscn" id="10_tnf6t"]
 [ext_resource type="Script" path="res://Scripts/ringBell.gd" id="13_klo3p"]
+[ext_resource type="PackedScene" uid="uid://cqjv8jg1x3rnd" path="res://Scenes/Crucible.tscn" id="15_a4pmo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aqou"]
 size = Vector2(417, 39.5)
@@ -180,6 +181,10 @@ toggle_mode = true
 text = "ring"
 script = ExtResource("13_klo3p")
 
+[node name="Crucible" parent="." instance=ExtResource("15_a4pmo")]
+position = Vector2(1350, 950)
+scale = Vector2(3, 3)
+
 [connection signal="orderToBell" from="CustomerSpawner" to="ringBell" method="_on_customer_spawner_order_to_bell"]
 [connection signal="potion_made" from="Cauldron" to="." method="_on_cauldron_potion_made"]
 [connection signal="body_entered" from="shelfArea" to="." method="_on_shelf_body_entered"]
@@ -191,3 +196,4 @@ script = ExtResource("13_klo3p")
 [connection signal="input_event" from="Pedestal/InvArea" to="Pedestal" method="_on_inv_area_input_event"]
 [connection signal="CorrectGoToCustSpawner" from="ringBell" to="CustomerSpawner" method="_on_ring_bell_correct_go_to_cust_spawner"]
 [connection signal="CorrectGoToCustSpawner" from="ringBell" to="Pedestal" method="_on_customer_take_potion"]
+[connection signal="salt_made" from="Crucible" to="." method="_on_crucible_salt_made"]

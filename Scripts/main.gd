@@ -22,6 +22,12 @@ func _on_cauldron_potion_made(potion:Potion):
 		throwAngle *= -1
 	newPotionObj.rigidbody.apply_central_impulse(Vector2(throwAngle, -2000))
 
+func _on_crucible_salt_made(salt:String):
+	var newSalt = IngredientScene.instantiate()
+	newSalt.data = ResourceLoader.load("res://Assets/Resources/Ingredients/" + salt + ".tres")
+	newSalt.global_position = $"Crucible".global_position - Vector2(0,20)
+	add_child(newSalt)
+
 func _on_inv_dragged(inv_slot):
 	print(inv_slot)
 	var inv_data = PlayerData.read_inv()
