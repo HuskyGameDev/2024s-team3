@@ -125,3 +125,15 @@ func add_item_to_inventory(item : Resource, quantity : int):
 				return
 		index = index + 1
 	PlayerData.write_inv(inv_data)
+
+
+############# Save Getters/Setters ##############
+signal moneyChanged(newValue: int)
+signal reputationChanged(newValue: int)
+
+func changeMoney(amount:int):
+	self.save.money += amount
+	moneyChanged.emit(self.save.money)
+func changeReputation(amount:int):
+	self.save.reputation += amount
+	reputationChanged.emit(self.save.reputation)

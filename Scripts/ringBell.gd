@@ -23,7 +23,7 @@ func _pressed():
 		print("correct order!")
 		CorrectGoToCustSpawner.emit() # send another one, get ride of this guy 
 		potionOnPedestal = ""
-		PlayerData.save.money += orderPrice
-		PlayerData.save.reputation += orderRep
+		PlayerData.changeMoney(orderPrice)
+		PlayerData.changeReputation(orderRep)
 	else:
-		PlayerData.save.reputation -= orderRep
+		PlayerData.changeReputation(orderRep * -1)
