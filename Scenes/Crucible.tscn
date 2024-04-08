@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cqjv8jg1x3rnd"]
 
 [ext_resource type="Script" path="res://Scripts/crucible.gd" id="1_5q32n"]
-[ext_resource type="Texture2D" uid="uid://b0ro8jlwbht4t" path="res://Assets/Sprites/crucible.png" id="1_brmj7"]
+[ext_resource type="Texture2D" uid="uid://6ecfn6p7prhy" path="res://Assets/Sprites/Crucibles/WaterCrucible.png" id="2_r8a7q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t0ees"]
 radius = 17.0
@@ -11,7 +11,7 @@ height = 45.0
 script = ExtResource("1_5q32n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_brmj7")
+texture = ExtResource("2_r8a7q")
 
 [node name="Area2D" type="Area2D" parent="."]
 

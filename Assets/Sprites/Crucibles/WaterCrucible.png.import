@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0ro8jlwbht4t"
-path="res://.godot/imported/crucible.png-020988962b48cca1ee5634b43ec0b217.ctex"
+uid="uid://6ecfn6p7prhy"
+path="res://.godot/imported/WaterCrucible.png-5e1e832c1ad462479e950993ed274fa1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/crucible.png"
-dest_files=["res://.godot/imported/crucible.png-020988962b48cca1ee5634b43ec0b217.ctex"]
+source_file="res://Assets/Sprites/Crucibles/WaterCrucible.png"
+dest_files=["res://.godot/imported/WaterCrucible.png-5e1e832c1ad462479e950993ed274fa1.ctex"]
 
 [params]
 
