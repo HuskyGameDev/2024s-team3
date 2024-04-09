@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2qo8furksvda"]
+
+[ext_resource type="Texture2D" uid="uid://c1na8wlk3ld7h" path="res://Assets/Sprites/icon.svg" id="1_mbp5p"]
+[ext_resource type="Script" path="res://Scripts/Time Circles.gd" id="2_57000"]
+[ext_resource type="Script" path="res://Scripts/Time Symbol.gd" id="3_k62wx"]
+
+[node name="Clock" type="Node2D"]
+position = Vector2(708, 662)
+
+[node name="Clock Face" type="Sprite2D" parent="."]
+texture = ExtResource("1_mbp5p")
+
+[node name="Time Circles" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_mbp5p")
+script = ExtResource("2_57000")
+
+[node name="Time Symbol" type="Sprite2D" parent="Time Circles"]
+scale = Vector2(2.61719, 0.185547)
+texture = ExtResource("1_mbp5p")
+script = ExtResource("3_k62wx")
+
+[node name="Time Circles2" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_mbp5p")
+script = ExtResource("2_57000")
+
+[node name="Time Symbol" type="Sprite2D" parent="Time Circles2"]
+scale = Vector2(2.61719, 0.185547)
+texture = ExtResource("1_mbp5p")
+script = ExtResource("3_k62wx")
