@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://c4l3g5vcxwkhn"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://c4l3g5vcxwkhn"]
 
 [ext_resource type="FontFile" uid="uid://b7v1xeoebsq10" path="res://Assets/Themes/Fonts/User_Interface.ttf" id="1_bhdm5"]
 
@@ -61,6 +61,9 @@ corner_radius_bottom_left = 25
 shadow_size = 5
 shadow_offset = Vector2(0, 5)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i320g"]
+bg_color = Color(0.254902, 0.14902, 0.00392157, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vu7k"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
@@ -72,4 +75,5 @@ Button/styles/hover = SubResource("StyleBoxFlat_7gihq")
 Button/styles/normal = SubResource("StyleBoxFlat_fui6b")
 Button/styles/pressed = SubResource("StyleBoxFlat_h1blo")
 Label/fonts/font = ExtResource("1_bhdm5")
+Panel/styles/panel = SubResource("StyleBoxFlat_i320g")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_7vu7k")
