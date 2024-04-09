@@ -4,7 +4,7 @@ var PotionScene = preload("res://Scenes/Potion.tscn")
 var IngredientScene = preload("res://Scenes/Ingredient.tscn")
 
 func _ready():
-
+	GameTime.start_day()
 	GameTime.end_of_day.connect(func(): get_tree().change_scene_to_file("res://Scenes/Screens/NightMenu.tscn"));
 	var drawer = get_node("Drawer-inventory")
 	var pedestal = get_node("Pedestal")
