@@ -30,6 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="M" type="MarginContainer" parent="Background"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 19
 theme_override_constants/margin_top = 11
