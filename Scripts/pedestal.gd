@@ -37,7 +37,7 @@ func _on_inv_area_input_event(_viewport, event, _shape_idx):
 
 func _on_button_up():
 	if held != null and item != null:
-		make_ped_object.emit(item) # fix, object spits out an object of type ingredient. Needs to be potion
+		make_ped_object.emit(item) 
 		held = null
 		item = null
 		dragging = null
@@ -47,3 +47,4 @@ func _on_button_up():
 func _on_customer_take_potion():
 	curIcon.texture = null
 	item = null
+	held = null
