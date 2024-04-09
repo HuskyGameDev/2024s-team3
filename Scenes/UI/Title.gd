@@ -1,5 +1,4 @@
 extends Control
-var main_scene = preload("res://Scenes/Screens/Main.tscn").instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,10 +11,7 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	get_tree().get_root().add_child(main_scene)
-	get_tree().change_scene_to_packed(main_scene)
-	#get_tree().remove_child("/root/Title")
-	get_node("/root/Title").queue_free()
+	get_tree().change_scene_to_file("res://Scenes/Screens/Main.tscn")
 
 
 func _on_exit_pressed():
