@@ -18,7 +18,7 @@ var currentCustomer
 
 var outWalkSpeed # start walking out from a standstill but not with constant acceleration, change speed when walking out 
 const customerStartLocation = (Vector2(1200,200))
-var customerEndLocation = (Vector2(400,60)) 
+var customerEndLocation = (Vector2(400,170)) 
 var customerWalkOutLocation = (Vector2(-650, 150))
 
 var sizeOfCustomers = 3
