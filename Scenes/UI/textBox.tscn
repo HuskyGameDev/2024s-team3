@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccsccje0muvta"]
 
 [ext_resource type="Script" path="res://Scripts/textBox.gd" id="1_uhhou"]
-[ext_resource type="Theme" uid="uid://pfkwq4x1374y" path="res://Assets/Themes/UiTheme.tres" id="2_fbmh5"]
+[ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://Assets/Themes/UiTheme.tres" id="2_fbmh5"]
 
 [node name="TextBox" type="CanvasLayer"]
-offset = Vector2(-300, -650)
-transform = Transform2D(1, 0, 0, 1, -300, -650)
+offset = Vector2(-320, -670)
+transform = Transform2D(1, 0, 0, 1, -320, -670)
 script = ExtResource("1_uhhou")
 
 [node name="TextboxContainer" type="PanelContainer" parent="."]
@@ -13,10 +13,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 317.0
-offset_top = -371.0
-offset_right = -699.0
-offset_bottom = -121.0
+offset_left = 371.0
+offset_top = -381.0
+offset_right = -710.0
+offset_bottom = -271.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_fbmh5")
