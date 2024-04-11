@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://eucw2qo5ervs"]
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://b16csx7suov87"]
 
-[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_ao3n7"]
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_m8rrs"]
 
 [resource]
-script = ExtResource("1_ao3n7")
+script = ExtResource("1_m8rrs")
 id = "mage_potion"
 name = "Mage Potion"
 description = "For any magical battle-seeker."

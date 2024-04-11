@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://dwctx1cuwkrwm"]
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://dey88cumkusg2"]
 
-[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_je5mo"]
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_0mqnw"]
 
 [resource]
-script = ExtResource("1_je5mo")
+script = ExtResource("1_0mqnw")
 id = "luck_potion"
 name = "Luck Potion"
 description = "Fortune favors the brewer."

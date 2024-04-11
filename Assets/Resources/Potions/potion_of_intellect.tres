@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://7yu1xy6d02yx"]
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://bx80id0g57orb"]
 
-[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_scko2"]
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_0o0jt"]
 
 [resource]
-script = ExtResource("1_scko2")
+script = ExtResource("1_0o0jt")
 id = "potion_of_intellect"
 name = "Potion of Intellect"
 description = "When problems need to be solved."

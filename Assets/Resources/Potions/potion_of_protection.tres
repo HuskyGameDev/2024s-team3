@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://jh8344s50f5l"]
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://dc2h0y05xdj61"]
 
-[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_qqs7h"]
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_cidol"]
 
 [resource]
-script = ExtResource("1_qqs7h")
+script = ExtResource("1_cidol")
 id = "potion_of_protection"
 name = "Potion of Protection"
 description = "Stops any injury before it happens."

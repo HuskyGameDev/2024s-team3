@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=28 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_0ufrw"]
 [ext_resource type="Texture2D" uid="uid://dbueov7x0qeqe" path="res://Assets/Sprites/320x180 Vision.png" id="2_u1ul0"]
@@ -6,14 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://Scenes/Ingredient.tscn" id="4_spw6y"]
 [ext_resource type="PackedScene" uid="uid://bru1ae5j80tii" path="res://Scenes/UI/MoneyAndRep.tscn" id="5_0uejy"]
 [ext_resource type="Script" path="res://Scripts/pedestal.gd" id="5_8dqgv"]
-[ext_resource type="Resource" uid="uid://cugyrbnghr2mb" path="res://Assets/Resources/Ingredients/thistle_root.tres" id="5_136gt"]
-[ext_resource type="Resource" uid="uid://dalcpgs66cyu7" path="res://Assets/Resources/Ingredients/peppermint_leaves.tres" id="6_u3n4o"]
-[ext_resource type="Resource" uid="uid://b5w54ye34m24m" path="res://Assets/Resources/Ingredients/nightshade_petals.tres" id="6_w60o3"]
-[ext_resource type="Resource" uid="uid://cakl8u2750ach" path="res://Assets/Resources/Ingredients/pine_resin.tres" id="7_1j6wr"]
 [ext_resource type="Script" path="res://Scripts/spawnCustomers.gd" id="7_bs1qt"]
-[ext_resource type="Resource" uid="uid://bs5kplnr37gpi" path="res://Assets/Resources/Ingredients/sunflower_seeds.tres" id="8_ufrn0"]
+[ext_resource type="Texture2D" uid="uid://cbnjnkfq7dsfm" path="res://Assets/Sprites/Ingredients/thistle_root.png" id="9_hda4l"]
+[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="10_06cbu"]
 [ext_resource type="PackedScene" uid="uid://br236elfur261" path="res://Scenes/UI/Drawer.tscn" id="10_tnf6t"]
+[ext_resource type="Texture2D" uid="uid://dbrst6yicxjg1" path="res://Assets/Sprites/Ingredients/peppermint_leaves.png" id="11_lcnq5"]
+[ext_resource type="Texture2D" uid="uid://bgr0j54ert0ee" path="res://Assets/Sprites/Ingredients/pine_resin.png" id="12_5ovj8"]
 [ext_resource type="Script" path="res://Scripts/ringBell.gd" id="13_klo3p"]
+[ext_resource type="Texture2D" uid="uid://k1s0jbcfp0sn" path="res://Assets/Sprites/Ingredients/sunflower_seeds.png" id="13_sykwt"]
+[ext_resource type="Texture2D" uid="uid://dnynu6kp1nswf" path="res://Assets/Sprites/Ingredients/nightshade_petals.png" id="14_jiia4"]
 [ext_resource type="PackedScene" uid="uid://cqjv8jg1x3rnd" path="res://Scenes/Crucible.tscn" id="15_a4pmo"]
 [ext_resource type="PackedScene" uid="uid://c2qo8furksvda" path="res://Scenes/clock.tscn" id="16_17ho7"]
 
@@ -30,6 +31,46 @@ size = Vector2(2.60528, 0.266697)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jquh8"]
 size = Vector2(98.25, 94.25)
+
+[sub_resource type="Resource" id="Resource_3bj3v"]
+script = ExtResource("10_06cbu")
+id = "thistle_root"
+name = "Thistle Root"
+description = "Like a burdock root, but less bitter."
+stackSize = 5
+image = ExtResource("9_hda4l")
+
+[sub_resource type="Resource" id="Resource_gq16j"]
+script = ExtResource("10_06cbu")
+id = "peppermint_leaves"
+name = "Peppermint Leaves"
+description = "Just the smell alone is invigorating."
+stackSize = 5
+image = ExtResource("11_lcnq5")
+
+[sub_resource type="Resource" id="Resource_acmav"]
+script = ExtResource("10_06cbu")
+id = "pine_resin"
+name = "Pine Resin"
+description = "Sticks to you, sticks with you."
+stackSize = 5
+image = ExtResource("12_5ovj8")
+
+[sub_resource type="Resource" id="Resource_awa4x"]
+script = ExtResource("10_06cbu")
+id = "sunflower_seeds"
+name = "Sunflower Seeds"
+description = "Always faces the sun."
+stackSize = 5
+image = ExtResource("13_sykwt")
+
+[sub_resource type="Resource" id="Resource_ugv73"]
+script = ExtResource("10_06cbu")
+id = "nightshade_petals"
+name = "Nightshade Petals"
+description = "The opposite of what most believe them to be."
+stackSize = 5
+image = ExtResource("14_jiia4")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0ufrw")
@@ -154,23 +195,23 @@ shape = SubResource("RectangleShape2D_jquh8")
 
 [node name="Ingredient" parent="." instance=ExtResource("4_spw6y")]
 position = Vector2(1577, 891)
-data = ExtResource("5_136gt")
+data = SubResource("Resource_3bj3v")
 
 [node name="Ingredient2" parent="." instance=ExtResource("4_spw6y")]
 position = Vector2(159, 897)
-data = ExtResource("6_u3n4o")
+data = SubResource("Resource_gq16j")
 
 [node name="Ingredient3" parent="." instance=ExtResource("4_spw6y")]
 position = Vector2(294, 892)
-data = ExtResource("7_1j6wr")
+data = SubResource("Resource_acmav")
 
 [node name="Ingredient4" parent="." instance=ExtResource("4_spw6y")]
 position = Vector2(429, 896)
-data = ExtResource("8_ufrn0")
+data = SubResource("Resource_awa4x")
 
 [node name="Ingredient5" parent="." instance=ExtResource("4_spw6y")]
 position = Vector2(541, 874)
-data = ExtResource("6_w60o3")
+data = SubResource("Resource_ugv73")
 
 [node name="ringBell" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 100)
@@ -183,6 +224,7 @@ text = "ring"
 script = ExtResource("13_klo3p")
 
 [node name="Crucible" parent="." instance=ExtResource("15_a4pmo")]
+visible = false
 position = Vector2(1350, 950)
 scale = Vector2(3, 3)
 

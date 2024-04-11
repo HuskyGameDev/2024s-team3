@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://pp004kgxro6v"]
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://jncsehj3mr3f"]
 
-[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_mi0w5"]
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_o824a"]
 
 [resource]
-script = ExtResource("1_mi0w5")
+script = ExtResource("1_o824a")
 id = "regeneration_potion"
 name = "Regeneration Potion"
 description = "Closes wounds as though they were never there."

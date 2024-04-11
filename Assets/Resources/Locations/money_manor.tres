@@ -1,22 +1,22 @@
-[gd_resource type="Resource" script_class="Location" load_steps=6 format=3 uid="uid://cfq4sndagbclp"]
+[gd_resource type="Resource" script_class="Location" load_steps=6 format=3 uid="uid://c3a4fn2v3ht0o"]
 
-[ext_resource type="Resource" uid="uid://d3fupcelkjl7c" path="res://Assets/Resources/Potions/healing_potion.tres" id="1_r6gep"]
-[ext_resource type="Script" path="res://Scripts/Types/customer_data.gd" id="2_oepm1"]
-[ext_resource type="Resource" uid="uid://b5w54ye34m24m" path="res://Assets/Resources/Ingredients/nightshade_petals.tres" id="3_plta0"]
-[ext_resource type="Script" path="res://Scripts/Types/location_data.gd" id="4_kh8x2"]
+[ext_resource type="Resource" uid="uid://dedfv5wn4hp2f" path="res://Assets/Resources/Potions/healing_potion.tres" id="1_rwue7"]
+[ext_resource type="Script" path="res://Scripts/Types/customer_data.gd" id="2_b1654"]
+[ext_resource type="Resource" uid="uid://pw7vumus2wmf" path="res://Assets/Resources/Ingredients/nightshade_petals.tres" id="3_0i5md"]
+[ext_resource type="Script" path="res://Scripts/Types/location_data.gd" id="4_7s81e"]
 
-[sub_resource type="Resource" id="Resource_8t0gh"]
-script = ExtResource("2_oepm1")
-order = ExtResource("1_r6gep")
+[sub_resource type="Resource" id="Resource_rd6n2"]
+script = ExtResource("2_b1654")
+order = ExtResource("1_rwue7")
 orderPrice = 15
 reputationChange = 10
 
 [resource]
-script = ExtResource("4_kh8x2")
+script = ExtResource("4_7s81e")
 id = "money_manor"
 name = "Money Manor"
 forage_table = {
-"common": [ExtResource("3_plta0")],
+"common": [ExtResource("3_0i5md")],
 "rare": [],
 "super_rare": [],
 "uncommon": []
@@ -25,14 +25,14 @@ ingredients_shop_table = {
 "common": [],
 "rare": [{
 "cost": 5.0,
-"item": ExtResource("3_plta0"),
+"item": ExtResource("3_0i5md"),
 "quantity": 1.0
 }],
 "super_rare": [],
 "uncommon": []
 }
 customer_request_table = {
-"common": [SubResource("Resource_8t0gh")],
+"common": [SubResource("Resource_rd6n2")],
 "rare": [],
 "super_rare": [],
 "uncommon": []

@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://dye0bi3cbdufp"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://8uty8ri8idvy"]
 
-[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_3q57b"]
+[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_fd0dv"]
 
 [resource]
-script = ExtResource("1_3q57b")
+script = ExtResource("1_fd0dv")
 id = "miracle_salt"
 name = "Miracle Salt"
 description = "Full of alchemical potential."

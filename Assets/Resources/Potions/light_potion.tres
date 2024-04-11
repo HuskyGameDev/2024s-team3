@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://cgmxo1tr67l4x"]
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://dbfuujs8wq5o1"]
 
-[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_ft8ij"]
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_hi3nb"]
 
 [resource]
-script = ExtResource("1_ft8ij")
+script = ExtResource("1_hi3nb")
 id = "light_potion"
 name = "Light Potion"
 description = "Glows a bright yellow-white."

@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://bfw8jhnppph26"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://b8v8rrd68o2vl"]
 
-[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_5h7ya"]
+[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_fo8ry"]
 
 [resource]
-script = ExtResource("1_5h7ya")
+script = ExtResource("1_fo8ry")
 id = "clover_leaves"
 name = "Clover Leaves"
 description = "Make sure to hold four at a time."

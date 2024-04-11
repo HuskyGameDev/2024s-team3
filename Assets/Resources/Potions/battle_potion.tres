@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://dj6r12deqy6s8"]
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://d25pq63lcpf4s"]
 
-[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_q066g"]
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_tn1wn"]
 
 [resource]
-script = ExtResource("1_q066g")
+script = ExtResource("1_tn1wn")
 id = "battle_potion"
 name = "Battle Potion"
 description = "A must-have for any conflict."

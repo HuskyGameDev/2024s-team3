@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://b24ds17enm6mk"]
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://4v3smiub4hbn"]
 
-[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_fy2m0"]
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_6fggd"]
 
 [resource]
-script = ExtResource("1_fy2m0")
+script = ExtResource("1_6fggd")
 id = "mana_potion"
 name = "Mana Potion"
 description = "The go-to for any magic-refreshments."

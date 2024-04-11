@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://utdn5nddxxl8"]
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://rgjymy3fnkmv"]
 
-[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_8mtrx"]
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_3lvbb"]
 
 [resource]
-script = ExtResource("1_8mtrx")
+script = ExtResource("1_3lvbb")
 id = "potion_of_magic_protection"
 name = "Potion of Magic Protection"
 description = "Mana-fueled attacks will falter."

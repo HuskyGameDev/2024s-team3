@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="Potion" load_steps=3 format=3 uid="uid://d3fupcelkjl7c"]
+[gd_resource type="Resource" script_class="Potion" load_steps=3 format=3 uid="uid://dedfv5wn4hp2f"]
 
-[ext_resource type="Texture2D" uid="uid://ccqaxlwj0dhgx" path="res://Assets/Sprites/Potions/healing_potion.png" id="1_kc0dv"]
-[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="2_5wbpm"]
+[ext_resource type="Texture2D" uid="uid://ccqaxlwj0dhgx" path="res://Assets/Sprites/Potions/healing_potion.png" id="1_gunkb"]
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="2_lwx2h"]
 
 [resource]
-script = ExtResource("2_5wbpm")
+script = ExtResource("2_lwx2h")
 id = "healing_potion"
 name = "Healing Potion"
 description = "Helps anything from stomachaches to stab wounds."
-image = ExtResource("1_kc0dv")
+image = ExtResource("1_gunkb")
 recipe = Array[String](["thistle_root", "nightshade_petals"])
