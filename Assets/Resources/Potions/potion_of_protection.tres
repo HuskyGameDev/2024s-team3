@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://jh8344s50f5l"]
+
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_qqs7h"]
+
+[resource]
+script = ExtResource("1_qqs7h")
+id = "potion_of_protection"
+name = "Potion of Protection"
+description = "Stops any injury before it happens."
+recipe = Array[String](["thistle_root", "pine_resin", "nightshade_petals"])

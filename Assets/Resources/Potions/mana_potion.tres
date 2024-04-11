@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://b24ds17enm6mk"]
+
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_fy2m0"]
+
+[resource]
+script = ExtResource("1_fy2m0")
+id = "mana_potion"
+name = "Mana Potion"
+description = "The go-to for any magic-refreshments."
+recipe = Array[String](["thistle_root", "basil_herb"])

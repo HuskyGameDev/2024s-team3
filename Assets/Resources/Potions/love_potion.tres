@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://dtus5ijf4uqxj"]
+
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_4y27l"]
+
+[resource]
+script = ExtResource("1_4y27l")
+id = "love_potion"
+name = "Love Potion"
+description = "Fills one's mind with intense desire."
+recipe = Array[String](["thistle_root", "voodoo_lily"])

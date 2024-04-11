@@ -1,51 +1,86 @@
-[gd_resource type="Resource" script_class="Location" load_steps=9 format=3 uid="uid://dtmqwdycxf4rm"]
+[gd_resource type="Resource" script_class="Location" load_steps=17 format=3 uid="uid://dtmqwdycxf4rm"]
 
-[ext_resource type="Resource" uid="uid://d3fupcelkjl7c" path="res://Assets/Resources/Potions/healing_potion.tres" id="1_bisq4"]
-[ext_resource type="Script" path="res://Scripts/Types/customer_data.gd" id="2_agvqb"]
-[ext_resource type="Resource" uid="uid://j1712o0cshou" path="res://Assets/Resources/Potions/swiftness_potion.tres" id="3_fymwn"]
-[ext_resource type="Resource" uid="uid://b5w54ye34m24m" path="res://Assets/Resources/Ingredients/nightshade_petals.tres" id="4_v6rii"]
-[ext_resource type="Resource" uid="uid://cugyrbnghr2mb" path="res://Assets/Resources/Ingredients/thistle_root.tres" id="5_pr1ya"]
-[ext_resource type="Script" path="res://Scripts/Types/location_data.gd" id="6_1swpe"]
+[ext_resource type="Resource" uid="uid://d3fupcelkjl7c" path="res://Assets/Resources/Potions/healing_potion.tres" id="1_glk8e"]
+[ext_resource type="Script" path="res://Scripts/Types/customer_data.gd" id="2_v7t62"]
+[ext_resource type="Resource" uid="uid://j1712o0cshou" path="res://Assets/Resources/Potions/swiftness_potion.tres" id="3_bh134"]
+[ext_resource type="Resource" uid="uid://cgmxo1tr67l4x" path="res://Assets/Resources/Potions/light_potion.tres" id="4_21kkh"]
+[ext_resource type="Resource" uid="uid://cugyrbnghr2mb" path="res://Assets/Resources/Ingredients/thistle_root.tres" id="4_b8r2y"]
+[ext_resource type="Resource" uid="uid://b5w54ye34m24m" path="res://Assets/Resources/Ingredients/nightshade_petals.tres" id="5_lramd"]
+[ext_resource type="Resource" uid="uid://b24ds17enm6mk" path="res://Assets/Resources/Potions/mana_potion.tres" id="5_xaauv"]
+[ext_resource type="Resource" uid="uid://dalcpgs66cyu7" path="res://Assets/Resources/Ingredients/peppermint_leaves.tres" id="6_74yeb"]
+[ext_resource type="Resource" uid="uid://pp004kgxro6v" path="res://Assets/Resources/Potions/regeneration_potion.tres" id="6_b1l1n"]
+[ext_resource type="Resource" uid="uid://bs5kplnr37gpi" path="res://Assets/Resources/Ingredients/sunflower_seeds.tres" id="7_jenki"]
+[ext_resource type="Script" path="res://Scripts/Types/location_data.gd" id="8_1maok"]
 
-[sub_resource type="Resource" id="Resource_kqjkh"]
-script = ExtResource("2_agvqb")
-order = ExtResource("1_bisq4")
+[sub_resource type="Resource" id="Resource_bud86"]
+script = ExtResource("2_v7t62")
+order = ExtResource("1_glk8e")
+orderPrice = 10
+reputationChange = 10
+
+[sub_resource type="Resource" id="Resource_2djnx"]
+script = ExtResource("2_v7t62")
+order = ExtResource("3_bh134")
+orderPrice = 10
+reputationChange = 10
+
+[sub_resource type="Resource" id="Resource_swlc4"]
+script = ExtResource("2_v7t62")
+order = ExtResource("4_21kkh")
+orderPrice = 10
+reputationChange = 10
+
+[sub_resource type="Resource" id="Resource_0ekqr"]
+script = ExtResource("2_v7t62")
+order = ExtResource("5_xaauv")
 orderPrice = 15
 reputationChange = 10
 
-[sub_resource type="Resource" id="Resource_a8h6p"]
-script = ExtResource("2_agvqb")
-order = ExtResource("3_fymwn")
-orderPrice = 10
-reputationChange = 5
+[sub_resource type="Resource" id="Resource_8myp2"]
+script = ExtResource("2_v7t62")
+order = ExtResource("6_b1l1n")
+orderPrice = 20
+reputationChange = 15
 
 [resource]
-script = ExtResource("6_1swpe")
+script = ExtResource("8_1maok")
 id = "grassy_clearing"
 name = "Grassy Clearing"
 forage_table = {
-"common": [ExtResource("4_v6rii")],
-"rare": [],
+"common": [ExtResource("4_b8r2y")],
+"rare": [null],
 "super_rare": [],
-"uncommon": [ExtResource("5_pr1ya")]
+"uncommon": [ExtResource("5_lramd"), ExtResource("6_74yeb"), ExtResource("7_jenki")]
 }
 ingredients_shop_table = {
 "common": [{
 "cost": 10.0,
-"item": ExtResource("4_v6rii"),
+"item": ExtResource("4_b8r2y"),
+"quantity": 10.0
+}, {
+"cost": 15.0,
+"item": ExtResource("5_lramd"),
 "quantity": 5.0
 }, {
-"cost": 5.0,
-"item": ExtResource("5_pr1ya"),
-"quantity": 10.0
+"cost": 15.0,
+"item": ExtResource("6_74yeb"),
+"quantity": 5.0
+}, {
+"cost": 15.0,
+"item": ExtResource("7_jenki"),
+"quantity": 5.0
 }],
 "rare": [],
 "super_rare": [],
-"uncommon": []
+"uncommon": [{
+"cost": 20.0,
+"item": null,
+"quantity": 5.0
+}]
 }
 customer_request_table = {
-"common": [SubResource("Resource_kqjkh")],
-"rare": [],
-"super_rare": [SubResource("Resource_a8h6p")],
-"uncommon": []
+"common": [SubResource("Resource_bud86")],
+"rare": [SubResource("Resource_0ekqr")],
+"super_rare": [SubResource("Resource_8myp2")],
+"uncommon": [SubResource("Resource_2djnx"), SubResource("Resource_swlc4")]
 }

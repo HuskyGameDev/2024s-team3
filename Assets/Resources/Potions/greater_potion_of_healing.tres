@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://d2t2m0im280la"]
+
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_x73jg"]
+
+[resource]
+script = ExtResource("1_x73jg")
+id = "greater_potion_of_healing"
+name = "Greater Potion of Healing"
+description = "Even a bayonet wound will heal."
+recipe = Array[String](["thistle_root", "nightshade_petals"])

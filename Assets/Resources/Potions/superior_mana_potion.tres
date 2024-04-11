@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://cvxx7rykruqqk"]
+
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_nu3p1"]
+
+[resource]
+script = ExtResource("1_nu3p1")
+id = "superior_mana_potion"
+name = "Superior Mana Potion"
+description = "Resupplying the most powerful magical beings."
+recipe = Array[String](["thistle_root", "basil_herb"])

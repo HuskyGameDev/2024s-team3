@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://utdn5nddxxl8"]
+
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_8mtrx"]
+
+[resource]
+script = ExtResource("1_8mtrx")
+id = "potion_of_magic_protection"
+name = "Potion of Magic Protection"
+description = "Mana-fueled attacks will falter."
+recipe = Array[String](["thistle_root", "basil_herb", "pine_resin"])

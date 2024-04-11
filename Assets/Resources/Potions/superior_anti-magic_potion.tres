@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://dbm3ensin624n"]
+
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_dx777"]
+
+[resource]
+script = ExtResource("1_dx777")
+id = "superior_anti-magic_potion"
+name = "Superior Anti-Magic Potion"
+description = "Someone will be unable to cast a spell for a long time."
+recipe = Array[String](["thistle_root", "basil_herb"])

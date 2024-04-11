@@ -1,3 +1,128 @@
 Name,Description,Ingredients
 Healing Potion,Helps anything from stomachaches to stab wounds.,"[""thistle_root"", ""nightshade_petals""]"
-Swiftness Potion,Grants a nice burst of speed.,"[""burdock_root"", ""nightshade_petals""]"
+Swiftness Potion,Grants a nice burst of speed.,"[""thistle_root"", ""peppermint_leaves""]"
+Light Potion,Glows a bright yellow-white.,"[""thistle_root"", ""sunflower_seeds""]"
+Mana Potion,The go-to for any magic-refreshments.,"[""thistle_root"", ""basil_herb""]"
+Regeneration Potion,Closes wounds as though they were never there.,"[""thistle_root"", ""nightshade_petals"", ""peppermint_leaves""]"
+Defense Potion,Works wonders to prevent harm.,"[""thistle_root"", ""pine_resin""]"
+Strength Potion,"For anyone who needs a bit more ""oomph.""","[""thistle_root"", ""lupin_crop""]"
+Battle Potion,A must-have for any conflict.,"[""thistle_root"", ""pine_resin"", ""lupin_crop""]"
+Potion of Protection,Stops any injury before it happens.,"[""thistle_root"", ""pine_resin"", ""nightshade_petals""]"
+Mage Potion,For any magical battle-seeker.,"[""thistle_root"", ""lupin_crop"", ""basil_herb""]"
+Potion of Magic Protection,Mana-fueled attacks will falter.,"[""thistle_root"", ""basil_herb"", ""pine_resin""]"
+Potion of Sun Protection,The best sunscreen coins can buy.,"[""thistle_root"", ""sunflower_seeds"", ""pine_resin""]"
+Potion of Fear,For when someone's getting a little too comfortable.,"[""thistle_root"", ""voodoo_lily""]"
+Potion of Intense Fear,The eyes in the walls are just waiting to come out.,"[""thistle_root"", ""voodoo_lily"", ""earth_salt""]"
+Love Potion,Fills one's mind with intense desire.,"[""thistle_root"", ""voodoo_lily"", ""fire_salt""]"
+Supreme Love Potion,"Once love hits, it never lets go.","[""thistle_root"", ""voodoo_lily"", ""fire_salt"", ""earth_salt""]"
+Luck Potion,Fortune favors the brewer.,"[""thistle_root"", ""clover_leaves""]"
+Greater Luck Potion,Even a roll of the dice can't be left to chance.,"[""thistle_root"", ""clover_leaves"", ""earth_salt""]"
+Potion of Misfortune,Today is not your lucky day.,"[""thistle_root"", ""clover_leaves"", ""fire_salt""]"
+Potion of Incredible Misfortune,Never play the odds again.,"[""thistle_root"", ""clover_leaves"", ""fire_salt"", ""earth_salt""]"
+Greater Potion of Healing,Even a bayonet wound will heal.,"[""thistle_root"", ""nightshade_petals"", ""earth_salt""]"
+Simple Poison,Someone will need to take a sick day.,"[""thistle_root"", ""nightshade_petals"", ""fire_salt""]"
+Deadly Poison,Even a drop can put someone down.,"[""thistle_root"", ""nightshade_petals"", ""fire_salt"", ""earth_salt""]"
+Superior Potion of Swiftness,Gotta go fast...,"[""thistle_root"", ""peppermint_leaves"", ""earth_salt""]"
+Potion of Slowness,Move at a snail's pace.,"[""thistle_root"", ""peppermint_leaves"", ""fire_salt""]"
+Potion of Extreme Slowness,As though you aren't moving at all.,"[""thistle_root"", ""peppermint_leaves"", ""fire_salt"", ""earth_salt""]"
+Greater Glowing Potion,The light can guide through the darkest of nights.,"[""thistle_root"", ""sunflower_seeds"", ""earth_salt""]"
+Potion of Blindness,A temporary way to make sure somebody won't notice something.,"[""thistle_root"", ""sunflower_seeds"", ""fire_salt""]"
+Greater Potion of Blindness,Warning: Likely permanent.,"[""thistle_root"", ""sunflower_seeds"", ""fire_salt"", ""earth_salt""]"
+Superior Mana Potion,Resupplying the most powerful magical beings.,"[""thistle_root"", ""basil_herb"", ""earth_salt""]"
+Anti-Magic Potion,Drains a mage of their mana.,"[""thistle_root"", ""basil_herb"", ""fire_salt""]"
+Superior Anti-Magic Potion,Someone will be unable to cast a spell for a long time.,"[""thistle_root"", ""basil_herb"", ""fire_salt"", ""earth_salt""]"
+Greater Defense Potion,Lowers the effect of almost any attack to near-nothing.,"[""thistle_root"", ""pine_resin"", ""earth_salt""]"
+Potion of Vulnerability,Highlights a weak spot.,"[""thistle_root"", ""pine_resin"", ""fire_salt""]"
+Potion of Greater Vulnerability,Even the smallest cuts can kill.,"[""thistle_root"", ""pine_resin"", ""fire_salt"", ""earth_salt""]"
+Superior Strength Potion,When hits really need to pack a punch.,"[""thistle_root"", ""lupin_crop"", ""earth_salt""]"
+Potion of Weakness,Fragility in a bottle.,"[""thistle_root"", ""lupin_crop"", ""fire_salt""]"
+Superior Potion of Weakness,Enfeeblement at its finest.,"[""thistle_root"", ""lupin_crop"", ""fire_salt"", ""earth_salt""]"
+Potion of Intellect,When problems need to be solved.,"[""thistle_root"", ""lily_bulb""]"
+Potion of Superior Intellect,Everything makes intuitive sense.,
+Aura of Intellect,Perfect to jog a group's memory.,
+Aura of Superior Intellect,For when everyone needs to focus.,
+Potion of Amnesia,...what?,
+Potion of Extreme Amnesia,.........what?,
+Aura of Amnesia,...where are we?,
+Aura of Extreme Amnesia,.........where in the world are we?,
+Poton of Frost,Pretty cold.,"[""thistle_root"", ""snowdrop_bulb""]"
+Potion of Extreme Frost,Very cold.,
+Potion of Fire,Pretty hot.,
+Potion of Intense Fire,Very hot.,
+Aura of Frost,Everything is pretty cold.,
+Aura of Intense Frost,Everything is very cold.,
+Aura of Fire,Everything is pretty hot.,
+Aura of Extreme Fire,Everything is very hot.,
+Aura of Healing,Keeps a group alive.,"[""thistle_root"", ""nightshade_petals""]"
+Aura of Greater Healing,Keeps a group alive and well.,
+Aura of Poison,A cloud of poison sure to fell those who step inside.,
+Aura of Greater Poison,A cloud of poison deadly to those nearby.,
+Aura of Swiftness,Perfect for moving fast in one place.,"[""thistle_root"", ""peppermint_leaves""]"
+Aura of Greater Swiftness,Greatly increases the speed of everyone in the room.,
+Aura of Slowness,Perfect for keeping people away.,
+Aura of Greater Slowness,Perfect for keeping people where they are.,
+Aura of Light,When a glowing potion isn't large enough.,"[""thistle_root"", ""sunflower_seeds""]"
+Aura of Superior Light,Comparable to the sun?,
+Aura of Blindness,Any room can be dark.,
+Aura of Extreme Blindness,Makes sure nobody can see what happens.,
+Aura of Mana,Emanates a wave of magical energy.,"[""thistle_root"", ""basil_herb""]"
+Aura of Intense Mana,Keeps a group's mana up for a long time.,
+Anti-Magic Aura,Dispels the mana nearby.,
+Superior Anti-Magic Aura,The mana equivalent of salting the earth.,
+Aura of Defense,Toughens up anybody nearby.,"[""thistle_root"", ""pine_resin""]"
+Superior Aura of Defense,The best armor any group could need.,
+Aura of Vulnerability,Lets attacks on a battlefield cut through.,
+Greater Aura of Vulnerability,Any swing nearby can be fatal.,
+Aura of Strength,Strengthens anybody nearby.,"[""thistle_root"", ""lupin_crop""]"
+Aura of Greater Strength,Massively strengthens anybody nearby.,
+Aura of Weakness,Weakens anybody nearby.,
+Aura of Extreme Weakness,Massively weakens anybody nearby.,
+Aura of Luck,Banned on the poker tables.,"[""thistle_root"", ""clover_leaves""]"
+Greater Aura of Luck,Lets anyone in the room hit a jackpot.,
+Aura of Misfortune,Bad luck to everyone in the room.,
+Greater Aura of Misfortune,Nobody nearby should make a bet any time soon.,
+Aura of Fear,,"[""thistle_root"", ""voodoo_lily""]"
+Aura of Intense Fear,,
+Aura of Love,,
+Greater Aura of Love,,
+Potion of Greater Regeneration,,"[""thistle_root"", ""nightshade_petals"", ""peppermint_leaves""]"
+Decaying Poison,,
+Superior Decaying Poison,,
+Aura of Regeneration,,
+Aura of Greater Regeneration,,
+Aura of Decay,,
+Greater Aura of Decay,,
+Greater Battle Potion,,"[""thistle_root"", ""pine_resin"", ""lupin_crop""]"
+Poison of Enfeeblement,,
+Greater Poison of Enfeeblement,,
+Battle Aura,,
+Greater Battle Aura,,
+Aura of Enfeeblement,,
+Greater Aura of Enfeeblement,,
+Greater Potion of Protection,,"[""thistle_root"", ""pine_resin"", ""nightshade_petals""]"
+Aura of Protection,,
+Greater Aura of Protection,,
+Greater Magic Protection Potion,,
+Aura of Magic Protection,,
+Greater Aura of Magic Protection,,
+Greater Sun Protection Potion,,
+Potion of Frost Protection,,
+Potion of Greater Frost Protection,,
+Potion of Fire Protection,,
+Greater Potion of Fire Protection,,
+Aura of Frost Protection,,
+Aura of Greater Frost Protection,,
+Aura of Fire Protection,,
+Aura of Greater Fire Protection,,
+Calm Potion,,
+Greater Calm Potion,,
+Rage Potion,,
+Greater Rage Potion,,
+Aura of Calm,,
+Aura of Greater Calm,,
+Aura of Rage,,
+Aura of Greater Rage,,
+Potion of Mind Protection,,
+Potion of Greater Mind Protection,,
+Aura of Mind Protection,,
+Aura of Greater Mind Protection,,

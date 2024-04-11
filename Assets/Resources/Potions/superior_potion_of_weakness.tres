@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://dmcka0yj5eny5"]
+
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_wxrib"]
+
+[resource]
+script = ExtResource("1_wxrib")
+id = "superior_potion_of_weakness"
+name = "Superior Potion of Weakness"
+description = "Enfeeblement at its finest."
+recipe = Array[String](["thistle_root", "lupin_crop"])

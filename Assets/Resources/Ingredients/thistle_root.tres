@@ -7,6 +7,6 @@
 script = ExtResource("2_04duh")
 id = "thistle_root"
 name = "Thistle Root"
-description = "Like a burdock root, but nicer on the taste buds."
+description = "Like a burdock root, but less bitter."
 stackSize = 5
 image = ExtResource("1_vj1v0")

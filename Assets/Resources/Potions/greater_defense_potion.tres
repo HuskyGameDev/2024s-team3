@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://bsuv0ph2y6bso"]
+
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_ssyln"]
+
+[resource]
+script = ExtResource("1_ssyln")
+id = "greater_defense_potion"
+name = "Greater Defense Potion"
+description = "Lowers the effect of almost any attack to near-nothing."
+recipe = Array[String](["thistle_root", "pine_resin"])

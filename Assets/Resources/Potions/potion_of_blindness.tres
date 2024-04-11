@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://4c30hknqhm8v"]
+
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_077a8"]
+
+[resource]
+script = ExtResource("1_077a8")
+id = "potion_of_blindness"
+name = "Potion of Blindness"
+description = "A temporary way to make sure somebody won't notice something."
+recipe = Array[String](["thistle_root", "sunflower_seeds"])

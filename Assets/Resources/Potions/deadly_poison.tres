@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://dsi5xfy6qu5f4"]
+
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_enhpd"]
+
+[resource]
+script = ExtResource("1_enhpd")
+id = "deadly_poison"
+name = "Deadly Poison"
+description = "Even a drop can put someone down."
+recipe = Array[String](["thistle_root", "nightshade_petals"])

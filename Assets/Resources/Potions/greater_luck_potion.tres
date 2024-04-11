@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://b5gmmffcy2sny"]
+
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_7e6ke"]
+
+[resource]
+script = ExtResource("1_7e6ke")
+id = "greater_luck_potion"
+name = "Greater Luck Potion"
+description = "Even a roll of the dice can't be left to chance."
+recipe = Array[String](["thistle_root", "clover_leaves"])

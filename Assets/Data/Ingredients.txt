@@ -1,6 +1,5 @@
 Name,Stack Size,Description
-Burdock Root,5,"Like a thistle root, but more bitter."
-Thistle Root,5,"Like a burdock root, but nicer on the taste buds."
+Thistle Root,5,"Like a burdock root, but less bitter."
 Nightshade Petals,5,The opposite of what most believe them to be.
 Peppermint Leaves,5,Just the smell alone is invigorating.
 Sunflower Seeds,5,Always faces the sun.
@@ -11,3 +10,4 @@ Clover Leaves,5,Make sure to hold four at a time.
 Voodoo Lily,5,Sightly unsettling to view.
 Lily Bulb,5,"Lily, such a familiar name..."
 Snowdrop Bulb,1,Thrives in the heaviest of snowstorms.
+Miracle Salt,5,Full of alchemical potential.

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://7yu1xy6d02yx"]
+
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_scko2"]
+
+[resource]
+script = ExtResource("1_scko2")
+id = "potion_of_intellect"
+name = "Potion of Intellect"
+description = "When problems need to be solved."
+recipe = Array[String](["thistle_root", "lily_bulb"])

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://b5u0psxceuo87"]
+
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_fq6ty"]
+
+[resource]
+script = ExtResource("1_fq6ty")
+id = "potion_of_slowness"
+name = "Potion of Slowness"
+description = "Move at a snail's pace."
+recipe = Array[String](["thistle_root", "peppermint_leaves"])

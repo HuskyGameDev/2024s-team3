@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://ctgybfbywnpts"]
+
+[ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_jxidh"]
+
+[resource]
+script = ExtResource("1_jxidh")
+id = "potion_of_misfortune"
+name = "Potion of Misfortune"
+description = "Today is not your lucky day."
+recipe = Array[String](["thistle_root", "clover_leaves"])

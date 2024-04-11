@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://bmmvsm3lxpbnd"]
 
-[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_y3qyr"]
+[ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_07gk4"]
 
 [resource]
-script = ExtResource("1_y3qyr")
+script = ExtResource("1_07gk4")
 id = "lily_bulb"
 name = "Lily Bulb"
 description = "Lily, such a familiar name..."
