@@ -9,11 +9,11 @@ var potionOnPedestal:String
 
 
 func _on_pedestal_send_to_bell(item):
-	potionOnPedestal = item.name
+	potionOnPedestal = item.id
 
 
 func _on_customer_spawner_order_to_bell(data):
-	custOrder = data.order.name
+	custOrder = data.order.id
 	orderPrice = data.orderPrice
 	orderRep = data.reputationChange
 
@@ -21,7 +21,7 @@ func _pressed():
 	if !potionOnPedestal: return
 	if custOrder == potionOnPedestal:
 		print("correct order!")
-		CorrectGoToCustSpawner.emit() # send another one, get ride of this guy 
+		CorrectGoToCustSpawner.emit(potionOnPedestal) # send another one, get ride of this guy 
 		potionOnPedestal = ""
 		PlayerData.changeMoney(orderPrice)
 		PlayerData.changeReputation(orderRep)

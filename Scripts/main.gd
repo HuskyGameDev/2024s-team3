@@ -8,10 +8,39 @@ func _ready():
 	GameTime.end_of_day.connect(func(): get_tree().change_scene_to_file("res://Scenes/Screens/NightMenu.tscn"));
 	var drawer = get_node("Drawer-inventory")
 	var pedestal = get_node("Pedestal")
+	var cauldron = $"Cauldron"
+	var bell = $"ringBell"
+	bell.CorrectGoToCustSpawner.connect(next_step)
+	cauldron.ingredient_added.connect(next_step)
 	drawer.make_inv_object.connect(_on_inv_dragged) #moving object out of inventory
 	pedestal.make_ped_object.connect(_on_ped_pressed) #moving object out of pedestal
-	
+	# Called when the node enters the scene tree for the first time.
+
+func next_step(id): #tutorial progression
+	if id == "nightshade_petals" && get_node("Tutorial/NightShadeText").visible == true:
+		get_node("Tutorial/NightShadeText").visible = false
+		get_node("Tutorial/ThistlerootText").visible = true
+	elif id == "thistle_root" && get_node("Tutorial/ThistlerootText").visible == true:
+		get_node("Tutorial/ThistlerootText").visible = false
+		get_node("Tutorial/CauldronText").visible = true
+	elif id == "healing_potion" && get_node("Tutorial/CauldronText").visible == true:
+		get_node("Tutorial/CauldronText").visible = false
+		get_node("Tutorial/PotionText").visible = true
+	elif id == "healing_potion" && get_node("Tutorial/CauldronText").visible == true:
+		get_node("Tutorial/CauldronText").visible = false
+		get_node("Tutorial/PotionText").visible = true
+	elif id == "healing_potion" && get_node("Tutorial/PotionText").visible == true:
+		get_node("Tutorial/PotionText").visible = false
+		get_node("Tutorial/FinishText").visible = true
+		await get_tree().create_timer(8).timeout 
+		get_node("Tutorial/NightShadeText").visible = false
+		get_node("Tutorial/ThistlerootText").visible = false
+		get_node("Tutorial/CauldronText").visible = false
+		get_node("Tutorial/PotionText").visible = false
+		get_node("Tutorial/FinishText").visible = false
+
 func _on_cauldron_potion_made(potion:Potion):
+	next_step(potion.id)
 	var newPotionObj = PotionScene.instantiate()
 	newPotionObj.setType(potion)
 	newPotionObj.global_position = $"Cauldron".global_position - Vector2(0, 100)

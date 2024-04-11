@@ -106,7 +106,7 @@ func _process(delta):
 			nextCust()
 
 
-func _on_ring_bell_correct_go_to_cust_spawner(): # code gets here when there is a correct order
+func _on_ring_bell_correct_go_to_cust_spawner(id): # code gets here when there is a correct order
 	print(currentCustomer.data.customerName, " recieved a ",  currentCustomer.data.order.name)
 	walkOut = true
 	o = 0 # need a reset
