@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://b16csx7suov87"]
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://766pqc3n3w33"]
 
 [ext_resource type="Script" path="res://Scripts/Types/potion_data.gd" id="1_m8rrs"]
 

@@ -1,43 +1,43 @@
-[gd_resource type="Resource" script_class="Location" load_steps=18 format=3 uid="uid://c8melq2dwijbu"]
+[gd_resource type="Resource" script_class="Location" load_steps=18 format=3 uid="uid://20moloevvpx8"]
 
-[ext_resource type="Resource" uid="uid://dedfv5wn4hp2f" path="res://Assets/Resources/Potions/healing_potion.tres" id="1_oikvr"]
+[ext_resource type="Resource" uid="uid://d185qkd0vb0e7" path="res://Assets/Resources/Potions/healing_potion.tres" id="1_oikvr"]
 [ext_resource type="Script" path="res://Scripts/Types/customer_data.gd" id="2_57n71"]
-[ext_resource type="Resource" uid="uid://bkner4phvx7ro" path="res://Assets/Resources/Potions/swiftness_potion.tres" id="3_fa244"]
-[ext_resource type="Resource" uid="uid://dbfuujs8wq5o1" path="res://Assets/Resources/Potions/light_potion.tres" id="4_bogwr"]
-[ext_resource type="Resource" uid="uid://4v3smiub4hbn" path="res://Assets/Resources/Potions/mana_potion.tres" id="5_3x2hs"]
-[ext_resource type="Resource" uid="uid://jncsehj3mr3f" path="res://Assets/Resources/Potions/regeneration_potion.tres" id="6_icyfb"]
-[ext_resource type="Resource" uid="uid://ccbadx2s0gkwf" path="res://Assets/Resources/Ingredients/thistle_root.tres" id="7_x6emf"]
-[ext_resource type="Resource" uid="uid://pw7vumus2wmf" path="res://Assets/Resources/Ingredients/nightshade_petals.tres" id="8_vjche"]
-[ext_resource type="Resource" uid="uid://dwhtd1n7brbxl" path="res://Assets/Resources/Ingredients/peppermint_leaves.tres" id="9_uke57"]
-[ext_resource type="Resource" uid="uid://pyvuxs60pqby" path="res://Assets/Resources/Ingredients/sunflower_seeds.tres" id="10_jo1es"]
-[ext_resource type="Resource" uid="uid://cr6ylax14wyxv" path="res://Assets/Resources/Ingredients/basil_herb.tres" id="11_e77mr"]
+[ext_resource type="Resource" uid="uid://b41pase71jrmt" path="res://Assets/Resources/Potions/swiftness_potion.tres" id="3_fa244"]
+[ext_resource type="Resource" uid="uid://bqwywq83y0oqe" path="res://Assets/Resources/Potions/light_potion.tres" id="4_bogwr"]
+[ext_resource type="Resource" uid="uid://dwtghp51god88" path="res://Assets/Resources/Potions/mana_potion.tres" id="5_3x2hs"]
+[ext_resource type="Resource" uid="uid://dblnnwtv5rjuh" path="res://Assets/Resources/Potions/regeneration_potion.tres" id="6_icyfb"]
+[ext_resource type="Resource" uid="uid://db6kg0us6qum2" path="res://Assets/Resources/Ingredients/thistle_root.tres" id="7_x6emf"]
+[ext_resource type="Resource" uid="uid://di5cmmmfwqujm" path="res://Assets/Resources/Ingredients/nightshade_petals.tres" id="8_vjche"]
+[ext_resource type="Resource" uid="uid://cixyd72ml8mqf" path="res://Assets/Resources/Ingredients/peppermint_leaves.tres" id="9_uke57"]
+[ext_resource type="Resource" uid="uid://c04epjgjjg4qu" path="res://Assets/Resources/Ingredients/sunflower_seeds.tres" id="10_jo1es"]
+[ext_resource type="Resource" uid="uid://bu2hapkmr78x3" path="res://Assets/Resources/Ingredients/basil_herb.tres" id="11_e77mr"]
 [ext_resource type="Script" path="res://Scripts/Types/location_data.gd" id="11_l1fug"]
 
-[sub_resource type="Resource" id="Resource_54hwl"]
+[sub_resource type="Resource" id="Resource_xc8ct"]
 script = ExtResource("2_57n71")
 order = ExtResource("1_oikvr")
 orderPrice = 10
 reputationChange = 10
 
-[sub_resource type="Resource" id="Resource_0nh3n"]
+[sub_resource type="Resource" id="Resource_h6anm"]
 script = ExtResource("2_57n71")
 order = ExtResource("3_fa244")
 orderPrice = 10
 reputationChange = 10
 
-[sub_resource type="Resource" id="Resource_7eoco"]
+[sub_resource type="Resource" id="Resource_u5213"]
 script = ExtResource("2_57n71")
 order = ExtResource("4_bogwr")
 orderPrice = 10
 reputationChange = 10
 
-[sub_resource type="Resource" id="Resource_c6qn4"]
+[sub_resource type="Resource" id="Resource_5vsni"]
 script = ExtResource("2_57n71")
 order = ExtResource("5_3x2hs")
 orderPrice = 15
 reputationChange = 10
 
-[sub_resource type="Resource" id="Resource_10ftx"]
+[sub_resource type="Resource" id="Resource_xt0de"]
 script = ExtResource("2_57n71")
 order = ExtResource("6_icyfb")
 orderPrice = 20
@@ -80,8 +80,8 @@ ingredients_shop_table = {
 }]
 }
 customer_request_table = {
-"common": [SubResource("Resource_54hwl")],
-"rare": [SubResource("Resource_c6qn4")],
-"super_rare": [SubResource("Resource_10ftx")],
-"uncommon": [SubResource("Resource_0nh3n"), SubResource("Resource_7eoco")]
+"common": [SubResource("Resource_xc8ct")],
+"rare": [SubResource("Resource_5vsni")],
+"super_rare": [SubResource("Resource_xt0de")],
+"uncommon": [SubResource("Resource_h6anm"), SubResource("Resource_u5213")]
 }

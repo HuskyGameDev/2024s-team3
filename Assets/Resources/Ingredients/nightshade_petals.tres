@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://pw7vumus2wmf"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://di5cmmmfwqujm"]
 
 [ext_resource type="Texture2D" uid="uid://dnynu6kp1nswf" path="res://Assets/Sprites/Ingredients/nightshade_petals.png" id="1_j3hfm"]
 [ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="2_uu88j"]

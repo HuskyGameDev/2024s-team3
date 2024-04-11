@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://dwhtd1n7brbxl"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://cixyd72ml8mqf"]
 
 [ext_resource type="Texture2D" uid="uid://dbrst6yicxjg1" path="res://Assets/Sprites/Ingredients/peppermint_leaves.png" id="1_myogi"]
 [ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="2_w7ry6"]

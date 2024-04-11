@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://b8v8rrd68o2vl"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://c8rsiqiadadhh"]
 
 [ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="1_fo8ry"]
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://ccbadx2s0gkwf"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://db6kg0us6qum2"]
 
 [ext_resource type="Texture2D" uid="uid://cbnjnkfq7dsfm" path="res://Assets/Sprites/Ingredients/thistle_root.png" id="1_vj1v0"]
 [ext_resource type="Script" path="res://Scripts/Types/ingredient_data.gd" id="2_04duh"]
