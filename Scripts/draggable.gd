@@ -45,6 +45,7 @@ var timer:Timer;
 func _ready():
 	timer = $Timer
 	tooltip = $Tooltip
+	if object_data: tooltip.set_text(object_data.name, object_data.description)
 
 func data_updated():
 	if object_data:
@@ -55,7 +56,7 @@ func data_updated():
 			colliderShape.radius = imageSize[0] / 2
 			$"Collider".set_shape(colliderShape)
 			$"DraggableSprite".texture = object_data.image
-		tooltip.set_text(object_data.name, object_data.description)
+		if tooltip != null: tooltip.set_text(object_data.name, object_data.description)
 		
 func _on_mouse_entered():
 	if not beingHeld:
