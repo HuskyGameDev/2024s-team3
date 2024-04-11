@@ -14,7 +14,6 @@ func _ready():
 		while file_name != "":
 			if '.tres.remap' in file_name:
 				file_name = file_name.trim_suffix('.remap')
-			print(file_name)
 			add_recipe_to_dictionary(load(path + file_name))
 			file_name = dir.get_next()
 		recipes_loaded.emit(recipes)
