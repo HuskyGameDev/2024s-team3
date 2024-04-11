@@ -17,9 +17,7 @@ func _unhandled_input(_event):
 func _on_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click"):
 		beingHeld = true
-		if tooltipShowing:
-			remove_child(tooltip)
-			tooltipShowing = false
+		tooltip.visible = false
 		set_deferred("gravity_scale", 0)
 		set_collision_layer_value(1, false)
 		set_collision_layer_value(32, true)
@@ -41,13 +39,12 @@ func _integrate_forces(_state):
 ############### Object Functions ################
 @export_enum("Potion", "Ingredient") var object_type: String
 @export var object_data:Resource
-var tooltipScene = preload("res://Scenes/UI/Tooltip.tscn")
 var tooltip;
-var tooltipShowing:bool = false;
 var timer:Timer;
 
 func _ready():
 	timer = $Timer
+	tooltip = $Tooltip
 
 func data_updated():
 	if object_data:
@@ -58,8 +55,6 @@ func data_updated():
 			colliderShape.radius = imageSize[0] / 2
 			$"Collider".set_shape(colliderShape)
 			$"DraggableSprite".texture = object_data.image
-		if tooltip == null:
-			tooltip = tooltipScene.instantiate()
 		tooltip.set_text(object_data.name, object_data.description)
 		
 func _on_mouse_entered():
@@ -68,10 +63,24 @@ func _on_mouse_entered():
 		
 func _on_mouse_exited():
 	timer.stop()
-	if tooltipShowing:
-		remove_child(tooltip)
-		tooltipShowing = false
+	tooltip.visible = false
 
 func _on_timer_timeout():
-	add_child(tooltip)
-	tooltipShowing = true
+	tooltip.global_position = self.global_position
+	
+	var viewport_rect = get_viewport_rect()
+	var tooltip_rect = tooltip.get_rect()
+	while not viewport_rect.encloses(tooltip_rect):
+		## horizontal alignment
+		if viewport_rect.position.x > tooltip_rect.position.x:
+			tooltip.global_position.x += 25
+		elif viewport_rect.end.x < tooltip_rect.end.x:
+			tooltip.global_position.x -= 25
+		## vertical alignment
+		if viewport_rect.position.y > tooltip_rect.position.y:
+			tooltip.global_position.x += 25
+		elif viewport_rect.end.y < tooltip_rect.end.y:
+			tooltip.global_position.y -= 25
+		tooltip_rect = tooltip.get_rect()
+	
+	tooltip.visible = true
