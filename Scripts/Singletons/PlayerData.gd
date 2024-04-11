@@ -83,6 +83,8 @@ func create_temp_inv(): #creates temporary inventoey
 
 func clear_save():
 	DirAccess.remove_absolute(SAVE_LOCATION)
+	DirAccess.remove_absolute(INV_LOCATION)
+	create_temp_inv()
 
 ################ Event Triggers #################
 

@@ -50,25 +50,36 @@ position = Vector2(232, 976)
 scale = Vector2(7.20968, 5.75)
 texture = ExtResource("4_6xi80")
 
-[node name="Start" type="Button" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 616.0
-offset_top = 688.0
-offset_right = 1304.0
-offset_bottom = 792.0
-theme_override_fonts/font = ExtResource("5_5yy0k")
-theme_override_font_sizes/font_size = 36
-text = "Start"
-
-[node name="Exit" type="Button" parent="."]
-layout_mode = 0
-offset_left = 616.0
-offset_top = 832.0
+offset_top = 539.0
 offset_right = 1304.0
 offset_bottom = 936.0
+theme_override_constants/separation = 50
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(700, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5yy0k")
+theme_override_font_sizes/font_size = 36
+text = "Continue
+"
+
+[node name="New Game" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(700, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5yy0k")
+theme_override_font_sizes/font_size = 36
+text = "New Game"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(700, 100)
+layout_mode = 2
 theme_override_fonts/font = ExtResource("5_5yy0k")
 theme_override_font_sizes/font_size = 36
 text = "Exit"
 
-[connection signal="pressed" from="Start" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

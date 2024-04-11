@@ -1,19 +1,19 @@
 extends Control
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	GameTime.stop()
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Screens/Main.tscn")
+	if PlayerData.save.money == 0 and PlayerData.save.reputation == 0 and PlayerData.save.madePotions.size() == 0:
+		$"VBoxContainer/Continue".visible = false
 
 
 func _on_exit_pressed():
 	get_tree().quit()
+
+
+func _on_new_game_pressed():
+	PlayerData.clear_save()
+	_on_continue_pressed()
+
+
+func _on_continue_pressed():
+	get_tree().change_scene_to_file("res://Scenes/Screens/Main.tscn")

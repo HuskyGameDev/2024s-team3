@@ -4,20 +4,20 @@
 			"Quantity": 5
 		},
 		"Inv2": {
-			"Item": "pine_resin",
-			"Quantity": 2
+			"Item": null,
+			"Quantity": 0
 		},
 		"Inv3": {
-			"Item": "nightshade_petals",
-			"Quantity": 1
+			"Item": null,
+			"Quantity": 0
 		},
 		"Inv4": {
-			"Item": "peppermint_leaves",
-			"Quantity": 4
+			"Item": null,
+			"Quantity": 0
 		},
 		"Inv5": {
-			"Item": "sunflower_seeds",
-			"Quantity": 3
+			"Item": null,
+			"Quantity": 0
 		},
 		"Inv6": {
 			"Item": null,
@@ -36,20 +36,20 @@
 			"Quantity": 0
 		},
 		"Inv10": {
-			"Item": null,
-			"Quantity": 0
+			"Item": "pine_resin",
+			"Quantity": 2
 		},
 		"Inv11": {
-			"Item": null,
-			"Quantity": 0
+			"Item": "nightshade_petals",
+			"Quantity": 1
 		},
 		"Inv12": {
-			"Item": null,
-			"Quantity": 0
+			"Item": "peppermint_leaves",
+			"Quantity": 4
 		},
 		"Inv13": {
-			"Item": null,
-			"Quantity": 0
+			"Item": "sunflower_seeds",
+			"Quantity": 3
 		},
 		"Inv14": {
 			"Item": null,
