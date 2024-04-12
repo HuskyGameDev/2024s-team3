@@ -44,6 +44,7 @@ func _ready():
 	cauldron.ingredient_added.connect(next_step)
 	drawer.make_inv_object.connect(_on_inv_dragged) #moving object out of inventory
 	pedestal.make_ped_object.connect(_on_ped_pressed) #moving object out of pedestal
+	pedestal.sendToBell.connect(_on_pedestal_send_to_bell)
 	# Called when the node enters the scene tree for the first time.
 	
 	# create a customer array with all of the orders for the day
@@ -204,7 +205,6 @@ func nextCust():
 func _on_pedestal_send_to_bell(item):
 	potionOnPedestal = item.id
 
-
 func _on_customer_spawner_order_to_bell(data):
 	custOrder = data.order.id
 	orderPrice = data.orderPrice
@@ -214,7 +214,8 @@ func _on_ring_bell_pressed():
 	if !potionOnPedestal: return
 	if custOrder == potionOnPedestal:
 		print("correct order!")
-		CorrectGoToCustSpawner.emit(potionOnPedestal) # send another one, get ride of this guy 
+		_on_ring_bell_correct_go_to_cust_spawner(potionOnPedestal)
+		CorrectGoToCustSpawner.emit() # send another one, get ride of this guy 
 		potionOnPedestal = ""
 		PlayerData.changeMoney(orderPrice)
 		PlayerData.changeReputation(orderRep)

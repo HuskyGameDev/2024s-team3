@@ -11,7 +11,8 @@ signal sendToBell(item:Resource)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	curIcon = $Icon
-	
+	var main = get_parent()
+	main.CorrectGoToCustSpawner.connect(_on_customer_take_potion)
 
 func _on_inv_area_body_entered(body):
 	print("object_type is: ", body.get("object_type"))
@@ -44,7 +45,7 @@ func _on_button_up():
 		curIcon.texture = null
 		
 
-func _on_customer_take_potion(id):
+func _on_customer_take_potion():
 	curIcon.texture = null
 	item = null
 	held = null
