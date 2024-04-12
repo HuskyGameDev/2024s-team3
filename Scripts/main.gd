@@ -187,8 +187,8 @@ func spawn_customer():
 	outWalkSpeed = currentCustomer.data.walkSpeed / 80
 	print("outwalkspeed is: ", outWalkSpeed)
 
-func _on_ring_bell_correct_go_to_cust_spawner(_id): # code gets here when there is a correct order
-	next_step(currentCustomer.data.order.id)
+func _on_ring_bell_correct_go_to_cust_spawner(id): # code gets here when there is a correct order
+	next_step(id)
 	print(currentCustomer.data.customerName, " recieved a ",  currentCustomer.data.order.name)
 	walkOut = true
 	o = 0 # need a reset

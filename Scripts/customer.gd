@@ -4,6 +4,9 @@ extends Sprite2D
 #var potionsRecieved: Array[String] = [] # Add potion recieved to an array for storage, can combine or add to one main array in the future to keep track of all potions
 var data:Customer 
 
+func _ready():
+	pass #randomize texture here
+
 func _setup(customerData: Customer):
 	self.data = customerData
 	
