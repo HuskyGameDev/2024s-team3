@@ -164,7 +164,7 @@ func spawn_customer():
 	
 	walkOut = false
 	currentCustomer = customerScene.instantiate()
-	currentCustomer.set_sprite(customerSprites[randi() % customerSprites.size()]) # set customer's sprite randomly
+	#currentCustomer.set_sprite(customerSprites[randi() % customerSprites.size()]) # set customer's sprite randomly
 	currentCustomer.position = customerStartLocation
 	add_child(currentCustomer) # add new customer to the main scene so you can see it
 	move_child(currentCustomer, 0)
@@ -172,7 +172,7 @@ func spawn_customer():
 	print("valid cust? ",is_instance_valid(currentCustomer))
 	
 	# set up the customer's data
-	custArray[0].customerName = customerNames[randi() % customerNames.size()] # set customer's name randomly
+	#custArray[0].customerName = customerNames[randi() % customerNames.size()] # set customer's name randomly
 	currentCustomer._setup(custArray[0])
 	
 	# display what the customer wants
