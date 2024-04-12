@@ -3,6 +3,36 @@ extends Node2D
 var PotionScene = preload("res://Scenes/Potion.tscn")
 var IngredientScene = preload("res://Scenes/Ingredient.tscn")
 
+const NAMES_DATA_PATH = "res://Assets/Data/CustomerNames.txt"
+const SPRITES_DIR_PATH = "res://Assets/Sprites/Customers"
+const customerScene = preload("res://Scenes/Customer.tscn")
+
+var txtBox = preload("res://Scenes/UI/textBox.tscn") # general textbox
+
+var custArray:Array[Customer] = []
+var customerNames:Array[String] = []
+var customerSprites:Array[Texture2D] = []
+var currentCustomer
+
+var outWalkSpeed # start walking out from a standstill but not with constant acceleration, change speed when walking out 
+const customerStartLocation = (Vector2(1800,500))
+var customerEndLocation = (Vector2(1200,500)) 
+var customerWalkOutLocation = (Vector2(-650, 150))
+
+var sizeOfCustomers = 3
+var t = 0.0 # interpolation t walk value for the x direction
+var o = 0.0
+
+signal potionData
+signal CorrectGoToCustSpawner
+var custOrder:String
+var orderPrice:int
+var orderRep:int
+var potionOnPedestal:String
+
+
+var walkOut
+
 func _ready():
 	GameTime.start_day()
 	GameTime.end_of_day.connect(func(): get_tree().change_scene_to_file("res://Scenes/Screens/NightMenu.tscn"));
@@ -15,6 +45,48 @@ func _ready():
 	drawer.make_inv_object.connect(_on_inv_dragged) #moving object out of inventory
 	pedestal.make_ped_object.connect(_on_ped_pressed) #moving object out of pedestal
 	# Called when the node enters the scene tree for the first time.
+	
+	# create a customer array with all of the orders for the day
+	custArray = PlayerData.save.currentLocation.get_customer_requests(sizeOfCustomers)
+	
+	# set up the array of customer names
+	var namesFile = FileAccess.open(NAMES_DATA_PATH, FileAccess.READ)
+	if namesFile: 
+		while not namesFile.eof_reached():
+			var nextLine = namesFile.get_line()
+			if(nextLine != ""): customerNames.append(nextLine)
+		namesFile.close()
+		
+	# set up the array of customer sprites
+	var spritesDir = DirAccess.open(SPRITES_DIR_PATH)
+	if spritesDir:
+		for fileName:String in spritesDir.get_files():
+			if fileName.get_extension() == "import": continue
+			customerSprites.append(ResourceLoader.load(SPRITES_DIR_PATH+"/"+fileName, "Texture2D"))
+	
+	spawn_customer()
+	
+func _process(delta): 
+	# x
+	if(!walkOut): # walk in
+		if(t < 1):
+			t += (delta * (currentCustomer.data.walkSpeed))
+			#print(t) 
+			currentCustomer.position = customerStartLocation.lerp(customerEndLocation, t) 
+		
+		#=================================================# w / o
+	# x
+	if(walkOut): 
+		#print("o at walkouit is: ", o)
+		if(o < 1 ): 
+			o += (delta * (outWalkSpeed) ) 
+			if(outWalkSpeed < 2): # slower, interpole was too fast
+				outWalkSpeed += .005
+			#print(t) 
+			currentCustomer.position = customerEndLocation.lerp(customerWalkOutLocation, o) # careful child and parent coordinate issues
+			
+		if(o >= 1):
+			nextCust()
 
 func next_step(id): #tutorial progression
 	if id == "nightshade_petals" && get_node("Tutorial/NightShadeText").visible == true:
@@ -84,3 +156,67 @@ func _on_ped_pressed(item: Resource):
 
 func _on_shelf_body_entered(body):
 	body.rotation = 0
+	
+func spawn_customer():
+	# instatiate a customer scene
+	#print("start location is: ", customerStartLocation, " end is: ", customerEndLocation, " Walk out is: ", customerWalkOutLocation)
+	
+	walkOut = false
+	currentCustomer = customerScene.instantiate()
+	currentCustomer.set_sprite(customerSprites[randi() % customerSprites.size()]) # set customer's sprite randomly
+	currentCustomer.position = customerStartLocation
+	add_child(currentCustomer) # add new customer to the main scene so you can see it
+	move_child(currentCustomer, 0)
+	
+	print("valid cust? ",is_instance_valid(currentCustomer))
+	
+	# set up the customer's data
+	custArray[0].customerName = customerNames[randi() % customerNames.size()] # set customer's name randomly
+	currentCustomer._setup(custArray[0])
+	
+	# display what the customer wants
+	var currentTxtBox = txtBox.instantiate() # ready current textbox
+	var formatString = "%s wants a %s"
+	var actualString = formatString % [str(currentCustomer.data.customerName), str(currentCustomer.data.order.name)]
+	currentTxtBox.order = actualString
+	add_child(currentTxtBox) # show 
+	
+	# send data to Bell 
+	_on_customer_spawner_order_to_bell(currentCustomer.data)
+	
+	outWalkSpeed = currentCustomer.data.walkSpeed / 80
+	print("outwalkspeed is: ", outWalkSpeed)
+
+func _on_ring_bell_correct_go_to_cust_spawner(_id): # code gets here when there is a correct order
+	print(currentCustomer.data.customerName, " recieved a ",  currentCustomer.data.order.name)
+	walkOut = true
+	o = 0 # need a reset
+	
+#func wait(seconds: float) -> void:
+	#await get_tree().create_timer(seconds).timeout
+
+func nextCust():
+	currentCustomer.queue_free()
+	t = 0
+	o = 0
+	spawn_customer()
+
+func _on_pedestal_send_to_bell(item):
+	potionOnPedestal = item.id
+
+
+func _on_customer_spawner_order_to_bell(data):
+	custOrder = data.order.id
+	orderPrice = data.orderPrice
+	orderRep = data.reputationChange
+
+func _on_ring_bell_pressed():
+	if !potionOnPedestal: return
+	if custOrder == potionOnPedestal:
+		print("correct order!")
+		CorrectGoToCustSpawner.emit(potionOnPedestal) # send another one, get ride of this guy 
+		potionOnPedestal = ""
+		PlayerData.changeMoney(orderPrice)
+		PlayerData.changeReputation(orderRep)
+	else:
+		PlayerData.changeReputation(orderRep * -1)

@@ -19,7 +19,3 @@ func _on_crucible_input_event(_viewport, _event, _shape_idx):
 		print("click")
 		salt_made.emit("pine_resin")
 		hasSalt=false
-
-
-func _on_area_2d_body_entered(body):
-	pass # Replace with function body.

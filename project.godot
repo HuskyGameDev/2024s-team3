@@ -31,6 +31,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="Baba Yaga-s Bottles"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 click={
