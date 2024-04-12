@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://br236elfur261" path="res://Scenes/UI/Drawer.tscn" id="10_tnf6t"]
 [ext_resource type="Texture2D" uid="uid://dbrst6yicxjg1" path="res://Assets/Sprites/Ingredients/peppermint_leaves.png" id="11_lcnq5"]
 [ext_resource type="Texture2D" uid="uid://bgr0j54ert0ee" path="res://Assets/Sprites/Ingredients/pine_resin.png" id="12_5ovj8"]
-[ext_resource type="Script" path="res://Scripts/ringBell.gd" id="13_klo3p"]
 [ext_resource type="Texture2D" uid="uid://k1s0jbcfp0sn" path="res://Assets/Sprites/Ingredients/sunflower_seeds.png" id="13_sykwt"]
 [ext_resource type="Texture2D" uid="uid://dnynu6kp1nswf" path="res://Assets/Sprites/Ingredients/nightshade_petals.png" id="14_jiia4"]
 [ext_resource type="PackedScene" uid="uid://cqjv8jg1x3rnd" path="res://Scenes/Crucible.tscn" id="15_a4pmo"]
@@ -71,6 +70,38 @@ name = "Nightshade Petals"
 description = "The opposite of what most believe them to be."
 stackSize = 5
 image = ExtResource("14_jiia4")
+
+[sub_resource type="GDScript" id="GDScript_hmejc"]
+script/source = "extends Button
+
+signal potionData
+signal CorrectGoToCustSpawner
+var custOrder:String
+var orderPrice:int
+var orderRep:int
+var potionOnPedestal:String
+
+
+func _on_pedestal_send_to_bell(item):
+	potionOnPedestal = item.id
+
+
+func _on_customer_spawner_order_to_bell(data):
+	custOrder = data.order.id
+	orderPrice = data.orderPrice
+	orderRep = data.reputationChange
+
+func _pressed():
+	if !potionOnPedestal: return
+	if custOrder == potionOnPedestal:
+		print(\"correct order!\")
+		CorrectGoToCustSpawner.emit(potionOnPedestal) # send another one, get ride of this guy 
+		potionOnPedestal = \"\"
+		PlayerData.changeMoney(orderPrice)
+		PlayerData.changeReputation(orderRep)
+	else:
+		PlayerData.changeReputation(orderRep * -1)
+"
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0ufrw")
@@ -271,7 +302,7 @@ offset_right = 373.0
 offset_bottom = 392.0
 toggle_mode = true
 text = "ring"
-script = ExtResource("13_klo3p")
+script = SubResource("GDScript_hmejc")
 
 [node name="Crucible" parent="." instance=ExtResource("15_a4pmo")]
 visible = false

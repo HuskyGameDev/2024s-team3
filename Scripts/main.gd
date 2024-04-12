@@ -17,7 +17,7 @@ var currentCustomer
 var outWalkSpeed # start walking out from a standstill but not with constant acceleration, change speed when walking out 
 const customerStartLocation = (Vector2(1800,500))
 var customerEndLocation = (Vector2(1200,500)) 
-var customerWalkOutLocation = (Vector2(-650, 150))
+var customerWalkOutLocation = (Vector2(-650, 500))
 
 var sizeOfCustomers = 3
 var t = 0.0 # interpolation t walk value for the x direction
@@ -96,10 +96,9 @@ func next_step(id): #tutorial progression
 	elif id == "thistle_root" && get_node("Tutorial/ThistlerootText").visible == true:
 		get_node("Tutorial/ThistlerootText").visible = false
 		get_node("Tutorial/CauldronText").visible = true
-	elif id == "healing_potion" && get_node("Tutorial/CauldronText").visible == true:
-		get_node("Tutorial/CauldronText").visible = false
-		get_node("Tutorial/PotionText").visible = true
-	elif id == "healing_potion" && get_node("Tutorial/CauldronText").visible == true:
+	elif id == "healing_potion" && (get_node("Tutorial/CauldronText").visible == true or get_node("Tutorial/NightShadeText").visible == true or get_node("Tutorial/ThistlerootText").visible == true):
+		get_node("Tutorial/NightShadeText").visible = false
+		get_node("Tutorial/ThistlerootText").visible = false
 		get_node("Tutorial/CauldronText").visible = false
 		get_node("Tutorial/PotionText").visible = true
 	elif id == "healing_potion" && get_node("Tutorial/PotionText").visible == true:
@@ -189,6 +188,7 @@ func spawn_customer():
 	print("outwalkspeed is: ", outWalkSpeed)
 
 func _on_ring_bell_correct_go_to_cust_spawner(_id): # code gets here when there is a correct order
+	next_step(currentCustomer.data.order.id)
 	print(currentCustomer.data.customerName, " recieved a ",  currentCustomer.data.order.name)
 	walkOut = true
 	o = 0 # need a reset
