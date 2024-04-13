@@ -72,7 +72,7 @@ func _drop_data(_at_position, data):
 			else: 
 				data["origin_node"].get_node("Quantity").set_text(str(data["origin_quantity"] - 1))
 			data["target_slot"].get_node("Icon/Quantity").set_text(str(data["target_quantity"] + 1))
-	elif inv_data[origin_slot]["Quantity"] == 1 || Input.is_physical_key_pressed(KEY_SHIFT) : #stack only contains one or we are moving whole stack
+	elif inv_data[origin_slot]["Quantity"] == float(1) || Input.is_physical_key_pressed(KEY_SHIFT) : #stack only contains one or we are moving whole stack
 		inv_data[origin_slot]["Item"] = data["target_item_id"]
 		inv_data[target_slot]["Item"] = data["origin_item_id"]
 		data["origin_node"].texture = data["target_texture"]

@@ -9,39 +9,45 @@ var template_inv_slot = preload("res://Scenes/UI/Drawer_button.tscn")
 var inv_data
 var slots = []
 var dragSlot = null;
-# Called when the node enters the scene tree for the first time.
+
 #reads from inventory json file, creates each slot of inventory and fills it according to json
 func _ready():
 	PlayerData._ready()
 	inv_data = PlayerData.read_inv()
-	for i in inv_data:
+	for i in inv_data: #for each inventory slot in the JSON
 		slots.push_front(i)
 		var inv_slot_new = template_inv_slot.instantiate()
 		inv_slot_new.name = i
 		gridcontainer.add_child(inv_slot_new, true)
-		if inv_data[i]["Item"] != null:
+		if inv_data[i]["Item"] != null: #if it has somthing in it, save those attributes to the slot
 			var quantity = str(inv_data[i]["Quantity"])
 			var item_name = str(inv_data[i]["Item"])
 			var path = "res://Assets/Resources/Ingredients/" + str(item_name) + ".tres"
 			var resource = ResourceLoader.load(path)
 			inv_slot_new.get_node("Icon").set_texture(resource.image)
 			inv_slot_new.get_node("Icon/Quantity").set_text(quantity)
-
+			
+ #gets the plot the mouse is dragging something that is already in the inventory to
 func _get_dragging(inv_slot):
 	dragSlot = inv_slot
-
-func _notification(notification_type):
+	
+#if we drag something outside of the inventory, make that object in the scene
+func _notification(notification_type): 
 	match notification_type:
 		NOTIFICATION_DRAG_END:
 			if !is_drag_successful():
-				make_inv_object.emit(dragSlot)
-				var quantityNode = get_node("Background/M/V/ScrollContainer/GridContainer/" + str(dragSlot) + "/Icon/Quantity")
-				if int(quantityNode.text) == 1:
+				inv_data = PlayerData.read_inv()	
+				make_inv_object.emit(dragSlot) #sends signal to main to make the object
+				var quantityNode = get_node("Background/M/V/ScrollContainer/GridContainer/" + str(dragSlot) + "/Icon/Quantity") 
+				if int(quantityNode.text) == 1: #if there was only one thing in that slot, empty the slot
 					var iconNode = get_node("Background/M/V/ScrollContainer/GridContainer/" + str(dragSlot) + "/Icon" )
 					iconNode.texture = null
 					quantityNode.text = ""
-				else:
+					inv_data[dragSlot]["Item"] = null
+				else:  #else decrease the slot quantity by one
 					quantityNode.text =  str(int(quantityNode.text) - 1)
+					inv_data[dragSlot]["Quantity"] = quantityNode.text
+				PlayerData.write_inv(inv_data)
 
 #insert an item of ingredient resource and quantity amount
 func Insert(item : Resource, quantity : int):
@@ -80,7 +86,6 @@ func Insert(item : Resource, quantity : int):
 				return
 		index = index + 1
 	PlayerData.write_inv(inv_data)
-
 
 func UpdateButton( item : Resource, quantity : int, index : int):
 	if index < gridcontainer.get_child_count():

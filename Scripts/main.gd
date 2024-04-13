@@ -129,7 +129,7 @@ func _on_inv_dragged(inv_slot):
 	print(inv_slot)
 	var inv_data = PlayerData.read_inv()
 	var itemID = inv_data[inv_slot]["Item"]
-	var quantity = inv_data[inv_slot]["Quantity"]
+	var quantity = int(inv_data[inv_slot]["Quantity"])
 	if itemID != null:
 		var newItem = IngredientScene.instantiate()
 		newItem.data = ResourceLoader.load("res://Assets/Resources/Ingredients/" + str(itemID) + ".tres")
@@ -175,8 +175,9 @@ func spawn_customer():
 	currentTxtBox.order = actualString
 	add_child(currentTxtBox) # show 
 	
-	# send data to Bell 
-	_on_customer_spawner_order_to_bell(currentCustomer.data)
+	custOrder = currentCustomer.data.order.id
+	orderPrice = currentCustomer.data.orderPrice
+	orderRep = currentCustomer.data.reputationChange
 	
 	outWalkSpeed = currentCustomer.data.walkSpeed / 80
 	print("outwalkspeed is: ", outWalkSpeed)
@@ -193,20 +194,16 @@ func nextCust():
 	o = 0
 	spawn_customer()
 
+ #stores the type of potion places on pedestal
 func _on_pedestal_send_to_bell(item):
 	potionOnPedestal = item.id
 
-func _on_customer_spawner_order_to_bell(data):
-	custOrder = data.order.id
-	orderPrice = data.orderPrice
-	orderRep = data.reputationChange
-
+#checks if the correct order is placed on the pedestal when the bell is rung
 func _on_ring_bell_pressed():
 	if !potionOnPedestal: return
 	if custOrder == potionOnPedestal:
-		print("correct order!")
 		_on_ring_bell_correct_go_to_cust_spawner(potionOnPedestal)
-		CorrectGoToCustSpawner.emit() # send another one, get ride of this guy 
+		CorrectGoToCustSpawner.emit() # send signal to pedestal to become empty
 		potionOnPedestal = ""
 		PlayerData.changeMoney(orderPrice)
 		PlayerData.changeReputation(orderRep)
