@@ -4,14 +4,12 @@ var PotionScene = preload("res://Scenes/Potion.tscn")
 var IngredientScene = preload("res://Scenes/Ingredient.tscn")
 
 const NAMES_DATA_PATH = "res://Assets/Data/CustomerNames.txt"
-const SPRITES_DIR_PATH = "res://Assets/Sprites/Customers"
 const customerScene = preload("res://Scenes/Customer.tscn")
 
 var txtBox = preload("res://Scenes/UI/textBox.tscn") # general textbox
 
 var custArray:Array[Customer] = []
 var customerNames:Array[String] = []
-var customerSprites:Array[Texture2D] = []
 var currentCustomer
 
 var outWalkSpeed # start walking out from a standstill but not with constant acceleration, change speed when walking out 
@@ -29,6 +27,7 @@ var custOrder:String
 var orderPrice:int
 var orderRep:int
 var potionOnPedestal:String
+var tutorial
 
 
 var walkOut
@@ -45,10 +44,13 @@ func _ready():
 	drawer.make_inv_object.connect(_on_inv_dragged) #moving object out of inventory
 	pedestal.make_ped_object.connect(_on_ped_pressed) #moving object out of pedestal
 	pedestal.sendToBell.connect(_on_pedestal_send_to_bell)
-	# Called when the node enters the scene tree for the first time.
 	
 	# create a customer array with all of the orders for the day
 	custArray = PlayerData.save.currentLocation.get_customer_requests(sizeOfCustomers)
+	
+	if GameTime.day == 1:
+		tutorial = get_node("Tutorial")
+		tutorial.visible = true
 	
 	# set up the array of customer names
 	var namesFile = FileAccess.open(NAMES_DATA_PATH, FileAccess.READ)
@@ -57,16 +59,8 @@ func _ready():
 			var nextLine = namesFile.get_line()
 			if(nextLine != ""): customerNames.append(nextLine)
 		namesFile.close()
-		
-	# set up the array of customer sprites
-	var spritesDir = DirAccess.open(SPRITES_DIR_PATH)
-	if spritesDir:
-		for fileName:String in spritesDir.get_files():
-			if fileName.get_extension() == "import": continue
-			customerSprites.append(ResourceLoader.load(SPRITES_DIR_PATH+"/"+fileName, "Texture2D"))
-	
 	spawn_customer()
-	
+
 func _process(delta): 
 	# x
 	if(!walkOut): # walk in
@@ -90,26 +84,27 @@ func _process(delta):
 			nextCust()
 
 func next_step(id): #tutorial progression
-	if id == "nightshade_petals" && get_node("Tutorial/NightShadeText").visible == true:
-		get_node("Tutorial/NightShadeText").visible = false
-		get_node("Tutorial/ThistlerootText").visible = true
-	elif id == "thistle_root" && get_node("Tutorial/ThistlerootText").visible == true:
-		get_node("Tutorial/ThistlerootText").visible = false
-		get_node("Tutorial/CauldronText").visible = true
-	elif id == "healing_potion" && (get_node("Tutorial/CauldronText").visible == true or get_node("Tutorial/NightShadeText").visible == true or get_node("Tutorial/ThistlerootText").visible == true):
-		get_node("Tutorial/NightShadeText").visible = false
-		get_node("Tutorial/ThistlerootText").visible = false
-		get_node("Tutorial/CauldronText").visible = false
-		get_node("Tutorial/PotionText").visible = true
-	elif id == "healing_potion" && get_node("Tutorial/PotionText").visible == true:
-		get_node("Tutorial/PotionText").visible = false
-		get_node("Tutorial/FinishText").visible = true
+	var nightShadeText = get_node("Tutorial/NightShadeText")
+	var thistleRootText = get_node("Tutorial/ThistlerootText")
+	var cauldromText = get_node("Tutorial/CauldronText")
+	var potionText = get_node("Tutorial/PotionText")
+	var finishText = get_node("Tutorial/FinishText")
+	if id == "nightshade_petals" && nightShadeText.visible == true:
+		nightShadeText.visible = false
+		thistleRootText.visible = true
+	elif id == "thistle_root" && thistleRootText.visible == true:
+		thistleRootText.visible = false
+		cauldromText.visible = true
+	elif id == "healing_potion" && (potionText.visible == false):
+		nightShadeText.visible = false
+		thistleRootText.visible = false
+		cauldromText.visible = false
+		potionText.visible = true
+	elif id == "healing_potion" && potionText.visible == true:
+		potionText.visible = false
+		finishText.visible = true
 		await get_tree().create_timer(8).timeout 
-		get_node("Tutorial/NightShadeText").visible = false
-		get_node("Tutorial/ThistlerootText").visible = false
-		get_node("Tutorial/CauldronText").visible = false
-		get_node("Tutorial/PotionText").visible = false
-		get_node("Tutorial/FinishText").visible = false
+		tutorial.visible = false
 
 func _on_cauldron_potion_made(potion:Potion):
 	next_step(potion.id)
@@ -163,7 +158,6 @@ func spawn_customer():
 	
 	walkOut = false
 	currentCustomer = customerScene.instantiate()
-	#currentCustomer.set_sprite(customerSprites[randi() % customerSprites.size()]) # set customer's sprite randomly
 	currentCustomer.position = customerStartLocation
 	add_child(currentCustomer) # add new customer to the main scene so you can see it
 	move_child(currentCustomer, 0)
@@ -192,9 +186,6 @@ func _on_ring_bell_correct_go_to_cust_spawner(id): # code gets here when there i
 	print(currentCustomer.data.customerName, " recieved a ",  currentCustomer.data.order.name)
 	walkOut = true
 	o = 0 # need a reset
-	
-#func wait(seconds: float) -> void:
-	#await get_tree().create_timer(seconds).timeout
 
 func nextCust():
 	currentCustomer.queue_free()

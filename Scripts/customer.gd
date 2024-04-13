@@ -3,9 +3,19 @@ extends Sprite2D
 
 #var potionsRecieved: Array[String] = [] # Add potion recieved to an array for storage, can combine or add to one main array in the future to keep track of all potions
 var data:Customer 
+var customerSprites:Array[Texture2D] = []
+const SPRITES_DIR_PATH = "res://Assets/Sprites/Customers"
 
 func _ready():
-	pass #randomize texture here
+	var spritesDir = DirAccess.open(SPRITES_DIR_PATH)
+	if spritesDir:
+	#set texture of customer randomly
+		for fileName:String in spritesDir.get_files(): #This works in editor but build is only able to see .import files???
+			#print(fileName)
+			if fileName.get_extension() == "import": continue
+			customerSprites.append(ResourceLoader.load(SPRITES_DIR_PATH+"/"+fileName, "Texture2D"))
+	#print(customerSprites.size())
+	texture = customerSprites[randi() % customerSprites.size() ] # set customer's sprite randomly
 
 func _setup(customerData: Customer):
 	self.data = customerData
@@ -23,4 +33,3 @@ func set_sprite(sprite:Texture2D):
 		
 		## Add potion recieved to an array 
 		#potionsRecieved.push_back(recievedPotion.id) # add
-		
