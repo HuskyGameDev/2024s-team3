@@ -181,6 +181,7 @@ offset_right = 1892.0
 offset_bottom = 134.0
 
 [node name="Tutorial" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("17_5filg")
