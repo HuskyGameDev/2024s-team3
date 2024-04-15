@@ -100,7 +100,7 @@ func add_item_to_inventory(item : Resource, quantity : int):
 	var inv_data = PlayerData.read_inv()	
 	for i in  inv_data: #find next available slot to put item
 		
-		var slotAmount = inv_data[i]["Quantity"]
+		var slotAmount = int(inv_data[i]["Quantity"])
 		if inv_data[i]["Item"] == item.id && slotAmount != item.stackSize: #if this ingredient already exists in inventory
 			if slotAmount + quantity > item.stackSize: #if adding this quantity to the amount in the stack would be larger than stack size
 				inv_data[i]["Quantity"] = item.stackSize #fill the slot

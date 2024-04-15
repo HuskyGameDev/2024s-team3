@@ -8,29 +8,25 @@ const customerScene = preload("res://Scenes/Customer.tscn")
 
 var txtBox = preload("res://Scenes/UI/textBox.tscn") # general textbox
 
+signal CorrectGoToCustSpawner #signals the pedestal that the items have been picked up
+
 var custArray:Array[Customer] = []
 var customerNames:Array[String] = []
-var currentCustomer
-
+var currentCustomer #the instance of the customer 
+var custOrder:String # id of potion resource the customer is ordering
+var orderPrice:int #money gained from selling this potion 
+var orderRep:int #reputation gained or lost from selling this potion
+var potionOnPedestal:String #stores the resource sent on pedestal
 var outWalkSpeed # start walking out from a standstill but not with constant acceleration, change speed when walking out 
-const customerStartLocation = (Vector2(1800,500))
-var customerEndLocation = (Vector2(1200,500)) 
-var customerWalkOutLocation = (Vector2(-650, 500))
-
-var sizeOfCustomers = 3
+const customerStartLocation = (Vector2(1800,500)) #where the customer is spawned in
+var customerEndLocation = (Vector2(1200,500))  #where the customer goes to wait for an order
+var customerWalkOutLocation = (Vector2(-650, 500)) #where they walk out to to despawn
+var sizeOfCustomers = 3 
 var t = 0.0 # interpolation t walk value for the x direction
 var o = 0.0
-
-signal potionData
-signal CorrectGoToCustSpawner
-var custOrder:String
-var orderPrice:int
-var orderRep:int
-var potionOnPedestal:String
-var tutorial
-
-
 var walkOut
+var tutorial #if it is the 1st gameday, set to tutorial control node
+var thistle = false #stores if thistle root had already been placed in the cauldron for tutorial
 
 func _ready():
 	GameTime.start_day()
@@ -39,7 +35,6 @@ func _ready():
 	var pedestal = get_node("Pedestal")
 	var cauldron = $"Cauldron"
 	var bell = $"ringBell"
-	bell.CorrectGoToCustSpawner.connect(next_step)
 	cauldron.ingredient_added.connect(next_step)
 	drawer.make_inv_object.connect(_on_inv_dragged) #moving object out of inventory
 	pedestal.make_ped_object.connect(_on_ped_pressed) #moving object out of pedestal
@@ -48,7 +43,7 @@ func _ready():
 	# create a customer array with all of the orders for the day
 	custArray = PlayerData.save.currentLocation.get_customer_requests(sizeOfCustomers)
 	
-	if GameTime.day == 1:
+	if GameTime.day == 1: #goes through tutorial on 1st game day
 		tutorial = get_node("Tutorial")
 		tutorial.visible = true
 	
@@ -84,27 +79,33 @@ func _process(delta):
 			nextCust()
 
 func next_step(id): #tutorial progression
-	var nightShadeText = get_node("Tutorial/NightShadeText")
-	var thistleRootText = get_node("Tutorial/ThistlerootText")
-	var cauldromText = get_node("Tutorial/CauldronText")
-	var potionText = get_node("Tutorial/PotionText")
-	var finishText = get_node("Tutorial/FinishText")
-	if id == "nightshade_petals" && nightShadeText.visible == true:
-		nightShadeText.visible = false
-		thistleRootText.visible = true
-	elif id == "thistle_root" && thistleRootText.visible == true:
-		thistleRootText.visible = false
-		cauldromText.visible = true
-	elif id == "healing_potion" && (potionText.visible == false):
-		nightShadeText.visible = false
-		thistleRootText.visible = false
-		cauldromText.visible = false
-		potionText.visible = true
-	elif id == "healing_potion" && potionText.visible == true:
-		potionText.visible = false
-		finishText.visible = true
-		await get_tree().create_timer(8).timeout 
-		tutorial.visible = false
+	if tutorial != null:
+		var nightShadeText = get_node("Tutorial/NightShadeText")
+		var thistleRootText = get_node("Tutorial/ThistlerootText")
+		var cauldronText = get_node("Tutorial/CauldronText")
+		var potionText = get_node("Tutorial/PotionText")
+		var finishText = get_node("Tutorial/FinishText")
+		if id == "nightshade_petals" && nightShadeText.visible == true && (finishText.visible == false):
+			nightShadeText.visible = false
+			if (thistle == true):
+				cauldronText.visible = true
+			else:
+				thistleRootText.visible = true
+		elif id == "thistle_root" && thistleRootText.visible == true && (finishText.visible == false):
+			thistleRootText.visible = false
+			cauldronText.visible = true
+		elif id == "healing_potion" && (potionText.visible == false && (finishText.visible == false)):
+			nightShadeText.visible = false
+			thistleRootText.visible = false
+			cauldronText.visible = false
+			potionText.visible = true
+		elif id == "healing_potion" && potionText.visible == true && (finishText.visible == false):
+			potionText.visible = false
+			finishText.visible = true
+			await get_tree().create_timer(8).timeout 
+			tutorial.visible = false
+		elif id == "thistle_root":
+			thistle = true
 
 func _on_cauldron_potion_made(potion:Potion):
 	next_step(potion.id)
