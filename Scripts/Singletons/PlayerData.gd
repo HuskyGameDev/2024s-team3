@@ -7,8 +7,8 @@ var INV_LOCATION = "user://inv_data_file.json" #inventory we save to when each d
 @export var save:SaveGameFile
 
 func _ready():	
-	GameTime.start_of_day.connect(_on_start_of_day)
-	GameTime.end_of_day.connect(_on_end_of_day)
+	if not GameTime.start_of_day.is_connected(_on_start_of_day): GameTime.start_of_day.connect(_on_start_of_day)
+	if not GameTime.end_of_day.is_connected(_on_end_of_day):GameTime.end_of_day.connect(_on_end_of_day)
 	create_temp_inv()
 	if !FileAccess.file_exists(INV_LOCATION): 
 		create_new_inv()
