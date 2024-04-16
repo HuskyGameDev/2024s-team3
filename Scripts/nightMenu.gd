@@ -16,6 +16,5 @@ func _on_forage_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Screens/Main.tscn")
 
 
-func _on_move_button_pressed():
-	print("moving not implemented yet")
-	get_tree().change_scene_to_file("res://Scenes/Screens/Main.tscn")
+func _on_move_button_pressed():	
+	get_tree().change_scene_to_file("res://Scenes/Screens/NightMap.tscn")
