@@ -14,7 +14,6 @@ func _ready():
 	main.CorrectGoToCustSpawner.connect(_on_customer_take_potion)
 
 func _on_inv_area_body_entered(body): #on object dragged into pedestal area
-	print("object_type is: ", body.get("object_type"))
 	if body.get("object_type") == "Potion":
 			dragging = body
 

@@ -13,7 +13,6 @@ func _ready():
 		for fileName:String in spritesDir.get_files(): #This works in editor but build is only able to see .import files???
 			if fileName.get_extension() != "import": continue
 			fileName = fileName.replace('.import', '')
-			print(" file: %s", fileName)
 			customerSprites.append(ResourceLoader.load(SPRITES_DIR_PATH + fileName, "Texture2D"))
 	#print(customerSprites.size())
 	texture = customerSprites[randi() % customerSprites.size() ] # set customer's sprite randomly

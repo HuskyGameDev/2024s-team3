@@ -38,7 +38,6 @@ func _on_inv_area_input_event(_viewport, event, _shape_idx):
 		if heldBody != null:
 			var holding = heldBody.get("object_data")
 			var slot = self.name
-			print("putting " + holding.name + " in " + slot)
 			var inv_data = PlayerData.read_inv()
 			var slotAmount = inv_data[slot]["Quantity"]
 			var item = ResourceLoader.load("res://Assets/Resources/Ingredients/" + holding.id + ".tres")

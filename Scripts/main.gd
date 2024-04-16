@@ -34,7 +34,6 @@ func _ready():
 	var drawer = get_node("Drawer-inventory")
 	var pedestal = get_node("Pedestal")
 	var cauldron = $"Cauldron"
-	var bell = $"ringBell"
 	cauldron.ingredient_added.connect(next_step)
 	drawer.make_inv_object.connect(_on_inv_dragged) #moving object out of inventory
 	pedestal.make_ped_object.connect(_on_ped_pressed) #moving object out of pedestal
@@ -127,7 +126,6 @@ func _on_crucible_salt_made(salt:String):
 	add_child(newSalt)
 
 func _on_inv_dragged(inv_slot):
-	print(inv_slot)
 	var inv_data = PlayerData.read_inv()
 	var itemID = inv_data[inv_slot]["Item"]
 	var quantity = int(inv_data[inv_slot]["Quantity"])
@@ -141,7 +139,6 @@ func _on_inv_dragged(inv_slot):
 			inv_data[inv_slot]["Quantity"] = 0 
 		else:
 			inv_data[inv_slot]["Quantity"] = quantity - 1
-		print(inv_data[inv_slot]["Item"])
 		PlayerData.write_inv(inv_data)
 
 func _on_ped_pressed(item: Resource):
@@ -163,8 +160,6 @@ func spawn_customer():
 	add_child(currentCustomer) # add new customer to the main scene so you can see it
 	move_child(currentCustomer, 0)
 	
-	print("valid cust? ",is_instance_valid(currentCustomer))
-	
 	# set up the customer's data
 	#custArray[0].customerName = customerNames[randi() % customerNames.size()] # set customer's name randomly
 	currentCustomer._setup(custArray[0])
@@ -185,7 +180,6 @@ func spawn_customer():
 
 func _on_ring_bell_correct_go_to_cust_spawner(id): # code gets here when there is a correct order
 	next_step(id)
-	print(currentCustomer.data.customerName, " recieved a ",  currentCustomer.data.order.name)
 	walkOut = true
 	o = 0 # need a reset
 
