@@ -1,5 +1,9 @@
 extends Node
 
+func _ready():
+	$"CenterContainer/VBoxContainer/HBoxContainer/SalesNumber".text = "$%d" % PlayerData.moneyToday
+	$"CenterContainer/VBoxContainer/HBoxContainer/ReputationNumber".text = "%d Reputation" % PlayerData.repToday
+
 func _on_buy_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Screens/NightShop/NightShop.tscn")
 

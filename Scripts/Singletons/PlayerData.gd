@@ -6,7 +6,9 @@ var TEMP_INV_LOCATION = "user://temp_inv_data_file.json" #inventory we save to d
 var INV_LOCATION = "user://inv_data_file.json" #inventory we save to when each day is done
 @export var save:SaveGameFile
 
-func _ready():
+func _ready():	
+	GameTime.start_of_day.connect(_on_start_of_day)
+	GameTime.end_of_day.connect(_on_end_of_day)
 	create_temp_inv()
 	if !FileAccess.file_exists(INV_LOCATION): 
 		create_new_inv()
@@ -90,6 +92,10 @@ func clear_save():
 
 func _on_end_of_day():
 	save_game()
+	
+func _on_start_of_day():
+	moneyToday = 0
+	repToday = 0
 
 func _on_potion_made(potion:Potion):
 	if not save.madePotions.has(potion.id):
@@ -132,10 +138,14 @@ func add_item_to_inventory(item : Resource, quantity : int):
 ############# Save Getters/Setters ##############
 signal moneyChanged(newValue: int)
 signal reputationChanged(newValue: int)
+var moneyToday:int
+var repToday:int
 
 func changeMoney(amount:int):
 	self.save.money += amount
+	moneyToday += amount
 	moneyChanged.emit(self.save.money)
 func changeReputation(amount:int):
 	self.save.reputation += amount
+	repToday += amount
 	reputationChanged.emit(self.save.reputation)

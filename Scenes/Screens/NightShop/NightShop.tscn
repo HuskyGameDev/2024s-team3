@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/nightShop.gd" id="1_0wg31"]
 [ext_resource type="Theme" uid="uid://c4l3g5vcxwkhn" path="res://Assets/Themes/NightMenuTheme.tres" id="1_lylop"]
-[ext_resource type="Texture2D" uid="uid://b7a4u0nuntxrg" path="res://Assets/Sprites/Customers/customer1.png" id="3_hxks6"]
+[ext_resource type="Texture2D" uid="uid://b7a4u0nuntxrg" path="res://Assets/Sprites/customers/customer1.png" id="3_hxks6"]
 
 [node name="NightShop" type="Control"]
 layout_mode = 3
