@@ -32,3 +32,7 @@ func _on_buy_button_pressed():
 		get_tree().change_scene_to_file("res://Scenes/Screens/Main.tscn")
 	else:
 		print("Not enough money")
+
+
+func _on_exit_button_pressed():
+	get_tree().change_scene_to_file("res://Scenes/Screens/Main.tscn")

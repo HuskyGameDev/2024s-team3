@@ -71,6 +71,7 @@ offset_top = -188.0
 offset_right = 141.5
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 20
 
 [node name="TotalCostLabel" type="Label" parent="TotalInfoVBox"]
 layout_mode = 2
@@ -82,6 +83,11 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Buy"
+
+[node name="ExitButton" type="Button" parent="TotalInfoVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Exit Store"
 
 [node name="OfferingsHBox" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -97,3 +103,4 @@ theme_override_constants/separation = 50
 alignment = 1
 
 [connection signal="pressed" from="TotalInfoVBox/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="TotalInfoVBox/ExitButton" to="." method="_on_exit_button_pressed"]
