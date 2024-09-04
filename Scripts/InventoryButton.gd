@@ -52,4 +52,3 @@ func _on_inv_area_input_event(_viewport, event, _shape_idx):
 				heldBody.queue_free()
 				UpdateItem(item, 1, self.get_index())
 			PlayerData.write_inv(inv_data)
-
