@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://l6sfgmgup28d"]
+
+[ext_resource type="Script" path="res://new_clock_node.gd" id="1_i1eu7"]
+[ext_resource type="Texture2D" uid="uid://f4n6i4qnwssy" path="res://Clock Node.png" id="1_x41hy"]
+[ext_resource type="Shader" path="res://pixelSmoothing.gdshader" id="2_6nm3x"]
+[ext_resource type="Texture2D" uid="uid://dgsv6lxk08if3" path="res://Clock Symbols Spaced.png" id="4_lmlgg"]
+[ext_resource type="Texture2D" uid="uid://khh1gr8xmmkq" path="res://Clock Single Symbol.png" id="5_biw6u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v08si"]
+shader = ExtResource("2_6nm3x")
+
+[node name="ClockNode" type="Node2D"]
+position = Vector2(122, 79)
+script = ExtResource("1_i1eu7")
+
+[node name="NodeSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_x41hy")
+
+[node name="NodeSymbol" type="Sprite2D" parent="."]
+texture = ExtResource("4_lmlgg")
+region_enabled = true
+region_rect = Rect2(1, 0, 4, 6)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_v08si")
+texture = ExtResource("5_biw6u")

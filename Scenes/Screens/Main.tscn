@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://k1s0jbcfp0sn" path="res://Assets/Sprites/Ingredients/sunflower_seeds.png" id="13_sykwt"]
 [ext_resource type="Texture2D" uid="uid://dnynu6kp1nswf" path="res://Assets/Sprites/Ingredients/nightshade_petals.png" id="14_jiia4"]
 [ext_resource type="PackedScene" uid="uid://cqjv8jg1x3rnd" path="res://Scenes/Crucible.tscn" id="15_a4pmo"]
-[ext_resource type="PackedScene" uid="uid://c2qo8furksvda" path="res://Scenes/clock.tscn" id="16_17ho7"]
 [ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://Assets/Themes/UiTheme.tres" id="17_5filg"]
+[ext_resource type="PackedScene" uid="uid://b6cq5upjosmpf" path="res://New_Clock.tscn" id="17_n5klg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aqou"]
 size = Vector2(417, 39.5)
@@ -310,8 +310,9 @@ visible = false
 position = Vector2(1350, 950)
 scale = Vector2(3, 3)
 
-[node name="Clock" parent="." instance=ExtResource("16_17ho7")]
-position = Vector2(2.38419e-07, 0)
+[node name="NewClock" parent="." instance=ExtResource("17_n5klg")]
+position = Vector2(155, 333)
+scale = Vector2(5, 5)
 
 [connection signal="potion_made" from="Cauldron" to="." method="_on_cauldron_potion_made"]
 [connection signal="body_entered" from="shelfArea" to="." method="_on_shelf_body_entered"]

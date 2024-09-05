@@ -21,5 +21,3 @@ func show_textbox():
 func add_text(_next_text):
 		label.text = order
 		show_textbox()
-
-
