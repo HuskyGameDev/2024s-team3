@@ -10,7 +10,11 @@ var totalCost = 0;
 func _ready():
 	var shopOfferings = PlayerData.save.currentLocation.get_shop_offerings(NUMBER_OF_ITEMS)
 	totalCostLabel = $"TotalInfoVBox/TotalCostLabel"
+	var moneyLabel = $"MoneyLabel"
 	var hbox = $"OfferingsHBox"
+	
+	moneyLabel.text = "$" + str(PlayerData.save.money)
+	
 	for i in shopOfferings:
 		var newOffering = offeringScene.instantiate()
 		newOffering.call("setData", i)
