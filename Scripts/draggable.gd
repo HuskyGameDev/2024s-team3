@@ -47,7 +47,7 @@ func _integrate_forces(_state):
 		var distance = global_position.distance_to(mousePos)
 		var direction = global_position.direction_to(mousePos)
 		rotation = 0 
-		set_linear_velocity(direction * distance * 25)
+		set_linear_velocity(direction * distance * 40)
 
 
 ############### Object Functions ################

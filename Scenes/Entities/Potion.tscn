@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://g5q1guc3tswl"]
+
+[ext_resource type="Script" path="res://Scripts/potion.gd" id="1_m5pfd"]
+[ext_resource type="PackedScene" uid="uid://dv8sysvwkgfoq" path="res://Scenes/Entities/DraggableObject.tscn" id="2_hhuif"]
+
+[node name="Potion" type="Node2D"]
+script = ExtResource("1_m5pfd")
+
+[node name="DraggableObject" parent="." instance=ExtResource("2_hhuif")]
