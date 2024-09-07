@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://bqwywq83y0oqe"]
+
+[ext_resource type="Script" path="res://scenes/common/potions/potion_type.gd" id="1_hi3nb"]
+
+[resource]
+script = ExtResource("1_hi3nb")
+id = "light_potion"
+name = "Light Potion"
+description = "Glows a bright yellow-white."
+recipe = Array[String](["thistle_root", "sunflower_seeds"])

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://c5llmnjkoxp7h"]
+
+[ext_resource type="Script" path="res://scenes/common/potions/potion_type.gd" id="1_6japy"]
+
+[resource]
+script = ExtResource("1_6japy")
+id = "poton_of_frost"
+name = "Poton of Frost"
+description = "Pretty cold."
+recipe = Array[String](["thistle_root", "snowdrop_bulb"])

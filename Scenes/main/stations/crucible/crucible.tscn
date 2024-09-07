@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqjv8jg1x3rnd"]
+
+[ext_resource type="Script" path="res://scenes/main/stations/crucible/crucible.gd" id="1_5q32n"]
+[ext_resource type="Texture2D" uid="uid://6ecfn6p7prhy" path="res://scenes/main/stations/crucible/water_crucible.png" id="2_r8a7q"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t0ees"]
+radius = 17.0
+height = 45.0
+
+[node name="Crucible" type="Node2D"]
+script = ExtResource("1_5q32n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_r8a7q")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_t0ees")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(17, -12, 17, -2, 16, 6, 15, 10, 14, 13, 13, 15, 10, 18, 8, 19, 5, 20, -5, 20, -8, 19, -10, 18, -13, 15, -14, 13, -15, 10, -16, 6, -17, -2, -17, -12, -15, -11, -11, -9, -5, -7, 5, -7, 11, -9, 15, -11)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_enter_crucible"]
+[connection signal="input_event" from="Area2D" to="." method="_on_crucible_input_event"]

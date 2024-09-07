@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=3 uid="uid://dri47pkc6vp4w"]
+
+[ext_resource type="Theme" uid="uid://c4l3g5vcxwkhn" path="res://scenes/night_menu/night_menu_theme.tres" id="1_0c8wo"]
+[ext_resource type="Script" path="res://scenes/night_menu/store/night_shop_ingredient.gd" id="2_6hohp"]
+[ext_resource type="Texture2D" uid="uid://bgr0j54ert0ee" path="res://scenes/common/ingredients/pine_resin/pine_resin.png" id="3_8wuvs"]
+
+[node name="NightShopIngredient" type="Control"]
+custom_minimum_size = Vector2(350, 300)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 350.0
+offset_bottom = 300.0
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("1_0c8wo")
+script = ExtResource("2_6hohp")
+
+[node name="NameLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 38
+text = "Nightshade Petals - $31"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ItemTexture" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 52.0
+grow_horizontal = 2
+texture = ExtResource("3_8wuvs")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="AmountForSaleLabel" type="Label" parent="ItemTexture"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = -61.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 40
+text = "5"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="AmountHBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = 310.0
+offset_bottom = 381.0
+grow_horizontal = 2
+
+[node name="DecreaseButton" type="Button" parent="AmountHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "-"
+
+[node name="QuantityLabel" type="Label" parent="AmountHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme_override_font_sizes/font_size = 45
+text = "0"
+horizontal_alignment = 1
+
+[node name="IncreaseButton" type="Button" parent="AmountHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "+"
+
+[connection signal="pressed" from="AmountHBox/DecreaseButton" to="." method="_on_decrease_button_pressed"]
+[connection signal="pressed" from="AmountHBox/IncreaseButton" to="." method="_on_increase_button_pressed"]

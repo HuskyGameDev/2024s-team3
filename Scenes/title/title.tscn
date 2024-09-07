@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://cl7mgp81v1pmf"]
+
+[ext_resource type="Script" path="res://scenes/title/title.gd" id="1_dmyb2"]
+[ext_resource type="FontFile" uid="uid://hv6s8x4ynyvt" path="res://ui/fonts/journal.ttf" id="2_osl6v"]
+[ext_resource type="Texture2D" uid="uid://dnynu6kp1nswf" path="res://scenes/common/ingredients/nightshade_petals/nightshade_petals.png" id="4_6lt7m"]
+[ext_resource type="FontFile" uid="uid://b7v1xeoebsq10" path="res://ui/fonts/user_interface.ttf" id="5_sfr8u"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ep1a3"]
+load_path = "res://.godot/imported/Cauldron.png-2bbcbc0fc21c6eced833b1db7dab7921.ctex"
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dmyb2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.211765, 0.184314, 0.282353, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.308
+anchor_top = 0.311
+anchor_right = 0.693
+anchor_bottom = 0.437
+offset_left = 8.63995
+offset_top = 0.119965
+offset_right = -10.5601
+offset_bottom = 118.04
+theme_override_fonts/normal_font = ExtResource("2_osl6v")
+theme_override_font_sizes/normal_font_size = 100
+text = "Baba Yaga's Bottles"
+fit_content = true
+
+[node name="Cauldron" type="Sprite2D" parent="."]
+position = Vector2(1568, 768)
+scale = Vector2(10.7917, 9.5)
+texture = SubResource("CompressedTexture2D_ep1a3")
+
+[node name="NightshadePetals" type="Sprite2D" parent="."]
+position = Vector2(232, 976)
+scale = Vector2(7.20968, 5.75)
+texture = ExtResource("4_6lt7m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 616.0
+offset_top = 539.0
+offset_right = 1304.0
+offset_bottom = 936.0
+theme_override_constants/separation = 50
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(700, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_sfr8u")
+theme_override_font_sizes/font_size = 36
+text = "Continue
+"
+
+[node name="New Game" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(700, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_sfr8u")
+theme_override_font_sizes/font_size = 36
+text = "New Game"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(700, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_sfr8u")
+theme_override_font_sizes/font_size = 36
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

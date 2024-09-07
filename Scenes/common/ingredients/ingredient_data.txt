@@ -1,0 +1,13 @@
+Name,Stack Size,Description
+Thistle Root,5,"Like a burdock root, but less bitter."
+Nightshade Petals,5,The opposite of what most believe them to be.
+Peppermint Leaves,5,Just the smell alone is invigorating.
+Sunflower Seeds,5,Always faces the sun.
+Basil Herb,5,"Aromatic, with much more stored inside."
+Pine Resin,5,"Sticks to you, sticks with you."
+Lupin Crop,5,"Strong taste, strong will."
+Clover Leaves,5,Make sure to hold four at a time.
+Voodoo Lily,5,Sightly unsettling to view.
+Lily Bulb,5,"Lily, such a familiar name..."
+Snowdrop Bulb,1,Thrives in the heaviest of snowstorms.
+Miracle Salt,5,Full of alchemical potential.

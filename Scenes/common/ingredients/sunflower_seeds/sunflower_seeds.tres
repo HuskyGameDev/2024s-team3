@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://c04epjgjjg4qu"]
+
+[ext_resource type="Texture2D" uid="uid://k1s0jbcfp0sn" path="res://scenes/common/ingredients/sunflower_seeds/sunflower_seeds.png" id="1_tuvkb"]
+[ext_resource type="Script" path="res://scenes/common/ingredients/ingredient_type.gd" id="2_afoin"]
+
+[resource]
+script = ExtResource("2_afoin")
+id = "sunflower_seeds"
+name = "Sunflower Seeds"
+description = "Always faces the sun."
+stackSize = 5
+image = ExtResource("1_tuvkb")
