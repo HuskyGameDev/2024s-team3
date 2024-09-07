@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://ccalcf2a1y6t8"]
+
+[ext_resource type="Script" path="res://common/items/potions/potion_type.gd" id="1_pm3re"]
+
+[resource]
+script = ExtResource("1_pm3re")
+id = "strength_potion"
+name = "Strength Potion"
+description = "For anyone who needs a bit more \"oomph.\""
+recipe = Array[String](["thistle_root", "lupin_crop"])

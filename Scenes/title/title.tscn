@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/title/title.gd" id="1_dmyb2"]
 [ext_resource type="FontFile" uid="uid://hv6s8x4ynyvt" path="res://ui/fonts/journal.ttf" id="2_osl6v"]
-[ext_resource type="Texture2D" uid="uid://dnynu6kp1nswf" path="res://scenes/common/ingredients/nightshade_petals/nightshade_petals.png" id="4_6lt7m"]
+[ext_resource type="Texture2D" uid="uid://dnynu6kp1nswf" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.png" id="4_6lt7m"]
 [ext_resource type="FontFile" uid="uid://b7v1xeoebsq10" path="res://ui/fonts/user_interface.ttf" id="5_sfr8u"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ep1a3"]

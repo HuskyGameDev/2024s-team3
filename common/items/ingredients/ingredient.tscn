@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://6acoxw3otoc3"]
+
+[ext_resource type="PackedScene" uid="uid://dv8sysvwkgfoq" path="res://common/items/draggable_object/draggable_object.tscn" id="1_ej0v7"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient.gd" id="1_wdr4g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqx7g"]
+size = Vector2(92, 94)
+
+[node name="Ingredient" type="Node2D"]
+script = ExtResource("1_wdr4g")
+
+[node name="DraggableObject" parent="." instance=ExtResource("1_ej0v7")]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="IngredientArea" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qqx7g")

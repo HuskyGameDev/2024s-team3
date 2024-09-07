@@ -13,13 +13,13 @@ config_version=5
 config/name="Baba Yaga's Bottles"
 run/main_scene="res://scenes/title/title.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://scenes/common/icon.svg"
+config/icon="res://common/icon.svg"
 
 [autoload]
 
-PlayerData="*res://autoloads/player_saves/player_save.gd"
-RecipeData="*res://autoloads/recipe_data.gd"
-GameTime="*res://autoloads/game_time.gd"
+PlayerData="*res://common/autoloads/player_saves/player_save.gd"
+RecipeData="*res://common/autoloads/recipe_data.gd"
+GameTime="*res://common/autoloads/game_time.gd"
 
 [display]
 

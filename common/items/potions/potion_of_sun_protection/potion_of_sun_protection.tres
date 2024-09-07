@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=2 format=3 uid="uid://dbixc5544bws7"]
+
+[ext_resource type="Script" path="res://common/items/potions/potion_type.gd" id="1_a1bgr"]
+
+[resource]
+script = ExtResource("1_a1bgr")
+id = "potion_of_sun_protection"
+name = "Potion of Sun Protection"
+description = "The best sunscreen coins can buy."
+recipe = Array[String](["thistle_root", "sunflower_seeds", "pine_resin"])

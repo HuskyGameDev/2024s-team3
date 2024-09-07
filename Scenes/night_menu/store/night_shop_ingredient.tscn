@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://c4l3g5vcxwkhn" path="res://scenes/night_menu/night_menu_theme.tres" id="1_0c8wo"]
 [ext_resource type="Script" path="res://scenes/night_menu/store/night_shop_ingredient.gd" id="2_6hohp"]
-[ext_resource type="Texture2D" uid="uid://bgr0j54ert0ee" path="res://scenes/common/ingredients/pine_resin/pine_resin.png" id="3_8wuvs"]
+[ext_resource type="Texture2D" uid="uid://bgr0j54ert0ee" path="res://common/items/ingredients/pine_resin/pine_resin.png" id="3_8wuvs"]
 
 [node name="NightShopIngredient" type="Control"]
 custom_minimum_size = Vector2(350, 300)

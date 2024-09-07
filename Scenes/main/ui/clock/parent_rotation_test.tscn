@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhdgfsb2mq1jv"]
 
-[ext_resource type="Texture2D" uid="uid://c1na8wlk3ld7h" path="res://scenes/common/icon.svg" id="1_se4fb"]
+[ext_resource type="Texture2D" uid="uid://c1na8wlk3ld7h" path="res://common/icon.svg" id="1_se4fb"]
 [ext_resource type="PackedScene" uid="uid://bgt4dranca7ws" path="res://scenes/main/ui/clock/rotation_test.tscn" id="2_bnpqi"]
 
 [node name="Node2D" type="Node2D"]

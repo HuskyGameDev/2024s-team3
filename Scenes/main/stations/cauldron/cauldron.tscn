@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/main/stations/cauldron/cauldron.gd" id="1_ygt0y"]
 [ext_resource type="Texture2D" uid="uid://cv3kxe3sbuli0" path="res://scenes/main/stations/cauldron/cauldron.png" id="2_ffdd2"]
-[ext_resource type="Script" path="res://autoloads/recipe_data.gd" id="3_87jks"]
+[ext_resource type="Script" path="res://common/autoloads/recipe_data.gd" id="3_87jks"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o7cp0"]
 height = 44.0
