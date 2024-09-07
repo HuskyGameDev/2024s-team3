@@ -25,6 +25,7 @@ GameTime="*res://Scripts/Singletons/GameTime.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 
 [dotnet]
@@ -53,10 +54,7 @@ shift={
 ]
 }
 
-[physics]
-
-2d/default_gravity=4000.0
-
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_transforms_to_pixel=true

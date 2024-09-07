@@ -12,8 +12,3 @@ func _process(delta):
 	
 	
 	
-
-
-
-
-

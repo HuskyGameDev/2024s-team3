@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6cq5upjosmpf"]
+
+[ext_resource type="Script" path="res://new_clock.gd" id="1_jl7tj"]
+[ext_resource type="Texture2D" uid="uid://l2qq10xcrfjs" path="res://Assets/Sprites/Clock Base.png" id="2_5aaj1"]
+
+[node name="NewClock" type="Node2D"]
+position = Vector2(679, 246)
+script = ExtResource("1_jl7tj")
+
+[node name="ClockFace" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(6, 6)
+texture = ExtResource("2_5aaj1")
+
+[node name="ClockNode_Holder" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="MarkerHolder" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Marker2D" type="Marker2D" parent="MarkerHolder"]
+position = Vector2(0, -132)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

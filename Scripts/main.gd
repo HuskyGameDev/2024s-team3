@@ -1,10 +1,10 @@
 extends Node2D
 
-var PotionScene = preload("res://Scenes/Potion.tscn")
-var IngredientScene = preload("res://Scenes/Ingredient.tscn")
+var PotionScene = preload("res://Scenes/Entities/Potion.tscn")
+var IngredientScene = preload("res://Scenes/Entities/Ingredient.tscn")
 
 const NAMES_DATA_PATH = "res://Assets/Data/CustomerNames.txt"
-const customerScene = preload("res://Scenes/Customer.tscn")
+const customerScene = preload("res://Scenes/Entities/Customer.tscn")
 
 var txtBox = preload("res://Scenes/UI/textBox.tscn") # general textbox
 

@@ -9,12 +9,12 @@ func _on_body_enter_cauldron(body):
 	if body.get("object_type") == "Ingredient":
 		## Animate object movement to top of cauldron
 		body.gravity_scale = 0
-		var top_of_cauldron = self.position - Vector2(0, 80)
-		var ingredient_position = body.global_position
-		var time_to_animate = (top_of_cauldron.distance_to(ingredient_position)) / 1000
-		var tween = create_tween().bind_node(body)
-		tween.tween_property(body, "global_position", top_of_cauldron, time_to_animate).from(ingredient_position)
-		await tween.finished
+		#var top_of_cauldron = self.position - Vector2(0, 80)
+		#var ingredient_position = body.global_position
+		#var time_to_animate = (top_of_cauldron.distance_to(ingredient_position)) / 1000
+		#var tween = create_tween().bind_node(body)
+		#tween.tween_property(body, "global_position", top_of_cauldron, time_to_animate).from(ingredient_position)
+		#await tween.finished
 		## Add to cauldron array
 		var addedIngredient = body.get("object_data")
 		ingredient_added.emit(addedIngredient.id)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5i8al522xaq1"]
+
+[ext_resource type="Texture2D" uid="uid://dpthjvutocu0k" path="res://Scenes/Entities/Rope/Chain Segment 2.png" id="1_71ly6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3a25e"]
+radius = 6.0
+height = 48.0
+
+[node name="Chain_Segement_B" type="RigidBody2D"]
+collision_mask = 2147483649
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(6, 6)
+texture = ExtResource("1_71ly6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3a25e")

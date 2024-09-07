@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgt4dranca7ws"]
+
+[ext_resource type="Script" path="res://new_clock_node.gd" id="1_bqqy8"]
+[ext_resource type="Texture2D" uid="uid://c1na8wlk3ld7h" path="res://Assets/Sprites/icon.svg" id="2_r0nvg"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_bqqy8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_r0nvg")

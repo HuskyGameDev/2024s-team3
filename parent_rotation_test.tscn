@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhdgfsb2mq1jv"]
+
+[ext_resource type="Texture2D" uid="uid://c1na8wlk3ld7h" path="res://Assets/Sprites/icon.svg" id="1_se4fb"]
+[ext_resource type="PackedScene" uid="uid://bgt4dranca7ws" path="res://rotation_test.tscn" id="2_bnpqi"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(735, 383)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_se4fb")
+
+[node name="Node2D" parent="Sprite2D" node_paths=PackedStringArray("pivotPoint") instance=ExtResource("2_bnpqi")]
+position = Vector2(153, 33)
+pivotPoint = NodePath("..")

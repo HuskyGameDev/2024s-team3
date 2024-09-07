@@ -1,112 +1,109 @@
 [gd_scene load_steps=7 format=3 uid="uid://c2qo8furksvda"]
 
-[ext_resource type="Script" path="res://Scripts/Clock.gd" id="1_ik1lm"]
-[ext_resource type="Texture2D" uid="uid://l2qq10xcrfjs" path="res://Assets/Sprites/Clock Base.png" id="1_wuwvy"]
-[ext_resource type="Texture2D" uid="uid://bmg76ko3ct04m" path="res://Assets/Sprites/Clock Circles.png" id="2_yhq74"]
-[ext_resource type="Script" path="res://Scripts/Time Circles2.gd" id="3_ahngv"]
-[ext_resource type="Script" path="res://Scripts/Time Symbol.gd" id="3_k62wx"]
-[ext_resource type="Texture2D" uid="uid://dmq6lseii7m3s" path="res://Assets/Sprites/Clock Symbols.png" id="4_2lgyj"]
+[ext_resource type="Script" path="res://Scripts/Clock.gd" id="1_1sg3a"]
+[ext_resource type="Texture2D" uid="uid://l2qq10xcrfjs" path="res://Assets/Sprites/Clock Base.png" id="2_b6ylp"]
+[ext_resource type="Texture2D" uid="uid://bmg76ko3ct04m" path="res://Assets/Sprites/Clock Circles.png" id="3_h4a0f"]
+[ext_resource type="Script" path="res://Scripts/Time Circles2.gd" id="4_ptnpa"]
+[ext_resource type="Texture2D" uid="uid://dmq6lseii7m3s" path="res://Assets/Sprites/Clock Symbols.png" id="5_73jh7"]
+[ext_resource type="Script" path="res://Scripts/Time Symbol.gd" id="6_cta3t"]
 
 [node name="Clock" type="Node2D"]
-position = Vector2(526, 487)
 scale = Vector2(5, 5)
-script = ExtResource("1_ik1lm")
+script = ExtResource("1_1sg3a")
 
 [node name="Clock Face" type="Sprite2D" parent="."]
-texture = ExtResource("1_wuwvy")
-centered = false
+texture = ExtResource("2_b6ylp")
 
 [node name="Time Circles" type="Sprite2D" parent="."]
-position = Vector2(26, 26)
-texture = ExtResource("2_yhq74")
-script = ExtResource("3_ahngv")
+texture = ExtResource("3_h4a0f")
+script = ExtResource("4_ptnpa")
 
 [node name="Time Symbol" type="Sprite2D" parent="Time Circles"]
 position = Vector2(-1.13249e-06, -22)
-texture = ExtResource("4_2lgyj")
+texture = ExtResource("5_73jh7")
 region_enabled = true
 region_rect = Rect2(0, 1, 4, 4)
-script = ExtResource("3_k62wx")
+script = ExtResource("6_cta3t")
 
 [node name="Time Symbol2" type="Sprite2D" parent="Time Circles"]
 texture_filter = 1
 position = Vector2(11.4, -18)
-texture = ExtResource("4_2lgyj")
+texture = ExtResource("5_73jh7")
 offset = Vector2(0.1, 0)
 region_enabled = true
 region_rect = Rect2(7, 1, 3, 4)
-script = ExtResource("3_k62wx")
+script = ExtResource("6_cta3t")
 
 [node name="Time Symbol3" type="Sprite2D" parent="Time Circles"]
 position = Vector2(18, -11)
-texture = ExtResource("4_2lgyj")
+texture = ExtResource("5_73jh7")
 region_enabled = true
 region_rect = Rect2(13, 1, 4, 4)
-script = ExtResource("3_k62wx")
+script = ExtResource("6_cta3t")
 
 [node name="Time Symbol4" type="Sprite2D" parent="Time Circles"]
 position = Vector2(22, -2.74181e-06)
-texture = ExtResource("4_2lgyj")
+texture = ExtResource("5_73jh7")
 region_enabled = true
 region_rect = Rect2(20, 1, 4, 4)
-script = ExtResource("3_k62wx")
+script = ExtResource("6_cta3t")
 
 [node name="Time Symbol5" type="Sprite2D" parent="Time Circles"]
 position = Vector2(18, 11)
-texture = ExtResource("4_2lgyj")
+texture = ExtResource("5_73jh7")
 region_enabled = true
 region_rect = Rect2(27, 1, 4, 4)
-script = ExtResource("3_k62wx")
+script = ExtResource("6_cta3t")
 
 [node name="Time Symbol6" type="Sprite2D" parent="Time Circles"]
 position = Vector2(11, 18)
-texture = ExtResource("4_2lgyj")
+texture = ExtResource("5_73jh7")
 region_enabled = true
 region_rect = Rect2(34, 1, 4, 4)
-script = ExtResource("3_k62wx")
+script = ExtResource("6_cta3t")
 
 [node name="Time Symbol7" type="Sprite2D" parent="Time Circles"]
 position = Vector2(5.96046e-07, 22)
-texture = ExtResource("4_2lgyj")
+texture = ExtResource("5_73jh7")
 region_enabled = true
 region_rect = Rect2(41, 1, 4, 4)
-script = ExtResource("3_k62wx")
+script = ExtResource("6_cta3t")
 
 [node name="Time Symbol8" type="Sprite2D" parent="Time Circles"]
 position = Vector2(-11, 18)
-texture = ExtResource("4_2lgyj")
+texture = ExtResource("5_73jh7")
 region_enabled = true
 region_rect = Rect2(48, 1, 4, 4)
-script = ExtResource("3_k62wx")
+script = ExtResource("6_cta3t")
 
 [node name="Time Symbol9" type="Sprite2D" parent="Time Circles"]
 position = Vector2(-18, 11)
-texture = ExtResource("4_2lgyj")
+texture = ExtResource("5_73jh7")
 region_enabled = true
 region_rect = Rect2(55, 1, 4, 4)
-script = ExtResource("3_k62wx")
+script = ExtResource("6_cta3t")
 
 [node name="Time Symbol10" type="Sprite2D" parent="Time Circles"]
 position = Vector2(-21.6, 1.07288e-06)
-texture = ExtResource("4_2lgyj")
+texture = ExtResource("5_73jh7")
 offset = Vector2(0.1, 0)
 region_enabled = true
 region_rect = Rect2(62, 1, 3, 4)
-script = ExtResource("3_k62wx")
+script = ExtResource("6_cta3t")
 
 [node name="Time Symbol11" type="Sprite2D" parent="Time Circles"]
 position = Vector2(-18, -11)
-texture = ExtResource("4_2lgyj")
+texture = ExtResource("5_73jh7")
 region_enabled = true
 region_rect = Rect2(68, 1, 4, 4)
-script = ExtResource("3_k62wx")
+script = ExtResource("6_cta3t")
 
 [node name="Time Symbol12" type="Sprite2D" parent="Time Circles"]
 position = Vector2(-11, -18)
-texture = ExtResource("4_2lgyj")
+texture = ExtResource("5_73jh7")
 region_enabled = true
 region_rect = Rect2(75, 1, 4, 4)
-script = ExtResource("3_k62wx")
+script = ExtResource("6_cta3t")
 
 [node name="Day" type="Label" parent="."]
 offset_left = 22.0
@@ -115,3 +112,6 @@ offset_right = 32.0
 offset_bottom = 37.0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(11, -18)

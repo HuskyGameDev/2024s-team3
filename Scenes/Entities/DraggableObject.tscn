@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dv8sysvwkgfoq"]
 
-[ext_resource type="Script" path="res://Scripts/draggable.gd" id="1_y7la7"]
-[ext_resource type="Texture2D" uid="uid://cpiu2shqy8d6l" path="res://Assets/Sprites/Ingredient Default.png" id="2_pp4sf"]
-[ext_resource type="PackedScene" uid="uid://l8jrjv0qfv3j" path="res://Scenes/UI/Tooltip.tscn" id="3_tuhxa"]
+[ext_resource type="Script" path="res://Scripts/draggable.gd" id="1_jsnnv"]
+[ext_resource type="Texture2D" uid="uid://cpiu2shqy8d6l" path="res://Assets/Sprites/Ingredient Default.png" id="2_lvxug"]
+[ext_resource type="PackedScene" uid="uid://l8jrjv0qfv3j" path="res://Scenes/UI/Tooltip.tscn" id="3_a800j"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xvb2h"]
 
@@ -11,23 +11,24 @@ radius = 8.0
 height = 16.0
 
 [node name="DraggableObject" type="RigidBody2D" groups=["pickable"]]
+collision_layer = 0
+collision_mask = 0
 input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_xvb2h")
-script = ExtResource("1_y7la7")
+script = ExtResource("1_jsnnv")
 
 [node name="DraggableSprite" type="Sprite2D" parent="."]
 scale = Vector2(6, 6)
-texture = ExtResource("2_pp4sf")
+texture = ExtResource("2_lvxug")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
 scale = Vector2(6, 6)
 shape = SubResource("CapsuleShape2D_6ilgh")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="Tooltip" parent="." instance=ExtResource("3_tuhxa")]
+[node name="Tooltip" parent="." instance=ExtResource("3_a800j")]
 visible = false
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
