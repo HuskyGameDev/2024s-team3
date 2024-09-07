@@ -103,6 +103,9 @@ script = ExtResource("1_0ufrw")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="NewClock" parent="CanvasLayer" instance=ExtResource("17_n5klg")]
+position = Vector2(165, 165)
+
 [node name="Room" type="Node2D" parent="."]
 scale = Vector2(6, 6)
 
@@ -289,10 +292,6 @@ offset_bottom = 392.0
 toggle_mode = true
 text = "ring"
 script = SubResource("GDScript_hmejc")
-
-[node name="NewClock" parent="." instance=ExtResource("17_n5klg")]
-position = Vector2(165, 165)
-scale = Vector2(6, 6)
 
 [node name="Chain" parent="." instance=ExtResource("16_8i4ox")]
 position = Vector2(489, 5)

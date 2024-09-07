@@ -20,7 +20,7 @@ var radiansTraveled = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_parent().get_parent().get_parent().timerWentOff.connect(_rotate)
+	get_parent().get_parent().timerWentOff.connect(_rotate)
 	originalSpeed = clockRotationSpeed
 	pass # Replace with function body.
 
