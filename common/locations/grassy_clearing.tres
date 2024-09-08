@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://cixyd72ml8mqf" path="res://common/items/ingredients/peppermint_leaves/peppermint_leaves.tres" id="9_uke57"]
 [ext_resource type="Resource" uid="uid://c04epjgjjg4qu" path="res://common/items/ingredients/sunflower_seeds/sunflower_seeds.tres" id="10_jo1es"]
 [ext_resource type="Resource" uid="uid://bu2hapkmr78x3" path="res://common/items/ingredients/basil_herb/basil_herb.tres" id="11_e77mr"]
-[ext_resource type="Script" path="res://common/items/locations/location_type.gd" id="11_l1fug"]
+[ext_resource type="Script" path="res://common/locations/location_type.gd" id="11_l1fug"]
 
 [sub_resource type="Resource" id="Resource_xc8ct"]
 script = ExtResource("2_57n71")
