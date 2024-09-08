@@ -19,4 +19,6 @@ jobs:
       - name: Check directory names
         continue-on-error: true
         run: |
-	  find . -type d
+	    echo "hi"
+	    find . -type d
+	  
