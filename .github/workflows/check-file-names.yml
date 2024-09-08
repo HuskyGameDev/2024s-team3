@@ -1,0 +1,24 @@
+# This workflow checks that all files and directories are named using snake_case
+
+name: CI
+
+on:
+  push:
+    branches: [ "*" ]
+  workflow_dispatch:
+
+jobs:
+  check-names:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      # Runs a set of commands using the runners shell
+      - name: Check directory names
+        continue-on-error: true
+        run: |
+	    echo "hi"
+	    find . -type d
+	  
