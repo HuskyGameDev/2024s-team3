@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgsv6lxk08if3"
-path="res://.godot/imported/Clock Symbols Spaced.png-0342100195ad60e0aea796e0e5f50052.ctex"
+uid="uid://f4n6i4qnwssy"
+path="res://.godot/imported/clock_node.png-2ddac4a6dbf997b20a18f855acd34308.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/main/ui/clock/Clock Symbols Spaced.png"
-dest_files=["res://.godot/imported/Clock Symbols Spaced.png-0342100195ad60e0aea796e0e5f50052.ctex"]
+source_file="res://scenes/main/ui/clock/clock_node.png"
+dest_files=["res://.godot/imported/clock_node.png-2ddac4a6dbf997b20a18f855acd34308.ctex"]
 
 [params]
 

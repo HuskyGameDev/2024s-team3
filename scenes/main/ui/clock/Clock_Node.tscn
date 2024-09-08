@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://l6sfgmgup28d"]
 
 [ext_resource type="Script" path="res://scenes/main/ui/clock/new_clock_node.gd" id="1_i1eu7"]
-[ext_resource type="Texture2D" uid="uid://f4n6i4qnwssy" path="res://scenes/main/ui/clock/Clock Node.png" id="1_x41hy"]
-[ext_resource type="Texture2D" uid="uid://dgsv6lxk08if3" path="res://scenes/main/ui/clock/Clock Symbols Spaced.png" id="4_lmlgg"]
+[ext_resource type="Texture2D" uid="uid://f4n6i4qnwssy" path="res://scenes/main/ui/clock/clock_node.png" id="1_x41hy"]
+[ext_resource type="Texture2D" uid="uid://dgsv6lxk08if3" path="res://scenes/main/ui/clock/clock_symbols_spaced.png" id="4_lmlgg"]
 
 [node name="ClockNode" type="Node2D"]
 position = Vector2(306, 187)

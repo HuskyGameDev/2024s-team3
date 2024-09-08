@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_0ufrw"]
-[ext_resource type="Texture2D" uid="uid://dbueov7x0qeqe" path="res://scenes/main/320x180 Vision.png" id="2_u1ul0"]
+[ext_resource type="Texture2D" uid="uid://dbueov7x0qeqe" path="res://scenes/main/background.png" id="2_u1ul0"]
 [ext_resource type="PackedScene" uid="uid://cjjarcohy2vqe" path="res://scenes/main/stations/cauldron/cauldron.tscn" id="3_qla3h"]
 [ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://common/items/ingredients/ingredient.tscn" id="4_spw6y"]
 [ext_resource type="PackedScene" uid="uid://bru1ae5j80tii" path="res://scenes/main/ui/money_and_rep_tracker/money_and_rep.tscn" id="5_0uejy"]
@@ -13,9 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://bgr0j54ert0ee" path="res://common/items/ingredients/pine_resin/pine_resin.png" id="12_5ovj8"]
 [ext_resource type="Texture2D" uid="uid://k1s0jbcfp0sn" path="res://common/items/ingredients/sunflower_seeds/sunflower_seeds.png" id="13_sykwt"]
 [ext_resource type="Texture2D" uid="uid://dnynu6kp1nswf" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.png" id="14_jiia4"]
-[ext_resource type="PackedScene" uid="uid://dllt48bo7ekog" path="res://scenes/main/ui/Chain Bell/Chain.tscn" id="16_8i4ox"]
+[ext_resource type="PackedScene" uid="uid://dllt48bo7ekog" path="res://scenes/main/ui/chain_bell/chain.tscn" id="16_8i4ox"]
 [ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="17_5filg"]
-[ext_resource type="PackedScene" uid="uid://b6cq5upjosmpf" path="res://scenes/main/ui/clock/New_Clock.tscn" id="17_n5klg"]
+[ext_resource type="PackedScene" uid="uid://b6cq5upjosmpf" path="res://scenes/main/ui/clock/new_clock.tscn" id="17_n5klg"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1fgwd"]
 b = Vector2(1920, 0)

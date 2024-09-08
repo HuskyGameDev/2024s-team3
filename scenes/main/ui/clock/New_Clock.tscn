@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6cq5upjosmpf"]
 
 [ext_resource type="Script" path="res://scenes/main/ui/clock/new_clock.gd" id="1_jl7tj"]
-[ext_resource type="Texture2D" uid="uid://l2qq10xcrfjs" path="res://scenes/main/ui/clock/Clock Base.png" id="2_5aaj1"]
+[ext_resource type="Texture2D" uid="uid://l2qq10xcrfjs" path="res://scenes/main/ui/clock/clock_base.png" id="2_5aaj1"]
 
 [node name="NewClock" type="Node2D"]
 position = Vector2(679, 246)
