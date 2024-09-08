@@ -19,4 +19,6 @@ jobs:
       - name: Check directory names
         continue-on-error: true
         run: |
-          pwd
+	  pwd
+          ls -a
+	  find . -type d
