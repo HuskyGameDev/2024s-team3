@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bgr0j54ert0ee" path="res://common/items/ingredients/pine_resin/pine_resin.png" id="12_5ovj8"]
 [ext_resource type="Texture2D" uid="uid://k1s0jbcfp0sn" path="res://common/items/ingredients/sunflower_seeds/sunflower_seeds.png" id="13_sykwt"]
 [ext_resource type="Texture2D" uid="uid://dnynu6kp1nswf" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.png" id="14_jiia4"]
-[ext_resource type="PackedScene" uid="uid://dllt48bo7ekog" path="res://scenes/main/ui/rope/Chain.tscn" id="16_8i4ox"]
+[ext_resource type="PackedScene" uid="uid://dllt48bo7ekog" path="res://scenes/main/ui/Chain Bell/Chain.tscn" id="16_8i4ox"]
 [ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="17_5filg"]
 [ext_resource type="PackedScene" uid="uid://b6cq5upjosmpf" path="res://scenes/main/ui/clock/New_Clock.tscn" id="17_n5klg"]
 

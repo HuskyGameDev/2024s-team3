@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5i8al522xaq1"]
 
-[ext_resource type="Texture2D" uid="uid://dpthjvutocu0k" path="res://scenes/main/ui/rope/Chain Segment 2.png" id="1_71ly6"]
+[ext_resource type="Texture2D" uid="uid://dpthjvutocu0k" path="res://scenes/main/ui/Chain Bell/Chain Segment 2.png" id="1_71ly6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3a25e"]
 radius = 6.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmg76ko3ct04m"
-path="res://.godot/imported/Clock Circles.png-318c96994ea23977c4d1123680faa308.ctex"
+uid="uid://dpthjvutocu0k"
+path="res://.godot/imported/Chain Segment 2.png-b89532c588929541dc5cb8a01b01ea40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/main/ui/clock/Clock Circles.png"
-dest_files=["res://.godot/imported/Clock Circles.png-318c96994ea23977c4d1123680faa308.ctex"]
+source_file="res://scenes/main/ui/Chain Bell/Chain Segment 2.png"
+dest_files=["res://.godot/imported/Chain Segment 2.png-b89532c588929541dc5cb8a01b01ea40.ctex"]
 
 [params]
 
