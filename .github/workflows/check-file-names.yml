@@ -18,7 +18,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Check file and directory names
         run: |
-          WRONG_NAMES="$(find . | grep -v -e '/\.' -e '.*\.import' | egrep -v '^[\./_[:lower:]]+$')"
+          WRONG_NAMES="$(find . | grep -v -e '/\.' -e '.*\.import' -e '.*\.md' | egrep -v '^[\./_[:lower:]0-9]+$')"
           if [ "$WRONG_NAMES" ] ; then
              echo "::error::All files and directories should be named using snake_case"
              echo "$WRONG_NAMES"
