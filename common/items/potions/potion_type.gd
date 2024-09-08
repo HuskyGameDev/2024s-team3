@@ -5,7 +5,8 @@ class_name Potion
 @export var name: String = ""
 @export_multiline var description: String = ""
 @export var image: Texture2D = null
-@export var recipe: Array[String] = []
+@export var min_effects: EffectSet
+@export var max_effects: EffectSet
 
 func _setup(potion_name: String, desc: String, new_recipe: Array):
 	self.name = potion_name
