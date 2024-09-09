@@ -20,9 +20,9 @@ swiftness_slowness = 0
 
 [resource]
 script = ExtResource("2_04duh")
+effects = SubResource("Resource_wpwa6")
 id = "thistle_root"
 name = "Thistle Root"
 description = "a thistle root"
-stackSize = 5
+stack_size = 5
 image = ExtResource("1_vj1v0")
-effects = SubResource("Resource_wpwa6")

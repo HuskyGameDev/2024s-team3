@@ -1,20 +1,20 @@
-extends Node
+extends DraggableObject
 
 @export var data: Potion
-@onready var draggable: RigidBody2D = $DraggableObject
-var rigidbody: RigidBody2D
-
 
 func _ready():
-	$"DraggableObject".set("object_type", "Potion")
-	self.rigidbody = $"DraggableObject"
-	draggable.set_collision_layer_value(2,true)
-	draggable.set_collision_mask_value(2, true)
+	## setup draggable object variables
+	set_collider($Collider)
+	set_default_collision_layer(2)
+	super()
 	
-	
-
-func setType(type:Potion):
-	self.data = type
-	$"DraggableObject".set("object_type", "Potion")
-	$"DraggableObject".set("object_data", data)
-	$"DraggableObject".call("data_updated")
+	## setup data
+	if data: 
+		set_tooltip(data)
+		if data.image:
+			var image_size = data.image.get_size()
+			var collider_shape = CapsuleShape2D.new()
+			collider_shape.height = image_size[1]
+			collider_shape.radius = image_size[0] / 2
+			$"Collider".set_shape(collider_shape)
+			$"Sprite".texture = data.image

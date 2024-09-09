@@ -9,6 +9,7 @@ const INVENTORY_SIZE = 20
 @export var location: Location = ResourceLoader.load("res://common/locations/grassy_clearing.tres")
 @export var money: int = 0
 @export var reputation: int = 0
+@export var tutorial_complete: bool = false
 @export var inventory: Array[InventorySlot] = []
 
 
@@ -25,7 +26,8 @@ func save_game_files():
 	save_file.store_string(JSON.stringify({ 
 		"money": money, 
 		"reputation": reputation, 
-		"location": location 
+		"location": location,
+		"tutorial_complete": tutorial_complete
 	}))
 	save_file.close()
 	
@@ -42,6 +44,7 @@ func load_game_files():
 		money = save_data.get("money")
 		reputation = save_data.get("reputation")
 		location = save_data.get("location")
+		tutorial_complete = save_data.get("tutorial_complete")
 		save_file.close()
 	
 	if FileAccess.file_exists(INV_LOCATION):

@@ -1,12 +1,20 @@
-extends Node
+extends DraggableObject
 
 @export var data: Ingredient
-@onready var draggable = $DraggableObject
 
 func _ready():
-	$"DraggableObject".set("object_type", "Ingredient")
-	$"DraggableObject".set("object_data", data)
-	$"DraggableObject".call("data_updated")
+	## setup draggable object variables
+	set_collider($Collider)
+	set_default_collision_layer(1)
+	super()
 	
-	draggable.set_collision_layer_value(1, true)
-	draggable.set_collision_mask_value(1, true)
+	## setup data
+	if data: 
+		set_tooltip(data)
+		if data.image:
+			var image_size = data.image.get_size()
+			var collider_shape = CapsuleShape2D.new()
+			collider_shape.height = image_size[1]
+			collider_shape.radius = image_size[0] / 2
+			$"Collider".set_shape(collider_shape)
+			$"Sprite".texture = data.image

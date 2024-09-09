@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://g5q1guc3tswl"]
+[gd_scene load_steps=4 format=3 uid="uid://g5q1guc3tswl"]
 
 [ext_resource type="Script" path="res://common/items/potions/potion.gd" id="1_m5pfd"]
-[ext_resource type="PackedScene" uid="uid://dv8sysvwkgfoq" path="res://common/items/draggable_object/draggable_object.tscn" id="2_hhuif"]
+[ext_resource type="Texture2D" uid="uid://cpiu2shqy8d6l" path="res://common/items/ingredients/ingredient_default.png" id="2_nxp7j"]
 
-[node name="Potion" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ad3mf"]
+size = Vector2(92, 94)
+
+[node name="Potion" type="RigidBody2D"]
 script = ExtResource("1_m5pfd")
 
-[node name="DraggableObject" parent="." instance=ExtResource("2_hhuif")]
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, 1.90735e-06)
+texture = ExtResource("2_nxp7j")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ad3mf")

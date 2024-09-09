@@ -18,7 +18,6 @@ config/icon="res://common/icon.svg"
 [autoload]
 
 PlayerData="*res://common/autoloads/player_saves/player_save.gd"
-RecipeData="*res://common/autoloads/recipe_data.gd"
 GameTime="*res://common/autoloads/game_time.gd"
 
 [display]
