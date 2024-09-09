@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Potion" load_steps=3 format=3 uid="uid://bvehxx4k7eur2"]
+
+[ext_resource type="Script" path="res://common/items/potions/potion_type.gd" id="1_0xa5r"]
+[ext_resource type="Texture2D" uid="uid://p5i3kbuwpymi" path="res://common/items/potions/healing_potion/healing_potion.png" id="1_ye1u6"]
+
+[resource]
+script = ExtResource("1_0xa5r")
+id = "healing_potion"
+name = "Healing Potion"
+description = "a potion that heals you"
+stack_size = 1
+image = ExtResource("1_ye1u6")

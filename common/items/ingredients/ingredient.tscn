@@ -11,7 +11,7 @@ input_pickable = true
 script = ExtResource("1_wdr4g")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-1.90735e-06, 1.90735e-06)
+scale = Vector2(6, 6)
 texture = ExtResource("2_2tyjf")
 
 [node name="Collider" type="CollisionShape2D" parent="."]

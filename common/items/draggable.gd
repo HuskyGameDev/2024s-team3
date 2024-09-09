@@ -8,6 +8,7 @@ var timer: Timer
 var tooltip: Node
 var collider: CollisionShape2D
 var default_collison_layer: int
+var holding_collision_layer: int
 
 
 func _ready():
@@ -34,6 +35,10 @@ func set_default_collision_layer(layer: int):
 	set_collision_mask_value(default_collison_layer, true)
 
 
+func set_holding_collision_layer(layer: int):
+	self.holding_collision_layer = layer
+
+
 func set_tooltip(item: Item):
 	tooltip.set_text(item.name, item.description)
 
@@ -52,8 +57,8 @@ func hold():
 	beingHeld = true
 	tooltip.visible = false
 	set_deferred("gravity_scale", 0)
-	set_collision_layer_value(32, true)
-	set_collision_mask_value(32, true)
+	set_collision_layer_value(holding_collision_layer, true)
+	set_collision_mask_value(holding_collision_layer, true)
 	set_collision_layer_value(default_collison_layer, false)
 	set_collision_mask_value(default_collison_layer, false)
 	var tween = create_tween()
@@ -64,8 +69,8 @@ func drop():
 	if not beingHeld: pass
 	beingHeld = false
 	set_deferred("gravity_scale", 1)
-	set_collision_layer_value(32, false)
-	set_collision_mask_value(32, false)
+	set_collision_layer_value(holding_collision_layer, false)
+	set_collision_mask_value(holding_collision_layer, false)
 	set_collision_layer_value(default_collison_layer, true)
 	set_collision_mask_value(default_collison_layer, true)
 
