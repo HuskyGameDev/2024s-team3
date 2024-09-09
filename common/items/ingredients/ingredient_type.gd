@@ -1,11 +1,6 @@
-extends Resource
+extends Item
 class_name Ingredient
 
-@export var id: String = ""
-@export var name: String = ""
-@export_multiline var description: String = ""
-@export var stackSize: int = 5
-@export var image: Texture2D = preload("res://common/items/ingredients/ingredient_default.png")
 @export var effects: EffectSet
 
 func _setup(ingredient_name: String, desc: String, stack: int):

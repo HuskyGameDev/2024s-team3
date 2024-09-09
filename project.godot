@@ -21,11 +21,6 @@ PlayerData="*res://common/autoloads/player_saves/player_save.gd"
 RecipeData="*res://common/autoloads/recipe_data.gd"
 GameTime="*res://common/autoloads/game_time.gd"
 
-[debug]
-
-gdscript/warnings/untyped_declaration=1
-gdscript/warnings/unsafe_property_access=1
-
 [display]
 
 window/size/viewport_width=1920
