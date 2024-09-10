@@ -6,7 +6,7 @@ const INV_LOCATION = "user://inventory.json"
 
 const INVENTORY_SIZE = 20
 
-@export var location: Location = ResourceLoader.load("res://common/locations/grassy_clearing.tres")
+@export var location: Location = ResourceLoader.load(ResourcePaths.get_resource_path("grassy_clearing"))
 @export var money: int = 0
 @export var reputation: int = 0
 @export var tutorial_complete: bool = false
@@ -45,7 +45,7 @@ func load_game_files():
 			money = save_data.get("money")
 			reputation = save_data.get("reputation")
 			var location_id = save_data.get("location")
-			if location_id: location = ResourceLoader.load("res://common/locations/" + location_id + ".tres")
+			if location_id: location = ResourceLoader.load(ResourcePaths.get_resource_path(location_id))
 			tutorial_complete = save_data.get("tutorial_complete")
 		save_file.close()
 	
