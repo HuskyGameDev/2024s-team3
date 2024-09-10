@@ -1,21 +1,28 @@
-extends Node
-
-var resource_file_paths: Dictionary = {}
+var location_file_paths: Dictionary = {}
+var potion_file_paths: Dictionary = {}
+var ingredient_file_paths: Dictionary = {}
 
 func _ready():
 	## Get all resource files
-	var resource_paths = get_all_resource_paths("res://common/locations") + get_all_resource_paths("res://common/items")
+	var location_paths = _get_all_resource_paths("res://common/locations")
+	var potion_paths = _get_all_resource_paths("res://common/items/potions")
+	var ingredient_paths = _get_all_resource_paths("res://common/items/ingredients")
 	
 	## Add the paths to the dictionary
 	var regex = RegEx.new()
 	regex.compile("^res:\\/\\/.+\\/(?'id'[0-9_[:lower:]]+)\\.tres.*$")
-	for path in resource_paths:
+	for path in location_paths:
 		var result = regex.search(path)
-		if result:
-			resource_file_paths[result.get_string("id")] = path
+		if result: location_file_paths[result.get_string("id")] = path
+	for path in potion_paths:
+		var result = regex.search(path)
+		if result: potion_file_paths[result.get_string("id")] = path
+	for path in ingredient_paths:
+		var result = regex.search(path)
+		if result: ingredient_file_paths[result.get_string("id")] = path
 
 
-func get_all_resource_paths(path: String) -> Array[String]:  
+func _get_all_resource_paths(path: String) -> Array[String]:  
 	var file_paths: Array[String] = []  
 	var dir = DirAccess.open(path)  
 	dir.list_dir_begin()  
@@ -23,7 +30,7 @@ func get_all_resource_paths(path: String) -> Array[String]:
 	while file_name != "":  
 		var file_path = path + "/" + file_name  
 		if dir.current_is_dir():
-			file_paths += get_all_resource_paths(file_path)  
+			file_paths += _get_all_resource_paths(file_path)  
 		elif ".tres" in file_name:
 			file_paths.append(file_path)  
 		file_name = dir.get_next()  
@@ -32,6 +39,35 @@ func get_all_resource_paths(path: String) -> Array[String]:
 
 
 func get_resource_path(id: String):
-	if id in resource_file_paths:
-		return resource_file_paths[id]
+	if id in location_file_paths:
+		return location_file_paths[id]
+	elif id in potion_file_paths:
+		return potion_file_paths[id]
+	elif id in ingredient_file_paths:
+		return ingredient_file_paths[id]
 	else: return null
+
+func get_location_path(id: String):
+	if id in location_file_paths:
+		return location_file_paths[id]
+	else: return null
+
+func get_potion_path(id: String):
+	if id in potion_file_paths:
+		return potion_file_paths[id]
+	else: return null
+
+func get_ingredient_path(id: String):
+	if id in ingredient_file_paths:
+		return ingredient_file_paths[id]
+	else: return null
+
+
+func get_all_location_paths() -> Array[String]:
+	return location_file_paths.values()
+
+func get_all_potion_paths() -> Array[String]:
+	return potion_file_paths.values()
+	
+func get_all_ingredient_paths() -> Array[String]:
+	return ingredient_file_paths.values()
