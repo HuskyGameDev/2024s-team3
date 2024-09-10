@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Ingredient" load_steps=5 format=3 uid="uid://b0pitbp00qp16"]
 
 [ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_etft0"]
-[ext_resource type="Texture2D" uid="uid://cbnjnkfq7dsfm" path="res://common/items/ingredients/thistle_root/thistle_root.png" id="1_vj1v0"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="2_04duh"]
+[ext_resource type="Texture2D" uid="uid://0r4pffel3ps4" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.png" id="2_bmbpf"]
 
 [sub_resource type="Resource" id="Resource_wpwa6"]
 script = ExtResource("1_etft0")
@@ -21,8 +21,8 @@ swiftness_slowness = 0
 [resource]
 script = ExtResource("2_04duh")
 effects = SubResource("Resource_wpwa6")
-id = "thistle_root"
-name = "Thistle Root"
-description = "a thistle root"
+id = "nightshade_petals"
+name = "Nightshade Petals"
+description = "desc"
 stack_size = 5
-image = ExtResource("1_vj1v0")
+image = ExtResource("2_bmbpf")

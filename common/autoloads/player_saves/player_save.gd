@@ -26,7 +26,7 @@ func save_game_files():
 	save_file.store_string(JSON.stringify({ 
 		"money": money, 
 		"reputation": reputation, 
-		"location": location,
+		"location": location.id,
 		"tutorial_complete": tutorial_complete
 	}))
 	save_file.close()
@@ -41,15 +41,17 @@ func load_game_files():
 	if FileAccess.file_exists(SAVE_LOCATION):
 		var save_file = FileAccess.open(SAVE_LOCATION, FileAccess.READ)
 		var save_data = JSON.parse_string(save_file.get_as_text())
-		money = save_data.get("money")
-		reputation = save_data.get("reputation")
-		location = save_data.get("location")
-		tutorial_complete = save_data.get("tutorial_complete")
+		if save_data:
+			money = save_data.get("money")
+			reputation = save_data.get("reputation")
+			var location_id = save_data.get("location")
+			if location_id: location = ResourceLoader.load("res://common/locations/" + location_id + ".tres")
+			tutorial_complete = save_data.get("tutorial_complete")
 		save_file.close()
 	
 	if FileAccess.file_exists(INV_LOCATION):
 		var inv_file = FileAccess.open(INV_LOCATION, FileAccess.READ)
-		inventory = JSON.parse_string(inv_file.get_as_text())
+		inventory.assign(JSON.parse_string(inv_file.get_as_text()))
 		inv_file.close()
 	else:
 		inventory.resize(INVENTORY_SIZE)

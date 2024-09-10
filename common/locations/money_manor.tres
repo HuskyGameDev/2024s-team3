@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Location" load_steps=2 format=3 uid="uid://b1haecdfxltra"]
+
+[ext_resource type="Script" path="res://common/locations/location_type.gd" id="1_pcrcw"]
+
+[resource]
+script = ExtResource("1_pcrcw")
+id = "money_manor"
+name = "Money Manor"
+forage_table = {}
+ingredients_shop_table = {}
+customer_request_table = {}

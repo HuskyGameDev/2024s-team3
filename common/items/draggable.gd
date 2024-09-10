@@ -45,12 +45,14 @@ func set_tooltip(item: Item):
 
 ############ Drag and Drop Functions ############
 var beingHeld = false
+var onShelf = false
 
 func _on_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click"):
 		hold()
 	elif Input.is_action_just_released("click"):
 		drop()
+		
 
 
 func hold():
@@ -68,11 +70,12 @@ func hold():
 func drop():
 	if not beingHeld: pass
 	beingHeld = false
-	set_deferred("gravity_scale", 1)
-	set_collision_layer_value(holding_collision_layer, false)
-	set_collision_mask_value(holding_collision_layer, false)
-	set_collision_layer_value(default_collison_layer, true)
-	set_collision_mask_value(default_collison_layer, true)
+	if not onShelf:
+		set_deferred("gravity_scale", 1)
+		set_collision_layer_value(default_collison_layer, true)
+		set_collision_mask_value(default_collison_layer, true)
+		set_collision_layer_value(holding_collision_layer, false)
+		set_collision_mask_value(holding_collision_layer, false)
 
 
 func _integrate_forces(_state):
@@ -83,6 +86,9 @@ func _integrate_forces(_state):
 		rotation = 0 
 		set_linear_velocity(direction * distance * 40)
 
+
+func set_on_shelf(val: bool):
+	onShelf = val
 
 ################### Tooltips ####################
 func _on_mouse_entered():

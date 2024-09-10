@@ -8,5 +8,5 @@ script = ExtResource("1_0xa5r")
 id = "healing_potion"
 name = "Healing Potion"
 description = "a potion that heals you"
-stack_size = 1
+stack_size = 5
 image = ExtResource("1_ye1u6")

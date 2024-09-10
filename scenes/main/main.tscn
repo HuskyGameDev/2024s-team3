@@ -1,20 +1,15 @@
-[gd_scene load_steps=26 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=14 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_0ufrw"]
 [ext_resource type="Texture2D" uid="uid://dbueov7x0qeqe" path="res://scenes/main/background.png" id="2_u1ul0"]
-[ext_resource type="PackedScene" uid="uid://cjjarcohy2vqe" path="res://scenes/main/stations/cauldron/cauldron.tscn" id="3_qla3h"]
-[ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://common/items/ingredients/ingredient.tscn" id="4_spw6y"]
 [ext_resource type="PackedScene" uid="uid://bru1ae5j80tii" path="res://scenes/main/ui/money_and_rep_tracker/money_and_rep.tscn" id="5_0uejy"]
-[ext_resource type="Script" path="res://scenes/main/pedestal.gd" id="5_8dqgv"]
-[ext_resource type="Texture2D" uid="uid://cbnjnkfq7dsfm" path="res://common/items/ingredients/thistle_root/thistle_root.png" id="9_hda4l"]
-[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="10_06cbu"]
-[ext_resource type="PackedScene" uid="uid://br236elfur261" path="res://scenes/main/ui/inventory/drawer.tscn" id="10_tnf6t"]
-[ext_resource type="Texture2D" uid="uid://dbrst6yicxjg1" path="res://common/items/ingredients/peppermint_leaves/peppermint_leaves.png" id="11_lcnq5"]
-[ext_resource type="Texture2D" uid="uid://bgr0j54ert0ee" path="res://common/items/ingredients/pine_resin/pine_resin.png" id="12_5ovj8"]
-[ext_resource type="Texture2D" uid="uid://k1s0jbcfp0sn" path="res://common/items/ingredients/sunflower_seeds/sunflower_seeds.png" id="13_sykwt"]
-[ext_resource type="Texture2D" uid="uid://dnynu6kp1nswf" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.png" id="14_jiia4"]
-[ext_resource type="PackedScene" uid="uid://dllt48bo7ekog" path="res://scenes/main/ui/chain_bell/chain.tscn" id="16_8i4ox"]
-[ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="17_5filg"]
+[ext_resource type="PackedScene" uid="uid://g5q1guc3tswl" path="res://common/items/potions/potion.tscn" id="8_jio23"]
+[ext_resource type="PackedScene" uid="uid://bsgio2wgxwjd1" path="res://scenes/main/pedestal/pedestal.tscn" id="8_mkd11"]
+[ext_resource type="Resource" uid="uid://bvehxx4k7eur2" path="res://common/items/potions/healing_potion/healing_potion.tres" id="9_yicw8"]
+[ext_resource type="PackedScene" uid="uid://th2mbmwfxffb" path="res://scenes/main/bell/bell.tscn" id="10_6va5e"]
+[ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://common/items/ingredients/ingredient.tscn" id="10_oefsy"]
+[ext_resource type="Resource" uid="uid://b0pitbp00qp16" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="11_kv1as"]
+[ext_resource type="PackedScene" uid="uid://dllt48bo7ekog" path="res://scenes/main/bell/chain_bell/chain.tscn" id="16_8i4ox"]
 [ext_resource type="PackedScene" uid="uid://b6cq5upjosmpf" path="res://scenes/main/ui/clock/new_clock.tscn" id="17_n5klg"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1fgwd"]
@@ -22,81 +17,6 @@ b = Vector2(1920, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aqou"]
 size = Vector2(417, 39.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jquh8"]
-size = Vector2(98.25, 94.25)
-
-[sub_resource type="Resource" id="Resource_3bj3v"]
-script = ExtResource("10_06cbu")
-id = "thistle_root"
-name = "Thistle Root"
-description = "Like a burdock root, but less bitter."
-stackSize = 5
-image = ExtResource("9_hda4l")
-
-[sub_resource type="Resource" id="Resource_gq16j"]
-script = ExtResource("10_06cbu")
-id = "peppermint_leaves"
-name = "Peppermint Leaves"
-description = "Just the smell alone is invigorating."
-stackSize = 5
-image = ExtResource("11_lcnq5")
-
-[sub_resource type="Resource" id="Resource_acmav"]
-script = ExtResource("10_06cbu")
-id = "pine_resin"
-name = "Pine Resin"
-description = "Sticks to you, sticks with you."
-stackSize = 5
-image = ExtResource("12_5ovj8")
-
-[sub_resource type="Resource" id="Resource_awa4x"]
-script = ExtResource("10_06cbu")
-id = "sunflower_seeds"
-name = "Sunflower Seeds"
-description = "Always faces the sun."
-stackSize = 5
-image = ExtResource("13_sykwt")
-
-[sub_resource type="Resource" id="Resource_ugv73"]
-script = ExtResource("10_06cbu")
-id = "nightshade_petals"
-name = "Nightshade Petals"
-description = "The opposite of what most believe them to be."
-stackSize = 5
-image = ExtResource("14_jiia4")
-
-[sub_resource type="GDScript" id="GDScript_hmejc"]
-script/source = "extends Button
-
-signal potionData
-signal CorrectGoToCustSpawner
-var custOrder:String
-var orderPrice:int
-var orderRep:int
-var potionOnPedestal:String
-
-
-func _on_pedestal_send_to_bell(item):
-	potionOnPedestal = item.id
-
-
-func _on_customer_spawner_order_to_bell(data):
-	custOrder = data.order.id
-	orderPrice = data.orderPrice
-	orderRep = data.reputationChange
-
-func _pressed():
-	if !potionOnPedestal: return
-	if custOrder == potionOnPedestal:
-		print(\"correct order!\")
-		CorrectGoToCustSpawner.emit(potionOnPedestal) # send another one, get ride of this guy 
-		potionOnPedestal = \"\"
-		PlayerData.changeMoney(orderPrice)
-		PlayerData.changeReputation(orderRep)
-	else:
-		PlayerData.changeReputation(orderRep * -1)
-"
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0ufrw")
@@ -158,151 +78,26 @@ collision_layer = 2147483651
 position = Vector2(-115.5, -13.75)
 shape = SubResource("RectangleShape2D_1aqou")
 
-[node name="Cauldron" parent="." instance=ExtResource("3_qla3h")]
-position = Vector2(852, 840)
-scale = Vector2(6, 6)
-
 [node name="MoneyAndRep" parent="." instance=ExtResource("5_0uejy")]
 offset_left = 1612.0
 offset_top = 23.0
 offset_right = 1892.0
 offset_bottom = 134.0
 
-[node name="Tutorial" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-theme = ExtResource("17_5filg")
-
-[node name="NightShadeText" type="RichTextLabel" parent="Tutorial"]
-layout_mode = 0
-offset_left = 530.0
-offset_top = 218.0
-offset_right = 1454.0
-offset_bottom = 326.0
-text = "Find the ingredient NIGHTSHADE by hovering your mouse over the ingredients. Click and drag it into the cauldron."
-fit_content = true
-
-[node name="ThistlerootText" type="RichTextLabel" parent="Tutorial"]
-visible = false
-layout_mode = 0
-offset_left = 534.0
-offset_top = 218.0
-offset_right = 1449.0
-offset_bottom = 258.0
-text = "Find the ingredient THISTLE ROOT. Drag it into the cauldron."
-fit_content = true
-
-[node name="CauldronText" type="RichTextLabel" parent="Tutorial"]
-visible = false
-layout_mode = 0
-offset_left = 534.0
-offset_top = 218.0
-offset_right = 1449.0
-offset_bottom = 258.0
-text = "Great! now click on the cauldron to extract your potion."
-fit_content = true
-
-[node name="PotionText" type="RichTextLabel" parent="Tutorial"]
-visible = false
-layout_mode = 0
-offset_left = 525.0
-offset_top = 216.0
-offset_right = 1450.0
-offset_bottom = 300.0
-text = "Great! Now place the potion on the pedestal under the bell and ring the bell."
-fit_content = true
-
-[node name="FinishText" type="RichTextLabel" parent="Tutorial"]
-visible = false
-layout_mode = 0
-offset_left = 526.0
-offset_top = 221.0
-offset_right = 1447.0
-offset_bottom = 347.0
-text = "Congratulations! You've served your first customer! You can find more ingredients in the inventory by clicking the white tab on the right."
-fit_content = true
-
-[node name="Drawer-inventory" parent="." instance=ExtResource("10_tnf6t")]
-custom_minimum_size = Vector2(600, 690)
-layout_direction = 2
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 1870.0
-offset_top = 175.0
-offset_right = 2470.0
-offset_bottom = 865.0
-grow_horizontal = 1
-grow_vertical = 1
-
-[node name="Pedestal" type="Button" parent="."]
-offset_left = 372.0
-offset_top = 538.0
-offset_right = 479.0
-offset_bottom = 640.0
-focus_mode = 0
-script = ExtResource("5_8dqgv")
-
-[node name="Icon" type="TextureRect" parent="Pedestal"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="InvArea" type="Area2D" parent="Pedestal"]
-position = Vector2(1, 1)
-collision_layer = 2147483648
-collision_mask = 2147483648
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pedestal/InvArea"]
-position = Vector2(52.875, 49.875)
-shape = SubResource("RectangleShape2D_jquh8")
-
-[node name="Ingredient" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(1577, 891)
-data = SubResource("Resource_3bj3v")
-
-[node name="Ingredient2" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(159, 897)
-data = SubResource("Resource_gq16j")
-
-[node name="Ingredient3" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(294, 892)
-data = SubResource("Resource_acmav")
-
-[node name="Ingredient4" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(429, 896)
-data = SubResource("Resource_awa4x")
-
-[node name="Ingredient5" parent="." instance=ExtResource("4_spw6y")]
-position = Vector2(541, 874)
-data = SubResource("Resource_ugv73")
-
-[node name="ringBell" type="Button" parent="."]
-custom_minimum_size = Vector2(100, 100)
-offset_left = 273.0
-offset_top = 292.0
-offset_right = 373.0
-offset_bottom = 392.0
-toggle_mode = true
-text = "ring"
-script = SubResource("GDScript_hmejc")
-
 [node name="Chain" parent="." instance=ExtResource("16_8i4ox")]
 position = Vector2(489, 5)
 
-[connection signal="potion_made" from="Cauldron" to="." method="_on_cauldron_potion_made"]
-[connection signal="button_up" from="Pedestal" to="Pedestal" method="_on_button_up"]
-[connection signal="sendToBell" from="Pedestal" to="ringBell" method="_on_pedestal_send_to_bell"]
-[connection signal="body_entered" from="Pedestal/InvArea" to="Pedestal" method="_on_inv_area_body_entered"]
-[connection signal="body_exited" from="Pedestal/InvArea" to="Pedestal" method="_on_inv_area_body_exited"]
-[connection signal="body_shape_entered" from="Pedestal/InvArea" to="Pedestal" method="_on_inv_area_body_shape_entered"]
-[connection signal="input_event" from="Pedestal/InvArea" to="Pedestal" method="_on_inv_area_input_event"]
-[connection signal="CorrectGoToCustSpawner" from="ringBell" to="." method="_on_ring_bell_correct_go_to_cust_spawner"]
-[connection signal="CorrectGoToCustSpawner" from="ringBell" to="Pedestal" method="_on_customer_take_potion"]
-[connection signal="pressed" from="ringBell" to="." method="_on_ring_bell_pressed"]
+[node name="Bell" parent="." instance=ExtResource("10_6va5e")]
+position = Vector2(367, 414)
+scale = Vector2(6, 6)
+
+[node name="Pedestal" parent="." instance=ExtResource("8_mkd11")]
+position = Vector2(388, 546)
+
+[node name="Potion" parent="." instance=ExtResource("8_jio23")]
+position = Vector2(1406, 864)
+data = ExtResource("9_yicw8")
+
+[node name="Ingredient" parent="." instance=ExtResource("10_oefsy")]
+position = Vector2(1606, 884)
+data = ExtResource("11_kv1as")

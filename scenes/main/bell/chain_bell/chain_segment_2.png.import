@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbnjnkfq7dsfm"
-path="res://.godot/imported/thistle_root.png-4cae9061d45d6747b3c63fb78b399df8.ctex"
+uid="uid://dpthjvutocu0k"
+path="res://.godot/imported/chain_segment_2.png-04ee6b51e86cc4aabbbe0097a6c4ae91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/items/ingredients/thistle_root/thistle_root.png"
-dest_files=["res://.godot/imported/thistle_root.png-4cae9061d45d6747b3c63fb78b399df8.ctex"]
+source_file="res://scenes/main/bell/chain_bell/chain_segment_2.png"
+dest_files=["res://.godot/imported/chain_segment_2.png-04ee6b51e86cc4aabbbe0097a6c4ae91.ctex"]
 
 [params]
 

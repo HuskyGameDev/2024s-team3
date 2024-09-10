@@ -11,5 +11,5 @@ func _ready():
 	_updateLabels(null)
 
 func _updateLabels(_val):
-	moneyLabel.text = "$" + str(PlayerData.save.money)
-	repBar.value = PlayerData.save.reputation
+	moneyLabel.text = "$" + str(PlayerData.money)
+	repBar.value = PlayerData.reputation
