@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=15 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_0ufrw"]
 [ext_resource type="Texture2D" uid="uid://dbueov7x0qeqe" path="res://scenes/main/background.png" id="2_u1ul0"]
@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://th2mbmwfxffb" path="res://scenes/main/bell/bell.tscn" id="10_6va5e"]
 [ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://common/items/ingredients/ingredient.tscn" id="10_oefsy"]
 [ext_resource type="Resource" uid="uid://b0pitbp00qp16" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="11_kv1as"]
+[ext_resource type="PackedScene" uid="uid://cjjarcohy2vqe" path="res://scenes/main/stations/cauldron/cauldron.tscn" id="12_rj1v1"]
 [ext_resource type="PackedScene" uid="uid://dllt48bo7ekog" path="res://scenes/main/bell/chain_bell/chain.tscn" id="16_8i4ox"]
-[ext_resource type="PackedScene" uid="uid://b6cq5upjosmpf" path="res://scenes/main/ui/clock/new_clock.tscn" id="17_n5klg"]
+[ext_resource type="PackedScene" uid="uid://b6cq5upjosmpf" path="res://scenes/main/ui/clock/New_Clock.tscn" id="17_n5klg"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1fgwd"]
 b = Vector2(1920, 0)
@@ -94,6 +95,10 @@ scale = Vector2(6, 6)
 [node name="Pedestal" parent="." instance=ExtResource("8_mkd11")]
 position = Vector2(388, 546)
 
+[node name="Cauldron" parent="." instance=ExtResource("12_rj1v1")]
+position = Vector2(852, 840)
+scale = Vector2(6, 6)
+
 [node name="Potion" parent="." instance=ExtResource("8_jio23")]
 position = Vector2(1406, 864)
 data = ExtResource("9_yicw8")
@@ -101,3 +106,5 @@ data = ExtResource("9_yicw8")
 [node name="Ingredient" parent="." instance=ExtResource("10_oefsy")]
 position = Vector2(1606, 884)
 data = ExtResource("11_kv1as")
+
+[connection signal="potion_made" from="Cauldron" to="." method="_on_item_made"]

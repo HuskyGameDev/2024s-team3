@@ -4,6 +4,7 @@ The following layers have specific uses:
 +-------+------------------+
 |     1 | Ingredients      |
 |     2 | Potions          |
+|    20 | UI Elements      |
 |    31 | Held Ingredients |
 |    32 | Held Potions     |
 +-------+------------------+

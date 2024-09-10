@@ -4,6 +4,12 @@ const IMAGE_SCALE = 6
 
 @export var data: Ingredient
 
+
+func with_data(data: Ingredient):
+	self.data = data
+	return self
+
+
 func _ready():
 	## setup draggable object variables
 	set_collider($Collider)

@@ -4,6 +4,12 @@ const IMAGE_SCALE = 6
 
 @export var data: Potion
 
+
+func with_data(data: Potion):
+	self.data = data
+	return self
+
+
 func _ready():
 	## setup draggable object variables
 	set_collider($Collider)

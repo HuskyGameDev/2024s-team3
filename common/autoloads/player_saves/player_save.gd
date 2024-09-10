@@ -6,7 +6,7 @@ const INV_LOCATION = "user://inventory.json"
 
 const INVENTORY_SIZE = 20
 
-@export var location: Location = ResourceLoader.load(ResourcePaths.get_location_path("grassy_clearing"))
+@export var location: Location = ResourceLoader.load("res://common/locations/grassy_clearing.tres")
 @export var money: int = 0
 @export var reputation: int = 0
 @export var tutorial_complete: bool = false

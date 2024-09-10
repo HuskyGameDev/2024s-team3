@@ -1,3 +1,5 @@
+extends Node
+
 var location_file_paths: Dictionary = {}
 var potion_file_paths: Dictionary = {}
 var ingredient_file_paths: Dictionary = {}
@@ -63,11 +65,11 @@ func get_ingredient_path(id: String):
 	else: return null
 
 
-func get_all_location_paths() -> Array[String]:
+func get_all_location_paths() -> Array:
 	return location_file_paths.values()
 
-func get_all_potion_paths() -> Array[String]:
+func get_all_potion_paths() -> Array:
 	return potion_file_paths.values()
 	
-func get_all_ingredient_paths() -> Array[String]:
+func get_all_ingredient_paths() -> Array:
 	return ingredient_file_paths.values()
