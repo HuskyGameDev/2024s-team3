@@ -105,10 +105,16 @@ func add_inv_slot(): # just put this where we call it
 	inv_slot_new.name = "Inv" + numChild
 	gridcontainer.add_child(inv_slot_new, true)
 
-#testing
-func _on_add_button_down():
-	add_inv_slot()
-	#Insert(ResourceLoader.load("res://Assets/Resources/Ingredients/thistle_root.tres"), 10)
+func _input(e): # when a user presses the "i" key inventory appears on the screen if it was off-screen and off-screen if on-screen
+	if Input.is_action_just_pressed("inventory"): # inventory is defined project input map
+		if self.position.x == 1200:
+			self.position.x = 1865
+			$Tab.visible = true
+			$add.visible = false
+		else: 
+			self.position.x = 1200
+			$Tab.visible = false
+			$add.visible = false
 
 #move drawer off screen
 func _on_tab_button_down():
