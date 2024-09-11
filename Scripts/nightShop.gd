@@ -33,6 +33,8 @@ func _on_buy_button_pressed():
 	if PlayerData.save.money >= totalCost:
 		get_tree().call_group("ingredientsForSale", "handlePurchase")
 		PlayerData.save.money -= totalCost
+		print(PlayerData.save.money)
+		PlayerData.save_game()
 		get_tree().change_scene_to_file("res://Scenes/Screens/Main.tscn")
 	else:
 		print("Not enough money")

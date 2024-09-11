@@ -142,7 +142,9 @@ var moneyToday:int
 var repToday:int
 
 func changeMoney(amount:int):
+	print("Old Money Total: ", self.save.money)
 	self.save.money += amount
+	print("New Money Total: ", self.save.money)
 	moneyToday += amount
 	moneyChanged.emit(self.save.money)
 func changeReputation(amount:int):
