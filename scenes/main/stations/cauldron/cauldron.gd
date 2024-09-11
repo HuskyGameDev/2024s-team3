@@ -16,7 +16,7 @@ func _on_body_enter_cauldron(body):
 	var tween = create_tween().bind_node(body)
 	tween.tween_property(body, "global_position", top_of_cauldron, time_to_animate).from(ingredient_position)
 	await tween.finished
-	## Add to cauldron array
+	## Add effects to cauldron's potion
 	hasIngredients = true
 	currentEffects.add(body.data.effects)
 	body.queue_free()
@@ -24,12 +24,9 @@ func _on_body_enter_cauldron(body):
 
 func _on_cauldron_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click"):
-		if hasIngredients:
-			if currentEffects.all_null(): 
-				print("failed")
-			else: 
-				var potion = Potion.new()
-				potion.effects = currentEffects
-				potion_made.emit(potion, self.global_position - Vector2(0, 100))
+		if hasIngredients: 
+			var potion = Potion.new()
+			potion.effects = currentEffects
+			potion_made.emit(potion, self.global_position - Vector2(0, 100))
 			hasIngredients = false
 			currentEffects = EffectSet.new()

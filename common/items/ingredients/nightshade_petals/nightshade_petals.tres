@@ -13,7 +13,6 @@ strength_weakness = 0
 energy_fatigue = 0
 light_dark = 0
 luck_misfortune = 0
-mana_stamina = 0
 clarity_confusion = 0
 defense_vulnerability = 0
 swiftness_slowness = 0

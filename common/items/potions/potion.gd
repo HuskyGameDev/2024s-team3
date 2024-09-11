@@ -7,6 +7,7 @@ const IMAGE_SCALE = 6
 
 func with_data(data: Potion):
 	self.data = data
+	data.calculate_potion()
 	return self
 
 
@@ -18,7 +19,7 @@ func _ready():
 	super()
 	
 	## setup data
-	if data: 
+	if data:
 		set_tooltip(data)
 		if data.image:
 			var image_size = data.image.get_size() * IMAGE_SCALE
