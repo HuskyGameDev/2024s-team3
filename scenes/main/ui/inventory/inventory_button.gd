@@ -1,56 +1,21 @@
 extends Control
 
-var curItem
-var curIcon
-var curLabel
-var index
-var heldNode: DraggableObject #the node being held in the slot
-var dragging: DraggableObject #if something is being dragged over the slot
+@onready var quantityLabel: Label = $Quantity
+@onready var slotNode: Node = $ShelfSlot
 
-signal OnButtonClick(Index, item)
+signal change_slot_item(item, quantity: int)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	curIcon = $Icon
-	curLabel = $Icon/Quantity
+func _on_slot_items_changed(nodeArr, newItem):
+	## Update slot labels
+	if nodeArr.size() > 0:
+		quantityLabel.text = str(nodeArr.size())
+	else:
+		quantityLabel.text = ""
+	
+	## Update inventory variable
+	change_slot_item.emit(newItem, nodeArr.size())
 
 
-#func UpdateItem(item:Resource, quantity: int, newIndex :int):
-	#self.index = newIndex
-	#curItem = item
-	#if curItem == null:
-		#curIcon.texture= null
-		#curLabel.text = ""
-	#else:
-		#curIcon.texture = item.image
-		#curLabel.text = str(quantity)
-#
-#func _on_button_down():
-	#emit_signal("OnButtonClick", index, curItem)
-#
-#func _on_inv_area_body_entered(body):
-	#if body.get("object_type") == "Ingredient":
-		#heldBody = body
-#
-#func _on_inv_area_body_exited(_body):
-	#heldBody = null
-#
-#func _on_inv_area_input_event(_viewport, event, _shape_idx):
-	#if event is InputEventMouseButton && not event.pressed  && event.button_index == MOUSE_BUTTON_LEFT:
-		#if heldBody != null:
-			#var holding = heldBody.get("object_data")
-			#var slot = self.name
-			#var inv_data = PlayerData.read_inv()
-			#var slotAmount = inv_data[slot]["Quantity"]
-			#var item = ResourceLoader.load("res://Assets/Resources/Ingredients/" + holding.id + ".tres")
-			#if inv_data[slot]["Item"] == item.id && slotAmount != item.stackSize: #if this ingredient already exists in inventory
-				#if slotAmount + 1 <= item.stackSize: #if adding this quantity to the amount in the stack would be larger than stack size
-					#inv_data[slot]["Quantity"] = slotAmount + 1
-					#heldBody.queue_free()
-					#UpdateItem(item, slotAmount + 1, self.get_index())
-			#elif inv_data[slot]["Item"] == null: #if this slot is empty 
-				#inv_data[slot]["Item"] = item.id
-				#inv_data[slot]["Quantity"] = 1
-				#heldBody.queue_free()
-				#UpdateItem(item, 1, self.get_index())
-			#PlayerData.write_inv(inv_data)
+func set_disabled(val: bool):
+	slotNode.force_center_nodes()
+	slotNode.isDisabled = val

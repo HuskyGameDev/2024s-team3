@@ -9,6 +9,7 @@ var tooltip: Node
 var collider: CollisionShape2D
 var default_collison_layer: int
 var holding_collision_layer: int
+var shelf_collision_layer: int = 20
 
 
 func _ready():
@@ -52,7 +53,6 @@ func _on_input_event(_viewport, _event, _shape_idx):
 		hold()
 	elif Input.is_action_just_released("click"):
 		drop()
-		
 
 
 func hold():
@@ -89,6 +89,14 @@ func _integrate_forces(_state):
 
 func set_on_shelf(val: bool):
 	onShelf = val
+	if onShelf:
+		set_collision_layer_value(shelf_collision_layer, true)
+		set_collision_layer_value(holding_collision_layer, false)
+		set_collision_mask_value(holding_collision_layer, false)
+	else:
+		set_collision_layer_value(shelf_collision_layer, false)
+		set_collision_layer_value(holding_collision_layer, true)
+		set_collision_mask_value(holding_collision_layer, true)
 
 ################### Tooltips ####################
 func _on_mouse_entered():
