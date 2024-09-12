@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpthjvutocu0k"
-path="res://.godot/imported/Chain Segment 2.png-f08b079351cfe309fdbd0e1ea957a90d.ctex"
+path="res://.godot/imported/Chain Segment 2.png-69e16dd33ab131fb232d9d8a48530e07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Entities/Rope/Chain Segment 2.png"
-dest_files=["res://.godot/imported/Chain Segment 2.png-f08b079351cfe309fdbd0e1ea957a90d.ctex"]
+source_file="res://Scenes/Entities/Bell/Chain/Chain Segment 2.png"
+dest_files=["res://.godot/imported/Chain Segment 2.png-69e16dd33ab131fb232d9d8a48530e07.ctex"]
 
 [params]
 

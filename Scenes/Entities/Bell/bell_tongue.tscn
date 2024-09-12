@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt8y8klovq2y5"]
+
+[ext_resource type="Texture2D" uid="uid://chro3f0yplc64" path="res://Scenes/Entities/Bell/Bell_Tongue.png" id="1_icu7r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hat86"]
+radius = 2.0
+
+[node name="Bell_Tongue" type="RigidBody2D"]
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="BellTongue" type="Sprite2D" parent="."]
+position = Vector2(0, -36)
+scale = Vector2(6, 6)
+texture = ExtResource("1_icu7r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6, 6)
+shape = SubResource("CircleShape2D_hat86")
