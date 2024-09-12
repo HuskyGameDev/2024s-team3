@@ -17,6 +17,7 @@ offset_right = 545.0
 offset_bottom = -190.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("1_qe4gl")
 script = ExtResource("2_3b6m7")
 
@@ -28,9 +29,11 @@ anchor_bottom = 1.0
 offset_left = 57.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="M" type="MarginContainer" parent="Background"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 19
 theme_override_constants/margin_top = 11
 theme_override_constants/margin_right = 19
@@ -38,23 +41,29 @@ theme_override_constants/margin_bottom = 11
 
 [node name="V" type="VBoxContainer" parent="Background/M"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Header" type="HBoxContainer" parent="Background/M/V"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+mouse_filter = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Background/M/V"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
+horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="Background/M/V/ScrollContainer"]
-custom_minimum_size = Vector2(95, 95)
+clip_contents = true
+layout_direction = 2
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 size_flags_vertical = 3
-theme_override_constants/h_separation = 5
-theme_override_constants/v_separation = 5
-columns = 5
+mouse_filter = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
 
 [node name="Tab" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -95,6 +104,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "X"
 
-[connection signal="button_down" from="Tab/tab" to="." method="_on_tab_button_down"]
+[connection signal="pressed" from="Tab/tab" to="." method="_on_tab_button_pressed"]
 [connection signal="button_down" from="add" to="." method="_on_add_button_down"]
-[connection signal="button_down" from="exit" to="." method="_on_exit_button_down"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_button_pressed"]

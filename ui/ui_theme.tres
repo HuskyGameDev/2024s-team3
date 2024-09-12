@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://b3qy32ccw0g8o"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://b3qy32ccw0g8o"]
 
 [ext_resource type="FontFile" uid="uid://hv6s8x4ynyvt" path="res://ui/fonts/journal.ttf" id="1_vr6fn"]
 [ext_resource type="FontFile" uid="uid://b7v1xeoebsq10" path="res://ui/fonts/user_interface.ttf" id="2_ui1ll"]
@@ -41,6 +41,19 @@ corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q2wgi"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddufd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.498039, 0.278431, 0.0862745, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3qki"]
 bg_color = Color(0.686275, 0.584314, 0.443137, 1)
 border_width_left = 4
@@ -74,6 +87,8 @@ HiddenButton/styles/pressed = SubResource("StyleBoxEmpty_q2wgi")
 Label/colors/font_color = Color(0.184314, 0.0588235, 0, 1)
 Label/font_sizes/font_size = 35
 Label/fonts/font = ExtResource("1_vr6fn")
+OutlinedPanel/base_type = &"PanelContainer"
+OutlinedPanel/styles/panel = SubResource("StyleBoxFlat_ddufd")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_v3qki")
 RichTextLabel/font_sizes/normal_font_size = 30
 TooltipLabel/base_type = &"Label"
