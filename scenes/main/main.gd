@@ -17,12 +17,18 @@ func _on_shelf_body_entered(body):
 
 ###################### POTION SELLING ######################
 var sellingPotion: Potion ## the potion on the pedestal ready to be sold
+var sellingPotionNode: DraggableObject
 
-func _on_selling_potion_change(newPotion: Array[Potion]):
-	sellingPotion = newPotion[0]
+func _on_selling_potion_change(potionNode: Array[DraggableObject], newPotion: Potion):
+	sellingPotion = newPotion
+	sellingPotionNode = potionNode[0]
 
 func _on_ring_bell():
-	pass
+	if sellingPotion:
+		var took_potion = $CustomerFactory.handle_purchase(sellingPotion)
+		if took_potion: 
+			sellingPotion = null
+			sellingPotionNode.queue_free()
 
 ##################### STATION HANDLERS #####################
 func _on_item_made(item: Item, pos: Vector2, throw: bool = true, scene_params: Dictionary = {}):

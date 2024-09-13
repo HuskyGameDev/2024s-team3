@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=15 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_0ufrw"]
+[ext_resource type="Script" path="res://scenes/main/customers/customer_factory.gd" id="2_dnvch"]
 [ext_resource type="Texture2D" uid="uid://dbueov7x0qeqe" path="res://scenes/main/background.png" id="2_u1ul0"]
 [ext_resource type="PackedScene" uid="uid://bru1ae5j80tii" path="res://scenes/main/ui/money_and_rep_tracker/money_and_rep.tscn" id="5_0uejy"]
 [ext_resource type="PackedScene" uid="uid://br236elfur261" path="res://scenes/main/ui/inventory/drawer.tscn" id="5_nl71h"]
@@ -20,6 +21,9 @@ size = Vector2(417, 39.5)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0ufrw")
+
+[node name="CustomerFactory" type="Node" parent="."]
+script = ExtResource("2_dnvch")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -85,6 +89,7 @@ offset_right = 1892.0
 offset_bottom = 134.0
 
 [node name="Drawer-inventory" parent="." instance=ExtResource("5_nl71h")]
+visible = false
 custom_minimum_size = Vector2(600, 690)
 layout_direction = 2
 anchors_preset = -1
@@ -115,5 +120,6 @@ scale = Vector2(6, 6)
 position = Vector2(1606, 884)
 data = ExtResource("11_kv1as")
 
+[connection signal="customer_created" from="CustomerFactory" to="." method="_on_new_customer"]
 [connection signal="spawn_slot_item" from="Drawer-inventory" to="." method="_on_item_made"]
 [connection signal="potion_made" from="Cauldron" to="." method="_on_item_made"]
