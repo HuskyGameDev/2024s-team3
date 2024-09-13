@@ -11,7 +11,6 @@ signal spawn_slot_item(item: Item, pos: Vector2, throw: bool) #spawn item in inv
 
 #reads from inventory json file, creates each slot of inventory and fills it according to json
 func _ready():
-	self.position.x = 800
 	for i:InventorySlot in PlayerData.inventory: #for each inventory slot in the JSON
 		slots.push_back(i)
 		var inv_slot_new:Control = template_inv_slot.instantiate()
