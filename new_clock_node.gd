@@ -1,7 +1,5 @@
 extends Node2D
 
-
-
 @export var pivotPoint: Node2D
 
 @onready var nodeSymbol = $NodeSymbol
@@ -14,26 +12,28 @@ var shouldRotate = false
 var shouldBackRotate = false
 var startingPoint
 var radiansTraveled = 0.0
+var paused = false # tracks if game is currently paused
 
 @export var radianDivisor = 6
 @export var backRadianDivisor = 25
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameTime.connect("pause", on_pause) #connrect to pause signal from global script gametime
 	get_parent().get_parent().timerWentOff.connect(_rotate)
 	originalSpeed = clockRotationSpeed
 	pass # Replace with function body.
 
 
 func _rotate():
-	startingPoint = position
-	shouldBackRotate = true
-	shouldRotate = true
+	if paused == false: # only rotate if unpaused
+		startingPoint = position
+		shouldBackRotate = true
+		shouldRotate = true
 
 
 func _physics_process(delta):
-	#print("physics")
-	if shouldRotate == true:
+	if shouldRotate == true && paused == false: # only rotate if unpaused
 		#first rotate back 1 pixel for animation purposes
 		if shouldBackRotate == true:
 			var toObject: Vector2 = position - pivotPoint.position
@@ -61,19 +61,10 @@ func _physics_process(delta):
 				shouldRotate = false
 				radiansTraveled = 0.0
 				clockRotationSpeed = originalSpeed
-		
-		
-		
-		
-	
-	#if pivotPoint is Node2D:
-		##position = pivotPoint.position
-		##print("running around pivot")
-		#var toObject: Vector2 = position - pivotPoint.position
-		#toObject = toObject.rotated(clockRotationSpeed * delta)
-		#position = pivotPoint.position + toObject
-		#return
-	
-	
-	#position = Vector2(sin(clockRotationSpeed*d)*radius,cos(clockRotationSpeed*d)*radius)
-	#pass
+
+ # runs when signaled, pausing or unpausing the rotation of the clock
+func on_pause():
+		if paused == true: # if paused
+			paused = false # unpause
+		else:
+			paused = true # pause
