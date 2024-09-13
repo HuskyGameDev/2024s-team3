@@ -32,7 +32,13 @@ func save_game_files():
 	save_file.close()
 	
 	var inv_file = FileAccess.open(INV_LOCATION, FileAccess.WRITE)
-	inv_file.store_string(JSON.stringify(inventory))
+	inv_file.store_string(
+		JSON.stringify(
+			inventory.map(
+				func(i): return i._to_json() if i else null
+			)
+		)
+	)
 	inv_file.close()
 
 
@@ -51,7 +57,15 @@ func load_game_files():
 	
 	if FileAccess.file_exists(INV_LOCATION):
 		var inv_file = FileAccess.open(INV_LOCATION, FileAccess.READ)
-		inventory.assign(JSON.parse_string(inv_file.get_as_text()))
+		#inventory.assign(JSON.parse_string(inv_file.get_as_text()))
+		var inv_obj = JSON.parse_string(inv_file.get_as_text())
+		for item in inv_obj:
+			if item == null: 
+				inventory.push_back(null)
+			else:
+				var new_slot = InventorySlot.new()
+				new_slot.fill_slot(item["item"], item["quantity"])
+				inventory.push_back(new_slot)
 		inv_file.close()
 	else:
 		inventory.resize(INVENTORY_SIZE)
@@ -113,4 +127,4 @@ func _on_start_of_day():
 	moneyToday = 0
 	repToday = 0
 	
-	save_game_files()
+	#save_game_files()

@@ -49,16 +49,16 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Background/M/V"]
+clip_contents = false
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="Background/M/V/ScrollContainer"]
-clip_contents = true
 layout_direction = 2
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/h_separation = 10

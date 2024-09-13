@@ -115,4 +115,5 @@ scale = Vector2(6, 6)
 position = Vector2(1606, 884)
 data = ExtResource("11_kv1as")
 
+[connection signal="spawn_slot_item" from="Drawer-inventory" to="." method="_on_item_made"]
 [connection signal="potion_made" from="Cauldron" to="." method="_on_item_made"]

@@ -13,7 +13,7 @@ func _on_forage_button_pressed():
 	#for i in foragedItems:
 		#PlayerData.add_item_to_inventory(i, 1);
 	#PlayerData.save_game()
-	get_tree().change_scene_to_file("res://Scenes/Screens/Main.tscn")
+	get_tree().change_scene_to_file("res://scenes/main/main.tscn")
 
 
 func _on_move_button_pressed():	

@@ -6,8 +6,17 @@
 
 [node name="InvSlot" type="PanelContainer"]
 custom_minimum_size = Vector2(105, 105)
-offset_right = 95.0
-offset_bottom = 95.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -52.5
+offset_right = 52.5
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1_3rqmy")
 theme_type_variation = &"OutlinedPanel"
@@ -24,7 +33,7 @@ vertical_alignment = 2
 [node name="ShelfSlot" parent="." instance=ExtResource("4_71b4y")]
 position = Vector2(52, 52)
 scale = Vector2(2.6, 2.6)
-collision_mask = 1074266112
+collision_mask = 1074266113
 allowStack = true
 
 [connection signal="items_changed" from="ShelfSlot" to="." method="_on_slot_items_changed"]

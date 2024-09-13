@@ -70,6 +70,6 @@ func get_all_location_paths() -> Array:
 
 func get_all_potion_paths() -> Array:
 	return potion_file_paths.values()
-	
+
 func get_all_ingredient_paths() -> Array:
 	return ingredient_file_paths.values()
