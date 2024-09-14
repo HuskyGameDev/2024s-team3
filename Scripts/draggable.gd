@@ -4,11 +4,13 @@ extends RigidBody2D
 var beingHeld = false
 var shelf = false # true if ingredient is on shelf
 var parentNode: Node2D
+@onready var main = get_parent().get_parent() # main scene
 
 func _unhandled_input(_event):
 	if not Input.is_action_pressed("click") and beingHeld:
 		beingHeld = false
 		set_deferred("gravity_scale", 1)
+		main.move_child(get_parent(), main.get_node("Drawer-inventory").get_index() - 1 ) # move object to index above the drawer
 		if parentNode.data is Potion:
 			set_collision_layer_value(2, true)
 			set_collision_layer_value(32, false)
@@ -25,6 +27,7 @@ func _unhandled_input(_event):
 func _on_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click"):
 		beingHeld = true
+		main.move_child(get_parent(), main.get_node("Drawer-inventory").get_index() + 1) # move object to index below the drawer
 		tooltip.visible = false
 		set_deferred("gravity_scale", 0)
 		if parentNode.data is Potion:
