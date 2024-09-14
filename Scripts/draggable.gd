@@ -2,7 +2,7 @@ extends RigidBody2D
 
 ############ Drag and Drop Functions ############
 var beingHeld = false
-
+var shelf = false # true if ingredient is on shelf
 var parentNode: Node2D
 
 func _unhandled_input(_event):
@@ -48,6 +48,8 @@ func _integrate_forces(_state):
 		var direction = global_position.direction_to(mousePos)
 		rotation = 0 
 		set_linear_velocity(direction * distance * 40)
+	elif shelf: # if object is on shelf and not being held
+		rotation = 0 # stop object from rotating
 
 
 ############### Object Functions ################
@@ -100,3 +102,13 @@ func _on_timer_timeout():
 		tooltip_rect = tooltip.get_rect()
 	
 	tooltip.visible = true
+
+# stops rotation of ingredient if its on the shelf
+func _on_body_entered(body):
+	if body.name == "Right Shelf" or body.name == "Left Shelf":
+		shelf = true
+
+# allows rotation when it leaves the shelf
+func _on_body_exited(body):
+	if body.name == "Right Shelf" or body.name == "Left Shelf":
+		shelf = false

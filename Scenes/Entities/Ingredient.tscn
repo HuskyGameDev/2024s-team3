@@ -10,8 +10,14 @@ size = Vector2(92, 94)
 script = ExtResource("1_wdr4g")
 
 [node name="DraggableObject" parent="." instance=ExtResource("1_ej0v7")]
+contact_monitor = true
+max_contacts_reported = 1
+angular_damp = 5.0
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="IngredientArea" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_qqx7g")
+
+[connection signal="body_entered" from="DraggableObject" to="DraggableObject" method="_on_body_entered"]
+[connection signal="body_exited" from="DraggableObject" to="DraggableObject" method="_on_body_exited"]

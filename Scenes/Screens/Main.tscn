@@ -15,11 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://dnynu6kp1nswf" path="res://Assets/Sprites/Ingredients/nightshade_petals.png" id="14_jiia4"]
 [ext_resource type="PackedScene" uid="uid://dllt48bo7ekog" path="res://Scenes/Entities/Bell/Chain/Chain.tscn" id="16_8i4ox"]
 [ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://Assets/Themes/UiTheme.tres" id="17_5filg"]
-[ext_resource type="PackedScene" uid="uid://bu6xffhdfkqsp" path="res://Scenes/UI/PauseMenu.tscn" id="17_b0n7s"]
-[ext_resource type="PackedScene" uid="uid://b6cq5upjosmpf" path="res://New_Clock.tscn" id="17_n5klg"]
+[ext_resource type="PackedScene" uid="uid://lnfput3ouduw" path="res://Scenes/UI/PauseMenu.tscn" id="17_b0n7s"]
+[ext_resource type="PackedScene" path="res://New_Clock.tscn" id="17_n5klg"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_1fgwd"]
-b = Vector2(1920, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qc2w"]
+size = Vector2(0.456603, 0.192607)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aqou"]
 size = Vector2(417, 39.5)
@@ -102,6 +102,13 @@ func _pressed():
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0ufrw")
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("17_b0n7s")]
+visible = false
+visibility_layer = 2
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="NewClock" parent="CanvasLayer" instance=ExtResource("17_n5klg")]
@@ -118,15 +125,35 @@ position = Vector2(160, 90)
 texture = ExtResource("2_u1ul0")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Room"]
-position = Vector2(117.333, 109.333)
-scale = Vector2(0.166667, 0.166667)
-collision_layer = 2
-collision_mask = 2
+[node name="Right Shelf" type="StaticBody2D" parent="Room"]
+position = Vector2(250, 118.333)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/StaticBody2D"]
-position = Vector2(-710, 8)
-shape = SubResource("SegmentShape2D_1fgwd")
-one_way_collision = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Right Shelf"]
+position = Vector2(-6.37506, 0.333336)
+scale = Vector2(331.25, 11.25)
+shape = SubResource("RectangleShape2D_1qc2w")
+
+[node name="ColorRect" type="ColorRect" parent="Room/Right Shelf"]
+offset_left = -82.0
+offset_top = -1.0
+offset_right = 73.0
+offset_bottom = 1.0
+color = Color(0.368627, 0.247059, 0.2, 1)
+
+[node name="Left Shelf" type="StaticBody2D" parent="Room"]
+position = Vector2(45.5, 119.333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Left Shelf"]
+position = Vector2(-11, 2.563e-06)
+scale = Vector2(331.25, 11.25)
+shape = SubResource("RectangleShape2D_1qc2w")
+
+[node name="ColorRect" type="ColorRect" parent="Room/Left Shelf"]
+offset_left = -44.0
+offset_top = -1.0
+offset_right = 65.0
+offset_bottom = 1.0
+color = Color(0.368627, 0.247059, 0.2, 1)
 
 [node name="Floor" type="StaticBody2D" parent="Room"]
 position = Vector2(276, 211)
@@ -227,19 +254,6 @@ offset_bottom = 347.0
 text = "Congratulations! You've served your first customer! You can find more ingredients in the inventory by clicking the white tab on the right."
 fit_content = true
 
-[node name="Drawer-inventory" parent="." instance=ExtResource("10_tnf6t")]
-custom_minimum_size = Vector2(600, 690)
-layout_direction = 2
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 1870.0
-offset_top = 175.0
-offset_right = 2470.0
-offset_bottom = 865.0
-grow_horizontal = 1
-grow_vertical = 1
-
 [node name="Pedestal" type="Button" parent="."]
 offset_left = 372.0
 offset_top = 538.0
@@ -286,6 +300,19 @@ data = SubResource("Resource_awa4x")
 [node name="Ingredient5" parent="." instance=ExtResource("4_spw6y")]
 position = Vector2(541, 874)
 data = SubResource("Resource_ugv73")
+
+[node name="Drawer-inventory" parent="." instance=ExtResource("10_tnf6t")]
+custom_minimum_size = Vector2(600, 690)
+layout_direction = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1870.0
+offset_top = 175.0
+offset_right = 2470.0
+offset_bottom = 865.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="ringBell" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 100)
