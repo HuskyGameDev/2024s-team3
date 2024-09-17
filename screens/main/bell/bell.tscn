@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://th2mbmwfxffb"]
+
+[ext_resource type="Texture2D" uid="uid://ddwxcgkrn354m" path="res://screens/main/bell/bell.png" id="1_8koki"]
+[ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="2_ah7hn"]
+
+[node name="Bell" type="Node2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_8koki")
+
+[node name="BellButton" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -10.0
+offset_right = 7.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ah7hn")
+theme_type_variation = &"HiddenButton"

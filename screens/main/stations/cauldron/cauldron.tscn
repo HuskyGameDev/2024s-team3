@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjjarcohy2vqe"]
+
+[ext_resource type="Script" path="res://screens/main/stations/cauldron/cauldron.gd" id="1_ygt0y"]
+[ext_resource type="Texture2D" uid="uid://cv3kxe3sbuli0" path="res://screens/main/stations/cauldron/cauldron.png" id="2_ffdd2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o7cp0"]
+height = 44.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aaytm"]
+radius = 29.0172
+
+[node name="Cauldron" type="Node2D"]
+script = ExtResource("1_ygt0y")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-2, 8)
+texture = ExtResource("2_ffdd2")
+
+[node name="ValidArea" type="Area2D" parent="."]
+position = Vector2(0, 3)
+collision_layer = 0
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ValidArea"]
+position = Vector2(0, -4)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_o7cp0")
+
+[node name="CollisonArea" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisonArea"]
+polygon = PackedVector2Array(-26, -7, -32, 4, -45, 19, -44, 30, -20, 40, 14, 40, 38, 31, 41, 21, 30, 4, 24, -9, 19, -4, 9, -2, -10, -2, -20, -4)
+
+[node name="ClickableArea" type="Area2D" parent="."]
+collision_layer = 524288
+collision_mask = 524288
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableArea"]
+position = Vector2(-1, 4)
+shape = SubResource("CircleShape2D_aaytm")
+
+[connection signal="body_entered" from="ValidArea" to="." method="_on_body_enter_cauldron"]
+[connection signal="input_event" from="ClickableArea" to="." method="_on_cauldron_input_event"]
