@@ -18,6 +18,7 @@ var shouldCenter: bool = true # set to true if there are no movement animations 
 @export var allowStack: bool = false # allow multiple items in one slot?
 @export var allowDifferentItems: bool = false # allow different items in one slot?
 
+# sends every time an item is added to or removed from the slot, used in inventory_button.gd
 signal items_changed(nodeArr: Array[DraggableObject], newItem: Item)
 
 
@@ -29,7 +30,7 @@ func _process(delta):
 				node.global_position = $SlotCollider.global_position
 
 
-## Center all nodes
+## Center all held nodes
 func force_center_nodes():
 	for node in heldNodes:
 		node.global_position = $SlotCollider.global_position
@@ -70,16 +71,24 @@ func can_hold(data: Item) -> bool:
 
 ## Add node to held items
 func hold_node(node: Node):
+	# Make it so the node under this one can't be picked up
 	if heldNodes.size() > 0: heldNodes[-1].input_pickable = false
-	self.isDisabled = true
+	
+	# Disable picking up/dropping nodes while centering this node
+	var originalDisabledVal = self.isDisabled
+	if not self.isDisabled: self.isDisabled = true #TODO: remove if statement, it's only here for testing purposes
+	# Add node to heldNodes
 	heldNodes.push_back(node)
 	items_changed.emit(heldNodes, node.data)
 	
+	# Set node properties so it's controlled by the shelf slot
 	node.set_on_shelf(true)
 	node.set_deferred("gravity_scale", 0)
 	node.set_deferred("lock_rotation", true)
+	# Make it so you can't pick up the item while it's moving to center
 	node.set_deferred("freeze", true)
 	
+	# Center node and set rotation to 0
 	shouldCenter = false
 	var tween = create_tween()
 	tween.tween_property(node, "rotation", 0, 0.1)
@@ -88,15 +97,19 @@ func hold_node(node: Node):
 	await tween.finished
 	shouldCenter = true
 	
+	# Make it so you can pick the item up again
 	node.set_deferred("freeze", false)
-	self.isDisabled = false
+	# Set disabled back to the value it was before picking up this node
+	if self.isDisabled != originalDisabledVal: self.isDisabled = originalDisabledVal #TODO: remove if statement, it's only here for testing purposes
 
 
 ## Remove node from held items
 func drop_node(node: Node):
+	# Set node properties to be controlled by the ndoe
 	node.set_on_shelf(false)
 	node.set_deferred("gravity_scale", 1)
 	node.set_deferred("lock_rotation", false)
+	# Remove node from held nodes list and make it so the next node in the slot can be picked up
 	heldNodes.erase(node)
 	if heldNodes.size() > 0: heldNodes[-1].input_pickable = true
 	items_changed.emit(heldNodes, null)

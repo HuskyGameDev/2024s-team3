@@ -100,6 +100,10 @@ func set_on_shelf(val: bool):
 
 ################### Tooltips ####################
 func _on_mouse_entered():
+	print("Mouse entered")
+	print(self.global_position)
+	print(get_viewport().get_mouse_position())
+	print("\n\n\n")
 	if not beingHeld:
 		timer.start(1)
 

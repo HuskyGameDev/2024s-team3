@@ -102,7 +102,6 @@ grow_vertical = 1
 
 [node name="Bell" parent="." instance=ExtResource("7_ykbkw")]
 position = Vector2(373, 22)
-scale = Vector2(6, 6)
 
 [node name="Pedestal" parent="." instance=ExtResource("8_mkd11")]
 position = Vector2(388, 546)

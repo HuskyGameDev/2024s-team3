@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://bl3amrphg7abg"]
 
 <<<<<<<< HEAD:screens/main/bell/chain_bell/chain_segment_a.tscn
-[ext_resource type="Texture2D" uid="uid://chcdejc2jtsov" path="res://screens/main/bell/chain_bell/chain_segment_1.png" id="1_76jvy"]
+[ext_resource type="Texture2D" uid="uid://chcdejc2jtsov" path="res://screens/main/bell/chain/chain_segment_1.png" id="1_76jvy"]
 ========
-[ext_resource type="Texture2D" uid="uid://chcdejc2jtsov" path="res://Scenes/Entities/Bell/Chain/Chain Segment 1.png" id="1_76jvy"]
->>>>>>>> main:Scenes/Entities/Bell/Chain/Chain_Segment_A.tscn
+[ext_resource type="Texture2D" uid="uid://chcdejc2jtsov" path="res://screens/main/bell/chain/chain_segment_1.png" id="1_76jvy"]
+>>>>>>>> main:screens/main/bell/chain/chain_segment_a.tscn
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_owjil"]
 radius = 6.0
 height = 24.0
 
-[node name="Chain_Segment_A" type="RigidBody2D"]
+[node name="chain_segment_a" type="RigidBody2D"]
 collision_mask = 2147483649
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

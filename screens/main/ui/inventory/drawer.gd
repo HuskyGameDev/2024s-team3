@@ -11,15 +11,16 @@ var slots: Array[InventorySlot] = []
 
 ## reads from inventory json file, creates each slot of inventory and fills it according to json
 func _ready():
-	var main_node: Node2D = get_node("/root/Main") #node to add ingredient instances to when leading from the inventory
+	var main_node: Node2D = get_node("/root/Main") # node to add ingredient instances to when loading from the inventory
 	self.position.x = 100
-	for i:InventorySlot in PlayerData.inventory: #for each inventory slot in the JSON
+	for i:InventorySlot in PlayerData.inventory: # for each inventory slot in the JSON
 		slots.push_back(i)
 		var inv_slot_new:Control = template_inv_slot.instantiate()
 		inv_slot_new.connect("change_slot_item", _on_slot_contents_change.bind(slots.size() - 1))
 		grid_container.add_child(inv_slot_new)
 		
-		## Spawn held items as children of inventory slot (with owner "Main")
+		## Spawn held items as children of inventory slot (with owner node "Main")
+		## uses deferred so main is able to spawn the nodes at the end of the physics process
 		var hold_deferred = func():
 			var item_node: DraggableObject = packed_ingredient_scene.instantiate().with_data(i.item)
 			item_node.global_position = Vector2(300, 300)
@@ -29,7 +30,7 @@ func _ready():
 		if i:
 			for n in i.quantity:
 				hold_deferred.call_deferred()
-	_on_exit_button_pressed()
+	_on_exit_button_pressed() # disables slots since they are offscreen
 
 
 func _on_slot_contents_change(item, quantity: int, slot_index: int):
@@ -47,7 +48,8 @@ func _on_tab_button_pressed():
 	self.position.x = 1200
 	$Tab.visible = false
 	$add.visible = false
-	for inventory_button in grid_container.get_children(): 
+	await get_tree().create_timer(0.1).timeout
+	for inventory_button in grid_container.get_children():
 		inventory_button.set_disabled(false)
 
 
