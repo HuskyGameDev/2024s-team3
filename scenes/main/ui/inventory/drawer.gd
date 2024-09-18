@@ -29,7 +29,6 @@ func _ready():
 		if i:
 			for n in i.quantity:
 				hold_deferred.call_deferred()
-				await get_tree().process_frame
 	_on_exit_button_pressed()
 
 
@@ -48,7 +47,6 @@ func _on_tab_button_pressed():
 	self.position.x = 1200
 	$Tab.visible = false
 	$add.visible = false
-	await get_tree().physics_frame
 	for inventory_button in grid_container.get_children(): 
 		inventory_button.set_disabled(false)
 
