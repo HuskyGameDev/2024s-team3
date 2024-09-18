@@ -31,17 +31,13 @@ func _on_ring_bell():
 			sellingPotionNode.queue_free()
 
 ##################### STATION HANDLERS #####################
-func _on_item_made(item: Item, pos: Vector2, throw: bool = true, scene_params: Dictionary = {}):
+func _on_item_made(item: Item, pos: Vector2, throw: bool = true):
 	var newScene: Node2D
 	if item is Potion:
 		newScene = packed_potion_scene.instantiate().with_data(item)
 	elif item is Ingredient:
 		newScene = packed_ingredient_scene.instantiate().with_data(item)
 	else: return
-	
-	## Add any scene_params
-	for key in scene_params:
-		newScene.set(key, scene_params[key])
 	
 	newScene.global_position = pos
 	self.add_child.call_deferred(newScene)

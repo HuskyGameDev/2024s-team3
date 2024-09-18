@@ -2,35 +2,35 @@
 #adds ingredients to next available inventory slot 
 extends Control
 
+var packed_ingredient_scene = preload("res://common/items/ingredients/ingredient.tscn")
 var template_inv_slot = preload("res://scenes/main/ui/inventory/drawer_button.tscn")
+
 var slots: Array[InventorySlot] = []
 
-@onready var grid_container = get_node("Background/M/V/ScrollContainer/GridContainer")
+@onready var grid_container: GridContainer = $Background/M/V/ScrollContainer/GridContainer
 
-signal spawn_slot_item(item: Item, pos: Vector2, throw: bool) #spawn item in inventory with main as parent
-
-#reads from inventory json file, creates each slot of inventory and fills it according to json
+## reads from inventory json file, creates each slot of inventory and fills it according to json
 func _ready():
+	var main_node: Node2D = get_node("/root/Main") #node to add ingredient instances to when leading from the inventory
+	self.position.x = 100
 	for i:InventorySlot in PlayerData.inventory: #for each inventory slot in the JSON
 		slots.push_back(i)
 		var inv_slot_new:Control = template_inv_slot.instantiate()
 		inv_slot_new.connect("change_slot_item", _on_slot_contents_change.bind(slots.size() - 1))
 		grid_container.add_child(inv_slot_new)
 		
-		## Send the signal deferred so the positions are correct
-		var create_items_in_main = func():
-			inv_slot_new.set_catch_items(true)
-			if i: #if it has somthing in it, spawn it in the slot
-				var center_of_slot = inv_slot_new.global_position + inv_slot_new.get_rect().size / 2
-				for n in i.quantity:
-					spawn_slot_item.emit(i.item, center_of_slot, false, {"collision_mask": 0})
-		create_items_in_main.call_deferred()
-		
-	## Reset the catch items prop once they're created
-	get_tree().create_timer(0.01).timeout.connect(func(): 
-		for child in grid_container.get_children(): child.set_catch_items(false)
-	, CONNECT_ONE_SHOT)
-
+		## Spawn held items as children of inventory slot (with owner "Main")
+		var hold_deferred = func():
+			var item_node: DraggableObject = packed_ingredient_scene.instantiate().with_data(i.item)
+			item_node.global_position = Vector2(300, 300)
+			main_node.add_child(item_node)
+			inv_slot_new.slotNode.hold_node(item_node)
+			item_node.collision_mask = 0
+		if i:
+			for n in i.quantity:
+				hold_deferred.call_deferred()
+				await get_tree().process_frame
+	_on_exit_button_pressed()
 
 
 func _on_slot_contents_change(item, quantity: int, slot_index: int):
@@ -43,19 +43,21 @@ func _on_slot_contents_change(item, quantity: int, slot_index: int):
 		PlayerData.inventory[slot_index] = null
 
 
-#move drawer on screen
+## move drawer on screen
 func _on_tab_button_pressed():
 	self.position.x = 1200
 	$Tab.visible = false
 	$add.visible = false
+	await get_tree().physics_frame
 	for inventory_button in grid_container.get_children(): 
 		inventory_button.set_disabled(false)
 
 
-#move drawer off screen
+## move drawer off screen
 func _on_exit_button_pressed():
 	for inventory_button in grid_container.get_children(): 
 		inventory_button.set_disabled(true)
-	self.position.x = 1865
+	self.position.x = 100
+	#self.position.x = 1865
 	$Tab.visible = true
 	$add.visible = false

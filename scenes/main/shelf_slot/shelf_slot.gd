@@ -7,18 +7,27 @@ extends Node
 var packed_potion_scene = preload("res://common/items/potions/potion.tscn")
 var packed_ingredient_scene = preload("res://common/items/ingredients/ingredient.tscn")
 
-var dragging: DraggableObject #if something is being dragged over the slot
-var heldNodes: Array[DraggableObject] #the nodes in the slot
+var dragging: DraggableObject # if something is being dragged over the slot
+var heldNodes: Array[DraggableObject] # the nodes in the slot
 
 var isDisabled: bool = false
+var shouldCenter: bool = true # set to true if there are no movement animations going on
 
 ## Customization variables
 @export var centerItems: bool = true # center held items?
 @export var allowStack: bool = false # allow multiple items in one slot?
 @export var allowDifferentItems: bool = false # allow different items in one slot?
-@export var requireDrag: bool = true # require the player to drag an item into the slot (vs it rolling/falling)
 
 signal items_changed(nodeArr: Array[DraggableObject], newItem: Item)
+
+
+## Keep held nodes centered
+func _process(delta):
+	if centerItems and shouldCenter:
+		for node in heldNodes: 
+			if not node.beingHeld:
+				node.global_position = $SlotCollider.global_position
+
 
 ## Center all nodes
 func force_center_nodes():
@@ -30,8 +39,6 @@ func force_center_nodes():
 func _on_slot_hover_entered(body):
 	if isDisabled: return
 	if not body is DraggableObject: return
-	if not requireDrag:
-		hold_node(body)
 	dragging = body
 
 
@@ -47,6 +54,7 @@ func _on_slot_hover_exited(body):
 ## If the player releases an item over the slot, check if
 ## it can be held, then handle holding it
 func _unhandled_input(event):
+	if isDisabled: return
 	if Input.is_action_just_released("click") && dragging && not dragging.onShelf:
 		if can_hold(dragging.data): 
 			hold_node(dragging)
@@ -66,16 +74,20 @@ func hold_node(node: Node):
 	self.isDisabled = true
 	heldNodes.push_back(node)
 	items_changed.emit(heldNodes, node.data)
+	
 	node.set_on_shelf(true)
 	node.set_deferred("gravity_scale", 0)
 	node.set_deferred("lock_rotation", true)
 	node.set_deferred("freeze", true)
-	node.reparent(self)
+	
+	shouldCenter = false
 	var tween = create_tween()
 	tween.tween_property(node, "rotation", 0, 0.1)
 	if centerItems:
 		tween.tween_property(node, "global_position", $SlotCollider.global_position, 0.1)
 	await tween.finished
+	shouldCenter = true
+	
 	node.set_deferred("freeze", false)
 	self.isDisabled = false
 
@@ -85,7 +97,6 @@ func drop_node(node: Node):
 	node.set_on_shelf(false)
 	node.set_deferred("gravity_scale", 1)
 	node.set_deferred("lock_rotation", false)
-	node.reparent(node.get_owner())
 	heldNodes.erase(node)
 	if heldNodes.size() > 0: heldNodes[-1].input_pickable = true
 	items_changed.emit(heldNodes, null)
