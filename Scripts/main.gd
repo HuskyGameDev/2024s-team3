@@ -8,7 +8,7 @@ const customerScene = preload("res://Scenes/Entities/Customer.tscn")
 
 var txtBox = preload("res://Scenes/UI/textBox.tscn") # general textbox
 
-signal CorrectGoToCustSpawner #signals the pedestal that the items have been picked up
+signal emptyPedestal #signals the pedestal that the items have been picked up
 
 var custArray:Array[Customer] = []
 var customerNames:Array[String] = []
@@ -16,7 +16,6 @@ var currentCustomer #the instance of the customer
 var custOrder:String # id of potion resource the customer is ordering
 var orderPrice:int #money gained from selling this potion 
 var orderRep:int #reputation gained or lost from selling this potion
-var potionOnPedestal:String #stores the resource sent on pedestal
 var outWalkSpeed # start walking out from a standstill but not with constant acceleration, change speed when walking out 
 const customerStartLocation = (Vector2(1800,500)) #where the customer is spawned in
 var customerEndLocation = (Vector2(1200,500))  #where the customer goes to wait for an order
@@ -36,8 +35,7 @@ func _ready():
 	var cauldron = $"Cauldron"
 	cauldron.ingredient_added.connect(next_step)
 	drawer.make_inv_object.connect(_on_inv_dragged) #moving object out of inventory
-	pedestal.make_ped_object.connect(_on_ped_pressed) #moving object out of pedestal
-	pedestal.sendToBell.connect(_on_pedestal_send_to_bell)
+	pedestal.correctOrder.connect(_on_ring_bell_correct_go_to_cust_spawner)
 	
 	# create a customer array with all of the orders for the day
 	custArray = PlayerData.save.currentLocation.get_customer_requests(sizeOfCustomers)
@@ -141,12 +139,6 @@ func _on_inv_dragged(inv_slot):
 			inv_data[inv_slot]["Quantity"] = quantity - 1
 		PlayerData.write_inv(inv_data)
 
-func _on_ped_pressed(item: Resource):
-	var newItem = PotionScene.instantiate()
-	newItem.setType(item)
-	newItem.global_position = get_viewport().get_mouse_position()
-	add_child(newItem)
-
 func _on_shelf_body_entered(body):
 	body.rotation = 0
 	
@@ -177,30 +169,22 @@ func spawn_customer():
 	
 	outWalkSpeed = currentCustomer.data.walkSpeed / 80
 	print("outwalkspeed is: ", outWalkSpeed)
-
-func _on_ring_bell_correct_go_to_cust_spawner(id): # code gets here when there is a correct order
-	next_step(id)
-	walkOut = true
-	o = 0 # need a reset
+	
+# when bell is rung check if potion is pedestal is what the customer ordered
+func _on_ring_bell_correct_go_to_cust_spawner(potionOnPedestal): 
+	if custOrder == potionOnPedestal:
+		emptyPedestal.emit() # send signal to pedestal to become empty
+		potionOnPedestal = ""
+		PlayerData.changeMoney(orderPrice) #increase player money
+		PlayerData.changeReputation(orderRep) # increase player money
+		next_step(potionOnPedestal) # next step in tutorial
+		walkOut = true # trigger next customer
+		o = 0 # need a reset
+	else:
+		PlayerData.changeReputation(orderRep * -1) # decrease reputation
 
 func nextCust():
 	currentCustomer.queue_free()
 	t = 0
 	o = 0
 	spawn_customer()
-
- #stores the type of potion places on pedestal
-func _on_pedestal_send_to_bell(item):
-	potionOnPedestal = item.id
-
-#checks if the correct order is placed on the pedestal when the bell is rung
-func _on_ring_bell_pressed():
-	if !potionOnPedestal: return
-	if custOrder == potionOnPedestal:
-		_on_ring_bell_correct_go_to_cust_spawner(potionOnPedestal)
-		CorrectGoToCustSpawner.emit() # send signal to pedestal to become empty
-		potionOnPedestal = ""
-		PlayerData.changeMoney(orderPrice)
-		PlayerData.changeReputation(orderRep)
-	else:
-		PlayerData.changeReputation(orderRep * -1)

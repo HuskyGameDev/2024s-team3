@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dnynu6kp1nswf" path="res://Assets/Sprites/Ingredients/nightshade_petals.png" id="14_jiia4"]
 [ext_resource type="PackedScene" uid="uid://dllt48bo7ekog" path="res://Scenes/Entities/Bell/Chain/Chain.tscn" id="16_8i4ox"]
 [ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://Assets/Themes/UiTheme.tres" id="17_5filg"]
-[ext_resource type="PackedScene" uid="uid://lnfput3ouduw" path="res://Scenes/UI/PauseMenu.tscn" id="17_b0n7s"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/PauseMenu.tscn" id="17_b0n7s"]
 [ext_resource type="PackedScene" path="res://New_Clock.tscn" id="17_n5klg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qc2w"]
@@ -325,11 +325,10 @@ position = Vector2(489, 5)
 
 [connection signal="potion_made" from="Cauldron" to="." method="_on_cauldron_potion_made"]
 [connection signal="button_up" from="Pedestal" to="Pedestal" method="_on_button_up"]
-[connection signal="sendToBell" from="Pedestal" to="ringBell" method="_on_pedestal_send_to_bell"]
 [connection signal="body_entered" from="Pedestal/InvArea" to="Pedestal" method="_on_inv_area_body_entered"]
 [connection signal="body_exited" from="Pedestal/InvArea" to="Pedestal" method="_on_inv_area_body_exited"]
 [connection signal="body_shape_entered" from="Pedestal/InvArea" to="Pedestal" method="_on_inv_area_body_shape_entered"]
 [connection signal="input_event" from="Pedestal/InvArea" to="Pedestal" method="_on_inv_area_input_event"]
 [connection signal="CorrectGoToCustSpawner" from="ringBell" to="." method="_on_ring_bell_correct_go_to_cust_spawner"]
 [connection signal="CorrectGoToCustSpawner" from="ringBell" to="Pedestal" method="_on_customer_take_potion"]
-[connection signal="pressed" from="ringBell" to="." method="_on_ring_bell_pressed"]
+[connection signal="pressed" from="ringBell" to="Pedestal" method="_on_ring_bell_pressed"]
