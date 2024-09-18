@@ -15,8 +15,3 @@ func _on_slot_items_changed(nodeArr, newItem):
 	
 	## Update inventory variable
 	change_slot_item.emit(newItem, nodeArr.size())
-
-
-func set_disabled(val: bool):
-	slotNode.force_center_nodes()
-	slotNode.isDisabled = val

@@ -22,18 +22,10 @@ var shouldCenter: bool = true # set to true if there are no movement animations 
 signal items_changed(nodeArr: Array[DraggableObject], newItem: Item)
 
 
-## Keep held nodes centered
-func _process(delta):
-	if centerItems and shouldCenter:
-		for node in heldNodes: 
-			if not node.beingHeld:
-				node.global_position = $SlotCollider.global_position
-
-
 ## Center all held nodes
 func force_center_nodes():
 	for node in heldNodes:
-		node.global_position = $SlotCollider.global_position
+		node.global_transform.origin = $SlotCollider.global_position
 
 
 ## Track which body is being dragged over the slot
@@ -76,7 +68,7 @@ func hold_node(node: Node):
 	
 	# Disable picking up/dropping nodes while centering this node
 	var originalDisabledVal = self.isDisabled
-	if not self.isDisabled: self.isDisabled = true #TODO: remove if statement, it's only here for testing purposes
+	self.isDisabled = true
 	# Add node to heldNodes
 	heldNodes.push_back(node)
 	items_changed.emit(heldNodes, node.data)
@@ -93,14 +85,14 @@ func hold_node(node: Node):
 	var tween = create_tween()
 	tween.tween_property(node, "rotation", 0, 0.1)
 	if centerItems:
-		tween.tween_property(node, "global_position", $SlotCollider.global_position, 0.1)
+		tween.tween_property(node, "global_transform", Transform2D(0.0, $SlotCollider.global_position), 0.1)
 	await tween.finished
 	shouldCenter = true
 	
 	# Make it so you can pick the item up again
 	node.set_deferred("freeze", false)
 	# Set disabled back to the value it was before picking up this node
-	if self.isDisabled != originalDisabledVal: self.isDisabled = originalDisabledVal #TODO: remove if statement, it's only here for testing purposes
+	self.isDisabled = originalDisabledVal
 
 
 ## Remove node from held items

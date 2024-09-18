@@ -12,7 +12,6 @@ var slots: Array[InventorySlot] = []
 ## reads from inventory json file, creates each slot of inventory and fills it according to json
 func _ready():
 	var main_node: Node2D = get_node("/root/Main") # node to add ingredient instances to when loading from the inventory
-	self.position.x = 100
 	for i:InventorySlot in PlayerData.inventory: # for each inventory slot in the JSON
 		slots.push_back(i)
 		var inv_slot_new:Control = template_inv_slot.instantiate()
@@ -48,16 +47,18 @@ func _on_tab_button_pressed():
 	self.position.x = 1200
 	$Tab.visible = false
 	$add.visible = false
+	for inventory_button in grid_container.get_children():
+		inventory_button.slotNode.force_center_nodes()
 	await get_tree().create_timer(0.1).timeout
 	for inventory_button in grid_container.get_children():
-		inventory_button.set_disabled(false)
+		inventory_button.slotNode.isDisabled = false
 
 
 ## move drawer off screen
 func _on_exit_button_pressed():
-	for inventory_button in grid_container.get_children(): 
-		inventory_button.set_disabled(true)
-	self.position.x = 100
-	#self.position.x = 1865
+	self.position.x = 1865
 	$Tab.visible = true
 	$add.visible = false
+	for inventory_button in grid_container.get_children(): 
+		inventory_button.slotNode.force_center_nodes()
+		inventory_button.slotNode.isDisabled = true
