@@ -3,7 +3,7 @@
 extends Control
 
 var packed_ingredient_scene = preload("res://common/items/ingredients/ingredient.tscn")
-var template_inv_slot = preload("res://scenes/main/ui/inventory/drawer_button.tscn")
+var template_inv_slot = preload("res://screens/main/ui/inventory/drawer_button.tscn")
 
 var slots: Array[InventorySlot] = []
 

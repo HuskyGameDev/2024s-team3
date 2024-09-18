@@ -5,7 +5,7 @@ func _ready():
 	$"CenterContainer/VBoxContainer/HBoxContainer/ReputationNumber".text = "%d Reputation" % PlayerData.repToday
 
 func _on_buy_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Screens/NightShop/NightShop.tscn")
+	get_tree().change_scene_to_file("res://screens/night_menu/store/night_shop.tscn")
 
 
 func _on_forage_button_pressed():
@@ -13,8 +13,8 @@ func _on_forage_button_pressed():
 	#for i in foragedItems:
 		#PlayerData.add_item_to_inventory(i, 1);
 	#PlayerData.save_game()
-	get_tree().change_scene_to_file("res://scenes/main/main.tscn")
+	get_tree().change_scene_to_file("res://screens/main/main.tscn")
 
 
 func _on_move_button_pressed():	
-	get_tree().change_scene_to_file("res://Scenes/Screens/NightMap.tscn")
+	get_tree().change_scene_to_file("res://screens/night_menu/map/night_map.tscn")

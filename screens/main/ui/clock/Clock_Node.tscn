@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://l6sfgmgup28d"]
+[gd_scene load_steps=4 format=3 uid="uid://bba2evubd21v3"]
 
 [ext_resource type="Script" path="res://screens/main/ui/clock/new_clock_node.gd" id="1_i1eu7"]
 [ext_resource type="Texture2D" uid="uid://f4n6i4qnwssy" path="res://screens/main/ui/clock/clock_node.png" id="1_x41hy"]

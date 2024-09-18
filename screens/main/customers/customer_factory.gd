@@ -1,6 +1,6 @@
 extends Node
 
-var packed_customer_scene = preload("res://scenes/main/customers/customer.tscn")
+var packed_customer_scene = preload("res://screens/main/customers/customer.tscn")
 
 var current_customer: Customer
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpthjvutocu0k"
-path="res://.godot/imported/chain_segment_2.png-5f2aefeff8f975b0ae8287585c3898de.ctex"
+uid="uid://blivro2cmbh36"
+path="res://.godot/imported/bell_inner.png-325ff1d67fb492ec32781b44f860ddd2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://screens/main/bell/chain_bell/chain_segment_2.png"
-dest_files=["res://.godot/imported/chain_segment_2.png-5f2aefeff8f975b0ae8287585c3898de.ctex"]
+source_file="res://screens/main/bell/bell_inner.png"
+dest_files=["res://.godot/imported/bell_inner.png-325ff1d67fb492ec32781b44f860ddd2.ctex"]
 
 [params]
 

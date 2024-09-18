@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdgq0vmgq12hq"]
+
+[ext_resource type="Texture2D" uid="uid://b18cm5tr1tqr8" path="res://screens/main/bell/bell_outer.png" id="1_1rfq1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0cqol"]
+radius = 6.0
+height = 18.0
+
+[node name="Bell_Body" type="RigidBody2D"]
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="BellOuter" type="Sprite2D" parent="."]
+scale = Vector2(6, 6)
+texture = ExtResource("1_1rfq1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -39)
+shape = SubResource("CapsuleShape2D_0cqol")

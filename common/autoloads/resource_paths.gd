@@ -26,7 +26,7 @@ func _ready():
 		if result: ingredient_file_paths[result.get_string("id")] = path
 	
 	## Get all customer sprite files
-	var customer_sprite_paths = _get_all_paths_with_extension("res://scenes/main/customers/generic_sprites", ".png")
+	var customer_sprite_paths = _get_all_paths_with_extension("res://screens/main/customers/generic_sprites", ".png")
 	## Add the images to the array
 	for path in customer_sprite_paths:
 		customer_sprites.push_back(load(path))

@@ -8,7 +8,7 @@ extends Node2D
 @onready var clockNodeHolder = %ClockNode_Holder
 @onready var markerHolder = %MarkerHolder
 @onready var timer = $Timer
-@onready var clockNodeInstance = preload("res://scenes/main/ui/clock/clock_node.tscn")
+@onready var clockNodeInstance = preload("res://screens/main/ui/clock/clock_node.tscn")
 
 signal timerWentOff
 

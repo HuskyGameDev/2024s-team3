@@ -12,8 +12,8 @@ func _on_exit_pressed():
 
 func _on_new_game_pressed():
 	PlayerData.clear_save_files()
-	get_tree().change_scene_to_file("res://scenes/tutorial/tutorial.tscn")
+	get_tree().change_scene_to_file("res://screens/tutorial/tutorial.tscn")
 
 
 func _on_continue_pressed():
-	get_tree().change_scene_to_file("res://scenes/main/main.tscn")
+	get_tree().change_scene_to_file("res://screens/main/main.tscn")

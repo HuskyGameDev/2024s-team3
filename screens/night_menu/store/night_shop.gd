@@ -2,7 +2,7 @@ extends Node
 
 const NUMBER_OF_ITEMS = 4
 
-var offeringScene = preload("res://Scenes/Screens/NightShop/NightShopIngredient.tscn")
+var offeringScene = preload("res://screens/night_menu/store/night_shop_ingredient.tscn")
 var totalCostLabel:Label
 
 var totalCost = 0;
@@ -33,10 +33,12 @@ func _on_buy_button_pressed():
 	if PlayerData.save.money >= totalCost:
 		get_tree().call_group("ingredientsForSale", "handlePurchase")
 		PlayerData.save.money -= totalCost
-		get_tree().change_scene_to_file("res://Scenes/Screens/Main.tscn")
+		print(PlayerData.save.money)
+		PlayerData.save_game()
+		get_tree().change_scene_to_file("res://screens/main/main.tscn")
 	else:
 		print("Not enough money")
 
 
 func _on_exit_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Screens/Main.tscn")
+	get_tree().change_scene_to_file("res://screens/main/main.tscn")

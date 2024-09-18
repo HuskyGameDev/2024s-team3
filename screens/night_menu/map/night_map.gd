@@ -1,6 +1,6 @@
 extends Node
 
-const LOCATION_PATH = "res://Assets/Resources/Locations/"
+const LOCATION_PATH = "res://common/locations"
 
 func _ready():
 	## get locations
@@ -25,4 +25,4 @@ func _ready():
 func _button_pressed(location:Location):
 	PlayerData.save.currentLocation = location
 	PlayerData.save_game()
-	get_tree().change_scene_to_file("res://Scenes/Screens/Main.tscn")
+	get_tree().change_scene_to_file("res://screens/main/main.tscn")

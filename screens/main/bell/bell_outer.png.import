@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddwxcgkrn354m"
-path="res://.godot/imported/bell.png-b26049afd7d5b27badefdadf2d0255a0.ctex"
+uid="uid://b18cm5tr1tqr8"
+path="res://.godot/imported/bell_outer.png-87790c0ff86364abf6cb3af5c3e37478.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://screens/main/bell/bell.png"
-dest_files=["res://.godot/imported/bell.png-b26049afd7d5b27badefdadf2d0255a0.ctex"]
+source_file="res://screens/main/bell/bell_outer.png"
+dest_files=["res://.godot/imported/bell_outer.png-87790c0ff86364abf6cb3af5c3e37478.ctex"]
 
 [params]
 
