@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Location" load_steps=9 format=3 uid="uid://20moloevvpx8"]
 
 [ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_273rf"]
-[ext_resource type="Script" path="res://scenes/main/customers/customer_order_type.gd" id="2_e2bda"]
+[ext_resource type="Script" path="res://screens/main/customers/customer_order_type.gd" id="2_e2bda"]
 [ext_resource type="Script" path="res://common/locations/loot_table_type.gd" id="3_rpweu"]
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="11_l1fug"]
 

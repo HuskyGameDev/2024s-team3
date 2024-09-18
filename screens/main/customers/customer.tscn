@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dodgotg7ctei"]
+
+[ext_resource type="Texture2D" uid="uid://b7a4u0nuntxrg" path="res://screens/main/customers/generic_sprites/customer1.png" id="1_ngin2"]
+[ext_resource type="Script" path="res://screens/main/customers/customer.gd" id="2_pbsdo"]
+
+[node name="Customer" type="Sprite2D"]
+z_index = -1
+position = Vector2(6, 5)
+texture = ExtResource("1_ngin2")
+script = ExtResource("2_pbsdo")

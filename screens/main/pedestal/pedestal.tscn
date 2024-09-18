@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsgio2wgxwjd1"]
+
+[ext_resource type="Texture2D" uid="uid://b2ahbujgm8kxd" path="res://screens/main/pedestal/pedestal.png" id="2_chabx"]
+[ext_resource type="PackedScene" uid="uid://wjks27mwt8qa" path="res://screens/main/shelf_slot/shelf_slot.tscn" id="3_1s04f"]
+
+[node name="Pedestal" type="Node2D"]
+
+[node name="BaseSprite" type="Sprite2D" parent="."]
+position = Vector2(49, 102)
+scale = Vector2(6.18182, 6.18182)
+texture = ExtResource("2_chabx")
+
+[node name="ShelfSlot" parent="." instance=ExtResource("3_1s04f")]
+position = Vector2(52, 51)
+scale = Vector2(2.52, 2.52)
+collision_mask = 2147483648
