@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=3 uid="uid://lnfput3ouduw"]
+
+[ext_resource type="Theme" uid="uid://cxupsdd5bfwo7" path="res://ui/pause_menu/pause_theme.tres" id="1_bg1dg"]
+[ext_resource type="Script" path="res://ui/pause_menu/pause_menu.gd" id="2_cht68"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bg1dg")
+script = ExtResource("2_cht68")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.53519, 0.31066, 0.744757, 0.760784)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.38
+anchor_top = 0.25
+anchor_right = 0.621
+anchor_bottom = 0.344
+offset_left = -0.600037
+offset_right = -0.320068
+offset_bottom = -0.52002
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 70
+text = "Game Paused"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Resume Button" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.366
+anchor_top = 0.459
+anchor_right = 0.634
+anchor_bottom = 0.541
+offset_left = 0.779968
+offset_top = 0.279968
+offset_right = -0.780029
+offset_bottom = -0.280029
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Resume Game"
+
+[node name="Menu Button" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.366
+anchor_top = 0.57
+anchor_right = 0.637
+anchor_bottom = 0.652
+offset_left = 1.27997
+offset_top = 0.399963
+offset_right = -6.04004
+offset_bottom = -0.160034
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Main Menu"
+
+[node name="Quit Button" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.366
+anchor_top = 0.689
+anchor_right = 0.634
+anchor_bottom = 0.77
+offset_left = 1.27997
+offset_top = -0.119995
+offset_right = -0.280029
+offset_bottom = 0.399963
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Quit Game"
+
+[connection signal="button_down" from="ColorRect/Resume Button" to="." method="_on_resume_button_button_down"]
+[connection signal="button_down" from="ColorRect/Menu Button" to="." method="_on_menu_button_button_down"]
+[connection signal="button_down" from="ColorRect/Quit Button" to="." method="_on_quit_button_button_down"]

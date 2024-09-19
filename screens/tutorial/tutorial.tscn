@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://busxwpt8gsgma"]
+
+[ext_resource type="PackedScene" uid="uid://pvvnkdn6u7y5" path="res://screens/main/main.tscn" id="1_5wofc"]
+[ext_resource type="Script" path="res://screens/tutorial/tutorial.gd" id="2_7hpqk"]
+[ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://common/items/ingredients/ingredient.tscn" id="3_102q0"]
+[ext_resource type="Resource" uid="uid://b0pitbp00qp16" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="4_0dipm"]
+[ext_resource type="Theme" uid="uid://w8a1t7o5upma" path="res://screens/tutorial/tutorial_theme.tres" id="4_wc777"]
+
+[node name="Main" instance=ExtResource("1_5wofc")]
+
+[node name="Ingredient" parent="." index="8" instance=ExtResource("3_102q0")]
+position = Vector2(1463, 958)
+data = ExtResource("4_0dipm")
+
+[node name="Tutorial" type="Control" parent="." index="9"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("4_wc777")
+script = ExtResource("2_7hpqk")
+
+[node name="NightshadeLabel" type="RichTextLabel" parent="Tutorial" index="0"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 219.0
+offset_right = 1179.0
+offset_bottom = 361.0
+text = "Find the ingredient NIGHTSHADE by hovering your mouse over the ingredients. Click and drag it into the cauldron."
+
+[node name="InventoryLabel" type="RichTextLabel" parent="Tutorial" index="1"]
+layout_mode = 0
+offset_left = 1417.0
+offset_top = 217.0
+offset_right = 1859.0
+offset_bottom = 311.0
+text = "Click the white tab on the right to open your inventory."
+
+[node name="ThistleLabel" type="RichTextLabel" parent="Tutorial" index="2"]
+layout_mode = 0
+offset_left = 508.0
+offset_top = 241.0
+offset_right = 1142.0
+offset_bottom = 343.0
+text = "Find the ingredient THISTLE ROOT in the inventory and drag it into the cauldron."
+
+[node name="CauldronLabel" type="RichTextLabel" parent="Tutorial" index="3"]
+layout_mode = 0
+offset_left = 1015.0
+offset_top = 686.0
+offset_right = 1542.0
+offset_bottom = 785.0
+text = "Great! Now click on the cauldron to extract your potion."
+
+[node name="PotionLabel" type="RichTextLabel" parent="Tutorial" index="4"]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 488.0
+offset_right = 1278.0
+offset_bottom = 593.0
+text = "Good job! Now place the potion on the pedestal under the bell. Ring the bell to sell the potion."
+
+[node name="FinishLabel" type="RichTextLabel" parent="Tutorial" index="5"]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 26.0
+offset_right = 1303.0
+offset_bottom = 85.0
+text = "Congratulations! You've served your first customer!"

@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="Baba Yaga's Bottles"
-run/main_scene="res://Scenes/UI/Title.tscn"
+run/main_scene="res://screens/start_menu/start_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://Assets/Sprites/icon.svg"
+config/icon="res://common/icon.svg"
 
 [autoload]
 
-PlayerData="*res://Scripts/Singletons/PlayerData.gd"
-RecipeData="*res://Scripts/Singletons/RecipeData.gd"
-GameTime="*res://Scripts/Singletons/GameTime.gd"
+ResourcePaths="*res://common/autoloads/resource_paths.gd"
+PlayerData="*res://common/autoloads/player_saves/player_save.gd"
+GameTime="*res://common/autoloads/game_time.gd"
 
 [display]
 
@@ -58,6 +58,10 @@ inventory={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":73,"key_label":0,"unicode":105,"location":0,"echo":false,"script":null)
 ]
 }
+
+[physics]
+
+2d/default_gravity=4000.0
 
 [rendering]
 

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://6acoxw3otoc3"]
+
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient.gd" id="1_wdr4g"]
+[ext_resource type="Texture2D" uid="uid://cpiu2shqy8d6l" path="res://common/items/ingredients/ingredient_default.png" id="2_2tyjf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqx7g"]
+size = Vector2(92, 94)
+
+[node name="Ingredient" type="RigidBody2D"]
+input_pickable = true
+script = ExtResource("1_wdr4g")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(6, 6)
+texture = ExtResource("2_2tyjf")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qqx7g")
