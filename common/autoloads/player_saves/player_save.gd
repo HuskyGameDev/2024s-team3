@@ -118,6 +118,9 @@ func add_item_to_inventory(item: Item, quantity: int):
 		add_to_slot.call(index)
 	else:
 		index = inventory.find(null)
+		var slot = InventorySlot.new()
+		slot.item = item
+		inventory[index] = slot
 		add_to_slot.call(index)
 
 

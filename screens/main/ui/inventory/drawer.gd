@@ -9,6 +9,8 @@ var slots: Array[InventorySlot] = []
 
 @onready var grid_container: GridContainer = $Background/M/V/ScrollContainer/GridContainer
 
+signal inventory_open(state:bool) # Used in the tutorial to detect when the inventory is opened
+
 ## reads from inventory json file, creates each slot of inventory and fills it according to json
 func _ready():
 	var main_node: Node2D = get_node("/root/Main") # node to add ingredient instances to when loading from the inventory
@@ -52,6 +54,7 @@ func _on_tab_button_pressed():
 	await get_tree().create_timer(0.1).timeout
 	for inventory_button in grid_container.get_children():
 		inventory_button.slotNode.isDisabled = false
+	inventory_open.emit(true)
 
 
 ## move drawer off screen
@@ -62,3 +65,4 @@ func _on_exit_button_pressed():
 	for inventory_button in grid_container.get_children(): 
 		inventory_button.slotNode.force_center_nodes()
 		inventory_button.slotNode.isDisabled = true
+	inventory_open.emit(false)
