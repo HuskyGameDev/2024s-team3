@@ -1,8 +1,8 @@
 extends Node
 
 var cost:int
+var item:Ingredient
 var quantityAvailable:int
-var item
 var quantityBuying:int
 
 var increaseButton:Button
@@ -16,7 +16,7 @@ func _ready():
 	quantityLabel = $"AmountHBox/QuantityLabel"
 	_updateQuantityButtons()
 
-func setData(offering:Dictionary):
+func setData(offering:Dictionary): # Dictionary with keys quantity, cost, and item (which is an ingredient)
 	self.cost = offering.get("cost")
 	self.quantityAvailable = offering.get("quantity")
 	self.item = offering.get("item")
@@ -25,7 +25,6 @@ func setData(offering:Dictionary):
 
 func handlePurchase():
 	PlayerData.add_item_to_inventory(item, quantityBuying);
-	PlayerData.save_game()
 
 
 func _updateLabels():

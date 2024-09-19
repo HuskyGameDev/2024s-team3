@@ -8,14 +8,15 @@ var totalCostLabel:Label
 var totalCost = 0;
 
 func _ready():
-	var shopOfferings = PlayerData.save.currentLocation.get_shop_offerings(NUMBER_OF_ITEMS)
+	var shopOfferings = PlayerData.location.get_shop_offerings(NUMBER_OF_ITEMS)
 	totalCostLabel = $"TotalInfoVBox/TotalCostLabel"
 	var moneyLabel = $"MoneyLabel"
 	var hbox = $"OfferingsHBox"
 	
-	moneyLabel.text = "$" + str(PlayerData.save.money)
+	moneyLabel.text = "$" + str(PlayerData.money)
 	
-	for i in shopOfferings:
+	## Dictionary with keys quantity, cost, and item (which is an ingredient)
+	for i:Dictionary in shopOfferings:
 		var newOffering = offeringScene.instantiate()
 		newOffering.call("setData", i)
 		hbox.add_child(newOffering)
@@ -30,11 +31,9 @@ func _updateTotal(changeAmount:int):
 	
 
 func _on_buy_button_pressed():
-	if PlayerData.save.money >= totalCost:
+	if PlayerData.money >= totalCost:
 		get_tree().call_group("ingredientsForSale", "handlePurchase")
-		PlayerData.save.money -= totalCost
-		print(PlayerData.save.money)
-		PlayerData.save_game()
+		PlayerData.money -= totalCost
 		get_tree().change_scene_to_file("res://screens/main/main.tscn")
 	else:
 		print("Not enough money")

@@ -100,7 +100,7 @@ func add_item_to_inventory(item: Item, quantity: int):
 		var stack_size = item.stack_size
 		var inv_count = inventory[i].quantity
 		var inv_remaining = stack_size - inv_count
-		if inv_remaining <= quantity:
+		if inv_remaining >= quantity:
 			## add without leftovers
 			inventory[i].quantity += quantity
 		else:
@@ -127,4 +127,4 @@ func _on_start_of_day():
 	moneyToday = 0
 	repToday = 0
 	
-	#save_game_files()
+	save_game_files()
