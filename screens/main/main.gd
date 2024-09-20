@@ -21,7 +21,8 @@ var sellingPotionNode: DraggableObject
 
 func _on_selling_potion_change(potionNode: Array[DraggableObject], newPotion: Potion):
 	sellingPotion = newPotion
-	sellingPotionNode = potionNode[0]
+	if newPotion:
+		sellingPotionNode = potionNode[0]
 
 func _on_ring_bell():
 	if sellingPotion:
