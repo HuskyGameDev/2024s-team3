@@ -33,7 +33,8 @@ func set_collider(collision_shape: CollisionShape2D):
 func set_default_collision_layer(layer: int):
 	self.default_collison_layer = layer
 	set_collision_layer_value(default_collison_layer, true)
-	set_collision_mask_value(default_collison_layer, true)
+	set_collision_mask_value(1, true)
+	set_collision_mask_value(2, true)
 
 
 func set_holding_collision_layer(layer: int):
@@ -60,9 +61,11 @@ func hold():
 	tooltip.visible = false
 	set_deferred("gravity_scale", 0)
 	set_collision_layer_value(holding_collision_layer, true)
-	set_collision_mask_value(holding_collision_layer, true)
+	set_collision_mask_value(31, true)
+	set_collision_mask_value(32, true)
 	set_collision_layer_value(default_collison_layer, false)
-	set_collision_mask_value(default_collison_layer, false)
+	set_collision_mask_value(1, false)
+	set_collision_mask_value(2, false)
 	var tween = create_tween()
 	tween.tween_property(self, "rotation", 0, 0.1)
 
@@ -73,9 +76,11 @@ func drop():
 	if not onShelf:
 		set_deferred("gravity_scale", 1)
 		set_collision_layer_value(default_collison_layer, true)
-		set_collision_mask_value(default_collison_layer, true)
+		set_collision_mask_value(1, true)
+		set_collision_mask_value(2, true)
 		set_collision_layer_value(holding_collision_layer, false)
-		set_collision_mask_value(holding_collision_layer, false)
+		set_collision_mask_value(31, false)
+		set_collision_mask_value(32, false)
 
 
 func _integrate_forces(_state):
@@ -92,11 +97,13 @@ func set_on_shelf(val: bool):
 	if onShelf:
 		set_collision_layer_value(shelf_collision_layer, true)
 		set_collision_layer_value(holding_collision_layer, false)
-		set_collision_mask_value(holding_collision_layer, false)
+		set_collision_mask_value(31, false)
+		set_collision_mask_value(32, false)
 	else:
 		set_collision_layer_value(shelf_collision_layer, false)
 		set_collision_layer_value(holding_collision_layer, true)
-		set_collision_mask_value(holding_collision_layer, true)
+		set_collision_mask_value(31, true)
+		set_collision_mask_value(32, true)
 
 ################### Tooltips ####################
 func _on_mouse_entered():
