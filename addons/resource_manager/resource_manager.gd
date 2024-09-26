@@ -6,7 +6,7 @@ const IngredientRow = preload("res://addons/resource_manager/ingredient_row.tscn
 
 var main_panel_instance: Control
 
-
+## Setup/Teardown Handlers
 func _enter_tree() -> void:
 	main_panel_instance = MainPanel.instantiate()
 	# Add the main panel to the editor's main viewport.
@@ -20,11 +20,10 @@ func _exit_tree() -> void:
 
 
 func _ready():
-	for path in ResourcePaths.get_all_ingredient_paths():
-		var ingredient:Ingredient = load(path)
-		var ingredient_row_instance = IngredientRow.instantiate()
-		ingredient_row_instance.ingredient = ingredient
-		main_panel_instance.get_node("TableBody").add_child(ingredient_row_instance)
+	# Load resources
+	_on_refresh_button_pressed()
+	# Connect refresh button signal
+	main_panel_instance.get_node("TitleHBox/RefreshButton").connect("pressed", _on_refresh_button_pressed)
 
 
 func _has_main_screen() -> bool:
@@ -38,10 +37,17 @@ func _make_visible(visible: bool) -> void:
 func _handles(object):
 	return is_instance_of(object, preload("res://common/items/ingredients/ingredient_type.gd"))
 
-
+## Label Appearance
 func _get_plugin_name() -> String:
 	return "Resources"
 
-
 func _get_plugin_icon() -> Texture2D:
 	return get_editor_interface().get_base_control().get_theme_icon("Node", "EditorIcons")
+
+## Signal Handling
+func _on_refresh_button_pressed():
+	for path in ResourcePaths.get_all_ingredient_paths():
+		var ingredient:Ingredient = load(path)
+		var ingredient_row_instance = IngredientRow.instantiate()
+		ingredient_row_instance.ingredient = ingredient
+		main_panel_instance.get_node("TableBody").add_child(ingredient_row_instance)

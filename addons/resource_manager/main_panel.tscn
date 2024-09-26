@@ -7,9 +7,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ResourceTypeLabel" type="Label" parent="."]
+[node name="TitleHBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ResourceTypeLabel" type="Label" parent="TitleHBox"]
 layout_mode = 2
 text = "Ingredients"
+
+[node name="RefreshButton" type="Button" parent="TitleHBox"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Refresh"
 
 [node name="TableHeader" type="HBoxContainer" parent="."]
 layout_mode = 2
