@@ -23,7 +23,7 @@ func _ready():
 	# Load resources
 	_on_refresh_button_pressed()
 	# Connect refresh button signal
-	main_panel_instance.get_node("TitleHBox/RefreshButton").connect("pressed", _on_refresh_button_pressed)
+	main_panel_instance.get_node("MainVBox/TitleHBox/RefreshButton").connect("pressed", _on_refresh_button_pressed)
 
 
 func _has_main_screen() -> bool:
@@ -34,8 +34,6 @@ func _make_visible(visible: bool) -> void:
 	if main_panel_instance:
 		main_panel_instance.visible = visible
 
-func _handles(object):
-	return is_instance_of(object, preload("res://common/items/ingredients/ingredient_type.gd"))
 
 ## Label Appearance
 func _get_plugin_name() -> String:
@@ -46,8 +44,12 @@ func _get_plugin_icon() -> Texture2D:
 
 ## Signal Handling
 func _on_refresh_button_pressed():
+	var table_body = main_panel_instance.get_node("MainVBox/TableContainer/TableBody")
+	# Remove all rows
+	for child in table_body.get_children():
+		table_body.remove_child(child)
+		child.queue_free()
+	# Reload and add all ingredient rows
 	for path in ResourcePaths.get_all_ingredient_paths():
-		var ingredient:Ingredient = load(path)
-		var ingredient_row_instance = IngredientRow.instantiate()
-		ingredient_row_instance.ingredient = ingredient
-		main_panel_instance.get_node("TableBody").add_child(ingredient_row_instance)
+		var ingredient_row_instance = IngredientRow.instantiate().with_data(path)
+		table_body.add_child(ingredient_row_instance)
