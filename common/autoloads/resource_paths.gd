@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 var location_file_paths: Dictionary = {}

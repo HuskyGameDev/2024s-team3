@@ -34,7 +34,7 @@ project/assembly_name="Baba Yaga-s Bottles"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/resource_manager/plugin.cfg", "res://addons/resourceeditor/plugin.cfg", "res://addons/resourcemanager/plugin.cfg")
+enabled=PackedStringArray("res://addons/resource_manager/plugin.cfg")
 
 [filesystem]
 

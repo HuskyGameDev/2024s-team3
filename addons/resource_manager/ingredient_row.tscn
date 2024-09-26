@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh4khcpxe6ho6"]
+
+[ext_resource type="Script" path="res://addons/resource_manager/ingredient_row.gd" id="1_qdh6a"]
+
+[node name="IngredientRow" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+script = ExtResource("1_qdh6a")
+
+[node name="NameLabel" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Name"
+
+[node name="DescriptionLabel" type="TextEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Description"
+
+[node name="StackSizeLabel" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stack Size"
+virtual_keyboard_type = 2
+
+[node name="EffectLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Effects"
+
+[node name="ImageLabel" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 3
