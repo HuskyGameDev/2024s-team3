@@ -2,7 +2,6 @@
 extends Node
 
 var location_file_paths: Dictionary = {}
-var potion_file_paths: Dictionary = {}
 var ingredient_file_paths: Dictionary = {}
 var customer_sprites: Array[Texture2D] = []
 
@@ -13,7 +12,6 @@ func _ready():
 	regex.compile("^res:\\/\\/.+\\/(?'id'[0-9_[:lower:]]+)\\.tres.*$")
 	## Find all resources
 	update_ingredient_paths()
-	update_potion_paths()
 	update_location_paths()
 	
 	## Get all customer sprite files
@@ -32,16 +30,6 @@ func update_ingredient_paths():
 	for path in ingredient_paths:
 		var result = regex.search(path)
 		if result: ingredient_file_paths[result.get_string("id")] = path
-
-func update_potion_paths():
-	## Clear old paths
-	potion_file_paths = {}
-	## Get all resource files
-	var potion_paths = _get_all_paths_with_extension("res://common/items/potions", ".tres")
-	## Add the paths to the dictionary
-	for path in potion_paths:
-		var result = regex.search(path)
-		if result: potion_file_paths[result.get_string("id")] = path
 
 func update_location_paths():
 	## Clear old paths
@@ -73,8 +61,6 @@ func _get_all_paths_with_extension(path: String, extension: String) -> Array[Str
 func get_resource_path(id: String):
 	if id in location_file_paths:
 		return location_file_paths[id]
-	elif id in potion_file_paths:
-		return potion_file_paths[id]
 	elif id in ingredient_file_paths:
 		return ingredient_file_paths[id]
 	else: return null
@@ -82,11 +68,6 @@ func get_resource_path(id: String):
 func get_location_path(id: String):
 	if id in location_file_paths:
 		return location_file_paths[id]
-	else: return null
-
-func get_potion_path(id: String):
-	if id in potion_file_paths:
-		return potion_file_paths[id]
 	else: return null
 
 func get_ingredient_path(id: String):
@@ -97,9 +78,6 @@ func get_ingredient_path(id: String):
 
 func get_all_location_paths() -> Array:
 	return location_file_paths.values()
-
-func get_all_potion_paths() -> Array:
-	return potion_file_paths.values()
 
 func get_all_ingredient_paths() -> Array:
 	return ingredient_file_paths.values()
