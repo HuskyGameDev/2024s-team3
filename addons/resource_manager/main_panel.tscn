@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://be7e3ar0l6sy8"]
 
-[ext_resource type="PackedScene" uid="uid://cxxm50aaiqxea" path="res://addons/resource_manager/ingredient_panel.tscn" id="1_bf41n"]
+[ext_resource type="PackedScene" uid="uid://cxxm50aaiqxea" path="res://addons/resource_manager/ingredient_manager/ingredient_panel.tscn" id="1_bf41n"]
 
 [node name="MainPanel" type="TabContainer"]
 anchors_preset = 15
