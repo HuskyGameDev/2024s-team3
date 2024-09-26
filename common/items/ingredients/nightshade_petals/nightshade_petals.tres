@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=5 format=3 uid="uid://b0pitbp00qp16"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=5 format=3 uid="uid://bvl42dtemvv0k"]
 
 [ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_etft0"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="2_04duh"]

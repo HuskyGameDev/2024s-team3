@@ -40,7 +40,6 @@ func _on_stack_size_changed(new_size:int):
 ## Triggered when name changes
 func _on_name_changed(new_name:String):
 	ingredient.name = new_name
-	ingredient.id = new_name.to_snake_case()
 	name_changed = true
 	# add timer so paths aren't updated so often (debounce)
 	if not debounce_timer:
@@ -51,10 +50,32 @@ func _on_name_changed(new_name:String):
 
 
 ###################### OTHER HANDLING ######################
-## Triggers after name change
+## Triggers after name change debounce
 func _on_name_debounce_complete():
 	debounce_timer = null
-	#TODO
+	# get new path
+	var regex = RegEx.new()
+	regex.compile(ingredient.id)
+	var new_id = ingredient.name.to_snake_case()
+	var new_path = regex.sub(path, new_id, true)
+	
+	# remove old file
+	DirAccess.remove_absolute(path)
+	
+	# rename ingredient directory
+	DirAccess.rename_absolute(path.get_base_dir(), new_path.get_base_dir())
+	
+	# update id and image
+	ingredient.id = new_id
+	var image_path = new_path.get_basename() + ".png"
+	if FileAccess.file_exists(image_path):
+		ingredient.image = load(image_path)
+	else: ingredient.image = null
+	$ImageContainer/ImageLabel.texture = ingredient.image
+	
+	# save to new path
+	ResourceSaver.save(ingredient, new_path, ResourceSaver.FLAG_CHANGE_PATH)
+	path = new_path
 
 
 ## Called when row delete button pressed
