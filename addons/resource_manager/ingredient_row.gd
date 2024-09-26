@@ -53,29 +53,31 @@ func _on_name_changed(new_name:String):
 ## Triggers after name change debounce
 func _on_name_debounce_complete():
 	debounce_timer = null
+	
 	# get new path
 	var regex = RegEx.new()
 	regex.compile(ingredient.id)
 	var new_id = ingredient.name.to_snake_case()
 	var new_path = regex.sub(path, new_id, true)
 	
-	# remove old file
+	# remove old file and rename directory
 	DirAccess.remove_absolute(path)
-	
-	# rename ingredient directory
 	DirAccess.rename_absolute(path.get_base_dir(), new_path.get_base_dir())
 	
 	# update id and image
 	ingredient.id = new_id
 	var image_path = new_path.get_basename() + ".png"
-	if FileAccess.file_exists(image_path):
+	if FileAccess.file_exists(image_path): 
 		ingredient.image = load(image_path)
-	else: ingredient.image = null
+	else: 
+		ingredient.image = null
 	$ImageContainer/ImageLabel.texture = ingredient.image
 	
 	# save to new path
 	ResourceSaver.save(ingredient, new_path, ResourceSaver.FLAG_CHANGE_PATH)
 	path = new_path
+	# update resource paths singleton
+	ResourcePaths.update_ingredient_paths()
 
 
 ## Called when row delete button pressed
