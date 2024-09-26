@@ -1,9 +1,12 @@
 @tool
 extends HBoxContainer
 
+const DEBOUNCE_LENGTH = 1
+
 var ingredient: Ingredient
 var path: String
 @onready var name_changed: bool = false # track if name has changed (to update path)
+var debounce_timer: SceneTreeTimer
 
 ########################## SETUP ###########################
 ## Used when initializing, path is the ingredient resource path
@@ -26,30 +29,44 @@ func _ready():
 ## Triggered when description text changes
 func _on_description_changed(new_desc:String):
 	ingredient.description = new_desc
+	ResourceSaver.save(ingredient, path)
 
 
 ## Triggered when stack size changes
 func _on_stack_size_changed(new_size:int):
 	ingredient.stack_size = new_size
+	ResourceSaver.save(ingredient, path)
 
 ## Triggered when name changes
 func _on_name_changed(new_name:String):
 	ingredient.name = new_name
 	ingredient.id = new_name.to_snake_case()
 	name_changed = true
+	# add timer so paths aren't updated so often (debounce)
+	if not debounce_timer:
+		debounce_timer = get_tree().create_timer(DEBOUNCE_LENGTH)
+		debounce_timer.timeout.connect(_on_name_debounce_complete)
+	else:
+		debounce_timer.time_left = DEBOUNCE_LENGTH
 
 
-##################### BUTTON HANDLING ######################
-func _on_save_button_pressed():
-	if not name_changed:
-		# save resource
-		ResourceSaver.save(ingredient, path)
-	else: 
-		# move resource to different path
-		pass
-	name_changed = false
-
-
-func _on_delete_button_pressed():
+###################### OTHER HANDLING ######################
+## Triggers after name change
+func _on_name_debounce_complete():
+	debounce_timer = null
 	#TODO
-	pass
+
+
+## Called when row delete button pressed
+func _on_delete_button_pressed():
+	# show confirmation dialog
+	$DeleteConfirmationDialog.visible = true
+
+
+## Called from confirmation dialog
+func _on_delete_confirmed():
+	self.queue_free()
+	DirAccess.remove_absolute(path)
+	DirAccess.remove_absolute(path.get_base_dir())
+	# update resource paths singleton
+	ResourcePaths.update_ingredient_paths()

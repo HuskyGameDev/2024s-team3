@@ -75,11 +75,21 @@ layout_mode = 2
 [node name="TableBody" type="VBoxContainer" parent="MainVBox/TableContainer"]
 layout_mode = 2
 
-[node name="AddButton" type="Button" parent="MainVBox"]
+[node name="AddHBox" type="HBoxContainer" parent="MainVBox"]
+layout_mode = 2
+
+[node name="AddNameEdit" type="LineEdit" parent="MainVBox/AddHBox"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Add New Ingredient"
+placeholder_text = "Ingredient Name"
+expand_to_text_length = true
+
+[node name="AddButton" type="Button" parent="MainVBox/AddHBox"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Add"
 icon = ExtResource("2_2ts20")
 alignment = 0
 expand_icon = true

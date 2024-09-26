@@ -49,7 +49,14 @@ layout_mode = 2
 icon = ExtResource("2_mmp0y")
 expand_icon = true
 
+[node name="DeleteConfirmationDialog" type="ConfirmationDialog" parent="."]
+title = "Delete Confirmation"
+ok_button_text = "Delete"
+dialog_text = "Are you sure you want to delete this ingredient?"
+dialog_autowrap = true
+
 [connection signal="text_changed" from="NameLabel" to="." method="_on_name_changed"]
 [connection signal="text_changed" from="DescriptionLabel" to="." method="_on_description_changed"]
 [connection signal="value_changed" from="StackSizeLabel" to="." method="_on_stack_size_changed"]
 [connection signal="pressed" from="DeleteButton" to="." method="_on_delete_button_pressed"]
+[connection signal="confirmed" from="DeleteConfirmationDialog" to="." method="_on_delete_confirmed"]
