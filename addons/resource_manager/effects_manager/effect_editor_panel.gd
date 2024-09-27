@@ -14,6 +14,7 @@ func with_data(ingredient:Ingredient):
 	return self
 
 func _ready():
+	if not ingredient: return
 	# Update label
 	$Content/Header/IngredientNameLabel.text = ingredient.name
 	# Load effect values
@@ -36,4 +37,4 @@ func _on_back_button_pressed():
 ################### UPDATE EFFECT VALUES ###################
 func _on_effect_value_changed(effect_key:String, new_value:int):
 	ingredient.effects.set_effect_by_key(effect_key, new_value)
-	ResourceSaver.save(ingredient, ResourcePaths.get_ingredient_path(ingredient.id), ResourceSaver.FLAG_BUNDLE_RESOURCES) # flag saves effects resource
+	ResourceSaver.save(ingredient, ResourcePaths.get_ingredient_path(ingredient.id))

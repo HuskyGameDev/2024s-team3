@@ -15,17 +15,17 @@ var debounce_timer: SceneTreeTimer
 ## Used when initializing, path is the ingredient resource path
 func with_data(path:String):
 	self.path = path
-	self.ingredient = ResourceLoader.load(path, "Ingredient")
 	return self
 
 ## Set values on load
 func _ready():
-	if ingredient:
-		$NameLabel.text = ingredient.name
-		$DescriptionLabel.text = ingredient.description
-		$StackSizeContainer/StackSizeLabel.value = ingredient.stack_size
-		$ImageContainer/ImageLabel.texture = ingredient.image
-		self.update_effect_summary()
+	self.ingredient = ResourceLoader.load(path, "Ingredient")
+	$NameLabel.text = ingredient.name
+	$DescriptionLabel.text = ingredient.description
+	$StackSizeContainer/StackSizeLabel.value = ingredient.stack_size
+	$ImageContainer/ImageLabel.texture = ingredient.image
+	try_load_image()
+	self.update_effect_summary()
 
 
 ################# UPDATE INGREDIENT VALUES #################
@@ -50,7 +50,19 @@ func _on_name_changed(new_name:String):
 	else:
 		debounce_timer.time_left = DEBOUNCE_LENGTH
 
+
 ###################### OTHER HANDLING ######################
+## Attempts to load an image with the same name as the resource
+func try_load_image():
+	if not ingredient.image: # don't clear existing image
+		var image_path = path.get_basename() + ".png"
+		if FileAccess.file_exists(image_path):
+			ingredient.image = load(image_path)
+		else: 
+			ingredient.image = null
+	$ImageContainer/ImageLabel.texture = ingredient.image
+
+
 ## Triggers after name change debounce
 func _on_name_debounce_complete():
 	debounce_timer = null
@@ -67,16 +79,11 @@ func _on_name_debounce_complete():
 	
 	# update id and image
 	ingredient.id = new_id
-	var image_path = new_path.get_basename() + ".png"
-	if FileAccess.file_exists(image_path): 
-		ingredient.image = load(image_path)
-	else: 
-		ingredient.image = null
-	$ImageContainer/ImageLabel.texture = ingredient.image
+	path = new_path
+	try_load_image()
 	
 	# save to new path
 	ResourceSaver.save(ingredient, new_path, ResourceSaver.FLAG_CHANGE_PATH)
-	path = new_path
 	# update resource paths singleton
 	ResourcePaths.update_ingredient_paths()
 
@@ -90,6 +97,8 @@ func _on_delete_button_pressed():
 ## Called from delete confirmation dialog
 func _on_delete_confirmed():
 	self.queue_free()
+	DirAccess.remove_absolute(ingredient.image.resource_path)
+	DirAccess.remove_absolute(ingredient.image.resource_path+".import")
 	DirAccess.remove_absolute(path)
 	DirAccess.remove_absolute(path.get_base_dir())
 	# update resource paths singleton
@@ -104,4 +113,7 @@ func _on_effect_edit_pressed():
 
 ## Called on ready and when effects are edited
 func update_effect_summary():
-	$CollapsedEffectView.set_summary(", ".join(ingredient.effects.get_strongest()))
+	if not ingredient.effects or ingredient.effects.all_null():
+		$CollapsedEffectView.set_summary("None")
+	else:
+		$CollapsedEffectView.set_summary(", ".join(ingredient.effects.get_strongest()))
