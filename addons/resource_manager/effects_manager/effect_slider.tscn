@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdwcfmuloc2np"]
+
+[ext_resource type="Script" path="res://addons/resource_manager/effects_manager/effect_slider.gd" id="1_p2osb"]
+
+[node name="EffectSlider" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p2osb")
+
+[node name="LabelHBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="NegativeLabel" type="Label" parent="LabelHBox"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Negative"
+
+[node name="ValueSpinBox" type="SpinBox" parent="LabelHBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+min_value = -30.0
+max_value = 30.0
+rounded = true
+
+[node name="PositiveLabel" type="Label" parent="LabelHBox"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Positive"
+
+[node name="NumberSlider" type="HSlider" parent="."]
+layout_mode = 2
+min_value = -30.0
+max_value = 30.0
+
+[connection signal="value_changed" from="LabelHBox/ValueSpinBox" to="." method="_on_number_changed"]
+[connection signal="value_changed" from="NumberSlider" to="." method="_on_slider_changed"]

@@ -1,0 +1,110 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1yd0i53svjya"]
+
+[ext_resource type="Script" path="res://addons/resource_manager/effects_manager/effect_editor_panel.gd" id="1_x2tpj"]
+[ext_resource type="Texture2D" uid="uid://d2otenkl6fqms" path="res://addons/resource_manager/icons/back_icon.png" id="2_gfxri"]
+[ext_resource type="PackedScene" uid="uid://bdwcfmuloc2np" path="res://addons/resource_manager/effects_manager/effect_slider.tscn" id="3_shpv1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kinua"]
+bg_color = Color(0.141176, 0.168627, 0.203922, 1)
+border_width_bottom = 2
+border_color = Color(0.113725, 0.133333, 0.160784, 1)
+
+[node name="EffectEditorPanel" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_kinua")
+script = ExtResource("1_x2tpj")
+
+[node name="Content" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Header" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="BackButton" type="Button" parent="Content/Header"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+icon = ExtResource("2_gfxri")
+
+[node name="IngredientNameLabel" type="Label" parent="Content/Header"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Ingredient Name"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Content"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="EffectEditorsMarginContainer" type="MarginContainer" parent="Content/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_right = 128
+
+[node name="EffectEditorsVBoxContainer" type="VBoxContainer" parent="Content/ScrollContainer/EffectEditorsMarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="HealingSlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
+layout_mode = 2
+effect_key = "healing_poison"
+
+[node name="WarmSlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
+layout_mode = 2
+effect_key = "warm_cold"
+
+[node name="CalmingSlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
+layout_mode = 2
+effect_key = "calming_agitation"
+
+[node name="StrengthSlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
+layout_mode = 2
+effect_key = "strength_weakness"
+
+[node name="EnergySlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
+layout_mode = 2
+effect_key = "energy_fatigue"
+
+[node name="LightSlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
+layout_mode = 2
+effect_key = "light_dark"
+
+[node name="LuckSlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
+layout_mode = 2
+effect_key = "luck_misfortune"
+
+[node name="ClaritySlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
+layout_mode = 2
+effect_key = "clarity_confusion"
+
+[node name="DefenseSlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
+layout_mode = 2
+effect_key = "defense_vulnerability"
+
+[node name="SwiftnessSlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
+layout_mode = 2
+effect_key = "swiftness_slowness"
+
+[connection signal="pressed" from="Content/Header/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/HealingSlider" to="." method="_on_effect_value_changed"]
+[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/WarmSlider" to="." method="_on_effect_value_changed"]
+[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/CalmingSlider" to="." method="_on_effect_value_changed"]
+[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/StrengthSlider" to="." method="_on_effect_value_changed"]
+[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/EnergySlider" to="." method="_on_effect_value_changed"]
+[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/LightSlider" to="." method="_on_effect_value_changed"]
+[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/LuckSlider" to="." method="_on_effect_value_changed"]
+[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/ClaritySlider" to="." method="_on_effect_value_changed"]
+[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/DefenseSlider" to="." method="_on_effect_value_changed"]
+[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/SwiftnessSlider" to="." method="_on_effect_value_changed"]

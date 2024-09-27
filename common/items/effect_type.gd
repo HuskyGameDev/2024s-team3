@@ -1,3 +1,4 @@
+@tool
 extends Resource
 class_name EffectSet
 
@@ -29,7 +30,7 @@ const positive_labels = {
 	"luck_misfortune": "Lucky",
 	"clarity_confusion": "Clarifying",
 	"defense_vulnerability": "Defensive",
-	"swiftness_slownes": "Swift"
+	"swiftness_slowness": "Swift"
 }
 
 const negative_labels = {
@@ -42,9 +43,8 @@ const negative_labels = {
 	"luck_misfortune": "Unlucky",
 	"clarity_confusion": "Confusing",
 	"defense_vulnerability": "Vulnerable",
-	"swiftness_slownes": "Slow"
+	"swiftness_slowness": "Slow"
 }
-
 
 
 func as_list() -> Array[int]:
@@ -111,7 +111,7 @@ func get_strongest() -> Array[String]:
 	]
 	
 	## Sort effects by strength
-	nested_list = nested_list.filter(func(e): return true if e[1] >= NOTHING_RANGE else false)
+	nested_list = nested_list.filter(func(e): return true if e[1] != 0 else false)
 	nested_list.sort_custom(func(a, b): return true if a[1] > b[1] else false)
 		
 	## Get effect labels
@@ -121,7 +121,9 @@ func get_strongest() -> Array[String]:
 		var effect_strength = effect[1]
 		var label = ""
 		
-		if abs(effect_strength) < WEAK_RANGE:
+		if abs(effect_strength) < NOTHING_RANGE:
+			label += "Slight "
+		elif abs(effect_strength) < WEAK_RANGE:
 			label += "Weak "
 		elif abs(effect_strength) >= REGULAR_RANGE:
 			label += "Strong "
@@ -133,3 +135,18 @@ func get_strongest() -> Array[String]:
 	
 		labels.push_back(label)
 	return labels
+
+
+func set_effect_by_key(key:String, value:int):
+	# The downside of using strings to determine which effect is being changed
+	if key == "healing_poison": 			self.healing_poison = value
+	elif key == "warm_cold": 				self.warm_cold = value
+	elif key == "calming_agitation": 		self.calming_agitation = value
+	elif key == "strength_weakness": 		self.strength_weakness = value
+	elif key == "energy_fatigue": 			self.energy_fatigue = value
+	elif key == "light_dark": 				self.light_dark = value
+	elif key == "luck_misfortune": 			self.luck_misfortune = value
+	elif key == "clarity_confusion": 		self.clarity_confusion = value
+	elif key == "defense_vulnerability": 	self.defense_vulnerability = value
+	elif key == "swiftness_slowness": 		self.swiftness_slowness = value
+	else: push_error("%s is not a valid effect key" % key)

@@ -1,0 +1,95 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxxm50aaiqxea"]
+
+[ext_resource type="Texture2D" uid="uid://qkcv01fcymue" path="res://addons/resource_manager/icons/refresh_icon.png" id="1_01mdk"]
+[ext_resource type="Script" path="res://addons/resource_manager/ingredient_manager/ingredient_panel.gd" id="1_fhame"]
+[ext_resource type="Texture2D" uid="uid://dt8lneechbqjj" path="res://addons/resource_manager/icons/add_icon.png" id="2_j7f07"]
+
+[node name="IngredientPanel" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+script = ExtResource("1_fhame")
+
+[node name="TitleHBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ResourceTypeLabel" type="Label" parent="TitleHBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Ingredients"
+
+[node name="RefreshButton" type="Button" parent="TitleHBox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Refresh"
+icon = ExtResource("1_01mdk")
+icon_alignment = 2
+expand_icon = true
+
+[node name="TableContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TableHeader" type="HBoxContainer" parent="TableContainer"]
+layout_mode = 2
+
+[node name="SpriteSpacer" type="Control" parent="TableContainer/TableHeader"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="TableContainer/TableHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+text = "Name"
+
+[node name="DescriptionLabel" type="Label" parent="TableContainer/TableHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+text = "Description"
+
+[node name="StackSizeLabel" type="Label" parent="TableContainer/TableHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stack Size"
+
+[node name="EffectLabel" type="Label" parent="TableContainer/TableHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+text = "Effects"
+
+[node name="DeleteSpacer" type="Control" parent="TableContainer/TableHeader"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="TableBody" type="VBoxContainer" parent="TableContainer"]
+layout_mode = 2
+
+[node name="AddHBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="AddNameEdit" type="LineEdit" parent="AddHBox"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+placeholder_text = "Ingredient Name"
+expand_to_text_length = true
+
+[node name="AddButton" type="Button" parent="AddHBox"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Add"
+icon = ExtResource("2_j7f07")
+alignment = 0
+expand_icon = true
+
+[connection signal="pressed" from="TitleHBox/RefreshButton" to="." method="_on_refresh_button_pressed"]
+[connection signal="pressed" from="AddHBox/AddButton" to="." method="_on_add_button_pressed"]
