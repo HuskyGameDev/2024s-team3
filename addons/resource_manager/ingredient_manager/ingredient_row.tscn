@@ -53,7 +53,6 @@ size_flags_stretch_ratio = 3.0
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 icon = ExtResource("2_mmp0y")
-expand_icon = true
 
 [node name="DeleteConfirmationDialog" type="ConfirmationDialog" parent="."]
 title = "Delete Confirmation"

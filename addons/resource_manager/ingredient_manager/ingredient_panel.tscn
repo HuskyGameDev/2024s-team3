@@ -30,7 +30,6 @@ size_flags_horizontal = 10
 text = "Refresh"
 icon = ExtResource("1_01mdk")
 icon_alignment = 2
-expand_icon = true
 
 [node name="TableContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -89,7 +88,6 @@ size_flags_horizontal = 0
 text = "Add"
 icon = ExtResource("2_j7f07")
 alignment = 0
-expand_icon = true
 
 [connection signal="pressed" from="TitleHBox/RefreshButton" to="." method="_on_refresh_button_pressed"]
 [connection signal="pressed" from="AddHBox/AddButton" to="." method="_on_add_button_pressed"]
