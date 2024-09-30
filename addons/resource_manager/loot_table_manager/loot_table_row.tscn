@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwet2j13ddutm"]
+
+[ext_resource type="Script" path="res://addons/resource_manager/loot_table_manager/loot_table_row.gd" id="1_ut24w"]
+
+[node name="LootTableRow" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+script = ExtResource("1_ut24w")
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 2
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "Common"
+popup/item_1/text = "Uncommon"
+popup/item_1/id = 1
+popup/item_2/text = "Rare"
+popup/item_2/id = 2
+popup/item_3/text = "Legendary"
+popup/item_3/id = 3
+
+[connection signal="item_selected" from="OptionButton" to="." method="_on_rarity_changed"]

@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Location" load_steps=6 format=3 uid="uid://dfwl1fu4cnnlk"]
+
+[ext_resource type="Script" path="res://common/locations/loot_table_type.gd" id="1_ptbdw"]
+[ext_resource type="Script" path="res://common/locations/location_type.gd" id="1_rqcgf"]
+
+[sub_resource type="Resource" id="Resource_nfirs"]
+script = ExtResource("1_ptbdw")
+common = []
+uncommon = []
+rare = []
+legendary = []
+
+[sub_resource type="Resource" id="Resource_f7mdn"]
+script = ExtResource("1_ptbdw")
+common = []
+uncommon = []
+rare = []
+legendary = []
+
+[sub_resource type="Resource" id="Resource_hgcky"]
+script = ExtResource("1_ptbdw")
+common = []
+uncommon = []
+rare = []
+legendary = []
+
+[resource]
+script = ExtResource("1_rqcgf")
+id = "test"
+name = "test"
+forage_table = SubResource("Resource_f7mdn")
+ingredients_shop_table = SubResource("Resource_hgcky")
+customer_request_table = SubResource("Resource_nfirs")
