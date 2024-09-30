@@ -19,6 +19,7 @@ func with_data(path:String):
 
 ## Set values on load
 func _ready():
+	if not path: return
 	self.ingredient = ResourceLoader.load(path, "Ingredient")
 	$NameLabel.text = ingredient.name
 	$DescriptionLabel.text = ingredient.description

@@ -10,6 +10,7 @@ signal value_changed(effect_key:String, value:int)
 
 ## Update effect labels
 func _ready():
+	if not effect_key: return
 	$LabelHBox/PositiveLabel.text = EffectSet.positive_labels[effect_key]
 	$LabelHBox/NegativeLabel.text = EffectSet.negative_labels[effect_key]
 

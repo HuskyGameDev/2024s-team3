@@ -26,8 +26,9 @@ func _make_visible(visible: bool) -> void:
 	if main_panel_instance:
 		main_panel_instance.visible = visible
 		if visible: 
-			# initial load ingredient rows
+			# initial load editor rows
 			main_panel_instance.get_node("Ingredients")._on_refresh_button_pressed()
+			main_panel_instance.get_node("Locations")._on_refresh_button_pressed()
 
 
 ################# Label Appearance ################
