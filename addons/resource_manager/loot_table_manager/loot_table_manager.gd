@@ -1,11 +1,9 @@
 @tool
 extends Node
 
-const ForageTableRow = preload("res://addons/resource_manager/loot_table_manager/forage_table_row.tscn")
-const IngredientsShopTableRow = preload("res://addons/resource_manager/loot_table_manager/forage_table_row.tscn")
-const CustomerRequestTableRow = preload("res://addons/resource_manager/loot_table_manager/forage_table_row.tscn")
-#const IngredientsShopTableRow = preload("res://addons/resource_manager/loot_table_manager/ingredients_shop_table_row.tscn")
-#const CustomerRequestTableRow = preload("res://addons/resource_manager/loot_table_manager/customer_request_table_row.tscn")
+const ForageTableRow = preload("res://addons/resource_manager/loot_table_manager/forage_row.tscn")
+const IngredientsShopTableRow = preload("res://addons/resource_manager/loot_table_manager/ingredients_shop_row.tscn")
+const CustomerRequestTableRow = preload("res://addons/resource_manager/loot_table_manager/customer_request_row.tscn")
 
 # sends signal to location_panel to close loot table editor
 signal close_editor

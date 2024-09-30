@@ -5,7 +5,7 @@ extends HBoxContainer
 signal rarity_changed(row:HBoxContainer, rarity:String)
 
 var rarity:String
-@onready var Options:OptionButton = $OptionButton
+@onready var Options:OptionButton = $RarityOptions
 
 
 func with_data(rarity:String):
