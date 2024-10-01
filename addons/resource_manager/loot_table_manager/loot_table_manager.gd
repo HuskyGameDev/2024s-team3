@@ -1,9 +1,9 @@
 @tool
 extends Node
 
-const ForageTableRow = preload("res://addons/resource_manager/loot_table_manager/forage_row.tscn")
-const IngredientsShopTableRow = preload("res://addons/resource_manager/loot_table_manager/ingredients_shop_row.tscn")
-const CustomerRequestTableRow = preload("res://addons/resource_manager/loot_table_manager/customer_request_row.tscn")
+const ForageTableRow = preload("res://addons/resource_manager/loot_table_manager/table_row_types/forage_row.tscn")
+const IngredientsShopTableRow = preload("res://addons/resource_manager/loot_table_manager/table_row_types/ingredients_shop_row.tscn")
+const CustomerRequestTableRow = preload("res://addons/resource_manager/loot_table_manager/table_row_types/customer_request_row.tscn")
 
 # sends signal to location_panel to close loot table editor
 signal close_editor
@@ -19,7 +19,7 @@ func with_data(location:Location, type:String):
 	self.type = type
 	match type:
 		"FORAGE": self.rowScene = ForageTableRow
-		"INGREDIENT_SHOP": self.rowScene = IngredientsShopTableRow
+		"INGREDIENTS_SHOP": self.rowScene = IngredientsShopTableRow
 		"CUSTOMER_REQUEST": self.rowScene = CustomerRequestTableRow
 	
 	if not location.forage_table: location.forage_table = LootTable.new()
@@ -53,3 +53,26 @@ func _on_row_rarity_changed(row:HBoxContainer, old_rarity:String, new_rarity:Str
 	var new_container = $Content/ScrollContainer/MarginContainer/VBoxContainer.get_node("%sVBox" % new_rarity)
 	old_container.remove_child(row)
 	new_container.add_child(row)
+
+
+## Called when edit button for an effect is pressed
+func _on_edit_effect_button_pressed(effects:EffectSet):
+	# hide ingredient panel things
+	$TitleHBox.visible = false
+	$TableContainer.visible = false
+	$AddHBox.visible = false
+	# add effect editor panel as child
+	var editor_panel_instance = EffectEditor.instantiate().with_data(ingredient)
+	self.add_child(editor_panel_instance)
+	editor_panel_instance.connect("close_editor", _on_effect_panel_back_pressed)
+
+
+## Called when effect editor back button is pressed
+func _on_effect_panel_back_pressed():
+	# show ingredient panel things
+	$TitleHBox.visible = true
+	$TableContainer.visible = true
+	$AddHBox.visible = true
+	# update collapsed effect views
+	for row in TableBody.get_children():
+		row.update_effect_summary()

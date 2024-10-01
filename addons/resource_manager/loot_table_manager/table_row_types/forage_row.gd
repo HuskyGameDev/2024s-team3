@@ -1,5 +1,5 @@
 @tool
-extends "loot_table_row.gd"
+extends "../loot_table_row.gd"
 
 ## Forage table type:
 ## [ Ingredient ]

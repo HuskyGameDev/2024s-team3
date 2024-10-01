@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bly7samf3oyd2"]
-
-[ext_resource type="PackedScene" uid="uid://cwet2j13ddutm" path="res://addons/resource_manager/loot_table_manager/loot_table_row.tscn" id="1_3cny7"]
-[ext_resource type="Script" path="res://addons/resource_manager/loot_table_manager/forage_row.gd" id="1_pp15a"]
-
-[node name="ForageTableRow" instance=ExtResource("1_3cny7")]
-script = ExtResource("1_pp15a")

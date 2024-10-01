@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://4h4cmc36se7g"]
-
-[ext_resource type="PackedScene" uid="uid://cwet2j13ddutm" path="res://addons/resource_manager/loot_table_manager/loot_table_row.tscn" id="1_im4pp"]
-[ext_resource type="Script" path="res://addons/resource_manager/loot_table_manager/customer_request_row.gd" id="2_jo1tc"]
-
-[node name="CustomerRequestTableRow" instance=ExtResource("1_im4pp")]
-script = ExtResource("2_jo1tc")

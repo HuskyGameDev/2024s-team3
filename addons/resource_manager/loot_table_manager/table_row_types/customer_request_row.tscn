@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://4h4cmc36se7g"]
+
+[ext_resource type="PackedScene" uid="uid://cwet2j13ddutm" path="res://addons/resource_manager/loot_table_manager/loot_table_row.tscn" id="1_im4pp"]
+[ext_resource type="Script" path="res://addons/resource_manager/loot_table_manager/table_row_types/customer_request_row.gd" id="2_jo1tc"]
+[ext_resource type="PackedScene" uid="uid://4d3frkasrlht" path="res://addons/resource_manager/loot_table_manager/table_row_inputs/min_and_max_effects.tscn" id="3_kkxiv"]
+
+[node name="CustomerRequestTableRow" instance=ExtResource("1_im4pp")]
+theme_override_constants/separation = 16
+script = ExtResource("2_jo1tc")
+
+[node name="MinAndMaxEffects" parent="." index="0" instance=ExtResource("3_kkxiv")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DialogueEdit" type="TextEdit" parent="." index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Dialogue (one per line)"

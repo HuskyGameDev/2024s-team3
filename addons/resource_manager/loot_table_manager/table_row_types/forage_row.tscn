@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bly7samf3oyd2"]
+
+[ext_resource type="PackedScene" uid="uid://cwet2j13ddutm" path="res://addons/resource_manager/loot_table_manager/loot_table_row.tscn" id="1_nnl6u"]
+[ext_resource type="Script" path="res://addons/resource_manager/loot_table_manager/table_row_types/forage_row.gd" id="2_00oe0"]
+[ext_resource type="PackedScene" uid="uid://oeg1s17enhoj" path="res://addons/resource_manager/loot_table_manager/table_row_inputs/ingredient_dropdown.tscn" id="3_i4u4j"]
+
+[node name="ForageTableRow" instance=ExtResource("1_nnl6u")]
+theme_override_constants/separation = 16
+script = ExtResource("2_00oe0")
+
+[node name="IngredientDropdown" parent="." index="0" instance=ExtResource("3_i4u4j")]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 1
