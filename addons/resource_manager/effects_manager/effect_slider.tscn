@@ -117,5 +117,6 @@ text = "x"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="resized" from="." to="." method="_on_resized"]
 [connection signal="gui_input" from="SliderContainer/MinGrabber" to="." method="_on_min_grabber_input"]
 [connection signal="gui_input" from="SliderContainer/MaxGrabber" to="." method="_on_max_grabber_input"]
