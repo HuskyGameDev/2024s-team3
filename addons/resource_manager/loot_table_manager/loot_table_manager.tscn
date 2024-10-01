@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://6napilcwy6ap"]
 
-[ext_resource type="StyleBox" uid="uid://j3jo4bj0qur3" path="res://addons/resource_manager/editor_panels.tres" id="1_ljv80"]
+[ext_resource type="StyleBox" uid="uid://cnna6tdmlm4y6" path="res://addons/resource_manager/dark_editor_panels.tres" id="1_qxh25"]
 [ext_resource type="Texture2D" uid="uid://d2otenkl6fqms" path="res://addons/resource_manager/icons/back_icon.png" id="2_4lxdy"]
 [ext_resource type="Script" path="res://addons/resource_manager/loot_table_manager/loot_table_manager.gd" id="2_6goic"]
 [ext_resource type="Texture2D" uid="uid://dt8lneechbqjj" path="res://addons/resource_manager/icons/add_icon.png" id="4_xa84f"]
@@ -12,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("1_ljv80")
+theme_override_styles/panel = ExtResource("1_qxh25")
 script = ExtResource("2_6goic")
 
 [node name="Content" type="VBoxContainer" parent="."]

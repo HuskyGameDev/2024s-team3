@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwet2j13ddutm"]
+[gd_scene load_steps=3 format=3 uid="uid://cwet2j13ddutm"]
 
 [ext_resource type="Script" path="res://addons/resource_manager/loot_table_manager/loot_table_row.gd" id="1_ut24w"]
+[ext_resource type="StyleBox" uid="uid://j3jo4bj0qur3" path="res://addons/resource_manager/editor_panels.tres" id="2_thhym"]
 
 [node name="LootTableRow" type="HBoxContainer"]
 anchors_preset = 10
@@ -11,6 +12,7 @@ script = ExtResource("1_ut24w")
 
 [node name="RarityOptions" type="OptionButton" parent="."]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("2_thhym")
 allow_reselect = true
 item_count = 4
 popup/item_0/text = "Common"

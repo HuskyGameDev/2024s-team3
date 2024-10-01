@@ -53,26 +53,3 @@ func _on_row_rarity_changed(row:HBoxContainer, old_rarity:String, new_rarity:Str
 	var new_container = $Content/ScrollContainer/MarginContainer/VBoxContainer.get_node("%sVBox" % new_rarity)
 	old_container.remove_child(row)
 	new_container.add_child(row)
-
-
-## Called when edit button for an effect is pressed
-func _on_edit_effect_button_pressed(effects:EffectSet):
-	# hide ingredient panel things
-	$TitleHBox.visible = false
-	$TableContainer.visible = false
-	$AddHBox.visible = false
-	# add effect editor panel as child
-	var editor_panel_instance = EffectEditor.instantiate().with_data(ingredient)
-	self.add_child(editor_panel_instance)
-	editor_panel_instance.connect("close_editor", _on_effect_panel_back_pressed)
-
-
-## Called when effect editor back button is pressed
-func _on_effect_panel_back_pressed():
-	# show ingredient panel things
-	$TitleHBox.visible = true
-	$TableContainer.visible = true
-	$AddHBox.visible = true
-	# update collapsed effect views
-	for row in TableBody.get_children():
-		row.update_effect_summary()

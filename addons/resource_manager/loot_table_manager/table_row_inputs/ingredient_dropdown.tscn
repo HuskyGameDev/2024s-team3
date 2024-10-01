@@ -1,17 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://oeg1s17enhoj"]
+[gd_scene load_steps=3 format=3 uid="uid://oeg1s17enhoj"]
 
+[ext_resource type="StyleBox" uid="uid://j3jo4bj0qur3" path="res://addons/resource_manager/editor_panels.tres" id="1_6r0tm"]
 [ext_resource type="Script" path="res://addons/resource_manager/loot_table_manager/table_row_inputs/ingredient_dropdown.gd" id="1_jlt24"]
 
 [node name="IngredientDropdown" type="OptionButton"]
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 25.0
 grow_horizontal = 2
-grow_vertical = 2
+theme_override_styles/normal = ExtResource("1_6r0tm")
 selected = 0
 allow_reselect = true
-item_count = 2
+item_count = 1
 popup/item_0/text = "Thistle Root"
-popup/item_1/text = "Thistle Root"
-popup/item_1/id = 1
 script = ExtResource("1_jlt24")
