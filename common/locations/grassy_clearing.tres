@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Location" load_steps=2 format=3 uid="uid://6f3wlnhafskf"]
+
+[ext_resource type="Script" path="res://common/locations/location_type.gd" id="1_rd6f5"]
+
+[resource]
+script = ExtResource("1_rd6f5")
+id = "grassy_clearing"
+name = "Grassy Clearing"

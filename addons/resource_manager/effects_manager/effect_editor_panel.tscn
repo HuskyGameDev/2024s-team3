@@ -59,52 +59,72 @@ theme_override_constants/separation = 32
 
 [node name="HealingSlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
 layout_mode = 2
+show_range = false
+max = 30
 effect_key = "healing_poison"
 
 [node name="WarmSlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
 layout_mode = 2
+show_range = false
+max = 30
 effect_key = "warm_cold"
 
 [node name="CalmingSlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
 layout_mode = 2
+show_range = false
+max = 30
 effect_key = "calming_agitation"
 
 [node name="StrengthSlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
 layout_mode = 2
+show_range = false
+max = 30
 effect_key = "strength_weakness"
 
 [node name="EnergySlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
 layout_mode = 2
+show_range = false
+max = 30
 effect_key = "energy_fatigue"
 
 [node name="LightSlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
 layout_mode = 2
+show_range = false
+max = 30
 effect_key = "light_dark"
 
 [node name="LuckSlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
 layout_mode = 2
+show_range = false
+max = 30
 effect_key = "luck_misfortune"
 
 [node name="ClaritySlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
 layout_mode = 2
+show_range = false
+max = 30
 effect_key = "clarity_confusion"
 
 [node name="DefenseSlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
 layout_mode = 2
+show_range = false
+max = 30
 effect_key = "defense_vulnerability"
 
 [node name="SwiftnessSlider" parent="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer" instance=ExtResource("3_shpv1")]
 layout_mode = 2
+show_range = false
+max = 30
 effect_key = "swiftness_slowness"
 
 [connection signal="pressed" from="Content/Header/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/HealingSlider" to="." method="_on_effect_value_changed"]
-[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/WarmSlider" to="." method="_on_effect_value_changed"]
-[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/CalmingSlider" to="." method="_on_effect_value_changed"]
-[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/StrengthSlider" to="." method="_on_effect_value_changed"]
-[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/EnergySlider" to="." method="_on_effect_value_changed"]
-[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/LightSlider" to="." method="_on_effect_value_changed"]
-[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/LuckSlider" to="." method="_on_effect_value_changed"]
-[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/ClaritySlider" to="." method="_on_effect_value_changed"]
-[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/DefenseSlider" to="." method="_on_effect_value_changed"]
-[connection signal="value_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/SwiftnessSlider" to="." method="_on_effect_value_changed"]
+[connection signal="min_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/HealingSlider" to="." method="_on_effect_value_changed"]
+[connection signal="min_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/WarmSlider" to="." method="_on_effect_value_changed"]
+[connection signal="min_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/CalmingSlider" to="." method="_on_effect_value_changed"]
+[connection signal="min_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/StrengthSlider" to="." method="_on_effect_value_changed"]
+[connection signal="min_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/EnergySlider" to="." method="_on_effect_value_changed"]
+[connection signal="min_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/LightSlider" to="." method="_on_effect_value_changed"]
+[connection signal="min_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/LuckSlider" to="." method="_on_effect_value_changed"]
+[connection signal="min_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/ClaritySlider" to="." method="_on_effect_value_changed"]
+[connection signal="min_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/DefenseSlider" to="." method="_on_effect_value_changed"]
+[connection signal="min_changed" from="Content/ScrollContainer/EffectEditorsMarginContainer/EffectEditorsVBoxContainer/SwiftnessSlider" to="." method="_on_effect_value_changed"]

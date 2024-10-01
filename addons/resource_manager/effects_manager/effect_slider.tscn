@@ -1,14 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdwcfmuloc2np"]
+[gd_scene load_steps=5 format=3 uid="uid://bdwcfmuloc2np"]
 
 [ext_resource type="Script" path="res://addons/resource_manager/effects_manager/effect_slider.gd" id="1_p2osb"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l35hf"]
+bg_color = Color(0.207843, 0.239216, 0.290196, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iprwg"]
+bg_color = Color(0.792157, 0.792157, 0.792157, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5jjj"]
+bg_color = Color(0.792157, 0.792157, 0.792157, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
 [node name="EffectSlider" type="VBoxContainer"]
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 64.0
 grow_horizontal = 2
-grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
 script = ExtResource("1_p2osb")
+show_range = true
+max = 5
 
 [node name="LabelHBox" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -19,22 +43,79 @@ layout_mode = 2
 size_flags_horizontal = 2
 text = "Negative"
 
-[node name="ValueSpinBox" type="SpinBox" parent="LabelHBox"]
-layout_mode = 2
-size_flags_horizontal = 4
-min_value = -30.0
-max_value = 30.0
-rounded = true
-
 [node name="PositiveLabel" type="Label" parent="LabelHBox"]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Positive"
 
-[node name="NumberSlider" type="HSlider" parent="."]
+[node name="SliderContainer" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
-min_value = -30.0
-max_value = 30.0
+size_flags_vertical = 8
 
-[connection signal="value_changed" from="LabelHBox/ValueSpinBox" to="." method="_on_number_changed"]
-[connection signal="value_changed" from="NumberSlider" to="." method="_on_slider_changed"]
+[node name="SliderRange" type="Panel" parent="SliderContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l35hf")
+
+[node name="MinGrabber" type="Panel" parent="SliderContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iprwg")
+
+[node name="MinLabel" type="Label" parent="SliderContainer/MinGrabber"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "-x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MaxGrabber" type="Panel" parent="SliderContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o5jjj")
+
+[node name="MaxLabel" type="Label" parent="SliderContainer/MaxGrabber"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="SliderContainer/MinGrabber" to="." method="_on_min_grabber_input"]
+[connection signal="gui_input" from="SliderContainer/MaxGrabber" to="." method="_on_max_grabber_input"]
