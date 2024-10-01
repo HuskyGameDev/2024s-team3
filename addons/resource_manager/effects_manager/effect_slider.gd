@@ -41,7 +41,9 @@ func _ready():
 		$LabelHBox/NegativeLabel.text = EffectSet.negative_labels[effect_key]
 	# Show max grabber and calculate offsets/section width
 	if not show_range: MaxGrabber.hide()
-	await get_tree().process_frame # wait for controls to get size
+	# Wait for slider size to update
+	while not SliderRange or not SliderRange.size.x:
+		await get_tree().process_frame
 	_on_resized()
 
 
