@@ -6,21 +6,21 @@
 [sub_resource type="Resource" id="Resource_nfirs"]
 script = ExtResource("1_ptbdw")
 common = []
-uncommon = []
+uncommon = [null]
 rare = []
 legendary = []
 
 [sub_resource type="Resource" id="Resource_f7mdn"]
 script = ExtResource("1_ptbdw")
 common = []
-uncommon = []
+uncommon = [null]
 rare = []
 legendary = []
 
 [sub_resource type="Resource" id="Resource_hgcky"]
 script = ExtResource("1_ptbdw")
 common = []
-uncommon = []
+uncommon = [null]
 rare = []
 legendary = []
 

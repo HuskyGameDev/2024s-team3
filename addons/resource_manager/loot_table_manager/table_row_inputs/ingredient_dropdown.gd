@@ -1,6 +1,8 @@
 @tool
 extends OptionButton
 
+## Functions the same as the default item_selected signal except it returns the actual ingredient
+signal ingredient_changed(ingredient:Ingredient)
 
 ## Add ingredient options
 func _ready():
@@ -10,3 +12,16 @@ func _ready():
 		# (they are loaded once they're selected)
 		var ingredient_name = path.get_file().get_basename().replace("_", " ").capitalize()
 		self.add_item(ingredient_name)
+
+
+func _on_item_selected(index):
+	var selected_name = get_item_text(index)
+	var selected_id = selected_name.replace(" ", "_").to_lower()
+	var selected_ingredient = load(ResourcePaths.get_ingredient_path(selected_id))
+	ingredient_changed.emit(selected_ingredient)
+
+
+func select_ingredient(ingredient:Ingredient):
+	for i in item_count:
+		if get_item_text(i) == ingredient.name:
+			select(i); break

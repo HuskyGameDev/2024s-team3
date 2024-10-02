@@ -1,6 +1,10 @@
 @tool
 extends Control
 
+# pass signals up
+signal min_changed(key:String, value:int)
+signal max_changed(key:String, value:int)
+
 const EffectRow = preload("res://addons/resource_manager/loot_table_manager/table_row_inputs/min_and_max_effects/min_and_max_effects_row.tscn")
 
 @onready var EffectOptions = $EffectContainer/AddHBox/EffectOptions
@@ -18,6 +22,8 @@ func _on_add_button_pressed():
 	EffectOptions.remove_item(selected_id)
 	## Connect new row signals
 	new_row.connect("deleted", _on_row_deleted)
+	new_row.connect("min_changed", _on_min_effect_changed)
+	new_row.connect("max_changed", _on_max_effect_changed)
 
 
 func _on_row_deleted(deleted_row_key:String):
@@ -25,3 +31,11 @@ func _on_row_deleted(deleted_row_key:String):
 	if EffectContainer.get_child_count() <= 4: $EffectContainer/AddHBox.show() 
 	## Add option back to dropdown
 	EffectOptions.add_item(deleted_row_key)
+
+
+func _on_min_effect_changed(effect_key:String, value:int):
+	min_changed.emit(effect_key, value)
+
+
+func _on_max_effect_changed(effect_key:String, value:int):
+	max_changed.emit(effect_key, value)

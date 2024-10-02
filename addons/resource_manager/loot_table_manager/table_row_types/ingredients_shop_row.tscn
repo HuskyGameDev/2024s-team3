@@ -12,7 +12,6 @@ script = ExtResource("2_lhryx")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
-item_count = 1
 
 [node name="QuantityInput" type="SpinBox" parent="." index="1"]
 layout_mode = 2
@@ -24,3 +23,7 @@ prefix = "Quantity: "
 layout_mode = 2
 size_flags_horizontal = 3
 prefix = "Cost: $"
+
+[connection signal="item_selected" from="IngredientDropdown" to="." method="_on_ingredient_changed"]
+[connection signal="value_changed" from="QuantityInput" to="." method="_on_quantity_changed"]
+[connection signal="value_changed" from="CostInput" to="." method="_on_cost_changed"]

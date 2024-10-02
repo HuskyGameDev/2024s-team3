@@ -3,6 +3,9 @@ extends HBoxContainer
 
 # sent to min_and_max_effects
 signal deleted(key:String)
+# pass signals up
+signal min_changed(key:String, value:int)
+signal max_changed(key:String, value:int)
 
 var effect_key:String
 
@@ -18,8 +21,8 @@ func _on_delete_button_pressed():
 
 
 func _on_effect_min_changed(effect_key, value):
-	pass #TODO Replace with function body.
+	min_changed.emit(effect_key, value)
 
 
 func _on_effect_max_changed(effect_key, value):
-	pass #TODO Replace with function body.
+	max_changed.emit(effect_key, value)

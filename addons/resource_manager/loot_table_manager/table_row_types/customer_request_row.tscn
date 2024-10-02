@@ -11,7 +11,6 @@ script = ExtResource("2_jo1tc")
 
 [node name="MinAndMaxEffects" parent="." index="0" instance=ExtResource("3_kkxiv")]
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="DialogueEdit" type="TextEdit" parent="." index="1"]
 custom_minimum_size = Vector2(0, 72)
@@ -19,3 +18,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = ExtResource("4_dtnd1")
 placeholder_text = "Dialogue (one per line)"
+
+[connection signal="max_changed" from="MinAndMaxEffects" to="." method="_on_max_effect_changed"]
+[connection signal="min_changed" from="MinAndMaxEffects" to="." method="_on_min_effect_changed"]
+[connection signal="text_changed" from="DialogueEdit" to="." method="_on_dialogue_changed"]
