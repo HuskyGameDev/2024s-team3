@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://ev5xh66rxxvf"]
+
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_dofqj"]
+[ext_resource type="Texture2D" uid="uid://cvvolykrups7e" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.png" id="1_rhqv0"]
+
+[resource]
+script = ExtResource("1_dofqj")
+id = "nightshade_petals"
+name = "Nightshade Petals"
+description = ""
+stack_size = 5
+image = ExtResource("1_rhqv0")
