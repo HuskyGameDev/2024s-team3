@@ -11,6 +11,7 @@ var table:LootTable
 
 ## Extended by each type of row
 func set_data(data): pass
+func _on_rarity_changed(index): pass
 
 
 func with_data(rarity:String, table:LootTable):
@@ -26,9 +27,5 @@ func _ready():
 			return
 
 
-func _on_rarity_changed(index):
-	var old = self.rarity
-	var new = Options.get_item_text(index)
-	# emit signal to move row
-	rarity_changed.emit(self, old, new)
-	self.rarity = new
+func _on_delete_button_pressed():
+	queue_free()

@@ -1,25 +1,41 @@
-[gd_resource type="Resource" script_class="Location" load_steps=6 format=3 uid="uid://6f3wlnhafskf"]
+[gd_resource type="Resource" script_class="Location" load_steps=7 format=3 uid="uid://6f3wlnhafskf"]
 
+[ext_resource type="Resource" uid="uid://dhhgd3ka2l326" path="res://common/items/ingredients/thistle_root/thistle_root.tres" id="1_6gkmr"]
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="1_rd6f5"]
 [ext_resource type="Script" path="res://common/locations/loot_table_type.gd" id="1_xs8a6"]
 
 [sub_resource type="Resource" id="Resource_spidf"]
 script = ExtResource("1_xs8a6")
-common = []
+common = [{
+"cost": 0,
+"id": "thistle_root_0_0",
+"item": ExtResource("1_6gkmr"),
+"quantity": 0
+}]
 uncommon = []
 rare = []
 legendary = []
 
 [sub_resource type="Resource" id="Resource_r1m1s"]
 script = ExtResource("1_xs8a6")
-common = []
+common = [{
+"cost": 0,
+"id": "thistle_root_0_0",
+"item": ExtResource("1_6gkmr"),
+"quantity": 0
+}]
 uncommon = []
 rare = []
 legendary = []
 
 [sub_resource type="Resource" id="Resource_g3jey"]
 script = ExtResource("1_xs8a6")
-common = []
+common = [{
+"cost": 0,
+"id": "thistle_root_0_0",
+"item": ExtResource("1_6gkmr"),
+"quantity": 0
+}]
 uncommon = []
 rare = []
 legendary = []

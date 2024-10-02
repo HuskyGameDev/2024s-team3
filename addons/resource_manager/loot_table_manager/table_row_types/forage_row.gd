@@ -9,6 +9,7 @@ var ingredient:Ingredient :
 		ingredient = value
 		$IngredientDropdown.select_ingredient(ingredient)
 
+
 func set_data(data: Ingredient):
 	self.ingredient = data
 
@@ -25,3 +26,8 @@ func _on_rarity_changed(index):
 
 func _on_ingredient_changed(new_ingredient:Ingredient):
 	self.ingredient = new_ingredient
+
+
+func _on_delete_button_pressed():
+	table[self.rarity.to_lower()].erase(ingredient)
+	super()

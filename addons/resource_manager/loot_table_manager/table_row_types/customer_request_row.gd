@@ -20,3 +20,8 @@ func _on_min_effect_changed(key, value):
 
 func _on_max_effect_changed(key, value):
 	pass #TODO Replace with function body.
+
+
+func _on_delete_button_pressed():
+	#TODO table[self.rarity.to_lower()].erase({})
+	super()

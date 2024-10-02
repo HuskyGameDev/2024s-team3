@@ -12,6 +12,7 @@ func _ready():
 		# (they are loaded once they're selected)
 		var ingredient_name = path.get_file().get_basename().replace("_", " ").capitalize()
 		self.add_item(ingredient_name)
+	_on_item_selected(0)
 
 
 func _on_item_selected(index):

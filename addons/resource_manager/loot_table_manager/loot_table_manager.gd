@@ -60,7 +60,7 @@ func _on_add_row_pressed(rarity:String, data:Variant = null):
 
 
 func _on_row_rarity_changed(row:HBoxContainer, old_rarity:String, new_rarity:String):
-	var old_container = $Content/ScrollContainer/MarginContainer/VBoxContainer.get_node("%sVBox" % old_rarity)
-	var new_container = $Content/ScrollContainer/MarginContainer/VBoxContainer.get_node("%sVBox" % new_rarity)
+	var old_container = $Content/ScrollContainer/MarginContainer/VBoxContainer.get_node("%sVBox" % old_rarity.capitalize())
+	var new_container = $Content/ScrollContainer/MarginContainer/VBoxContainer.get_node("%sVBox" % new_rarity.capitalize())
 	old_container.remove_child(row)
 	new_container.add_child(row)
