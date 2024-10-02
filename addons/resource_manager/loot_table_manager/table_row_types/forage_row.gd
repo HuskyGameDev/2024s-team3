@@ -15,13 +15,14 @@ func set_data(data: Ingredient):
 
 
 func _on_rarity_changed(index):
-	var old_key = self.rarity.to_lower()
-	var new_key = $RarityOptions.get_item_text(index).to_lower()
+	var old_rarity = self.rarity.to_lower()
+	var new_rarity = $RarityOptions.get_item_text(index).to_lower()
 	# remove from old section and add to new
-	table[old_key].erase(ingredient)
-	table[new_key].append(ingredient)
-	# call loot_table_row.gd _on_rarity_changed
-	super(index)
+	table[old_rarity].erase(ingredient)
+	table[new_rarity].append(ingredient)
+	# emit signal to move row
+	rarity_changed.emit(self, old_rarity, new_rarity)
+	self.rarity = new_rarity
 
 
 func _on_ingredient_changed(new_ingredient:Ingredient):

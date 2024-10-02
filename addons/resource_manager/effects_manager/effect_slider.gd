@@ -7,6 +7,7 @@ signal min_changed(effect_key:String, value:int)
 signal max_changed(effect_key:String, value:int)
 
 ## Inspector vars
+@export_category("Settings")
 @export var show_range:bool = false # show both min and max (if not we just use the min slider)
 @export var max:int = 30 # absolute value of the max number on the slider
 @export var effect_key:String # string of effect name
@@ -22,16 +23,19 @@ var range_section_width:int
 var range_center:int
 
 ## Track the current min and max values
-var min_value:int :
+@export_category("Values")
+@export var min_value:int :
 	set(value):
 		min_value = value
-		MinGrabber.global_position.x = range_center + min_value * range_section_width
-		MinGrabberLabel.text = str(min_value)
-var max_value:int :
+		if MinGrabber:
+			MinGrabber.global_position.x = range_center + min_value * range_section_width
+			MinGrabberLabel.text = str(min_value)
+@export var max_value:int :
 	set(value):
 		max_value = value
-		MaxGrabber.global_position.x = range_center + max_value * range_section_width
-		MaxGrabberLabel.text = str(max_value)
+		if MaxGrabber:
+			MaxGrabber.global_position.x = range_center + max_value * range_section_width
+			MaxGrabberLabel.text = str(max_value)
 
 
 func _ready():

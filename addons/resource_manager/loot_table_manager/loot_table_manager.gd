@@ -17,6 +17,12 @@ var table:LootTable
 func with_data(location:Location, type:String):
 	self.location = location
 	
+	# instantiate tables if they don't exist
+	if not location.forage_table: location.forage_table = LootTable.new()
+	if not location.ingredients_shop_table: location.ingredients_shop_table = LootTable.new()
+	if not location.customer_request_table: location.customer_request_table = LootTable.new()
+	
+	# set variables based on table type
 	self.type = type
 	match type:
 		"FORAGE": 
@@ -29,9 +35,6 @@ func with_data(location:Location, type:String):
 			self.rowScene = CustomerRequestTableRow
 			self.table = location.customer_request_table
 	
-	if not location.forage_table: location.forage_table = LootTable.new()
-	if not location.ingredients_shop_table: location.ingredients_shop_table = LootTable.new()
-	if not location.customer_request_table: location.customer_request_table = LootTable.new()
 	return self
 
 func _ready():

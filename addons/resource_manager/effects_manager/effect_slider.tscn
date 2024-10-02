@@ -32,7 +32,7 @@ theme_override_constants/separation = 8
 alignment = 1
 script = ExtResource("1_p2osb")
 show_range = true
-max = 5
+max = 100
 
 [node name="LabelHBox" type="HBoxContainer" parent="."]
 layout_mode = 2

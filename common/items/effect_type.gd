@@ -137,6 +137,7 @@ func get_strongest() -> Array[String]:
 	return labels
 
 
+## Set effect value by string key
 func set_effect_by_key(key:String, value:int):
 	# The downside of using strings to determine which effect is being changed
 	if key == "healing_poison": 			self.healing_poison = value
@@ -150,3 +151,17 @@ func set_effect_by_key(key:String, value:int):
 	elif key == "defense_vulnerability": 	self.defense_vulnerability = value
 	elif key == "swiftness_slowness": 		self.swiftness_slowness = value
 	else: push_error("%s is not a valid effect key" % key)
+
+
+## Set all values to input value
+func set_all(value:int):
+	healing_poison = value
+	warm_cold = value
+	calming_agitation = value
+	strength_weakness = value
+	energy_fatigue = value
+	light_dark = value
+	luck_misfortune = value
+	clarity_confusion = value
+	defense_vulnerability = value
+	swiftness_slowness = value

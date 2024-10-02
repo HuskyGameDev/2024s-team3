@@ -4,17 +4,12 @@
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="1_rqcgf"]
 [ext_resource type="Resource" uid="uid://dhhgd3ka2l326" path="res://common/items/ingredients/thistle_root/thistle_root.tres" id="1_svcet"]
 
-[sub_resource type="Resource" id="Resource_nfirs"]
+[sub_resource type="Resource" id="Resource_l5apg"]
 script = ExtResource("1_ptbdw")
-common = [{
-"cost": 0,
-"id": "thistle_root_0_0",
-"item": ExtResource("1_svcet"),
-"quantity": 0
-}]
-uncommon = [null]
+common = []
+uncommon = []
 rare = []
-legendary = [ExtResource("1_svcet")]
+legendary = []
 
 [sub_resource type="Resource" id="Resource_ycp1p"]
 script = ExtResource("1_ptbdw")
@@ -41,4 +36,4 @@ id = "test"
 name = "test"
 forage_table = SubResource("Resource_ycp1p")
 ingredients_shop_table = SubResource("Resource_3w146")
-customer_request_table = SubResource("Resource_nfirs")
+customer_request_table = SubResource("Resource_l5apg")

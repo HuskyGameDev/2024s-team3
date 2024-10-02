@@ -15,7 +15,6 @@ script = ExtResource("1_dtu8b")
 [node name="EffectSlider" parent="." instance=ExtResource("2_ayfqi")]
 layout_mode = 2
 size_flags_horizontal = 3
-max = 30
 
 [node name="DeleteButton" type="Button" parent="."]
 custom_minimum_size = Vector2(32, 32)

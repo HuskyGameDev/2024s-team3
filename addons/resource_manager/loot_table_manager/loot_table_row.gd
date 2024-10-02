@@ -21,6 +21,7 @@ func with_data(rarity:String, table:LootTable):
 
 
 func _ready():
+	print_debug(self.rarity)
 	for i in Options.item_count:
 		if Options.get_item_text(i) == self.rarity:
 			Options.select(i)

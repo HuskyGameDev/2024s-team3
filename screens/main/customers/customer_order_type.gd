@@ -6,7 +6,7 @@ class_name CustomerOrder
 ## Max effects will be exclusive
 @export var minEffects: EffectSet
 @export var maxEffects: EffectSet
-@export var dialogueOptions: Array[String]
+@export var dialogueOptions: PackedStringArray
 
 func check(potion: Potion) -> bool:
 	var min_arr = minEffects.as_list()
