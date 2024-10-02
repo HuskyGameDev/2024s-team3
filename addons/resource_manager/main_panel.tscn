@@ -11,13 +11,13 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-current_tab = 1
+current_tab = 0
 
 [node name="Ingredients" parent="." instance=ExtResource("1_bf41n")]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="Locations" parent="." instance=ExtResource("2_t7nyc")]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
