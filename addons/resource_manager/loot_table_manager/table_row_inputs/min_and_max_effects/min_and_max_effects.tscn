@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://4d3frkasrlht"]
+
+[ext_resource type="StyleBox" uid="uid://j3jo4bj0qur3" path="res://addons/resource_manager/editor_panels.tres" id="1_1rtfv"]
+[ext_resource type="Script" path="res://addons/resource_manager/loot_table_manager/table_row_inputs/min_and_max_effects/min_and_max_effects.gd" id="1_stlvp"]
+[ext_resource type="Texture2D" uid="uid://dt8lneechbqjj" path="res://addons/resource_manager/icons/add_icon.png" id="2_hpu7t"]
+
+[node name="MinAndMaxEffects" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("1_1rtfv")
+script = ExtResource("1_stlvp")
+
+[node name="EffectContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="AddHBox" type="HBoxContainer" parent="EffectContainer"]
+layout_mode = 2
+
+[node name="EffectOptions" type="OptionButton" parent="EffectContainer/AddHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 10
+popup/item_0/text = "healing_poison"
+popup/item_1/text = "warm_cold"
+popup/item_1/id = 1
+popup/item_2/text = "calming_agitation"
+popup/item_2/id = 2
+popup/item_3/text = "strength_weakness"
+popup/item_3/id = 3
+popup/item_4/text = "energy_fatigue"
+popup/item_4/id = 4
+popup/item_5/text = "light_dark"
+popup/item_5/id = 5
+popup/item_6/text = "luck_misfortune"
+popup/item_6/id = 6
+popup/item_7/text = "clarity_confusion"
+popup/item_7/id = 7
+popup/item_8/text = "defense_vulnerability"
+popup/item_8/id = 8
+popup/item_9/text = "swiftness_slowness"
+popup/item_9/id = 9
+
+[node name="AddButton" type="Button" parent="EffectContainer/AddHBox"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Add"
+icon = ExtResource("2_hpu7t")
+expand_icon = true
+
+[connection signal="pressed" from="EffectContainer/AddHBox/AddButton" to="." method="_on_add_button_pressed"]

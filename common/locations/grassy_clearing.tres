@@ -1,81 +1,49 @@
-[gd_resource type="Resource" script_class="Location" load_steps=13 format=3 uid="uid://20moloevvpx8"]
+[gd_resource type="Resource" script_class="Location" load_steps=7 format=3 uid="uid://6f3wlnhafskf"]
 
-[ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_273rf"]
-[ext_resource type="Script" path="res://screens/main/customers/customer_order_type.gd" id="2_e2bda"]
-[ext_resource type="Script" path="res://common/locations/loot_table_type.gd" id="3_rpweu"]
-[ext_resource type="Resource" uid="uid://b0pitbp00qp16" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="4_js104"]
-[ext_resource type="Resource" uid="uid://5uqklqp8p8bu" path="res://common/items/ingredients/thistle_root/thistle_root.tres" id="5_xui0r"]
-[ext_resource type="Script" path="res://common/locations/location_type.gd" id="11_l1fug"]
+[ext_resource type="Resource" uid="uid://dhhgd3ka2l326" path="res://common/items/ingredients/thistle_root/thistle_root.tres" id="1_6gkmr"]
+[ext_resource type="Script" path="res://common/locations/location_type.gd" id="1_rd6f5"]
+[ext_resource type="Script" path="res://common/locations/loot_table_type.gd" id="1_xs8a6"]
 
-[sub_resource type="Resource" id="Resource_vv8h6"]
-script = ExtResource("1_273rf")
-healing_poison = 0
-warm_cold = 0
-calming_agitation = 0
-strength_weakness = 15
-energy_fatigue = 0
-light_dark = 0
-luck_misfortune = 0
-clarity_confusion = 0
-defense_vulnerability = 0
-swiftness_slowness = 0
-
-[sub_resource type="Resource" id="Resource_7fbdx"]
-script = ExtResource("1_273rf")
-healing_poison = 0
-warm_cold = 0
-calming_agitation = 0
-strength_weakness = 0
-energy_fatigue = 0
-light_dark = 0
-luck_misfortune = 0
-clarity_confusion = 0
-defense_vulnerability = 0
-swiftness_slowness = 0
-
-[sub_resource type="Resource" id="Resource_y6hi8"]
-script = ExtResource("2_e2bda")
-minEffects = SubResource("Resource_7fbdx")
-maxEffects = SubResource("Resource_vv8h6")
-dialogueOptions = Array[String](["I want to be stronger"])
-
-[sub_resource type="Resource" id="Resource_wcwwa"]
-script = ExtResource("3_rpweu")
-common = [SubResource("Resource_y6hi8")]
+[sub_resource type="Resource" id="Resource_spidf"]
+script = ExtResource("1_xs8a6")
+common = [{
+"cost": 0,
+"id": "thistle_root_0_0",
+"item": ExtResource("1_6gkmr"),
+"quantity": 0
+}]
 uncommon = []
 rare = []
 legendary = []
 
-[sub_resource type="Resource" id="Resource_l7rrh"]
-script = ExtResource("3_rpweu")
-common = [ExtResource("4_js104")]
+[sub_resource type="Resource" id="Resource_r1m1s"]
+script = ExtResource("1_xs8a6")
+common = [{
+"cost": 0,
+"id": "thistle_root_0_0",
+"item": ExtResource("1_6gkmr"),
+"quantity": 0
+}]
 uncommon = []
-rare = [ExtResource("5_xui0r")]
+rare = []
 legendary = []
 
-[sub_resource type="Resource" id="Resource_ud7w8"]
-script = ExtResource("3_rpweu")
+[sub_resource type="Resource" id="Resource_g3jey"]
+script = ExtResource("1_xs8a6")
 common = [{
-"cost": 10,
-"item": ExtResource("4_js104"),
-"quantity": 3
-}, {
-"cost": 5,
-"item": ExtResource("5_xui0r"),
-"quantity": 4
+"cost": 0,
+"id": "thistle_root_0_0",
+"item": ExtResource("1_6gkmr"),
+"quantity": 0
 }]
-uncommon = [{
-"cost": 10,
-"item": ExtResource("4_js104"),
-"quantity": 3
-}]
+uncommon = []
 rare = []
 legendary = []
 
 [resource]
-script = ExtResource("11_l1fug")
+script = ExtResource("1_rd6f5")
 id = "grassy_clearing"
 name = "Grassy Clearing"
-forage_table = SubResource("Resource_l7rrh")
-ingredients_shop_table = SubResource("Resource_ud7w8")
-customer_request_table = SubResource("Resource_wcwwa")
+forage_table = SubResource("Resource_r1m1s")
+ingredients_shop_table = SubResource("Resource_g3jey")
+customer_request_table = SubResource("Resource_spidf")

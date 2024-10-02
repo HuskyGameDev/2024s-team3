@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvvolykrups7e"
-path="res://.godot/imported/nightshade_petals.png-21549a5c7998dfc68a3831870f563248.ctex"
+uid="uid://o1bqc2v0mrop"
+path="res://.godot/imported/edit_icon.png-52127ad022d3ef5a61317e89a9eb2942.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/items/ingredients/nightshade_petals/nightshade_petals.png"
-dest_files=["res://.godot/imported/nightshade_petals.png-21549a5c7998dfc68a3831870f563248.ctex"]
+source_file="res://addons/resource_manager/icons/edit_icon.png"
+dest_files=["res://.godot/imported/edit_icon.png-52127ad022d3ef5a61317e89a9eb2942.ctex"]
 
 [params]
 

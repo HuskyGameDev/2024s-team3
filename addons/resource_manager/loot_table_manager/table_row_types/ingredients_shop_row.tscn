@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnpbb1wjtsj5j"]
+
+[ext_resource type="PackedScene" uid="uid://cwet2j13ddutm" path="res://addons/resource_manager/loot_table_manager/loot_table_row.tscn" id="1_jacau"]
+[ext_resource type="Script" path="res://addons/resource_manager/loot_table_manager/table_row_types/ingredients_shop_row.gd" id="2_lhryx"]
+[ext_resource type="PackedScene" uid="uid://oeg1s17enhoj" path="res://addons/resource_manager/loot_table_manager/table_row_inputs/ingredient_dropdown.tscn" id="3_14c37"]
+
+[node name="IngredientsShopTableRow" instance=ExtResource("1_jacau")]
+theme_override_constants/separation = 16
+script = ExtResource("2_lhryx")
+
+[node name="IngredientDropdown" parent="." index="0" instance=ExtResource("3_14c37")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="QuantityInput" type="SpinBox" parent="." index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 20.0
+prefix = "Quantity: "
+
+[node name="CostInput" type="SpinBox" parent="." index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+prefix = "Cost: $"
+
+[connection signal="ingredient_changed" from="IngredientDropdown" to="." method="_on_ingredient_changed"]
+[connection signal="value_changed" from="QuantityInput" to="." method="_on_quantity_changed"]
+[connection signal="value_changed" from="CostInput" to="." method="_on_cost_changed"]

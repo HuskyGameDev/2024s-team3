@@ -1,15 +1,15 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=5 format=3 uid="uid://5uqklqp8p8bu"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=5 format=3 uid="uid://dhhgd3ka2l326"]
 
-[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_b84m2"]
-[ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_gvwvx"]
-[ext_resource type="Texture2D" uid="uid://b6xgn8gbjmfu0" path="res://common/items/ingredients/thistle_root/thistle_root.png" id="1_qhn2e"]
+[ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_4ukb2"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_48uxn"]
+[ext_resource type="Texture2D" uid="uid://bhe7g2gg215vm" path="res://common/items/ingredients/thistle_root/thistle_root.png" id="1_x2tgq"]
 
-[sub_resource type="Resource" id="Resource_eu0dc"]
-script = ExtResource("1_gvwvx")
-healing_poison = -5
-warm_cold = 0
+[sub_resource type="Resource" id="Resource_tlhl7"]
+script = ExtResource("1_4ukb2")
+healing_poison = -12
+warm_cold = -30
 calming_agitation = 0
-strength_weakness = 10
+strength_weakness = 0
 energy_fatigue = 0
 light_dark = 0
 luck_misfortune = 0
@@ -18,10 +18,10 @@ defense_vulnerability = 0
 swiftness_slowness = 0
 
 [resource]
-script = ExtResource("1_b84m2")
-effects = SubResource("Resource_eu0dc")
+script = ExtResource("1_48uxn")
+effects = SubResource("Resource_tlhl7")
 id = "thistle_root"
 name = "Thistle Root"
 description = ""
 stack_size = 5
-image = ExtResource("1_qhn2e")
+image = ExtResource("1_x2tgq")
