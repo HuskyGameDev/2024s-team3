@@ -1,16 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6cq5upjosmpf"]
+[gd_scene load_steps=4 format=3 uid="uid://b6cq5upjosmpf"]
 
 [ext_resource type="Script" path="res://screens/main/ui/clock/new_clock.gd" id="1_jl7tj"]
 [ext_resource type="Texture2D" uid="uid://l2qq10xcrfjs" path="res://screens/main/ui/clock/clock_base.png" id="2_5aaj1"]
+[ext_resource type="Texture2D" uid="uid://btpc32o03e4wn" path="res://screens/main/ui/clock/Clock Progress Wheel.png" id="3_3crla"]
 
 [node name="NewClock" type="Node2D"]
-position = Vector2(679, 246)
 script = ExtResource("1_jl7tj")
 
 [node name="ClockFace" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 scale = Vector2(6, 6)
 texture = ExtResource("2_5aaj1")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+modulate = Color(1, 1, 1, 0.25098)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -126.0
+offset_right = -84.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6, 6)
+step = 0.0
+value = 80.0
+fill_mode = 4
+texture_progress = ExtResource("3_3crla")
 
 [node name="ClockNode_Holder" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -22,5 +41,21 @@ unique_name_in_owner = true
 
 [node name="Marker2D" type="Marker2D" parent="MarkerHolder"]
 position = Vector2(0, -132)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "10"
+horizontal_alignment = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

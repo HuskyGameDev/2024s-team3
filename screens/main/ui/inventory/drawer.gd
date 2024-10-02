@@ -13,7 +13,7 @@ signal inventory_open(state:bool) # Used in the tutorial to detect when the inve
 
 ## reads from inventory json file, creates each slot of inventory and fills it according to json
 func _ready():
-	var main_node: Node2D = get_node("/root/Main") # node to add ingredient instances to when loading from the inventory
+	var main_node: Node2D = get_node("/root/Game/ScreenHolder/Main") # node to add ingredient instances to when loading from the inventory
 	for i:InventorySlot in PlayerData.inventory: # for each inventory slot in the JSON
 		slots.push_back(i)
 		var inv_slot_new:Control = template_inv_slot.instantiate()
