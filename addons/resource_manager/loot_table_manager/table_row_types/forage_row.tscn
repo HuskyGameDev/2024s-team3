@@ -11,5 +11,17 @@ script = ExtResource("2_00oe0")
 [node name="IngredientDropdown" parent="." index="0" instance=ExtResource("3_i4u4j")]
 layout_mode = 2
 size_flags_horizontal = 3
+item_count = 6
+popup/item_0/text = "Rat Tail"
+popup/item_1/text = "Peppermint Leaves"
+popup/item_1/id = 1
+popup/item_2/text = "Thistle Root"
+popup/item_2/id = 2
+popup/item_3/text = "Nightshade Petals"
+popup/item_3/id = 3
+popup/item_4/text = "Sunflower Seeds"
+popup/item_4/id = 4
+popup/item_5/text = "Pine Resin"
+popup/item_5/id = 5
 
 [connection signal="ingredient_changed" from="IngredientDropdown" to="." method="_on_ingredient_changed"]

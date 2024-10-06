@@ -7,20 +7,29 @@ extends "../loot_table_row.gd"
 var order:CustomerOrder :
 	set(value):
 		order = value
-		#TODO update inputs
+		$DialogueEdit.text = "\n".join(self.order.dialogueOptions)
 
 
-func set_data(data: CustomerOrder):
-	self.order = data
-
-
-func _ready():
-	if not self.order: 
+func with_data(rarity:String, table:LootTable, data:CustomerOrder):
+	if data: 
+		self.order = data
+	else: 
 		self.order = CustomerOrder.new()
 		self.order.minEffects = EffectSet.new()
 		self.order.maxEffects = EffectSet.new()
 		self.order.minEffects.set_all(-50)
 		self.order.maxEffects.set_all(50)
+		table[rarity.to_lower()].append(self.order)
+	return super(rarity, table, data)
+
+
+func _ready():
+	$DialogueEdit.text = "\n".join(self.order.dialogueOptions)
+	var min_effects = order.minEffects.as_nested_list()
+	var max_effects = order.maxEffects.as_nested_list()
+	for i in min_effects.size():
+		if min_effects[i][1] != -50 or max_effects[i][1] != 50:
+			$MinAndMaxEffects.add_row(min_effects[i][0], min_effects[i][1], max_effects[i][1])
 	super()
 
 

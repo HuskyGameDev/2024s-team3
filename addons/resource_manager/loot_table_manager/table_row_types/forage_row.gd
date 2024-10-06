@@ -1,6 +1,8 @@
 @tool
 extends "../loot_table_row.gd"
 
+const ThistleRootResource = preload("res://common/items/ingredients/thistle_root/thistle_root.tres")
+
 ## Forage table type:
 ## [ Ingredient ]
 
@@ -10,8 +12,18 @@ var ingredient:Ingredient :
 		$IngredientDropdown.select_ingredient(ingredient)
 
 
-func set_data(data: Ingredient):
-	self.ingredient = data
+func _ready():
+	$IngredientDropdown.select_ingredient(ingredient)
+	super()
+
+
+func with_data(rarity:String, table:LootTable, data:Ingredient):
+	if data: 
+		self.ingredient = data
+	else: 
+		self.ingredient = ThistleRootResource
+		table[rarity.to_lower()].append(self.ingredient)
+	return super(rarity, table, data)
 
 
 func _on_rarity_changed(index):

@@ -10,18 +10,16 @@ var rarity:String
 var table:LootTable
 
 ## Extended by each type of row
-func set_data(data): pass
 func _on_rarity_changed(index): pass
 
 
-func with_data(rarity:String, table:LootTable):
+func with_data(rarity:String, table:LootTable, data):
 	self.rarity = rarity
 	self.table = table
 	return self
 
 
 func _ready():
-	print_debug(self.rarity)
 	for i in Options.item_count:
 		if Options.get_item_text(i) == self.rarity:
 			Options.select(i)

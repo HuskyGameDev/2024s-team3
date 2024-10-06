@@ -1,6 +1,8 @@
 @tool
 extends "../loot_table_row.gd"
 
+const ThistleRootResource = preload("res://common/items/ingredients/thistle_root/thistle_root.tres")
+
 ## Ingredients shop table type:
 ## [ {
 ##    "id": String (auto generated)
@@ -22,10 +24,30 @@ func get_id(data = null):
 	else: return null
 
 
-func set_data(data):
-	if data.has("item"): self.item = data.get("item")
-	self.quantity = data.get("quantity", 0)
-	self.cost = data.get("cost", 0)
+func _ready():
+	$IngredientDropdown.select_ingredient(item)
+	$QuantityInput.value = quantity
+	$CostInput.value = cost
+	super()
+
+
+func with_data(rarity:String, table:LootTable, data):
+	if data:
+		if data.has("item"): self.item = data.get("item")
+		else: self.item = ThistleRootResource
+		self.quantity = data.get("quantity", 0)
+		self.cost = data.get("cost", 0)
+	else:
+		self.item = ThistleRootResource
+		self.quantity = 0
+		self.cost = 0
+		table[rarity.to_lower()].append({
+			"id": get_id(),
+			"quantity": quantity,
+			"cost": cost,
+			"item": item
+		})
+	return super(rarity, table, data)
 
 
 func _on_rarity_changed(index):

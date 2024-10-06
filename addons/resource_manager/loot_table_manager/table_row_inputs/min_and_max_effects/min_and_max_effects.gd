@@ -15,21 +15,31 @@ const ABS_MAX = 50 # max effect value (negative will be used for min)
 func _on_add_button_pressed():
 	var selected_id = EffectOptions.selected
 	if selected_id < 0: return
-	## Add new effect editor row
 	var selected_key = EffectOptions.get_item_text(selected_id)
-	var new_row = EffectRow.instantiate().with_data(selected_key, ABS_MAX)
+	## Add row
+	add_row(selected_key, -ABS_MAX, ABS_MAX, selected_id)
+
+
+func add_row(selected_key:String, min_val:int, max_val:int, selected_id = null):
+	## Add new effect editor row
+	var new_row = EffectRow.instantiate().with_data(selected_key, ABS_MAX, min_val, max_val)
 	EffectContainer.add_child(new_row)
 	EffectContainer.move_child(new_row, EffectContainer.get_child_count() - 2)
 	if EffectContainer.get_child_count() >= 4: $EffectContainer/AddHBox.hide()
 	## Remove option from dropdown
+	if not selected_id:
+		for i in EffectOptions.item_count:
+			if EffectOptions.get_item_text(i) == selected_key:
+				selected_id = i
+				break
 	EffectOptions.remove_item(selected_id)
 	## Connect new row signals
 	new_row.connect("deleted", _on_row_deleted)
 	new_row.connect("min_changed", _on_min_effect_changed)
 	new_row.connect("max_changed", _on_max_effect_changed)
 	## Emit min and max changed with initial values
-	min_changed.emit(selected_key, -ABS_MAX)
-	max_changed.emit(selected_key, ABS_MAX)
+	min_changed.emit(selected_key, min_val)
+	max_changed.emit(selected_key, max_val)
 
 
 func _on_row_deleted(deleted_row_key:String):

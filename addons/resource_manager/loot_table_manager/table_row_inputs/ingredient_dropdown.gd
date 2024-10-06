@@ -12,11 +12,12 @@ func _ready():
 		# (they are loaded once they're selected)
 		var ingredient_name = path.get_file().get_basename().replace("_", " ").capitalize()
 		self.add_item(ingredient_name)
-	_on_item_selected(0)
+	select(0)
 
 
 func _on_item_selected(index):
 	var selected_name = get_item_text(index)
+	print("selected item ", selected_name)
 	var selected_id = selected_name.replace(" ", "_").to_lower()
 	var selected_ingredient = load(ResourcePaths.get_ingredient_path(selected_id))
 	ingredient_changed.emit(selected_ingredient)

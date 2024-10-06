@@ -9,12 +9,12 @@ signal max_changed(key:String, value:int)
 
 var effect_key:String
 
-func with_data(key:String, maximum_range:int):
+func with_data(key:String, maximum_range:int, min_value:int, max_value:int):
 	self.effect_key = key
 	$EffectSlider.effect_key = key
 	$EffectSlider.max = maximum_range
-	$EffectSlider.min_value = -maximum_range
-	$EffectSlider.max_value = maximum_range
+	$EffectSlider.min_value = min_value
+	$EffectSlider.max_value = max_value
 	return self
 
 
