@@ -64,6 +64,26 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 text = "Effects"
 
+[node name="ChoppableLabel" type="Label" parent="TableContainer/TableHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Can chop?"
+
+[node name="CrushableLabel" type="Label" parent="TableContainer/TableHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Can crush?"
+
+[node name="MeltableLabel" type="Label" parent="TableContainer/TableHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Can melt?"
+
+[node name="ConcentratableLabel" type="Label" parent="TableContainer/TableHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Can concentrate?"
+
 [node name="DeleteSpacer" type="Control" parent="TableContainer/TableHeader"]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2

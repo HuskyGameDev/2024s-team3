@@ -27,6 +27,10 @@ func _ready():
 	$ImageContainer/ImageLabel.texture = ingredient.image
 	try_load_image()
 	self.update_effect_summary()
+	$ChoppableCheck.button_pressed = ingredient.can_be_chopped
+	$CrushableCheck.button_pressed = ingredient.can_be_crushed
+	$MeltableCheck.button_pressed = ingredient.can_be_melted
+	$ConcentratableCheck.button_pressed = ingredient.can_be_concentrated
 
 
 ################# UPDATE INGREDIENT VALUES #################
@@ -51,6 +55,25 @@ func _on_name_changed(new_name:String):
 	else:
 		debounce_timer.time_left = DEBOUNCE_LENGTH
 
+## Triggered when choppable checkbox changes:
+func _on_choppable_check_toggled(toggled_on):
+	ingredient.can_be_chopped = toggled_on
+	ResourceSaver.save(ingredient, path)
+
+## Triggered when crushable checkbox changes:
+func _on_crushable_check_toggled(toggled_on):
+	ingredient.can_be_crushed = toggled_on
+	ResourceSaver.save(ingredient, path)
+
+## Triggered when meltable checkbox changes:
+func _on_meltable_check_toggled(toggled_on):
+	ingredient.can_be_melted = toggled_on
+	ResourceSaver.save(ingredient, path)
+
+## Triggered when concentratable checkbox changes:
+func _on_concentratable_check_toggled(toggled_on):
+	ingredient.can_be_concentrated = toggled_on
+	ResourceSaver.save(ingredient, path)
 
 ###################### OTHER HANDLING ######################
 ## Attempts to load an image with the same name as the resource

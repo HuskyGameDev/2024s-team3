@@ -49,6 +49,18 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 
+[node name="ChoppableCheck" type="CheckBox" parent="."]
+layout_mode = 2
+
+[node name="CrushableCheck" type="CheckBox" parent="."]
+layout_mode = 2
+
+[node name="MeltableCheck" type="CheckBox" parent="."]
+layout_mode = 2
+
+[node name="ConcentratableCheck" type="CheckBox" parent="."]
+layout_mode = 2
+
 [node name="DeleteButton" type="Button" parent="."]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
@@ -64,5 +76,9 @@ dialog_autowrap = true
 [connection signal="text_changed" from="DescriptionLabel" to="." method="_on_description_changed"]
 [connection signal="value_changed" from="StackSizeContainer/StackSizeLabel" to="." method="_on_stack_size_changed"]
 [connection signal="edit" from="CollapsedEffectView" to="." method="_on_effect_edit_pressed"]
+[connection signal="toggled" from="ChoppableCheck" to="." method="_on_choppable_check_toggled"]
+[connection signal="toggled" from="CrushableCheck" to="." method="_on_crushable_check_toggled"]
+[connection signal="toggled" from="MeltableCheck" to="." method="_on_meltable_check_toggled"]
+[connection signal="toggled" from="ConcentratableCheck" to="." method="_on_concentratable_check_toggled"]
 [connection signal="pressed" from="DeleteButton" to="." method="_on_delete_button_pressed"]
 [connection signal="confirmed" from="DeleteConfirmationDialog" to="." method="_on_delete_confirmed"]
