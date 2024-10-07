@@ -3,6 +3,7 @@ extends Node2D
 var current_effects: EffectSet = EffectSet.new()
 var has_ingredients: bool = false
 var volume: int = -20
+var making_potion: bool = false
 
 @onready var SpriteShader:ShaderMaterial = $Sprite.material
 
@@ -31,8 +32,10 @@ func _on_body_enter_cauldron(body):
 
 func _on_cauldron_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click"):
-		if has_ingredients: 
+		if has_ingredients && !making_potion: 
+			making_potion = true
 			$CauldronFinishPlayer.play(0.43)
+			await get_tree().create_timer(0.47).timeout
 			var potion = Potion.new()
 			potion.effects = current_effects
 			potion_made.emit(potion, self.global_position - Vector2(0, 100))
@@ -41,3 +44,4 @@ func _on_cauldron_input_event(_viewport, _event, _shape_idx):
 			volume = -20
 			$Bubbler.volume_db=volume
 			SpriteShader.set_shader_parameter("to", Plane(14.0/255.0, 175.0/255.0, 155.0/255.0, 1))
+			making_potion = false
