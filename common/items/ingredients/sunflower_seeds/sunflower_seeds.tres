@@ -5,10 +5,7 @@
 
 [resource]
 script = ExtResource("1_qnlhi")
-can_be_chopped = false
-can_be_crushed = false
-can_be_melted = false
-can_be_concentrated = false
+available_actions = 4
 id = "sunflower_seeds"
 name = "Sunflower Seeds"
 description = ""

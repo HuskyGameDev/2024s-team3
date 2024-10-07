@@ -20,10 +20,7 @@ swiftness_slowness = 0
 [resource]
 script = ExtResource("1_8yrtu")
 effects = SubResource("Resource_qmkd5")
-can_be_chopped = false
-can_be_crushed = false
-can_be_melted = false
-can_be_concentrated = false
+available_actions = 6
 id = "peppermint_leaves"
 name = "Peppermint Leaves"
 description = ""

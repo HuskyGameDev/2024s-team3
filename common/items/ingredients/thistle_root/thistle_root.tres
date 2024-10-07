@@ -20,10 +20,7 @@ swiftness_slowness = 0
 [resource]
 script = ExtResource("1_48uxn")
 effects = SubResource("Resource_tlhl7")
-can_be_chopped = false
-can_be_crushed = false
-can_be_melted = false
-can_be_concentrated = false
+available_actions = 8
 id = "thistle_root"
 name = "Thistle Root"
 description = ""

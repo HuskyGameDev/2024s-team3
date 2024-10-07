@@ -4,10 +4,7 @@
 
 [resource]
 script = ExtResource("1_82pcd")
-can_be_chopped = false
-can_be_crushed = false
-can_be_melted = false
-can_be_concentrated = false
+available_actions = 2
 id = "bat_wing"
 name = "Bat Wing"
 description = ""

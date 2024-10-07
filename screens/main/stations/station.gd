@@ -2,11 +2,14 @@ extends Node
 
 signal change_ingredient(ingredient:Ingredient, position:Vector2)
 
+@export var action: Ingredient.Actions
+
 @onready var center_of_station = self.position - Vector2(0, 80)
 
 func _on_body_enter_mortar(body):
 	if not "data" in body: return
 	if not body.data is Ingredient: return
+	if not body.data.can(action): return
 	
 	## Animate object movement to center of station
 	body.gravity_scale = 0

@@ -114,6 +114,7 @@ scale = Vector2(6, 6)
 [node name="MortarAndPestle" parent="." instance=ExtResource("10_i8f3a")]
 position = Vector2(1430, 888)
 scale = Vector2(3, 3)
+action = 1
 
 [node name="Ingredient" parent="." instance=ExtResource("10_7anjc")]
 position = Vector2(306, 890)

@@ -4,10 +4,7 @@
 
 [resource]
 script = ExtResource("1_qav88")
-can_be_chopped = false
-can_be_crushed = false
-can_be_melted = false
-can_be_concentrated = false
+available_actions = 4
 id = "frog_leg"
 name = "Frog Leg"
 description = ""

@@ -19,18 +19,23 @@ func with_data(path:String):
 
 ## Set values on load
 func _ready():
+	# Load ingredient resource
 	if not path: return
 	self.ingredient = ResourceLoader.load(path, "Ingredient")
+	
+	# Update labels
 	$NameLabel.text = ingredient.name
 	$DescriptionLabel.text = ingredient.description
 	$StackSizeContainer/StackSizeLabel.value = ingredient.stack_size
 	$ImageContainer/ImageLabel.texture = ingredient.image
 	try_load_image()
 	self.update_effect_summary()
-	$ChoppableCheck.button_pressed = ingredient.can_be_chopped
-	$CrushableCheck.button_pressed = ingredient.can_be_crushed
-	$MeltableCheck.button_pressed = ingredient.can_be_melted
-	$ConcentratableCheck.button_pressed = ingredient.can_be_concentrated
+	
+	# Update available action checkboxes
+	$ChoppableCheck.button_pressed = ingredient.available_actions & Ingredient.Actions.CHOP
+	$CrushableCheck.button_pressed = ingredient.available_actions & Ingredient.Actions.CRUSH
+	$MeltableCheck.button_pressed = ingredient.available_actions & Ingredient.Actions.MELT
+	$ConcentratableCheck.button_pressed = ingredient.available_actions & Ingredient.Actions.CONCENTRATE
 
 
 ################# UPDATE INGREDIENT VALUES #################
@@ -57,22 +62,34 @@ func _on_name_changed(new_name:String):
 
 ## Triggered when choppable checkbox changes:
 func _on_choppable_check_toggled(toggled_on):
-	ingredient.can_be_chopped = toggled_on
+	if toggled_on:
+		ingredient.available_actions |= Ingredient.Actions.CHOP
+	else:
+		ingredient.available_actions &= ~Ingredient.Actions.CHOP
 	ResourceSaver.save(ingredient, path)
 
 ## Triggered when crushable checkbox changes:
 func _on_crushable_check_toggled(toggled_on):
-	ingredient.can_be_crushed = toggled_on
+	if toggled_on:
+		ingredient.available_actions |= Ingredient.Actions.CRUSH
+	else:
+		ingredient.available_actions &= ~Ingredient.Actions.CRUSH
 	ResourceSaver.save(ingredient, path)
 
 ## Triggered when meltable checkbox changes:
 func _on_meltable_check_toggled(toggled_on):
-	ingredient.can_be_melted = toggled_on
+	if toggled_on:
+		ingredient.available_actions |= Ingredient.Actions.MELT
+	else:
+		ingredient.available_actions &= ~Ingredient.Actions.MELT
 	ResourceSaver.save(ingredient, path)
 
 ## Triggered when concentratable checkbox changes:
 func _on_concentratable_check_toggled(toggled_on):
-	ingredient.can_be_concentrated = toggled_on
+	if toggled_on:
+		ingredient.available_actions |= Ingredient.Actions.CONCENTRATE
+	else:
+		ingredient.available_actions &= ~Ingredient.Actions.CONCENTRATE
 	ResourceSaver.save(ingredient, path)
 
 ###################### OTHER HANDLING ######################
