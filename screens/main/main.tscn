@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=15 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://screens/main/main.gd" id="1_0ufrw"]
 [ext_resource type="Script" path="res://screens/main/customers/customer_factory.gd" id="2_dnvch"]
@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://co5klpgmvh2f6" path="res://screens/main/bell/bell.tscn" id="7_ykbkw"]
 [ext_resource type="PackedScene" uid="uid://bsgio2wgxwjd1" path="res://screens/main/pedestal/pedestal.tscn" id="8_mkd11"]
 [ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://common/items/ingredients/ingredient.tscn" id="10_7anjc"]
-[ext_resource type="Resource" uid="uid://b0pitbp00qp16" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="11_jgs4v"]
+[ext_resource type="PackedScene" uid="uid://bcdky2t6vai4k" path="res://screens/main/stations/mortar_and_pestle/mortar_and_pestle.tscn" id="10_i8f3a"]
+[ext_resource type="Resource" uid="uid://ev5xh66rxxvf" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="11_jgs4v"]
 [ext_resource type="PackedScene" uid="uid://cjjarcohy2vqe" path="res://screens/main/stations/cauldron/cauldron.tscn" id="12_rj1v1"]
 [ext_resource type="PackedScene" uid="uid://b6cq5upjosmpf" path="res://screens/main/ui/clock/new_clock.tscn" id="17_n5klg"]
 
@@ -110,9 +111,14 @@ position = Vector2(388, 546)
 position = Vector2(852, 840)
 scale = Vector2(6, 6)
 
+[node name="MortarAndPestle" parent="." instance=ExtResource("10_i8f3a")]
+position = Vector2(1430, 888)
+scale = Vector2(3, 3)
+
 [node name="Ingredient" parent="." instance=ExtResource("10_7anjc")]
 position = Vector2(306, 890)
 data = ExtResource("11_jgs4v")
 
 [connection signal="customer_created" from="CustomerFactory" to="." method="_on_new_customer"]
 [connection signal="potion_made" from="Cauldron" to="." method="_on_item_made"]
+[connection signal="change_ingredient" from="MortarAndPestle" to="." method="_on_item_made"]
