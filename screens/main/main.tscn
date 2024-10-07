@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=17 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://screens/main/main.gd" id="1_0ufrw"]
 [ext_resource type="Script" path="res://screens/main/customers/customer_factory.gd" id="2_dnvch"]
@@ -8,8 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://co5klpgmvh2f6" path="res://screens/main/bell/bell.tscn" id="7_ykbkw"]
 [ext_resource type="PackedScene" uid="uid://bsgio2wgxwjd1" path="res://screens/main/pedestal/pedestal.tscn" id="8_mkd11"]
 [ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://common/items/ingredients/ingredient.tscn" id="10_7anjc"]
-[ext_resource type="Resource" uid="uid://b0pitbp00qp16" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="11_jgs4v"]
+[ext_resource type="AudioStream" uid="uid://c0waok65gg0j2" path="res://common/audio/Cauldron_Boil.wav" id="11_1lx0d"]
+[ext_resource type="Resource" uid="uid://ev5xh66rxxvf" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="11_jgs4v"]
+[ext_resource type="AudioStream" uid="uid://dty3w32qgyj7x" path="res://common/audio/Finish_Potion.wav" id="12_1kaeq"]
 [ext_resource type="PackedScene" uid="uid://cjjarcohy2vqe" path="res://screens/main/stations/cauldron/cauldron.tscn" id="12_rj1v1"]
+[ext_resource type="AudioStream" uid="uid://c15f6o3xw0kvx" path="res://common/audio/BYB_Amb_Shop_Draft.wav" id="14_wjql5"]
 [ext_resource type="PackedScene" uid="uid://b6cq5upjosmpf" path="res://screens/main/ui/clock/new_clock.tscn" id="17_n5klg"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1fgwd"]
@@ -110,9 +113,23 @@ position = Vector2(388, 546)
 position = Vector2(852, 840)
 scale = Vector2(6, 6)
 
+[node name="CauldronFinishPlayer" type="AudioStreamPlayer" parent="Cauldron"]
+stream = ExtResource("12_1kaeq")
+volume_db = -10.0
+
+[node name="Bubbler" type="AudioStreamPlayer" parent="Cauldron"]
+stream = ExtResource("11_1lx0d")
+volume_db = -20.0
+autoplay = true
+
 [node name="Ingredient" parent="." instance=ExtResource("10_7anjc")]
 position = Vector2(306, 890)
 data = ExtResource("11_jgs4v")
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_wjql5")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="customer_created" from="CustomerFactory" to="." method="_on_new_customer"]
 [connection signal="potion_made" from="Cauldron" to="." method="_on_item_made"]
