@@ -1,7 +1,9 @@
 extends Node2D
 
-var currentEffects: EffectSet = EffectSet.new()
-var hasIngredients: bool = false
+var current_effects: EffectSet = EffectSet.new()
+var has_ingredients: bool = false
+
+@onready var SpriteShader:ShaderMaterial = $Sprite.material
 
 signal potion_made(potion: Potion, pos: Vector2)
 
@@ -17,16 +19,17 @@ func _on_body_enter_cauldron(body):
 	tween.tween_property(body, "global_position", top_of_cauldron, time_to_animate).from(ingredient_position)
 	await tween.finished
 	## Add effects to cauldron's potion
-	hasIngredients = true
-	currentEffects.add(body.data.effects)
+	has_ingredients = true
+	current_effects.add(body.data.effects)
+	SpriteShader.set_shader_parameter("to", current_effects.get_color())
 	body.queue_free()
 
 
 func _on_cauldron_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click"):
-		if hasIngredients: 
+		if has_ingredients: 
 			var potion = Potion.new()
-			potion.effects = currentEffects
+			potion.effects = current_effects
 			potion_made.emit(potion, self.global_position - Vector2(0, 100))
-			hasIngredients = false
-			currentEffects = EffectSet.new()
+			has_ingredients = false
+			current_effects = EffectSet.new()

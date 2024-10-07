@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://j8m7twk4fnff"]
+
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_0mrkm"]
+
+[resource]
+script = ExtResource("1_0mrkm")
+id = "owl_feather"
+name = "Owl Feather"
+description = ""
+stack_size = 5

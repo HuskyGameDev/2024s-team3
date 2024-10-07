@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://bnuo2vk53o1td"]
+
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_ps7r8"]
+
+[resource]
+script = ExtResource("1_ps7r8")
+id = "poison_ivy"
+name = "Poison Ivy"
+description = ""
+stack_size = 5
