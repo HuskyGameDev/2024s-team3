@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=4 format=3 uid="uid://da58pftrs38ng"]
+
+[ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_dqpy8"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_imagq"]
+
+[sub_resource type="Resource" id="Resource_8ll31"]
+script = ExtResource("1_dqpy8")
+healing_poison = 0
+warm_cold = 0
+calming_agitation = 0
+strength_weakness = -10
+energy_fatigue = 0
+light_dark = 0
+luck_misfortune = 0
+clarity_confusion = 0
+defense_vulnerability = -5
+swiftness_slowness = 0
+
+[resource]
+script = ExtResource("1_imagq")
+effects = SubResource("Resource_8ll31")
+available_actions = 0
+id = "poison_ivy"
+name = "Poison Ivy"
+description = "Saps strength, leaving you exposed"
+stack_size = 5

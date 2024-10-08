@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://blcdwe4m4a47o"]
+
+[ext_resource type="Script" path="res://addons/resource_manager/location_manager/location_panel.gd" id="1_jd1ar"]
+[ext_resource type="Texture2D" uid="uid://qkcv01fcymue" path="res://addons/resource_manager/icons/refresh_icon.png" id="2_8fpis"]
+[ext_resource type="Texture2D" uid="uid://dt8lneechbqjj" path="res://addons/resource_manager/icons/add_icon.png" id="3_kitdk"]
+
+[node name="LocationPanel" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+script = ExtResource("1_jd1ar")
+
+[node name="TitleHBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ResourceTypeLabel" type="Label" parent="TitleHBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Locations"
+
+[node name="RefreshButton" type="Button" parent="TitleHBox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Refresh"
+icon = ExtResource("2_8fpis")
+icon_alignment = 2
+
+[node name="TableBody" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="AddHBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="AddNameEdit" type="LineEdit" parent="AddHBox"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+placeholder_text = "Location Name"
+expand_to_text_length = true
+
+[node name="AddButton" type="Button" parent="AddHBox"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Add"
+icon = ExtResource("3_kitdk")
+alignment = 0
+
+[connection signal="pressed" from="TitleHBox/RefreshButton" to="." method="_on_refresh_button_pressed"]
+[connection signal="pressed" from="AddHBox/AddButton" to="." method="_on_add_button_pressed"]

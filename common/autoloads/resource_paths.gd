@@ -1,35 +1,53 @@
+@tool
 extends Node
 
 var location_file_paths: Dictionary = {}
-var potion_file_paths: Dictionary = {}
 var ingredient_file_paths: Dictionary = {}
 var customer_sprites: Array[Texture2D] = []
+var potion_sprites: Array[Texture2D] = []
+
+@onready var regex = RegEx.new()
 
 ####################### SETUP #######################
 func _ready():
-	## Get all resource files
-	var location_paths = _get_all_paths_with_extension("res://common/locations", ".tres")
-	var potion_paths = _get_all_paths_with_extension("res://common/items/potions", ".tres")
-	var ingredient_paths = _get_all_paths_with_extension("res://common/items/ingredients", ".tres")
-	
-	## Add the paths to the dictionary
-	var regex = RegEx.new()
 	regex.compile("^res:\\/\\/.+\\/(?'id'[0-9_[:lower:]]+)\\.tres.*$")
-	for path in location_paths:
-		var result = regex.search(path)
-		if result: location_file_paths[result.get_string("id")] = path
-	for path in potion_paths:
-		var result = regex.search(path)
-		if result: potion_file_paths[result.get_string("id")] = path
-	for path in ingredient_paths:
-		var result = regex.search(path)
-		if result: ingredient_file_paths[result.get_string("id")] = path
+	## Find all resources
+	update_ingredient_paths()
+	update_location_paths()
 	
 	## Get all customer sprite files
 	var customer_sprite_paths = _get_all_paths_with_extension("res://screens/main/customers/generic_sprites", ".png")
 	## Add the images to the array
 	for path in customer_sprite_paths:
 		customer_sprites.push_back(load(path))
+	
+	
+	## Get all potion sprite files
+	var potion_sprite_paths = _get_all_paths_with_extension("res://common/items/potions", ".png")
+	## Add the images to the array
+	for path in potion_sprite_paths:
+		potion_sprites.push_back(load(path))
+
+
+func update_ingredient_paths():
+	## Clear old paths
+	ingredient_file_paths = {}
+	## Get all resource files
+	var ingredient_paths = _get_all_paths_with_extension("res://common/items/ingredients", ".tres")
+	## Add the paths to the dictionary
+	for path in ingredient_paths:
+		var result = regex.search(path)
+		if result: ingredient_file_paths[result.get_string("id")] = path
+
+func update_location_paths():
+	## Clear old paths
+	location_file_paths = {}
+	## Get all resource files
+	var location_paths = _get_all_paths_with_extension("res://common/locations", ".tres")
+	## Add the paths to the dictionary
+	for path in location_paths:
+		var result = regex.search(path)
+		if result: location_file_paths[result.get_string("id")] = path
 
 
 func _get_all_paths_with_extension(path: String, extension: String) -> Array[String]:  
@@ -51,8 +69,6 @@ func _get_all_paths_with_extension(path: String, extension: String) -> Array[Str
 func get_resource_path(id: String):
 	if id in location_file_paths:
 		return location_file_paths[id]
-	elif id in potion_file_paths:
-		return potion_file_paths[id]
 	elif id in ingredient_file_paths:
 		return ingredient_file_paths[id]
 	else: return null
@@ -60,11 +76,6 @@ func get_resource_path(id: String):
 func get_location_path(id: String):
 	if id in location_file_paths:
 		return location_file_paths[id]
-	else: return null
-
-func get_potion_path(id: String):
-	if id in potion_file_paths:
-		return potion_file_paths[id]
 	else: return null
 
 func get_ingredient_path(id: String):
@@ -76,13 +87,23 @@ func get_ingredient_path(id: String):
 func get_all_location_paths() -> Array:
 	return location_file_paths.values()
 
-func get_all_potion_paths() -> Array:
-	return potion_file_paths.values()
-
 func get_all_ingredient_paths() -> Array:
 	return ingredient_file_paths.values()
+
+
+## for example: nightshade_petals returns chopped_nightshade_petals, crushed_nightshade_petals
+func get_all_ingredient_variant_paths(id: String) -> Array:
+	var ingredient_path = get_ingredient_path(id)
+	var ingredient_dir = ingredient_path.get_base_dir()
+	var paths = _get_all_paths_with_extension(ingredient_dir, ".tres")
+	paths.erase(ingredient_path)
+	return paths
 
 
 func get_random_customer_sprite() -> Texture2D:
 	randomize()
 	return customer_sprites[randi() % customer_sprites.size()]
+
+func get_random_potion_sprite() -> Texture2D:
+	randomize()
+	return potion_sprites[randi() % potion_sprites.size()]

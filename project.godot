@@ -33,6 +33,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="Baba Yaga-s Bottles"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/resource_manager/plugin.cfg")
+
 [filesystem]
 
 import/blender/enabled=false

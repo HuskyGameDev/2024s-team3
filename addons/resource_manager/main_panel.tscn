@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://be7e3ar0l6sy8"]
+
+[ext_resource type="PackedScene" uid="uid://cxxm50aaiqxea" path="res://addons/resource_manager/ingredient_manager/ingredient_panel.tscn" id="1_bf41n"]
+[ext_resource type="PackedScene" uid="uid://blcdwe4m4a47o" path="res://addons/resource_manager/location_manager/location_panel.tscn" id="2_t7nyc"]
+
+[node name="MainPanel" type="TabContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Ingredients" parent="." instance=ExtResource("1_bf41n")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Locations" parent="." instance=ExtResource("2_t7nyc")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1

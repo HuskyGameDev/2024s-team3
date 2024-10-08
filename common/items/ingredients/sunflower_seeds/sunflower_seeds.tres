@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=5 format=3 uid="uid://nok13x58s6pp"]
+
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_1hsao"]
+[ext_resource type="Texture2D" uid="uid://cehw6r5kms0fr" path="res://common/items/ingredients/sunflower_seeds/sunflower_seeds.png" id="1_ccx8u"]
+[ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_pujlh"]
+
+[sub_resource type="Resource" id="Resource_uaxck"]
+script = ExtResource("1_pujlh")
+healing_poison = 0
+warm_cold = 5
+calming_agitation = 0
+strength_weakness = 0
+energy_fatigue = 5
+light_dark = 10
+luck_misfortune = 0
+clarity_confusion = 0
+defense_vulnerability = 0
+swiftness_slowness = 0
+
+[resource]
+script = ExtResource("1_1hsao")
+effects = SubResource("Resource_uaxck")
+available_actions = 0
+id = "sunflower_seeds"
+name = "Sunflower Seeds"
+description = "Radiant light with a gentle warmth"
+stack_size = 5
+image = ExtResource("1_ccx8u")

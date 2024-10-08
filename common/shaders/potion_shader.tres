@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bvnj6sjxlk4q3"]
+
+[ext_resource type="Shader" path="res://common/shaders/hue_swap.gdshader" id="1_nop4w"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_nop4w")
+shader_parameter/from = Color(0.0588235, 0.686275, 0.607843, 1)
+shader_parameter/to = Color(0.0588235, 0.686275, 0.607843, 1)
+shader_parameter/tolerance = 0.2

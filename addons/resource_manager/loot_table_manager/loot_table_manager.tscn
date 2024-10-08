@@ -1,0 +1,132 @@
+[gd_scene load_steps=5 format=3 uid="uid://6napilcwy6ap"]
+
+[ext_resource type="StyleBox" uid="uid://cnna6tdmlm4y6" path="res://addons/resource_manager/dark_editor_panels.tres" id="1_qxh25"]
+[ext_resource type="Texture2D" uid="uid://d2otenkl6fqms" path="res://addons/resource_manager/icons/back_icon.png" id="2_4lxdy"]
+[ext_resource type="Script" path="res://addons/resource_manager/loot_table_manager/loot_table_manager.gd" id="2_6goic"]
+[ext_resource type="Texture2D" uid="uid://dt8lneechbqjj" path="res://addons/resource_manager/icons/add_icon.png" id="4_xa84f"]
+
+[node name="LootTableManager" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("1_qxh25")
+script = ExtResource("2_6goic")
+
+[node name="Content" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Header" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="BackButton" type="Button" parent="Content/Header"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+icon = ExtResource("2_4lxdy")
+
+[node name="Spacer" type="Control" parent="Content/Header"]
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+
+[node name="LootTableTypeLabel" type="Label" parent="Content/Header"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Loot Table Type"
+
+[node name="LocationNameLabel" type="Label" parent="Content/Header"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "(Location Name)"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Content"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Content/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_right = 128
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content/ScrollContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="CommonLabel" type="Label" parent="Content/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Common"
+
+[node name="CommonVBox" type="VBoxContainer" parent="Content/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AddCommonButton" type="Button" parent="Content/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Add to common"
+icon = ExtResource("4_xa84f")
+alignment = 0
+
+[node name="UncommonLabel" type="Label" parent="Content/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Uncommon"
+
+[node name="UncommonVBox" type="VBoxContainer" parent="Content/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AddUncommonButton" type="Button" parent="Content/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Add to uncommon"
+icon = ExtResource("4_xa84f")
+alignment = 0
+
+[node name="RareLabel" type="Label" parent="Content/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Rare"
+
+[node name="RareVBox" type="VBoxContainer" parent="Content/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AddRareButton" type="Button" parent="Content/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Add to rare"
+icon = ExtResource("4_xa84f")
+alignment = 0
+
+[node name="LegendaryLabel" type="Label" parent="Content/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Legendary"
+
+[node name="LegendaryVBox" type="VBoxContainer" parent="Content/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AddLegendaryButton" type="Button" parent="Content/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Add to legendary"
+icon = ExtResource("4_xa84f")
+alignment = 0
+
+[connection signal="pressed" from="Content/Header/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Content/ScrollContainer/MarginContainer/VBoxContainer/AddCommonButton" to="." method="_on_add_row_pressed" binds= ["Common"]]
+[connection signal="pressed" from="Content/ScrollContainer/MarginContainer/VBoxContainer/AddUncommonButton" to="." method="_on_add_row_pressed" binds= ["Uncommon"]]
+[connection signal="pressed" from="Content/ScrollContainer/MarginContainer/VBoxContainer/AddRareButton" to="." method="_on_add_row_pressed" binds= ["Rare"]]
+[connection signal="pressed" from="Content/ScrollContainer/MarginContainer/VBoxContainer/AddLegendaryButton" to="." method="_on_add_row_pressed" binds= ["Legendary"]]

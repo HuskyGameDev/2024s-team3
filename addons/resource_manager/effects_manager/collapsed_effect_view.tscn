@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhpamtp22am52"]
+
+[ext_resource type="Script" path="res://addons/resource_manager/effects_manager/collapsed_effect_view.gd" id="1_2dyhb"]
+[ext_resource type="StyleBox" uid="uid://j3jo4bj0qur3" path="res://addons/resource_manager/editor_panels.tres" id="1_6a72o"]
+[ext_resource type="Texture2D" uid="uid://o1bqc2v0mrop" path="res://addons/resource_manager/icons/edit_icon.png" id="2_cdwf5"]
+
+[node name="CollapsedEffectView" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_styles/panel = ExtResource("1_6a72o")
+script = ExtResource("1_2dyhb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CollapsedContainer" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+autowrap_mode = 2
+
+[node name="EditButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+toggle_mode = true
+icon = ExtResource("2_cdwf5")
+
+[connection signal="pressed" from="HBoxContainer/EditButton" to="." method="_on_edit_button_pressed"]
