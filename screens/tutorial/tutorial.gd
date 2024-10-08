@@ -28,7 +28,7 @@ func _ready():
 	main_node.get_node("Cauldron/ValidArea").connect("body_entered", _on_ingredient_added)
 	main_node.get_node("Cauldron").connect("potion_made", _on_potion_made)
 	main_node.get_node("InventoryDrawer").connect("inventory_open", _on_inventory_open)
-	#main_node.get_node("Bell").connect("pressed", _on_potion_sold)
+	main_node.get_node("BellButton").connect("pressed", _on_potion_sold)
 	
 	## Set visibility
 	nightshade_text.visible = true

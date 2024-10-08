@@ -8,7 +8,6 @@ func _ready():
 	GameTime.end_of_day.connect(func(): get_tree().change_scene_to_file("res://screens/night_menu/menu/night_menu.tscn"));
 	
 	$Pedestal/ShelfSlot.connect("items_changed", _on_selling_potion_change)
-	#$Bell/BellButton.connect("pressed", _on_ring_bell)
 
 
 func _on_shelf_body_entered(body):

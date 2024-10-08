@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=15 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://screens/main/main.gd" id="1_0ufrw"]
 [ext_resource type="Script" path="res://screens/main/customers/customer_factory.gd" id="2_dnvch"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://br236elfur261" path="res://screens/main/ui/inventory/drawer.tscn" id="5_nl71h"]
 [ext_resource type="PackedScene" uid="uid://bsgio2wgxwjd1" path="res://screens/main/pedestal/pedestal.tscn" id="8_mkd11"]
 [ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://common/items/ingredients/ingredient.tscn" id="10_7anjc"]
-[ext_resource type="PackedScene" uid="uid://bcdky2t6vai4k" path="res://screens/main/stations/mortar_and_pestle/mortar_and_pestle.tscn" id="10_i8f3a"]
 [ext_resource type="Resource" uid="uid://djqumbpv7xrlh" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="11_jgs4v"]
 [ext_resource type="PackedScene" uid="uid://cjjarcohy2vqe" path="res://screens/main/stations/cauldron/cauldron.tscn" id="12_rj1v1"]
 [ext_resource type="Texture2D" uid="uid://b18cm5tr1tqr8" path="res://screens/main/bell/bell_outer.png" id="13_x0440"]
@@ -109,11 +108,6 @@ position = Vector2(388, 546)
 position = Vector2(852, 840)
 scale = Vector2(6, 6)
 
-[node name="MortarAndPestle" parent="." instance=ExtResource("10_i8f3a")]
-position = Vector2(1430, 888)
-scale = Vector2(3, 3)
-action = 4
-
 [node name="Ingredient" parent="." instance=ExtResource("10_7anjc")]
 position = Vector2(306, 890)
 data = ExtResource("11_jgs4v")
@@ -133,5 +127,4 @@ stretch_mode = 5
 
 [connection signal="customer_created" from="CustomerFactory" to="." method="_on_new_customer"]
 [connection signal="potion_made" from="Cauldron" to="." method="_on_item_made"]
-[connection signal="change_ingredient" from="MortarAndPestle" to="." method="_on_item_made"]
 [connection signal="pressed" from="BellButton" to="." method="_on_ring_bell"]
