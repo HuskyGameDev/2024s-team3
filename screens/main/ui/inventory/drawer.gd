@@ -23,15 +23,14 @@ func _ready():
 		if inv_data[i]["Item"] != null: #if it has somthing in it, save those attributes to the slot
 			var quantity = str(inv_data[i]["Quantity"])
 			var item_name = str(inv_data[i]["Item"])
-			var path = "res://common/items/ingredients/" + str(item_name) + "/" + str(item_name) + ".tres"
-			var resource = ResourceLoader.load(path)
+			var resource = ResourceLoader.load(ResourcePaths.get_ingredient_path(item_name))
 			inv_slot_new.get_node("Icon").set_texture(resource.image)
 			inv_slot_new.get_node("Icon/Quantity").set_text(quantity)
-			
- #gets the plot the mouse is dragging something that is already in the inventory to
+
+#gets the plot the mouse is dragging something that is already in the inventory to
 func _get_dragging(inv_slot):
 	dragSlot = inv_slot
-	
+
 #if we drag something outside of the inventory, make that object in the scene
 func _notification(notification_type): 
 	match notification_type:
@@ -55,7 +54,6 @@ func Insert(item : Resource, quantity : int):
 	var index = 0;
 	inv_data = PlayerData.read_inv()	
 	for slot in  gridcontainer.get_children(): #find next available slot to put item
-		
 		var slotAmount = inv_data[slot.name]["Quantity"]
 		if inv_data[slot.name]["Item"] == item.id && slotAmount != item.stack_size: #if this ingredient already exists in inventory
 			if slotAmount + quantity > item.stack_size: #if adding this quantity to the amount in the stack would be larger than stack size

@@ -53,6 +53,20 @@ func load_game() -> SaveGameFile:
 	else:
 		print("error reading save file")
 		return SaveGameFile.new()
+		load_game_files()
+
+func load_game_files():
+	## Load all variables from file
+	if FileAccess.file_exists(SAVE_LOCATION):
+		var save_file = FileAccess.open(SAVE_LOCATION, FileAccess.READ)
+		var save_data = JSON.parse_string(save_file.get_as_text())
+		if save_data:
+			money = save_data.get("money")
+			reputation = save_data.get("reputation")
+			var location_id = save_data.get("location")
+			if location_id: location = ResourceLoader.load(ResourcePaths.get_location_path(location_id))
+			tutorial_complete = save_data.get("tutorial_complete")
+		save_file.close()
 
 func read_inv(): #reads temporoay inventory to output
 	var file = FileAccess.open(TEMP_INV_LOCATION, FileAccess.READ)
@@ -64,8 +78,7 @@ func write_inv(data): # writes input to temporary inventory
 	var file = FileAccess.open(TEMP_INV_LOCATION, FileAccess.WRITE)
 	file.store_string(JSON.stringify(data))
 	file.close()
-	return 
-	
+
 func create_new_inv(): #creates inventory and fills it with the contents of temp
 	var temp_file = FileAccess.open(TEMP_INV_LOCATION, FileAccess.READ)
 	var content = JSON.parse_string(temp_file.get_as_text())
