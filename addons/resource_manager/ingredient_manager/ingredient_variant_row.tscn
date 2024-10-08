@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://4m2y5k6q347u"]
+
+[ext_resource type="PackedScene" uid="uid://dh4khcpxe6ho6" path="res://addons/resource_manager/ingredient_manager/ingredient_row.tscn" id="1_ltsjd"]
+[ext_resource type="Script" path="res://addons/resource_manager/ingredient_manager/ingredient_variant_row.gd" id="2_qfe5f"]
+
+[node name="IngredientRow" instance=ExtResource("1_ltsjd")]
+script = ExtResource("2_qfe5f")
+
+[node name="Spacer" type="Control" parent="." index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="NameLabel" parent="." index="2"]
+size_flags_stretch_ratio = 1.75
+editable = false
+
+[node name="Spacer2" type="Control" parent="." index="10"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="DeleteButton" parent="." index="11"]
+visible = false
+
+[node name="DeleteConfirmationDialog" parent="." index="12"]
+size = Vector2i(200, 132)
