@@ -91,6 +91,15 @@ func get_all_ingredient_paths() -> Array:
 	return ingredient_file_paths.values()
 
 
+## for example: nightshade_petals returns chopped_nightshade_petals, crushed_nightshade_petals
+func get_all_ingredient_variant_paths(id: String) -> Array:
+	var ingredient_path = get_ingredient_path(id)
+	var ingredient_dir = ingredient_path.get_base_dir()
+	var paths = _get_all_paths_with_extension(ingredient_dir, ".tres")
+	paths.erase(ingredient_path)
+	return paths
+
+
 func get_random_customer_sprite() -> Texture2D:
 	randomize()
 	return customer_sprites[randi() % customer_sprites.size()]

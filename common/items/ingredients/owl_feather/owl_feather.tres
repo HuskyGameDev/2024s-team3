@@ -19,6 +19,7 @@ swiftness_slowness = 0
 [resource]
 script = ExtResource("1_pa7nx")
 effects = SubResource("Resource_8vfgc")
+available_actions = 0
 id = "owl_feather"
 name = "Owl Feather"
 description = "Clears the mind, fortune favors you"

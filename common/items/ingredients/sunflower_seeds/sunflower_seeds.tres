@@ -20,6 +20,7 @@ swiftness_slowness = 0
 [resource]
 script = ExtResource("1_1hsao")
 effects = SubResource("Resource_uaxck")
+available_actions = 0
 id = "sunflower_seeds"
 name = "Sunflower Seeds"
 description = "Radiant light with a gentle warmth"

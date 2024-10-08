@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcdky2t6vai4k"]
+
+[ext_resource type="Script" path="res://screens/main/stations/station.gd" id="1_nj2se"]
+[ext_resource type="Material" uid="uid://bvnj6sjxlk4q3" path="res://common/shaders/potion_shader.tres" id="2_jsy22"]
+[ext_resource type="Texture2D" uid="uid://c1na8wlk3ld7h" path="res://common/icon.svg" id="3_gt7jf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xffkm"]
+radius = 40.0
+height = 90.0
+
+[node name="MortarAndPestle" type="Node2D"]
+script = ExtResource("1_nj2se")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = ExtResource("2_jsy22")
+position = Vector2(-2, 8)
+texture = ExtResource("3_gt7jf")
+
+[node name="ValidArea" type="Area2D" parent="."]
+position = Vector2(0, 3)
+collision_layer = 0
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ValidArea"]
+shape = SubResource("CapsuleShape2D_xffkm")
+
+[node name="CollisonArea" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisonArea"]
+position = Vector2(-1, 29)
+polygon = PackedVector2Array(-26, -7, -62, -1, -62, 18, -56, 39, -20, 40, 14, 40, 56, 40, 62, 21, 62, 1, 24, -9, 19, -4, 9, -2, -10, -2, -20, -4)
+
+[connection signal="body_entered" from="ValidArea" to="." method="_on_body_enter_mortar"]

@@ -20,6 +20,7 @@ swiftness_slowness = 0
 [resource]
 script = ExtResource("1_cjk3h")
 effects = SubResource("Resource_rugig")
+available_actions = 4
 id = "thistle_root"
 name = "Thistle Root"
 description = "Grants strength but drains endurance"
