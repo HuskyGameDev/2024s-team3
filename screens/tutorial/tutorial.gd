@@ -17,11 +17,6 @@ extends Node
 var active_step = 0
 
 func _ready():
-	## Setup player inventory
-	var thistleroot_slot = InventorySlot.new()
-	thistleroot_slot.item = load(ResourcePaths.get_ingredient_path("thistle_root"))
-	thistleroot_slot.quantity = 1
-	PlayerData.inventory[0] = thistleroot_slot
 	
 	## Connect signals
 	var main_node:Node2D = get_parent()

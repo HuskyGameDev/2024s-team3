@@ -10,7 +10,8 @@ var collider: CollisionShape2D
 var default_collison_layer: int
 var holding_collision_layer: int
 var shelf_collision_layer: int = 20
-
+var shelf = false # true if ingredient is on shelf
+@onready var main = get_parent() # main scene
 
 func _ready():
 	timer = Timer.new()

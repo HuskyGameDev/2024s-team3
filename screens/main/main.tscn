@@ -37,13 +37,13 @@ scale = Vector2(6, 6)
 position = Vector2(160, 90)
 texture = ExtResource("2_u1ul0")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Room"]
+[node name="Shelf" type="StaticBody2D" parent="Room"]
 position = Vector2(117.333, 109.333)
 scale = Vector2(0.166667, 0.166667)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Shelf"]
 position = Vector2(-710, 8)
 shape = SubResource("SegmentShape2D_1fgwd")
 one_way_collision = true
@@ -113,6 +113,8 @@ scale = Vector2(6, 6)
 
 [node name="Ingredient" parent="." instance=ExtResource("10_7anjc")]
 position = Vector2(306, 890)
+contact_monitor = false
+max_contacts_reported = 0
 data = ExtResource("11_jgs4v")
 
 [node name="EndDayAndSkip" parent="." instance=ExtResource("13_yll6s")]
