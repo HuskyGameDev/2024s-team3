@@ -7,7 +7,7 @@ const END_LOCATION = Vector2(-650, 500)
 
 
 var data: Customer
-var walk_speed: float = 0.25
+var walk_speed: float = 0.5
 
 
 func with_data(data: Customer):
@@ -17,4 +17,12 @@ func with_data(data: Customer):
 
 
 func _ready():
-	self.global_position = ONSCREEN_LOCATION
+	self.global_position = START_LOCATION
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "global_position", ONSCREEN_LOCATION, walk_speed)
+
+
+func leave_store():
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "global_position", END_LOCATION, walk_speed)
+	tween.tween_callback(self.queue_free)

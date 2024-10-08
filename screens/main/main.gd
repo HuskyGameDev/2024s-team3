@@ -3,6 +3,8 @@ class_name Main_Screen extends Screen
 var packed_potion_scene = preload("res://common/items/potions/potion.tscn")
 var packed_ingredient_scene = preload("res://common/items/ingredients/ingredient.tscn")
 
+@onready var CustomerFactory:Node = $CustomerFactory
+
 func _ready():
 	var drawer = get_node("InventoryDrawer")
 
@@ -28,10 +30,11 @@ func _on_selling_potion_change(potionNode: Array[DraggableObject], newPotion: Po
 
 func _on_ring_bell():
 	if sellingPotion:
-		var took_potion = $CustomerFactory.handle_purchase(sellingPotion)
+		var took_potion = CustomerFactory.handle_purchase(sellingPotion)
 		if took_potion: 
 			sellingPotion = null
 			sellingPotionNode.queue_free()
+			CustomerFactory.create_customer()
 
 ##################### STATION HANDLERS #####################
 func _on_item_made(item: Item, pos: Vector2, throw: bool = true):

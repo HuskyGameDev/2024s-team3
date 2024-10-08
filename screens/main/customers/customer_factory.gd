@@ -3,6 +3,7 @@ extends Node
 var packed_customer_scene = preload("res://screens/main/customers/customer.tscn")
 
 var current_customer: Customer
+var customer_node: Node
 
 signal customer_created(customer: Customer)
 
@@ -15,7 +16,7 @@ func create_customer():
 	current_customer = Customer.new()
 	current_customer.order = PlayerData.location.customer_request_table.get_one_random()
 	
-	var customer_node = packed_customer_scene.instantiate().with_data(current_customer)
+	customer_node = packed_customer_scene.instantiate().with_data(current_customer)
 	add_child(customer_node)
 
 
@@ -26,4 +27,5 @@ func handle_purchase(potion: Potion) -> bool:
 		print_debug("Thanks for the potion")
 	else:
 		print_debug("This is the wrong potion")
+	customer_node.leave_store()
 	return true

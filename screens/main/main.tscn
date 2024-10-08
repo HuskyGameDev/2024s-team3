@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=16 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://screens/main/main.gd" id="1_0ufrw"]
 [ext_resource type="Script" path="res://screens/main/customers/customer_factory.gd" id="2_dnvch"]
@@ -121,7 +121,6 @@ position = Vector2(388, 546)
 [node name="Cauldron" parent="." instance=ExtResource("12_rj1v1")]
 position = Vector2(852, 840)
 scale = Vector2(6, 6)
-
 
 [node name="InventoryDrawer" parent="." instance=ExtResource("5_nl71h")]
 custom_minimum_size = Vector2(600, 690)

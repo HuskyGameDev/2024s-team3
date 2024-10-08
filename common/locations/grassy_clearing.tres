@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Location" load_steps=13 format=3 uid="uid://6f3wlnhafskf"]
+[gd_resource type="Resource" script_class="Location" load_steps=30 format=3 uid="uid://6f3wlnhafskf"]
 
 [ext_resource type="Resource" uid="uid://c3prs0652gh3c" path="res://common/items/ingredients/thistle_root/thistle_root.tres" id="1_082nk"]
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="1_rd6f5"]
@@ -6,10 +6,18 @@
 [ext_resource type="Resource" uid="uid://djqumbpv7xrlh" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="2_hop5k"]
 [ext_resource type="Script" path="res://common/items/effect_type.gd" id="2_uo00g"]
 [ext_resource type="Script" path="res://screens/main/customers/customer_order_type.gd" id="3_afg8h"]
+[ext_resource type="Resource" uid="uid://bjhii562qg2fn" path="res://common/items/ingredients/peppermint_leaves/peppermint_leaves.tres" id="6_5qfir"]
+[ext_resource type="Resource" uid="uid://cbwcla8csqs4x" path="res://common/items/ingredients/eye_of_a_newt/eye_of_a_newt.tres" id="7_hwtfn"]
+[ext_resource type="Resource" uid="uid://da58pftrs38ng" path="res://common/items/ingredients/poison_ivy/poison_ivy.tres" id="8_olgs1"]
+[ext_resource type="Resource" uid="uid://ct02wgym7kn2l" path="res://common/items/ingredients/pine_resin/pine_resin.tres" id="9_1l2rb"]
+[ext_resource type="Resource" uid="uid://cg03gk336r6p6" path="res://common/items/ingredients/frog_leg/frog_leg.tres" id="10_wdi41"]
+[ext_resource type="Resource" uid="uid://nok13x58s6pp" path="res://common/items/ingredients/sunflower_seeds/sunflower_seeds.tres" id="11_qv776"]
+[ext_resource type="Resource" uid="uid://4foau6bfx00o" path="res://common/items/ingredients/bat_wing/bat_wing.tres" id="12_bdpdl"]
+[ext_resource type="Resource" uid="uid://cj8ol3qfrfwmh" path="res://common/items/ingredients/owl_feather/owl_feather.tres" id="13_xiw0r"]
 
-[sub_resource type="Resource" id="Resource_xpqvs"]
+[sub_resource type="Resource" id="Resource_dsxx7"]
 script = ExtResource("2_uo00g")
-healing_poison = 12
+healing_poison = 50
 warm_cold = 50
 calming_agitation = 50
 strength_weakness = 50
@@ -20,7 +28,71 @@ clarity_confusion = 50
 defense_vulnerability = 50
 swiftness_slowness = 50
 
-[sub_resource type="Resource" id="Resource_6cg3x"]
+[sub_resource type="Resource" id="Resource_fsm31"]
+script = ExtResource("2_uo00g")
+healing_poison = 5
+warm_cold = -50
+calming_agitation = -50
+strength_weakness = -50
+energy_fatigue = -50
+light_dark = -50
+luck_misfortune = -50
+clarity_confusion = -50
+defense_vulnerability = -50
+swiftness_slowness = -50
+
+[sub_resource type="Resource" id="Resource_e6l0n"]
+script = ExtResource("3_afg8h")
+minEffects = SubResource("Resource_fsm31")
+maxEffects = SubResource("Resource_dsxx7")
+dialogueOptions = PackedStringArray("Please heal me!", "I need healing!", "tummy hurt :(")
+
+[sub_resource type="Resource" id="Resource_spb0r"]
+script = ExtResource("2_uo00g")
+healing_poison = 50
+warm_cold = 50
+calming_agitation = 50
+strength_weakness = 50
+energy_fatigue = 50
+light_dark = 50
+luck_misfortune = 50
+clarity_confusion = 50
+defense_vulnerability = 50
+swiftness_slowness = 50
+
+[sub_resource type="Resource" id="Resource_043q1"]
+script = ExtResource("2_uo00g")
+healing_poison = -50
+warm_cold = -50
+calming_agitation = -50
+strength_weakness = -50
+energy_fatigue = -50
+light_dark = -50
+luck_misfortune = 30
+clarity_confusion = -50
+defense_vulnerability = -50
+swiftness_slowness = -50
+
+[sub_resource type="Resource" id="Resource_eer62"]
+script = ExtResource("3_afg8h")
+minEffects = SubResource("Resource_043q1")
+maxEffects = SubResource("Resource_spb0r")
+dialogueOptions = PackedStringArray("The casino is never gonna see this coming", "One venti luck please")
+
+[sub_resource type="Resource" id="Resource_dogf2"]
+script = ExtResource("2_uo00g")
+healing_poison = -5
+warm_cold = 50
+calming_agitation = 50
+strength_weakness = 50
+energy_fatigue = 50
+light_dark = 50
+luck_misfortune = 50
+clarity_confusion = 50
+defense_vulnerability = 50
+swiftness_slowness = 50
+
+[sub_resource type="Resource" id="Resource_i862y"]
 script = ExtResource("2_uo00g")
 healing_poison = -50
 warm_cold = -50
@@ -33,42 +105,119 @@ clarity_confusion = -50
 defense_vulnerability = -50
 swiftness_slowness = -50
 
-[sub_resource type="Resource" id="Resource_3wtkh"]
+[sub_resource type="Resource" id="Resource_qmgaj"]
 script = ExtResource("3_afg8h")
-minEffects = SubResource("Resource_6cg3x")
-maxEffects = SubResource("Resource_xpqvs")
-dialogueOptions = PackedStringArray("test", "one", "two")
+minEffects = SubResource("Resource_i862y")
+maxEffects = SubResource("Resource_dogf2")
+dialogueOptions = PackedStringArray("There\'s rats in the cellar", "I need to kill someone", "One glass of poison please")
 
-[sub_resource type="Resource" id="Resource_t1iho"]
+[sub_resource type="Resource" id="Resource_3kq00"]
+script = ExtResource("2_uo00g")
+healing_poison = 50
+warm_cold = 50
+calming_agitation = 50
+strength_weakness = 50
+energy_fatigue = 50
+light_dark = 50
+luck_misfortune = 50
+clarity_confusion = 50
+defense_vulnerability = 50
+swiftness_slowness = 50
+
+[sub_resource type="Resource" id="Resource_yhb0y"]
+script = ExtResource("2_uo00g")
+healing_poison = -50
+warm_cold = -50
+calming_agitation = -50
+strength_weakness = 5
+energy_fatigue = -50
+light_dark = -50
+luck_misfortune = -50
+clarity_confusion = -50
+defense_vulnerability = -50
+swiftness_slowness = -50
+
+[sub_resource type="Resource" id="Resource_2kcb5"]
+script = ExtResource("3_afg8h")
+minEffects = SubResource("Resource_yhb0y")
+maxEffects = SubResource("Resource_3kq00")
+dialogueOptions = PackedStringArray("I\'m going to war.", "Help me be strong.", "RAHHHH (strength pls)")
+
+[sub_resource type="Resource" id="Resource_snjf0"]
 script = ExtResource("1_xs8a6")
-common = [SubResource("Resource_3wtkh")]
-uncommon = []
-rare = []
-legendary = []
+common = [SubResource("Resource_e6l0n")]
+uncommon = [SubResource("Resource_2kcb5")]
+rare = [SubResource("Resource_qmgaj")]
+legendary = [SubResource("Resource_eer62")]
 
 [sub_resource type="Resource" id="Resource_36l1o"]
 script = ExtResource("1_xs8a6")
-common = [ExtResource("2_hop5k")]
-uncommon = []
-rare = []
-legendary = []
+common = [ExtResource("2_hop5k"), ExtResource("1_082nk"), ExtResource("6_5qfir")]
+uncommon = [ExtResource("10_wdi41"), ExtResource("11_qv776"), ExtResource("12_bdpdl"), ExtResource("13_xiw0r")]
+rare = [ExtResource("8_olgs1"), ExtResource("9_1l2rb")]
+legendary = [ExtResource("7_hwtfn")]
 
-[sub_resource type="Resource" id="Resource_gurv6"]
+[sub_resource type="Resource" id="Resource_fjv6r"]
 script = ExtResource("1_xs8a6")
 common = [{
-"cost": 0,
-"id": "thistle_root_0_0",
-"item": ExtResource("1_082nk"),
-"quantity": 0
+"cost": 5,
+"id": "nightshade_petals_5_5",
+"item": ExtResource("2_hop5k"),
+"quantity": 5
+}, {
+"cost": 5,
+"id": "frog_leg_4_5",
+"item": ExtResource("10_wdi41"),
+"quantity": 4
+}, {
+"cost": 5,
+"id": "sunflower_seeds_3_5",
+"item": ExtResource("11_qv776"),
+"quantity": 3
 }]
-uncommon = []
-rare = []
-legendary = []
+uncommon = [{
+"cost": 5,
+"id": "poison_ivy_3_5",
+"item": ExtResource("8_olgs1"),
+"quantity": 3
+}, {
+"cost": 15,
+"id": "eye_of_a_newt_1_15",
+"item": ExtResource("7_hwtfn"),
+"quantity": 1
+}, {
+"cost": 10,
+"id": "peppermint_leaves_2_10",
+"item": ExtResource("6_5qfir"),
+"quantity": 2
+}]
+rare = [{
+"cost": 5,
+"id": "thistle_root_5_5",
+"item": ExtResource("1_082nk"),
+"quantity": 5
+}, {
+"cost": 10,
+"id": "pine_resin_3_10",
+"item": ExtResource("9_1l2rb"),
+"quantity": 3
+}]
+legendary = [{
+"cost": 5,
+"id": "owl_feather_5_5",
+"item": ExtResource("13_xiw0r"),
+"quantity": 5
+}, {
+"cost": 10,
+"id": "bat_wing_4_10",
+"item": ExtResource("12_bdpdl"),
+"quantity": 4
+}]
 
 [resource]
 script = ExtResource("1_rd6f5")
 id = "grassy_clearing"
 name = "Grassy Clearing"
 forage_table = SubResource("Resource_36l1o")
-ingredients_shop_table = SubResource("Resource_gurv6")
-customer_request_table = SubResource("Resource_t1iho")
+ingredients_shop_table = SubResource("Resource_fjv6r")
+customer_request_table = SubResource("Resource_snjf0")
