@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=15 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://screens/main/main.gd" id="1_0ufrw"]
 [ext_resource type="Script" path="res://screens/main/customers/customer_factory.gd" id="2_dnvch"]
 [ext_resource type="Texture2D" uid="uid://dbueov7x0qeqe" path="res://screens/main/background.png" id="2_u1ul0"]
+[ext_resource type="PackedScene" uid="uid://do38all2put7r" path="res://screens/main/ui/ingredient_book/book.tscn" id="4_hd506"]
 [ext_resource type="PackedScene" uid="uid://bru1ae5j80tii" path="res://screens/main/ui/money_and_rep_tracker/money_and_rep.tscn" id="5_0uejy"]
 [ext_resource type="PackedScene" uid="uid://br236elfur261" path="res://screens/main/ui/inventory/drawer.tscn" id="5_nl71h"]
 [ext_resource type="PackedScene" uid="uid://co5klpgmvh2f6" path="res://screens/main/bell/bell.tscn" id="7_ykbkw"]
@@ -28,6 +29,9 @@ script = ExtResource("2_dnvch")
 
 [node name="NewClock" parent="CanvasLayer" instance=ExtResource("17_n5klg")]
 position = Vector2(165, 165)
+
+[node name="Book" parent="CanvasLayer" instance=ExtResource("4_hd506")]
+position = Vector2(288, 950)
 
 [node name="Room" type="Node2D" parent="."]
 scale = Vector2(6, 6)

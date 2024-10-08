@@ -1,0 +1,201 @@
+[gd_scene load_steps=4 format=3 uid="uid://do38all2put7r"]
+
+[ext_resource type="Script" path="res://screens/main/ui/ingredient_book/book.gd" id="1_a5lvv"]
+[ext_resource type="Texture2D" uid="uid://ciyndcoi0ir5d" path="res://screens/main/ui/ingredient_book/Ingredient Book.png" id="2_t1snu"]
+[ext_resource type="Texture2D" uid="uid://0r4pffel3ps4" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.png" id="3_mam6r"]
+
+[node name="Book" type="Node2D"]
+script = ExtResource("1_a5lvv")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(6, 6)
+texture = ExtResource("2_t1snu")
+
+[node name="Ingredient" type="Sprite2D" parent="."]
+position = Vector2(-146, -61)
+scale = Vector2(6, 6)
+texture = ExtResource("3_mam6r")
+
+[node name="Values" type="VBoxContainer" parent="."]
+offset_left = 53.0
+offset_top = -150.0
+offset_right = 235.0
+offset_bottom = 116.0
+
+[node name="Health" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Health"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Health"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Healing/Poison: "
+
+[node name="Value" type="Label" parent="Values/Health"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Warm" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Warm"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Warm"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Warm/Cold: "
+
+[node name="Value" type="Label" parent="Values/Warm"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Calming" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Calming"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Calming"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Calming/Agitation: "
+
+[node name="Value" type="Label" parent="Values/Calming"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Strength" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Strength"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Strength"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Strength/Weakness: "
+
+[node name="Value" type="Label" parent="Values/Strength"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Energy" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Energy"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Energy"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Energy/Fatigue: "
+
+[node name="Value" type="Label" parent="Values/Energy"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Light" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Light"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Light"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Light/Dark: "
+
+[node name="Value" type="Label" parent="Values/Light"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Luck" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Luck"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Luck"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Luck/Misfortune: "
+
+[node name="Value" type="Label" parent="Values/Luck"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Clarity" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Clarity"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Clarity"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Clarify/Confusion: "
+
+[node name="Value" type="Label" parent="Values/Clarity"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Defense" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Defense"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Defense"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Defense/Vulnerability: "
+
+[node name="Value" type="Label" parent="Values/Defense"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Swiftness" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Swiftness"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Swiftness"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Swiftness/Slowness: "
+
+[node name="Value" type="Label" parent="Values/Swiftness"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Description" type="Label" parent="."]
+offset_left = -237.0
+offset_top = 29.0
+offset_right = -44.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "A beautiful purple flower"
