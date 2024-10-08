@@ -4,9 +4,12 @@ var packed_potion_scene = preload("res://common/items/potions/potion.tscn")
 var packed_ingredient_scene = preload("res://common/items/ingredients/ingredient.tscn")
 
 func _ready():
+	var drawer = get_node("InventoryDrawer")
+
 	GameTime.start_day()
 	GameTime.end_of_day.connect(func(): get_tree().change_scene_to_file("res://screens/night_menu/menu/night_menu.tscn"));
-	
+	drawer.make_inv_object.connect(_on_inv_dragged) #moving object out of inventory
+
 	$Pedestal/ShelfSlot.connect("items_changed", _on_selling_potion_change)
 
 
@@ -50,3 +53,18 @@ func _on_item_made(item: Item, pos: Vector2, throw: bool = true):
 			throwAngle *= -1
 		newScene.apply_central_impulse(Vector2(throwAngle, -2000))
 	
+func _on_inv_dragged(inv_slot):
+	var inv_data = PlayerData.read_inv()
+	var itemID = inv_data[inv_slot]["Item"]
+	var quantity = int(inv_data[inv_slot]["Quantity"])
+	if itemID != null:
+		var newItem = packed_ingredient_scene.instantiate()
+		newItem.data = ResourceLoader.load("res://common/items/ingredients/" + str(itemID) + "/" + str(itemID) + ".tres")
+		newItem.global_position = get_viewport().get_mouse_position()
+		add_child(newItem)
+		if quantity == 1:
+			inv_data[inv_slot]["Item"] = null
+			inv_data[inv_slot]["Quantity"] = 0 
+		else:
+			inv_data[inv_slot]["Quantity"] = quantity - 1
+		PlayerData.write_inv(inv_data)

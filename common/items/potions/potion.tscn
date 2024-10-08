@@ -11,6 +11,9 @@ size = Vector2(92, 94)
 collision_layer = 2
 collision_mask = 2
 input_pickable = true
+contact_monitor = true
+max_contacts_reported = 1
+angular_damp = 30.0
 script = ExtResource("1_m5pfd")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -20,3 +23,6 @@ texture = ExtResource("2_nxp7j")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ad3mf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
