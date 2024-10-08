@@ -19,6 +19,7 @@ swiftness_slowness = 10
 [resource]
 script = ExtResource("1_xqa6f")
 effects = SubResource("Resource_ar3vb")
+available_actions = 0
 id = "frog_leg"
 name = "Frog Leg"
 description = "Quickens movement but laced with venom"

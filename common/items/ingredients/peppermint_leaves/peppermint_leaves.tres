@@ -20,6 +20,7 @@ swiftness_slowness = 5
 [resource]
 script = ExtResource("1_1r0rm")
 effects = SubResource("Resource_7obtm")
+available_actions = 0
 id = "peppermint_leaves"
 name = "Peppermint Leaves"
 description = "A burst of energy and swift steps"

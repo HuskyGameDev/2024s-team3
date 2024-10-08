@@ -17,6 +17,9 @@ func _on_refresh_button_pressed():
 		child.queue_free()
 	# Reload and add all ingredient rows
 	for path in ResourcePaths.get_all_ingredient_paths():
+		# filter out ingredient variations (chopped, crushed, etc)
+		var split_path = path.get_basename().split("/")
+		if split_path[-1] != split_path[-2]: continue
 		var ingredient_row_instance = IngredientRow.instantiate().with_data(path)
 		TableBody.add_child(ingredient_row_instance)
 		ingredient_row_instance.connect("open_effect_editor", _on_edit_effect_button_pressed)

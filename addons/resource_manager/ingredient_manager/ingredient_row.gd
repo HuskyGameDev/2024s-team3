@@ -3,6 +3,8 @@ extends HBoxContainer
 
 const DEBOUNCE_LENGTH = 1
 
+const VARIATION_ROW_SCENE = preload("res://addons/resource_manager/ingredient_manager/ingredient_variant_row.tscn")
+
 # sends signal to ingredient panel to switch to effect editor
 signal open_effect_editor(ingredient:Ingredient)
 
@@ -36,6 +38,16 @@ func _ready():
 	$CrushableCheck.button_pressed = ingredient.available_actions & Ingredient.Actions.CRUSH
 	$MeltableCheck.button_pressed = ingredient.available_actions & Ingredient.Actions.MELT
 	$ConcentratableCheck.button_pressed = ingredient.available_actions & Ingredient.Actions.CONCENTRATE
+	
+	# If any alternates of the ingredient exist, add those rows
+	if ingredient.available_actions & Ingredient.Actions.CHOP:
+		create_variant("Chopped")
+	if ingredient.available_actions & Ingredient.Actions.CRUSH:
+		print("can crush")
+	if ingredient.available_actions & Ingredient.Actions.MELT:
+		print("can melt")
+	if ingredient.available_actions & Ingredient.Actions.CONCENTRATE:
+		print("can concentrate")
 
 
 ################# UPDATE INGREDIENT VALUES #################
@@ -158,3 +170,23 @@ func update_effect_summary():
 		$CollapsedEffectView.set_summary("None")
 	else:
 		$CollapsedEffectView.set_summary(", ".join(ingredient.effects.get_strongest()))
+
+
+## Called to create a variant resource of this one
+func create_variant(variation:String):
+	var new_name = "%s %s" % [variation, self.ingredient.name]
+	var new_id = new_name.to_snake_case()
+	print(new_id)
+	# check if resource exists
+	if not ResourcePaths.get_ingredient_path(new_id):
+		# create ingredient resource
+		var new_ingredient = Ingredient.new()
+		new_ingredient.name = new_name
+		new_ingredient.id = new_id
+		var new_path = "%s/%s.tres" % [ResourcePaths.get_ingredient_path(self.ingredient.id).get_base_dir(), new_id]
+		ResourceSaver.save(new_ingredient, new_path)
+		# update resource paths singleton
+		ResourcePaths.update_ingredient_paths()
+	# add variant row to resource manager
+	var new_variant_scene = VARIATION_ROW_SCENE.instantiate()
+	add_sibling(new_variant_scene)

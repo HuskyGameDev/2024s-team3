@@ -20,6 +20,7 @@ swiftness_slowness = -5
 [resource]
 script = ExtResource("1_kcvjn")
 effects = SubResource("Resource_wpiv2")
+available_actions = 0
 id = "pine_resin"
 name = "Pine Resin"
 description = "Shields you but slows you down"
