@@ -69,6 +69,7 @@ func hold():
 	set_collision_mask_value(2, false)
 	var tween = create_tween()
 	tween.tween_property(self, "rotation", 0, 0.1)
+	main.move_child(self, main.get_node("InventoryDrawer").get_index() + 1) # move object to index below the drawer
 
 
 func drop():
@@ -82,7 +83,7 @@ func drop():
 		set_collision_layer_value(holding_collision_layer, false)
 		set_collision_mask_value(31, false)
 		set_collision_mask_value(32, false)
-
+		main.move_child(self , main.get_node("InventoryDrawer").get_index() - 1 ) # move object to index above the drawer
 
 func _integrate_forces(_state):
 	if beingHeld:
@@ -91,6 +92,8 @@ func _integrate_forces(_state):
 		var direction = global_position.direction_to(mousePos)
 		rotation = 0 
 		set_linear_velocity(direction * distance * 40)
+	elif shelf: # if object is on shelf and not being held
+		rotation = 0 # stop object from rotating
 
 
 func set_on_shelf(val: bool):
@@ -136,3 +139,13 @@ func _on_timer_timeout():
 		tooltip_rect = tooltip.get_rect()
 	
 	tooltip.visible = true
+	
+# stops rotation of ingredient if its on the shelf
+func _on_body_entered(body):
+	if body.name == "Right Shelf" or body.name == "Left Shelf":
+		shelf = true
+
+# allows rotation when it leaves the shelf
+func _on_body_exited(body):
+	if body.name == "Right Shelf" or body.name == "Left Shelf":
+		shelf = false
