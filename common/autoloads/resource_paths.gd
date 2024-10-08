@@ -4,6 +4,7 @@ extends Node
 var location_file_paths: Dictionary = {}
 var ingredient_file_paths: Dictionary = {}
 var customer_sprites: Array[Texture2D] = []
+var potion_sprites: Array[Texture2D] = []
 
 @onready var regex = RegEx.new()
 
@@ -19,6 +20,13 @@ func _ready():
 	## Add the images to the array
 	for path in customer_sprite_paths:
 		customer_sprites.push_back(load(path))
+	
+	
+	## Get all potion sprite files
+	var potion_sprite_paths = _get_all_paths_with_extension("res://common/items/potions", ".png")
+	## Add the images to the array
+	for path in potion_sprite_paths:
+		potion_sprites.push_back(load(path))
 
 
 func update_ingredient_paths():
@@ -86,3 +94,7 @@ func get_all_ingredient_paths() -> Array:
 func get_random_customer_sprite() -> Texture2D:
 	randomize()
 	return customer_sprites[randi() % customer_sprites.size()]
+
+func get_random_potion_sprite() -> Texture2D:
+	randomize()
+	return potion_sprites[randi() % potion_sprites.size()]

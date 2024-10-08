@@ -28,3 +28,4 @@ func _ready():
 			collider_shape.radius = image_size[0] / 2
 			$"Collider".set_shape(collider_shape)
 			$"Sprite".texture = data.image
+			$"Sprite".material.set_shader_parameter("to", data.effects.get_color())
