@@ -134,10 +134,9 @@ layout_direction = 2
 anchors_preset = -1
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 1870.0
-offset_top = 175.0
-offset_right = 2470.0
-offset_bottom = 865.0
+offset_top = 173.0
+offset_right = 2521.0
+offset_bottom = 863.0
 grow_horizontal = 1
 grow_vertical = 1
 

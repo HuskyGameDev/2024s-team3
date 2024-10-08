@@ -69,7 +69,6 @@ func Insert(item : Resource, quantity : int):
 		elif inv_data[slot.name]["Item"] == null: #if this slot is empty 
 			if quantity > 0:
 				if quantity <= item.stack_size: #if quantity is not greater than allowed stack size add item to this slot
-
 					inv_data[slot.name]["Item"] = item.id
 					inv_data[slot.name]["Quantity"] = quantity					
 					UpdateButton(item, quantity, index)
@@ -122,6 +121,6 @@ func _on_tab_button_down():
 
 #move drawer on screen
 func _on_exit_button_down():
-	self.position.x = 1865
+	self.position.x = 1920
 	$Tab.visible = true
 	$add.visible = false
