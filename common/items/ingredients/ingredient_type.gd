@@ -1,3 +1,4 @@
+@tool
 extends Item
 class_name Ingredient
 
@@ -16,3 +17,12 @@ enum Actions {
 ## Returns true if the selected action is valid
 func can(action:Actions):
 	return available_actions & action
+
+## Converts action to a string
+static func action_to_string(action:Actions) -> String:
+	match action:
+		Actions.CHOP: return "chopped"
+		Actions.CRUSH: return "crushed"
+		Actions.MELT: return "melted"
+		Actions.CONCENTRATE: return "concentrated"
+	return ""

@@ -40,13 +40,13 @@ func _ready():
 	
 	# If any alternates of the ingredient exist, add those rows
 	if ingredient.available_actions & Ingredient.Actions.CHOP:
-		create_variant("Chopped")
+		create_variant(Ingredient.Actions.CHOP)
 	if ingredient.available_actions & Ingredient.Actions.CRUSH:
-		create_variant("Crushed")
+		create_variant(Ingredient.Actions.CRUSH)
 	if ingredient.available_actions & Ingredient.Actions.MELT:
-		create_variant("Melted")
+		create_variant(Ingredient.Actions.MELT)
 	if ingredient.available_actions & Ingredient.Actions.CONCENTRATE:
-		create_variant("Concentrated")
+		create_variant(Ingredient.Actions.CONCENTRATE)
 
 
 ################# UPDATE INGREDIENT VALUES #################
@@ -75,36 +75,40 @@ func _on_name_changed(new_name:String):
 func _on_choppable_check_toggled(toggled_on):
 	if toggled_on:
 		ingredient.available_actions |= Ingredient.Actions.CHOP
-		create_variant("Chopped")
+		create_variant(Ingredient.Actions.CHOP)
 	else:
 		ingredient.available_actions &= ~Ingredient.Actions.CHOP
+		remove_variant(Ingredient.Actions.CHOP)
 	ResourceSaver.save(ingredient, path)
 
 ## Triggered when crushable checkbox changes:
 func _on_crushable_check_toggled(toggled_on):
 	if toggled_on:
 		ingredient.available_actions |= Ingredient.Actions.CRUSH
-		create_variant("Crushed")
+		create_variant(Ingredient.Actions.CRUSH)
 	else:
 		ingredient.available_actions &= ~Ingredient.Actions.CRUSH
+		remove_variant(Ingredient.Actions.CRUSH)
 	ResourceSaver.save(ingredient, path)
 
 ## Triggered when meltable checkbox changes:
 func _on_meltable_check_toggled(toggled_on):
 	if toggled_on:
 		ingredient.available_actions |= Ingredient.Actions.MELT
-		create_variant("Melted")
+		create_variant(Ingredient.Actions.MELT)
 	else:
 		ingredient.available_actions &= ~Ingredient.Actions.MELT
+		remove_variant(Ingredient.Actions.MELT)
 	ResourceSaver.save(ingredient, path)
 
 ## Triggered when concentratable checkbox changes:
 func _on_concentratable_check_toggled(toggled_on):
 	if toggled_on:
 		ingredient.available_actions |= Ingredient.Actions.CONCENTRATE
-		create_variant("Concentrated")
+		create_variant(Ingredient.Actions.CONCENTRATE)
 	else:
 		ingredient.available_actions &= ~Ingredient.Actions.CONCENTRATE
+		remove_variant(Ingredient.Actions.CONCENTRATE)
 	ResourceSaver.save(ingredient, path)
 
 ###################### OTHER HANDLING ######################
@@ -176,10 +180,10 @@ func update_effect_summary():
 
 
 ## Called to create a variant resource of this one
-func create_variant(variation:String):
+func create_variant(variation:Ingredient.Actions):
 	# check if already a variant
 	var split_path = path.get_basename().split("/")
-	var new_name = "%s %s" % [variation, split_path[-2].replace("_", " ").capitalize()]
+	var new_name = "%s %s" % [Ingredient.action_to_string(variation).capitalize(), split_path[-2].replace("_", " ").capitalize()]
 	var new_id = new_name.to_snake_case()
 	var new_path = "%s/%s.tres" % [path.get_base_dir(), new_id]
 	# check if variant already in resource manager
@@ -196,3 +200,23 @@ func create_variant(variation:String):
 	# add variant row to resource manager
 	var new_variant_scene = VARIATION_ROW_SCENE.instantiate().with_data(new_path)
 	add_sibling(new_variant_scene)
+
+
+## Called to remove a variant resource of this one
+func remove_variant(variation:Ingredient.Actions):
+	# check if any other versions of this ingredient allow that variation
+	var variant_paths = ResourcePaths.get_all_ingredient_variant_paths(ingredient.id)
+	for path in variant_paths:
+		var variant = ResourceLoader.load(path, "Ingredient")
+		if variant.can(variation): # used by another version of this ingredient, so don't remove it
+			return 
+	# remove resource file
+	var split_path = path.get_basename().split("/")
+	var new_id = "%s_%s" % [Ingredient.action_to_string(variation), split_path[-2]]
+	var new_path = "%s/%s.tres" % [path.get_base_dir(), new_id]
+	DirAccess.remove_absolute(new_path)
+	# update resource paths singleton
+	ResourcePaths.update_ingredient_paths()
+	# remove row from table
+	var row = get_parent().get_node_or_null(new_id)
+	if row != null: row.queue_free()

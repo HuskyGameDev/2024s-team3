@@ -20,7 +20,7 @@ swiftness_slowness = 0
 [resource]
 script = ExtResource("1_06aq6")
 effects = SubResource("Resource_g1u86")
-available_actions = 2
+available_actions = 0
 id = "nightshade_petals"
 name = "Nightshade Petals"
 description = "Restorative powers with a soothing touch"

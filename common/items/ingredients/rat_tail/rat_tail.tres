@@ -19,7 +19,7 @@ swiftness_slowness = 0
 [resource]
 script = ExtResource("1_o5ibs")
 effects = SubResource("Resource_1f46g")
-available_actions = 2
+available_actions = 0
 id = "rat_tail"
 name = "Rat Tail"
 description = "Unleashes bad luck and muddles the mind"
