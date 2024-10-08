@@ -8,3 +8,14 @@ z_index = -1
 position = Vector2(6, 5)
 texture = ExtResource("1_ngin2")
 script = ExtResource("2_pbsdo")
+
+[node name="DialogueLabel" type="RichTextLabel" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -211.0
+offset_top = -261.0
+offset_right = -211.0
+offset_bottom = -261.0
+grow_horizontal = 2
+text = "Customer Dialogue Request"
+fit_content = true

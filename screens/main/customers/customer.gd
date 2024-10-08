@@ -5,7 +5,6 @@ const START_LOCATION = Vector2(1800, 500)
 const ONSCREEN_LOCATION = Vector2(1200, 500)
 const END_LOCATION = Vector2(-650, 500)
 
-
 var data: Customer
 var walk_speed: float = 0.5
 
@@ -13,6 +12,7 @@ var walk_speed: float = 0.5
 func with_data(data: Customer):
 	self.data = data
 	self.texture = ResourcePaths.get_random_customer_sprite()
+	$DialogueLabel.text = data.order.dialogueOptions[randi() % data.order.dialogueOptions.size()]
 	return self
 
 
