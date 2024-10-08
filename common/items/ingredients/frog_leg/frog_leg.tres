@@ -1,10 +1,25 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://cg03gk336r6p6"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=4 format=3 uid="uid://cg03gk336r6p6"]
 
+[ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_3xdqj"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_xqa6f"]
+
+[sub_resource type="Resource" id="Resource_ar3vb"]
+script = ExtResource("1_3xdqj")
+healing_poison = -5
+warm_cold = 0
+calming_agitation = 0
+strength_weakness = 0
+energy_fatigue = 0
+light_dark = 0
+luck_misfortune = 0
+clarity_confusion = 0
+defense_vulnerability = 0
+swiftness_slowness = 10
 
 [resource]
 script = ExtResource("1_xqa6f")
+effects = SubResource("Resource_ar3vb")
 id = "frog_leg"
 name = "Frog Leg"
-description = ""
+description = "Quickens movement but laced with venom"
 stack_size = 5
