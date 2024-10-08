@@ -10,7 +10,6 @@ var collider: CollisionShape2D
 var default_collison_layer: int
 var holding_collision_layer: int
 var shelf_collision_layer: int = 20
-var shelf = false # true if ingredient is on shelf
 @onready var main = get_parent() # main scene
 
 func _ready():
@@ -92,7 +91,7 @@ func _integrate_forces(_state):
 		var direction = global_position.direction_to(mousePos)
 		rotation = 0 
 		set_linear_velocity(direction * distance * 40)
-	elif shelf: # if object is on shelf and not being held
+	elif onShelf: # if object is on shelf and not being held
 		rotation = 0 # stop object from rotating
 
 

@@ -31,9 +31,9 @@ func _ready():
 # stops rotation of ingredient if its on the shelf
 func _on_body_entered(body):
 	if body.name == "Right Shelf" or body.name == "Left Shelf":
-		shelf = true
+		set_on_shelf(true)
 
 # allows rotation when it leaves the shelf
 func _on_body_exited(body):
 	if body.name == "Right Shelf" or body.name == "Left Shelf":
-		shelf = false
+		set_on_shelf(false)
