@@ -1,4 +1,4 @@
-extends Node2D
+class_name Main_Screen extends Screen
 
 var packed_potion_scene = preload("res://common/items/potions/potion.tscn")
 var packed_ingredient_scene = preload("res://common/items/ingredients/ingredient.tscn")

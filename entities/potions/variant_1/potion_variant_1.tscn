@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://vog54qe61acx"]
+
+[node name="Potion Variant 1" type="Node2D"]
+
+[node name="Bottle" type="Sprite2D" parent="."]
+
+[node name="Liquid" type="Sprite2D" parent="Bottle"]
+
+[node name="Pendulum" type="Marker2D" parent="Bottle/Liquid"]
