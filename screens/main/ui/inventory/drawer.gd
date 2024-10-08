@@ -2,7 +2,9 @@
 #adds ingredients to next available inventory slot 
 extends Control
 
+signal inventory_open(open:bool)
 signal make_inv_object(item:Resource) #emits to main scene to create ingredient object
+
 var items :Array
 var template_inv_slot = preload("res://screens/main/ui/inventory/drawer_button.tscn")
 @onready var gridcontainer = get_node("Background/M/V/ScrollContainer/GridContainer")
@@ -106,22 +108,20 @@ func add_inv_slot(): # just put this where we call it
 func _input(_e): # when a user presses the "i" key inventory appears on the screen if it was off-screen and off-screen if on-screen
 	if Input.is_action_just_pressed("inventory"): # inventory is defined project input map
 		if self.position.x == 1200:
-			self.position.x = 1865
-			$Tab.visible = true
-			$add.visible = false
+			_on_exit_button_down()
 		else: 
-			self.position.x = 1200
-			$Tab.visible = false
-			$add.visible = false
+			_on_tab_button_down()
 
 #move drawer off screen
 func _on_tab_button_down():
 	self.position.x = 1200
 	$Tab.visible = false
 	$add.visible = false
+	inventory_open.emit(true)
 
 #move drawer on screen
 func _on_exit_button_down():
 	self.position.x = 1865
 	$Tab.visible = true
 	$add.visible = false
+	inventory_open.emit(false)
