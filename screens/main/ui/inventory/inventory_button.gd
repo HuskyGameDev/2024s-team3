@@ -28,7 +28,6 @@ func _on_button_down():
 
 func _on_inv_area_body_entered(body):
 	if not body is DraggableObject: return	
-	print('Hi')
 	heldBody = body
 
 func _on_inv_area_body_exited(_body):
@@ -41,7 +40,7 @@ func _on_inv_area_input_event(_viewport, event, _shape_idx):
 			var slot = self.name
 			var inv_data = PlayerData.read_inv()
 			var slotAmount = inv_data[slot]["Quantity"]
-			var item = ResourceLoader.load("res://common/items/ingredients/" + holding.id + "/" + holding.id + ".tres")
+			var item = ResourceLoader.load(ResourcePaths.get_ingredient_path(holding.id))
 			if inv_data[slot]["Item"] == item.id && int(slotAmount) != item.stack_size: #if this ingredient already exists in inventory
 				if slotAmount + 1 <= item.stack_size: #if adding this quantity to the amount in the stack would be larger than stack size
 					inv_data[slot]["Quantity"] = slotAmount + 1
