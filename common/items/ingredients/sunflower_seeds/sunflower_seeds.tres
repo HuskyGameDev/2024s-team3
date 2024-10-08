@@ -5,6 +5,10 @@
 
 [resource]
 script = ExtResource("1_qnlhi")
+<<<<<<< Updated upstream
+=======
+available_actions = 0
+>>>>>>> Stashed changes
 id = "sunflower_seeds"
 name = "Sunflower Seeds"
 description = ""

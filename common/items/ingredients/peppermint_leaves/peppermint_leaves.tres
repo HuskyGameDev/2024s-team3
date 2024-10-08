@@ -20,6 +20,10 @@ swiftness_slowness = 0
 [resource]
 script = ExtResource("1_8yrtu")
 effects = SubResource("Resource_qmkd5")
+<<<<<<< Updated upstream
+=======
+available_actions = 0
+>>>>>>> Stashed changes
 id = "peppermint_leaves"
 name = "Peppermint Leaves"
 description = ""

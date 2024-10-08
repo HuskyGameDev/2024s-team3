@@ -5,6 +5,10 @@
 
 [resource]
 script = ExtResource("1_l401t")
+<<<<<<< Updated upstream
+=======
+available_actions = 0
+>>>>>>> Stashed changes
 id = "pine_resin"
 name = "Pine Resin"
 description = ""

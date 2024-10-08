@@ -20,6 +20,10 @@ swiftness_slowness = 0
 [resource]
 script = ExtResource("1_48uxn")
 effects = SubResource("Resource_tlhl7")
+<<<<<<< Updated upstream
+=======
+available_actions = 0
+>>>>>>> Stashed changes
 id = "thistle_root"
 name = "Thistle Root"
 description = ""

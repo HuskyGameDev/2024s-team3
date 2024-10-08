@@ -4,6 +4,10 @@
 
 [resource]
 script = ExtResource("1_0mrkm")
+<<<<<<< Updated upstream
+=======
+available_actions = 0
+>>>>>>> Stashed changes
 id = "owl_feather"
 name = "Owl Feather"
 description = ""

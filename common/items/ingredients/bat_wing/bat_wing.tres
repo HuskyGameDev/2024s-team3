@@ -4,6 +4,10 @@
 
 [resource]
 script = ExtResource("1_82pcd")
+<<<<<<< Updated upstream
+=======
+available_actions = 0
+>>>>>>> Stashed changes
 id = "bat_wing"
 name = "Bat Wing"
 description = ""

@@ -20,6 +20,10 @@ swiftness_slowness = 0
 [resource]
 script = ExtResource("1_dofqj")
 effects = SubResource("Resource_bjr27")
+<<<<<<< Updated upstream
+=======
+available_actions = 1
+>>>>>>> Stashed changes
 id = "nightshade_petals"
 name = "Nightshade Petals"
 description = ""
