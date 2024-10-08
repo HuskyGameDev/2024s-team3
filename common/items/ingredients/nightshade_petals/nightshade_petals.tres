@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=5 format=3 uid="uid://ev5xh66rxxvf"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=5 format=3 uid="uid://djqumbpv7xrlh"]
 
-[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_dofqj"]
-[ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_evx0j"]
-[ext_resource type="Texture2D" uid="uid://cvvolykrups7e" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.png" id="1_rhqv0"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_06aq6"]
+[ext_resource type="Texture2D" uid="uid://cvvolykrups7e" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.png" id="1_j55rg"]
+[ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_pq5nh"]
 
-[sub_resource type="Resource" id="Resource_bjr27"]
-script = ExtResource("1_evx0j")
-healing_poison = 15
+[sub_resource type="Resource" id="Resource_g1u86"]
+script = ExtResource("1_pq5nh")
+healing_poison = 10
 warm_cold = 0
-calming_agitation = 0
+calming_agitation = 5
 strength_weakness = 0
 energy_fatigue = 0
 light_dark = 0
@@ -18,11 +18,10 @@ defense_vulnerability = 0
 swiftness_slowness = 0
 
 [resource]
-script = ExtResource("1_dofqj")
-effects = SubResource("Resource_bjr27")
-available_actions = 3
+script = ExtResource("1_06aq6")
+effects = SubResource("Resource_g1u86")
 id = "nightshade_petals"
 name = "Nightshade Petals"
-description = ""
+description = "Restorative powers with a soothing touch"
 stack_size = 5
-image = ExtResource("1_rhqv0")
+image = ExtResource("1_j55rg")
