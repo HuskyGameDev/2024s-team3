@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=17 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://screens/main/main.gd" id="1_0ufrw"]
 [ext_resource type="Script" path="res://screens/main/customers/customer_factory.gd" id="2_dnvch"]
@@ -15,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://dda00qymrm5of" path="res://screens/main/ui/end_day_and_skip/end_day_and_skip.tscn" id="13_yll6s"]
 [ext_resource type="PackedScene" uid="uid://b6cq5upjosmpf" path="res://screens/main/ui/clock/new_clock.tscn" id="17_n5klg"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_1fgwd"]
-b = Vector2(1920, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fs1cp"]
+size = Vector2(0.456603, 0.192607)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aqou"]
 size = Vector2(417, 39.5)
@@ -31,6 +31,7 @@ script = ExtResource("2_dnvch")
 layer = 2
 
 [node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("3_8c0kv")]
+visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -44,16 +45,36 @@ scale = Vector2(6, 6)
 position = Vector2(160, 90)
 texture = ExtResource("2_u1ul0")
 
-[node name="Shelf" type="StaticBody2D" parent="Room"]
-position = Vector2(117.333, 109.333)
-scale = Vector2(0.166667, 0.166667)
-collision_layer = 2
-collision_mask = 2
+[node name="Right Shelf" type="StaticBody2D" parent="Room"]
+position = Vector2(250, 118.333)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Shelf"]
-position = Vector2(-710, 8)
-shape = SubResource("SegmentShape2D_1fgwd")
-one_way_collision = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Right Shelf"]
+position = Vector2(-6.37506, 0.333336)
+scale = Vector2(331.25, 11.25)
+shape = SubResource("RectangleShape2D_fs1cp")
+
+[node name="ColorRect" type="ColorRect" parent="Room/Right Shelf"]
+offset_left = -82.0
+offset_top = -1.0
+offset_right = 73.0
+offset_bottom = 1.0
+color = Color(0.368627, 0.247059, 0.2, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Left Shelf" type="StaticBody2D" parent="Room"]
+position = Vector2(45.5, 119.333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Left Shelf"]
+position = Vector2(-11, 2.563e-06)
+scale = Vector2(331.25, 11.25)
+shape = SubResource("RectangleShape2D_fs1cp")
+
+[node name="ColorRect" type="ColorRect" parent="Room/Left Shelf"]
+offset_left = -44.0
+offset_top = -1.0
+offset_right = 65.0
+offset_bottom = 1.0
+color = Color(0.368627, 0.247059, 0.2, 1)
 
 [node name="Floor" type="StaticBody2D" parent="Room"]
 position = Vector2(276, 211)
@@ -95,6 +116,18 @@ offset_top = 23.0
 offset_right = 1892.0
 offset_bottom = 134.0
 
+[node name="Pedestal" parent="." instance=ExtResource("8_mkd11")]
+position = Vector2(388, 546)
+
+[node name="Cauldron" parent="." instance=ExtResource("12_rj1v1")]
+position = Vector2(852, 840)
+scale = Vector2(6, 6)
+
+[node name="MortarAndPestle" parent="." instance=ExtResource("10_i8f3a")]
+position = Vector2(1430, 888)
+scale = Vector2(3, 3)
+action = 4
+
 [node name="InventoryDrawer" parent="." instance=ExtResource("5_nl71h")]
 custom_minimum_size = Vector2(600, 690)
 layout_direction = 2
@@ -107,18 +140,6 @@ offset_right = 2470.0
 offset_bottom = 865.0
 grow_horizontal = 1
 grow_vertical = 1
-
-[node name="Pedestal" parent="." instance=ExtResource("8_mkd11")]
-position = Vector2(388, 546)
-
-[node name="Cauldron" parent="." instance=ExtResource("12_rj1v1")]
-position = Vector2(852, 840)
-scale = Vector2(6, 6)
-
-[node name="MortarAndPestle" parent="." instance=ExtResource("10_i8f3a")]
-position = Vector2(1430, 888)
-scale = Vector2(3, 3)
-action = 4
 
 [node name="Ingredient" parent="." instance=ExtResource("10_7anjc")]
 position = Vector2(306, 890)

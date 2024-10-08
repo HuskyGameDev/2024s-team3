@@ -10,6 +10,7 @@ size = Vector2(92, 94)
 input_pickable = true
 contact_monitor = true
 max_contacts_reported = 1
+angular_damp = 5.0
 script = ExtResource("1_wdr4g")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -18,3 +19,6 @@ texture = ExtResource("2_2tyjf")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qqx7g")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -27,3 +27,13 @@ func _ready():
 			collider_shape.radius = image_size[0] / 2
 			$"Collider".set_shape(collider_shape)
 			$"Sprite".texture = data.image
+
+# stops rotation of ingredient if its on the shelf
+func _on_body_entered(body):
+	if body.name == "Right Shelf" or body.name == "Left Shelf":
+		shelf = true
+
+# allows rotation when it leaves the shelf
+func _on_body_exited(body):
+	if body.name == "Right Shelf" or body.name == "Left Shelf":
+		shelf = false

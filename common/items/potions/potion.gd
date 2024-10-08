@@ -29,3 +29,13 @@ func _ready():
 			$"Collider".set_shape(collider_shape)
 			$"Sprite".texture = data.image
 			$"Sprite".material.set_shader_parameter("to", data.effects.get_color())
+
+# stops rotation of ingredient if its on the shelf
+func _on_body_entered(body):
+	if body.name == "Right Shelf" or body.name == "Left Shelf":
+		shelf = true
+
+# allows rotation when it leaves the shelf
+func _on_body_exited(body):
+	if body.name == "Right Shelf" or body.name == "Left Shelf":
+		shelf = false
