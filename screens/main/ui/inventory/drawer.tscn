@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://br236elfur261"]
 
-[ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="1_qe4gl"]
-[ext_resource type="Script" path="res://screens/main/ui/inventory/drawer.gd" id="2_3b6m7"]
+[ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="1_o268i"]
+[ext_resource type="Script" path="res://screens/main/ui/inventory/drawer.gd" id="2_njbmp"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ksx5s"]
 specular_color = Color(0.65098, 0.301961, 0.0470588, 1)
@@ -11,29 +11,26 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1865.0
+offset_left = 1921.0
 offset_top = 200.0
-offset_right = 545.0
+offset_right = 507.0
 offset_bottom = -190.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-theme = ExtResource("1_qe4gl")
-script = ExtResource("2_3b6m7")
+theme = ExtResource("1_o268i")
+script = ExtResource("2_njbmp")
 
 [node name="Background" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 57.0
+offset_left = 11.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 
 [node name="M" type="MarginContainer" parent="Background"]
 layout_mode = 2
-mouse_filter = 2
 theme_override_constants/margin_left = 19
 theme_override_constants/margin_top = 11
 theme_override_constants/margin_right = 19
@@ -41,37 +38,35 @@ theme_override_constants/margin_bottom = 11
 
 [node name="V" type="VBoxContainer" parent="Background/M"]
 layout_mode = 2
-mouse_filter = 2
 
 [node name="Header" type="HBoxContainer" parent="Background/M/V"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-mouse_filter = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Background/M/V"]
-clip_contents = false
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
-horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="Background/M/V/ScrollContainer"]
-layout_direction = 2
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-mouse_filter = 2
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
-columns = 4
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 5
 
 [node name="Tab" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.097
-anchor_bottom = 0.242
-offset_right = -0.200001
-offset_bottom = 0.019989
+anchor_left = -0.081
+anchor_top = 0.012
+anchor_right = 0.016
+anchor_bottom = 0.254
+offset_left = 0.0639992
+offset_top = -0.28
+offset_right = -0.136
+offset_bottom = -0.260025
 texture = SubResource("CanvasTexture_ksx5s")
 
 [node name="tab" type="Button" parent="Tab"]
@@ -79,6 +74,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -2.0
+offset_right = -1.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -104,6 +103,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "X"
 
-[connection signal="pressed" from="Tab/tab" to="." method="_on_tab_button_pressed"]
+[connection signal="button_down" from="Tab/tab" to="." method="_on_tab_button_down"]
 [connection signal="button_down" from="add" to="." method="_on_add_button_down"]
-[connection signal="pressed" from="exit" to="." method="_on_exit_button_pressed"]
+[connection signal="button_down" from="exit" to="." method="_on_exit_button_down"]

@@ -17,18 +17,13 @@ extends Node
 var active_step = 0
 
 func _ready():
-	## Setup player inventory
-	var thistleroot_slot = InventorySlot.new()
-	thistleroot_slot.item = load(ResourcePaths.get_ingredient_path("thistle_root"))
-	thistleroot_slot.quantity = 1
-	PlayerData.inventory[0] = thistleroot_slot
 	
 	## Connect signals
 	var main_node:Node2D = get_parent()
 	main_node.get_node("Cauldron/ValidArea").connect("body_entered", _on_ingredient_added)
 	main_node.get_node("Cauldron").connect("potion_made", _on_potion_made)
 	main_node.get_node("InventoryDrawer").connect("inventory_open", _on_inventory_open)
-	main_node.get_node("BellButton").connect("pressed", _on_potion_sold)
+	main_node.get_node("BellButton").connect("pressed", _on_bell_rung)
 	
 	## Set visibility
 	nightshade_text.visible = true
@@ -66,11 +61,11 @@ func _on_potion_made(potion, position):
 		active_step += 1
 
 
-func _on_potion_sold():
+func _on_bell_rung():
 	if active_step == 4:
 		potion_text.visible = false
 		finish_text.visible = true
-		
+	
 	## Wait 8 seconds then switch out of tutorial scene
 	## This isn't under the if statement because selling a potion means they've understood enough
 	await get_tree().create_timer(8).timeout

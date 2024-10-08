@@ -1,39 +1,85 @@
-[gd_scene load_steps=4 format=3 uid="uid://ty3ib64sn5o4"]
+[gd_scene load_steps=5 format=3 uid="uid://ty3ib64sn5o4"]
 
-[ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="1_3rqmy"]
-[ext_resource type="Script" path="res://screens/main/ui/inventory/inventory_button.gd" id="2_h2dlf"]
-[ext_resource type="PackedScene" uid="uid://wjks27mwt8qa" path="res://screens/main/shelf_slot/shelf_slot.tscn" id="4_71b4y"]
+[ext_resource type="Script" path="res://screens/main/ui/inventory/inventory_button.gd" id="1_3je7l"]
+[ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="1_lblwx"]
+[ext_resource type="Script" path="res://screens/main/ui/inventory/drag_icon.gd" id="2_gh42m"]
 
-[node name="InvSlot" type="PanelContainer"]
-custom_minimum_size = Vector2(105, 105)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -52.5
-offset_top = -52.5
-offset_right = 52.5
-offset_bottom = 52.5
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3nvt"]
+size = Vector2(94.5, 94.5)
+
+[node name="InvSlot" type="Button"]
+custom_minimum_size = Vector2(95, 95)
+anchors_preset = -1
+anchor_right = 0.05
+anchor_bottom = 0.089
+offset_bottom = -0.120003
+theme = ExtResource("1_lblwx")
+script = ExtResource("1_3je7l")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-theme = ExtResource("1_3rqmy")
-theme_type_variation = &"OutlinedPanel"
-script = ExtResource("2_h2dlf")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_gh42m")
 
-[node name="Quantity" type="Label" parent="."]
+[node name="Quantity" type="Label" parent="Icon"]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 87.0
+offset_bottom = 86.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_type_variation = &"TooltipLabel"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="ShelfSlot" parent="." instance=ExtResource("4_71b4y")]
-position = Vector2(52, 52)
-scale = Vector2(2.6, 2.6)
-collision_mask = 1074266113
-allowStack = true
+[node name="Quantity2" type="Label" parent="Icon"]
+layout_mode = 2
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 87.0
+offset_bottom = 86.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_type_variation = &"TooltipLabel"
+horizontal_alignment = 2
+vertical_alignment = 2
 
-[connection signal="items_changed" from="ShelfSlot" to="." method="_on_slot_items_changed"]
+[node name="Quantity3" type="Label" parent="Icon"]
+layout_mode = 2
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 87.0
+offset_bottom = 86.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_type_variation = &"TooltipLabel"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="InvArea" type="Area2D" parent="Node2D"]
+position = Vector2(1, 1)
+collision_layer = 2147483648
+collision_mask = 3221749760
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/InvArea"]
+position = Vector2(47.25, 47.25)
+shape = SubResource("RectangleShape2D_m3nvt")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="body_entered" from="Node2D/InvArea" to="." method="_on_inv_area_body_entered"]
+[connection signal="body_exited" from="Node2D/InvArea" to="." method="_on_inv_area_body_exited"]
+[connection signal="input_event" from="Node2D/InvArea" to="." method="_on_inv_area_input_event"]
