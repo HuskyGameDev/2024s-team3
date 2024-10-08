@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://dda00qymrm5of"]
+
+[ext_resource type="Script" path="res://screens/main/ui/end_day_and_skip/end_day_and_skip.gd" id="1_tj31v"]
+[ext_resource type="FontFile" uid="uid://b7v1xeoebsq10" path="res://ui/fonts/user_interface.ttf" id="2_8ollh"]
+
+[node name="EndDayAndSkip" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 16.0
+offset_bottom = 20.0
+script = ExtResource("1_tj31v")
+
+[node name="EndDay" type="Button" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 329.0
+offset_right = 210.0
+offset_bottom = 358.0
+theme_override_fonts/font = ExtResource("2_8ollh")
+text = "End Day"
+
+[node name="SkipCustomer" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1606.0
+offset_top = 159.0
+offset_right = 1767.0
+offset_bottom = 190.0
+text = "Skip Customer"
+
+[node name="Confirmation" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 130.0
+offset_top = 362.0
+offset_right = 208.0
+offset_bottom = 436.0
+
+[node name="Confirm" type="Button" parent="Confirmation"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 72.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("2_8ollh")
+text = "Yes
+"
+
+[node name="Cancel" type="Button" parent="Confirmation"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 39.0
+offset_right = 72.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("2_8ollh")
+text = "No
+"
+
+[connection signal="pressed" from="EndDay" to="." method="_on_end_day_pressed"]
+[connection signal="pressed" from="SkipCustomer" to="." method="_on_skip_customer_pressed"]
+[connection signal="pressed" from="Confirmation/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="Confirmation/Cancel" to="." method="_on_cancel_pressed"]
