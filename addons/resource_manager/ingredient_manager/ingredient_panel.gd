@@ -7,7 +7,7 @@ const EffectEditor = preload("res://addons/resource_manager/effects_manager/effe
 @onready var RefreshButton: Button = $TitleHBox/RefreshButton
 @onready var AddButton: Button = $AddHBox/AddButton
 @onready var AddNameText: LineEdit = $AddHBox/AddNameEdit
-@onready var TableBody: VBoxContainer = $TableContainer/TableBody
+@onready var TableBody: VBoxContainer = $TableScrollContainer/TableContainer/TableBody
 
 ################# Signal Handling #################
 func _on_refresh_button_pressed():
@@ -51,7 +51,7 @@ func _on_add_button_pressed():
 func _on_edit_effect_button_pressed(ingredient:Ingredient):
 	# hide ingredient panel things
 	$TitleHBox.visible = false
-	$TableContainer.visible = false
+	$TableScrollContainer.visible = false
 	$AddHBox.visible = false
 	# add effect editor panel as child
 	var editor_panel_instance = EffectEditor.instantiate().with_data(ingredient)
@@ -63,7 +63,7 @@ func _on_edit_effect_button_pressed(ingredient:Ingredient):
 func _on_effect_panel_back_pressed():
 	# show ingredient panel things
 	$TitleHBox.visible = true
-	$TableContainer.visible = true
+	$TableScrollContainer.visible = true
 	$AddHBox.visible = true
 	# update collapsed effect views
 	for row in TableBody.get_children():

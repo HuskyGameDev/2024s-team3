@@ -2,7 +2,6 @@
 extends HBoxContainer
 
 const DEBOUNCE_LENGTH = 1
-
 const VARIATION_ROW_SCENE = preload("res://addons/resource_manager/ingredient_manager/ingredient_variant_row.tscn")
 
 # sends signal to ingredient panel to switch to effect editor
@@ -24,7 +23,7 @@ func _ready():
 	# Load ingredient resource
 	if not path: return
 	self.ingredient = ResourceLoader.load(path, "Ingredient")
-	
+	self.name = ingredient.id # renames the node, not the ingredient
 	# Update labels
 	$NameLabel.text = ingredient.name
 	$DescriptionLabel.text = ingredient.description
@@ -43,11 +42,11 @@ func _ready():
 	if ingredient.available_actions & Ingredient.Actions.CHOP:
 		create_variant("Chopped")
 	if ingredient.available_actions & Ingredient.Actions.CRUSH:
-		print("can crush")
+		create_variant("Crushed")
 	if ingredient.available_actions & Ingredient.Actions.MELT:
-		print("can melt")
+		create_variant("Melted")
 	if ingredient.available_actions & Ingredient.Actions.CONCENTRATE:
-		print("can concentrate")
+		create_variant("Concentrated")
 
 
 ################# UPDATE INGREDIENT VALUES #################
@@ -76,6 +75,7 @@ func _on_name_changed(new_name:String):
 func _on_choppable_check_toggled(toggled_on):
 	if toggled_on:
 		ingredient.available_actions |= Ingredient.Actions.CHOP
+		create_variant("Chopped")
 	else:
 		ingredient.available_actions &= ~Ingredient.Actions.CHOP
 	ResourceSaver.save(ingredient, path)
@@ -84,6 +84,7 @@ func _on_choppable_check_toggled(toggled_on):
 func _on_crushable_check_toggled(toggled_on):
 	if toggled_on:
 		ingredient.available_actions |= Ingredient.Actions.CRUSH
+		create_variant("Crushed")
 	else:
 		ingredient.available_actions &= ~Ingredient.Actions.CRUSH
 	ResourceSaver.save(ingredient, path)
@@ -92,6 +93,7 @@ func _on_crushable_check_toggled(toggled_on):
 func _on_meltable_check_toggled(toggled_on):
 	if toggled_on:
 		ingredient.available_actions |= Ingredient.Actions.MELT
+		create_variant("Melted")
 	else:
 		ingredient.available_actions &= ~Ingredient.Actions.MELT
 	ResourceSaver.save(ingredient, path)
@@ -100,6 +102,7 @@ func _on_meltable_check_toggled(toggled_on):
 func _on_concentratable_check_toggled(toggled_on):
 	if toggled_on:
 		ingredient.available_actions |= Ingredient.Actions.CONCENTRATE
+		create_variant("Concentrated")
 	else:
 		ingredient.available_actions &= ~Ingredient.Actions.CONCENTRATE
 	ResourceSaver.save(ingredient, path)
@@ -174,19 +177,22 @@ func update_effect_summary():
 
 ## Called to create a variant resource of this one
 func create_variant(variation:String):
-	var new_name = "%s %s" % [variation, self.ingredient.name]
+	# check if already a variant
+	var split_path = path.get_basename().split("/")
+	var new_name = "%s %s" % [variation, split_path[-2].replace("_", " ").capitalize()]
 	var new_id = new_name.to_snake_case()
-	print(new_id)
+	var new_path = "%s/%s.tres" % [path.get_base_dir(), new_id]
+	# check if variant already in resource manager
+	if get_parent().get_node_or_null(new_id) != null: return
 	# check if resource exists
 	if not ResourcePaths.get_ingredient_path(new_id):
 		# create ingredient resource
 		var new_ingredient = Ingredient.new()
 		new_ingredient.name = new_name
 		new_ingredient.id = new_id
-		var new_path = "%s/%s.tres" % [ResourcePaths.get_ingredient_path(self.ingredient.id).get_base_dir(), new_id]
 		ResourceSaver.save(new_ingredient, new_path)
 		# update resource paths singleton
 		ResourcePaths.update_ingredient_paths()
 	# add variant row to resource manager
-	var new_variant_scene = VARIATION_ROW_SCENE.instantiate()
+	var new_variant_scene = VARIATION_ROW_SCENE.instantiate().with_data(new_path)
 	add_sibling(new_variant_scene)
