@@ -1,13 +1,9 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://cr0et8nd6yoht"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://cg03gk336r6p6"]
 
-[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_qav88"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_xqa6f"]
 
 [resource]
-script = ExtResource("1_qav88")
-<<<<<<< Updated upstream
-=======
-available_actions = 0
->>>>>>> Stashed changes
+script = ExtResource("1_xqa6f")
 id = "frog_leg"
 name = "Frog Leg"
 description = ""

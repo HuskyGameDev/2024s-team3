@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://co5klpgmvh2f6" path="res://screens/main/bell/bell.tscn" id="7_ykbkw"]
 [ext_resource type="PackedScene" uid="uid://bsgio2wgxwjd1" path="res://screens/main/pedestal/pedestal.tscn" id="8_mkd11"]
 [ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://common/items/ingredients/ingredient.tscn" id="10_7anjc"]
-[ext_resource type="Resource" uid="uid://ev5xh66rxxvf" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="11_jgs4v"]
+[ext_resource type="Texture2D" uid="uid://cvvolykrups7e" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.png" id="11_jgs4v"]
 [ext_resource type="PackedScene" uid="uid://cjjarcohy2vqe" path="res://screens/main/stations/cauldron/cauldron.tscn" id="12_rj1v1"]
 [ext_resource type="PackedScene" uid="uid://dda00qymrm5of" path="res://screens/main/ui/end_day_and_skip/end_day_and_skip.tscn" id="13_yll6s"]
 [ext_resource type="PackedScene" uid="uid://b6cq5upjosmpf" path="res://screens/main/ui/clock/new_clock.tscn" id="17_n5klg"]

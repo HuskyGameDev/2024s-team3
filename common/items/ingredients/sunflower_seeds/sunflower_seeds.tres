@@ -1,16 +1,12 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://bbl77ddradug3"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://nok13x58s6pp"]
 
-[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_qnlhi"]
-[ext_resource type="Texture2D" uid="uid://cehw6r5kms0fr" path="res://common/items/ingredients/sunflower_seeds/sunflower_seeds.png" id="1_yaiuo"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_1hsao"]
+[ext_resource type="Texture2D" uid="uid://cehw6r5kms0fr" path="res://common/items/ingredients/sunflower_seeds/sunflower_seeds.png" id="1_ccx8u"]
 
 [resource]
-script = ExtResource("1_qnlhi")
-<<<<<<< Updated upstream
-=======
-available_actions = 0
->>>>>>> Stashed changes
+script = ExtResource("1_1hsao")
 id = "sunflower_seeds"
 name = "Sunflower Seeds"
 description = ""
 stack_size = 5
-image = ExtResource("1_yaiuo")
+image = ExtResource("1_ccx8u")

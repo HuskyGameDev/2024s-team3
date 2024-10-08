@@ -1,13 +1,9 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://bnuo2vk53o1td"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://da58pftrs38ng"]
 
-[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_ps7r8"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_imagq"]
 
 [resource]
-script = ExtResource("1_ps7r8")
-<<<<<<< Updated upstream
-=======
-available_actions = 0
->>>>>>> Stashed changes
+script = ExtResource("1_imagq")
 id = "poison_ivy"
 name = "Poison Ivy"
 description = ""
