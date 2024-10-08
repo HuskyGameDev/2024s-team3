@@ -11,7 +11,7 @@ func _ready():
 	drawer.make_inv_object.connect(_on_inv_dragged) #moving object out of inventory
 
 	$Pedestal/ShelfSlot.connect("items_changed", _on_selling_potion_change)
-	#$Bell/BellButton.connect("pressed", _on_ring_bell)
+	$BellButton.connect("pressed", _on_ring_bell)
 
 
 func _on_shelf_body_entered(body):
