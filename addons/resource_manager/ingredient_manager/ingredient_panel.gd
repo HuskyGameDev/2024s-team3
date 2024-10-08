@@ -7,7 +7,7 @@ const EffectEditor = preload("res://addons/resource_manager/effects_manager/effe
 @onready var RefreshButton: Button = $TitleHBox/RefreshButton
 @onready var AddButton: Button = $AddHBox/AddButton
 @onready var AddNameText: LineEdit = $AddHBox/AddNameEdit
-@onready var TableBody: VBoxContainer = $TableContainer/TableBody
+@onready var TableBody: VBoxContainer = $TableScrollContainer/TableContainer/TableBody
 
 ################# Signal Handling #################
 func _on_refresh_button_pressed():
@@ -17,6 +17,9 @@ func _on_refresh_button_pressed():
 		child.queue_free()
 	# Reload and add all ingredient rows
 	for path in ResourcePaths.get_all_ingredient_paths():
+		# filter out ingredient variations (chopped, crushed, etc)
+		var split_path = path.get_basename().split("/")
+		if split_path[-1] != split_path[-2]: continue
 		var ingredient_row_instance = IngredientRow.instantiate().with_data(path)
 		TableBody.add_child(ingredient_row_instance)
 		ingredient_row_instance.connect("open_effect_editor", _on_edit_effect_button_pressed)
@@ -48,7 +51,7 @@ func _on_add_button_pressed():
 func _on_edit_effect_button_pressed(ingredient:Ingredient):
 	# hide ingredient panel things
 	$TitleHBox.visible = false
-	$TableContainer.visible = false
+	$TableScrollContainer.visible = false
 	$AddHBox.visible = false
 	# add effect editor panel as child
 	var editor_panel_instance = EffectEditor.instantiate().with_data(ingredient)
@@ -60,7 +63,7 @@ func _on_edit_effect_button_pressed(ingredient:Ingredient):
 func _on_effect_panel_back_pressed():
 	# show ingredient panel things
 	$TitleHBox.visible = true
-	$TableContainer.visible = true
+	$TableScrollContainer.visible = true
 	$AddHBox.visible = true
 	# update collapsed effect views
 	for row in TableBody.get_children():

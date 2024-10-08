@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Location" load_steps=13 format=3 uid="uid://6f3wlnhafskf"]
 
-[ext_resource type="Resource" uid="uid://dhhgd3ka2l326" path="res://common/items/ingredients/thistle_root/thistle_root.tres" id="1_082nk"]
+[ext_resource type="Resource" uid="uid://c3prs0652gh3c" path="res://common/items/ingredients/thistle_root/thistle_root.tres" id="1_082nk"]
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="1_rd6f5"]
 [ext_resource type="Script" path="res://common/locations/loot_table_type.gd" id="1_xs8a6"]
-[ext_resource type="Resource" uid="uid://ev5xh66rxxvf" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="2_hop5k"]
+[ext_resource type="Resource" uid="uid://djqumbpv7xrlh" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="2_hop5k"]
 [ext_resource type="Script" path="res://common/items/effect_type.gd" id="2_uo00g"]
 [ext_resource type="Script" path="res://screens/main/customers/customer_order_type.gd" id="3_afg8h"]
 

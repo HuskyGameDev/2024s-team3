@@ -19,6 +19,7 @@ swiftness_slowness = 0
 [resource]
 script = ExtResource("1_jwsd2")
 effects = SubResource("Resource_hujbu")
+available_actions = 0
 id = "bat_wing"
 name = "Bat Wing"
 description = "Cloaks in darkness, cooling the soul"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://11ntudmye2mh"]
+
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_r6ltj"]
+
+[resource]
+script = ExtResource("1_r6ltj")
+available_actions = 0
+id = "crushed_thistle_root"
+name = "Crushed Thistle Root"
+description = ""
+stack_size = 5

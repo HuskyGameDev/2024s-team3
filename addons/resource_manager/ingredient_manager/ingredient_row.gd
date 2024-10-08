@@ -2,6 +2,7 @@
 extends HBoxContainer
 
 const DEBOUNCE_LENGTH = 1
+const VARIATION_ROW_SCENE = preload("res://addons/resource_manager/ingredient_manager/ingredient_variant_row.tscn")
 
 # sends signal to ingredient panel to switch to effect editor
 signal open_effect_editor(ingredient:Ingredient)
@@ -19,14 +20,33 @@ func with_data(path:String):
 
 ## Set values on load
 func _ready():
+	# Load ingredient resource
 	if not path: return
 	self.ingredient = ResourceLoader.load(path, "Ingredient")
+	self.name = ingredient.id # renames the node, not the ingredient
+	# Update labels
 	$NameLabel.text = ingredient.name
 	$DescriptionLabel.text = ingredient.description
 	$StackSizeContainer/StackSizeLabel.value = ingredient.stack_size
 	$ImageContainer/ImageLabel.texture = ingredient.image
 	try_load_image()
 	self.update_effect_summary()
+	
+	# Update available action checkboxes
+	$ChoppableCheck.button_pressed = ingredient.available_actions & Ingredient.Actions.CHOP
+	$CrushableCheck.button_pressed = ingredient.available_actions & Ingredient.Actions.CRUSH
+	$MeltableCheck.button_pressed = ingredient.available_actions & Ingredient.Actions.MELT
+	$ConcentratableCheck.button_pressed = ingredient.available_actions & Ingredient.Actions.CONCENTRATE
+	
+	# If any alternates of the ingredient exist, add those rows
+	if ingredient.available_actions & Ingredient.Actions.CHOP:
+		create_variant(Ingredient.Actions.CHOP)
+	if ingredient.available_actions & Ingredient.Actions.CRUSH:
+		create_variant(Ingredient.Actions.CRUSH)
+	if ingredient.available_actions & Ingredient.Actions.MELT:
+		create_variant(Ingredient.Actions.MELT)
+	if ingredient.available_actions & Ingredient.Actions.CONCENTRATE:
+		create_variant(Ingredient.Actions.CONCENTRATE)
 
 
 ################# UPDATE INGREDIENT VALUES #################
@@ -51,6 +71,45 @@ func _on_name_changed(new_name:String):
 	else:
 		debounce_timer.time_left = DEBOUNCE_LENGTH
 
+## Triggered when choppable checkbox changes:
+func _on_choppable_check_toggled(toggled_on):
+	if toggled_on:
+		ingredient.available_actions |= Ingredient.Actions.CHOP
+		create_variant(Ingredient.Actions.CHOP)
+	else:
+		ingredient.available_actions &= ~Ingredient.Actions.CHOP
+		remove_variant(Ingredient.Actions.CHOP)
+	ResourceSaver.save(ingredient, path)
+
+## Triggered when crushable checkbox changes:
+func _on_crushable_check_toggled(toggled_on):
+	if toggled_on:
+		ingredient.available_actions |= Ingredient.Actions.CRUSH
+		create_variant(Ingredient.Actions.CRUSH)
+	else:
+		ingredient.available_actions &= ~Ingredient.Actions.CRUSH
+		remove_variant(Ingredient.Actions.CRUSH)
+	ResourceSaver.save(ingredient, path)
+
+## Triggered when meltable checkbox changes:
+func _on_meltable_check_toggled(toggled_on):
+	if toggled_on:
+		ingredient.available_actions |= Ingredient.Actions.MELT
+		create_variant(Ingredient.Actions.MELT)
+	else:
+		ingredient.available_actions &= ~Ingredient.Actions.MELT
+		remove_variant(Ingredient.Actions.MELT)
+	ResourceSaver.save(ingredient, path)
+
+## Triggered when concentratable checkbox changes:
+func _on_concentratable_check_toggled(toggled_on):
+	if toggled_on:
+		ingredient.available_actions |= Ingredient.Actions.CONCENTRATE
+		create_variant(Ingredient.Actions.CONCENTRATE)
+	else:
+		ingredient.available_actions &= ~Ingredient.Actions.CONCENTRATE
+		remove_variant(Ingredient.Actions.CONCENTRATE)
+	ResourceSaver.save(ingredient, path)
 
 ###################### OTHER HANDLING ######################
 ## Attempts to load an image with the same name as the resource
@@ -118,3 +177,46 @@ func update_effect_summary():
 		$CollapsedEffectView.set_summary("None")
 	else:
 		$CollapsedEffectView.set_summary(", ".join(ingredient.effects.get_strongest()))
+
+
+## Called to create a variant resource of this one
+func create_variant(variation:Ingredient.Actions):
+	# check if already a variant
+	var split_path = path.get_basename().split("/")
+	var new_name = "%s %s" % [Ingredient.action_to_string(variation).capitalize(), split_path[-2].replace("_", " ").capitalize()]
+	var new_id = new_name.to_snake_case()
+	var new_path = "%s/%s.tres" % [path.get_base_dir(), new_id]
+	# check if variant already in resource manager
+	if get_parent().get_node_or_null(new_id) != null: return
+	# check if resource exists
+	if not ResourcePaths.get_ingredient_path(new_id):
+		# create ingredient resource
+		var new_ingredient = Ingredient.new()
+		new_ingredient.name = new_name
+		new_ingredient.id = new_id
+		ResourceSaver.save(new_ingredient, new_path)
+		# update resource paths singleton
+		ResourcePaths.update_ingredient_paths()
+	# add variant row to resource manager
+	var new_variant_scene = VARIATION_ROW_SCENE.instantiate().with_data(new_path)
+	add_sibling(new_variant_scene)
+
+
+## Called to remove a variant resource of this one
+func remove_variant(variation:Ingredient.Actions):
+	# check if any other versions of this ingredient allow that variation
+	var variant_paths = ResourcePaths.get_all_ingredient_variant_paths(ingredient.id)
+	for path in variant_paths:
+		var variant = ResourceLoader.load(path, "Ingredient")
+		if variant.can(variation): # used by another version of this ingredient, so don't remove it
+			return 
+	# remove resource file
+	var split_path = path.get_basename().split("/")
+	var new_id = "%s_%s" % [Ingredient.action_to_string(variation), split_path[-2]]
+	var new_path = "%s/%s.tres" % [path.get_base_dir(), new_id]
+	DirAccess.remove_absolute(new_path)
+	# update resource paths singleton
+	ResourcePaths.update_ingredient_paths()
+	# remove row from table
+	var row = get_parent().get_node_or_null(new_id)
+	if row != null: row.queue_free()
