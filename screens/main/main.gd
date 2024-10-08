@@ -69,4 +69,3 @@ func _on_inv_dragged(inv_slot):
 		else:
 			inv_data[inv_slot]["Quantity"] = quantity - 1
 		PlayerData.write_inv(inv_data)
-		newItem.drop()

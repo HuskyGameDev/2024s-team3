@@ -36,8 +36,7 @@ func _get_dragging(inv_slot):
 func _notification(notification_type): 
 	match notification_type:
 		NOTIFICATION_DRAG_END:
-			if !is_drag_successful() and dragged == 0:
-				dragged = 1
+			if !is_drag_successful():
 				inv_data = PlayerData.read_inv()	
 				make_inv_object.emit(dragSlot) #sends signal to main to make the object
 				var quantityNode = get_node("Background/M/V/ScrollContainer/GridContainer/" + str(dragSlot) + "/Icon/Quantity") 
@@ -50,7 +49,6 @@ func _notification(notification_type):
 					quantityNode.text =  str(int(quantityNode.text) - 1)
 					inv_data[dragSlot]["Quantity"] = quantityNode.text
 				PlayerData.write_inv(inv_data)
-				dragged = 0
 
 #insert an item of ingredient resource and quantity amount
 func Insert(item : Resource, quantity : int):
