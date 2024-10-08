@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=4 format=3 uid="uid://cbwcla8csqs4x"]
+
+[ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_q1hie"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_wjevr"]
+
+[sub_resource type="Resource" id="Resource_xc8ue"]
+script = ExtResource("1_q1hie")
+healing_poison = -10
+warm_cold = 0
+calming_agitation = 0
+strength_weakness = -5
+energy_fatigue = 0
+light_dark = -5
+luck_misfortune = 0
+clarity_confusion = 0
+defense_vulnerability = 0
+swiftness_slowness = 0
+
+[resource]
+script = ExtResource("1_wjevr")
+effects = SubResource("Resource_xc8ue")
+available_actions = 0
+id = "eye_of_a_newt"
+name = "Eye of a Newt"
+description = "An actual eye of an actual newt"
+stack_size = 5

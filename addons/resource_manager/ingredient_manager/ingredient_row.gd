@@ -157,8 +157,9 @@ func _on_delete_button_pressed():
 ## Called from delete confirmation dialog
 func _on_delete_confirmed():
 	self.queue_free()
-	DirAccess.remove_absolute(ingredient.image.resource_path)
-	DirAccess.remove_absolute(ingredient.image.resource_path+".import")
+	if ingredient.image:
+		DirAccess.remove_absolute(ingredient.image.resource_path)
+		DirAccess.remove_absolute(ingredient.image.resource_path+".import")
 	DirAccess.remove_absolute(path)
 	DirAccess.remove_absolute(path.get_base_dir())
 	# update resource paths singleton
