@@ -81,15 +81,6 @@ offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="add" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = -140.0
-offset_top = 526.0
-offset_right = -6.0
-offset_bottom = 578.0
-text = "add"
-
 [node name="exit" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -104,5 +95,4 @@ grow_vertical = 2
 text = "X"
 
 [connection signal="button_down" from="Tab/tab" to="." method="_on_tab_button_down"]
-[connection signal="button_down" from="add" to="." method="_on_add_button_down"]
 [connection signal="button_down" from="exit" to="." method="_on_exit_button_down"]

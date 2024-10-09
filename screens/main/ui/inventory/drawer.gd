@@ -115,12 +115,10 @@ func _input(_e): # when a user presses the "i" key inventory appears on the scre
 func _on_tab_button_down():
 	self.position.x = 1200
 	$Tab.visible = false
-	$add.visible = false
 	inventory_open.emit(true)
 
 #move drawer on screen
 func _on_exit_button_down():
 	self.position.x = 1920
 	$Tab.visible = true
-	$add.visible = false
 	inventory_open.emit(false)
