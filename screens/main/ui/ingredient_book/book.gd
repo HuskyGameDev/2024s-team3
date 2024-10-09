@@ -7,6 +7,7 @@ extends Node2D
 @onready var back = $Back
 @onready var anim = $"Book Animation"
 @onready var values = $Values
+@onready var ingrName = $Name
 
 
 var batWing = preload("res://common/items/ingredients/bat_wing/bat_wing.tres")
@@ -55,28 +56,29 @@ func _update_data():
 	var current_ingr: Ingredient
 	match current_ingr_key:
 		0:
-			current_ingr = batWing
+			current_ingr = thistleRoot
 		1:
-			current_ingr = frogLeg
-		2:
 			current_ingr = nightshade
+		2:
+			current_ingr = sunFlower
 		3:
-			current_ingr = owlFeather
+			current_ingr = pineResin
 		4:
 			current_ingr = peppermint
 		5:
-			current_ingr = pineResin
+			current_ingr = owlFeather
 		6:
 			current_ingr = poisonIvy
 		7:
-			current_ingr = sunFlower
+			current_ingr = frogLeg
 		8:
-			current_ingr = thistleRoot
+			current_ingr = batWing
 		9:
 			current_ingr = eyeOfNewt
 	
 	
 	# Change all the data
+	ingrName.text = current_ingr.name
 	description.text = current_ingr.description
 	ingredient.texture = current_ingr.image
 	var valuesArray = values.get_children()

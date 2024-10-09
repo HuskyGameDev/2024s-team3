@@ -43,6 +43,7 @@ visible = false
 position = Vector2(165, 165)
 
 [node name="Book" parent="CanvasLayer" instance=ExtResource("5_la1bq")]
+position = Vector2(306, 1248)
 
 [node name="Room" type="Node2D" parent="."]
 scale = Vector2(6, 6)

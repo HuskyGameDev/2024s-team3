@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfl08feek1lei"]
 
 [ext_resource type="Texture2D" uid="uid://ciyndcoi0ir5d" path="res://screens/main/ui/ingredient_book/Ingredient Book.png" id="1_0r2wl"]
-[ext_resource type="Texture2D" uid="uid://0r4pffel3ps4" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.png" id="2_3ss50"]
+[ext_resource type="Texture2D" uid="uid://cvvolykrups7e" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.png" id="2_3ss50"]
 
 [node name="Ingredient Book" type="Control"]
 layout_mode = 3
