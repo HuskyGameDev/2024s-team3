@@ -195,5 +195,6 @@ text = "Ingredients"
 
 [connection signal="customer_created" from="CustomerFactory" to="." method="_on_new_customer"]
 [connection signal="potion_made" from="Cauldron" to="." method="_on_item_made"]
+[connection signal="make_inv_object" from="InventoryDrawer" to="." method="_on_inv_dragged"]
 [connection signal="pressed" from="BellButton" to="." method="_on_ring_bell"]
 [connection signal="pressed" from="IngredientBookButton" to="CanvasLayer/Book" method="_move_up"]

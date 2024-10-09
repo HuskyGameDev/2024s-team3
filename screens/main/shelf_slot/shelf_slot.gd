@@ -48,7 +48,8 @@ func _on_slot_hover_exited(body):
 ## it can be held, then handle holding it
 func _unhandled_input(event):
 	if isDisabled: return
-	if Input.is_action_just_released("click") && dragging && not dragging.onShelf:
+	if Input.is_action_just_released("click") \
+	and dragging != null and not dragging.onShelf:
 		if can_hold(dragging.data): 
 			hold_node(dragging)
 
