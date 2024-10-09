@@ -37,25 +37,5 @@ func _ready():
 	timer.start()
 
 
-#var tween = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_ELASTIC)
-#tween.tween_property($Sprite, "modulate", Color.RED, 1)
-#tween.tween_property($Sprite, "scale", Vector2(), 1)
-#tween.tween_callback($Sprite.queue_free)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	#var past: float = .01
-	#progressBar.value += (GameTime.GAME_TIME_SCALE) * delta
-	pass
-	#print(past)
-	#print(1.0/GameTime.GAME_TIME_SCALE)
-	#print(progressBar.value)
-
-
 func _on_timer_timeout():
-	print(progressBar.value)
-	#tween.stop()
-	#tween.finished
-	#tween.tween_property(progressBar,"value",(GameTime.hour + 1) * (100/abs(GameTime.STORE_OPEN_TIME - GameTime.STORE_CLOSE_TIME)), GameTime.GAME_TIME_SCALE)
 	emit_signal("timerWentOff")
-	print("Timer")

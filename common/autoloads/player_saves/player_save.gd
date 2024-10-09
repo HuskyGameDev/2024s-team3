@@ -44,14 +44,14 @@ func save_game():
 func load_game() -> SaveGameFile:
 	## Load from file
 	if not FileAccess.file_exists(SAVE_LOCATION):
-		print("No save found")
+		printerr("No save found")
 		return SaveGameFile.new()
 	var save_file = FileAccess.open(SAVE_LOCATION, FileAccess.READ)
 	var loaded_save = str_to_var(save_file.get_var())
 	if loaded_save is SaveGameFile:
 		return loaded_save
 	else:
-		print("error reading save file")
+		printerr("error reading save file")
 		return SaveGameFile.new()
 		load_game_files()
 
