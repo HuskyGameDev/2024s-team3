@@ -1,21 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://dodgotg7ctei"]
+[gd_scene load_steps=5 format=3 uid="uid://dodgotg7ctei"]
 
 [ext_resource type="Texture2D" uid="uid://b7a4u0nuntxrg" path="res://screens/main/customers/generic_sprites/customer1.png" id="1_ngin2"]
 [ext_resource type="Script" path="res://screens/main/customers/customer.gd" id="2_pbsdo"]
+[ext_resource type="Theme" uid="uid://bbilaxa656p7n" path="res://screens/main/customers/customer_dialogue_theme.tres" id="3_6khkt"]
+[ext_resource type="Texture2D" uid="uid://crbl2qwkavqgq" path="res://screens/main/customers/speech_bubble_pointer.png" id="4_3klal"]
 
-[node name="Customer" type="Sprite2D"]
+[node name="Customer" type="Node2D"]
 z_index = -1
-position = Vector2(6, 5)
-texture = ExtResource("1_ngin2")
 script = ExtResource("2_pbsdo")
 
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ngin2")
+
 [node name="DialogueLabel" type="RichTextLabel" parent="."]
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = -211.0
-offset_top = -261.0
-offset_right = -211.0
-offset_bottom = -261.0
-grow_horizontal = 2
+offset_left = -630.0
+offset_top = -342.0
+offset_right = -46.0
+offset_bottom = -265.0
+theme = ExtResource("3_6khkt")
 text = "Customer Dialogue Request"
 fit_content = true
+
+[node name="PointerRect" type="TextureRect" parent="."]
+offset_left = -266.0
+offset_top = -271.0
+offset_right = -132.0
+offset_bottom = -167.0
+texture = ExtResource("4_3klal")
+expand_mode = 1
