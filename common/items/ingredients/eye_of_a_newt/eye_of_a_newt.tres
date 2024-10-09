@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=4 format=3 uid="uid://cbwcla8csqs4x"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=5 format=3 uid="uid://cbwcla8csqs4x"]
 
 [ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_q1hie"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_wjevr"]
+[ext_resource type="Texture2D" uid="uid://c8qyskkwgbrla" path="res://common/items/ingredients/eye_of_a_newt/eye_of_a_newt.png" id="2_ix7pw"]
 
 [sub_resource type="Resource" id="Resource_xc8ue"]
 script = ExtResource("1_q1hie")
@@ -24,3 +25,4 @@ id = "eye_of_a_newt"
 name = "Eye of a Newt"
 description = "An actual eye of an actual newt"
 stack_size = 5
+image = ExtResource("2_ix7pw")

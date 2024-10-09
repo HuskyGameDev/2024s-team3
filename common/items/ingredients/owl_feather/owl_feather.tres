@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=4 format=3 uid="uid://cj8ol3qfrfwmh"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=5 format=3 uid="uid://cj8ol3qfrfwmh"]
 
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_pa7nx"]
 [ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_v64sg"]
+[ext_resource type="Texture2D" uid="uid://cg27dp874j7ko" path="res://common/items/ingredients/owl_feather/owl_feather.png" id="2_lx1i5"]
 
 [sub_resource type="Resource" id="Resource_8vfgc"]
 script = ExtResource("1_v64sg")
@@ -24,3 +25,4 @@ id = "owl_feather"
 name = "Owl Feather"
 description = "Clears the mind, fortune favors you"
 stack_size = 5
+image = ExtResource("2_lx1i5")

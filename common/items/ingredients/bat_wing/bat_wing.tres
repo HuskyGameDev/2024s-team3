@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=4 format=3 uid="uid://4foau6bfx00o"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=5 format=3 uid="uid://4foau6bfx00o"]
 
 [ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_bvfna"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_jwsd2"]
+[ext_resource type="Texture2D" uid="uid://cm4534apwnvcc" path="res://common/items/ingredients/bat_wing/bat_wing.png" id="2_3cnqy"]
 
 [sub_resource type="Resource" id="Resource_hujbu"]
 script = ExtResource("1_bvfna")
@@ -24,3 +25,4 @@ id = "bat_wing"
 name = "Bat Wing"
 description = "Cloaks in darkness, cooling the soul"
 stack_size = 5
+image = ExtResource("2_3cnqy")
