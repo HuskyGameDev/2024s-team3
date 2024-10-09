@@ -1,8 +1,7 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=5 format=3 uid="uid://c3prs0652gh3c"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=4 format=3 uid="uid://c3prs0652gh3c"]
 
 [ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_c6kbf"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_cjk3h"]
-[ext_resource type="Texture2D" uid="uid://bhe7g2gg215vm" path="res://common/items/ingredients/thistle_root/thistle_root.png" id="1_ttisb"]
 
 [sub_resource type="Resource" id="Resource_rugig"]
 script = ExtResource("1_c6kbf")
@@ -25,4 +24,3 @@ id = "thistle_root"
 name = "Thistle Root"
 description = "Grants strength but drains endurance"
 stack_size = 5
-image = ExtResource("1_ttisb")

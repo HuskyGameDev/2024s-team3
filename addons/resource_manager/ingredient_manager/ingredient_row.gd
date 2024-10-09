@@ -2,7 +2,6 @@
 extends HBoxContainer
 
 const DEBOUNCE_LENGTH = 1
-const VARIATION_ROW_SCENE = preload("res://addons/resource_manager/ingredient_manager/ingredient_variant_row.tscn")
 
 # sends signal to ingredient panel to switch to effect editor
 signal open_effect_editor(ingredient:Ingredient)
@@ -199,7 +198,7 @@ func create_variant(variation:Ingredient.Actions):
 		# update resource paths singleton
 		ResourcePaths.update_ingredient_paths()
 	# add variant row to resource manager
-	var new_variant_scene = VARIATION_ROW_SCENE.instantiate().with_data(new_path)
+	var new_variant_scene = load("res://addons/resource_manager/ingredient_manager/ingredient_variant_row.tscn").instantiate().with_data(new_path)
 	add_sibling(new_variant_scene)
 
 
