@@ -20,10 +20,10 @@ script = ExtResource("2_7hpqk")
 
 [node name="NightshadeLabel" type="RichTextLabel" parent="Tutorial" index="0"]
 layout_mode = 0
-offset_left = 510.0
-offset_top = 219.0
-offset_right = 1179.0
-offset_bottom = 361.0
+offset_left = 460.0
+offset_top = 332.0
+offset_right = 1129.0
+offset_bottom = 512.0
 text = "Find the ingredient NIGHTSHADE by hovering your mouse over the ingredients. Click and drag it into the cauldron."
 
 [node name="InventoryLabel" type="RichTextLabel" parent="Tutorial" index="1"]
@@ -36,10 +36,10 @@ text = "Click the white tab on the right to open your inventory."
 
 [node name="ThistleLabel" type="RichTextLabel" parent="Tutorial" index="2"]
 layout_mode = 0
-offset_left = 508.0
-offset_top = 241.0
-offset_right = 1142.0
-offset_bottom = 343.0
+offset_left = 459.0
+offset_top = 346.0
+offset_right = 1093.0
+offset_bottom = 488.0
 text = "Find the ingredient THISTLE ROOT in the inventory and drag it into the cauldron."
 
 [node name="CauldronLabel" type="RichTextLabel" parent="Tutorial" index="3"]
@@ -53,8 +53,8 @@ text = "Great! Now click on the cauldron to extract your potion."
 [node name="PotionLabel" type="RichTextLabel" parent="Tutorial" index="4"]
 layout_mode = 0
 offset_left = 503.0
-offset_top = 488.0
-offset_right = 1278.0
+offset_top = 444.0
+offset_right = 1057.0
 offset_bottom = 593.0
 text = "Good job! Now place the potion on the pedestal under the bell. Ring the bell to sell the potion."
 
