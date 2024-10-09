@@ -22,6 +22,10 @@ PlayerData="*res://common/autoloads/player_saves/player_save.gd"
 GameTime="*res://common/autoloads/game_time.gd"
 SceneManager="*res://common/autoloads/scene_manager.gd"
 
+[debug]
+
+file_logging/enable_file_logging=true
+
 [display]
 
 window/size/viewport_width=1920
@@ -73,4 +77,5 @@ inventory={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
 2d/snap/snap_2d_transforms_to_pixel=true

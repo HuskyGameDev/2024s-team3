@@ -59,9 +59,14 @@ func _get_all_paths_with_extension(path: String, extension: String) -> Array[Str
 		var file_path = path + "/" + file_name  
 		if dir.current_is_dir():
 			file_paths += _get_all_paths_with_extension(file_path, extension)  
-		elif extension in file_name and ".import" not in file_name:
-			file_paths.append(file_path)  
-		file_name = dir.get_next()  
+		elif extension in file_name:
+			if OS.has_feature("editor"):
+				if ".import" not in file_name: #Only include .import files if not in the editor
+					file_paths.append(file_path)
+			else:
+				file_path = file_path.trim_suffix(".import")
+				file_paths.append(file_path)
+		file_name = dir.get_next()
 	dir.list_dir_end()
 	return file_paths
 
