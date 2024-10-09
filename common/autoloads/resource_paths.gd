@@ -65,6 +65,7 @@ func _get_all_paths_with_extension(path: String, extension: String) -> Array[Str
 					file_paths.append(file_path)
 			else:
 				file_path = file_path.trim_suffix(".import")
+				file_path = file_path.trim_suffix(".remap")
 				file_paths.append(file_path)
 		file_name = dir.get_next()
 	dir.list_dir_end()
