@@ -1,15 +1,25 @@
-[gd_resource type="Resource" script_class="Location" load_steps=30 format=3 uid="uid://6f3wlnhafskf"]
+[gd_resource type="Resource" script_class="Location" load_steps=40 format=3 uid="uid://6f3wlnhafskf"]
 
 [ext_resource type="Resource" uid="uid://c3prs0652gh3c" path="res://common/items/ingredients/thistle_root/thistle_root.tres" id="1_082nk"]
+[ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_jxp8t"]
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="1_rd6f5"]
 [ext_resource type="Script" path="res://common/locations/loot_table_type.gd" id="1_xs8a6"]
+[ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_3ampu"]
 [ext_resource type="Resource" uid="uid://djqumbpv7xrlh" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="2_hop5k"]
-[ext_resource type="Script" path="res://common/items/effect_type.gd" id="2_uo00g"]
+[ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="2_uo00g"]
 [ext_resource type="Script" path="res://screens/main/customers/customer_order_type.gd" id="3_afg8h"]
+[ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_uo7jv"]
+[ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_18sr4"]
+[ext_resource type="Resource" uid="uid://2bq51ncoy4qu" path="res://common/items/effects/healing_poison.tres" id="5_ys4d4"]
+[ext_resource type="Resource" uid="uid://b0efkhflivhlj" path="res://common/items/effects/light_dark.tres" id="6_5d1gh"]
 [ext_resource type="Resource" uid="uid://bjhii562qg2fn" path="res://common/items/ingredients/peppermint_leaves/peppermint_leaves.tres" id="6_5qfir"]
 [ext_resource type="Resource" uid="uid://cbwcla8csqs4x" path="res://common/items/ingredients/eye_of_a_newt/eye_of_a_newt.tres" id="7_hwtfn"]
+[ext_resource type="Resource" uid="uid://diti6ufqgwhph" path="res://common/items/effects/luck_misfortune.tres" id="7_kdcyu"]
+[ext_resource type="Resource" uid="uid://b3sw5wyytvesi" path="res://common/items/effects/strength_weakness.tres" id="8_aofug"]
 [ext_resource type="Resource" uid="uid://da58pftrs38ng" path="res://common/items/ingredients/poison_ivy/poison_ivy.tres" id="8_olgs1"]
 [ext_resource type="Resource" uid="uid://ct02wgym7kn2l" path="res://common/items/ingredients/pine_resin/pine_resin.tres" id="9_1l2rb"]
+[ext_resource type="Resource" uid="uid://dxvuf8wqsbidk" path="res://common/items/effects/swiftness_slowness.tres" id="9_ku3ef"]
+[ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_4q7ss"]
 [ext_resource type="Resource" uid="uid://cg03gk336r6p6" path="res://common/items/ingredients/frog_leg/frog_leg.tres" id="10_wdi41"]
 [ext_resource type="Resource" uid="uid://nok13x58s6pp" path="res://common/items/ingredients/sunflower_seeds/sunflower_seeds.tres" id="11_qv776"]
 [ext_resource type="Resource" uid="uid://4foau6bfx00o" path="res://common/items/ingredients/bat_wing/bat_wing.tres" id="12_bdpdl"]
@@ -17,29 +27,33 @@
 
 [sub_resource type="Resource" id="Resource_dsxx7"]
 script = ExtResource("2_uo00g")
-healing_poison = 50
-warm_cold = 50
-calming_agitation = 50
-strength_weakness = 50
-energy_fatigue = 50
-light_dark = 50
-luck_misfortune = 50
-clarity_confusion = 50
-defense_vulnerability = 50
-swiftness_slowness = 50
+effects = {
+ExtResource("1_jxp8t"): 0,
+ExtResource("2_3ampu"): 0,
+ExtResource("3_uo7jv"): 0,
+ExtResource("4_18sr4"): 0,
+ExtResource("5_ys4d4"): 50,
+ExtResource("6_5d1gh"): 0,
+ExtResource("7_kdcyu"): 0,
+ExtResource("8_aofug"): 0,
+ExtResource("9_ku3ef"): 0,
+ExtResource("10_4q7ss"): 0
+}
 
 [sub_resource type="Resource" id="Resource_fsm31"]
 script = ExtResource("2_uo00g")
-healing_poison = 5
-warm_cold = -50
-calming_agitation = -50
-strength_weakness = -50
-energy_fatigue = -50
-light_dark = -50
-luck_misfortune = -50
-clarity_confusion = -50
-defense_vulnerability = -50
-swiftness_slowness = -50
+effects = {
+ExtResource("1_jxp8t"): 0,
+ExtResource("2_3ampu"): 0,
+ExtResource("3_uo7jv"): 0,
+ExtResource("4_18sr4"): 0,
+ExtResource("5_ys4d4"): 5,
+ExtResource("6_5d1gh"): 0,
+ExtResource("7_kdcyu"): 0,
+ExtResource("8_aofug"): 0,
+ExtResource("9_ku3ef"): 0,
+ExtResource("10_4q7ss"): 0
+}
 
 [sub_resource type="Resource" id="Resource_e6l0n"]
 script = ExtResource("3_afg8h")
@@ -49,29 +63,33 @@ dialogueOptions = PackedStringArray("Please heal me!", "I need healing!", "tummy
 
 [sub_resource type="Resource" id="Resource_spb0r"]
 script = ExtResource("2_uo00g")
-healing_poison = 50
-warm_cold = 50
-calming_agitation = 50
-strength_weakness = 50
-energy_fatigue = 50
-light_dark = 50
-luck_misfortune = 50
-clarity_confusion = 50
-defense_vulnerability = 50
-swiftness_slowness = 50
+effects = {
+ExtResource("1_jxp8t"): 0,
+ExtResource("2_3ampu"): 0,
+ExtResource("3_uo7jv"): 0,
+ExtResource("4_18sr4"): 0,
+ExtResource("5_ys4d4"): 0,
+ExtResource("6_5d1gh"): 0,
+ExtResource("7_kdcyu"): 50,
+ExtResource("8_aofug"): 0,
+ExtResource("9_ku3ef"): 0,
+ExtResource("10_4q7ss"): 0
+}
 
 [sub_resource type="Resource" id="Resource_043q1"]
 script = ExtResource("2_uo00g")
-healing_poison = -50
-warm_cold = -50
-calming_agitation = -50
-strength_weakness = -50
-energy_fatigue = -50
-light_dark = -50
-luck_misfortune = 30
-clarity_confusion = -50
-defense_vulnerability = -50
-swiftness_slowness = -50
+effects = {
+ExtResource("1_jxp8t"): 0,
+ExtResource("2_3ampu"): 0,
+ExtResource("3_uo7jv"): 0,
+ExtResource("4_18sr4"): 0,
+ExtResource("5_ys4d4"): 0,
+ExtResource("6_5d1gh"): 0,
+ExtResource("7_kdcyu"): 25,
+ExtResource("8_aofug"): 0,
+ExtResource("9_ku3ef"): 0,
+ExtResource("10_4q7ss"): 0
+}
 
 [sub_resource type="Resource" id="Resource_eer62"]
 script = ExtResource("3_afg8h")
@@ -81,29 +99,33 @@ dialogueOptions = PackedStringArray("The casino is never gonna see this coming",
 
 [sub_resource type="Resource" id="Resource_dogf2"]
 script = ExtResource("2_uo00g")
-healing_poison = -5
-warm_cold = 50
-calming_agitation = 50
-strength_weakness = 50
-energy_fatigue = 50
-light_dark = 50
-luck_misfortune = 50
-clarity_confusion = 50
-defense_vulnerability = 50
-swiftness_slowness = 50
+effects = {
+ExtResource("1_jxp8t"): 0,
+ExtResource("2_3ampu"): 0,
+ExtResource("3_uo7jv"): 0,
+ExtResource("4_18sr4"): 0,
+ExtResource("5_ys4d4"): -5,
+ExtResource("6_5d1gh"): 0,
+ExtResource("7_kdcyu"): 0,
+ExtResource("8_aofug"): 0,
+ExtResource("9_ku3ef"): 0,
+ExtResource("10_4q7ss"): 0
+}
 
 [sub_resource type="Resource" id="Resource_i862y"]
 script = ExtResource("2_uo00g")
-healing_poison = -50
-warm_cold = -50
-calming_agitation = -50
-strength_weakness = -50
-energy_fatigue = -50
-light_dark = -50
-luck_misfortune = -50
-clarity_confusion = -50
-defense_vulnerability = -50
-swiftness_slowness = -50
+effects = {
+ExtResource("1_jxp8t"): 0,
+ExtResource("2_3ampu"): 0,
+ExtResource("3_uo7jv"): 0,
+ExtResource("4_18sr4"): 0,
+ExtResource("5_ys4d4"): -50,
+ExtResource("6_5d1gh"): 0,
+ExtResource("7_kdcyu"): 0,
+ExtResource("8_aofug"): 0,
+ExtResource("9_ku3ef"): 0,
+ExtResource("10_4q7ss"): 0
+}
 
 [sub_resource type="Resource" id="Resource_qmgaj"]
 script = ExtResource("3_afg8h")
@@ -113,29 +135,33 @@ dialogueOptions = PackedStringArray("There\'s rats in the cellar", "I need to ki
 
 [sub_resource type="Resource" id="Resource_3kq00"]
 script = ExtResource("2_uo00g")
-healing_poison = 50
-warm_cold = 50
-calming_agitation = 50
-strength_weakness = 50
-energy_fatigue = 50
-light_dark = 50
-luck_misfortune = 50
-clarity_confusion = 50
-defense_vulnerability = 50
-swiftness_slowness = 50
+effects = {
+ExtResource("1_jxp8t"): 0,
+ExtResource("2_3ampu"): 0,
+ExtResource("3_uo7jv"): 0,
+ExtResource("4_18sr4"): 0,
+ExtResource("5_ys4d4"): 0,
+ExtResource("6_5d1gh"): 0,
+ExtResource("7_kdcyu"): 0,
+ExtResource("8_aofug"): 50,
+ExtResource("9_ku3ef"): 0,
+ExtResource("10_4q7ss"): 0
+}
 
 [sub_resource type="Resource" id="Resource_yhb0y"]
 script = ExtResource("2_uo00g")
-healing_poison = -50
-warm_cold = -50
-calming_agitation = -50
-strength_weakness = 5
-energy_fatigue = -50
-light_dark = -50
-luck_misfortune = -50
-clarity_confusion = -50
-defense_vulnerability = -50
-swiftness_slowness = -50
+effects = {
+ExtResource("1_jxp8t"): 0,
+ExtResource("2_3ampu"): 0,
+ExtResource("3_uo7jv"): 0,
+ExtResource("4_18sr4"): 0,
+ExtResource("5_ys4d4"): 0,
+ExtResource("6_5d1gh"): 0,
+ExtResource("7_kdcyu"): 0,
+ExtResource("8_aofug"): 5,
+ExtResource("9_ku3ef"): 0,
+ExtResource("10_4q7ss"): 0
+}
 
 [sub_resource type="Resource" id="Resource_2kcb5"]
 script = ExtResource("3_afg8h")

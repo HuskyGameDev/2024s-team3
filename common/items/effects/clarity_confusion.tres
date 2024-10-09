@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Effect" load_steps=2 format=3 uid="uid://dm5g60527ck6"]
+
+[ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_1sgae"]
+
+[resource]
+script = ExtResource("1_1sgae")
+id = "clarity_confusion"
+pos_label = "Clarity"
+pos_color = Color(0, 0, 0, 1)
+neg_label = "Confusion"
+neg_color = Color(0, 0, 0, 1)

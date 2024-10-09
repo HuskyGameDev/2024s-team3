@@ -25,11 +25,11 @@ func with_data(rarity:String, table:LootTable, data:CustomerOrder):
 
 func _ready():
 	$DialogueEdit.text = "\n".join(self.order.dialogueOptions)
-	var min_effects = order.minEffects.as_nested_list()
-	var max_effects = order.maxEffects.as_nested_list()
-	for i in min_effects.size():
-		if min_effects[i][1] != -50 or max_effects[i][1] != 50:
-			$MinAndMaxEffects.add_row(min_effects[i][0], min_effects[i][1], max_effects[i][1])
+	var min_effects = order.minEffects.effects
+	var max_effects = order.maxEffects.effects
+	for effect in min_effects:
+		if min_effects[effect] != 0 or max_effects[effect] != 0:
+			$MinAndMaxEffects.add_row(effect.id, min_effects[effect], max_effects[effect])
 	super()
 
 
@@ -51,12 +51,12 @@ func _on_dialogue_changed():
 	order.dialogueOptions = lines
 
 
-func _on_min_effect_changed(key, value):
-	order.minEffects.set_effect_by_key(key, value)
+func _on_min_effect_changed(effect, value):
+	order.minEffects.set_strength(effect, value)
 
 
-func _on_max_effect_changed(key, value):
-	order.maxEffects.set_effect_by_key(key, value)
+func _on_max_effect_changed(effect, value):
+	order.maxEffects.set_strength(effect, value)
 
 
 func _on_delete_button_pressed():

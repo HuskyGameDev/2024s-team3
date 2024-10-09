@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Effect" load_steps=2 format=3 uid="uid://diti6ufqgwhph"]
+
+[ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_2swny"]
+
+[resource]
+script = ExtResource("1_2swny")
+id = "luck_misfortune"
+pos_label = "Lucky"
+pos_color = Color(0, 0, 0, 1)
+neg_label = "Unlucky"
+neg_color = Color(0, 0, 0, 1)
