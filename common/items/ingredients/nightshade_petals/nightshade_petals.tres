@@ -17,7 +17,7 @@
 [sub_resource type="Resource" id="Resource_g1u86"]
 script = ExtResource("1_pq5nh")
 effects = {
-ExtResource("1_owm34"): 5,
+ExtResource("1_owm34"): 2,
 ExtResource("2_tpy76"): 0,
 ExtResource("3_2my1w"): 0,
 ExtResource("4_dl006"): 0,
