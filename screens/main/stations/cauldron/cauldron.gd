@@ -34,3 +34,4 @@ func _on_cauldron_input_event(_viewport, _event, _shape_idx):
 			potion_made.emit(potion, self.global_position - Vector2(0, 100))
 			has_ingredients = false
 			current_effects = EffectSet.new()
+			SpriteShader.set_shader_parameter("to", Vector3(0.1725, 0.1333, 0.1804))

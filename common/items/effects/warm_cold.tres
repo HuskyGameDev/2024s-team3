@@ -6,6 +6,6 @@
 script = ExtResource("1_ftfq7")
 id = "warm_cold"
 pos_label = "Warming"
-pos_color = Color(0, 0, 0, 1)
+pos_color = Color(1, 0.858824, 0.2, 1)
 neg_label = "Cooling"
-neg_color = Color(0, 0, 0, 1)
+neg_color = Color(0.741176, 0.929412, 0.94902, 1)

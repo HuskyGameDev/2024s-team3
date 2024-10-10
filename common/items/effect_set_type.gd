@@ -14,7 +14,8 @@ static var STRENGTH_WEAKNESS     = preload("res://common/items/effects/strength_
 static var SWIFTNESS_SLOWNESS    = preload("res://common/items/effects/swiftness_slowness.tres")
 static var WARM_COLD             = preload("res://common/items/effects/warm_cold.tres")
 
-static var ZERO_EFFECT_SET = {
+## key is Effect, value is int
+static var ALL_EFFECTS = {
 	CALMING_AGITATION: 0,
 	CLARITY_CONFUSION: 0,
 	DEFENSE_VULNERABILITY: 0,
@@ -25,11 +26,11 @@ static var ZERO_EFFECT_SET = {
 	STRENGTH_WEAKNESS: 0,
 	SWIFTNESS_SLOWNESS: 0,
 	WARM_COLD: 0,
-} ## key is Effect, value is int
+}
 
 ## Get effect resource by id
 static func get_effect_by_id(id: String):
-	for effect in ZERO_EFFECT_SET:
+	for effect in ALL_EFFECTS:
 		if effect.id == id: 
 			return effect
 	return null
@@ -39,32 +40,11 @@ const NOTHING_RANGE = 5
 const WEAK_RANGE = 10
 const REGULAR_RANGE = 20
 
-const EFFECTLESS_COLOR = Vector3(0.75, 0.75, 0.75)
+const EFFECTLESS_COLOR = Color(200, 200, 200)
 
-@export var effects:Dictionary = ZERO_EFFECT_SET.duplicate()
 
-#const EFFECT_COLORS = {
-	#"healing": Vector3(0.99, 0.18, 0.31),
-	#"poison": Vector3(0.03, 0.93, 0.09),
-	#"warm": Vector3(1, 0.86, 0.2),
-	#"cold": Vector3(0.74, 0.93, 0.95),
-	#"calming": Vector3(0.52, 0.86, 0.96),
-	#"agitation": Vector3(1, 0.4, 0),
-	#"strength": Vector3(0.96, 0.09, 0.03),
-	#"weakness": Vector3(0.99, 0.94, 0.87),
-	#"energy": Vector3(0.93, 0.41, 0.69),
-	#"fatigue": Vector3(0.08, 0.18, 0.79),
-	#"light": Vector3(1, 0.98, 0.24),
-	#"dark": Vector3(0.17, 0.04, 0.27),
-	#"luck": Vector3(0, 0.64, 0.02),
-	#"misfortune": Vector3(0.71, 0.33, 0.72),
-	#"clarity": Vector3(0.33, 0.14, 0.6),
-	#"confusion": Vector3(0.59, 0.66, 0.26),
-	#"defense": Vector3(0.45, 0.29, 0.21),
-	#"vulnerability": Vector3(0.94, 0.74, 0.69),
-	#"swiftness": Vector3(0, 0.76, 1),
-	#"slowness": Vector3(0.29, 0.41, 0.27)
-#}
+@export var effects:Dictionary = ALL_EFFECTS.duplicate()
+
 
 ## Gets the strength of an effect
 func get_strength(e: Effect):
@@ -79,7 +59,7 @@ func set_strength(e: Effect, strength: int):
 ## Adds another effects set to this one
 func add(e: EffectSet) -> void:
 	for effect in self.effects:
-		self.effects[effect] += e[effect]
+		self.effects[effect] += e.get_strength(effect)
 
 
 ## Checks if all effects are 0
@@ -133,7 +113,7 @@ func set_all(value:int):
 
 
 ## Get vec3 representing the effect's color
-func get_color() -> Vector3:
+func get_color() -> Color:
 	if all_null(): return EFFECTLESS_COLOR
 	
 	## Sort effects by strength
@@ -145,4 +125,4 @@ func get_color() -> Vector3:
 	
 	var strongest_effect = strongest_effects[0]
 	
-	return strongest_effects.pos_color if self.effects[strongest_effect] >= 0 else strongest_effects.neg_color
+	return strongest_effect.pos_color if self.effects[strongest_effect] >= 0 else strongest_effect.neg_color

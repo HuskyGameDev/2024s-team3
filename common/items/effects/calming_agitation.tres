@@ -6,6 +6,6 @@
 script = ExtResource("1_0oibw")
 id = "calming_agitation"
 pos_label = "Calming"
-pos_color = Color(0, 0, 0, 1)
+pos_color = Color(0.521569, 0.858824, 0.960784, 1)
 neg_label = "Agitation"
-neg_color = Color(0, 0, 0, 1)
+neg_color = Color(1, 0.4, 0, 1)
