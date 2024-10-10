@@ -10,9 +10,9 @@ const TEMP_INV_LOCATION = "user://temp_inv_data_file.json" #inventory we save to
 @export var reputation: int = 0
 @export var tutorial_complete: bool = false
 @export var inventory: Array[InventorySlot] = []
-@export var save:SaveGameFile
 
-func _ready():	
+
+func _ready():
 	if not GameTime.start_of_day.is_connected(_on_start_of_day): GameTime.start_of_day.connect(_on_start_of_day)
 	if not GameTime.end_of_day.is_connected(_on_end_of_day):GameTime.end_of_day.connect(_on_end_of_day)
 	create_temp_inv()
@@ -48,7 +48,12 @@ func save_game():
 	file.close()
 	
 	var save_file = FileAccess.open(SAVE_LOCATION, FileAccess.WRITE)
-	save_file.store_var(var_to_str(save))
+	save_file.store_string(JSON.stringify({
+		"location": location.id,
+		"money": money,
+		"reputation": reputation,
+		"tutorial_complete": tutorial_complete
+	}))
 	save_file.close()
 
 func load_game_files():
@@ -107,27 +112,23 @@ func clear_save_files():
 
 func _on_end_of_day():
 	save_game()
-	
+
 func _on_start_of_day():
 	moneyToday = 0
 	repToday = 0
 	
 	save_game_files()
 
-func _on_potion_made(potion:Potion):
-	if not save.madePotions.has(potion.id):
-		save.madePotions.append(potion.id)
-
 func add_item_to_inventory(item : Resource, quantity : int):
 	var index = 0;
-	var inv_data = PlayerData.read_inv()	
+	var inv_data = read_inv()
 	for i in  inv_data: #find next available slot to put item
 		
 		var slotAmount = int(inv_data[i]["Quantity"])
 		if inv_data[i]["Item"] == item.id && slotAmount != item.stack_size: #if this ingredient already exists in inventory
 			if slotAmount + quantity > item.stack_size: #if adding this quantity to the amount in the stack would be larger than stack size
 				inv_data[i]["Quantity"] = item.stack_size #fill the slot
-				PlayerData.write_inv(inv_data)
+				write_inv(inv_data)
 				add_item_to_inventory(item, slotAmount + quantity - item.stack_size) #add the rest to a different slot
 				break
 			else: #else just update the quantity
@@ -143,14 +144,14 @@ func add_item_to_inventory(item : Resource, quantity : int):
 				else: #else add max stack size to this slot and add the excess to another slot
 					inv_data[i]["Item"] = item.id
 					inv_data[i]["Quantity"] = item.stack_size
-					PlayerData.write_inv(inv_data)
+					write_inv(inv_data)
 					add_item_to_inventory(item, quantity - item.stack_size)
 					break
 			else:
 				return
 		index = index + 1
-	PlayerData.write_inv(inv_data)
-	PlayerData.save_game()
+	write_inv(inv_data)
+	save_game()
 
 ############# Save Getters/Setters ##############
 signal moneyChanged(newValue: int)
@@ -159,13 +160,17 @@ var moneyToday: int
 var repToday: int
 
 func change_money(amount: int):
-	print("Old Money Total: ", self.save.money)
-	self.save.money += amount
-	print("New Money Total: ", self.save.money)
+	print("Old Money Total: ", self.money)
+	print("Changing by: ", amount)
+	self.money += amount
+	print("New Money Total: ", self.money)
 	moneyToday += amount
-	moneyChanged.emit(self.save.money)
+	moneyChanged.emit(self.money)
 
 func change_reputation(amount: int):
-	self.save.reputation += amount
+	print("Old Reputation Total: ", self.reputation)
+	print("Changing by: ", amount)
+	self.reputation += amount
+	print("New Reputation Total: ", self.reputation)
 	repToday += amount
-	reputationChanged.emit(self.save.reputation)
+	reputationChanged.emit(self.reputation)

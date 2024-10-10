@@ -5,6 +5,8 @@
 [resource]
 script = ExtResource("1_0oibw")
 id = "calming_agitation"
+reputation_factor = 5.0
+money_factor = 5.0
 pos_label = "Calming"
 pos_color = Color(0.521569, 0.858824, 0.960784, 1)
 neg_label = "Agitation"

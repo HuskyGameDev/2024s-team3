@@ -36,9 +36,9 @@ static func get_effect_by_id(id: String):
 	return null
 
 ## 0-4 does nothing, 5-9 is weak, 10-19 is regular, and 20+ is strong
-const NOTHING_RANGE = 5
-const WEAK_RANGE = 10
-const REGULAR_RANGE = 20
+static var NOTHING_RANGE = 5
+static var WEAK_RANGE = 10
+static var REGULAR_RANGE = 20
 
 const EFFECTLESS_COLOR = Color(200, 200, 200)
 
@@ -76,16 +76,24 @@ func clear_neutrals():
 			self.effects[effect] = 0
 
 
-## Returns an array with the names of the effects (in order)
-func get_strongest() -> Array[String]:
+## Returns an array of the strongest n effects
+func get_strongest(n:int = 10) -> Array:
 	## Sort effects by strength
 	var all_effects = self.effects.keys()
 	all_effects = all_effects.filter(func(e): return true if self.effects[e] != 0 else false)
 	all_effects.sort_custom(func(a, b): return true if abs(self.effects[a]) > abs(self.effects[b]) else false)
+	if n > all_effects.size():
+		return all_effects.slice(0, n)
+	else: return all_effects
+
+
+## Returns an array with the names of the effects (in order)
+func get_strongest_as_strings() -> Array[String]:
+	var strongest_effects = get_strongest()
 		
 	## Get effect labels
 	var labels: Array[String] = []
-	for effect in all_effects:
+	for effect in strongest_effects:
 		var effect_strength = self.effects[effect]
 		
 		var label = ""

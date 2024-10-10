@@ -176,7 +176,7 @@ func update_effect_summary():
 	if not ingredient.effects or ingredient.effects.all_null():
 		$CollapsedEffectView.set_summary("None")
 	else:
-		$CollapsedEffectView.set_summary(", ".join(ingredient.effects.get_strongest()))
+		$CollapsedEffectView.set_summary(", ".join(ingredient.effects.get_strongest_as_strings()))
 
 
 ## Called to create a variant resource of this one

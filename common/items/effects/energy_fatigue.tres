@@ -5,6 +5,8 @@
 [resource]
 script = ExtResource("1_ggsg2")
 id = "energy_fatigue"
+reputation_factor = 5.0
+money_factor = 5.0
 pos_label = "Energizing"
 pos_color = Color(0.929412, 0.411765, 0.690196, 1)
 neg_label = "Tiring"

@@ -5,6 +5,8 @@
 [resource]
 script = ExtResource("1_2swny")
 id = "luck_misfortune"
+reputation_factor = 5.0
+money_factor = 5.0
 pos_label = "Lucky"
 pos_color = Color(0, 0.639216, 0.0196078, 1)
 neg_label = "Unlucky"

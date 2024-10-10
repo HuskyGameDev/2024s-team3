@@ -10,7 +10,14 @@ class_name CustomerOrder
 
 func check(potion: Potion) -> bool:	
 	for effect in EffectSet.ALL_EFFECTS:
-		if potion.effects.get_strength(effect) < minEffects.get_strength(effect) \
-		or potion.effects.get_strength(effect) >= maxEffects.get_strength(effect):
+		var min_strength = minEffects.get_strength(effect)
+		var max_strength = maxEffects.get_strength(effect)
+		var actual_strength = potion.effects.get_strength(effect)
+		
+		if min_strength == 0 and max_strength == 0: continue
+		
+		if actual_strength < min_strength \
+		or actual_strength > max_strength:
 			return false
+		
 	return true

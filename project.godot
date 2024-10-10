@@ -18,7 +18,7 @@ config/icon="res://common/icon.svg"
 [autoload]
 
 ResourcePaths="*res://common/autoloads/resource_paths.gd"
-PlayerData="*res://common/autoloads/player_saves/player_save.gd"
+PlayerData="*res://common/autoloads/player_saves/player_data.gd"
 GameTime="*res://common/autoloads/game_time.gd"
 SceneManager="*res://common/autoloads/scene_manager.gd"
 

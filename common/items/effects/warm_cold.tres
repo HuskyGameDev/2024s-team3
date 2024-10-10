@@ -5,6 +5,8 @@
 [resource]
 script = ExtResource("1_ftfq7")
 id = "warm_cold"
+reputation_factor = 5.0
+money_factor = 5.0
 pos_label = "Warming"
 pos_color = Color(1, 0.858824, 0.2, 1)
 neg_label = "Cooling"
