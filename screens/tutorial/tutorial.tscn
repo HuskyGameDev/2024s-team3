@@ -9,9 +9,13 @@
 [node name="Main" instance=ExtResource("1_5wofc")]
 
 [node name="CuttingBoard" parent="." index="7"]
+process_mode = 4
+physics_interpolation_mode = 2
 visible = false
 
 [node name="MortarAndPestle" parent="." index="8"]
+process_mode = 4
+physics_interpolation_mode = 2
 visible = false
 
 [node name="Tutorial" type="Control" parent="." index="9"]
