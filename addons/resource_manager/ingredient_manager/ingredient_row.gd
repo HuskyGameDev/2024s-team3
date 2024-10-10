@@ -5,6 +5,8 @@ const DEBOUNCE_LENGTH = 1
 
 # sends signal to ingredient panel to switch to effect editor
 signal open_effect_editor(ingredient:Ingredient)
+# sends signal to ingredient panel to connect to signals from new row
+signal variant_created(row:Node)
 
 var ingredient: Ingredient
 var path: String
@@ -167,7 +169,7 @@ func _on_delete_confirmed():
 
 ## Called when effect edit button is pressed
 ## (Actual value change is handled in effect_editor_panel.gd)
-func _on_effect_edit_pressed(): 
+func _on_effect_edit_pressed():
 	open_effect_editor.emit(ingredient)
 
 
@@ -199,6 +201,7 @@ func create_variant(variation:Ingredient.Actions):
 		ResourcePaths.update_ingredient_paths()
 	# add variant row to resource manager
 	var new_variant_scene = load("res://addons/resource_manager/ingredient_manager/ingredient_variant_row.tscn").instantiate().with_data(new_path)
+	variant_created.emit(new_variant_scene)
 	add_sibling(new_variant_scene)
 
 

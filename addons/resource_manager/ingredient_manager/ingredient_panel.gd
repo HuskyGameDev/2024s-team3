@@ -21,8 +21,9 @@ func _on_refresh_button_pressed():
 		var split_path = path.get_basename().split("/")
 		if split_path[-1] != split_path[-2]: continue
 		var ingredient_row_instance = IngredientRow.instantiate().with_data(path)
-		TableBody.add_child(ingredient_row_instance)
 		ingredient_row_instance.connect("open_effect_editor", _on_edit_effect_button_pressed)
+		ingredient_row_instance.connect("variant_created", _on_variant_row_created)
+		TableBody.add_child(ingredient_row_instance)
 
 
 func _on_add_button_pressed():
@@ -43,8 +44,14 @@ func _on_add_button_pressed():
 	
 	# add row to table
 	var ingredient_row_instance = IngredientRow.instantiate().with_data(new_path)
-	TableBody.add_child(ingredient_row_instance)
 	ingredient_row_instance.connect("open_effect_editor", _on_edit_effect_button_pressed)
+	ingredient_row_instance.connect("variant_created", _on_variant_row_created)
+	TableBody.add_child(ingredient_row_instance)
+
+
+## Called when a new variant of an ingredient is created
+func _on_variant_row_created(row:HBoxContainer):
+	row.connect("open_effect_editor", _on_edit_effect_button_pressed)
 
 
 ## Called when edit button for an effect is pressed
