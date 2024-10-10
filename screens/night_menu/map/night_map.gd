@@ -15,4 +15,4 @@ func _ready():
 
 func _button_pressed(location:Location):
 	PlayerData.location = location
-	get_tree().change_scene_to_file("res://screens/main/main.tscn")
+	get_tree().change_scene_to_file("res://screens/main/packed_main.tscn")

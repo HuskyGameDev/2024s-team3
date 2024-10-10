@@ -16,4 +16,4 @@ func _on_new_game_pressed():
 
 
 func _on_continue_pressed():
-	get_tree().change_scene_to_file("res://screens/main/main.tscn")
+	get_tree().change_scene_to_file("res://screens/main/packed_main.tscn")

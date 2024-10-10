@@ -46,7 +46,8 @@ func _on_item_made(item: Item, pos: Vector2, throw: bool = true):
 	
 	newScene.global_position = pos
 	self.add_child.call_deferred(newScene)
-	
+	self.move_child.call_deferred(newScene , get_node("InventoryDrawer").get_index() - 1 ) # move object to one less than drawer
+	newScene.set_owner.call_deferred(self)
 	if throw:
 		## "throws" item
 		## angle options: +/- 250, 350, 450, and 550
@@ -65,6 +66,8 @@ func _on_inv_dragged(inv_slot): #moving object out of inventory
 		newItem.data = ResourceLoader.load("res://common/items/ingredients/" + str(itemID) + "/" + str(itemID) + ".tres")
 		newItem.global_position = get_viewport().get_mouse_position()
 		add_child(newItem)
+		newItem.owner = self #sets main as objects owner
+		move_child.call_deferred(newItem , get_node("InventoryDrawer").get_index() - 1 ) # move object to one less than drawer
 		if quantity == 1:
 			inv_data[inv_slot]["Item"] = null
 			inv_data[inv_slot]["Quantity"] = 0 
