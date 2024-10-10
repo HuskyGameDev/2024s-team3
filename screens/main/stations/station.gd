@@ -2,7 +2,7 @@ extends Node
 
 signal change_ingredient(ingredient:Ingredient, position:Vector2)
 
-@export var action: Ingredient.Actions
+@export var action: Ingredient.Actions = Ingredient.Actions.CHOP
 
 @onready var center_of_station = self.position - Vector2(0, 80)
 

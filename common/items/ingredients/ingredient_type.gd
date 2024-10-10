@@ -5,10 +5,10 @@ class_name Ingredient
 @export var effects: EffectSet
 
 enum Actions {
-	CHOP = 1 << 1,
-	CRUSH = 1 << 2,
-	MELT = 1 << 3,
-	CONCENTRATE = 1 << 4
+	CHOP = 2,
+	CRUSH = 4,
+	MELT = 8,
+	CONCENTRATE = 16
 }
 
 # we use "_" just as a placeholder because bitwise 0 & 0 returns 0 (false)
