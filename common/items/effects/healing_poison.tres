@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Effect" load_steps=2 format=3 uid="uid://2bq51ncoy4qu"]
+
+[ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_s74k3"]
+
+[resource]
+script = ExtResource("1_s74k3")
+id = "healing_poison"
+pos_label = "Healing"
+pos_color = Color(0.988235, 0.180392, 0.309804, 1)
+neg_label = "Poison"
+neg_color = Color(0.0313726, 0.929412, 0.0901961, 1)

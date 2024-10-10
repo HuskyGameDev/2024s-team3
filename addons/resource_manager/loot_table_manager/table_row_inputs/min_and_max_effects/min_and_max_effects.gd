@@ -2,8 +2,8 @@
 extends Control
 
 # pass signals up
-signal min_changed(key:String, value:int)
-signal max_changed(key:String, value:int)
+signal min_changed(effect:Effect, value:int)
+signal max_changed(effect:Effect, value:int)
 
 const EffectRow = preload("res://addons/resource_manager/loot_table_manager/table_row_inputs/min_and_max_effects/min_and_max_effects_row.tscn")
 const ABS_MAX = 50 # max effect value (negative will be used for min)
@@ -21,8 +21,9 @@ func _on_add_button_pressed():
 
 
 func add_row(selected_key:String, min_val:int, max_val:int, selected_id = null):
+	var selected_effect = EffectSet.get_effect_by_id(selected_key)
 	## Add new effect editor row
-	var new_row = EffectRow.instantiate().with_data(selected_key, ABS_MAX, min_val, max_val)
+	var new_row = EffectRow.instantiate().with_data(selected_effect, ABS_MAX, min_val, max_val)
 	EffectContainer.add_child(new_row)
 	EffectContainer.move_child(new_row, EffectContainer.get_child_count() - 2)
 	if EffectContainer.get_child_count() >= 4: $EffectContainer/AddHBox.hide()
@@ -38,8 +39,8 @@ func add_row(selected_key:String, min_val:int, max_val:int, selected_id = null):
 	new_row.connect("min_changed", _on_min_effect_changed)
 	new_row.connect("max_changed", _on_max_effect_changed)
 	## Emit min and max changed with initial values
-	min_changed.emit(selected_key, min_val)
-	max_changed.emit(selected_key, max_val)
+	min_changed.emit(selected_effect, min_val)
+	max_changed.emit(selected_effect, max_val)
 
 
 func _on_row_deleted(deleted_row_key:String):
@@ -48,13 +49,14 @@ func _on_row_deleted(deleted_row_key:String):
 	## Add option back to dropdown
 	EffectOptions.add_item(deleted_row_key)
 	## Set values back to default
-	min_changed.emit(deleted_row_key, -ABS_MAX)
-	max_changed.emit(deleted_row_key, ABS_MAX)
+	var deleted_effect = EffectSet.get_effect_by_id(deleted_row_key)
+	min_changed.emit(deleted_effect, -ABS_MAX)
+	max_changed.emit(deleted_effect, ABS_MAX)
 
 
-func _on_min_effect_changed(effect_key:String, value:int):
-	min_changed.emit(effect_key, value)
+func _on_min_effect_changed(effect:Effect, value:int):
+	min_changed.emit(effect, value)
 
 
-func _on_max_effect_changed(effect_key:String, value:int):
-	max_changed.emit(effect_key, value)
+func _on_max_effect_changed(effect:Effect, value:int):
+	max_changed.emit(effect, value)

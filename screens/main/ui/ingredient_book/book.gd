@@ -83,16 +83,16 @@ func _update_data():
 	ingredient.texture = current_ingr.image
 	var valuesArray = values.get_children()
 	
-	valuesArray[0].get_node("Value").text = str(current_ingr.effects.healing_poison) 
-	valuesArray[1].get_node("Value").text = str(current_ingr.effects.warm_cold)
-	valuesArray[2].get_node("Value").text = str(current_ingr.effects.calming_agitation)
-	valuesArray[3].get_node("Value").text = str(current_ingr.effects.strength_weakness)
-	valuesArray[4].get_node("Value").text = str(current_ingr.effects.energy_fatigue)
-	valuesArray[5].get_node("Value").text = str(current_ingr.effects.light_dark)
-	valuesArray[6].get_node("Value").text = str(current_ingr.effects.luck_misfortune)
-	valuesArray[7].get_node("Value").text = str(current_ingr.effects.clarity_confusion)
-	valuesArray[8].get_node("Value").text = str(current_ingr.effects.defense_vulnerability)
-	valuesArray[9].get_node("Value").text = str(current_ingr.effects.swiftness_slowness)
+	valuesArray[0].get_node("Value").text = str(current_ingr.effects.get_strength(EffectSet.HEALING_POISON)) 
+	valuesArray[1].get_node("Value").text = str(current_ingr.effects.get_strength(EffectSet.WARM_COLD)) 
+	valuesArray[2].get_node("Value").text = str(current_ingr.effects.get_strength(EffectSet.CALMING_AGITATION)) 
+	valuesArray[3].get_node("Value").text = str(current_ingr.effects.get_strength(EffectSet.STRENGTH_WEAKNESS)) 
+	valuesArray[4].get_node("Value").text = str(current_ingr.effects.get_strength(EffectSet.ENERGY_FATIGUE)) 
+	valuesArray[5].get_node("Value").text = str(current_ingr.effects.get_strength(EffectSet.LIGHT_DARK)) 
+	valuesArray[6].get_node("Value").text = str(current_ingr.effects.get_strength(EffectSet.LUCK_MISFORTUNE)) 
+	valuesArray[7].get_node("Value").text = str(current_ingr.effects.get_strength(EffectSet.CLARITY_CONFUSION)) 
+	valuesArray[8].get_node("Value").text = str(current_ingr.effects.get_strength(EffectSet.DEFENSE_VULNERABILITY)) 
+	valuesArray[9].get_node("Value").text = str(current_ingr.effects.get_strength(EffectSet.SWIFTNESS_SLOWNESS)) 
 	
 	#for i in valuesArray.size():
 		#valuesArray[i].value 

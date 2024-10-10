@@ -2,14 +2,25 @@ extends Node
 
 var packed_customer_scene = preload("res://screens/main/customers/customer.tscn")
 
+## Time modifier starts at 1. After x seconds, it starts to decrease.
+## If the potion is wrong, the modifier becomes 1 - modifier (so taking longer to
+## make the wrong potion is worse)
+static var TIMER_REP_WAIT = 5
+static var REP_DECREASE_PER_SEC = 0.5
+static var MAX_REP_DECREASE = -30
+
 var current_customer: Customer
 var customer_node: Node
+var customer_timer: Timer
 
 signal customer_created(customer: Customer)
 
 
 func _ready():
 	create_customer()
+	customer_timer = Timer.new()
+	customer_timer.autostart = false
+	add_child(customer_timer)
 
 
 func create_customer():

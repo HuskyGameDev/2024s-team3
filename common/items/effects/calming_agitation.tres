@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Effect" load_steps=2 format=3 uid="uid://b3sn4luq5jm8o"]
+
+[ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_0oibw"]
+
+[resource]
+script = ExtResource("1_0oibw")
+id = "calming_agitation"
+pos_label = "Calming"
+pos_color = Color(0.521569, 0.858824, 0.960784, 1)
+neg_label = "Agitation"
+neg_color = Color(1, 0.4, 0, 1)
