@@ -131,13 +131,14 @@ position = Vector2(388, 546)
 position = Vector2(852, 840)
 scale = Vector2(6, 6)
 
-[node name="MortarAndPestle" parent="." instance=ExtResource("15_3qi2s")]
+[node name="CuttingBoard" parent="." instance=ExtResource("15_3qi2s")]
 position = Vector2(1329, 853)
 scale = Vector2(6, 6)
 
-[node name="MortarAndPestle2" parent="." instance=ExtResource("15_jly0p")]
+[node name="MortarAndPestle" parent="." instance=ExtResource("15_jly0p")]
 position = Vector2(1632, 838)
 scale = Vector2(6, 6)
+action = 4
 
 [node name="InventoryDrawer" parent="." instance=ExtResource("5_nl71h")]
 custom_minimum_size = Vector2(444, 690)
@@ -198,6 +199,8 @@ text = "Ingredients"
 
 [connection signal="customer_created" from="CustomerFactory" to="." method="_on_new_customer"]
 [connection signal="potion_made" from="Cauldron" to="." method="_on_item_made"]
+[connection signal="change_ingredient" from="CuttingBoard" to="." method="_on_item_made"]
+[connection signal="change_ingredient" from="MortarAndPestle" to="." method="_on_item_made"]
 [connection signal="make_inv_object" from="InventoryDrawer" to="." method="_on_inv_dragged"]
 [connection signal="pressed" from="BellButton" to="." method="_on_ring_bell"]
 [connection signal="pressed" from="IngredientBookButton" to="CanvasLayer/Book" method="_move_up"]
