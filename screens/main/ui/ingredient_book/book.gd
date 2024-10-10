@@ -25,7 +25,7 @@ var eyeOfNewt = preload("res://common/items/ingredients/eye_of_a_newt/eye_of_a_n
 var up: bool = false
 
 var current_ingr_key
-@export var max_ingr = 10
+@export var max_ingr: int = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
