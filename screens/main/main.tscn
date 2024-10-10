@@ -131,14 +131,14 @@ position = Vector2(852, 840)
 scale = Vector2(6, 6)
 
 [node name="InventoryDrawer" parent="." instance=ExtResource("5_nl71h")]
-custom_minimum_size = Vector2(600, 690)
-layout_direction = 2
-anchors_preset = -1
+custom_minimum_size = Vector2(444, 690)
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_top = 173.0
-offset_right = 2521.0
-offset_bottom = 863.0
+offset_left = 1924.0
+offset_top = 165.0
+offset_right = 2487.0
+offset_bottom = 855.0
 grow_horizontal = 1
 grow_vertical = 1
 

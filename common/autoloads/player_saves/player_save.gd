@@ -25,8 +25,18 @@ func _ready():
 		var temp_file = FileAccess.open(TEMP_INV_LOCATION, FileAccess.WRITE)
 		temp_file.store_string(JSON.stringify(content))
 		temp_file.close()
-	
-	save = load_game()
+	load_game_files()
+
+func save_game_files():
+	## Write all variables to file
+	var save_file = FileAccess.open(SAVE_LOCATION, FileAccess.WRITE)
+	save_file.store_string(JSON.stringify({ 
+		"money": money, 
+		"reputation": reputation, 
+		"location": location.id,
+		"tutorial_complete": tutorial_complete
+	}))
+	save_file.close()
 
 func save_game():
 	#saves temp inv to actual inventory
@@ -40,20 +50,6 @@ func save_game():
 	var save_file = FileAccess.open(SAVE_LOCATION, FileAccess.WRITE)
 	save_file.store_var(var_to_str(save))
 	save_file.close()
-
-func load_game() -> SaveGameFile:
-	## Load from file
-	if not FileAccess.file_exists(SAVE_LOCATION):
-		printerr("No save found")
-		return SaveGameFile.new()
-	var save_file = FileAccess.open(SAVE_LOCATION, FileAccess.READ)
-	var loaded_save = str_to_var(save_file.get_var())
-	if loaded_save is SaveGameFile:
-		return loaded_save
-	else:
-		printerr("error reading save file")
-		return SaveGameFile.new()
-		load_game_files()
 
 func load_game_files():
 	## Load all variables from file
@@ -115,6 +111,8 @@ func _on_end_of_day():
 func _on_start_of_day():
 	moneyToday = 0
 	repToday = 0
+	
+	save_game_files()
 
 func _on_potion_made(potion:Potion):
 	if not save.madePotions.has(potion.id):
