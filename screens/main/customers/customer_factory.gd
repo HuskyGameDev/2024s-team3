@@ -65,6 +65,7 @@ func handle_purchase(potion: Potion) -> bool:
 		PlayerData.change_reputation(-reputation_change * (1 - time_modifier))
 	
 	customer_node.leave_store()
+	remove_child(customer_timer)
 	return true
 
 
