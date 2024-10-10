@@ -38,18 +38,21 @@ func _notification(notification_type):
 	match notification_type:
 		NOTIFICATION_DRAG_END:
 			if !is_drag_successful():
-				inv_data = PlayerData.read_inv()	
-				make_inv_object.emit(dragSlot) #sends signal to main to make the object
-				var quantityNode = get_node("Background/M/V/ScrollContainer/GridContainer/" + str(dragSlot) + "/Icon/Quantity") 
-				if int(quantityNode.text) == 1: #if there was only one thing in that slot, empty the slot
-					var iconNode = get_node("Background/M/V/ScrollContainer/GridContainer/" + str(dragSlot) + "/Icon" )
-					iconNode.texture = null
-					quantityNode.text = ""
-					inv_data[dragSlot]["Item"] = null
-				else:  #else decrease the slot quantity by one
-					quantityNode.text =  str(int(quantityNode.text) - 1)
-					inv_data[dragSlot]["Quantity"] = quantityNode.text
-				PlayerData.write_inv(inv_data)
+				make_inventory_object(dragSlot)
+
+func make_inventory_object(slotIndex):
+	inv_data = PlayerData.read_inv()	
+	make_inv_object.emit(slotIndex) #sends signal to main to make the object
+	var quantityNode = get_node("Background/M/V/ScrollContainer/GridContainer/" + str(slotIndex) + "/Icon/Quantity") 
+	if int(quantityNode.text) <= 1: #if there was only one thing in that slot, empty the slot
+		var iconNode = get_node("Background/M/V/ScrollContainer/GridContainer/" + str(slotIndex) + "/Icon" )
+		iconNode.texture = null
+		quantityNode.text = ""
+		inv_data[slotIndex]["Item"] = null
+	else:  #else decrease the slot quantity by one
+		quantityNode.text =  str(int(quantityNode.text) - 1)
+		inv_data[slotIndex]["Quantity"] = quantityNode.text
+	PlayerData.write_inv(inv_data)
 
 #insert an item of ingredient resource and quantity amount
 func Insert(item : Resource, quantity : int):

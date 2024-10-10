@@ -3,7 +3,7 @@ extends Node
 ################# Game Saving ###################
 const SAVE_LOCATION = "user://savegame.save"
 const INV_LOCATION = "user://inv_data_file.json" #inventory we save to when each day is done
-const TEMP_INV_LOCATION = "user://temp_inv_data_file.json" #inventory we save to during gameplay
+const TEMP_INV_LOCATION = "user://temp_inv_data_file.json" #inventory we save to during game play
 
 @export var location: Location = ResourceLoader.load("res://common/locations/grassy_clearing.tres")
 @export var money: int = 0
@@ -69,7 +69,7 @@ func load_game_files():
 			tutorial_complete = save_data.get("tutorial_complete")
 		save_file.close()
 
-func read_inv(): #reads temporoay inventory to output
+func read_inv(): #reads temporary inventory to output
 	var file = FileAccess.open(TEMP_INV_LOCATION, FileAccess.READ)
 	var content = JSON.parse_string(file.get_as_text())
 	file.close()
@@ -88,7 +88,7 @@ func create_new_inv(): #creates inventory and fills it with the contents of temp
 	file.store_string(JSON.stringify(content))
 	file.close()
 
-func create_temp_inv(): #creates temporary inventoey
+func create_temp_inv(): #creates temporary inventory
 	if FileAccess.file_exists(INV_LOCATION): #if inventory exits, copies it to temp inventory
 		var file = FileAccess.open(INV_LOCATION, FileAccess.READ)
 		var content = JSON.parse_string(file.get_as_text())
@@ -123,7 +123,6 @@ func add_item_to_inventory(item : Resource, quantity : int):
 	var index = 0;
 	var inv_data = read_inv()
 	for i in  inv_data: #find next available slot to put item
-		
 		var slotAmount = int(inv_data[i]["Quantity"])
 		if inv_data[i]["Item"] == item.id && slotAmount != item.stack_size: #if this ingredient already exists in inventory
 			if slotAmount + quantity > item.stack_size: #if adding this quantity to the amount in the stack would be larger than stack size
