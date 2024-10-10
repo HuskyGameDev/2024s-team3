@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=21 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://screens/main/main.gd" id="1_0ufrw"]
 [ext_resource type="Script" path="res://screens/main/customers/customer_factory.gd" id="2_dnvch"]
@@ -12,7 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://b18cm5tr1tqr8" path="res://screens/main/bell/bell_outer.png" id="13_x0440"]
 [ext_resource type="PackedScene" uid="uid://dda00qymrm5of" path="res://screens/main/ui/end_day_and_skip/end_day_and_skip.tscn" id="13_yll6s"]
 [ext_resource type="Texture2D" uid="uid://blivro2cmbh36" path="res://screens/main/bell/bell_inner.png" id="14_k0ahi"]
-[ext_resource type="PackedScene" uid="uid://bcdky2t6vai4k" path="res://screens/main/stations/mortar_and_pestle/mortar_and_pestle.tscn" id="15_3qi2s"]
+[ext_resource type="PackedScene" uid="uid://bbletxc4pnnwd" path="res://screens/main/stations/cutting_board/cutting_board.tscn" id="15_3qi2s"]
+[ext_resource type="PackedScene" uid="uid://bcdky2t6vai4k" path="res://screens/main/stations/mortar_and_pestle/mortar_and_pestle.tscn" id="15_jly0p"]
 [ext_resource type="Texture2D" uid="uid://chro3f0yplc64" path="res://screens/main/bell/bell_tong.png" id="15_l61pq"]
 [ext_resource type="Texture2D" uid="uid://ba2vk6f8njy7t" path="res://screens/main/ui/ingredient_book/Ingredient Book Button.png" id="16_0uga0"]
 [ext_resource type="FontFile" uid="uid://dy8mlyjp48kpw" path="res://screens/main/ui/ingredient_book/m5x7.ttf" id="17_hcv40"]
@@ -130,6 +131,14 @@ position = Vector2(388, 546)
 position = Vector2(852, 840)
 scale = Vector2(6, 6)
 
+[node name="MortarAndPestle" parent="." instance=ExtResource("15_3qi2s")]
+position = Vector2(1329, 853)
+scale = Vector2(6, 6)
+
+[node name="MortarAndPestle2" parent="." instance=ExtResource("15_jly0p")]
+position = Vector2(1632, 838)
+scale = Vector2(6, 6)
+
 [node name="InventoryDrawer" parent="." instance=ExtResource("5_nl71h")]
 custom_minimum_size = Vector2(444, 690)
 anchors_preset = 0
@@ -165,9 +174,6 @@ offset_bottom = 298.0
 scale = Vector2(6, 6)
 texture_normal = ExtResource("13_x0440")
 stretch_mode = 5
-
-[node name="MortarAndPestle" parent="." instance=ExtResource("15_3qi2s")]
-position = Vector2(1339, 885)
 
 [node name="IngredientBookButton" type="TextureButton" parent="."]
 offset_left = -150.0
