@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=20 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://screens/main/main.gd" id="1_0ufrw"]
 [ext_resource type="Script" path="res://screens/main/customers/customer_factory.gd" id="2_dnvch"]
@@ -8,12 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://do38all2put7r" path="res://screens/main/ui/ingredient_book/book.tscn" id="5_la1bq"]
 [ext_resource type="PackedScene" uid="uid://br236elfur261" path="res://screens/main/ui/inventory/drawer.tscn" id="5_nl71h"]
 [ext_resource type="PackedScene" uid="uid://bsgio2wgxwjd1" path="res://screens/main/pedestal/pedestal.tscn" id="8_mkd11"]
-[ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://common/items/ingredients/ingredient.tscn" id="10_7anjc"]
-[ext_resource type="Resource" uid="uid://djqumbpv7xrlh" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="11_jgs4v"]
 [ext_resource type="PackedScene" uid="uid://cjjarcohy2vqe" path="res://screens/main/stations/cauldron/cauldron.tscn" id="12_rj1v1"]
 [ext_resource type="Texture2D" uid="uid://b18cm5tr1tqr8" path="res://screens/main/bell/bell_outer.png" id="13_x0440"]
 [ext_resource type="PackedScene" uid="uid://dda00qymrm5of" path="res://screens/main/ui/end_day_and_skip/end_day_and_skip.tscn" id="13_yll6s"]
 [ext_resource type="Texture2D" uid="uid://blivro2cmbh36" path="res://screens/main/bell/bell_inner.png" id="14_k0ahi"]
+[ext_resource type="PackedScene" uid="uid://bcdky2t6vai4k" path="res://screens/main/stations/mortar_and_pestle/mortar_and_pestle.tscn" id="15_3qi2s"]
 [ext_resource type="Texture2D" uid="uid://chro3f0yplc64" path="res://screens/main/bell/bell_tong.png" id="15_l61pq"]
 [ext_resource type="Texture2D" uid="uid://ba2vk6f8njy7t" path="res://screens/main/ui/ingredient_book/Ingredient Book Button.png" id="16_0uga0"]
 [ext_resource type="FontFile" uid="uid://dy8mlyjp48kpw" path="res://screens/main/ui/ingredient_book/m5x7.ttf" id="17_hcv40"]
@@ -44,6 +43,7 @@ position = Vector2(165, 165)
 
 [node name="Book" parent="CanvasLayer" instance=ExtResource("5_la1bq")]
 position = Vector2(306, 1248)
+max_ingr = null
 
 [node name="Room" type="Node2D" parent="."]
 scale = Vector2(6, 6)
@@ -142,12 +142,6 @@ offset_bottom = 855.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Ingredient" parent="." instance=ExtResource("10_7anjc")]
-position = Vector2(1320, 872)
-contact_monitor = false
-max_contacts_reported = 0
-data = ExtResource("11_jgs4v")
-
 [node name="EndDayAndSkip" parent="." instance=ExtResource("13_yll6s")]
 offset_left = -3.0
 offset_right = 48.0
@@ -171,6 +165,9 @@ offset_bottom = 298.0
 scale = Vector2(6, 6)
 texture_normal = ExtResource("13_x0440")
 stretch_mode = 5
+
+[node name="MortarAndPestle" parent="." instance=ExtResource("15_3qi2s")]
+position = Vector2(1339, 885)
 
 [node name="IngredientBookButton" type="TextureButton" parent="."]
 offset_left = -150.0
