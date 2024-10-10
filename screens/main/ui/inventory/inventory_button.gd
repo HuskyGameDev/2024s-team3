@@ -38,13 +38,12 @@ func _on_inv_area_body_exited(_body):
 
 func _on_inv_area_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton && not event.pressed  && event.button_index == MOUSE_BUTTON_LEFT:
-		if heldBody != null:
-			var holding = heldBody.data
+		if heldBody != null and heldBody.data is Ingredient:
+			var holding = heldBody.data			
 			var slot = self.name
 			var inv_data = PlayerData.read_inv()
 			var slotAmount = inv_data[slot]["Quantity"]
 			var item = ResourceLoader.load(ResourcePaths.get_ingredient_path(holding.id))
-
 			if inv_data[slot]["Item"] == item.id && int(slotAmount) != item.stack_size: #if this ingredient already exists in inventory
 				if slotAmount + 1 <= item.stack_size: #if adding this quantity to the amount in the stack would be larger than stack size
 					inv_data[slot]["Quantity"] = slotAmount + 1
