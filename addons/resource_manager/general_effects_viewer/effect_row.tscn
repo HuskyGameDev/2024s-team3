@@ -19,12 +19,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_styles/normal = ExtResource("2_joa5g")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PositiveLabel" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_override_styles/normal = ExtResource("2_joa5g")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PositiveColorPicker" type="ColorPickerButton" parent="."]
 layout_mode = 2
@@ -36,6 +40,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_override_styles/normal = ExtResource("2_joa5g")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="NegativeColorPicker" type="ColorPickerButton" parent="."]
 layout_mode = 2
