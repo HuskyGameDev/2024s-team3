@@ -7,8 +7,8 @@ static var REP_DECREASE_PERIOD_LENGTH = 60
 
 var current_customer: Customer
 var customer_node: Node
-var customer_timer: Timer
 
+@onready var customer_timer: Timer = Timer.new()
 @onready var time_modifier = 1
 @onready var in_grace_period = true
 
@@ -16,8 +16,6 @@ signal customer_created(customer: Customer)
 
 
 func _ready():
-	customer_timer = Timer.new()
-	add_child(customer_timer)
 	create_customer()
 
 
@@ -29,6 +27,7 @@ func create_customer():
 	add_child(customer_node)
 	
 	in_grace_period = true
+	add_child(customer_timer)
 	customer_timer.connect("timeout", grace_period_timeout)
 	customer_timer.start(GRACE_PERIOD_LENGTH)
 
