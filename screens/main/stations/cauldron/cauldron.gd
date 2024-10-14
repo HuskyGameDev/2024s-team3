@@ -9,8 +9,8 @@ var has_ingredients: bool = false
 
 signal potion_made(potion: Potion, pos: Vector2)
 
-
 func _ready():
+	SpriteShader.set_shader_parameter("make_flat", true)
 	SpriteShader.set_shader_parameter("to", CAULDRON_EMPTY_COLOR)
 
 
@@ -28,6 +28,7 @@ func _on_body_enter_cauldron(body):
 	## Add effects to cauldron's potion
 	has_ingredients = true
 	current_effects.add(body.data.effects)
+	SpriteShader.set_shader_parameter("make_flat", false)
 	SpriteShader.set_shader_parameter("to", current_effects.get_color())
 	body.queue_free()
 
@@ -41,4 +42,5 @@ func _on_cauldron_input_event(_viewport, _event, _shape_idx):
 			potion_made.emit(potion, self.global_position - Vector2(0, 100))
 			has_ingredients = false
 			current_effects = EffectSet.new()
+			SpriteShader.set_shader_parameter("make_flat", true)
 			SpriteShader.set_shader_parameter("to", CAULDRON_EMPTY_COLOR)
