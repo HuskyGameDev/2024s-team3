@@ -31,7 +31,7 @@ ExtResource("10_1srww"): 0
 [resource]
 script = ExtResource("1_tme85")
 effects = SubResource("Resource_drek4")
-available_actions = 0
+available_actions = 8
 id = "diamond"
 name = "Diamond"
 description = ""

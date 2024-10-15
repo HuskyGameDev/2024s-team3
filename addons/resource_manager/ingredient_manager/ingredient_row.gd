@@ -202,7 +202,7 @@ func create_variant(variation:Ingredient.Actions):
 			Ingredient.Actions.CRUSH: 
 				new_ingredient.effects.modify_largest(func(e): return 0)
 				new_ingredient.effects.modify_smallest(func(e): return clamp(e * 2, -30, 30))
-			Ingredient.Actions.MELT: new_ingredient.effects.modify(func(e): return e * -1)
+			Ingredient.Actions.MELT: new_ingredient.effects.modify_each(func(e): return e * -1)
 			Ingredient.Actions.CONCENTRATE: new_ingredient.effects.modify_largest(func(e): return clamp(e * 1.5, -30, 30))
 		ResourceSaver.save(new_ingredient, new_path)
 		# update resource paths singleton

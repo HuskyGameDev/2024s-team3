@@ -32,7 +32,7 @@ ExtResource("10_gydg2"): 0
 [resource]
 script = ExtResource("1_imagq")
 effects = SubResource("Resource_8ll31")
-available_actions = 0
+available_actions = 6
 id = "poison_ivy"
 name = "Poison Ivy"
 description = ""

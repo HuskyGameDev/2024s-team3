@@ -31,7 +31,7 @@ ExtResource("10_pmlh3"): 0
 [resource]
 script = ExtResource("1_5yvt8")
 effects = SubResource("Resource_ym2r3")
-available_actions = 0
+available_actions = 12
 id = "fools_gold"
 name = "Fools Gold"
 description = ""

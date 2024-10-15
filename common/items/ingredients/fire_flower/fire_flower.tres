@@ -31,7 +31,7 @@ ExtResource("10_jrigp"): 20
 [resource]
 script = ExtResource("1_wcfka")
 effects = SubResource("Resource_2p1nq")
-available_actions = 0
+available_actions = 6
 id = "fire_flower"
 name = "Fire Flower"
 description = ""

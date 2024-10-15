@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=14 format=3 uid="uid://cb4iss55ftoa8"]
+
+[ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_7y02k"]
+[ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_01gai"]
+[ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_qg18l"]
+[ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_guc04"]
+[ext_resource type="Resource" uid="uid://2bq51ncoy4qu" path="res://common/items/effects/healing_poison.tres" id="5_gg5km"]
+[ext_resource type="Resource" uid="uid://b0efkhflivhlj" path="res://common/items/effects/light_dark.tres" id="6_sq3ro"]
+[ext_resource type="Resource" uid="uid://diti6ufqgwhph" path="res://common/items/effects/luck_misfortune.tres" id="7_8e8wc"]
+[ext_resource type="Resource" uid="uid://b3sw5wyytvesi" path="res://common/items/effects/strength_weakness.tres" id="8_dumot"]
+[ext_resource type="Resource" uid="uid://dxvuf8wqsbidk" path="res://common/items/effects/swiftness_slowness.tres" id="9_wrc7f"]
+[ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_ua7fo"]
+[ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_70ugi"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="12_6b6yp"]
+
+[sub_resource type="Resource" id="Resource_cl5k2"]
+script = ExtResource("11_70ugi")
+effects = {
+ExtResource("1_7y02k"): 0,
+ExtResource("2_01gai"): 0,
+ExtResource("3_qg18l"): 0,
+ExtResource("4_guc04"): 0,
+ExtResource("5_gg5km"): 0,
+ExtResource("6_sq3ro"): -15,
+ExtResource("7_8e8wc"): -4,
+ExtResource("8_dumot"): 0,
+ExtResource("9_wrc7f"): 0,
+ExtResource("10_ua7fo"): 0
+}
+
+[resource]
+script = ExtResource("12_6b6yp")
+effects = SubResource("Resource_cl5k2")
+available_actions = 0
+id = "melted_pearl"
+name = "Melted Pearl"
+description = ""
+stack_size = 5

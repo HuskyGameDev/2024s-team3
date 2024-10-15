@@ -25,13 +25,13 @@ ExtResource("6_tj65v"): 0,
 ExtResource("7_ml5h0"): 0,
 ExtResource("8_h0hdd"): 0,
 ExtResource("9_i6t8k"): 0,
-ExtResource("10_jb4bl"): 0
+ExtResource("10_jb4bl"): 4
 }
 
 [resource]
 script = ExtResource("1_vpk6m")
 effects = SubResource("Resource_f4irr")
-available_actions = 0
+available_actions = 12
 id = "ruby"
 name = "Ruby"
 description = ""

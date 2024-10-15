@@ -32,7 +32,7 @@ ExtResource("10_m4anj"): 3
 [resource]
 script = ExtResource("1_1hsao")
 effects = SubResource("Resource_uaxck")
-available_actions = 0
+available_actions = 4
 id = "sunflower_seeds"
 name = "Sunflower Seeds"
 description = ""

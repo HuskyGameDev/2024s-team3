@@ -31,7 +31,7 @@ ExtResource("10_wa28p"): 0
 [resource]
 script = ExtResource("1_cc7qr")
 effects = SubResource("Resource_xsnc1")
-available_actions = 0
+available_actions = 4
 id = "pipe_weed"
 name = "Pipe Weed"
 description = ""

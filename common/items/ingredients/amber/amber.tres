@@ -19,7 +19,7 @@ effects = {
 ExtResource("1_o2kb7"): 15,
 ExtResource("2_bgnaj"): 0,
 ExtResource("3_ajc6p"): 0,
-ExtResource("4_xkwey"): 0,
+ExtResource("4_xkwey"): 4,
 ExtResource("5_e5aau"): 0,
 ExtResource("6_t1ig5"): 0,
 ExtResource("7_cj5n2"): 0,
@@ -31,7 +31,7 @@ ExtResource("10_bct7u"): 0
 [resource]
 script = ExtResource("1_vyfpr")
 effects = SubResource("Resource_fksie")
-available_actions = 0
+available_actions = 12
 id = "amber"
 name = "Amber"
 description = ""

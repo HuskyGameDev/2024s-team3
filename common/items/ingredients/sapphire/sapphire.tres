@@ -25,13 +25,13 @@ ExtResource("6_00xxo"): 0,
 ExtResource("7_ddcgw"): 15,
 ExtResource("8_lcm0a"): 0,
 ExtResource("9_wunf8"): 0,
-ExtResource("10_r8uwa"): 0
+ExtResource("10_r8uwa"): -4
 }
 
 [resource]
 script = ExtResource("1_v50ue")
 effects = SubResource("Resource_yxt6f")
-available_actions = 0
+available_actions = 12
 id = "sapphire"
 name = "Sapphire"
 description = ""

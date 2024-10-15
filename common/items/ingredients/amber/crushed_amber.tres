@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=14 format=3 uid="uid://koqjebeacme"]
+
+[ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_c52tt"]
+[ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_evrkb"]
+[ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_3xo74"]
+[ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_pk5ca"]
+[ext_resource type="Resource" uid="uid://2bq51ncoy4qu" path="res://common/items/effects/healing_poison.tres" id="5_fmcr6"]
+[ext_resource type="Resource" uid="uid://b0efkhflivhlj" path="res://common/items/effects/light_dark.tres" id="6_tajic"]
+[ext_resource type="Resource" uid="uid://diti6ufqgwhph" path="res://common/items/effects/luck_misfortune.tres" id="7_fbhvc"]
+[ext_resource type="Resource" uid="uid://b3sw5wyytvesi" path="res://common/items/effects/strength_weakness.tres" id="8_udy1y"]
+[ext_resource type="Resource" uid="uid://dxvuf8wqsbidk" path="res://common/items/effects/swiftness_slowness.tres" id="9_saf7s"]
+[ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_2bptj"]
+[ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_rgeiu"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="12_5fjkr"]
+
+[sub_resource type="Resource" id="Resource_p0yuj"]
+script = ExtResource("11_rgeiu")
+effects = {
+ExtResource("1_c52tt"): 0,
+ExtResource("2_evrkb"): 0,
+ExtResource("3_3xo74"): 0,
+ExtResource("4_pk5ca"): 8,
+ExtResource("5_fmcr6"): 0,
+ExtResource("6_tajic"): 0,
+ExtResource("7_fbhvc"): 0,
+ExtResource("8_udy1y"): 0,
+ExtResource("9_saf7s"): 0,
+ExtResource("10_2bptj"): 0
+}
+
+[resource]
+script = ExtResource("12_5fjkr")
+effects = SubResource("Resource_p0yuj")
+available_actions = 8
+id = "crushed_amber"
+name = "Crushed Amber"
+description = ""
+stack_size = 5

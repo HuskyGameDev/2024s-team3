@@ -31,7 +31,7 @@ ExtResource("10_n13in"): 0
 [resource]
 script = ExtResource("1_musnq")
 effects = SubResource("Resource_hxcks")
-available_actions = 0
+available_actions = 16
 id = "squonk_tears"
 name = "Squonk Tears"
 description = ""

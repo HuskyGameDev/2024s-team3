@@ -23,7 +23,7 @@ ExtResource("4_cipya"): 0,
 ExtResource("5_koiw4"): 0,
 ExtResource("6_wkeed"): 0,
 ExtResource("7_mfe53"): 0,
-ExtResource("8_tw72a"): 0,
+ExtResource("8_tw72a"): 4,
 ExtResource("9_5bv8p"): 0,
 ExtResource("10_fw2oh"): 0
 }
@@ -31,7 +31,7 @@ ExtResource("10_fw2oh"): 0
 [resource]
 script = ExtResource("1_kvuvb")
 effects = SubResource("Resource_btbac")
-available_actions = 0
+available_actions = 12
 id = "emerald"
 name = "Emerald"
 description = ""

@@ -31,7 +31,7 @@ ExtResource("10_lax16"): 0
 [resource]
 script = ExtResource("1_xvcm0")
 effects = SubResource("Resource_k8g4n")
-available_actions = 0
+available_actions = 16
 id = "goats_blood"
 name = "Goats Blood"
 description = ""

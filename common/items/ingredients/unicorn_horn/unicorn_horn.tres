@@ -31,7 +31,7 @@ ExtResource("10_c0mcs"): 0
 [resource]
 script = ExtResource("1_erh47")
 effects = SubResource("Resource_w2miu")
-available_actions = 0
+available_actions = 4
 id = "unicorn_horn"
 name = "Unicorn Horn"
 description = ""

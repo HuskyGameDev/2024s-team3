@@ -31,7 +31,7 @@ ExtResource("10_snf86"): 0
 [resource]
 script = ExtResource("1_lihcd")
 effects = SubResource("Resource_dfm1c")
-available_actions = 0
+available_actions = 8
 id = "gold_dust"
 name = "Gold Dust"
 description = ""

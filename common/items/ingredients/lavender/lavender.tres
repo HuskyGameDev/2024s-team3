@@ -19,7 +19,7 @@ effects = {
 ExtResource("1_mki7t"): 15,
 ExtResource("2_n7wss"): 0,
 ExtResource("3_d2me8"): 0,
-ExtResource("4_ulx1y"): 0,
+ExtResource("4_ulx1y"): -4,
 ExtResource("5_l0ifw"): 0,
 ExtResource("6_6thnd"): 0,
 ExtResource("7_5tdan"): 0,
@@ -31,7 +31,7 @@ ExtResource("10_3g6cd"): 0
 [resource]
 script = ExtResource("1_q82yq")
 effects = SubResource("Resource_vleyx")
-available_actions = 0
+available_actions = 4
 id = "lavender"
 name = "Lavender"
 description = ""

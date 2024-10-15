@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=14 format=3 uid="uid://bw1n5opvxeuqp"]
+
+[ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_re1gt"]
+[ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_0jxs8"]
+[ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_q6gs7"]
+[ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_2k8b1"]
+[ext_resource type="Resource" uid="uid://2bq51ncoy4qu" path="res://common/items/effects/healing_poison.tres" id="5_1ymn8"]
+[ext_resource type="Resource" uid="uid://b0efkhflivhlj" path="res://common/items/effects/light_dark.tres" id="6_e2c3s"]
+[ext_resource type="Resource" uid="uid://diti6ufqgwhph" path="res://common/items/effects/luck_misfortune.tres" id="7_ph3p3"]
+[ext_resource type="Resource" uid="uid://b3sw5wyytvesi" path="res://common/items/effects/strength_weakness.tres" id="8_arw75"]
+[ext_resource type="Resource" uid="uid://dxvuf8wqsbidk" path="res://common/items/effects/swiftness_slowness.tres" id="9_toptm"]
+[ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_a5536"]
+[ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_p1850"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="12_3fkgx"]
+
+[sub_resource type="Resource" id="Resource_nfwap"]
+script = ExtResource("11_p1850")
+effects = {
+ExtResource("1_re1gt"): 0,
+ExtResource("2_0jxs8"): 0,
+ExtResource("3_q6gs7"): 0,
+ExtResource("4_2k8b1"): 0,
+ExtResource("5_1ymn8"): 0,
+ExtResource("6_e2c3s"): 0,
+ExtResource("7_ph3p3"): 0,
+ExtResource("8_arw75"): 10,
+ExtResource("9_toptm"): 0,
+ExtResource("10_a5536"): 0
+}
+
+[resource]
+script = ExtResource("12_3fkgx")
+effects = SubResource("Resource_nfwap")
+available_actions = 4
+id = "chopped_holly_berries"
+name = "Chopped Holly Berries"
+description = ""
+stack_size = 5

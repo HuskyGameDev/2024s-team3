@@ -31,7 +31,7 @@ ExtResource("10_ss2jp"): 0
 [resource]
 script = ExtResource("1_r4n8s")
 effects = SubResource("Resource_dtxer")
-available_actions = 0
+available_actions = 4
 id = "elderberry_leaves"
 name = "Elderberry Leaves"
 description = ""

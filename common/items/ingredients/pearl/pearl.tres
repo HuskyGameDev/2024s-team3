@@ -22,7 +22,7 @@ ExtResource("3_ret6x"): 0,
 ExtResource("4_stddp"): 0,
 ExtResource("5_b4yd8"): 0,
 ExtResource("6_bwofx"): 15,
-ExtResource("7_h0ao4"): 0,
+ExtResource("7_h0ao4"): 4,
 ExtResource("8_bfswr"): 0,
 ExtResource("9_s7dkf"): 0,
 ExtResource("10_41hje"): 0
@@ -31,7 +31,7 @@ ExtResource("10_41hje"): 0
 [resource]
 script = ExtResource("1_0xjtp")
 effects = SubResource("Resource_v7u1x")
-available_actions = 0
+available_actions = 12
 id = "pearl"
 name = "Pearl"
 description = ""

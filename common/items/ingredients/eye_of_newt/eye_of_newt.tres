@@ -31,7 +31,7 @@ ExtResource("10_nsn5c"): 0
 [resource]
 script = ExtResource("1_5enf7")
 effects = SubResource("Resource_vcj6k")
-available_actions = 0
+available_actions = 4
 id = "eye_of_newt"
 name = "Eye of Newt"
 description = ""

@@ -21,7 +21,7 @@ ExtResource("2_o3ssy"): 15,
 ExtResource("3_is0tq"): 0,
 ExtResource("4_rlcs2"): 0,
 ExtResource("5_j50ab"): 0,
-ExtResource("6_nreqk"): 0,
+ExtResource("6_nreqk"): 4,
 ExtResource("7_b8jub"): 0,
 ExtResource("8_ccy54"): 0,
 ExtResource("9_1vxlu"): 0,
@@ -31,7 +31,7 @@ ExtResource("10_utlhw"): 0
 [resource]
 script = ExtResource("1_yg5ka")
 effects = SubResource("Resource_hd55i")
-available_actions = 0
+available_actions = 12
 id = "quartz"
 name = "Quartz"
 description = ""

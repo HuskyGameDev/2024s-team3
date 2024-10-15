@@ -18,7 +18,7 @@ script = ExtResource("11_06cj5")
 effects = {
 ExtResource("1_bt3dg"): 0,
 ExtResource("2_4kqme"): 0,
-ExtResource("3_id81e"): 0,
+ExtResource("3_id81e"): 4,
 ExtResource("4_sa7av"): 0,
 ExtResource("5_1dwa8"): 0,
 ExtResource("6_41wmo"): 0,
@@ -31,7 +31,7 @@ ExtResource("10_8kamd"): 0
 [resource]
 script = ExtResource("1_rmx2x")
 effects = SubResource("Resource_k22dn")
-available_actions = 0
+available_actions = 12
 id = "amethyst"
 name = "Amethyst"
 description = ""

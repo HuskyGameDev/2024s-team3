@@ -32,7 +32,7 @@ ExtResource("10_v265a"): 0
 [resource]
 script = ExtResource("1_kcvjn")
 effects = SubResource("Resource_wpiv2")
-available_actions = 0
+available_actions = 12
 id = "pine_resin"
 name = "Pine Resin"
 description = ""

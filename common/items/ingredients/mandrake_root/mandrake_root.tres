@@ -31,7 +31,7 @@ ExtResource("10_cwhx0"): 0
 [resource]
 script = ExtResource("1_87g35")
 effects = SubResource("Resource_pe5uh")
-available_actions = 0
+available_actions = 2
 id = "mandrake_root"
 name = "Mandrake Root"
 description = ""

@@ -31,7 +31,7 @@ ExtResource("10_gvuu8"): 0
 [resource]
 script = ExtResource("1_auh4n")
 effects = SubResource("Resource_86cc0")
-available_actions = 0
+available_actions = 8
 id = "silver_dust"
 name = "Silver Dust"
 description = ""

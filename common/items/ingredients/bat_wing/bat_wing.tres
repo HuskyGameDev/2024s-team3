@@ -21,7 +21,7 @@ ExtResource("1_vos7n"): 0,
 ExtResource("2_o0mf8"): 0,
 ExtResource("3_2l55c"): 0,
 ExtResource("4_na252"): 0,
-ExtResource("5_jofyk"): 0,
+ExtResource("5_jofyk"): -3,
 ExtResource("6_y7d7f"): -10,
 ExtResource("7_fk2as"): 0,
 ExtResource("8_fei8w"): 0,
@@ -32,7 +32,7 @@ ExtResource("10_juup1"): 0
 [resource]
 script = ExtResource("1_jwsd2")
 effects = SubResource("Resource_hujbu")
-available_actions = 0
+available_actions = 2
 id = "bat_wing"
 name = "Bat Wing"
 description = ""

@@ -31,7 +31,7 @@ ExtResource("10_8c1ic"): -5
 [resource]
 script = ExtResource("12_xtcd3")
 effects = SubResource("Resource_r5g8v")
-available_actions = 0
+available_actions = 4
 id = "willow_bark"
 name = "Willow Bark"
 description = ""

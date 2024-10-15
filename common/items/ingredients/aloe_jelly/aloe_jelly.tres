@@ -31,7 +31,7 @@ ExtResource("10_6j1lh"): -1
 [resource]
 script = ExtResource("1_rb24f")
 effects = SubResource("Resource_pf5aj")
-available_actions = 0
+available_actions = 16
 id = "aloe_jelly"
 name = "Aloe Jelly"
 description = ""

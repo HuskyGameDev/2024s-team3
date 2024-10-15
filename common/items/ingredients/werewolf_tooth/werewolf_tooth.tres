@@ -31,7 +31,7 @@ ExtResource("10_dnquo"): 0
 [resource]
 script = ExtResource("1_nqnv3")
 effects = SubResource("Resource_u8srx")
-available_actions = 0
+available_actions = 4
 id = "werewolf_tooth"
 name = "Werewolf Tooth"
 description = ""

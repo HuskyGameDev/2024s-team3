@@ -8,6 +8,6 @@ id = "healing_poison"
 reputation_factor = 5.0
 money_factor = 5.0
 pos_label = "Healing"
-pos_color = Color(0.988235, 0.180392, 0.309804, 1)
+pos_color = Color(0.9375, 0.388184, 0.476181, 1)
 neg_label = "Poison"
 neg_color = Color(0.0313726, 0.929412, 0.0901961, 1)

@@ -31,7 +31,7 @@ ExtResource("10_vd357"): 16
 [resource]
 script = ExtResource("1_hihpr")
 effects = SubResource("Resource_6oct2")
-available_actions = 0
+available_actions = 4
 id = "dragon_claw"
 name = "Dragon Claw"
 description = ""

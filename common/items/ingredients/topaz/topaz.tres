@@ -17,7 +17,7 @@
 script = ExtResource("11_7t73q")
 effects = {
 ExtResource("1_ra0ji"): 0,
-ExtResource("2_152jy"): 0,
+ExtResource("2_152jy"): -4,
 ExtResource("3_2y0me"): 0,
 ExtResource("4_gnxoi"): 0,
 ExtResource("5_fsu5u"): 0,
@@ -31,7 +31,7 @@ ExtResource("10_sf23y"): 15
 [resource]
 script = ExtResource("1_wpw62")
 effects = SubResource("Resource_cfbv3")
-available_actions = 0
+available_actions = 12
 id = "topaz"
 name = "Topaz"
 description = ""

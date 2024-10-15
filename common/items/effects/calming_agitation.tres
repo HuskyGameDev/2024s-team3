@@ -8,6 +8,6 @@ id = "calming_agitation"
 reputation_factor = 5.0
 money_factor = 5.0
 pos_label = "Calming"
-pos_color = Color(0.521569, 0.858824, 0.960784, 1)
+pos_color = Color(0.827371, 0.61676, 0.917969, 1)
 neg_label = "Agitation"
 neg_color = Color(1, 0.4, 0, 1)

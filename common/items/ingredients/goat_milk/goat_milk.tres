@@ -31,7 +31,7 @@ ExtResource("10_hy1ar"): 3
 [resource]
 script = ExtResource("1_iiaq4")
 effects = SubResource("Resource_6rxll")
-available_actions = 0
+available_actions = 16
 id = "goat_milk"
 name = "Goat Milk"
 description = ""

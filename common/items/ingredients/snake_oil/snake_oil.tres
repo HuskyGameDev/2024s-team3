@@ -31,7 +31,7 @@ ExtResource("10_uttb7"): 0
 [resource]
 script = ExtResource("1_idmaa")
 effects = SubResource("Resource_5bpkt")
-available_actions = 0
+available_actions = 16
 id = "snake_oil"
 name = "Snake Oil"
 description = ""
