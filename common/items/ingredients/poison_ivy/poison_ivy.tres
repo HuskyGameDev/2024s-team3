@@ -19,12 +19,12 @@ script = ExtResource("1_dqpy8")
 effects = {
 ExtResource("1_sbv55"): 0,
 ExtResource("2_7f0n2"): 0,
-ExtResource("3_2udg1"): -2,
+ExtResource("3_2udg1"): 0,
 ExtResource("4_nsxk6"): 0,
-ExtResource("5_pb3vv"): -4,
+ExtResource("5_pb3vv"): -10,
 ExtResource("6_m2e40"): 0,
 ExtResource("7_16c2y"): 0,
-ExtResource("8_4q628"): -10,
+ExtResource("8_4q628"): -3,
 ExtResource("9_txlav"): 0,
 ExtResource("10_gydg2"): 0
 }
@@ -35,6 +35,6 @@ effects = SubResource("Resource_8ll31")
 available_actions = 0
 id = "poison_ivy"
 name = "Poison Ivy"
-description = "Saps strength, leaving you exposed"
+description = ""
 stack_size = 5
 image = ExtResource("2_fi08y")

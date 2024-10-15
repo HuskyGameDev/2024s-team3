@@ -26,7 +26,7 @@ ExtResource("6_v8rws"): 10,
 ExtResource("7_xwxn7"): 0,
 ExtResource("8_31usj"): 0,
 ExtResource("9_6xuqw"): 0,
-ExtResource("10_m4anj"): 5
+ExtResource("10_m4anj"): 3
 }
 
 [resource]
@@ -35,6 +35,6 @@ effects = SubResource("Resource_uaxck")
 available_actions = 0
 id = "sunflower_seeds"
 name = "Sunflower Seeds"
-description = "Radiant light with a gentle warmth"
+description = ""
 stack_size = 5
 image = ExtResource("1_ccx8u")

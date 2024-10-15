@@ -17,13 +17,13 @@
 [sub_resource type="Resource" id="Resource_xc8ue"]
 script = ExtResource("1_h57yv")
 effects = {
-ExtResource("1_n2wnw"): 4,
-ExtResource("2_cpudq"): 4,
+ExtResource("1_n2wnw"): -15,
+ExtResource("2_cpudq"): -5,
 ExtResource("3_oxy2y"): 0,
 ExtResource("4_objmh"): 0,
 ExtResource("5_5rn3g"): 0,
-ExtResource("6_4o8by"): 4,
-ExtResource("7_o28rd"): 4,
+ExtResource("6_4o8by"): 0,
+ExtResource("7_o28rd"): 0,
 ExtResource("8_3dboe"): 0,
 ExtResource("9_dcem6"): 0,
 ExtResource("10_qf106"): 0

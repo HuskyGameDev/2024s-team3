@@ -20,11 +20,11 @@ effects = {
 ExtResource("1_r5vdr"): 0,
 ExtResource("2_6q26q"): 0,
 ExtResource("3_5wmq3"): 0,
-ExtResource("4_orqpf"): -5,
+ExtResource("4_orqpf"): 0,
 ExtResource("5_yqj3f"): 0,
 ExtResource("6_mkvyg"): 0,
 ExtResource("7_tfomn"): 0,
-ExtResource("8_klaqw"): 10,
+ExtResource("8_klaqw"): 7,
 ExtResource("9_yuhrj"): 0,
 ExtResource("10_yxi2i"): 0
 }
@@ -35,6 +35,6 @@ effects = SubResource("Resource_rugig")
 available_actions = 0
 id = "thistle_root"
 name = "Thistle Root"
-description = "Grants strength but drains endurance"
+description = ""
 stack_size = 5
 image = ExtResource("12_dix4c")

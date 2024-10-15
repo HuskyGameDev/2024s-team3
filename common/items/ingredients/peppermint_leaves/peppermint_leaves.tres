@@ -25,7 +25,7 @@ ExtResource("5_o2l6c"): 0,
 ExtResource("6_r3636"): 0,
 ExtResource("7_8pgkk"): 0,
 ExtResource("8_r65sg"): 0,
-ExtResource("9_llhgy"): 5,
+ExtResource("9_llhgy"): 0,
 ExtResource("10_uo33x"): 0
 }
 
@@ -35,6 +35,6 @@ effects = SubResource("Resource_7obtm")
 available_actions = 0
 id = "peppermint_leaves"
 name = "Peppermint Leaves"
-description = "A burst of energy and swift steps"
+description = ""
 stack_size = 5
 image = ExtResource("1_6rcdf")

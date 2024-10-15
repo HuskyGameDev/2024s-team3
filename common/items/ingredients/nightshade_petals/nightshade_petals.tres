@@ -17,11 +17,11 @@
 [sub_resource type="Resource" id="Resource_g1u86"]
 script = ExtResource("1_pq5nh")
 effects = {
-ExtResource("1_owm34"): 2,
+ExtResource("1_owm34"): 0,
 ExtResource("2_tpy76"): 0,
 ExtResource("3_2my1w"): 0,
 ExtResource("4_dl006"): 0,
-ExtResource("5_hqoir"): 10,
+ExtResource("5_hqoir"): 7,
 ExtResource("6_jmgvg"): 0,
 ExtResource("7_vjwp2"): 0,
 ExtResource("8_cdn8o"): 0,
@@ -35,6 +35,6 @@ effects = SubResource("Resource_g1u86")
 available_actions = 0
 id = "nightshade_petals"
 name = "Nightshade Petals"
-description = "Restorative powers with a soothing touch"
+description = ""
 stack_size = 5
 image = ExtResource("1_j55rg")

@@ -26,7 +26,7 @@ ExtResource("6_y7d7f"): -10,
 ExtResource("7_fk2as"): 0,
 ExtResource("8_fei8w"): 0,
 ExtResource("9_fnn1i"): 0,
-ExtResource("10_juup1"): -2
+ExtResource("10_juup1"): 0
 }
 
 [resource]
@@ -35,6 +35,6 @@ effects = SubResource("Resource_hujbu")
 available_actions = 0
 id = "bat_wing"
 name = "Bat Wing"
-description = "Cloaks in darkness, cooling the soul"
+description = ""
 stack_size = 5
 image = ExtResource("2_3cnqy")

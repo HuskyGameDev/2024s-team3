@@ -25,7 +25,7 @@ ExtResource("5_uro7q"): 0,
 ExtResource("6_ufnw1"): 0,
 ExtResource("7_krk13"): 0,
 ExtResource("8_0lval"): 0,
-ExtResource("9_ulvso"): -5,
+ExtResource("9_ulvso"): -3,
 ExtResource("10_v265a"): 0
 }
 
@@ -35,6 +35,6 @@ effects = SubResource("Resource_wpiv2")
 available_actions = 0
 id = "pine_resin"
 name = "Pine Resin"
-description = "Shields you but slows you down"
+description = ""
 stack_size = 5
 image = ExtResource("1_snorq")

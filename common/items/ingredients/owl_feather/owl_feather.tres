@@ -18,12 +18,12 @@
 script = ExtResource("1_cjk38")
 effects = {
 ExtResource("1_c8pw7"): 0,
-ExtResource("1_etvk5"): 10,
+ExtResource("1_etvk5"): 7,
 ExtResource("3_044l0"): 0,
 ExtResource("4_0jkd4"): 0,
 ExtResource("5_kyqgv"): 0,
 ExtResource("6_8amiv"): 0,
-ExtResource("7_32663"): 5,
+ExtResource("7_32663"): 0,
 ExtResource("8_qy0np"): 0,
 ExtResource("9_ybdfr"): 0,
 ExtResource("10_atc3h"): 0
@@ -35,6 +35,6 @@ effects = SubResource("Resource_4aahd")
 available_actions = 0
 id = "owl_feather"
 name = "Owl Feather"
-description = "Clears the mind, fortune favors you"
+description = ""
 stack_size = 5
 image = ExtResource("2_lx1i5")
