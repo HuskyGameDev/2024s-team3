@@ -22,7 +22,7 @@ func _on_body_enter_station(body):
 	
 	## Delete old ingredient and spawn new one
 	body.queue_free()
-	var new_ingredient_id = "%s_%s" % [Ingredient.action_to_string(action), body.data.id]
+	var new_ingredient_id = "%s_%s" % [Ingredient.action_to_string(action), body.data.get_base_id()]
 	var new_ingredient = load(ResourcePaths.get_ingredient_path(new_ingredient_id))
 	$ValidArea/CollisionShape2D.disabled = true
 	change_ingredient.emit(new_ingredient, center_of_station)

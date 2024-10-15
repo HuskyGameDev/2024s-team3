@@ -26,3 +26,12 @@ static func action_to_string(action:Actions) -> String:
 		Actions.MELT: return "melted"
 		Actions.CONCENTRATE: return "concentrated"
 	return ""
+
+
+## Gets the base id (minus the action) of the ingredient
+func get_base_id():
+	var trimmed_id = self.id
+	for action in Actions.values():
+		var action_string = "%s_" % action_to_string(action)
+		trimmed_id = trimmed_id.trim_prefix(action_string)
+	return trimmed_id

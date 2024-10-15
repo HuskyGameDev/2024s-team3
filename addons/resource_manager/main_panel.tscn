@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://be7e3ar0l6sy8"]
+[gd_scene load_steps=5 format=3 uid="uid://be7e3ar0l6sy8"]
 
 [ext_resource type="PackedScene" uid="uid://cxxm50aaiqxea" path="res://addons/resource_manager/ingredient_manager/ingredient_panel.tscn" id="1_bf41n"]
 [ext_resource type="PackedScene" uid="uid://blcdwe4m4a47o" path="res://addons/resource_manager/location_manager/location_panel.tscn" id="2_t7nyc"]
+[ext_resource type="PackedScene" uid="uid://s8rbu8sncvma" path="res://addons/resource_manager/sprite_viewer/sprite_viewer.tscn" id="3_aqie6"]
+[ext_resource type="PackedScene" uid="uid://3woeienpsk1u" path="res://addons/resource_manager/general_effects_viewer/general_effects_viewer.tscn" id="4_jolsl"]
 
 [node name="MainPanel" type="TabContainer"]
 anchors_preset = 15
@@ -21,3 +23,20 @@ metadata/_tab_index = 0
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="PotionSprites" parent="." instance=ExtResource("3_aqie6")]
+visible = false
+layout_mode = 2
+sprite_folder = "res://common/items/potions"
+metadata/_tab_index = 2
+
+[node name="CustomerSprites" parent="." instance=ExtResource("3_aqie6")]
+visible = false
+layout_mode = 2
+sprite_folder = "res://screens/main/customers/generic_sprites"
+metadata/_tab_index = 3
+
+[node name="GeneralEffectsViewer" parent="." instance=ExtResource("4_jolsl")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4

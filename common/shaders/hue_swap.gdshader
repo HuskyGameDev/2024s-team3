@@ -9,7 +9,7 @@ shader_type canvas_item;
 uniform vec4 from : source_color;
 uniform vec4 to : source_color;
 uniform float tolerance: hint_range(0.0, 1.0);
-
+uniform bool make_flat = false;
 
 
 // Color space conversion from https://godotshaders.com/shader/color-range-swap/
@@ -48,8 +48,12 @@ void fragment()
 	// the .r here represents HUE, .g is SATURATION, .b is LUMINANCE
 	if (hue - source_hsv.r >= -_tol && hue - source_hsv.r <= +_tol)
 	{
-		vec3 final_hsv = source_hsv + hsv_shift;
-		tex.rgb = hsv2rgb(final_hsv);
+		if(make_flat) {
+			tex.rgb = to.rgb;
+		} else {
+			vec3 final_hsv = source_hsv + hsv_shift;
+			tex.rgb = hsv2rgb(final_hsv);
+		}
 	}
 
 	COLOR = tex;
