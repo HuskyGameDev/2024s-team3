@@ -196,6 +196,14 @@ func create_variant(variation:Ingredient.Actions):
 		var new_ingredient = Ingredient.new()
 		new_ingredient.name = new_name
 		new_ingredient.id = new_id
+		new_ingredient.effects = ingredient.effects.duplicate()
+		match variation:
+			Ingredient.Actions.CHOP: new_ingredient.effects.modify_smallest(func(e): return 0)
+			Ingredient.Actions.CRUSH: 
+				new_ingredient.effects.modify_largest(func(e): return 0)
+				new_ingredient.effects.modify_smallest(func(e): return clamp(e * 2, -30, 30))
+			Ingredient.Actions.MELT: new_ingredient.effects.modify(func(e): return e * -1)
+			Ingredient.Actions.CONCENTRATE: new_ingredient.effects.modify_largest(func(e): return clamp(e * 1.5, -30, 30))
 		ResourceSaver.save(new_ingredient, new_path)
 		# update resource paths singleton
 		ResourcePaths.update_ingredient_paths()

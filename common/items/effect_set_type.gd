@@ -87,6 +87,17 @@ func get_strongest(n:int = 10) -> Array:
 	else: return all_effects
 
 
+## Returns an array of the weakest n effects
+func get_weakest(n:int = 10) -> Array:
+	## Sort effects by strength
+	var all_effects = self.effects.keys()
+	all_effects = all_effects.filter(func(e): return true if self.effects[e] != 0 else false)
+	all_effects.sort_custom(func(a, b): return false if abs(self.effects[a]) > abs(self.effects[b]) else true)
+	if n > all_effects.size():
+		return all_effects.slice(0, n)
+	else: return all_effects
+
+
 ## Returns an array with the names of the effects (in order)
 func get_strongest_as_strings() -> Array[String]:
 	var strongest_effects = get_strongest()
@@ -134,3 +145,23 @@ func get_color() -> Color:
 	var strongest_effect = strongest_effects[0]
 	
 	return strongest_effect.pos_color if self.effects[strongest_effect] >= 0 else strongest_effect.neg_color
+
+
+## Perform a function on every effect
+func modify_each(f:Callable):
+	for effect in effects:
+		effects[effect] = f.call(effects[effect])
+
+
+## Perform a function on the largest effect
+func modify_largest(f:Callable):
+	var strongest = get_strongest(1)[0]
+	if not strongest: return
+	effects[strongest] = f.call(effects[strongest])
+
+
+## Perform a function on the smallest effect
+func modify_smallest(f:Callable):
+	var weakest = get_weakest(1)[0]
+	if not weakest: return
+	effects[weakest] = f.call(effects[weakest])
