@@ -82,7 +82,7 @@ func drop():
 		set_collision_layer_value(holding_collision_layer, false)
 		set_collision_mask_value(31, false)
 		set_collision_mask_value(32, false)
-		main.move_child(self , main.get_node("InventoryDrawer").get_index() - 1 ) # move object to index above the drawer
+		main.move_child(self , main.get_node("InventoryDrawer").get_index() ) # move object to index above the drawer
 
 func _integrate_forces(_state):
 	if beingHeld:
