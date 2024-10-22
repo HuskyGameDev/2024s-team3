@@ -5,7 +5,7 @@ const SAVE_LOCATION = "user://savegame.save"
 const INV_LOCATION = "user://inv_data_file.json" #inventory we save to when each day is done
 const TEMP_INV_LOCATION = "user://temp_inv_data_file.json" #inventory we save to during game play
 
-@export var location: Location = ResourceLoader.load("res://common/locations/grassy_clearing.tres")
+@export var location: Location = ResourceLoader.load("res://common/locations/the_clearing.tres")
 @export var money: int = 0
 @export var reputation: int = 0
 @export var tutorial_complete: bool = false
