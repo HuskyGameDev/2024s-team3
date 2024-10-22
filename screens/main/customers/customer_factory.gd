@@ -31,6 +31,11 @@ func create_customer():
 	customer_timer.connect("timeout", grace_period_timeout)
 	customer_timer.start(GRACE_PERIOD_LENGTH)
 
+func skip_customer():
+	customer_node.leave_store()
+	customer_timer.disconnect("timeout", grace_period_timeout)
+	PlayerData.change_reputation(-1) # Place holder amount for time being
+	create_customer()
 
 ## Returns true if the potion was taken, otherwise false
 func handle_purchase(potion: Potion) -> bool:

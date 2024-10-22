@@ -1,5 +1,6 @@
 extends Control
-
+#Signal for skipping customer
+signal skipCustomerPressed
 #Shows the pop up panel
 func _on_end_day_pressed():
 	$Confirmation.show()
@@ -12,6 +13,7 @@ func _on_cancel_pressed():
 	$Confirmation.hide()
 	
 	
-# func _on_skip_customer_pressed():
+func _on_skip_customer_pressed():
+	skipCustomerPressed.emit()
 	
 	

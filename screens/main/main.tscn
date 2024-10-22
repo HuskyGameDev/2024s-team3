@@ -201,4 +201,5 @@ stretch_mode = 5
 [connection signal="pressed" from="IngredientBookButton" to="CanvasLayer/Book" method="_move_up"]
 [connection signal="change_ingredient" from="MortarAndPestle" to="." method="_on_item_made"]
 [connection signal="make_inv_object" from="InventoryDrawer" to="." method="_on_inv_dragged"]
+[connection signal="skipCustomerPressed" from="EndDayAndSkip" to="CustomerFactory" method="skip_customer"]
 [connection signal="pressed" from="BellButton" to="." method="_on_ring_bell"]
