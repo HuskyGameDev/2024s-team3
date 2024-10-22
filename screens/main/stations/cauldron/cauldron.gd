@@ -1,5 +1,7 @@
 extends Node2D
 
+const CAULDRON_EMPTY_COLOR = Vector3(0.1725, 0.1333, 0.1804)
+
 var current_effects: EffectSet = EffectSet.new()
 var has_ingredients: bool = false
 var volume: int = -20
@@ -8,6 +10,11 @@ var making_potion: bool = false
 @onready var SpriteShader:ShaderMaterial = $Sprite.material
 
 signal potion_made(potion: Potion, pos: Vector2)
+
+func _ready():
+	SpriteShader.set_shader_parameter("make_flat", true)
+	SpriteShader.set_shader_parameter("to", CAULDRON_EMPTY_COLOR)
+
 
 func _on_body_enter_cauldron(body):
 	if not "data" in body: return
@@ -23,6 +30,7 @@ func _on_body_enter_cauldron(body):
 	## Add effects to cauldron's potion
 	has_ingredients = true
 	current_effects.add(body.data.effects)
+	SpriteShader.set_shader_parameter("make_flat", false)
 	SpriteShader.set_shader_parameter("to", current_effects.get_color())
 	body.queue_free()
 	if (volume<0): 
@@ -38,10 +46,12 @@ func _on_cauldron_input_event(_viewport, _event, _shape_idx):
 			await get_tree().create_timer(0.47).timeout
 			var potion = Potion.new()
 			potion.effects = current_effects
+			potion.image = ResourcePaths.get_random_potion_sprite()
 			potion_made.emit(potion, self.global_position - Vector2(0, 100))
 			has_ingredients = false
 			current_effects = EffectSet.new()
 			volume = -20
 			$Bubbler.volume_db=volume
-			SpriteShader.set_shader_parameter("to", Plane(14.0/255.0, 175.0/255.0, 155.0/255.0, 1))
 			making_potion = false
+			SpriteShader.set_shader_parameter("make_flat", true)
+			SpriteShader.set_shader_parameter("to", CAULDRON_EMPTY_COLOR)

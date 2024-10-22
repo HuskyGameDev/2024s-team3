@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Location" load_steps=2 format=3 uid="uid://cjqb6k6smqc57"]
+
+[ext_resource type="Script" path="res://common/locations/location_type.gd" id="1_y6yc1"]
+
+[resource]
+script = ExtResource("1_y6yc1")
+id = "the_outpost"
+name = "The Outpost"

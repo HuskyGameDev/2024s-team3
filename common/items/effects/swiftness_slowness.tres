@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Effect" load_steps=2 format=3 uid="uid://dxvuf8wqsbidk"]
+
+[ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_r0k8e"]
+
+[resource]
+script = ExtResource("1_r0k8e")
+id = "swiftness_slowness"
+reputation_factor = 5.0
+money_factor = 5.0
+pos_label = "Swiftness"
+pos_color = Color(0, 0.665686, 0.875, 1)
+neg_label = "Slowness"
+neg_color = Color(0.290196, 0.411765, 0.270588, 1)

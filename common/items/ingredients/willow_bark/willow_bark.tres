@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=14 format=3 uid="uid://4tiagx12hv4e"]
+
+[ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_oqcgo"]
+[ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_omj4r"]
+[ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_fymu0"]
+[ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_bkm4x"]
+[ext_resource type="Resource" uid="uid://2bq51ncoy4qu" path="res://common/items/effects/healing_poison.tres" id="5_1jogc"]
+[ext_resource type="Resource" uid="uid://b0efkhflivhlj" path="res://common/items/effects/light_dark.tres" id="6_lnhmx"]
+[ext_resource type="Resource" uid="uid://diti6ufqgwhph" path="res://common/items/effects/luck_misfortune.tres" id="7_3u3vm"]
+[ext_resource type="Resource" uid="uid://b3sw5wyytvesi" path="res://common/items/effects/strength_weakness.tres" id="8_wajed"]
+[ext_resource type="Resource" uid="uid://dxvuf8wqsbidk" path="res://common/items/effects/swiftness_slowness.tres" id="9_vhaak"]
+[ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_8c1ic"]
+[ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_p8v74"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="12_xtcd3"]
+
+[sub_resource type="Resource" id="Resource_r5g8v"]
+script = ExtResource("11_p8v74")
+effects = {
+ExtResource("1_oqcgo"): 7,
+ExtResource("2_omj4r"): 0,
+ExtResource("3_fymu0"): 0,
+ExtResource("4_bkm4x"): 0,
+ExtResource("5_1jogc"): 7,
+ExtResource("6_lnhmx"): 0,
+ExtResource("7_3u3vm"): 0,
+ExtResource("8_wajed"): 0,
+ExtResource("9_vhaak"): 0,
+ExtResource("10_8c1ic"): -5
+}
+
+[resource]
+script = ExtResource("12_xtcd3")
+effects = SubResource("Resource_r5g8v")
+available_actions = 4
+id = "willow_bark"
+name = "Willow Bark"
+description = ""
+stack_size = 5

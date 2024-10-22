@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Effect" load_steps=2 format=3 uid="uid://ya1vir33j5lh"]
+
+[ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_ftfq7"]
+
+[resource]
+script = ExtResource("1_ftfq7")
+id = "warm_cold"
+reputation_factor = 5.0
+money_factor = 5.0
+pos_label = "Warming"
+pos_color = Color(1, 0.726562, 0, 1)
+neg_label = "Cooling"
+neg_color = Color(0.716797, 0.973283, 1, 1)

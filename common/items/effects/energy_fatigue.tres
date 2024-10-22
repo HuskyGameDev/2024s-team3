@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Effect" load_steps=2 format=3 uid="uid://6wcghjn0u72q"]
+
+[ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_ggsg2"]
+
+[resource]
+script = ExtResource("1_ggsg2")
+id = "energy_fatigue"
+reputation_factor = 5.0
+money_factor = 5.0
+pos_label = "Energizing"
+pos_color = Color(0.402344, 1, 0.915955, 1)
+neg_label = "Tiring"
+neg_color = Color(0.0784314, 0.180392, 0.788235, 1)

@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=14 format=3 uid="uid://be1ntjq76fu7q"]
+
+[ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_0rast"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_idmaa"]
+[ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_ugqbn"]
+[ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_j4j2f"]
+[ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_8ptau"]
+[ext_resource type="Resource" uid="uid://2bq51ncoy4qu" path="res://common/items/effects/healing_poison.tres" id="5_qwfxy"]
+[ext_resource type="Resource" uid="uid://b0efkhflivhlj" path="res://common/items/effects/light_dark.tres" id="6_lps4l"]
+[ext_resource type="Resource" uid="uid://diti6ufqgwhph" path="res://common/items/effects/luck_misfortune.tres" id="7_aveed"]
+[ext_resource type="Resource" uid="uid://b3sw5wyytvesi" path="res://common/items/effects/strength_weakness.tres" id="8_p5gp8"]
+[ext_resource type="Resource" uid="uid://dxvuf8wqsbidk" path="res://common/items/effects/swiftness_slowness.tres" id="9_7mgea"]
+[ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_uttb7"]
+[ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_f74m5"]
+
+[sub_resource type="Resource" id="Resource_5bpkt"]
+script = ExtResource("11_f74m5")
+effects = {
+ExtResource("1_0rast"): -2,
+ExtResource("2_ugqbn"): 0,
+ExtResource("3_j4j2f"): -4,
+ExtResource("4_8ptau"): -2,
+ExtResource("5_qwfxy"): -6,
+ExtResource("6_lps4l"): 0,
+ExtResource("7_aveed"): -4,
+ExtResource("8_p5gp8"): -1,
+ExtResource("9_7mgea"): 0,
+ExtResource("10_uttb7"): 0
+}
+
+[resource]
+script = ExtResource("1_idmaa")
+effects = SubResource("Resource_5bpkt")
+available_actions = 16
+id = "snake_oil"
+name = "Snake Oil"
+description = ""
+stack_size = 5

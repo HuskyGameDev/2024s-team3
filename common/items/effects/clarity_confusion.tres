@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Effect" load_steps=2 format=3 uid="uid://dm5g60527ck6"]
+
+[ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_1sgae"]
+
+[resource]
+script = ExtResource("1_1sgae")
+id = "clarity_confusion"
+reputation_factor = 5.0
+money_factor = 5.0
+pos_label = "Clarity"
+pos_color = Color(0.329412, 0.141176, 0.6, 1)
+neg_label = "Confusion"
+neg_color = Color(0.677734, 0.677734, 0.677734, 1)

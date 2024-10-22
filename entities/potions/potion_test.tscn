@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8gjk7s1y8pmy"]
+
+[ext_resource type="Shader" path="res://common/shaders/liquid/liquid.gdshader" id="1_wtulj"]
+[ext_resource type="Shader" path="res://common/shaders/liquid/liquid_2.gdshader" id="2_w11yr"]
+[ext_resource type="Shader" path="res://common/shaders/liquid/liquid_3.gdshader" id="3_w87o3"]
+[ext_resource type="Texture2D" uid="uid://cciyu71xgn8mf" path="res://common/shaders/liquid/Potion Bottle.png" id="4_y0na2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4yfvw"]
+shader = ExtResource("1_wtulj")
+shader_parameter/fV = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eclp2"]
+shader = ExtResource("1_wtulj")
+shader_parameter/fV = 0.3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pdq6i"]
+shader = ExtResource("2_w11yr")
+shader_parameter/backFillColour = Color(0.62, 1, 1, 1)
+shader_parameter/frontFillInnerColour = Color(0.35, 1, 1, 1)
+shader_parameter/frontFillOuterColour = Color(0, 0.35, 1, 1)
+shader_parameter/ringColour = Color(0, 0.16, 0.13, 1)
+shader_parameter/fresnelColour = Color(0, 0.88, 1, 1)
+shader_parameter/innerRingGlowColour = Color(0, 1, 1, 1)
+shader_parameter/fillcolour = Color(1, 1, 1, 1)
+shader_parameter/ringWidth = 0.15
+shader_parameter/innerCircleRadiusOffset = 0.0
+shader_parameter/fill_value = 0.25
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c0uyt"]
+shader = ExtResource("3_w87o3")
+shader_parameter/fV = 0.1
+shader_parameter/bottle_mask = ExtResource("4_y0na2")
+
+[node name="Potion" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_4yfvw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_eclp2")
+offset_right = 1473.0
+offset_bottom = 1473.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_pdq6i")
+offset_right = 772.0
+offset_bottom = 772.0
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_c0uyt")
+offset_right = 40.0
+offset_bottom = 40.0

@@ -1,22 +1,26 @@
-[gd_scene load_steps=17 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=21 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://screens/main/main.gd" id="1_0ufrw"]
 [ext_resource type="Script" path="res://screens/main/customers/customer_factory.gd" id="2_dnvch"]
 [ext_resource type="Texture2D" uid="uid://dbueov7x0qeqe" path="res://screens/main/background.png" id="2_u1ul0"]
+[ext_resource type="PackedScene" uid="uid://lnfput3ouduw" path="res://ui/pause_menu/pause_menu.tscn" id="3_8c0kv"]
 [ext_resource type="PackedScene" uid="uid://bru1ae5j80tii" path="res://screens/main/ui/money_and_rep_tracker/money_and_rep.tscn" id="5_0uejy"]
+[ext_resource type="PackedScene" uid="uid://do38all2put7r" path="res://screens/main/ui/ingredient_book/book.tscn" id="5_la1bq"]
 [ext_resource type="PackedScene" uid="uid://br236elfur261" path="res://screens/main/ui/inventory/drawer.tscn" id="5_nl71h"]
-[ext_resource type="PackedScene" uid="uid://co5klpgmvh2f6" path="res://screens/main/bell/bell.tscn" id="7_ykbkw"]
 [ext_resource type="PackedScene" uid="uid://bsgio2wgxwjd1" path="res://screens/main/pedestal/pedestal.tscn" id="8_mkd11"]
-[ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://common/items/ingredients/ingredient.tscn" id="10_7anjc"]
-[ext_resource type="AudioStream" uid="uid://c0waok65gg0j2" path="res://common/audio/Cauldron_Boil.wav" id="11_1lx0d"]
-[ext_resource type="Resource" uid="uid://ev5xh66rxxvf" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="11_jgs4v"]
-[ext_resource type="AudioStream" uid="uid://dty3w32qgyj7x" path="res://common/audio/Finish_Potion.wav" id="12_1kaeq"]
 [ext_resource type="PackedScene" uid="uid://cjjarcohy2vqe" path="res://screens/main/stations/cauldron/cauldron.tscn" id="12_rj1v1"]
-[ext_resource type="AudioStream" uid="uid://c15f6o3xw0kvx" path="res://common/audio/BYB_Amb_Shop_Draft.wav" id="14_wjql5"]
+[ext_resource type="Texture2D" uid="uid://b18cm5tr1tqr8" path="res://screens/main/bell/bell_outer.png" id="13_x0440"]
+[ext_resource type="PackedScene" uid="uid://dda00qymrm5of" path="res://screens/main/ui/end_day_and_skip/end_day_and_skip.tscn" id="13_yll6s"]
+[ext_resource type="Texture2D" uid="uid://blivro2cmbh36" path="res://screens/main/bell/bell_inner.png" id="14_k0ahi"]
+[ext_resource type="PackedScene" uid="uid://bbletxc4pnnwd" path="res://screens/main/stations/cutting_board/cutting_board.tscn" id="15_3qi2s"]
+[ext_resource type="PackedScene" uid="uid://bcdky2t6vai4k" path="res://screens/main/stations/mortar_and_pestle/mortar_and_pestle.tscn" id="15_jly0p"]
+[ext_resource type="Texture2D" uid="uid://chro3f0yplc64" path="res://screens/main/bell/bell_tong.png" id="15_l61pq"]
+[ext_resource type="Texture2D" uid="uid://ba2vk6f8njy7t" path="res://screens/main/ui/ingredient_book/Ingredient Book Button.png" id="16_0uga0"]
+[ext_resource type="FontFile" uid="uid://dy8mlyjp48kpw" path="res://screens/main/ui/ingredient_book/m5x7.ttf" id="17_hcv40"]
 [ext_resource type="PackedScene" uid="uid://b6cq5upjosmpf" path="res://screens/main/ui/clock/new_clock.tscn" id="17_n5klg"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_1fgwd"]
-b = Vector2(1920, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fs1cp"]
+size = Vector2(0.456603, 0.192607)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aqou"]
 size = Vector2(417, 39.5)
@@ -27,10 +31,19 @@ script = ExtResource("1_0ufrw")
 [node name="CustomerFactory" type="Node" parent="."]
 script = ExtResource("2_dnvch")
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("3_8c0kv")]
+visible = false
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="NewClock" parent="CanvasLayer" instance=ExtResource("17_n5klg")]
 position = Vector2(165, 165)
+
+[node name="Book" parent="CanvasLayer" instance=ExtResource("5_la1bq")]
+position = Vector2(306, 1248)
 
 [node name="Room" type="Node2D" parent="."]
 scale = Vector2(6, 6)
@@ -39,16 +52,36 @@ scale = Vector2(6, 6)
 position = Vector2(160, 90)
 texture = ExtResource("2_u1ul0")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Room"]
-position = Vector2(117.333, 109.333)
-scale = Vector2(0.166667, 0.166667)
-collision_layer = 2
-collision_mask = 2
+[node name="Right Shelf" type="StaticBody2D" parent="Room"]
+position = Vector2(250, 118.333)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/StaticBody2D"]
-position = Vector2(-710, 8)
-shape = SubResource("SegmentShape2D_1fgwd")
-one_way_collision = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Right Shelf"]
+position = Vector2(-6.37506, 0.333336)
+scale = Vector2(331.25, 11.25)
+shape = SubResource("RectangleShape2D_fs1cp")
+
+[node name="ColorRect" type="ColorRect" parent="Room/Right Shelf"]
+offset_left = -82.0
+offset_top = -1.0
+offset_right = 73.0
+offset_bottom = 1.0
+color = Color(0.368627, 0.247059, 0.2, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Left Shelf" type="StaticBody2D" parent="Room"]
+position = Vector2(45.5, 119.333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Left Shelf"]
+position = Vector2(-11, 2.563e-06)
+scale = Vector2(331.25, 11.25)
+shape = SubResource("RectangleShape2D_fs1cp")
+
+[node name="ColorRect" type="ColorRect" parent="Room/Left Shelf"]
+offset_left = -44.0
+offset_top = -1.0
+offset_right = 65.0
+offset_bottom = 1.0
+color = Color(0.368627, 0.247059, 0.2, 1)
 
 [node name="Floor" type="StaticBody2D" parent="Room"]
 position = Vector2(276, 211)
@@ -90,22 +123,6 @@ offset_top = 23.0
 offset_right = 1892.0
 offset_bottom = 134.0
 
-[node name="InventoryDrawer" parent="." instance=ExtResource("5_nl71h")]
-custom_minimum_size = Vector2(600, 690)
-layout_direction = 2
-anchors_preset = -1
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 1870.0
-offset_top = 175.0
-offset_right = 2470.0
-offset_bottom = 865.0
-grow_horizontal = 1
-grow_vertical = 1
-
-[node name="Bell" parent="." instance=ExtResource("7_ykbkw")]
-position = Vector2(373, 22)
-
 [node name="Pedestal" parent="." instance=ExtResource("8_mkd11")]
 position = Vector2(388, 546)
 
@@ -113,18 +130,71 @@ position = Vector2(388, 546)
 position = Vector2(852, 840)
 scale = Vector2(6, 6)
 
-[node name="CauldronFinishPlayer" type="AudioStreamPlayer" parent="Cauldron"]
-stream = ExtResource("12_1kaeq")
-volume_db = -10.0
+[node name="CuttingBoard" parent="." instance=ExtResource("15_3qi2s")]
+position = Vector2(1329, 853)
+scale = Vector2(6, 6)
 
-[node name="Bubbler" type="AudioStreamPlayer" parent="Cauldron"]
-stream = ExtResource("11_1lx0d")
-volume_db = -20.0
-autoplay = true
+[node name="MortarAndPestle" parent="." instance=ExtResource("15_jly0p")]
+position = Vector2(1632, 838)
+scale = Vector2(6, 6)
+action = 4
 
-[node name="Ingredient" parent="." instance=ExtResource("10_7anjc")]
-position = Vector2(306, 890)
-data = ExtResource("11_jgs4v")
+[node name="InventoryDrawer" parent="." instance=ExtResource("5_nl71h")]
+custom_minimum_size = Vector2(444, 690)
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1924.0
+offset_top = 165.0
+offset_right = 2487.0
+offset_bottom = 855.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="EndDayAndSkip" parent="." instance=ExtResource("13_yll6s")]
+offset_left = -3.0
+offset_right = 48.0
+offset_bottom = 39.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(360, 330)
+scale = Vector2(6, 6)
+texture = ExtResource("14_k0ahi")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(360, 330)
+scale = Vector2(6, 6)
+texture = ExtResource("15_l61pq")
+
+[node name="BellButton" type="TextureButton" parent="."]
+offset_left = 312.0
+offset_top = 282.0
+offset_right = 328.0
+offset_bottom = 298.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("13_x0440")
+stretch_mode = 5
+
+[node name="IngredientBookButton" type="TextureButton" parent="."]
+offset_left = -150.0
+offset_top = 450.0
+offset_right = -109.0
+offset_bottom = 491.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("16_0uga0")
+
+[node name="Label" type="Label" parent="IngredientBookButton"]
+layout_mode = 0
+offset_left = 38.5
+offset_top = 12.3333
+offset_right = 515.5
+offset_bottom = 112.333
+rotation = 1.5708
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("17_hcv40")
+theme_override_font_sizes/font_size = 125
+text = "Ingredients"
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_wjql5")
@@ -133,3 +203,8 @@ autoplay = true
 
 [connection signal="customer_created" from="CustomerFactory" to="." method="_on_new_customer"]
 [connection signal="potion_made" from="Cauldron" to="." method="_on_item_made"]
+[connection signal="change_ingredient" from="CuttingBoard" to="." method="_on_item_made"]
+[connection signal="change_ingredient" from="MortarAndPestle" to="." method="_on_item_made"]
+[connection signal="make_inv_object" from="InventoryDrawer" to="." method="_on_inv_dragged"]
+[connection signal="pressed" from="BellButton" to="." method="_on_ring_bell"]
+[connection signal="pressed" from="IngredientBookButton" to="CanvasLayer/Book" method="_move_up"]

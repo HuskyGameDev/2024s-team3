@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://j4c6mf15ygxb"
+path="res://.godot/imported/Book Page Turn Final.aseprite-b2eeb7e7f12815be17da4abb85011aa2.res"
+
+[deps]
+
+source_file="res://screens/main/ui/ingredient_book/Book Page Turn Final.aseprite"
+dest_files=["res://.godot/imported/Book Page Turn Final.aseprite-b2eeb7e7f12815be17da4abb85011aa2.res"]
+
+[params]
+

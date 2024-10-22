@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Effect" load_steps=2 format=3 uid="uid://b3sw5wyytvesi"]
+
+[ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_54mc2"]
+
+[resource]
+script = ExtResource("1_54mc2")
+id = "strength_weakness"
+reputation_factor = 5.0
+money_factor = 5.0
+pos_label = "Strengthening"
+pos_color = Color(0.960784, 0.0901961, 0.0313726, 1)
+neg_label = "Weakening"
+neg_color = Color(0.988235, 0.941176, 0.870588, 1)

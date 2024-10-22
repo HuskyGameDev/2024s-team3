@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=14 format=3 uid="uid://dd1rxwr7wypm0"]
+
+[ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_ghgue"]
+[ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_yw54a"]
+[ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_dtig2"]
+[ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_5j0av"]
+[ext_resource type="Resource" uid="uid://2bq51ncoy4qu" path="res://common/items/effects/healing_poison.tres" id="5_00j6c"]
+[ext_resource type="Resource" uid="uid://b0efkhflivhlj" path="res://common/items/effects/light_dark.tres" id="6_scijk"]
+[ext_resource type="Resource" uid="uid://diti6ufqgwhph" path="res://common/items/effects/luck_misfortune.tres" id="7_ewixq"]
+[ext_resource type="Resource" uid="uid://b3sw5wyytvesi" path="res://common/items/effects/strength_weakness.tres" id="8_nioyb"]
+[ext_resource type="Resource" uid="uid://dxvuf8wqsbidk" path="res://common/items/effects/swiftness_slowness.tres" id="9_e88ac"]
+[ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_sargt"]
+[ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_qeae1"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="12_g1ikx"]
+
+[sub_resource type="Resource" id="Resource_o7q2n"]
+script = ExtResource("11_qeae1")
+effects = {
+ExtResource("1_ghgue"): 0,
+ExtResource("2_yw54a"): 0,
+ExtResource("3_dtig2"): 0,
+ExtResource("4_5j0av"): 0,
+ExtResource("5_00j6c"): 0,
+ExtResource("6_scijk"): -10,
+ExtResource("7_ewixq"): 0,
+ExtResource("8_nioyb"): 0,
+ExtResource("9_e88ac"): 0,
+ExtResource("10_sargt"): 0
+}
+
+[resource]
+script = ExtResource("12_g1ikx")
+effects = SubResource("Resource_o7q2n")
+available_actions = 0
+id = "chopped_bat_wing"
+name = "Chopped Bat Wing"
+description = ""
+stack_size = 5

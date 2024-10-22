@@ -1,0 +1,204 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfl08feek1lei"]
+
+[ext_resource type="Texture2D" uid="uid://ciyndcoi0ir5d" path="res://screens/main/ui/ingredient_book/Ingredient Book.png" id="1_0r2wl"]
+[ext_resource type="Texture2D" uid="uid://cvvolykrups7e" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.png" id="2_3ss50"]
+
+[node name="Ingredient Book" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Book" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 65.0
+scale = Vector2(6, 6)
+texture = ExtResource("1_0r2wl")
+
+[node name="Page 1" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Page 1"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 55.0
+offset_right = 256.0
+offset_bottom = 98.0
+
+[node name="Ingredient" type="TextureRect" parent="Page 1/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_3ss50")
+stretch_mode = 4
+
+[node name="Description" type="Label" parent="Page 1/VBoxContainer"]
+layout_mode = 2
+text = "A beautiful purple flower"
+
+[node name="Page 2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 364.0
+offset_top = 25.0
+offset_right = 404.0
+offset_bottom = 65.0
+
+[node name="Values" type="VBoxContainer" parent="Page 2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 59.0
+
+[node name="Health" type="HBoxContainer" parent="Page 2/Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Page 2/Values/Health"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Page 2/Values/Health"]
+layout_mode = 2
+text = "Healing/Poison: "
+
+[node name="Value" type="Label" parent="Page 2/Values/Health"]
+layout_mode = 2
+text = "5"
+
+[node name="Warm" type="HBoxContainer" parent="Page 2/Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Page 2/Values/Warm"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Page 2/Values/Warm"]
+layout_mode = 2
+text = "Warm/Cold: "
+
+[node name="Value" type="Label" parent="Page 2/Values/Warm"]
+layout_mode = 2
+text = "5"
+
+[node name="Calming" type="HBoxContainer" parent="Page 2/Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Page 2/Values/Calming"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Page 2/Values/Calming"]
+layout_mode = 2
+text = "Calming/Agitation: "
+
+[node name="Value" type="Label" parent="Page 2/Values/Calming"]
+layout_mode = 2
+text = "5"
+
+[node name="Strength" type="HBoxContainer" parent="Page 2/Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Page 2/Values/Strength"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Page 2/Values/Strength"]
+layout_mode = 2
+text = "Strength/Weakness: "
+
+[node name="Value" type="Label" parent="Page 2/Values/Strength"]
+layout_mode = 2
+text = "5"
+
+[node name="Energy" type="HBoxContainer" parent="Page 2/Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Page 2/Values/Energy"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Page 2/Values/Energy"]
+layout_mode = 2
+text = "Energy/Fatigue: "
+
+[node name="Value" type="Label" parent="Page 2/Values/Energy"]
+layout_mode = 2
+text = "5"
+
+[node name="Light" type="HBoxContainer" parent="Page 2/Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Page 2/Values/Light"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Page 2/Values/Light"]
+layout_mode = 2
+text = "Light/Dark"
+
+[node name="Value" type="Label" parent="Page 2/Values/Light"]
+layout_mode = 2
+text = "5"
+
+[node name="Luck" type="HBoxContainer" parent="Page 2/Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Page 2/Values/Luck"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Page 2/Values/Luck"]
+layout_mode = 2
+text = "Luck/Misfortune"
+
+[node name="Value" type="Label" parent="Page 2/Values/Luck"]
+layout_mode = 2
+text = "5"
+
+[node name="Clarity" type="HBoxContainer" parent="Page 2/Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Page 2/Values/Clarity"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Page 2/Values/Clarity"]
+layout_mode = 2
+text = "Clarify/Confusion: "
+
+[node name="Value" type="Label" parent="Page 2/Values/Clarity"]
+layout_mode = 2
+text = "5"
+
+[node name="Defense" type="HBoxContainer" parent="Page 2/Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Page 2/Values/Defense"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Page 2/Values/Defense"]
+layout_mode = 2
+text = "Defense/Vulnerability"
+
+[node name="Value" type="Label" parent="Page 2/Values/Defense"]
+layout_mode = 2
+text = "5"
+
+[node name="Swiftness" type="HBoxContainer" parent="Page 2/Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Page 2/Values/Swiftness"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Page 2/Values/Swiftness"]
+layout_mode = 2
+text = "Swiftness/Slowness"
+
+[node name="Value" type="Label" parent="Page 2/Values/Swiftness"]
+layout_mode = 2
+text = "5"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

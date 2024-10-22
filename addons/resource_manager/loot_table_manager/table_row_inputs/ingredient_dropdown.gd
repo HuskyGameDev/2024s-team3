@@ -17,7 +17,6 @@ func _ready():
 
 func _on_item_selected(index):
 	var selected_name = get_item_text(index)
-	print("selected item ", selected_name)
 	var selected_id = selected_name.replace(" ", "_").to_lower()
 	var selected_ingredient = load(ResourcePaths.get_ingredient_path(selected_id))
 	ingredient_changed.emit(selected_ingredient)

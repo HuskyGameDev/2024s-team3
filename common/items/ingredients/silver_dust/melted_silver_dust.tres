@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=14 format=3 uid="uid://ba6ry55yc4kbm"]
+
+[ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_3v0mi"]
+[ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_6ga86"]
+[ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_po702"]
+[ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_jfwle"]
+[ext_resource type="Resource" uid="uid://2bq51ncoy4qu" path="res://common/items/effects/healing_poison.tres" id="5_pollm"]
+[ext_resource type="Resource" uid="uid://b0efkhflivhlj" path="res://common/items/effects/light_dark.tres" id="6_cx32t"]
+[ext_resource type="Resource" uid="uid://diti6ufqgwhph" path="res://common/items/effects/luck_misfortune.tres" id="7_md4sx"]
+[ext_resource type="Resource" uid="uid://b3sw5wyytvesi" path="res://common/items/effects/strength_weakness.tres" id="8_bclsb"]
+[ext_resource type="Resource" uid="uid://dxvuf8wqsbidk" path="res://common/items/effects/swiftness_slowness.tres" id="9_3g1u7"]
+[ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_jfi50"]
+[ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_w4vc3"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="12_256ir"]
+
+[sub_resource type="Resource" id="Resource_8pxyn"]
+script = ExtResource("11_w4vc3")
+effects = {
+ExtResource("1_3v0mi"): 0,
+ExtResource("2_6ga86"): 0,
+ExtResource("3_po702"): -10,
+ExtResource("4_jfwle"): 0,
+ExtResource("5_pollm"): -9,
+ExtResource("6_cx32t"): 0,
+ExtResource("7_md4sx"): 0,
+ExtResource("8_bclsb"): 0,
+ExtResource("9_3g1u7"): 0,
+ExtResource("10_jfi50"): 0
+}
+
+[resource]
+script = ExtResource("12_256ir")
+effects = SubResource("Resource_8pxyn")
+available_actions = 0
+id = "melted_silver_dust"
+name = "Melted Silver Dust"
+description = ""
+stack_size = 5

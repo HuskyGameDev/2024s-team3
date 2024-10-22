@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfir1rnrkrl11"]
+
+[ext_resource type="Script" path="res://addons/resource_manager/general_effects_viewer/effect_row.gd" id="1_ewg8e"]
+[ext_resource type="StyleBox" uid="uid://j3jo4bj0qur3" path="res://addons/resource_manager/editor_panels.tres" id="2_joa5g"]
+
+[node name="EffectRow" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+script = ExtResource("1_ewg8e")
+
+[node name="IdLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/normal = ExtResource("2_joa5g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PositiveLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_styles/normal = ExtResource("2_joa5g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PositiveColorPicker" type="ColorPickerButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+
+[node name="NegativeLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_styles/normal = ExtResource("2_joa5g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NegativeColorPicker" type="ColorPickerButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+
+[node name="RepSpinBox" type="SpinBox" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="MoneySpinBox" type="SpinBox" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[connection signal="color_changed" from="PositiveColorPicker" to="." method="_on_positive_color_picker_color_changed"]
+[connection signal="color_changed" from="NegativeColorPicker" to="." method="_on_negative_color_picker_color_changed"]
+[connection signal="value_changed" from="RepSpinBox" to="." method="_on_rep_spin_box_value_changed"]
+[connection signal="value_changed" from="MoneySpinBox" to="." method="_on_money_spin_box_value_changed"]

@@ -12,7 +12,7 @@ func calculate_potion():
 		self.description = 'Maybe you can sell it as "Magic Water"'
 		return
 	else:
-		var strongest = effects.get_strongest()
+		var strongest = effects.get_strongest_as_strings()
 		if strongest.size() > 3:
 			self.name = "Confused Potion"
 			self.description = "A potion that does too many things...or nothing?"

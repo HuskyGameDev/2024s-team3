@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Location" load_steps=2 format=3 uid="uid://bp6uwquo1uiuu"]
+
+[ext_resource type="Script" path="res://common/locations/location_type.gd" id="1_bsxsd"]
+
+[resource]
+script = ExtResource("1_bsxsd")
+id = "the_temple"
+name = "The Temple"

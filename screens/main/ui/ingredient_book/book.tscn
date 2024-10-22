@@ -1,0 +1,558 @@
+[gd_scene load_steps=10 format=3 uid="uid://do38all2put7r"]
+
+[ext_resource type="Script" path="res://screens/main/ui/ingredient_book/book.gd" id="1_a5lvv"]
+[ext_resource type="Texture2D" uid="uid://ddivhullph8us" path="res://screens/main/ui/ingredient_book/Book Page Turn Final.png" id="2_6w1pn"]
+[ext_resource type="Texture2D" uid="uid://cvvolykrups7e" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.png" id="3_mam6r"]
+
+[sub_resource type="Animation" id="Animation_jo6x3"]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ingredient:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Values:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Description:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_sub_one"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 6, 5, 4, 3, 2, 1, 0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Forward:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Back:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Name:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0h76d"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_vp773"]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Values:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Description:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ingredient:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_add_one"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Forward:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Back:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Name:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6vi1k"]
+resource_name = "Move Up"
+
+[sub_resource type="Animation" id="Animation_77gj8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Values:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Description:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ingredient:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Forward:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Back:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Name:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7dgrf"]
+_data = {
+"Backward": SubResource("Animation_jo6x3"),
+"Default": SubResource("Animation_0h76d"),
+"Forward": SubResource("Animation_vp773"),
+"Move Up": SubResource("Animation_6vi1k"),
+"RESET": SubResource("Animation_77gj8")
+}
+
+[node name="Book" type="Node2D"]
+script = ExtResource("1_a5lvv")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(6, 6)
+texture = ExtResource("2_6w1pn")
+hframes = 3
+vframes = 3
+frame = 6
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "Book Animation",
+"slice": "",
+"source": "res://screens/main/ui/ingredient_book/Book Page Turn Final.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "20a9350d8a81486e989de542e4f3e24a"
+
+[node name="Name" type="Label" parent="."]
+offset_left = -268.0
+offset_top = -136.0
+offset_right = -15.0
+offset_bottom = -87.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Nightshade Petals"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Ingredient" type="Sprite2D" parent="."]
+position = Vector2(-147, -19)
+scale = Vector2(6, 6)
+texture = ExtResource("3_mam6r")
+
+[node name="Description" type="Label" parent="."]
+offset_left = -268.0
+offset_top = 62.0
+offset_right = -15.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "A beautiful purple flower."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Values" type="VBoxContainer" parent="."]
+offset_left = 53.0
+offset_top = -150.0
+offset_right = 235.0
+offset_bottom = 116.0
+
+[node name="Health" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Health"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Health"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Healing/Poison: "
+
+[node name="Value" type="Label" parent="Values/Health"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Warm" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Warm"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Warm"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Warm/Cold: "
+
+[node name="Value" type="Label" parent="Values/Warm"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Calming" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Calming"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Calming"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Calming/Agitation: "
+
+[node name="Value" type="Label" parent="Values/Calming"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Strength" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Strength"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Strength"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Strength/Weakness: "
+
+[node name="Value" type="Label" parent="Values/Strength"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Energy" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Energy"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Energy"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Energy/Fatigue: "
+
+[node name="Value" type="Label" parent="Values/Energy"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Light" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Light"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Light"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Light/Dark: "
+
+[node name="Value" type="Label" parent="Values/Light"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Luck" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Luck"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Luck"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Luck/Misfortune: "
+
+[node name="Value" type="Label" parent="Values/Luck"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Clarity" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Clarity"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Clarity"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Clarify/Confusion: "
+
+[node name="Value" type="Label" parent="Values/Clarity"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Defense" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Defense"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Defense"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Defense/Vulnerability: "
+
+[node name="Value" type="Label" parent="Values/Defense"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Swiftness" type="HBoxContainer" parent="Values"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Values/Swiftness"]
+visible = false
+layout_mode = 2
+
+[node name="Effect" type="Label" parent="Values/Swiftness"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Swiftness/Slowness: "
+
+[node name="Value" type="Label" parent="Values/Swiftness"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+
+[node name="Forward" type="Button" parent="."]
+offset_left = 210.0
+offset_top = 125.0
+offset_right = 279.0
+offset_bottom = 161.0
+
+[node name="Back" type="Button" parent="."]
+offset_left = -272.0
+offset_top = 125.0
+offset_right = -203.0
+offset_bottom = 161.0
+
+[node name="Book Animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7dgrf")
+}
+autoplay = "Default"
+
+[connection signal="pressed" from="Forward" to="." method="_on_forward_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

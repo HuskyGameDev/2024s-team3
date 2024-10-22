@@ -14,7 +14,7 @@ var startingPoint
 var radiansTraveled = 0.0
 var paused = false # tracks if game is currently paused
 
-@export var radianDivisor = 6
+@export var radianDivisor = 4
 @export var backRadianDivisor = 25
 
 # Called when the node enters the scene tree for the first time.
@@ -22,7 +22,7 @@ func _ready():
 	GameTime.connect("pause", on_pause) #connrect to pause signal from global script gametime
 	get_parent().get_parent().timerWentOff.connect(_rotate)
 	originalSpeed = clockRotationSpeed
-	pass # Replace with function body.
+	
 
 
 func _rotate():

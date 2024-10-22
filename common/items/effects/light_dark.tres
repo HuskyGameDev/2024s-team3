@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Effect" load_steps=2 format=3 uid="uid://b0efkhflivhlj"]
+
+[ext_resource type="Script" path="res://common/items/effect_type.gd" id="1_nba7m"]
+
+[resource]
+script = ExtResource("1_nba7m")
+id = "light_dark"
+reputation_factor = 5.0
+money_factor = 5.0
+pos_label = "Light"
+pos_color = Color(1, 0.927155, 0.333984, 1)
+neg_label = "Dark"
+neg_color = Color(0.0801621, 0.0261955, 0.212891, 1)

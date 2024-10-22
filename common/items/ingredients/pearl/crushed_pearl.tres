@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=14 format=3 uid="uid://cgn5yjboj8o2r"]
+
+[ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_66gcg"]
+[ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_i1vn6"]
+[ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_x385c"]
+[ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_43ahw"]
+[ext_resource type="Resource" uid="uid://2bq51ncoy4qu" path="res://common/items/effects/healing_poison.tres" id="5_2s2fl"]
+[ext_resource type="Resource" uid="uid://b0efkhflivhlj" path="res://common/items/effects/light_dark.tres" id="6_l4jef"]
+[ext_resource type="Resource" uid="uid://diti6ufqgwhph" path="res://common/items/effects/luck_misfortune.tres" id="7_kos13"]
+[ext_resource type="Resource" uid="uid://b3sw5wyytvesi" path="res://common/items/effects/strength_weakness.tres" id="8_xe2vm"]
+[ext_resource type="Resource" uid="uid://dxvuf8wqsbidk" path="res://common/items/effects/swiftness_slowness.tres" id="9_ssass"]
+[ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_uygkw"]
+[ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_1tomf"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="12_3givk"]
+
+[sub_resource type="Resource" id="Resource_vueeu"]
+script = ExtResource("11_1tomf")
+effects = {
+ExtResource("1_66gcg"): 0,
+ExtResource("2_i1vn6"): 0,
+ExtResource("3_x385c"): 0,
+ExtResource("4_43ahw"): 0,
+ExtResource("5_2s2fl"): 0,
+ExtResource("6_l4jef"): 0,
+ExtResource("7_kos13"): 8,
+ExtResource("8_xe2vm"): 0,
+ExtResource("9_ssass"): 0,
+ExtResource("10_uygkw"): 0
+}
+
+[resource]
+script = ExtResource("12_3givk")
+effects = SubResource("Resource_vueeu")
+available_actions = 8
+id = "crushed_pearl"
+name = "Crushed Pearl"
+description = ""
+stack_size = 5

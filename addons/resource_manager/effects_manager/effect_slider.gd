@@ -3,14 +3,14 @@ extends Control
 
 ## Signals
 # sends a signal for min and max value changes (only min is used if show_range is false)
-signal min_changed(effect_key:String, value:int)
-signal max_changed(effect_key:String, value:int)
+signal min_changed(effect:Effect, value:int)
+signal max_changed(effect:Effect, value:int)
 
 ## Inspector vars
 @export_category("Settings")
 @export var show_range:bool = false # show both min and max (if not we just use the min slider)
 @export var max:int = 30 # absolute value of the max number on the slider
-@export var effect_key:String # string of effect name
+@export var effect:Effect
 
 ## Nodes
 @onready var MinGrabber = $SliderContainer/MinGrabber
@@ -40,9 +40,9 @@ var range_center:int
 
 func _ready():
 	# Update effect labels
-	if effect_key:
-		$LabelHBox/PositiveLabel.text = EffectSet.positive_labels[effect_key]
-		$LabelHBox/NegativeLabel.text = EffectSet.negative_labels[effect_key]
+	if effect:
+		$LabelHBox/PositiveLabel.text = effect.pos_label
+		$LabelHBox/NegativeLabel.text = effect.neg_label
 	# Show max grabber and calculate offsets/section width
 	if not show_range: MaxGrabber.hide()
 	# Wait for slider size to update
@@ -77,7 +77,7 @@ func _on_min_grabber_input(event):
 		var new_value = round((event.global_position.x - range_center) / range_section_width)
 		if abs(new_value) <= max and (not show_range or new_value <= max_value): # check valid
 			min_value = new_value
-			min_changed.emit(effect_key, min_value)
+			min_changed.emit(effect, min_value)
 
 
 func _on_max_grabber_input(event):
@@ -89,4 +89,4 @@ func _on_max_grabber_input(event):
 		var new_value = round((event.global_position.x - range_center) / range_section_width)
 		if abs(new_value) <= max and (not show_range or new_value >= min_value): # check valid
 			max_value = new_value
-			max_changed.emit(effect_key, max_value)
+			max_changed.emit(effect, max_value)
