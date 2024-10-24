@@ -11,29 +11,42 @@ func _ready():
 	
 	## Add ingredient displays for current location
 	var current_location_ingredients = Array(PlayerData.location.ingredients)
-	current_location_ingredients.shuffle()
-	current_location_ingredients = current_location_ingredients.slice(0, 10)
-	for i in range(0, current_location_ingredients.size()):
-		var ingredient = current_location_ingredients[i]
-		var display = LocationDisplays[i]
-		display.quantity = randi_range(1, 5)
-		var price = 0
-		for effect in ingredient.effects.get_strongest():
-			price += abs(ingredient.effects.get_strength(effect)) * effect.money_factor
-		price /= 7 ## This number can be changed, anywhere between 5 and 10 is probably reasonable
-		display.price = round(price)
+	set_ingredient_displays(current_location_ingredients, LocationDisplays)
 	
 	## Add ingredient displays for other locations
-	#TODO
+	var visited_locations = PlayerData.visited_locations.filter(func(l): return l != PlayerData.location)
+	if visited_locations.size() > 0:
+		var other_location_ingredients:Array[Ingredient] = []
+		visited_locations.map(func(l): other_location_ingredients.append_array(l.ingredients))
+		print_debug(other_location_ingredients)
+		set_ingredient_displays(other_location_ingredients, ExoticDisplays)
+	else: $ExoticShelf.visible = false
 	
 	## Add station option for current location
 	#TODO
 
 
-func _updateTotal(changeAmount:int):
+func calculate_ingredient_price(ingredient:Ingredient):
+	var price = 0
+	for effect in ingredient.effects.get_strongest():
+		price += abs(ingredient.effects.get_strength(effect)) * effect.money_factor
+	price /= 7 ## This number can be changed, anywhere between 5 and 10 is probably reasonable
+	return round(price)
+
+
+func set_ingredient_displays(ingredients:Array[Ingredient], display_nodes:Array[Node]):
+	ingredients.shuffle()
+	for i in range(0, display_nodes.size()):
+		var ingredient = ingredients[i]
+		var display = display_nodes[i]
+		display.quantity = randi_range(1, 5)
+		display.price = calculate_ingredient_price(ingredient)
+
+
+func updateTotal(changeAmount:int):
 	totalCost += changeAmount
 	totalCostLabel.text = "Total Cost: $" + str(totalCost)
-	
+
 
 func _on_buy_button_pressed():
 	#TODO make buy work

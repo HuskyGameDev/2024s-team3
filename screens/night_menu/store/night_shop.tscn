@@ -11,7 +11,7 @@ script = ExtResource("2_xiblk")
 [node name="UiLayer" type="CanvasLayer" parent="."]
 
 [node name="PlayerMoneyPanelContainer" type="PanelContainer" parent="UiLayer"]
-anchors_preset = -1
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_top = 24.0
@@ -29,7 +29,7 @@ layout_mode = 2
 text = "$60"
 
 [node name="TotalCostPanelContainer" type="PanelContainer" parent="UiLayer"]
-anchors_preset = -1
+anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -50,7 +50,6 @@ layout_mode = 2
 text = "Total Cost: $60"
 
 [node name="ExitButton" type="Button" parent="UiLayer"]
-anchors_preset = -1
 offset_left = 8.0
 offset_top = 8.0
 text = "Exit Store"
@@ -64,117 +63,47 @@ position = Vector2(447, 384)
 
 [node name="IngredientDisplay1" parent="LocationShelf" instance=ExtResource("4_47emv")]
 position = Vector2(-200, -192)
-quantity = 0
-price = 0
-centerItems = true
-allowStack = false
-allowDifferentItems = false
 
 [node name="IngredientDisplay2" parent="LocationShelf" instance=ExtResource("4_47emv")]
 position = Vector2(0, -192)
-quantity = 0
-price = 0
-centerItems = true
-allowStack = false
-allowDifferentItems = false
 
 [node name="IngredientDisplay3" parent="LocationShelf" instance=ExtResource("4_47emv")]
 position = Vector2(200, -192)
-quantity = 0
-price = 0
-centerItems = true
-allowStack = false
-allowDifferentItems = false
 
 [node name="IngredientDisplay4" parent="LocationShelf" instance=ExtResource("4_47emv")]
 position = Vector2(-296, 0)
-quantity = 0
-price = 0
-centerItems = true
-allowStack = false
-allowDifferentItems = false
 
 [node name="IngredientDisplay5" parent="LocationShelf" instance=ExtResource("4_47emv")]
 position = Vector2(-96, 0)
-quantity = 0
-price = 0
-centerItems = true
-allowStack = false
-allowDifferentItems = false
 
 [node name="IngredientDisplay6" parent="LocationShelf" instance=ExtResource("4_47emv")]
 position = Vector2(104, 0)
-quantity = 0
-price = 0
-centerItems = true
-allowStack = false
-allowDifferentItems = false
 
 [node name="IngredientDisplay7" parent="LocationShelf" instance=ExtResource("4_47emv")]
 position = Vector2(304, 0)
-quantity = 0
-price = 0
-centerItems = true
-allowStack = false
-allowDifferentItems = false
 
 [node name="IngredientDisplay8" parent="LocationShelf" instance=ExtResource("4_47emv")]
 position = Vector2(-200, 200)
-quantity = 0
-price = 0
-centerItems = true
-allowStack = false
-allowDifferentItems = false
 
 [node name="IngredientDisplay9" parent="LocationShelf" instance=ExtResource("4_47emv")]
 position = Vector2(0, 200)
-quantity = 0
-price = 0
-centerItems = true
-allowStack = false
-allowDifferentItems = false
 
 [node name="IngredientDisplay10" parent="LocationShelf" instance=ExtResource("4_47emv")]
 position = Vector2(200, 200)
-quantity = 0
-price = 0
-centerItems = true
-allowStack = false
-allowDifferentItems = false
 
 [node name="ExoticShelf" type="Node2D" parent="."]
 position = Vector2(455, 878)
 
 [node name="IngredientDisplay1" parent="ExoticShelf" instance=ExtResource("4_47emv")]
 position = Vector2(-304, 2)
-quantity = 0
-price = 0
-centerItems = true
-allowStack = false
-allowDifferentItems = false
 
 [node name="IngredientDisplay2" parent="ExoticShelf" instance=ExtResource("4_47emv")]
 position = Vector2(-104, 2)
-quantity = 0
-price = 0
-centerItems = true
-allowStack = false
-allowDifferentItems = false
 
 [node name="IngredientDisplay3" parent="ExoticShelf" instance=ExtResource("4_47emv")]
 position = Vector2(96, 2)
-quantity = 0
-price = 0
-centerItems = true
-allowStack = false
-allowDifferentItems = false
 
 [node name="IngredientDisplay4" parent="ExoticShelf" instance=ExtResource("4_47emv")]
 position = Vector2(296, 2)
-quantity = 0
-price = 0
-centerItems = true
-allowStack = false
-allowDifferentItems = false
 
 [connection signal="pressed" from="UiLayer/ExitButton" to="." method="_on_exit_button_pressed"]
