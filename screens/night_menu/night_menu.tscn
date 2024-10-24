@@ -1,0 +1,118 @@
+[gd_scene load_steps=6 format=3 uid="uid://2g426v5qxpwd"]
+
+[ext_resource type="PackedScene" uid="uid://pvvnkdn6u7y5" path="res://screens/main/main.tscn" id="1_eqlqu"]
+[ext_resource type="Theme" uid="uid://w8a1t7o5upma" path="res://screens/tutorial/tutorial_theme.tres" id="2_d47lm"]
+[ext_resource type="Script" path="res://screens/night_menu/menu/night_menu.gd" id="3_02p32"]
+[ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://common/items/ingredients/ingredient.tscn" id="4_2vtij"]
+[ext_resource type="Resource" uid="uid://djqumbpv7xrlh" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="5_hf4la"]
+
+[node name="Main" instance=ExtResource("1_eqlqu")]
+
+[node name="ColorRect" type="ColorRect" parent="." index="1"]
+offset_left = 453.0
+offset_top = 106.0
+offset_right = 1556.0
+offset_bottom = 602.0
+color = Color(0.2, 0.0862745, 0.156863, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" index="2"]
+offset_top = -2.0
+offset_right = 1919.0
+offset_bottom = 1081.0
+size_flags_vertical = 3
+color = Color(0.0901961, 0.027451, 0.0666667, 0.388235)
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer" index="3"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 456.0
+offset_top = 115.0
+offset_right = -382.0
+offset_bottom = -489.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="SalesLabel" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer" index="0"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 111
+text = "Today's Sales"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/CenterContainer/VBoxContainer" index="1"]
+layout_mode = 2
+theme_override_constants/separation = 128
+
+[node name="SalesNumber" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer" index="0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "$1000"
+horizontal_alignment = 1
+
+[node name="ReputationNumber" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer" index="1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "+10 Reputation"
+horizontal_alignment = 1
+
+[node name="BuyButton" type="Button" parent="CanvasLayer" index="4"]
+offset_left = 226.0
+offset_right = 720.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 64
+text = "Buy Ingredients"
+
+[node name="ForageButton" type="Button" parent="CanvasLayer" index="5"]
+offset_left = 837.0
+offset_top = -1.0
+offset_right = 1080.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 64
+text = "Forage"
+
+[node name="MoveButton" type="Button" parent="CanvasLayer" index="6"]
+offset_left = 1253.0
+offset_top = -1.0
+offset_right = 1430.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 64
+text = "Move"
+
+[node name="Pedestal" parent="." index="7"]
+process_mode = 4
+physics_interpolation_mode = 2
+
+[node name="Cauldron" parent="." index="8"]
+physics_interpolation_mode = 2
+auto_translate_mode = 2
+
+[node name="CuttingBoard" parent="." index="9"]
+process_mode = 4
+physics_interpolation_mode = 2
+visible = false
+
+[node name="Tutorial" type="Control" parent="." index="10"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("2_d47lm")
+script = ExtResource("3_02p32")
+
+[node name="MortarAndPestle" parent="." index="11"]
+process_mode = 4
+physics_interpolation_mode = 2
+visible = false
+
+[node name="EndDayAndSkip" parent="." index="13"]
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 53.0
+offset_bottom = 38.0
+
+[node name="Ingredient" parent="." index="17" instance=ExtResource("4_2vtij")]
+position = Vector2(396, 898)
+data = ExtResource("5_hf4la")
