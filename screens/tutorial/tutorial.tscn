@@ -6,14 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://common/items/ingredients/ingredient.tscn" id="4_y6iyk"]
 [ext_resource type="Resource" uid="uid://djqumbpv7xrlh" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="5_33flo"]
 
-[node name="Main" instance=ExtResource("1_5wofc")]
+[node name="Main2" instance=ExtResource("1_5wofc")]
 
-[node name="CuttingBoard" parent="." index="7"]
-process_mode = 4
-physics_interpolation_mode = 2
-visible = false
-
-[node name="MortarAndPestle" parent="." index="8"]
+[node name="CuttingBoard" parent="." index="8"]
 process_mode = 4
 physics_interpolation_mode = 2
 visible = false
@@ -71,6 +66,11 @@ offset_top = 26.0
 offset_right = 1303.0
 offset_bottom = 85.0
 text = "Congratulations! You've served your first customer!"
+
+[node name="MortarAndPestle" parent="." index="10"]
+process_mode = 4
+physics_interpolation_mode = 2
+visible = false
 
 [node name="Ingredient" parent="." index="16" instance=ExtResource("4_y6iyk")]
 position = Vector2(396, 898)
