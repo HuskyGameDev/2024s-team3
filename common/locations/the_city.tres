@@ -1,8 +1,22 @@
-[gd_resource type="Resource" script_class="Location" load_steps=2 format=3 uid="uid://dkoxk45u8im10"]
+[gd_resource type="Resource" script_class="Location" load_steps=15 format=3 uid="uid://dkoxk45u8im10"]
 
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="1_ousk0"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_x5l1b"]
+[ext_resource type="Resource" uid="uid://dqd0cueiemg6r" path="res://common/items/ingredients/bugbear_hide/bugbear_hide.tres" id="2_u2st8"]
+[ext_resource type="Resource" uid="uid://d4eichwutpltw" path="res://common/items/ingredients/dragon_claw/dragon_claw.tres" id="3_uyrt5"]
+[ext_resource type="Resource" uid="uid://bb8ua2k5f5sek" path="res://common/items/ingredients/erdtree_branch/erdtree_branch.tres" id="4_4cplg"]
+[ext_resource type="Resource" uid="uid://doc5iq8ee54hj" path="res://common/items/ingredients/fairy_bell/fairy_bell.tres" id="5_lhpaj"]
+[ext_resource type="Resource" uid="uid://bd41rgq23tqx1" path="res://common/items/ingredients/fire_flower/fire_flower.tres" id="6_eleiv"]
+[ext_resource type="Resource" uid="uid://yv4whseiv7x6" path="res://common/items/ingredients/harpy_feather/harpy_feather.tres" id="7_0uhn7"]
+[ext_resource type="Resource" uid="uid://cptgyottk2ehb" path="res://common/items/ingredients/lotus_petals/lotus_petals.tres" id="8_4o8k2"]
+[ext_resource type="Resource" uid="uid://bjrnydpnopi56" path="res://common/items/ingredients/phoenix_ash/phoenix_ash.tres" id="9_thfjd"]
+[ext_resource type="Resource" uid="uid://bac5icanpx1sn" path="res://common/items/ingredients/pipe_weed/pipe_weed.tres" id="10_ixfhk"]
+[ext_resource type="Resource" uid="uid://cym7kysrjtobi" path="res://common/items/ingredients/unicorn_horn/unicorn_horn.tres" id="11_x0d71"]
+[ext_resource type="Resource" uid="uid://clgaxse5n6uus" path="res://common/items/ingredients/werewolf_tooth/werewolf_tooth.tres" id="12_d8c3u"]
+[ext_resource type="Resource" uid="uid://ca0hkro25d6f2" path="res://common/items/ingredients/yeti_fur/yeti_fur.tres" id="13_ns7gk"]
 
 [resource]
 script = ExtResource("1_ousk0")
 id = "the_city"
 name = "The City"
+ingredients = Array[ExtResource("1_x5l1b")]([ExtResource("2_u2st8"), ExtResource("3_uyrt5"), ExtResource("4_4cplg"), ExtResource("5_lhpaj"), ExtResource("6_eleiv"), ExtResource("7_0uhn7"), ExtResource("8_4o8k2"), ExtResource("9_thfjd"), ExtResource("10_ixfhk"), ExtResource("11_x0d71"), ExtResource("12_d8c3u"), ExtResource("13_ns7gk")])

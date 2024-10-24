@@ -1,8 +1,20 @@
-[gd_resource type="Resource" script_class="Location" load_steps=2 format=3 uid="uid://cjqb6k6smqc57"]
+[gd_resource type="Resource" script_class="Location" load_steps=13 format=3 uid="uid://cjqb6k6smqc57"]
 
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_nkog8"]
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="1_y6yc1"]
+[ext_resource type="Resource" uid="uid://bwjd1q1joj33y" path="res://common/items/ingredients/elderberry_leaves/elderberry_leaves.tres" id="2_7qpb7"]
+[ext_resource type="Resource" uid="uid://cbwcla8csqs4x" path="res://common/items/ingredients/eye_of_a_newt/eye_of_a_newt.tres" id="3_n822r"]
+[ext_resource type="Resource" uid="uid://tylr5p4nqxos" path="res://common/items/ingredients/fress_moss/fress_moss.tres" id="4_et7gp"]
+[ext_resource type="Resource" uid="uid://bkq4gku6b1dau" path="res://common/items/ingredients/holly_berries/holly_berries.tres" id="5_blq6k"]
+[ext_resource type="Resource" uid="uid://dee4pkywgcovb" path="res://common/items/ingredients/lavender/lavender.tres" id="6_xhmte"]
+[ext_resource type="Resource" uid="uid://c833yti5u2s4w" path="res://common/items/ingredients/mandrake_root/mandrake_root.tres" id="7_h3rxc"]
+[ext_resource type="Resource" uid="uid://c2j5j4fmuyeds" path="res://common/items/ingredients/raven_feather/raven_feather.tres" id="8_6fior"]
+[ext_resource type="Resource" uid="uid://cruk8sedmkyk" path="res://common/items/ingredients/robin_egg/robin_egg.tres" id="9_s7n2s"]
+[ext_resource type="Resource" uid="uid://do13wsgmg2f7p" path="res://common/items/ingredients/rose/rose.tres" id="10_xt14d"]
+[ext_resource type="Resource" uid="uid://4tiagx12hv4e" path="res://common/items/ingredients/willow_bark/willow_bark.tres" id="11_labmy"]
 
 [resource]
 script = ExtResource("1_y6yc1")
 id = "the_outpost"
 name = "The Outpost"
+ingredients = Array[ExtResource("1_nkog8")]([ExtResource("2_7qpb7"), ExtResource("3_n822r"), ExtResource("4_et7gp"), ExtResource("5_blq6k"), ExtResource("6_xhmte"), ExtResource("7_h3rxc"), ExtResource("8_6fior"), ExtResource("9_s7n2s"), ExtResource("10_xt14d"), ExtResource("11_labmy")])
