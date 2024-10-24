@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://clypnxql0jkdx"]
+
+[ext_resource type="PackedScene" uid="uid://wjks27mwt8qa" path="res://common/shelf_slot/shelf_slot.tscn" id="1_kq005"]
+[ext_resource type="Script" path="res://screens/night_menu/store/ingredient_display/ingredient_display.gd" id="2_3uy1j"]
+
+[node name="IngredientDisplay" instance=ExtResource("1_kq005")]
+script = ExtResource("2_3uy1j")
+quantity = 0
+price = 0
+
+[node name="QuantityLabel" type="Label" parent="." index="1"]
+offset_right = 24.0
+offset_bottom = 24.0
+text = "5"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="PriceLabel" type="Label" parent="." index="2"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_right = -8.0
+offset_bottom = 24.0
+grow_horizontal = 0
+text = "$5"
+vertical_alignment = 2

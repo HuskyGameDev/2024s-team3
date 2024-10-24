@@ -1,117 +1,180 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2j3rg4f5xnau"]
+[gd_scene load_steps=5 format=3 uid="uid://d2j3rg4f5xnau"]
 
-[ext_resource type="Theme" uid="uid://c4l3g5vcxwkhn" path="res://screens/night_menu/night_menu_theme.tres" id="1_x1iki"]
+[ext_resource type="PackedScene" uid="uid://beqshfus1kkk7" path="res://screens/night_menu/store/shopkeeper/shopkeeper.tscn" id="2_ra0ww"]
 [ext_resource type="Script" path="res://screens/night_menu/store/night_shop.gd" id="2_xiblk"]
-[ext_resource type="Texture2D" uid="uid://b7a4u0nuntxrg" path="res://screens/main/customers/generic_sprites/customer1.png" id="3_3wx6x"]
+[ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="4_3akkn"]
+[ext_resource type="PackedScene" uid="uid://clypnxql0jkdx" path="res://screens/night_menu/store/ingredient_display/ingredient_display.tscn" id="4_47emv"]
 
-[node name="NightShop" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 20.0
-offset_bottom = -20.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_x1iki")
+[node name="NightShop" type="Node2D"]
 script = ExtResource("2_xiblk")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(700, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -350.0
-offset_top = -432.742
-offset_right = 350.0
-offset_bottom = 432.742
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_3wx6x")
-expand_mode = 5
-stretch_mode = 6
+[node name="UiLayer" type="CanvasLayer" parent="."]
 
-[node name="Panel" type="Panel" parent="."]
-custom_minimum_size = Vector2(0, 398)
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -10.0
-offset_right = 10.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="ShopNameLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -364.0
-offset_right = 364.0
-offset_bottom = 88.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 64
-text = "Ingredients Shop Name"
-
-[node name="TotalInfoVBox" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -141.5
-offset_top = -188.0
-offset_right = 141.5
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 20
-
-[node name="TotalCostLabel" type="Label" parent="TotalInfoVBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Total $0"
-horizontal_alignment = 1
-
-[node name="BuyButton" type="Button" parent="TotalInfoVBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Buy"
-
-[node name="ExitButton" type="Button" parent="TotalInfoVBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Exit Store"
-
-[node name="OfferingsHBox" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 50.0
-offset_right = -50.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="MoneyLabel" type="Label" parent="."]
-layout_mode = 1
+[node name="PlayerMoneyPanelContainer" type="PanelContainer" parent="UiLayer"]
 anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_right = -50.0
+offset_top = 24.0
+offset_right = -24.0
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 64
-text = "$100"
-horizontal_alignment = 2
+theme = ExtResource("4_3akkn")
 
-[connection signal="pressed" from="TotalInfoVBox/BuyButton" to="." method="_on_buy_button_pressed"]
-[connection signal="pressed" from="TotalInfoVBox/ExitButton" to="." method="_on_exit_button_pressed"]
+[node name="PlayerMoneyMarginContainer" type="MarginContainer" parent="UiLayer/PlayerMoneyPanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="PlayerMoneyLabel" type="Label" parent="UiLayer/PlayerMoneyPanelContainer/PlayerMoneyMarginContainer"]
+layout_mode = 2
+text = "$60"
+
+[node name="TotalCostPanelContainer" type="PanelContainer" parent="UiLayer"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("4_3akkn")
+
+[node name="TotalCostMarginContainer" type="MarginContainer" parent="UiLayer/TotalCostPanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="TotalCostLabel" type="Label" parent="UiLayer/TotalCostPanelContainer/TotalCostMarginContainer"]
+layout_mode = 2
+text = "Total Cost: $60"
+
+[node name="ExitButton" type="Button" parent="UiLayer"]
+anchors_preset = -1
+offset_left = 8.0
+offset_top = 8.0
+text = "Exit Store"
+
+[node name="Shopkeeper" parent="." instance=ExtResource("2_ra0ww")]
+position = Vector2(1455, 387)
+scale = Vector2(8, 8)
+
+[node name="LocationShelf" type="Node2D" parent="."]
+position = Vector2(447, 384)
+
+[node name="IngredientDisplay1" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(-200, -192)
+quantity = 0
+price = 0
+centerItems = true
+allowStack = false
+allowDifferentItems = false
+
+[node name="IngredientDisplay2" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(0, -192)
+quantity = 0
+price = 0
+centerItems = true
+allowStack = false
+allowDifferentItems = false
+
+[node name="IngredientDisplay3" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(200, -192)
+quantity = 0
+price = 0
+centerItems = true
+allowStack = false
+allowDifferentItems = false
+
+[node name="IngredientDisplay4" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(-296, 0)
+quantity = 0
+price = 0
+centerItems = true
+allowStack = false
+allowDifferentItems = false
+
+[node name="IngredientDisplay5" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(-96, 0)
+quantity = 0
+price = 0
+centerItems = true
+allowStack = false
+allowDifferentItems = false
+
+[node name="IngredientDisplay6" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(104, 0)
+quantity = 0
+price = 0
+centerItems = true
+allowStack = false
+allowDifferentItems = false
+
+[node name="IngredientDisplay7" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(304, 0)
+quantity = 0
+price = 0
+centerItems = true
+allowStack = false
+allowDifferentItems = false
+
+[node name="IngredientDisplay8" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(-200, 200)
+quantity = 0
+price = 0
+centerItems = true
+allowStack = false
+allowDifferentItems = false
+
+[node name="IngredientDisplay9" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(0, 200)
+quantity = 0
+price = 0
+centerItems = true
+allowStack = false
+allowDifferentItems = false
+
+[node name="IngredientDisplay10" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(200, 200)
+quantity = 0
+price = 0
+centerItems = true
+allowStack = false
+allowDifferentItems = false
+
+[node name="ExoticShelf" type="Node2D" parent="."]
+position = Vector2(455, 878)
+
+[node name="IngredientDisplay1" parent="ExoticShelf" instance=ExtResource("4_47emv")]
+position = Vector2(-304, 2)
+quantity = 0
+price = 0
+centerItems = true
+allowStack = false
+allowDifferentItems = false
+
+[node name="IngredientDisplay2" parent="ExoticShelf" instance=ExtResource("4_47emv")]
+position = Vector2(-104, 2)
+quantity = 0
+price = 0
+centerItems = true
+allowStack = false
+allowDifferentItems = false
+
+[node name="IngredientDisplay3" parent="ExoticShelf" instance=ExtResource("4_47emv")]
+position = Vector2(96, 2)
+quantity = 0
+price = 0
+centerItems = true
+allowStack = false
+allowDifferentItems = false
+
+[node name="IngredientDisplay4" parent="ExoticShelf" instance=ExtResource("4_47emv")]
+position = Vector2(296, 2)
+quantity = 0
+price = 0
+centerItems = true
+allowStack = false
+allowDifferentItems = false
+
+[connection signal="pressed" from="UiLayer/ExitButton" to="." method="_on_exit_button_pressed"]

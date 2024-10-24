@@ -1,43 +1,51 @@
 extends Node
 
-const NUMBER_OF_ITEMS = 4
-
-var offeringScene = preload("res://screens/night_menu/store/night_shop_ingredient.tscn")
-var totalCostLabel:Label
+@onready var totalCostLabel   := $UiLayer/TotalCostPanelContainer/TotalCostMarginContainer/TotalCostLabel
+@onready var LocationDisplays := $LocationShelf.get_children()
+@onready var ExoticDisplays   := $ExoticShelf.get_children()
 
 var totalCost = 0;
 
 func _ready():
-	var shopOfferings = PlayerData.location.get_shop_offerings(NUMBER_OF_ITEMS)
-	totalCostLabel = $"TotalInfoVBox/TotalCostLabel"
-	var moneyLabel = $"MoneyLabel"
-	var hbox = $"OfferingsHBox"
+	$UiLayer/PlayerMoneyPanelContainer/PlayerMoneyMarginContainer/PlayerMoneyLabel.text = "$" + str(PlayerData.money)
 	
-	moneyLabel.text = "$" + str(PlayerData.money)
+	## Add ingredient displays for current location
+	var current_location_ingredients = Array(PlayerData.location.ingredients)
+	current_location_ingredients.shuffle()
+	current_location_ingredients = current_location_ingredients.slice(0, 10)
+	for i in range(0, current_location_ingredients.size()):
+		var ingredient = current_location_ingredients[i]
+		var display = LocationDisplays[i]
+		display.quantity = randi_range(1, 5)
+		var price = 0
+		for effect in ingredient.effects.get_strongest():
+			price += abs(ingredient.effects.get_strength(effect)) * effect.money_factor
+		price /= 7 ## This number can be changed, anywhere between 5 and 10 is probably reasonable
+		display.price = round(price)
 	
-	## Dictionary with keys quantity, cost, and item (which is an ingredient)
-	for i:Dictionary in shopOfferings:
-		var newOffering = offeringScene.instantiate()
-		newOffering.call("setData", i)
-		hbox.add_child(newOffering)
-		newOffering.add_to_group("ingredientsForSale")
-		newOffering.totalChanged.connect(_updateTotal)
-	hbox.move_child(hbox.add_spacer(true), floor(NUMBER_OF_ITEMS/2))
+	## Add ingredient displays for other locations
+	#TODO
+	
+	## Add station option for current location
+	#TODO
 
 
 func _updateTotal(changeAmount:int):
 	totalCost += changeAmount
-	totalCostLabel.text = "Total $" + str(totalCost)
+	totalCostLabel.text = "Total Cost: $" + str(totalCost)
 	
 
 func _on_buy_button_pressed():
+	#TODO make buy work
 	if PlayerData.money >= totalCost:
-		get_tree().call_group("ingredientsForSale", "handlePurchase")
 		PlayerData.money -= totalCost
+		#TODO make shopkeeper say something before leaving
 		get_tree().change_scene_to_file("res://screens/main/packed_main.tscn")
 	else:
+		#TODO make shopkeeper say this
 		print("Not enough money")
 
 
 func _on_exit_button_pressed():
+	#TODO make shopkeeper say something before leaving
 	get_tree().change_scene_to_file("res://screens/main/packed_main.tscn")

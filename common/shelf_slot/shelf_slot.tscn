@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://wjks27mwt8qa"]
 
-[ext_resource type="Script" path="res://screens/main/shelf_slot/shelf_slot.gd" id="1_fafpu"]
+[ext_resource type="Script" path="res://common/shelf_slot/shelf_slot.gd" id="1_fafpu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngmt0"]
 size = Vector2(40, 40)
