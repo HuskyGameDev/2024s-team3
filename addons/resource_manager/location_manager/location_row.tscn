@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://st50703wnu7u"]
+[gd_scene load_steps=6 format=3 uid="uid://st50703wnu7u"]
 
 [ext_resource type="Script" path="res://addons/resource_manager/location_manager/location_row.gd" id="1_twtsr"]
 [ext_resource type="Texture2D" uid="uid://o1bqc2v0mrop" path="res://addons/resource_manager/icons/edit_icon.png" id="2_o5b64"]
 [ext_resource type="Texture2D" uid="uid://dgvnyf5b7lo3r" path="res://addons/resource_manager/icons/trash_icon.png" id="3_sv3xk"]
+[ext_resource type="PackedScene" uid="uid://oeg1s17enhoj" path="res://addons/resource_manager/loot_table_manager/table_row_inputs/ingredient_dropdown.tscn" id="4_35u7j"]
+[ext_resource type="Texture2D" uid="uid://dt8lneechbqjj" path="res://addons/resource_manager/icons/add_icon.png" id="5_eeu1i"]
 
-[node name="LocationRow" type="HBoxContainer"]
+[node name="LocationRow" type="VBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,37 +14,66 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_twtsr")
 
-[node name="NameLabel" type="LineEdit" parent="."]
+[node name="LocationInfo" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="NameLabel" type="LineEdit" parent="LocationInfo"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 text = "Name"
 
-[node name="EditForageButton" type="Button" parent="."]
+[node name="EditForageButton" type="Button" parent="LocationInfo"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Edit Forage Table"
 icon = ExtResource("2_o5b64")
 icon_alignment = 2
 
-[node name="EditIngredientsShopButton" type="Button" parent="."]
+[node name="EditIngredientsShopButton" type="Button" parent="LocationInfo"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Edit Ingredients Shop Table"
 icon = ExtResource("2_o5b64")
 icon_alignment = 2
 
-[node name="EditCustomerRequestButton" type="Button" parent="."]
+[node name="EditCustomerRequestButton" type="Button" parent="LocationInfo"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Edit Customer Request Table"
 icon = ExtResource("2_o5b64")
 icon_alignment = 2
 
-[node name="DeleteButton" type="Button" parent="."]
+[node name="DeleteButton" type="Button" parent="LocationInfo"]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 icon = ExtResource("3_sv3xk")
+
+[node name="IngredientMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="IngredientContainer" type="VBoxContainer" parent="IngredientMarginContainer"]
+layout_mode = 2
+
+[node name="AddIngredientMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="AddIngredientHBox" type="HBoxContainer" parent="AddIngredientMarginContainer"]
+layout_mode = 2
+
+[node name="IngredientDropdown" parent="AddIngredientMarginContainer/AddIngredientHBox" instance=ExtResource("4_35u7j")]
+layout_mode = 2
+size_flags_horizontal = 3
+include_variant_ingredients = false
+
+[node name="AddButton" type="Button" parent="AddIngredientMarginContainer/AddIngredientHBox"]
+layout_mode = 2
+icon = ExtResource("5_eeu1i")
 
 [node name="DeleteConfirmationDialog" type="ConfirmationDialog" parent="."]
 auto_translate_mode = 1
@@ -51,9 +82,10 @@ ok_button_text = "Delete"
 dialog_text = "Are you sure you want to delete this ingredient?"
 dialog_autowrap = true
 
-[connection signal="text_changed" from="NameLabel" to="." method="_on_name_changed"]
-[connection signal="pressed" from="EditForageButton" to="." method="_on_edit_forage_table_pressed"]
-[connection signal="pressed" from="EditIngredientsShopButton" to="." method="_on_edit_ingredients_shop_table_pressed"]
-[connection signal="pressed" from="EditCustomerRequestButton" to="." method="_on_edit_customer_request_table_pressed"]
-[connection signal="pressed" from="DeleteButton" to="." method="_on_delete_button_pressed"]
+[connection signal="text_changed" from="LocationInfo/NameLabel" to="." method="_on_name_changed"]
+[connection signal="pressed" from="LocationInfo/EditForageButton" to="." method="_on_edit_forage_table_pressed"]
+[connection signal="pressed" from="LocationInfo/EditIngredientsShopButton" to="." method="_on_edit_ingredients_shop_table_pressed"]
+[connection signal="pressed" from="LocationInfo/EditCustomerRequestButton" to="." method="_on_edit_customer_request_table_pressed"]
+[connection signal="pressed" from="LocationInfo/DeleteButton" to="." method="_on_delete_button_pressed"]
+[connection signal="pressed" from="AddIngredientMarginContainer/AddIngredientHBox/AddButton" to="." method="_on_ingredient_added"]
 [connection signal="confirmed" from="DeleteConfirmationDialog" to="." method="_on_delete_confirmed"]

@@ -45,10 +45,10 @@ func _on_inv_area_input_event(_viewport, event, _shape_idx):
 			var slotAmount = inv_data[slot]["Quantity"]
 			var item = ResourceLoader.load(ResourcePaths.get_ingredient_path(holding.id))
 			if inv_data[slot]["Item"] == item.id && int(slotAmount) != item.stack_size: #if this ingredient already exists in inventory
-				if slotAmount + 1 <= item.stack_size: #if adding this quantity to the amount in the stack would be larger than stack size
-					inv_data[slot]["Quantity"] = slotAmount + 1
+				if int(slotAmount) + 1 <= item.stack_size: #if adding this quantity to the amount in the stack would be larger than stack size
+					inv_data[slot]["Quantity"] = int(slotAmount) + 1
 					heldBody.queue_free()
-					UpdateItem(item, slotAmount + 1, self.get_index())
+					UpdateItem(item, int(slotAmount) + 1, self.get_index())
 			elif inv_data[slot]["Item"] == null: #if this slot is empty 
 				inv_data[slot]["Item"] = item.id
 				inv_data[slot]["Quantity"] = 1

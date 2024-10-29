@@ -33,6 +33,8 @@ func _on_slot_hover_entered(body):
 	if isDisabled: return
 	if not body is DraggableObject: return
 	dragging = body
+	if body in heldNodes:
+		drop_node(body)
 
 
 ## Track which body is removed from the slot

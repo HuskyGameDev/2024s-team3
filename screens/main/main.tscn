@@ -134,19 +134,39 @@ scale = Vector2(6, 6)
 position = Vector2(1329, 853)
 scale = Vector2(6, 6)
 
+[node name="IngredientBookButton" type="TextureButton" parent="."]
+offset_left = -150.0
+offset_top = 450.0
+offset_right = -109.0
+offset_bottom = 491.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("16_0uga0")
+
+[node name="Label" type="Label" parent="IngredientBookButton"]
+layout_mode = 0
+offset_left = 38.5
+offset_top = 12.3333
+offset_right = 515.5
+offset_bottom = 112.333
+rotation = 1.5708
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("17_hcv40")
+theme_override_font_sizes/font_size = 125
+text = "Ingredients"
+
 [node name="MortarAndPestle" parent="." instance=ExtResource("15_jly0p")]
 position = Vector2(1632, 838)
 scale = Vector2(6, 6)
 action = 4
 
 [node name="InventoryDrawer" parent="." instance=ExtResource("5_nl71h")]
-custom_minimum_size = Vector2(444, 690)
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 1924.0
 offset_top = 165.0
-offset_right = 2487.0
+offset_right = 2225.0
 offset_bottom = 855.0
 grow_horizontal = 1
 grow_vertical = 1
@@ -175,36 +195,10 @@ scale = Vector2(6, 6)
 texture_normal = ExtResource("13_x0440")
 stretch_mode = 5
 
-[node name="IngredientBookButton" type="TextureButton" parent="."]
-offset_left = -150.0
-offset_top = 450.0
-offset_right = -109.0
-offset_bottom = 491.0
-scale = Vector2(6, 6)
-texture_normal = ExtResource("16_0uga0")
-
-[node name="Label" type="Label" parent="IngredientBookButton"]
-layout_mode = 0
-offset_left = 38.5
-offset_top = 12.3333
-offset_right = 515.5
-offset_bottom = 112.333
-rotation = 1.5708
-scale = Vector2(0.05, 0.05)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("17_hcv40")
-theme_override_font_sizes/font_size = 125
-text = "Ingredients"
-
-[node name="Ambience" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_wjql5")
-volume_db = -15.0
-autoplay = true
-
 [connection signal="customer_created" from="CustomerFactory" to="." method="_on_new_customer"]
 [connection signal="potion_made" from="Cauldron" to="." method="_on_item_made"]
 [connection signal="change_ingredient" from="CuttingBoard" to="." method="_on_item_made"]
+[connection signal="pressed" from="IngredientBookButton" to="CanvasLayer/Book" method="_move_up"]
 [connection signal="change_ingredient" from="MortarAndPestle" to="." method="_on_item_made"]
 [connection signal="make_inv_object" from="InventoryDrawer" to="." method="_on_inv_dragged"]
 [connection signal="pressed" from="BellButton" to="." method="_on_ring_bell"]
-[connection signal="pressed" from="IngredientBookButton" to="CanvasLayer/Book" method="_move_up"]

@@ -6,6 +6,7 @@ class_name Location
 @export_group("Basic Information")
 @export var id: String = ""
 @export var name: String = ""
+@export var ingredients: Array[Ingredient]
 
 @export_group("Probability Tables")
 @export var forage_table: LootTable

@@ -20,9 +20,15 @@ func _ready():
 func _on_timer_timeout():
 	hour = hour + 1;
 	if hour >= STORE_CLOSE_TIME:
+		
 		end_of_day.emit();
 		
 func _on_end_of_day():
+	#save the current state of the scene so items can be reloaded
+	var packed_scene = PackedScene.new()
+	packed_scene.pack(get_tree().get_current_scene()) #gets the main scene and all things it owns 
+	ResourceSaver.save(packed_scene, "res://screens/main/packed_main.tscn" ) 
+	
 	day += 1;
 	self.stop();
 	

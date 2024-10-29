@@ -1,8 +1,20 @@
-[gd_resource type="Resource" script_class="Location" load_steps=2 format=3 uid="uid://bp6uwquo1uiuu"]
+[gd_resource type="Resource" script_class="Location" load_steps=13 format=3 uid="uid://bp6uwquo1uiuu"]
 
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="1_bsxsd"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_q7my5"]
+[ext_resource type="Resource" uid="uid://cy3mhdwt0ax" path="res://common/items/ingredients/amber/amber.tres" id="2_tr1a4"]
+[ext_resource type="Resource" uid="uid://bqpv673psm14v" path="res://common/items/ingredients/amethyst/amethyst.tres" id="3_fspvx"]
+[ext_resource type="Resource" uid="uid://0potnw15ahty" path="res://common/items/ingredients/diamond/diamond.tres" id="4_wxc2x"]
+[ext_resource type="Resource" uid="uid://cbry8ulugohfg" path="res://common/items/ingredients/emerald/emerald.tres" id="5_aivs0"]
+[ext_resource type="Resource" uid="uid://c6pknpm4eavsh" path="res://common/items/ingredients/jade/jade.tres" id="6_hrnds"]
+[ext_resource type="Resource" uid="uid://bltnknmlvxxgx" path="res://common/items/ingredients/pearl/pearl.tres" id="7_sgvel"]
+[ext_resource type="Resource" uid="uid://cv7h2o8gwdylm" path="res://common/items/ingredients/quartz/quartz.tres" id="8_tpcxg"]
+[ext_resource type="Resource" uid="uid://2cy5ft5s1xsn" path="res://common/items/ingredients/ruby/ruby.tres" id="9_qvlix"]
+[ext_resource type="Resource" uid="uid://dkhhs3wcd8t71" path="res://common/items/ingredients/sapphire/sapphire.tres" id="10_kwk2g"]
+[ext_resource type="Resource" uid="uid://ddkob31lp7vxv" path="res://common/items/ingredients/topaz/topaz.tres" id="11_brs7k"]
 
 [resource]
 script = ExtResource("1_bsxsd")
 id = "the_temple"
 name = "The Temple"
+ingredients = Array[ExtResource("1_q7my5")]([ExtResource("2_tr1a4"), ExtResource("3_fspvx"), ExtResource("4_wxc2x"), ExtResource("5_aivs0"), ExtResource("6_hrnds"), ExtResource("7_sgvel"), ExtResource("8_tpcxg"), ExtResource("9_qvlix"), ExtResource("10_kwk2g"), ExtResource("11_brs7k")])

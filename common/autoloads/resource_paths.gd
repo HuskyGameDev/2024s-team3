@@ -106,6 +106,14 @@ func get_all_ingredient_variant_paths(id: String) -> Array:
 	return paths
 
 
+func get_all_non_variant_ingredient_paths() -> Array:
+	var paths = get_all_ingredient_paths()
+	for action in Ingredient.Actions.values():
+		var action_string = Ingredient.action_to_string(action)
+		paths = paths.filter(func(p): return not p.contains(action_string))
+	return paths
+
+
 func get_random_customer_sprite() -> Texture2D:
 	randomize()
 	return customer_sprites[randi() % customer_sprites.size()]

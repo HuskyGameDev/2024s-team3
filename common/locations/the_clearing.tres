@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Location" load_steps=40 format=3 uid="uid://bd6g3phtbeto"]
+[gd_resource type="Resource" script_class="Location" load_steps=42 format=3 uid="uid://bd6g3phtbeto"]
 
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_2u7oo"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_pl6qd"]
@@ -24,6 +24,8 @@
 [ext_resource type="Resource" uid="uid://4foau6bfx00o" path="res://common/items/ingredients/bat_wing/bat_wing.tres" id="22_fxsjg"]
 [ext_resource type="Resource" uid="uid://cj8ol3qfrfwmh" path="res://common/items/ingredients/owl_feather/owl_feather.tres" id="23_tbl8b"]
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="24_2u35e"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="24_r63op"]
+[ext_resource type="Resource" uid="uid://dgiw62hk2ccn6" path="res://common/items/ingredients/eye_of_newt/eye_of_newt.tres" id="25_87t3w"]
 
 [sub_resource type="Resource" id="Resource_dsxx7"]
 script = ExtResource("11_vdgcd")
@@ -244,6 +246,7 @@ legendary = [{
 script = ExtResource("24_2u35e")
 id = "the_clearing"
 name = "The Clearing"
+ingredients = Array[ExtResource("24_r63op")]([ExtResource("22_fxsjg"), ExtResource("25_87t3w"), ExtResource("20_yhrdb"), ExtResource("14_8s677"), ExtResource("23_tbl8b"), ExtResource("16_lqql7"), ExtResource("19_tfol3"), ExtResource("18_i4god"), ExtResource("21_gx2ae"), ExtResource("15_bgs5x")])
 forage_table = SubResource("Resource_36l1o")
 ingredients_shop_table = SubResource("Resource_fjv6r")
 customer_request_table = SubResource("Resource_snjf0")
