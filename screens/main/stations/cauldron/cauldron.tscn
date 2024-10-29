@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjjarcohy2vqe"]
+[gd_scene load_steps=8 format=3 uid="uid://cjjarcohy2vqe"]
 
 [ext_resource type="Script" path="res://screens/main/stations/cauldron/cauldron.gd" id="1_ygt0y"]
 [ext_resource type="Material" uid="uid://bvnj6sjxlk4q3" path="res://common/shaders/potion_shader.tres" id="2_33gis"]
 [ext_resource type="Texture2D" uid="uid://cv3kxe3sbuli0" path="res://screens/main/stations/cauldron/cauldron.png" id="2_ffdd2"]
+[ext_resource type="AudioStream" uid="uid://c0waok65gg0j2" path="res://common/audio/Cauldron_Boil.wav" id="4_6ddpp"]
+[ext_resource type="AudioStream" uid="uid://dty3w32qgyj7x" path="res://common/audio/Finish_Potion.wav" id="5_od14b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o7cp0"]
 height = 44.0
@@ -42,6 +44,14 @@ collision_mask = 524288
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableArea"]
 position = Vector2(-1, 4)
 shape = SubResource("CircleShape2D_aaytm")
+
+[node name="Bubbler" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6ddpp")
+volume_db = -15.0
+
+[node name="CauldronFinishPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_od14b")
+volume_db = -10.0
 
 [connection signal="body_entered" from="ValidArea" to="." method="_on_body_enter_cauldron"]
 [connection signal="input_event" from="ClickableArea" to="." method="_on_cauldron_input_event"]

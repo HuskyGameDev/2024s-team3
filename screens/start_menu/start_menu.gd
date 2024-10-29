@@ -12,6 +12,8 @@ func _on_exit_pressed():
 
 func _on_new_game_pressed():
 	PlayerData.clear_save_files()
+	PlayerData.change_money(-PlayerData.money)
+	PlayerData.change_reputation(-PlayerData.reputation)
 	get_tree().change_scene_to_file("res://screens/tutorial/tutorial.tscn")
 
 
