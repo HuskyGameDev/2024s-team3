@@ -34,3 +34,14 @@ func spawn_held_nodes(held_node_parent):
 		self.heldNodes.append(ingredient_node)
 	# Create the held item nodes
 	super(held_node_parent)
+
+
+func drop_node(node: Node):
+	self.quantity -= 1
+	super(node)
+
+
+func hold_node(node):
+	if node.data.id != ingredient.id: return
+	self.quantity += 1
+	super(node)

@@ -43,12 +43,10 @@ func spawn_held_nodes(held_node_parent):
 		
 		await get_tree().physics_frame
 	# Make it so only the top node can be picked up
-	heldNodes[-1].input_pickable = true
+	if heldNodes.size() > 0: heldNodes[-1].input_pickable = true
 	await get_tree().physics_frame
 	isDisabled = false
 
-func _physics_process(delta):
-	pass
 
 ## Center all held nodes
 func force_center_nodes():
