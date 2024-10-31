@@ -4,8 +4,10 @@ extends Node
 @onready var LocationDisplays := $LocationShelf.get_children()
 @onready var ExoticDisplays   := $ExoticShelf.get_children()
 
-var totalCost = 0;
+var totalCost = 0
+var cart:Array[Ingredient] = []
 
+############################ SETUP ###########################
 func _ready():
 	$UiLayer/PlayerMoneyPanelContainer/PlayerMoneyMarginContainer/PlayerMoneyLabel.text = "$" + str(PlayerData.money)
 	
@@ -47,13 +49,19 @@ func set_ingredient_displays(ingredients:Array[Ingredient], display_nodes:Array[
 		display.spawn_held_nodes(self)
 
 
-func _physics_process(delta):
-	pass
-	#TODO make it so ingredients that fall off the screen are automatically restocked
-	#TODO make the shopkeeper yell at you for dropping things
+####################### CART MECHANICS #######################
+func _on_body_entered_basket(body):
+	if not body is DraggableObject: return
+	var ingredient = body.data as Ingredient
+	cart.append(ingredient)
+	updateTotal(calculate_ingredient_price(ingredient))
 
 
-#TODO make some sort of cart/basket and add handlers for it
+func _on_body_exited_basket(body):
+	if not body is DraggableObject: return
+	var ingredient = body.data as Ingredient
+	cart.erase(ingredient)
+	updateTotal(-calculate_ingredient_price(ingredient))
 
 
 func updateTotal(changeAmount:int):
@@ -61,6 +69,7 @@ func updateTotal(changeAmount:int):
 	totalCostLabel.text = "Total Cost: $" + str(totalCost)
 
 
+########################## CHECKOUT ##########################
 func _on_buy_button_pressed():
 	#TODO make buy work
 	if PlayerData.money >= totalCost:

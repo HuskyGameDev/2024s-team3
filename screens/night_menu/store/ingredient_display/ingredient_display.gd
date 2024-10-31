@@ -59,3 +59,4 @@ func _physics_process(delta):
 	for node in ingredientNodes:
 		if node.global_position.y >= 1200 and not heldNodes.has(node):
 			call_deferred("recover_fallen_node", node)
+			#TODO make the shopkeeper yell at you for dropping things
