@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2j3rg4f5xnau"]
+[gd_scene load_steps=10 format=3 uid="uid://d2j3rg4f5xnau"]
 
 [ext_resource type="PackedScene" uid="uid://beqshfus1kkk7" path="res://screens/night_menu/store/shopkeeper/shopkeeper.tscn" id="2_ra0ww"]
 [ext_resource type="Script" path="res://screens/night_menu/store/night_shop.gd" id="2_xiblk"]
 [ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="4_3akkn"]
 [ext_resource type="PackedScene" uid="uid://clypnxql0jkdx" path="res://screens/night_menu/store/ingredient_display/ingredient_display.tscn" id="4_47emv"]
+[ext_resource type="Texture2D" uid="uid://dkhqpfitnde45" path="res://screens/night_menu/store/counter.png" id="5_67t3k"]
+[ext_resource type="Texture2D" uid="uid://bpjb84u8xfjkw" path="res://screens/night_menu/store/shelf.png" id="6_fachu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82e5e"]
 size = Vector2(688, 317)
@@ -71,6 +73,31 @@ offset_top = 713.0
 offset_right = 1905.0
 offset_bottom = 744.0
 text = "Buy Cart Contents"
+
+[node name="Counter" type="Sprite2D" parent="."]
+position = Vector2(1542.47, 848.809)
+scale = Vector2(8.19866, 7.00546)
+texture = ExtResource("5_67t3k")
+
+[node name="Shelf" type="Sprite2D" parent="."]
+position = Vector2(446.686, 383)
+scale = Vector2(7.43988, 7.20052)
+texture = ExtResource("6_fachu")
+
+[node name="Shelf2" type="Sprite2D" parent="."]
+position = Vector2(446, 190)
+scale = Vector2(5.62264, 7.20052)
+texture = ExtResource("6_fachu")
+
+[node name="Shelf3" type="Sprite2D" parent="."]
+position = Vector2(442, 586)
+scale = Vector2(5.62264, 7.20052)
+texture = ExtResource("6_fachu")
+
+[node name="Shelf4" type="Sprite2D" parent="."]
+position = Vector2(454, 880)
+scale = Vector2(7.43988, 7.20052)
+texture = ExtResource("6_fachu")
 
 [node name="Shopkeeper" parent="." instance=ExtResource("2_ra0ww")]
 position = Vector2(1455, 387)
