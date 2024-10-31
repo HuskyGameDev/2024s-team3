@@ -37,31 +37,40 @@ func handle_purchase(potion: Potion) -> bool:
 	if not current_customer: return false
 	
 	# calculate potion rep and money factors
-	var strongest_effects = potion.effects.get_strongest(3).filter(func(e): return true if potion.effects.get_strength(e) >= EffectSet.NOTHING_RANGE else false)
-	var reputation_change = 0
-	var money_change = 0
-	for effect in strongest_effects:
-		reputation_change += effect.reputation_factor
-		var effect_strength = potion.effects.get_strength(effect)
-		var strength_factor = 1
-		if abs(effect_strength) < EffectSet.WEAK_RANGE:
-			strength_factor = 0.5
-		elif abs(effect_strength) >= EffectSet.REGULAR_RANGE:
-			strength_factor = 1.5
-		money_change += effect.money_factor * strength_factor
+	print("Reputation before: " + str(PlayerData.reputation))
+	var gains: Vector2 = current_customer.order.calculate(potion)
+	PlayerData.change_money(gains.x)
 	
-	# calculate num effects and update money
-	PlayerData.change_money(money_change * pow(1.2, strongest_effects.size()))
+	#var strongest_effects = potion.effects.get_strongest(3).filter(func(e): return true if potion.effects.get_strength(e) >= EffectSet.NOTHING_RANGE else false)
+	#var reputation_change = 0
+	#var money_change = 0
+	#for effect in strongest_effects:
+		#reputation_change += effect.reputation_factor
+		#var effect_strength = potion.effects.get_strength(effect)
+		#var strength_factor = 1
+		#if abs(effect_strength) < EffectSet.WEAK_RANGE:
+			#strength_factor = 0.5
+		#elif abs(effect_strength) >= EffectSet.REGULAR_RANGE:
+			#strength_factor = 1.5
+		#money_change += effect.money_factor * strength_factor
+	#
+	## calculate num effects and update money
+	#PlayerData.change_money(money_change * pow(1.2, strongest_effects.size()))
 	
 	# calculate time to make potion and update reputation
 	var time_modifier = 1
 	if not in_grace_period:
 		var time_to_create = REP_DECREASE_PERIOD_LENGTH - round(customer_timer.time_left)
 		time_modifier = time_to_create / REP_DECREASE_PERIOD_LENGTH
-	if current_customer.order.check(potion):
-		PlayerData.change_reputation(reputation_change * time_modifier)
-	else:
-		PlayerData.change_reputation(-reputation_change * (1 - time_modifier))
+	if gains.y < 0: PlayerData.change_reputation(gains.y)
+	else: PlayerData.change_reputation(gains.y * (1-time_modifier))
+	print("Time modifier: " + str(time_modifier))
+	print("Reputation gain: " + str(gains.y * time_modifier))
+	print("Reputation after: " + str(PlayerData.reputation))
+	#if current_customer.order.check(potion):
+		#PlayerData.change_reputation(reputation_change * time_modifier)
+	#else:
+		#PlayerData.change_reputation(-reputation_change * (1 - time_modifier))
 	
 	customer_node.leave_store()
 	remove_child(customer_timer)
