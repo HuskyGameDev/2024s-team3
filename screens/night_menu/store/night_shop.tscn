@@ -65,6 +65,13 @@ offset_left = 8.0
 offset_top = 8.0
 text = "Exit Store"
 
+[node name="BuyButton" type="Button" parent="UiLayer"]
+offset_left = 1756.0
+offset_top = 713.0
+offset_right = 1905.0
+offset_bottom = 744.0
+text = "Buy Cart Contents"
+
 [node name="Shopkeeper" parent="." instance=ExtResource("2_ra0ww")]
 position = Vector2(1455, 387)
 scale = Vector2(8, 8)
@@ -142,6 +149,7 @@ shape = SubResource("SegmentShape2D_f1ved")
 debug_color = Color(0.544544, 0.00127623, 0.706111, 0.42)
 
 [connection signal="pressed" from="UiLayer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="UiLayer/BuyButton" to="." method="_on_buy_button_pressed"]
 [connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay1" to="." method="_on_ingredient_dropped"]
 [connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay2" to="." method="_on_ingredient_dropped"]
 [connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay3" to="." method="_on_ingredient_dropped"]

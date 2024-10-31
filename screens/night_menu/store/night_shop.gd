@@ -102,9 +102,11 @@ func update_display_prices():
 
 ########################## CHECKOUT ##########################
 func _on_buy_button_pressed():
-	#TODO make buy work
 	if PlayerData.money >= totalCost:
 		PlayerData.money -= totalCost
+		# add ingredients to inventory
+		for ingredient in cart:
+			PlayerData.add_item_to_inventory(ingredient, 1)
 		#TODO make shopkeeper say something before leaving
 		get_tree().change_scene_to_file("res://screens/main/packed_main.tscn")
 	else:
