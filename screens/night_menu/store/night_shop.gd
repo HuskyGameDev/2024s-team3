@@ -43,13 +43,17 @@ func set_ingredient_displays(ingredients:Array[Ingredient], display_nodes:Array[
 		var display = display_nodes[i]
 		display.quantity = randi_range(1, 5)
 		display.price = calculate_ingredient_price(ingredient)
-		#TODO add physical ingredients to shelf
+		display.ingredient = ingredient
+		display.spawn_held_nodes(self)
 
 
 func _physics_process(delta):
 	pass
 	#TODO make it so ingredients that fall off the screen are automatically restocked
 	#TODO make the shopkeeper yell at you for dropping things
+
+
+#TODO make some sort of cart/basket and add handlers for it
 
 
 func updateTotal(changeAmount:int):

@@ -8,6 +8,7 @@ script = ExtResource("2_3uy1j")
 quantity = 0
 price = 0
 ingredient = null
+allowStack = true
 
 [node name="QuantityLabel" type="Label" parent="." index="1"]
 offset_right = 24.0
