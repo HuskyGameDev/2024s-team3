@@ -19,7 +19,7 @@ static var PackedIngredientScene = preload("res://common/items/ingredients/ingre
 @onready var PriceLabel    := $PriceLabel
 
 ################## OTHER VARS ##################
-
+var ingredientNodes:Array[Node] = []
 
 ################## FUNCTIONS ##################
 func _ready():
@@ -32,6 +32,7 @@ func spawn_held_nodes(held_node_parent):
 	for i in range(0, quantity):
 		var ingredient_node = PackedIngredientScene.instantiate().with_data(ingredient)
 		self.heldNodes.append(ingredient_node)
+		self.ingredientNodes.append(ingredient_node)
 	# Create the held item nodes
 	super(held_node_parent)
 
@@ -42,6 +43,19 @@ func drop_node(node: Node):
 
 
 func hold_node(node):
-	if node.data.id != ingredient.id: return
+	if ingredient and node.data.id != ingredient.id: return
 	self.quantity += 1
 	super(node)
+
+
+func recover_fallen_node(node):
+	node.global_position = self.global_position
+	hold_node(node)
+
+
+func _physics_process(delta):
+	## If one of the ingredients that should be in this slot falls off the 
+	## screen, add it back to the slot
+	for node in ingredientNodes:
+		if node.global_position.y >= 1200 and not heldNodes.has(node):
+			call_deferred("recover_fallen_node", node)
