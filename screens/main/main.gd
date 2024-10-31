@@ -7,8 +7,9 @@ var packed_ingredient_scene = preload("res://common/items/ingredients/ingredient
 @onready var PedestalSlot:Node = $Pedestal/ShelfSlot
 
 func _ready():
-	GameTime.start_day()
-	GameTime.end_of_day.connect(func(): get_tree().change_scene_to_file("res://screens/night_menu/menu/night_menu.tscn"));
+	if get_tree().current_scene == self:
+		GameTime.start_day()
+		GameTime.end_of_day.connect(func(): get_tree().change_scene_to_file("res://screens/night_menu/night_menu.tscn"));
 	
 	$LocationBackgroundSwitcher.update_background()
 	
