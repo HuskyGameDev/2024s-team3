@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Location" load_steps=42 format=3 uid="uid://bd6g3phtbeto"]
+[gd_resource type="Resource" script_class="Location" load_steps=54 format=3 uid="uid://bd6g3phtbeto"]
 
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_2u7oo"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_pl6qd"]
@@ -61,7 +61,115 @@ ExtResource("10_lja7f"): 0
 script = ExtResource("12_w1h38")
 minEffects = SubResource("Resource_fsm31")
 maxEffects = SubResource("Resource_dsxx7")
-dialogueOptions = PackedStringArray("Please heal me!", "I need healing!", "tummy hurt :(")
+dialogueOptions = PackedStringArray("Please heal me!", "I need healing!", "One healing potion please :)", "tummy hurt :(", "I got a papercut. Can you help?", "My friend broke their leg, you got something for it?")
+
+[sub_resource type="Resource" id="Resource_pcrsc"]
+script = ExtResource("11_vdgcd")
+effects = {
+ExtResource("1_2u7oo"): 50,
+ExtResource("2_pl6qd"): 50,
+ExtResource("3_njxdd"): 50,
+ExtResource("4_vctt2"): 50,
+ExtResource("5_eviye"): 50,
+ExtResource("6_cphox"): 50,
+ExtResource("7_biggs"): 50,
+ExtResource("8_skrbs"): 50,
+ExtResource("9_6cwvi"): 50,
+ExtResource("10_lja7f"): 50
+}
+
+[sub_resource type="Resource" id="Resource_lhc4v"]
+script = ExtResource("11_vdgcd")
+effects = {
+ExtResource("1_2u7oo"): -50,
+ExtResource("2_pl6qd"): -50,
+ExtResource("3_njxdd"): -50,
+ExtResource("4_vctt2"): 5,
+ExtResource("5_eviye"): -50,
+ExtResource("6_cphox"): -50,
+ExtResource("7_biggs"): -50,
+ExtResource("8_skrbs"): -50,
+ExtResource("9_6cwvi"): -50,
+ExtResource("10_lja7f"): -50
+}
+
+[sub_resource type="Resource" id="Resource_dtwhi"]
+script = ExtResource("12_w1h38")
+minEffects = SubResource("Resource_lhc4v")
+maxEffects = SubResource("Resource_pcrsc")
+dialogueOptions = PackedStringArray("I forgot my coffee this morning, you got anything for that?", "I need five hours of energy! Preferably by potion.", "I need to fix my sleep schedule... in the meantime, got an energy potion?", "I got the night shift today. You got something to stop me from falling asleep?", "I need a nice pick-me-up.")
+
+[sub_resource type="Resource" id="Resource_y8ql7"]
+script = ExtResource("11_vdgcd")
+effects = {
+ExtResource("1_2u7oo"): 50,
+ExtResource("2_pl6qd"): 50,
+ExtResource("3_njxdd"): 50,
+ExtResource("4_vctt2"): 50,
+ExtResource("5_eviye"): 50,
+ExtResource("6_cphox"): 50,
+ExtResource("7_biggs"): 50,
+ExtResource("8_skrbs"): 50,
+ExtResource("9_6cwvi"): 50,
+ExtResource("10_lja7f"): 50
+}
+
+[sub_resource type="Resource" id="Resource_ysjkb"]
+script = ExtResource("11_vdgcd")
+effects = {
+ExtResource("1_2u7oo"): -50,
+ExtResource("2_pl6qd"): -50,
+ExtResource("3_njxdd"): -50,
+ExtResource("4_vctt2"): -50,
+ExtResource("5_eviye"): -50,
+ExtResource("6_cphox"): 5,
+ExtResource("7_biggs"): -50,
+ExtResource("8_skrbs"): -50,
+ExtResource("9_6cwvi"): -50,
+ExtResource("10_lja7f"): -50
+}
+
+[sub_resource type="Resource" id="Resource_eprmw"]
+script = ExtResource("12_w1h38")
+minEffects = SubResource("Resource_ysjkb")
+maxEffects = SubResource("Resource_y8ql7")
+dialogueOptions = PackedStringArray("I need to get home, but it\'s dark outside...", "My lantern ran out of fuel, you have something brighter?", "one bottle of sun please :D", "I want my skin to be GLOWING. Literally.", "Fires are dangerous, but how else am I gonna see at night?", "I need something that helps me write in the dark.")
+
+[sub_resource type="Resource" id="Resource_3kq00"]
+script = ExtResource("11_vdgcd")
+effects = {
+ExtResource("1_2u7oo"): 0,
+ExtResource("2_pl6qd"): 0,
+ExtResource("3_njxdd"): 0,
+ExtResource("4_vctt2"): 0,
+ExtResource("5_eviye"): 0,
+ExtResource("6_cphox"): 0,
+ExtResource("7_biggs"): 0,
+ExtResource("8_skrbs"): 50,
+ExtResource("9_6cwvi"): 0,
+ExtResource("10_lja7f"): 0
+}
+
+[sub_resource type="Resource" id="Resource_yhb0y"]
+script = ExtResource("11_vdgcd")
+effects = {
+ExtResource("1_2u7oo"): 0,
+ExtResource("2_pl6qd"): 0,
+ExtResource("3_njxdd"): 0,
+ExtResource("4_vctt2"): 0,
+ExtResource("5_eviye"): 0,
+ExtResource("6_cphox"): 0,
+ExtResource("7_biggs"): 0,
+ExtResource("8_skrbs"): 5,
+ExtResource("9_6cwvi"): 0,
+ExtResource("10_lja7f"): 0
+}
+
+[sub_resource type="Resource" id="Resource_2kcb5"]
+script = ExtResource("12_w1h38")
+minEffects = SubResource("Resource_yhb0y")
+maxEffects = SubResource("Resource_3kq00")
+dialogueOptions = PackedStringArray("I\'m going to war and must get stronger.", "Help me be strong.", "RAHHHH (strength pls)", "I have twenty coins riding on this arm wrestle! Help me out!", "There\'s this really heavy rock I want to lift. You got something for that?", "I forgot my key. Can you help me break down my door?")
 
 [sub_resource type="Resource" id="Resource_spb0r"]
 script = ExtResource("11_vdgcd")
@@ -133,48 +241,84 @@ ExtResource("10_lja7f"): 0
 script = ExtResource("12_w1h38")
 minEffects = SubResource("Resource_i862y")
 maxEffects = SubResource("Resource_dogf2")
-dialogueOptions = PackedStringArray("There\'s rats in the cellar", "I need to kill someone", "One glass of poison please")
+dialogueOptions = PackedStringArray("There\'s rats in the cellar!", "I need to kill someone.", "One glass of poison please", "How do you make a poison potion? Hypothetically. For a friend.")
 
-[sub_resource type="Resource" id="Resource_3kq00"]
+[sub_resource type="Resource" id="Resource_tyi3k"]
 script = ExtResource("11_vdgcd")
 effects = {
-ExtResource("1_2u7oo"): 0,
-ExtResource("2_pl6qd"): 0,
-ExtResource("3_njxdd"): 0,
-ExtResource("4_vctt2"): 0,
-ExtResource("5_eviye"): 0,
-ExtResource("6_cphox"): 0,
-ExtResource("7_biggs"): 0,
+ExtResource("1_2u7oo"): 50,
+ExtResource("2_pl6qd"): 50,
+ExtResource("3_njxdd"): 50,
+ExtResource("4_vctt2"): 50,
+ExtResource("5_eviye"): 50,
+ExtResource("6_cphox"): 50,
+ExtResource("7_biggs"): 50,
 ExtResource("8_skrbs"): 50,
-ExtResource("9_6cwvi"): 0,
-ExtResource("10_lja7f"): 0
+ExtResource("9_6cwvi"): 50,
+ExtResource("10_lja7f"): 50
 }
 
-[sub_resource type="Resource" id="Resource_yhb0y"]
+[sub_resource type="Resource" id="Resource_5gski"]
 script = ExtResource("11_vdgcd")
 effects = {
-ExtResource("1_2u7oo"): 0,
-ExtResource("2_pl6qd"): 0,
-ExtResource("3_njxdd"): 0,
-ExtResource("4_vctt2"): 0,
-ExtResource("5_eviye"): 0,
-ExtResource("6_cphox"): 0,
-ExtResource("7_biggs"): 0,
-ExtResource("8_skrbs"): 5,
-ExtResource("9_6cwvi"): 0,
-ExtResource("10_lja7f"): 0
+ExtResource("1_2u7oo"): -50,
+ExtResource("2_pl6qd"): -50,
+ExtResource("3_njxdd"): 5,
+ExtResource("4_vctt2"): -50,
+ExtResource("5_eviye"): -50,
+ExtResource("6_cphox"): -50,
+ExtResource("7_biggs"): -50,
+ExtResource("8_skrbs"): -50,
+ExtResource("9_6cwvi"): -50,
+ExtResource("10_lja7f"): -50
 }
 
-[sub_resource type="Resource" id="Resource_2kcb5"]
+[sub_resource type="Resource" id="Resource_cim0e"]
 script = ExtResource("12_w1h38")
-minEffects = SubResource("Resource_yhb0y")
-maxEffects = SubResource("Resource_3kq00")
-dialogueOptions = PackedStringArray("I\'m going to war.", "Help me be strong.", "RAHHHH (strength pls)")
+minEffects = SubResource("Resource_5gski")
+maxEffects = SubResource("Resource_tyi3k")
+dialogueOptions = PackedStringArray("I\'m not gonna survive a second now that my armor\'s broken.", "I need something to protect me!", "I heard you got shields in a bottle or something?")
+
+[sub_resource type="Resource" id="Resource_7sv00"]
+script = ExtResource("11_vdgcd")
+effects = {
+ExtResource("1_2u7oo"): 50,
+ExtResource("2_pl6qd"): 50,
+ExtResource("3_njxdd"): 50,
+ExtResource("4_vctt2"): 50,
+ExtResource("5_eviye"): 50,
+ExtResource("6_cphox"): 50,
+ExtResource("7_biggs"): 50,
+ExtResource("8_skrbs"): 50,
+ExtResource("9_6cwvi"): 50,
+ExtResource("10_lja7f"): 50
+}
+
+[sub_resource type="Resource" id="Resource_mwlvx"]
+script = ExtResource("11_vdgcd")
+effects = {
+ExtResource("1_2u7oo"): -50,
+ExtResource("2_pl6qd"): -50,
+ExtResource("3_njxdd"): -50,
+ExtResource("4_vctt2"): -50,
+ExtResource("5_eviye"): -50,
+ExtResource("6_cphox"): -50,
+ExtResource("7_biggs"): -50,
+ExtResource("8_skrbs"): -50,
+ExtResource("9_6cwvi"): 5,
+ExtResource("10_lja7f"): -50
+}
+
+[sub_resource type="Resource" id="Resource_hgoqf"]
+script = ExtResource("12_w1h38")
+minEffects = SubResource("Resource_mwlvx")
+maxEffects = SubResource("Resource_7sv00")
+dialogueOptions = PackedStringArray("I didn\'t prepare for this race, can you help?", "I need to get home. Quickly.", "I\'m tired of being so slow all the time!")
 
 [sub_resource type="Resource" id="Resource_snjf0"]
 script = ExtResource("13_cklca")
-common = [SubResource("Resource_e6l0n")]
-uncommon = [SubResource("Resource_2kcb5")]
+common = [SubResource("Resource_e6l0n"), SubResource("Resource_dtwhi"), SubResource("Resource_eprmw"), SubResource("Resource_2kcb5")]
+uncommon = [SubResource("Resource_cim0e"), SubResource("Resource_hgoqf")]
 rare = [SubResource("Resource_qmgaj")]
 legendary = [SubResource("Resource_eer62")]
 

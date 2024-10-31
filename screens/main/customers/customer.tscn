@@ -22,6 +22,7 @@ text = "Customer Dialogue Request"
 fit_content = true
 
 [node name="PointerRect" type="TextureRect" parent="."]
+show_behind_parent = true
 offset_left = -266.0
 offset_top = -271.0
 offset_right = -132.0
