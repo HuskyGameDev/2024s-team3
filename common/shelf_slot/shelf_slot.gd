@@ -22,6 +22,12 @@ var shouldCenter: bool = true # set to true if there are no movement animations 
 signal items_changed(nodeArr: Array[DraggableObject], newItem: Item)
 
 
+## Spawn held nodes (ONLY CALL THIS ONCE AND DO NOT CALL IT MID-SCENE)
+func spawn_held_nodes():
+	#TODO spawn the held nodes
+	pass
+
+
 ## Center all held nodes
 func force_center_nodes():
 	for node in heldNodes:

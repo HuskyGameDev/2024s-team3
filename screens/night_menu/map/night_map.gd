@@ -15,5 +15,7 @@ func _ready():
 
 func _button_pressed(location:Location):
 	PlayerData.location = location
-	if not PlayerData.visited_locations.find(location): PlayerData.visited_locations.append(location)
+	if not PlayerData.visited_locations.map(func(location): return location.id).has(location.id):
+		PlayerData.visited_locations.append(location)
+		PlayerData.save_game_files()
 	get_tree().change_scene_to_file("res://screens/main/packed_main.tscn")

@@ -63,7 +63,6 @@ func load_game_files():
 			var visited_location_ids = save_data.get("visited_locations")
 			if visited_location_ids:
 				visited_locations.clear()
-				visited_location_ids = visited_location_ids.split(", ")
 				for id in visited_location_ids:
 					visited_locations.append(ResourceLoader.load(ResourcePaths.get_location_path(id)))
 			tutorial_complete = save_data.get("tutorial_complete")

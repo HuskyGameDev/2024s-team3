@@ -18,12 +18,14 @@ func _ready():
 	if visited_locations.size() > 0:
 		var other_location_ingredients:Array[Ingredient] = []
 		visited_locations.map(func(l): other_location_ingredients.append_array(l.ingredients))
-		print_debug(other_location_ingredients)
 		set_ingredient_displays(other_location_ingredients, ExoticDisplays)
 	else: $ExoticShelf.visible = false
 	
 	## Add station option for current location
-	#TODO
+	#TODO add stations to the store
+	
+	## Add map options for the current location
+	#TODO add maps to the store
 
 
 func calculate_ingredient_price(ingredient:Ingredient):
@@ -41,6 +43,13 @@ func set_ingredient_displays(ingredients:Array[Ingredient], display_nodes:Array[
 		var display = display_nodes[i]
 		display.quantity = randi_range(1, 5)
 		display.price = calculate_ingredient_price(ingredient)
+		#TODO add physical ingredients to shelf
+
+
+func _physics_process(delta):
+	pass
+	#TODO make it so ingredients that fall off the screen are automatically restocked
+	#TODO make the shopkeeper yell at you for dropping things
 
 
 func updateTotal(changeAmount:int):
