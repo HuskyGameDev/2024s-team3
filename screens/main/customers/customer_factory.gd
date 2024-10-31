@@ -34,6 +34,7 @@ func create_customer():
 func skip_customer():
 	customer_node.leave_store()
 	customer_timer.disconnect("timeout", grace_period_timeout)
+	remove_child(customer_timer)
 	PlayerData.change_reputation(-1) # Place holder amount for time being
 	create_customer()
 
