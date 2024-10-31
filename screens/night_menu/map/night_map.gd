@@ -13,6 +13,7 @@ func _ready():
 		button.pressed.connect(_button_pressed.bind(location))
 		$"CenterContainer/VBoxContainer".add_child(button)
 
+
 func _button_pressed(location:Location):
 	PlayerData.location = location
 	if not PlayerData.visited_locations.map(func(location): return location.id).has(location.id):

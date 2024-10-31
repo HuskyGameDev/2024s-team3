@@ -7,8 +7,16 @@ extends Node
 var totalCost = 0
 var cart:Array[Ingredient] = []
 
+var ingredient_price_modifier : Callable :
+	set(function):
+		ingredient_price_modifier = function
+		update_display_prices()
+var drop_count: int = 0
+
 ############################ SETUP ###########################
 func _ready():
+	ingredient_price_modifier = func(p): return p
+	
 	$UiLayer/PlayerMoneyPanelContainer/PlayerMoneyMarginContainer/PlayerMoneyLabel.text = "$" + str(PlayerData.money)
 	
 	## Add ingredient displays for current location
@@ -35,6 +43,7 @@ func calculate_ingredient_price(ingredient:Ingredient):
 	for effect in ingredient.effects.get_strongest():
 		price += abs(ingredient.effects.get_strength(effect)) * effect.money_factor
 	price /= 7 ## This number can be changed, anywhere between 5 and 10 is probably reasonable
+	price = ingredient_price_modifier.call(price)
 	return round(price)
 
 
@@ -68,6 +77,28 @@ func updateTotal(changeAmount:int):
 	totalCost += changeAmount
 	totalCostLabel.text = "Total Cost: $" + str(totalCost)
 
+
+####################### DROP MECHANICS #######################
+func _on_ingredient_dropped():
+	drop_count += 1
+	#TODO make shopkeeper actually say dialogue
+	match drop_count:
+		1: print("Try not to drop things")
+		3: print("Seriously, be careful")
+		5: print("That's breakable!")
+		10: print("This is your LAST warning!")
+	if   drop_count > 20: ingredient_price_modifier = func(p): return (drop_count - 20) * 2 * (p + 15)
+	elif drop_count > 15: ingredient_price_modifier = func(p): return p + 5 + 2 * (drop_count - 15)
+	elif drop_count > 10: ingredient_price_modifier = func(p): return p + (drop_count - 10)
+
+
+func update_display_prices():
+	for display in LocationDisplays:
+		if not display.ingredient: continue
+		display.price = calculate_ingredient_price(display.ingredient)
+	for display in ExoticDisplays:
+		if not display.ingredient: continue
+		display.price = calculate_ingredient_price(display.ingredient)
 
 ########################## CHECKOUT ##########################
 func _on_buy_button_pressed():

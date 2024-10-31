@@ -1,6 +1,7 @@
 extends "res://common/shelf_slot/shelf_slot.gd"
 
 static var PackedIngredientScene = preload("res://common/items/ingredients/ingredient.tscn")
+signal ingredient_dropped # send to night_shop.gd
 
 ################## EXPORTED VARS ##################
 @export var quantity : int :
@@ -20,6 +21,7 @@ static var PackedIngredientScene = preload("res://common/items/ingredients/ingre
 
 ################## OTHER VARS ##################
 var ingredientNodes:Array[Node] = []
+
 
 ################## FUNCTIONS ##################
 func _ready():
@@ -59,4 +61,4 @@ func _physics_process(delta):
 	for node in ingredientNodes:
 		if node.global_position.y >= 1200 and not heldNodes.has(node):
 			call_deferred("recover_fallen_node", node)
-			#TODO make the shopkeeper yell at you for dropping things
+			ingredient_dropped.emit()
