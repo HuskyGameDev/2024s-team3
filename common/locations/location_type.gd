@@ -8,10 +8,16 @@ class_name Location
 @export var name: String = ""
 @export var ingredients: Array[Ingredient]
 
+@export_group("Unlockable Station")
+@export var unlockable_station_id: String
+@export var unlockable_station_sprite: Texture2D
+@export var unlockable_station_price: int = 50
+
 @export_group("Probability Tables")
 @export var forage_table: LootTable
 @export var ingredients_shop_table: LootTable
 @export var customer_request_table: LootTable
+
 
 ## Get Random Item Functions
 func forage_items(count:int) -> Array:

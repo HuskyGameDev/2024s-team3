@@ -11,6 +11,9 @@ func _ready():
 	GameTime.end_of_day.connect(func(): get_tree().change_scene_to_file("res://screens/night_menu/menu/night_menu.tscn"));
 	
 	PedestalSlot.connect("items_changed", _on_selling_potion_change)
+	
+	$MortarAndPestle.visible = PlayerData.unlocked_stations.has("mortar_and_pestle")
+	$CuttingBoard.visible    = PlayerData.unlocked_stations.has("cutting_board")
 
 
 func _on_shelf_body_entered(body):

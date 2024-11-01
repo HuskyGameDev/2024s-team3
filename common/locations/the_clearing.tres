@@ -247,6 +247,7 @@ script = ExtResource("24_2u35e")
 id = "the_clearing"
 name = "The Clearing"
 ingredients = Array[ExtResource("24_r63op")]([ExtResource("22_fxsjg"), ExtResource("25_87t3w"), ExtResource("20_yhrdb"), ExtResource("14_8s677"), ExtResource("23_tbl8b"), ExtResource("16_lqql7"), ExtResource("19_tfol3"), ExtResource("18_i4god"), ExtResource("21_gx2ae"), ExtResource("15_bgs5x")])
+unlockable_station_id = ""
 forage_table = SubResource("Resource_36l1o")
 ingredients_shop_table = SubResource("Resource_fjv6r")
 customer_request_table = SubResource("Resource_snjf0")

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Location" load_steps=13 format=3 uid="uid://cjqb6k6smqc57"]
+[gd_resource type="Resource" script_class="Location" load_steps=14 format=3 uid="uid://cjqb6k6smqc57"]
 
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_nkog8"]
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="1_y6yc1"]
@@ -12,9 +12,12 @@
 [ext_resource type="Resource" uid="uid://cruk8sedmkyk" path="res://common/items/ingredients/robin_egg/robin_egg.tres" id="9_s7n2s"]
 [ext_resource type="Resource" uid="uid://do13wsgmg2f7p" path="res://common/items/ingredients/rose/rose.tres" id="10_xt14d"]
 [ext_resource type="Resource" uid="uid://4tiagx12hv4e" path="res://common/items/ingredients/willow_bark/willow_bark.tres" id="11_labmy"]
+[ext_resource type="Texture2D" uid="uid://csapsq07wwo5l" path="res://screens/main/stations/cutting_board/cutting_board.png" id="13_trfx2"]
 
 [resource]
 script = ExtResource("1_y6yc1")
 id = "the_outpost"
 name = "The Outpost"
 ingredients = Array[ExtResource("1_nkog8")]([ExtResource("2_7qpb7"), ExtResource("3_n822r"), ExtResource("4_et7gp"), ExtResource("5_blq6k"), ExtResource("6_xhmte"), ExtResource("7_h3rxc"), ExtResource("8_6fior"), ExtResource("9_s7n2s"), ExtResource("10_xt14d"), ExtResource("11_labmy")])
+unlockable_station_id = "cutting_board"
+unlockable_station_sprite = ExtResource("13_trfx2")

@@ -32,7 +32,12 @@ func _ready():
 	else: $ExoticShelf.visible = false
 	
 	## Add station option for current location
-	#TODO add stations to the store
+	if PlayerData.location.unlockable_station_id != "" and not PlayerData.unlocked_stations.has(PlayerData.location.unlockable_station_id):
+		$StationDisplay.station_id = PlayerData.location.unlockable_station_id
+		$StationDisplay.station_price = PlayerData.location.unlockable_station_price
+		if PlayerData.location.unlockable_station_sprite: $StationDisplay.station_sprite = PlayerData.location.unlockable_station_sprite
+	else: 
+		$StationDisplay.visible = false
 	
 	## Add map options for the current location
 	#TODO add maps to the store

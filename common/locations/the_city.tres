@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Location" load_steps=34 format=3 uid="uid://dkoxk45u8im10"]
+[gd_resource type="Resource" script_class="Location" load_steps=35 format=3 uid="uid://dkoxk45u8im10"]
 
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_1fg61"]
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="1_ousk0"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" path="res://screens/main/customers/customer_order_type.gd" id="12_vbf56"]
 [ext_resource type="Resource" uid="uid://ca0hkro25d6f2" path="res://common/items/ingredients/yeti_fur/yeti_fur.tres" id="13_ns7gk"]
 [ext_resource type="Script" path="res://common/locations/loot_table_type.gd" id="13_xntj8"]
+[ext_resource type="Texture2D" uid="uid://lg5bctf1c0wr" path="res://screens/main/stations/mortar_and_pestle/mortarpestle.png" id="28_eqcwx"]
 
 [sub_resource type="Resource" id="Resource_u6t24"]
 script = ExtResource("11_bsqyk")
@@ -90,6 +91,8 @@ script = ExtResource("1_ousk0")
 id = "the_city"
 name = "The City"
 ingredients = Array[ExtResource("1_x5l1b")]([ExtResource("2_u2st8"), ExtResource("3_uyrt5"), ExtResource("4_4cplg"), ExtResource("5_lhpaj"), ExtResource("6_eleiv"), ExtResource("7_0uhn7"), ExtResource("8_4o8k2"), ExtResource("9_thfjd"), ExtResource("10_ixfhk"), ExtResource("11_x0d71"), ExtResource("12_d8c3u"), ExtResource("13_ns7gk")])
+unlockable_station_id = "mortar_and_pestle"
+unlockable_station_sprite = ExtResource("28_eqcwx")
 forage_table = SubResource("Resource_tkwn7")
 ingredients_shop_table = SubResource("Resource_sna8l")
 customer_request_table = SubResource("Resource_gfdcn")
