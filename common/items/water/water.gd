@@ -5,14 +5,15 @@ const IMAGE_SCALE = 6
 # For handling with cauldron
 @export var data: Ingredient
 
-
+func with_data(data: Ingredient):
+	self.data = data
+	return self
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_collider($Collider)
 	set_default_collision_layer(1)
 	set_holding_collision_layer(31)
-	self.data = data
 	super()
 
 

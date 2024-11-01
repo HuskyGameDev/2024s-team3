@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=24 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://screens/main/main.gd" id="1_0ufrw"]
 [ext_resource type="Script" path="res://screens/main/customers/customer_factory.gd" id="2_dnvch"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ba2vk6f8njy7t" path="res://screens/main/ui/ingredient_book/Ingredient Book Button.png" id="16_0uga0"]
 [ext_resource type="PackedScene" uid="uid://conja6bdcr3m3" path="res://common/items/water/water.tscn" id="16_p5ujx"]
 [ext_resource type="FontFile" uid="uid://dy8mlyjp48kpw" path="res://screens/main/ui/ingredient_book/m5x7.ttf" id="17_hcv40"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="17_kjbhu"]
 [ext_resource type="PackedScene" uid="uid://b6cq5upjosmpf" path="res://screens/main/ui/clock/new_clock.tscn" id="17_n5klg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fs1cp"]
@@ -25,6 +26,16 @@ size = Vector2(0.456603, 0.192607)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aqou"]
 size = Vector2(417, 39.5)
+
+[sub_resource type="Resource" id="Resource_4pjel"]
+resource_local_to_scene = true
+resource_name = "Ingredient"
+script = ExtResource("17_kjbhu")
+available_actions = 0
+id = "water"
+name = "Water"
+description = "Dillute the potions effects by half."
+stack_size = 0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0ufrw")
@@ -180,6 +191,7 @@ offset_bottom = 39.0
 [node name="Water" parent="." instance=ExtResource("16_p5ujx")]
 position = Vector2(245, 631)
 disable_mode = 1
+data = SubResource("Resource_4pjel")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(360, 330)
