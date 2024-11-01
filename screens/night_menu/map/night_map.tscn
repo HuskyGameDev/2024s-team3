@@ -1,13 +1,14 @@
-[gd_scene load_steps=8 format=4 uid="uid://croemub1028fn"]
+[gd_scene load_steps=11 format=4 uid="uid://croemub1028fn"]
 
 [ext_resource type="Script" path="res://screens/night_menu/map/night_map.gd" id="1_bs0qr"]
-[ext_resource type="TileSet" uid="uid://r1f2gm82rcbp" path="res://screens/night_menu/map/map_tile_set.tres" id="2_rpq80"]
-[ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="3_q623s"]
+[ext_resource type="TileSet" uid="uid://c18kb63201vjq" path="res://screens/night_menu/map/map_tile_set.tres" id="2_rpq80"]
 [ext_resource type="Texture2D" uid="uid://cpiu2shqy8d6l" path="res://common/items/ingredients/ingredient_default.png" id="3_ypgw6"]
-[ext_resource type="Texture2D" uid="uid://0mftcd1fvndf" path="res://screens/night_menu/map/outline.png" id="4_57nnu"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_6785m"]
-radius = 53.0377
+[ext_resource type="Resource" uid="uid://bd6g3phtbeto" path="res://common/locations/the_clearing.tres" id="4_71ecl"]
+[ext_resource type="Resource" uid="uid://bp6uwquo1uiuu" path="res://common/locations/the_temple.tres" id="5_61cqb"]
+[ext_resource type="PackedScene" uid="uid://b5ci642b4ib88" path="res://screens/night_menu/map/location_label/location_label.tscn" id="5_mb8pt"]
+[ext_resource type="Resource" uid="uid://cjqb6k6smqc57" path="res://common/locations/the_outpost.tres" id="6_4fts6"]
+[ext_resource type="Resource" uid="uid://dng1gtysm0ixr" path="res://common/locations/the_laboratory.tres" id="7_fq6uk"]
+[ext_resource type="Resource" uid="uid://dkoxk45u8im10" path="res://common/locations/the_city.tres" id="8_c7b8g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_38jty"]
 radius = 8.0
@@ -29,195 +30,30 @@ tile_map_data = PackedByteArray("AAACAD8AAAACABcAAAAFAEEAAAACABcAAAAGAD4AAAACABc
 tile_set = ExtResource("2_rpq80")
 
 [node name="FeaturesLayer" type="TileMapLayer" parent="Tilemap"]
-tile_map_data = PackedByteArray("AAAcABkAAAAQABsAAABVABAAAAARABsAAABaADQAAAAXABsAAAA6AC8AAAAUABsAAAACAC8AAAAMABEAAABxABsAAAAMABEAAAATACgAAAAVABsAAAAUACgAAAAMABUAAAAUACoAAAAMABUAAAASACgAAAAMABUAAAATACkAAAAMABUAAABbADMAAAAOABQAAABYADMAAAAOABQAAABXADAAAAAOABQAAABbAC4AAAAOABQAAABZAC0AAAAOABQAAABVADAAAAAOABQAAABSADMAAAAOABQAAABUADUAAAAOABQAAABTADYAAAAOABQAAABPADcAAAAOABQAAABUADkAAAAOABQAAABZADgAAAAOABQAAABaADoAAAAOABQAAABhADgAAAAOABMAAABgADQAAAAOABQAAABeADUAAAAOABQAAABjADAAAAAOABMAAABfAC4AAAAOABQAAABfAC8AAAAOABQAAABlADIAAAAOABQAAABnADUAAAAOABQAAABiADoAAAAOABQAAABcADkAAAAOABQAAABcADYAAAAOABQAAABYADYAAAAOABQAAABXADMAAAAOABQAAABZADEAAAAOABQAAABUADEAAAAOABQAAABUADQAAAAOABQAAABWADcAAAAOABMAAABWADUAAAAOABMAAABVADIAAAAOABMAAABXADIAAAAOABMAAABWADAAAAAOABMAAABXAC8AAAAOABMAAABYAC4AAAAOABMAAABZAC8AAAAOABMAAABaAC8AAAAOABMAAABbAC0AAAAOABMAAABdAC0AAAAOABMAAABdAC8AAAAOABMAAABdADAAAAAOABMAAABeADEAAAAOABQAAABfADEAAAAOABQAAABgADEAAAAOABQAAABgADIAAAAOABMAAABhADIAAAAOABQAAABhAC8AAAAOABMAAABiAC8AAAAOABMAAABkADAAAAAOABMAAABkADEAAAAOABMAAABkADIAAAAOABMAAABkADMAAAAOABMAAABkADQAAAAOABMAAABkADUAAAAOABMAAABlADUAAAAOABMAAABlADYAAAAOABMAAABkADcAAAAOABMAAABjADcAAAAOABMAAABiADcAAAAOABMAAABiADgAAAAOABMAAABgADcAAAAOABMAAABfADcAAAAOABMAAABfADgAAAAOABMAAABfADkAAAAOABMAAABeADkAAAAOABMAAABbADcAAAAOABQAAABZADcAAAAOABQAAABYADkAAAAOABMAAABWADkAAAAOABMAAABTADgAAAAOABMAAABRADYAAAAOABMAAABRADQAAAAOABMAAABSADYAAAAOABMAAABSADcAAAAOABMAAABRADgAAAAOABMAAABdADMAAAAOABQAAABWADMAAAAOABQAAABWADQAAAAOABQAAABVADUAAAAOABQAAABVADYAAAAOABQAAABVADcAAAAOABQAAABVADgAAAAOABQAAABXADgAAAAOABQAAABaADkAAAAOABQAAABbADkAAAAOABQAAABbADgAAAAOABQAAABcADgAAAAOABQAAABdADgAAAAOABQAAABeADcAAAAOABQAAABeADYAAAAOABQAAABfADYAAAAOABQAAABgADYAAAAOABQAAABgADUAAAAOABQAAABhADUAAAAOABQAAABiADUAAAAOABQAAABiADQAAAAOABQAAABiADMAAAAOABQAAABiADIAAAAOABQAAABdADEAAAAOABQAAABcADAAAAAOABQAAABbADAAAAAOABQAAABaADAAAAAOABQAAABZADAAAAAOABQAAABYADEAAAAOABQAAABYADIAAAAOABQAAABXADQAAAAOABQAAABXADUAAAAOABQAAABXADYAAAAOABQAAABYADcAAAAOABQAAABYADgAAAAOABQAAABaADcAAAAOABQAAABbADYAAAAOABQAAABbADUAAAAOABQAAABcADUAAAAOABQAAABdADUAAAAOABQAAABdADQAAAAOABQAAABdADIAAAAOABQAAABcADIAAAAOABQAAABbADIAAAAOABQAAABaADIAAAAOABQAAABZADIAAAAOABQAAABZADMAAAAOABQAAABcADMAAAAOABMAAABcADQAAAAOABMAAABaADMAAAAOABMAAABeADMAAAAOABMAAABfADMAAAAOABMAAABfADQAAAAOABMAAABeADQAAAAOABMAAABfADUAAAAOABMAAABhADQAAAAOABMAAABhADMAAAAOABMAAABgADMAAAAOABMAAABfADIAAAAOABMAAABeADIAAAAOABMAAABcADEAAAAOABMAAABbADEAAAAOABMAAABWADYAAAAOABMAAABXADcAAAAOABMAAABdADcAAAAOABMAAABdADYAAAAOABMAAABcADcAAAAOABMAAABWADEAAAAOABMAAABWADIAAAAOABMAAABVADMAAAAOABMAAABTADUAAAAOABMAAABhAC0AAAAOABMAAABeAC8AAAAOABMAAABcAC4AAAAOABMAAABbADQAAAAMABUAAABaADUAAAAMABUAAABZADYAAAAMABUAAABYADUAAAAMABUAAABZADQAAAAMABUAAABZADUAAAAMABUAAABUABAAAAAMABMAAABVABEAAAAMABQAAABUABIAAAAMABQAAAA7AC4AAAAMABMAAAA5ADAAAAAMABQAAAA7ADAAAAAMABQAAAA+AC4AAAAOABgAAAA+AC8AAAAOABgAAAA/AC4AAAAOABgAAAA/AC8AAAAOABgAAAA7ACwAAAAOABgAAAA8ACsAAAAOABgAAAA1AC4AAAAOABgAAAA2AC8AAAAOABgAAAA3ACwAAAAPABQAAAA4AC0AAAAPABQAAAA3ADMAAAAOABgAAAA4ADIAAAAOABgAAAA8ADIAAAAPABQAAAA9ADMAAAAPABQAAAA8ADMAAAAPABQAAAA9ADIAAAAPABQAAAA4ADMAAAAOABgAAAA3ADIAAAAOABgAAAA1AC8AAAAOABgAAAA2AC4AAAAOABgAAAA3AC0AAAAPABQAAAA4ACwAAAAPABQAAAA7ACsAAAAOABgAAAA8ACwAAAAOABgAAAA/ACsAAAAOABcAAAA7ACcAAAAOABcAAAA1ACgAAAAOABcAAAA1ACwAAAAOABcAAAAyADAAAAAOABcAAAA3ADYAAAAOABcAAAAyADYAAAAOABcAAAA6ADkAAAAOABcAAAA+ADYAAAAOABcAAABBADIAAAAOABcAAAAWACsAAAAPABkAAAAXACIAAAAPABkAAAAOACIAAAAPABkAAAARAB4AAAAPABkAAAAIACYAAAAPABkAAAAJACsAAAAPABkAAAANAC8AAAAPABkAAAAeACsAAAAPABkAAAAUADAAAAAQABkAAAAZACUAAAAQABkAAAAbACAAAAAQABkAAAATACQAAAAQABkAAAAKACEAAAAQABkAAAAMACcAAAAQABkAAABYADQAAAAMABIAAAAdABgAAAAMABEAAAAeABkAAAAMABQAAAAdABoAAAAMABQAAAAbABkAAAAMABQAAAByAB8AAAALABYAAAByACAAAAALABcAAAARAEAAAAALABYAAAARAEEAAAALABcAAAAeAD8AAAANABgAAAAiAD0AAAANABgAAAAcAEEAAAANABgAAAAaAEAAAAANABgAAAATAD4AAAANABgAAAAPAD8AAAANABgAAAAVAD4AAAAMABQAAAAaAD4AAAAMABQAAAAQAD8AAAAMABQAAABuACwAAAAMABQAAABtACkAAAAMABQAAABtACoAAAAMABQAAABTADcAAAAMAAsAAABhADAAAAAMAAsAAABgADkAAAAMAAsAAAAMACsAAAAMAAoAAABUADYAAAALAAwAAAA=")
+tile_map_data = PackedByteArray("AAACAC8AAAAMABEAAABxABsAAAAMABEAAAAUACgAAAAMABUAAAAUACoAAAAMABUAAAASACgAAAAMABUAAAATACkAAAAMABUAAABbADMAAAAOABQAAABYADMAAAAOABQAAABXADAAAAAOABQAAABbAC4AAAAOABQAAABZAC0AAAAOABQAAABVADAAAAAOABQAAABSADMAAAAOABQAAABUADUAAAAOABQAAABTADYAAAAOABQAAABPADcAAAAOABQAAABUADkAAAAOABQAAABZADgAAAAOABQAAABaADoAAAAOABQAAABhADgAAAAOABMAAABgADQAAAAOABQAAABeADUAAAAOABQAAABjADAAAAAOABMAAABfAC4AAAAOABQAAABfAC8AAAAOABQAAABlADIAAAAOABQAAABnADUAAAAOABQAAABiADoAAAAOABQAAABcADkAAAAOABQAAABcADYAAAAOABQAAABYADYAAAAOABQAAABXADMAAAAOABQAAABZADEAAAAOABQAAABUADEAAAAOABQAAABUADQAAAAOABQAAABWADcAAAAOABMAAABWADUAAAAOABMAAABVADIAAAAOABMAAABXADIAAAAOABMAAABWADAAAAAOABMAAABXAC8AAAAOABMAAABYAC4AAAAOABMAAABZAC8AAAAOABMAAABaAC8AAAAOABMAAABbAC0AAAAOABMAAABdAC0AAAAOABMAAABdAC8AAAAOABMAAABdADAAAAAOABMAAABeADEAAAAOABQAAABfADEAAAAOABQAAABgADEAAAAOABQAAABgADIAAAAOABMAAABhADIAAAAOABQAAABhAC8AAAAOABMAAABiAC8AAAAOABMAAABkADAAAAAOABMAAABkADEAAAAOABMAAABkADIAAAAOABMAAABkADMAAAAOABMAAABkADQAAAAOABMAAABkADUAAAAOABMAAABlADUAAAAOABMAAABlADYAAAAOABMAAABkADcAAAAOABMAAABjADcAAAAOABMAAABiADcAAAAOABMAAABiADgAAAAOABMAAABgADcAAAAOABMAAABfADcAAAAOABMAAABfADgAAAAOABMAAABfADkAAAAOABMAAABeADkAAAAOABMAAABbADcAAAAOABQAAABZADcAAAAOABQAAABYADkAAAAOABMAAABWADkAAAAOABMAAABTADgAAAAOABMAAABRADYAAAAOABMAAABRADQAAAAOABMAAABSADYAAAAOABMAAABSADcAAAAOABMAAABRADgAAAAOABMAAABdADMAAAAOABQAAABWADMAAAAOABQAAABWADQAAAAOABQAAABVADUAAAAOABQAAABVADYAAAAOABQAAABVADcAAAAOABQAAABVADgAAAAOABQAAABXADgAAAAOABQAAABaADkAAAAOABQAAABbADkAAAAOABQAAABbADgAAAAOABQAAABcADgAAAAOABQAAABdADgAAAAOABQAAABeADcAAAAOABQAAABeADYAAAAOABQAAABfADYAAAAOABQAAABgADYAAAAOABQAAABgADUAAAAOABQAAABhADUAAAAOABQAAABiADUAAAAOABQAAABiADQAAAAOABQAAABiADMAAAAOABQAAABiADIAAAAOABQAAABdADEAAAAOABQAAABcADAAAAAOABQAAABbADAAAAAOABQAAABaADAAAAAOABQAAABZADAAAAAOABQAAABYADEAAAAOABQAAABYADIAAAAOABQAAABXADQAAAAOABQAAABXADUAAAAOABQAAABXADYAAAAOABQAAABYADcAAAAOABQAAABYADgAAAAOABQAAABaADcAAAAOABQAAABbADYAAAAOABQAAABbADUAAAAOABQAAABcADUAAAAOABQAAABdADUAAAAOABQAAABdADQAAAAOABQAAABdADIAAAAOABQAAABcADIAAAAOABQAAABbADIAAAAOABQAAABaADIAAAAOABQAAABZADIAAAAOABQAAABZADMAAAAOABQAAABcADMAAAAOABMAAABcADQAAAAOABMAAABaADMAAAAOABMAAABeADMAAAAOABMAAABfADMAAAAOABMAAABfADQAAAAOABMAAABeADQAAAAOABMAAABfADUAAAAOABMAAABhADQAAAAOABMAAABhADMAAAAOABMAAABgADMAAAAOABMAAABfADIAAAAOABMAAABeADIAAAAOABMAAABcADEAAAAOABMAAABbADEAAAAOABMAAABWADYAAAAOABMAAABXADcAAAAOABMAAABdADcAAAAOABMAAABdADYAAAAOABMAAABcADcAAAAOABMAAABWADEAAAAOABMAAABWADIAAAAOABMAAABVADMAAAAOABMAAABTADUAAAAOABMAAABhAC0AAAAOABMAAABeAC8AAAAOABMAAABcAC4AAAAOABMAAABbADQAAAAMABUAAABaADUAAAAMABUAAABZADYAAAAMABUAAABYADUAAAAMABUAAABZADQAAAAMABUAAABZADUAAAAMABUAAABUABAAAAAMABMAAABVABEAAAAMABQAAABUABIAAAAMABQAAAA7AC4AAAAMABMAAAA5ADAAAAAMABQAAAA7ADAAAAAMABQAAAA+AC4AAAAOABgAAAA+AC8AAAAOABgAAAA/AC4AAAAOABgAAAA/AC8AAAAOABgAAAA7ACwAAAAOABgAAAA8ACsAAAAOABgAAAA1AC4AAAAOABgAAAA2AC8AAAAOABgAAAA3ACwAAAAPABQAAAA4AC0AAAAPABQAAAA3ADMAAAAOABgAAAA4ADIAAAAOABgAAAA8ADIAAAAPABQAAAA9ADMAAAAPABQAAAA8ADMAAAAPABQAAAA9ADIAAAAPABQAAAA4ADMAAAAOABgAAAA3ADIAAAAOABgAAAA1AC8AAAAOABgAAAA2AC4AAAAOABgAAAA3AC0AAAAPABQAAAA4ACwAAAAPABQAAAA7ACsAAAAOABgAAAA8ACwAAAAOABgAAAA/ACsAAAAOABcAAAA7ACcAAAAOABcAAAA1ACgAAAAOABcAAAA1ACwAAAAOABcAAAAyADAAAAAOABcAAAA3ADYAAAAOABcAAAAyADYAAAAOABcAAAA6ADkAAAAOABcAAAA+ADYAAAAOABcAAABBADIAAAAOABcAAAAWACsAAAAPABkAAAAXACIAAAAPABkAAAAOACIAAAAPABkAAAARAB4AAAAPABkAAAAIACYAAAAPABkAAAAJACsAAAAPABkAAAANAC8AAAAPABkAAAAeACsAAAAPABkAAAAUADAAAAAQABkAAAAZACUAAAAQABkAAAAbACAAAAAQABkAAAATACQAAAAQABkAAAAKACEAAAAQABkAAAAMACcAAAAQABkAAABYADQAAAAMABIAAAAdABgAAAAMABEAAAAeABkAAAAMABQAAAAdABoAAAAMABQAAAAbABkAAAAMABQAAAByAB8AAAALABYAAAByACAAAAALABcAAAARAEAAAAALABYAAAARAEEAAAALABcAAAAeAD8AAAANABgAAAAiAD0AAAANABgAAAAcAEEAAAANABgAAAAaAEAAAAANABgAAAATAD4AAAANABgAAAAPAD8AAAANABgAAAAVAD4AAAAMABQAAAAaAD4AAAAMABQAAAAQAD8AAAAMABQAAABuACwAAAAMABQAAABtACkAAAAMABQAAABtACoAAAAMABQAAABTADcAAAAMAAsAAABhADAAAAAMAAsAAABgADkAAAAMAAsAAAAMACsAAAAMAAoAAABUADYAAAALAAwAAAA=")
 tile_set = ExtResource("2_rpq80")
 
 [node name="LocationAreas" type="Node2D" parent="."]
 
-[node name="ClearingArea" type="Area2D" parent="LocationAreas"]
+[node name="ClearingArea" parent="LocationAreas" instance=ExtResource("5_mb8pt")]
 position = Vector2(1448, 842)
+location = ExtResource("4_71ecl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LocationAreas/ClearingArea"]
-shape = SubResource("CircleShape2D_6785m")
+[node name="TempleArea" parent="LocationAreas" instance=ExtResource("5_mb8pt")]
+position = Vector2(933, 759)
+location = ExtResource("5_61cqb")
 
-[node name="Label" type="MarginContainer" parent="LocationAreas/ClearingArea"]
-visible = false
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_right = 285.0
-offset_bottom = 119.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.25, 0.25)
-pivot_offset = Vector2(-47, -48)
-theme_override_constants/margin_bottom = 29
+[node name="OutpostArea" parent="LocationAreas" instance=ExtResource("5_mb8pt")]
+position = Vector2(1360, 267)
+location = ExtResource("6_4fts6")
 
-[node name="Outline" type="Sprite2D" parent="LocationAreas/ClearingArea/Label"]
-visible = false
-position = Vector2(141, 144)
-scale = Vector2(6, 6)
-texture = ExtResource("4_57nnu")
+[node name="LaboratoryArea" parent="LocationAreas" instance=ExtResource("5_mb8pt")]
+position = Vector2(449, 401)
+location = ExtResource("7_fq6uk")
 
-[node name="PanelContainer" type="PanelContainer" parent="LocationAreas/ClearingArea/Label"]
-layout_mode = 2
-theme = ExtResource("3_q623s")
-
-[node name="Label" type="Label" parent="LocationAreas/ClearingArea/Label/PanelContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "The Clearing"
-horizontal_alignment = 1
-
-[node name="OutpostArea" type="Area2D" parent="LocationAreas"]
-position = Vector2(1367, 265)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LocationAreas/OutpostArea"]
-shape = SubResource("CircleShape2D_6785m")
-
-[node name="Label" type="MarginContainer" parent="LocationAreas/OutpostArea"]
-visible = false
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_right = 285.0
-offset_bottom = 119.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.25, 0.25)
-pivot_offset = Vector2(-47, -48)
-theme_override_constants/margin_bottom = 29
-
-[node name="Outline" type="Sprite2D" parent="LocationAreas/OutpostArea/Label"]
-visible = false
-position = Vector2(141, 144)
-scale = Vector2(6, 6)
-texture = ExtResource("4_57nnu")
-
-[node name="PanelContainer" type="PanelContainer" parent="LocationAreas/OutpostArea/Label"]
-layout_mode = 2
-theme = ExtResource("3_q623s")
-
-[node name="Label" type="Label" parent="LocationAreas/OutpostArea/Label/PanelContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "The Outpost"
-horizontal_alignment = 1
-
-[node name="LaboratoryArea" type="Area2D" parent="LocationAreas"]
-position = Vector2(452, 409)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LocationAreas/LaboratoryArea"]
-shape = SubResource("CircleShape2D_6785m")
-
-[node name="Label" type="MarginContainer" parent="LocationAreas/LaboratoryArea"]
-visible = false
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_right = 346.0
-offset_bottom = 119.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.25, 0.25)
-pivot_offset = Vector2(-53, -48)
-theme_override_constants/margin_bottom = 29
-
-[node name="Outline" type="Sprite2D" parent="LocationAreas/LaboratoryArea/Label"]
-visible = false
-position = Vector2(159, 144)
-scale = Vector2(6, 6)
-texture = ExtResource("4_57nnu")
-
-[node name="PanelContainer" type="PanelContainer" parent="LocationAreas/LaboratoryArea/Label"]
-layout_mode = 2
-theme = ExtResource("3_q623s")
-
-[node name="Label" type="Label" parent="LocationAreas/LaboratoryArea/Label/PanelContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "The Laboratory"
-horizontal_alignment = 1
-
-[node name="TempleArea" type="Area2D" parent="LocationAreas"]
-position = Vector2(935, 760)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LocationAreas/TempleArea"]
-shape = SubResource("CircleShape2D_6785m")
-
-[node name="Label" type="MarginContainer" parent="LocationAreas/TempleArea"]
-visible = false
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_right = 249.0
-offset_bottom = 119.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.25, 0.25)
-pivot_offset = Vector2(-41, -48)
-theme_override_constants/margin_bottom = 29
-
-[node name="Outline" type="Sprite2D" parent="LocationAreas/TempleArea/Label"]
-visible = false
-position = Vector2(123, 144)
-scale = Vector2(6, 6)
-texture = ExtResource("4_57nnu")
-
-[node name="PanelContainer" type="PanelContainer" parent="LocationAreas/TempleArea/Label"]
-layout_mode = 2
-theme = ExtResource("3_q623s")
-
-[node name="Label" type="Label" parent="LocationAreas/TempleArea/Label/PanelContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "The Temple"
-horizontal_alignment = 1
-
-[node name="CityArea" type="Area2D" parent="LocationAreas"]
-position = Vector2(311, 647)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LocationAreas/CityArea"]
-shape = SubResource("CircleShape2D_6785m")
-
-[node name="Label" type="MarginContainer" parent="LocationAreas/CityArea"]
-visible = false
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_right = 285.0
-offset_bottom = 119.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.25, 0.25)
-pivot_offset = Vector2(-47, -48)
-theme_override_constants/margin_bottom = 29
-
-[node name="Outline" type="Sprite2D" parent="LocationAreas/CityArea/Label"]
-visible = false
-position = Vector2(141, 144)
-scale = Vector2(6, 6)
-texture = ExtResource("4_57nnu")
-
-[node name="PanelContainer" type="PanelContainer" parent="LocationAreas/CityArea/Label"]
-layout_mode = 2
-theme = ExtResource("3_q623s")
-
-[node name="Label" type="Label" parent="LocationAreas/CityArea/Label/PanelContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "The City"
-horizontal_alignment = 1
+[node name="CityArea" parent="LocationAreas" instance=ExtResource("5_mb8pt")]
+position = Vector2(309, 645)
+location = ExtResource("8_c7b8g")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(1455, 854)
@@ -231,31 +67,3 @@ shape = SubResource("CapsuleShape2D_38jty")
 [node name="Camera" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
-
-[node name="LabelLayer" type="CanvasLayer" parent="."]
-
-[connection signal="body_entered" from="LocationAreas/ClearingArea" to="." method="_on_clearing_area_entered"]
-[connection signal="body_exited" from="LocationAreas/ClearingArea" to="." method="_on_clearing_area_exited"]
-[connection signal="input_event" from="LocationAreas/ClearingArea" to="." method="_on_clearing_area_click"]
-[connection signal="mouse_entered" from="LocationAreas/ClearingArea" to="." method="_on_clearing_area_mouse_entered"]
-[connection signal="mouse_exited" from="LocationAreas/ClearingArea" to="." method="_on_clearing_area_mouse_exited"]
-[connection signal="body_entered" from="LocationAreas/OutpostArea" to="." method="_on_outpost_area_entered"]
-[connection signal="body_exited" from="LocationAreas/OutpostArea" to="." method="_on_outpost_area_exited"]
-[connection signal="input_event" from="LocationAreas/OutpostArea" to="." method="_on_outpost_area_click"]
-[connection signal="mouse_entered" from="LocationAreas/OutpostArea" to="." method="_on_outpost_area_mouse_entered"]
-[connection signal="mouse_exited" from="LocationAreas/OutpostArea" to="." method="_on_outpost_area_mouse_exited"]
-[connection signal="body_entered" from="LocationAreas/LaboratoryArea" to="." method="_on_laboratory_area_entered"]
-[connection signal="body_exited" from="LocationAreas/LaboratoryArea" to="." method="_on_laboratory_area_exited"]
-[connection signal="input_event" from="LocationAreas/LaboratoryArea" to="." method="_on_laboratory_area_click"]
-[connection signal="mouse_entered" from="LocationAreas/LaboratoryArea" to="." method="_on_laboratory_area_mouse_entered"]
-[connection signal="mouse_exited" from="LocationAreas/LaboratoryArea" to="." method="_on_laboratory_area_mouse_exited"]
-[connection signal="body_entered" from="LocationAreas/TempleArea" to="." method="_on_temple_area_entered"]
-[connection signal="body_exited" from="LocationAreas/TempleArea" to="." method="_on_temple_area_exited"]
-[connection signal="input_event" from="LocationAreas/TempleArea" to="." method="_on_temple_area_click"]
-[connection signal="mouse_entered" from="LocationAreas/TempleArea" to="." method="_on_temple_area_mouse_entered"]
-[connection signal="mouse_exited" from="LocationAreas/TempleArea" to="." method="_on_temple_area_mouse_exited"]
-[connection signal="body_entered" from="LocationAreas/CityArea" to="." method="_on_city_area_entered"]
-[connection signal="body_exited" from="LocationAreas/CityArea" to="." method="_on_city_area_exited"]
-[connection signal="input_event" from="LocationAreas/CityArea" to="." method="_on_city_area_click"]
-[connection signal="mouse_entered" from="LocationAreas/CityArea" to="." method="_on_city_area_mouse_entered"]
-[connection signal="mouse_exited" from="LocationAreas/CityArea" to="." method="_on_city_area_mouse_exited"]

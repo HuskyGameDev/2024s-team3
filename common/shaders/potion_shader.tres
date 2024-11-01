@@ -5,7 +5,7 @@
 [resource]
 resource_local_to_scene = true
 shader = ExtResource("1_nop4w")
-shader_parameter/from = Color(0.490196, 0.0392157, 0.596078, 1)
+shader_parameter/from = Color(0.945098, 0.52549, 0.423529, 1)
 shader_parameter/to = Color(0.553569, 0, 0.1339, 1)
 shader_parameter/tolerance = 0.2
 shader_parameter/make_flat = false
