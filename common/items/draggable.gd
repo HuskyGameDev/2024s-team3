@@ -7,10 +7,9 @@ const packed_tooltip: PackedScene = preload("res://ui/tooltip/tooltip.tscn")
 var timer: Timer
 var tooltip: Node
 var collider: CollisionShape2D
-var default_collison_layer: int
+var default_collision_layer: int
 var holding_collision_layer: int
 var shelf_collision_layer: int = 20
-@onready var main = get_parent() # main scene
 
 func _ready():
 	timer = Timer.new()
@@ -31,8 +30,8 @@ func set_collider(collision_shape: CollisionShape2D):
 
 
 func set_default_collision_layer(layer: int):
-	self.default_collison_layer = layer
-	set_collision_layer_value(default_collison_layer, true)
+	self.default_collision_layer = layer
+	set_collision_layer_value(default_collision_layer, true)
 	set_collision_mask_value(1, true)
 	set_collision_mask_value(2, true)
 
@@ -63,12 +62,12 @@ func hold():
 	set_collision_layer_value(holding_collision_layer, true)
 	set_collision_mask_value(31, true)
 	set_collision_mask_value(32, true)
-	set_collision_layer_value(default_collison_layer, false)
+	set_collision_layer_value(default_collision_layer, false)
 	set_collision_mask_value(1, false)
 	set_collision_mask_value(2, false)
 	var tween = create_tween()
 	tween.tween_property(self, "rotation", 0, 0.1)
-	main.move_child(self, main.get_node("InventoryDrawer").get_index() + 1) # move object to index below the drawer
+	self.z_index = 10
 
 
 func drop():
@@ -76,13 +75,13 @@ func drop():
 	beingHeld = false
 	if not onShelf:
 		set_deferred("gravity_scale", 1)
-		set_collision_layer_value(default_collison_layer, true)
+		set_collision_layer_value(default_collision_layer, true)
 		set_collision_mask_value(1, true)
 		set_collision_mask_value(2, true)
 		set_collision_layer_value(holding_collision_layer, false)
 		set_collision_mask_value(31, false)
 		set_collision_mask_value(32, false)
-		main.move_child(self , main.get_node("InventoryDrawer").get_index() ) # move object to index above the drawer
+		self.z_index = 0
 
 func _integrate_forces(_state):
 	if beingHeld:
@@ -99,7 +98,10 @@ func set_on_shelf(val: bool):
 	onShelf = val
 	if onShelf:
 		set_collision_layer_value(shelf_collision_layer, true)
+		set_collision_layer_value(default_collision_layer, false)
 		set_collision_layer_value(holding_collision_layer, false)
+		set_collision_mask_value(1, false)
+		set_collision_mask_value(2, false)
 		set_collision_mask_value(31, false)
 		set_collision_mask_value(32, false)
 	else:

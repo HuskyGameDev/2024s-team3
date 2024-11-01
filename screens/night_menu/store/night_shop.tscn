@@ -1,117 +1,221 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2j3rg4f5xnau"]
+[gd_scene load_steps=13 format=3 uid="uid://d2j3rg4f5xnau"]
 
-[ext_resource type="Theme" uid="uid://c4l3g5vcxwkhn" path="res://screens/night_menu/night_menu_theme.tres" id="1_x1iki"]
+[ext_resource type="PackedScene" uid="uid://beqshfus1kkk7" path="res://screens/night_menu/store/shopkeeper/shopkeeper.tscn" id="2_ra0ww"]
 [ext_resource type="Script" path="res://screens/night_menu/store/night_shop.gd" id="2_xiblk"]
-[ext_resource type="Texture2D" uid="uid://b7a4u0nuntxrg" path="res://screens/main/customers/generic_sprites/customer1.png" id="3_3wx6x"]
+[ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="4_3akkn"]
+[ext_resource type="PackedScene" uid="uid://clypnxql0jkdx" path="res://screens/night_menu/store/ingredient_display/ingredient_display.tscn" id="4_47emv"]
+[ext_resource type="Texture2D" uid="uid://dkhqpfitnde45" path="res://screens/night_menu/store/counter.png" id="5_67t3k"]
+[ext_resource type="Texture2D" uid="uid://bpjb84u8xfjkw" path="res://screens/night_menu/store/shelf.png" id="6_fachu"]
+[ext_resource type="PackedScene" uid="uid://dq807i88ymk0c" path="res://screens/night_menu/store/station_display/station_display.tscn" id="7_u5ofj"]
+[ext_resource type="PackedScene" uid="uid://hqh6cclivhet" path="res://screens/night_menu/store/map_display/map_display.tscn" id="8_17nol"]
 
-[node name="NightShop" type="Control"]
-layout_mode = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hof1g"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82e5e"]
+size = Vector2(688, 317)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_nx75c"]
+a = Vector2(347, 157)
+b = Vector2(-343, 159)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_f1ved"]
+a = Vector2(-343, -158)
+b = Vector2(-343, 159)
+
+[node name="NightShop" type="Node2D"]
+script = ExtResource("2_xiblk")
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="Panel" parent="BackgroundLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 20.0
-offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_x1iki")
-script = ExtResource("2_xiblk")
+theme_override_styles/panel = SubResource("StyleBoxFlat_hof1g")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(700, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -350.0
-offset_top = -432.742
-offset_right = 350.0
-offset_bottom = 432.742
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_3wx6x")
-expand_mode = 5
-stretch_mode = 6
+[node name="UiLayer" type="CanvasLayer" parent="."]
 
-[node name="Panel" type="Panel" parent="."]
-custom_minimum_size = Vector2(0, 398)
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -10.0
-offset_right = 10.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="ShopNameLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -364.0
-offset_right = 364.0
-offset_bottom = 88.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 64
-text = "Ingredients Shop Name"
-
-[node name="TotalInfoVBox" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -141.5
-offset_top = -188.0
-offset_right = 141.5
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 20
-
-[node name="TotalCostLabel" type="Label" parent="TotalInfoVBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Total $0"
-horizontal_alignment = 1
-
-[node name="BuyButton" type="Button" parent="TotalInfoVBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Buy"
-
-[node name="ExitButton" type="Button" parent="TotalInfoVBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Exit Store"
-
-[node name="OfferingsHBox" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 50.0
-offset_right = -50.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="MoneyLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
+[node name="PlayerMoneyPanelContainer" type="PanelContainer" parent="UiLayer"]
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_right = -50.0
+offset_top = 24.0
+offset_right = -24.0
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 64
-text = "$100"
-horizontal_alignment = 2
+theme = ExtResource("4_3akkn")
 
-[connection signal="pressed" from="TotalInfoVBox/BuyButton" to="." method="_on_buy_button_pressed"]
-[connection signal="pressed" from="TotalInfoVBox/ExitButton" to="." method="_on_exit_button_pressed"]
+[node name="PlayerMoneyMarginContainer" type="MarginContainer" parent="UiLayer/PlayerMoneyPanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="PlayerMoneyLabel" type="Label" parent="UiLayer/PlayerMoneyPanelContainer/PlayerMoneyMarginContainer"]
+layout_mode = 2
+text = "$60"
+
+[node name="TotalCostPanelContainer" type="PanelContainer" parent="UiLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("4_3akkn")
+
+[node name="TotalCostMarginContainer" type="MarginContainer" parent="UiLayer/TotalCostPanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="TotalCostLabel" type="Label" parent="UiLayer/TotalCostPanelContainer/TotalCostMarginContainer"]
+layout_mode = 2
+text = "Total Cost: $0"
+
+[node name="ExitButton" type="Button" parent="UiLayer"]
+offset_left = 8.0
+offset_top = 8.0
+text = "Exit Store"
+
+[node name="BuyButton" type="Button" parent="UiLayer"]
+offset_left = 1756.0
+offset_top = 713.0
+offset_right = 1905.0
+offset_bottom = 744.0
+text = "Buy Cart Contents"
+
+[node name="Counter" type="Sprite2D" parent="."]
+position = Vector2(1542.47, 848.809)
+scale = Vector2(8.19866, 7.00546)
+texture = ExtResource("5_67t3k")
+
+[node name="Shelf" type="Sprite2D" parent="."]
+position = Vector2(446.686, 383)
+scale = Vector2(7.43988, 7.20052)
+texture = ExtResource("6_fachu")
+
+[node name="Shelf2" type="Sprite2D" parent="."]
+position = Vector2(446, 190)
+scale = Vector2(5.62264, 7.20052)
+texture = ExtResource("6_fachu")
+
+[node name="Shelf3" type="Sprite2D" parent="."]
+position = Vector2(442, 586)
+scale = Vector2(5.62264, 7.20052)
+texture = ExtResource("6_fachu")
+
+[node name="Shelf4" type="Sprite2D" parent="."]
+position = Vector2(454, 880)
+scale = Vector2(7.43988, 7.20052)
+texture = ExtResource("6_fachu")
+
+[node name="Shopkeeper" parent="." instance=ExtResource("2_ra0ww")]
+position = Vector2(1559, 361)
+scale = Vector2(8, 8)
+
+[node name="LocationShelf" type="Node2D" parent="."]
+position = Vector2(447, 384)
+
+[node name="IngredientDisplay1" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(-200, -192)
+
+[node name="IngredientDisplay2" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(0, -192)
+
+[node name="IngredientDisplay3" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(200, -192)
+
+[node name="IngredientDisplay4" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(-296, 0)
+
+[node name="IngredientDisplay5" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(-96, 0)
+
+[node name="IngredientDisplay6" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(104, 0)
+
+[node name="IngredientDisplay7" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(304, 0)
+
+[node name="IngredientDisplay8" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(-200, 200)
+
+[node name="IngredientDisplay9" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(0, 200)
+
+[node name="IngredientDisplay10" parent="LocationShelf" instance=ExtResource("4_47emv")]
+position = Vector2(200, 200)
+
+[node name="ExoticShelf" type="Node2D" parent="."]
+position = Vector2(455, 878)
+
+[node name="IngredientDisplay1" parent="ExoticShelf" instance=ExtResource("4_47emv")]
+position = Vector2(-304, 2)
+
+[node name="IngredientDisplay2" parent="ExoticShelf" instance=ExtResource("4_47emv")]
+position = Vector2(-104, 2)
+
+[node name="IngredientDisplay3" parent="ExoticShelf" instance=ExtResource("4_47emv")]
+position = Vector2(96, 2)
+
+[node name="IngredientDisplay4" parent="ExoticShelf" instance=ExtResource("4_47emv")]
+position = Vector2(296, 2)
+
+[node name="Basket" type="Node2D" parent="."]
+position = Vector2(1573, 917)
+
+[node name="PurchaseArea" type="Area2D" parent="Basket"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Basket/PurchaseArea"]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_82e5e")
+
+[node name="WallCollider" type="StaticBody2D" parent="Basket"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Basket/WallCollider"]
+shape = SubResource("SegmentShape2D_nx75c")
+debug_color = Color(0.544544, 0.00127623, 0.706111, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Basket/WallCollider"]
+shape = SubResource("SegmentShape2D_f1ved")
+debug_color = Color(0.544544, 0.00127623, 0.706111, 0.42)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Basket/WallCollider"]
+position = Vector2(690, 0)
+shape = SubResource("SegmentShape2D_f1ved")
+debug_color = Color(0.544544, 0.00127623, 0.706111, 0.42)
+
+[node name="StationDisplay" parent="." instance=ExtResource("7_u5ofj")]
+position = Vector2(1199, 628)
+
+[node name="MapDisplay" parent="." instance=ExtResource("8_17nol")]
+visible = false
+position = Vector2(1204, 620)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.823529, 0.823529, 0.823529, 1)
+
+[connection signal="pressed" from="UiLayer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="UiLayer/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay1" to="." method="_on_ingredient_dropped"]
+[connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay2" to="." method="_on_ingredient_dropped"]
+[connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay3" to="." method="_on_ingredient_dropped"]
+[connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay4" to="." method="_on_ingredient_dropped"]
+[connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay5" to="." method="_on_ingredient_dropped"]
+[connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay6" to="." method="_on_ingredient_dropped"]
+[connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay7" to="." method="_on_ingredient_dropped"]
+[connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay8" to="." method="_on_ingredient_dropped"]
+[connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay9" to="." method="_on_ingredient_dropped"]
+[connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay10" to="." method="_on_ingredient_dropped"]
+[connection signal="ingredient_dropped" from="ExoticShelf/IngredientDisplay1" to="." method="_on_ingredient_dropped"]
+[connection signal="ingredient_dropped" from="ExoticShelf/IngredientDisplay2" to="." method="_on_ingredient_dropped"]
+[connection signal="ingredient_dropped" from="ExoticShelf/IngredientDisplay3" to="." method="_on_ingredient_dropped"]
+[connection signal="ingredient_dropped" from="ExoticShelf/IngredientDisplay4" to="." method="_on_ingredient_dropped"]
+[connection signal="body_entered" from="Basket/PurchaseArea" to="." method="_on_body_entered_basket"]
+[connection signal="body_exited" from="Basket/PurchaseArea" to="." method="_on_body_exited_basket"]

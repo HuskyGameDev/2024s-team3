@@ -22,6 +22,32 @@ var shouldCenter: bool = true # set to true if there are no movement animations 
 signal items_changed(nodeArr: Array[DraggableObject], newItem: Item)
 
 
+## Spawn held nodes (ONLY CALL THIS ONCE)
+func spawn_held_nodes(held_node_parent):
+	# Disable slot while adding
+	isDisabled = true
+	for node in heldNodes:
+		node.input_pickable = false
+		
+		# Add node as child
+		node.global_position = self.global_position
+		node.rotation = 0;
+		node.lock_rotation = true
+		node.gravity_scale = 0
+		if held_node_parent:
+			held_node_parent.add_child(node)
+		else:
+			self.add_child(node)
+		# Set node properties so it's controlled by the shelf slot
+		node.set_on_shelf(true)
+		
+		await get_tree().physics_frame
+	# Make it so only the top node can be picked up
+	if heldNodes.size() > 0: heldNodes[-1].input_pickable = true
+	await get_tree().physics_frame
+	isDisabled = false
+
+
 ## Center all held nodes
 func force_center_nodes():
 	for node in heldNodes:
@@ -32,6 +58,7 @@ func force_center_nodes():
 func _on_slot_hover_entered(body):
 	if isDisabled: return
 	if not body is DraggableObject: return
+	if not body.beingHeld: return
 	dragging = body
 	if body in heldNodes:
 		drop_node(body)

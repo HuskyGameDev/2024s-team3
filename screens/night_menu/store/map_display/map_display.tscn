@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://hqh6cclivhet"]
+
+[ext_resource type="Script" path="res://screens/night_menu/store/map_display/map_display.gd" id="1_5pxvq"]
+[ext_resource type="Texture2D" uid="uid://625x5bmp1l48" path="res://screens/night_menu/store/map_display/map.png" id="2_88m40"]
+[ext_resource type="Material" uid="uid://bvnj6sjxlk4q3" path="res://common/shaders/potion_shader.tres" id="2_r1ono"]
+[ext_resource type="PackedScene" uid="uid://dhtrb1iajby6s" path="res://screens/night_menu/store/store_tag/store_tag.tscn" id="3_7nlfs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m4ynx"]
+radius = 11.118
+height = 40.6468
+
+[node name="MapDisplay" type="Area2D"]
+script = ExtResource("1_5pxvq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 8)
+rotation = 0.418879
+scale = Vector2(6, 6)
+shape = SubResource("CapsuleShape2D_m4ynx")
+
+[node name="MapSprite" type="Sprite2D" parent="."]
+material = ExtResource("2_r1ono")
+scale = Vector2(9, 9)
+texture = ExtResource("2_88m40")
+
+[node name="StoreTag" parent="." instance=ExtResource("3_7nlfs")]
+position = Vector2(-19, -24)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered_map"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited_map"]
+[connection signal="buy_button_pressed" from="StoreTag" to="." method="_on_buy_button_pressed"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dq807i88ymk0c"]
+
+[ext_resource type="Texture2D" uid="uid://lg5bctf1c0wr" path="res://screens/main/stations/mortar_and_pestle/mortarpestle.png" id="1_mufgh"]
+[ext_resource type="Script" path="res://screens/night_menu/store/station_display/station_display.gd" id="1_ud1x2"]
+[ext_resource type="PackedScene" uid="uid://dhtrb1iajby6s" path="res://screens/night_menu/store/store_tag/store_tag.tscn" id="3_hbrfj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m4ynx"]
+radius = 15.0
+height = 30.3333
+
+[node name="StationDisplay" type="Area2D"]
+script = ExtResource("1_ud1x2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, 6)
+scale = Vector2(6, 6)
+shape = SubResource("CapsuleShape2D_m4ynx")
+
+[node name="StationSprite" type="Sprite2D" parent="."]
+scale = Vector2(6, 6)
+texture = ExtResource("1_mufgh")
+
+[node name="StoreTag" parent="." instance=ExtResource("3_hbrfj")]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered_station"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited_station"]
+[connection signal="buy_button_pressed" from="StoreTag" to="." method="_on_buy_button_pressed"]

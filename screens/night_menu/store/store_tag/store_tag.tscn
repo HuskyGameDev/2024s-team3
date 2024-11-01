@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhtrb1iajby6s"]
+
+[ext_resource type="Texture2D" uid="uid://duv1jlhhxyvwl" path="res://screens/night_menu/store/tag.png" id="1_dvk40"]
+[ext_resource type="Script" path="res://screens/night_menu/store/store_tag/store_tag.gd" id="1_jot71"]
+[ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="2_m4g01"]
+[ext_resource type="FontFile" uid="uid://b7v1xeoebsq10" path="res://ui/fonts/user_interface.ttf" id="3_yh1wc"]
+[ext_resource type="Texture2D" uid="uid://cqfuc60o14g31" path="res://screens/night_menu/store/tag_connector.png" id="4_bv32t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyoo1"]
+bg_color = Color(0.909918, 0.873531, 0.759753, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.871317, 0.815645, 0.658157, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dereq"]
+bg_color = Color(0.852243, 0.79984, 0.637058, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.801378, 0.733966, 0.543161, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n081o"]
+bg_color = Color(0.933333, 0.905882, 0.819608, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.898039, 0.85098, 0.717647, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="StoreTag" type="Node2D"]
+script = ExtResource("1_jot71")
+
+[node name="Tag" type="Node2D" parent="."]
+position = Vector2(7, 9)
+
+[node name="PriceSprite" type="Sprite2D" parent="Tag"]
+position = Vector2(56, 74)
+scale = Vector2(6, 6)
+texture = ExtResource("1_dvk40")
+
+[node name="PriceLabel" type="Label" parent="Tag"]
+offset_left = 37.0
+offset_top = 71.0
+offset_right = 77.0
+offset_bottom = 116.0
+rotation = -0.366519
+theme = ExtResource("2_m4g01")
+text = "$"
+horizontal_alignment = 1
+
+[node name="BuyButton" type="Button" parent="."]
+visible = false
+offset_left = 38.0
+offset_top = 29.0
+offset_right = 396.0
+offset_bottom = 125.0
+scale = Vector2(0.75, 0.75)
+theme_override_colors/font_hover_color = Color(0.184314, 0.0588235, 0.00784314, 1)
+theme_override_colors/font_pressed_color = Color(0.184314, 0.0588235, 0.00392157, 1)
+theme_override_colors/font_color = Color(0.184314, 0.0588235, 0.00392157, 1)
+theme_override_fonts/font = ExtResource("3_yh1wc")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/hover = SubResource("StyleBoxFlat_hyoo1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dereq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n081o")
+text = "Buy for $10"
+
+[node name="TagConnector" type="Sprite2D" parent="."]
+position = Vector2(63, 83)
+scale = Vector2(6, 6)
+texture = ExtResource("4_bv32t")
+
+[connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]

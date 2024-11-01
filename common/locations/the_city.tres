@@ -1,22 +1,102 @@
-[gd_resource type="Resource" script_class="Location" load_steps=15 format=3 uid="uid://dkoxk45u8im10"]
+[gd_resource type="Resource" script_class="Location" load_steps=35 format=3 uid="uid://dkoxk45u8im10"]
 
+[ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_1fg61"]
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="1_ousk0"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_x5l1b"]
+[ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_ac6cw"]
 [ext_resource type="Resource" uid="uid://dqd0cueiemg6r" path="res://common/items/ingredients/bugbear_hide/bugbear_hide.tres" id="2_u2st8"]
 [ext_resource type="Resource" uid="uid://d4eichwutpltw" path="res://common/items/ingredients/dragon_claw/dragon_claw.tres" id="3_uyrt5"]
+[ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_vjspn"]
 [ext_resource type="Resource" uid="uid://bb8ua2k5f5sek" path="res://common/items/ingredients/erdtree_branch/erdtree_branch.tres" id="4_4cplg"]
+[ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_wao7g"]
 [ext_resource type="Resource" uid="uid://doc5iq8ee54hj" path="res://common/items/ingredients/fairy_bell/fairy_bell.tres" id="5_lhpaj"]
+[ext_resource type="Resource" uid="uid://2bq51ncoy4qu" path="res://common/items/effects/healing_poison.tres" id="5_mwdxt"]
 [ext_resource type="Resource" uid="uid://bd41rgq23tqx1" path="res://common/items/ingredients/fire_flower/fire_flower.tres" id="6_eleiv"]
+[ext_resource type="Resource" uid="uid://b0efkhflivhlj" path="res://common/items/effects/light_dark.tres" id="6_wwqlp"]
 [ext_resource type="Resource" uid="uid://yv4whseiv7x6" path="res://common/items/ingredients/harpy_feather/harpy_feather.tres" id="7_0uhn7"]
+[ext_resource type="Resource" uid="uid://diti6ufqgwhph" path="res://common/items/effects/luck_misfortune.tres" id="7_hnr7l"]
 [ext_resource type="Resource" uid="uid://cptgyottk2ehb" path="res://common/items/ingredients/lotus_petals/lotus_petals.tres" id="8_4o8k2"]
+[ext_resource type="Resource" uid="uid://b3sw5wyytvesi" path="res://common/items/effects/strength_weakness.tres" id="8_veawg"]
+[ext_resource type="Resource" uid="uid://dxvuf8wqsbidk" path="res://common/items/effects/swiftness_slowness.tres" id="9_kj3l6"]
 [ext_resource type="Resource" uid="uid://bjrnydpnopi56" path="res://common/items/ingredients/phoenix_ash/phoenix_ash.tres" id="9_thfjd"]
 [ext_resource type="Resource" uid="uid://bac5icanpx1sn" path="res://common/items/ingredients/pipe_weed/pipe_weed.tres" id="10_ixfhk"]
+[ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_qfkwt"]
+[ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_bsqyk"]
 [ext_resource type="Resource" uid="uid://cym7kysrjtobi" path="res://common/items/ingredients/unicorn_horn/unicorn_horn.tres" id="11_x0d71"]
 [ext_resource type="Resource" uid="uid://clgaxse5n6uus" path="res://common/items/ingredients/werewolf_tooth/werewolf_tooth.tres" id="12_d8c3u"]
+[ext_resource type="Script" path="res://screens/main/customers/customer_order_type.gd" id="12_vbf56"]
 [ext_resource type="Resource" uid="uid://ca0hkro25d6f2" path="res://common/items/ingredients/yeti_fur/yeti_fur.tres" id="13_ns7gk"]
+[ext_resource type="Script" path="res://common/locations/loot_table_type.gd" id="13_xntj8"]
+[ext_resource type="Texture2D" uid="uid://lg5bctf1c0wr" path="res://screens/main/stations/mortar_and_pestle/mortarpestle.png" id="28_eqcwx"]
+
+[sub_resource type="Resource" id="Resource_u6t24"]
+script = ExtResource("11_bsqyk")
+effects = {
+ExtResource("1_1fg61"): 50,
+ExtResource("2_ac6cw"): 50,
+ExtResource("3_vjspn"): 50,
+ExtResource("4_wao7g"): 50,
+ExtResource("5_mwdxt"): 50,
+ExtResource("6_wwqlp"): 50,
+ExtResource("7_hnr7l"): 50,
+ExtResource("8_veawg"): 50,
+ExtResource("9_kj3l6"): 50,
+ExtResource("10_qfkwt"): 50
+}
+
+[sub_resource type="Resource" id="Resource_0j8ru"]
+script = ExtResource("11_bsqyk")
+effects = {
+ExtResource("1_1fg61"): -50,
+ExtResource("2_ac6cw"): 5,
+ExtResource("3_vjspn"): -50,
+ExtResource("4_wao7g"): -50,
+ExtResource("5_mwdxt"): -50,
+ExtResource("6_wwqlp"): -50,
+ExtResource("7_hnr7l"): -50,
+ExtResource("8_veawg"): -50,
+ExtResource("9_kj3l6"): -50,
+ExtResource("10_qfkwt"): -50
+}
+
+[sub_resource type="Resource" id="Resource_n5kgw"]
+script = ExtResource("12_vbf56")
+minEffects = SubResource("Resource_0j8ru")
+maxEffects = SubResource("Resource_u6t24")
+dialogueOptions = PackedStringArray("I\'m so confused", "Please make me less confused", "My head is fuzzy")
+
+[sub_resource type="Resource" id="Resource_gfdcn"]
+script = ExtResource("13_xntj8")
+common = [SubResource("Resource_n5kgw")]
+uncommon = []
+rare = []
+legendary = []
+
+[sub_resource type="Resource" id="Resource_tkwn7"]
+script = ExtResource("13_xntj8")
+common = []
+uncommon = []
+rare = []
+legendary = []
+
+[sub_resource type="Resource" id="Resource_sna8l"]
+script = ExtResource("13_xntj8")
+common = []
+uncommon = []
+rare = []
+legendary = []
 
 [resource]
 script = ExtResource("1_ousk0")
 id = "the_city"
 name = "The City"
 ingredients = Array[ExtResource("1_x5l1b")]([ExtResource("2_u2st8"), ExtResource("3_uyrt5"), ExtResource("4_4cplg"), ExtResource("5_lhpaj"), ExtResource("6_eleiv"), ExtResource("7_0uhn7"), ExtResource("8_4o8k2"), ExtResource("9_thfjd"), ExtResource("10_ixfhk"), ExtResource("11_x0d71"), ExtResource("12_d8c3u"), ExtResource("13_ns7gk")])
+unlockable_station_id = "mortar_and_pestle"
+unlockable_station_sprite = ExtResource("28_eqcwx")
+unlockable_station_price = null
+map_weight = 1
+map_cost = 100
+map_color = Color(0.643137, 0.203922, 0.690196, 1)
+forage_table = SubResource("Resource_tkwn7")
+ingredients_shop_table = SubResource("Resource_sna8l")
+customer_request_table = SubResource("Resource_gfdcn")

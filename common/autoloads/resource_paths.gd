@@ -97,6 +97,12 @@ func get_all_ingredient_paths() -> Array:
 	return ingredient_file_paths.values()
 
 
+func get_all_location_ids():
+	return get_all_location_paths().map(func(path): 
+		return path.trim_prefix("res://common/locations/").trim_suffix(".tres")
+	)
+
+
 ## for example: nightshade_petals returns chopped_nightshade_petals, crushed_nightshade_petals
 func get_all_ingredient_variant_paths(id: String) -> Array:
 	var ingredient_path = get_ingredient_path(id)
@@ -117,6 +123,7 @@ func get_all_non_variant_ingredient_paths() -> Array:
 func get_random_customer_sprite() -> Texture2D:
 	randomize()
 	return customer_sprites[randi() % customer_sprites.size()]
+
 
 func get_random_potion_sprite() -> Texture2D:
 	randomize()

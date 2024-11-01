@@ -19,7 +19,11 @@ func _physics_process(_delta):
 
 ## HANDLE SCENE CHANGE
 func move_to_location(location_id:String):
-	PlayerData.location = ResourceLoader.load(ResourcePaths.get_location_path(location_id))
+	var new_location = ResourceLoader.load(ResourcePaths.get_location_path(location_id))
+	PlayerData.location = new_location
+	if not PlayerData.visited_locations.map(func(location): return location.id).has(location_id):
+		PlayerData.visited_locations.append(new_location)
+		PlayerData.save_game_files()
 	get_tree().change_scene_to_file("res://screens/main/packed_main.tscn")
 
 
