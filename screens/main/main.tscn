@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=22 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://screens/main/main.gd" id="1_0ufrw"]
 [ext_resource type="Script" path="res://screens/main/customers/customer_factory.gd" id="2_dnvch"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bcdky2t6vai4k" path="res://screens/main/stations/mortar_and_pestle/mortar_and_pestle.tscn" id="15_jly0p"]
 [ext_resource type="Texture2D" uid="uid://chro3f0yplc64" path="res://screens/main/bell/bell_tong.png" id="15_l61pq"]
 [ext_resource type="Texture2D" uid="uid://ba2vk6f8njy7t" path="res://screens/main/ui/ingredient_book/Ingredient Book Button.png" id="16_0uga0"]
+[ext_resource type="PackedScene" uid="uid://conja6bdcr3m3" path="res://common/items/water/water.tscn" id="16_p5ujx"]
 [ext_resource type="FontFile" uid="uid://dy8mlyjp48kpw" path="res://screens/main/ui/ingredient_book/m5x7.ttf" id="17_hcv40"]
 [ext_resource type="PackedScene" uid="uid://b6cq5upjosmpf" path="res://screens/main/ui/clock/new_clock.tscn" id="17_n5klg"]
 
@@ -175,6 +176,10 @@ grow_vertical = 1
 offset_left = -3.0
 offset_right = 48.0
 offset_bottom = 39.0
+
+[node name="Water" parent="." instance=ExtResource("16_p5ujx")]
+position = Vector2(245, 631)
+disable_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(360, 330)
