@@ -21,3 +21,7 @@ name = "The Outpost"
 ingredients = Array[ExtResource("1_nkog8")]([ExtResource("2_7qpb7"), ExtResource("3_n822r"), ExtResource("4_et7gp"), ExtResource("5_blq6k"), ExtResource("6_xhmte"), ExtResource("7_h3rxc"), ExtResource("8_6fior"), ExtResource("9_s7n2s"), ExtResource("10_xt14d"), ExtResource("11_labmy")])
 unlockable_station_id = "cutting_board"
 unlockable_station_sprite = ExtResource("13_trfx2")
+unlockable_station_price = null
+map_weight = 4
+map_cost = 100
+map_color = Color(0.537715, 0.114309, 0.0873477, 1)

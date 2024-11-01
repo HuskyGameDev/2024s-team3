@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2j3rg4f5xnau"]
+[gd_scene load_steps=13 format=3 uid="uid://d2j3rg4f5xnau"]
 
 [ext_resource type="PackedScene" uid="uid://beqshfus1kkk7" path="res://screens/night_menu/store/shopkeeper/shopkeeper.tscn" id="2_ra0ww"]
 [ext_resource type="Script" path="res://screens/night_menu/store/night_shop.gd" id="2_xiblk"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://dkhqpfitnde45" path="res://screens/night_menu/store/counter.png" id="5_67t3k"]
 [ext_resource type="Texture2D" uid="uid://bpjb84u8xfjkw" path="res://screens/night_menu/store/shelf.png" id="6_fachu"]
 [ext_resource type="PackedScene" uid="uid://dq807i88ymk0c" path="res://screens/night_menu/store/station_display/station_display.tscn" id="7_u5ofj"]
+[ext_resource type="PackedScene" uid="uid://hqh6cclivhet" path="res://screens/night_menu/store/map_display/map_display.tscn" id="8_17nol"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hof1g"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82e5e"]
 size = Vector2(688, 317)
@@ -21,6 +25,17 @@ b = Vector2(-343, 159)
 
 [node name="NightShop" type="Node2D"]
 script = ExtResource("2_xiblk")
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="Panel" parent="BackgroundLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hof1g")
 
 [node name="UiLayer" type="CanvasLayer" parent="."]
 
@@ -178,6 +193,13 @@ debug_color = Color(0.544544, 0.00127623, 0.706111, 0.42)
 
 [node name="StationDisplay" parent="." instance=ExtResource("7_u5ofj")]
 position = Vector2(1199, 628)
+
+[node name="MapDisplay" parent="." instance=ExtResource("8_17nol")]
+visible = false
+position = Vector2(1204, 620)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.823529, 0.823529, 0.823529, 1)
 
 [connection signal="pressed" from="UiLayer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="UiLayer/BuyButton" to="." method="_on_buy_button_pressed"]

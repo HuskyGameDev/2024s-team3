@@ -13,6 +13,11 @@ class_name Location
 @export var unlockable_station_sprite: Texture2D
 @export var unlockable_station_price: int = 50
 
+@export_group("Map Information")
+@export var map_weight: int = 1 # probability of the map being available (1 means it will have 1 entry in the random array)
+@export var map_cost: int = 100
+@export var map_color: Color
+
 @export_group("Probability Tables")
 @export var forage_table: LootTable
 @export var ingredients_shop_table: LootTable

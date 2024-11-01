@@ -33,14 +33,29 @@ func _ready():
 	
 	## Add station option for current location
 	if PlayerData.location.unlockable_station_id != "" and not PlayerData.unlocked_stations.has(PlayerData.location.unlockable_station_id):
+		$StationDisplay.visible = true
+		$MapDisplay.visible = false
+		
 		$StationDisplay.station_id = PlayerData.location.unlockable_station_id
 		$StationDisplay.station_price = PlayerData.location.unlockable_station_price
 		if PlayerData.location.unlockable_station_sprite: $StationDisplay.station_sprite = PlayerData.location.unlockable_station_sprite
 	else: 
+		## Add map options for the current location 
+		## (only shows if the station has already been bought)
 		$StationDisplay.visible = false
-	
-	## Add map options for the current location
-	#TODO add maps to the store
+		$MapDisplay.visible = true
+		
+		var available_location_ids = ResourcePaths.get_all_location_ids().filter(func(id): return not PlayerData.unlocked_locations.has(id))
+		var available_locations = available_location_ids.map(func(id): return ResourceLoader.load(ResourcePaths.get_location_path(id)))
+		# weighted map to choose a location
+		var chosen_location = available_locations.reduce(func(accum, location): 
+			for i in range(0, location.map_weight):
+				accum.append(location)
+			return accum
+		, []).pick_random()
+		$MapDisplay.location_id = chosen_location.id
+		$MapDisplay.map_price = chosen_location.map_cost
+		if chosen_location.map_color: $MapDisplay.map_color = chosen_location.map_color
 
 
 func calculate_ingredient_price(ingredient:Ingredient):
