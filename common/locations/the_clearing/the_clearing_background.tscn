@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://bw28earyu2hwu"]
+
+[ext_resource type="Texture2D" uid="uid://cexq725xgeerx" path="res://common/locations/the_clearing/1.png" id="1_cdgmk"]
+[ext_resource type="Texture2D" uid="uid://3y3aeh7icwmm" path="res://common/locations/the_clearing/2.png" id="2_d78cm"]
+[ext_resource type="Texture2D" uid="uid://cnmydv6laxx17" path="res://common/locations/the_clearing/3.png" id="3_7ogr4"]
+[ext_resource type="Texture2D" uid="uid://cvkafot4b8j34" path="res://common/locations/the_clearing/4.png" id="4_4bfsy"]
+[ext_resource type="Texture2D" uid="uid://vt4tjen2shma" path="res://common/locations/the_clearing/5.png" id="5_jnj6f"]
+[ext_resource type="Texture2D" uid="uid://d0e1bsk5ujfqr" path="res://common/locations/the_clearing/6.png" id="6_ujetl"]
+
+[node name="Background" type="Node2D"]
+
+[node name="Sprite2D1" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("1_cdgmk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("2_d78cm")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+texture = ExtResource("3_7ogr4")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+texture = ExtResource("4_4bfsy")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+texture = ExtResource("5_jnj6f")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+texture = ExtResource("6_ujetl")

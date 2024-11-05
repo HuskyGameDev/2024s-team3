@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1d2clndfqfcx"
-path="res://.godot/imported/fresh_moss.png-f50d2e6a4c96f287a52413cc8f1142a9.ctex"
+uid="uid://btf3egjrpjyva"
+path="res://.godot/imported/5.png-1985c91cf9dbc1f753452c6f5176f94b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/items/ingredients/fresh_moss/fresh_moss.png"
-dest_files=["res://.godot/imported/fresh_moss.png-f50d2e6a4c96f287a52413cc8f1142a9.ctex"]
+source_file="res://common/locations/the_temple/5.png"
+dest_files=["res://.godot/imported/5.png-1985c91cf9dbc1f753452c6f5176f94b.ctex"]
 
 [params]
 

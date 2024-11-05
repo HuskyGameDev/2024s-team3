@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmwfb5dcqfdtx"]
+
+[ext_resource type="Script" path="res://common/locations/location_background_switcher.gd" id="1_7iv28"]
+
+[node name="LocationBackgroundSwitcher" type="CanvasLayer"]
+layer = -1
+script = ExtResource("1_7iv28")

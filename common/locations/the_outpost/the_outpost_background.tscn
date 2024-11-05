@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0svbhctsvmn4"]
+
+[ext_resource type="Texture2D" uid="uid://cuhkj1qsj3p5d" path="res://common/locations/the_outpost/1.png" id="1_yg00k"]
+[ext_resource type="Texture2D" uid="uid://2e8qdmm2bayp" path="res://common/locations/the_outpost/2.png" id="2_1e3sq"]
+[ext_resource type="Texture2D" uid="uid://ltitultb0sdx" path="res://common/locations/the_outpost/3.png" id="3_glr37"]
+
+[sub_resource type="Animation" id="Animation_leenf"]
+resource_name = "clouds"
+length = 120.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 120),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(584, 0), Vector2(-592, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3pucj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(584, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7rs41"]
+_data = {
+"RESET": SubResource("Animation_3pucj"),
+"clouds": SubResource("Animation_leenf")
+}
+
+[node name="Background" type="Node2D"]
+
+[node name="Sprite2D0" type="Sprite2D" parent="."]
+position = Vector2(-1, -89)
+scale = Vector2(58.2, 15.2)
+texture = ExtResource("1_yg00k")
+region_enabled = true
+region_rect = Rect2(0, 0, 10, 10)
+
+[node name="Sprite2D1" type="Sprite2D" parent="."]
+position = Vector2(584, 0)
+texture = ExtResource("1_yg00k")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("2_1e3sq")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+texture = ExtResource("3_glr37")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7rs41")
+}
+autoplay = "clouds"

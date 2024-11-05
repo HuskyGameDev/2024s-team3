@@ -10,6 +10,8 @@ func _ready():
 	GameTime.start_day()
 	GameTime.end_of_day.connect(func(): get_tree().change_scene_to_file("res://screens/night_menu/menu/night_menu.tscn"));
 	
+	$LocationBackgroundSwitcher.update_background()
+	
 	PedestalSlot.connect("items_changed", _on_selling_potion_change)
 	
 	$MortarAndPestle.visible = PlayerData.unlocked_stations.has("mortar_and_pestle")

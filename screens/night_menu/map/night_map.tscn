@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://screens/night_menu/map/night_map.gd" id="1_bs0qr"]
 [ext_resource type="TileSet" uid="uid://c18kb63201vjq" path="res://screens/night_menu/map/map_tile_set.tres" id="2_rpq80"]
 [ext_resource type="Texture2D" uid="uid://cpiu2shqy8d6l" path="res://common/items/ingredients/ingredient_default.png" id="3_ypgw6"]
-[ext_resource type="Resource" uid="uid://bd6g3phtbeto" path="res://common/locations/the_clearing.tres" id="4_71ecl"]
-[ext_resource type="Resource" uid="uid://bp6uwquo1uiuu" path="res://common/locations/the_temple.tres" id="5_61cqb"]
+[ext_resource type="Resource" uid="uid://bd6g3phtbeto" path="res://common/locations/the_clearing/the_clearing.tres" id="4_71ecl"]
+[ext_resource type="Resource" uid="uid://bp6uwquo1uiuu" path="res://common/locations/the_temple/the_temple.tres" id="5_61cqb"]
 [ext_resource type="PackedScene" uid="uid://b5ci642b4ib88" path="res://screens/night_menu/map/location_label/location_label.tscn" id="5_mb8pt"]
-[ext_resource type="Resource" uid="uid://cjqb6k6smqc57" path="res://common/locations/the_outpost.tres" id="6_4fts6"]
-[ext_resource type="Resource" uid="uid://dng1gtysm0ixr" path="res://common/locations/the_laboratory.tres" id="7_fq6uk"]
-[ext_resource type="Resource" uid="uid://dkoxk45u8im10" path="res://common/locations/the_city.tres" id="8_c7b8g"]
+[ext_resource type="Resource" uid="uid://cjqb6k6smqc57" path="res://common/locations/the_outpost/the_outpost.tres" id="6_4fts6"]
+[ext_resource type="Resource" uid="uid://dng1gtysm0ixr" path="res://common/locations/the_laboratory/the_laboratory.tres" id="7_fq6uk"]
+[ext_resource type="Resource" uid="uid://dkoxk45u8im10" path="res://common/locations/the_city/the_city.tres" id="8_c7b8g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_38jty"]
 radius = 8.0

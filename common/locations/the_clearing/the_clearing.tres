@@ -1,0 +1,403 @@
+[gd_resource type="Resource" script_class="Location" load_steps=55 format=3 uid="uid://bd6g3phtbeto"]
+
+[ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_bbse6"]
+[ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_hjt0h"]
+[ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_i3vo7"]
+[ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_vdw67"]
+[ext_resource type="Resource" uid="uid://2bq51ncoy4qu" path="res://common/items/effects/healing_poison.tres" id="5_gkocv"]
+[ext_resource type="Resource" uid="uid://b0efkhflivhlj" path="res://common/items/effects/light_dark.tres" id="6_7ii4c"]
+[ext_resource type="Resource" uid="uid://diti6ufqgwhph" path="res://common/items/effects/luck_misfortune.tres" id="7_3x4c3"]
+[ext_resource type="Resource" uid="uid://b3sw5wyytvesi" path="res://common/items/effects/strength_weakness.tres" id="8_hiuyv"]
+[ext_resource type="Resource" uid="uid://dxvuf8wqsbidk" path="res://common/items/effects/swiftness_slowness.tres" id="9_mt1oh"]
+[ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_763cn"]
+[ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_3c3sm"]
+[ext_resource type="Script" path="res://screens/main/customers/customer_order_type.gd" id="12_4l0y5"]
+[ext_resource type="Script" path="res://common/locations/loot_table_type.gd" id="13_k7cqo"]
+[ext_resource type="Resource" uid="uid://djqumbpv7xrlh" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="14_1nic4"]
+[ext_resource type="Resource" uid="uid://c3prs0652gh3c" path="res://common/items/ingredients/thistle_root/thistle_root.tres" id="15_qwogy"]
+[ext_resource type="Resource" uid="uid://bjhii562qg2fn" path="res://common/items/ingredients/peppermint_leaves/peppermint_leaves.tres" id="16_50eai"]
+[ext_resource type="Resource" uid="uid://cbwcla8csqs4x" path="res://common/items/ingredients/eye_of_a_newt/eye_of_a_newt.tres" id="17_7gqig"]
+[ext_resource type="Resource" uid="uid://da58pftrs38ng" path="res://common/items/ingredients/poison_ivy/poison_ivy.tres" id="18_tajpn"]
+[ext_resource type="Resource" uid="uid://ct02wgym7kn2l" path="res://common/items/ingredients/pine_resin/pine_resin.tres" id="19_ugavf"]
+[ext_resource type="Resource" uid="uid://cg03gk336r6p6" path="res://common/items/ingredients/frog_leg/frog_leg.tres" id="20_2oevk"]
+[ext_resource type="Resource" uid="uid://nok13x58s6pp" path="res://common/items/ingredients/sunflower_seeds/sunflower_seeds.tres" id="21_7hecu"]
+[ext_resource type="Resource" uid="uid://4foau6bfx00o" path="res://common/items/ingredients/bat_wing/bat_wing.tres" id="22_nmpin"]
+[ext_resource type="Resource" uid="uid://cj8ol3qfrfwmh" path="res://common/items/ingredients/owl_feather/owl_feather.tres" id="23_1x8ak"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="24_6sop3"]
+[ext_resource type="Resource" uid="uid://dgiw62hk2ccn6" path="res://common/items/ingredients/eye_of_newt/eye_of_newt.tres" id="25_e0v3k"]
+[ext_resource type="PackedScene" uid="uid://bw28earyu2hwu" path="res://common/locations/the_clearing/the_clearing_background.tscn" id="26_aya23"]
+[ext_resource type="Script" path="res://common/locations/location_type.gd" id="26_e5pmw"]
+
+[sub_resource type="Resource" id="Resource_dsxx7"]
+script = ExtResource("11_3c3sm")
+effects = {
+ExtResource("1_bbse6"): 0,
+ExtResource("2_hjt0h"): 0,
+ExtResource("3_i3vo7"): 0,
+ExtResource("4_vdw67"): 0,
+ExtResource("5_gkocv"): 50,
+ExtResource("6_7ii4c"): 0,
+ExtResource("7_3x4c3"): 0,
+ExtResource("8_hiuyv"): 0,
+ExtResource("9_mt1oh"): 0,
+ExtResource("10_763cn"): 0
+}
+
+[sub_resource type="Resource" id="Resource_fsm31"]
+script = ExtResource("11_3c3sm")
+effects = {
+ExtResource("1_bbse6"): 0,
+ExtResource("2_hjt0h"): 0,
+ExtResource("3_i3vo7"): 0,
+ExtResource("4_vdw67"): 0,
+ExtResource("5_gkocv"): 5,
+ExtResource("6_7ii4c"): 0,
+ExtResource("7_3x4c3"): 0,
+ExtResource("8_hiuyv"): 0,
+ExtResource("9_mt1oh"): 0,
+ExtResource("10_763cn"): 0
+}
+
+[sub_resource type="Resource" id="Resource_e6l0n"]
+script = ExtResource("12_4l0y5")
+minEffects = SubResource("Resource_fsm31")
+maxEffects = SubResource("Resource_dsxx7")
+dialogueOptions = PackedStringArray("Please heal me!", "I need healing!", "One healing potion please :)", "tummy hurt :(", "I got a papercut. Can you help?", "My friend broke their leg, you got something for it?")
+
+[sub_resource type="Resource" id="Resource_pcrsc"]
+script = ExtResource("11_3c3sm")
+effects = {
+ExtResource("1_bbse6"): 50,
+ExtResource("2_hjt0h"): 50,
+ExtResource("3_i3vo7"): 50,
+ExtResource("4_vdw67"): 50,
+ExtResource("5_gkocv"): 50,
+ExtResource("6_7ii4c"): 50,
+ExtResource("7_3x4c3"): 50,
+ExtResource("8_hiuyv"): 50,
+ExtResource("9_mt1oh"): 50,
+ExtResource("10_763cn"): 50
+}
+
+[sub_resource type="Resource" id="Resource_lhc4v"]
+script = ExtResource("11_3c3sm")
+effects = {
+ExtResource("1_bbse6"): -50,
+ExtResource("2_hjt0h"): -50,
+ExtResource("3_i3vo7"): -50,
+ExtResource("4_vdw67"): 5,
+ExtResource("5_gkocv"): -50,
+ExtResource("6_7ii4c"): -50,
+ExtResource("7_3x4c3"): -50,
+ExtResource("8_hiuyv"): -50,
+ExtResource("9_mt1oh"): -50,
+ExtResource("10_763cn"): -50
+}
+
+[sub_resource type="Resource" id="Resource_dtwhi"]
+script = ExtResource("12_4l0y5")
+minEffects = SubResource("Resource_lhc4v")
+maxEffects = SubResource("Resource_pcrsc")
+dialogueOptions = PackedStringArray("I forgot my coffee this morning, you got anything for that?", "I need five hours of energy! Preferably by potion.", "I need to fix my sleep schedule... in the meantime, got an energy potion?", "I got the night shift today. You got something to stop me from falling asleep?", "I need a nice pick-me-up.")
+
+[sub_resource type="Resource" id="Resource_y8ql7"]
+script = ExtResource("11_3c3sm")
+effects = {
+ExtResource("1_bbse6"): 50,
+ExtResource("2_hjt0h"): 50,
+ExtResource("3_i3vo7"): 50,
+ExtResource("4_vdw67"): 50,
+ExtResource("5_gkocv"): 50,
+ExtResource("6_7ii4c"): 50,
+ExtResource("7_3x4c3"): 50,
+ExtResource("8_hiuyv"): 50,
+ExtResource("9_mt1oh"): 50,
+ExtResource("10_763cn"): 50
+}
+
+[sub_resource type="Resource" id="Resource_ysjkb"]
+script = ExtResource("11_3c3sm")
+effects = {
+ExtResource("1_bbse6"): -50,
+ExtResource("2_hjt0h"): -50,
+ExtResource("3_i3vo7"): -50,
+ExtResource("4_vdw67"): -50,
+ExtResource("5_gkocv"): -50,
+ExtResource("6_7ii4c"): 5,
+ExtResource("7_3x4c3"): -50,
+ExtResource("8_hiuyv"): -50,
+ExtResource("9_mt1oh"): -50,
+ExtResource("10_763cn"): -50
+}
+
+[sub_resource type="Resource" id="Resource_eprmw"]
+script = ExtResource("12_4l0y5")
+minEffects = SubResource("Resource_ysjkb")
+maxEffects = SubResource("Resource_y8ql7")
+dialogueOptions = PackedStringArray("I need to get home, but it\'s dark outside...", "My lantern ran out of fuel, you have something brighter?", "one bottle of sun please :D", "I want my skin to be GLOWING. Literally.", "Fires are dangerous, but how else am I gonna see at night?", "I need something that helps me write in the dark.")
+
+[sub_resource type="Resource" id="Resource_3kq00"]
+script = ExtResource("11_3c3sm")
+effects = {
+ExtResource("1_bbse6"): 0,
+ExtResource("2_hjt0h"): 0,
+ExtResource("3_i3vo7"): 0,
+ExtResource("4_vdw67"): 0,
+ExtResource("5_gkocv"): 0,
+ExtResource("6_7ii4c"): 0,
+ExtResource("7_3x4c3"): 0,
+ExtResource("8_hiuyv"): 50,
+ExtResource("9_mt1oh"): 0,
+ExtResource("10_763cn"): 0
+}
+
+[sub_resource type="Resource" id="Resource_yhb0y"]
+script = ExtResource("11_3c3sm")
+effects = {
+ExtResource("1_bbse6"): 0,
+ExtResource("2_hjt0h"): 0,
+ExtResource("3_i3vo7"): 0,
+ExtResource("4_vdw67"): 0,
+ExtResource("5_gkocv"): 0,
+ExtResource("6_7ii4c"): 0,
+ExtResource("7_3x4c3"): 0,
+ExtResource("8_hiuyv"): 5,
+ExtResource("9_mt1oh"): 0,
+ExtResource("10_763cn"): 0
+}
+
+[sub_resource type="Resource" id="Resource_2kcb5"]
+script = ExtResource("12_4l0y5")
+minEffects = SubResource("Resource_yhb0y")
+maxEffects = SubResource("Resource_3kq00")
+dialogueOptions = PackedStringArray("I\'m going to war and must get stronger.", "Help me be strong.", "RAHHHH (strength pls)", "I have twenty coins riding on this arm wrestle! Help me out!", "There\'s this really heavy rock I want to lift. You got something for that?", "I forgot my key. Can you help me break down my door?")
+
+[sub_resource type="Resource" id="Resource_spb0r"]
+script = ExtResource("11_3c3sm")
+effects = {
+ExtResource("1_bbse6"): 0,
+ExtResource("2_hjt0h"): 0,
+ExtResource("3_i3vo7"): 0,
+ExtResource("4_vdw67"): 0,
+ExtResource("5_gkocv"): 0,
+ExtResource("6_7ii4c"): 0,
+ExtResource("7_3x4c3"): 50,
+ExtResource("8_hiuyv"): 0,
+ExtResource("9_mt1oh"): 0,
+ExtResource("10_763cn"): 0
+}
+
+[sub_resource type="Resource" id="Resource_043q1"]
+script = ExtResource("11_3c3sm")
+effects = {
+ExtResource("1_bbse6"): 0,
+ExtResource("2_hjt0h"): 0,
+ExtResource("3_i3vo7"): 0,
+ExtResource("4_vdw67"): 0,
+ExtResource("5_gkocv"): 0,
+ExtResource("6_7ii4c"): 0,
+ExtResource("7_3x4c3"): 25,
+ExtResource("8_hiuyv"): 0,
+ExtResource("9_mt1oh"): 0,
+ExtResource("10_763cn"): 0
+}
+
+[sub_resource type="Resource" id="Resource_eer62"]
+script = ExtResource("12_4l0y5")
+minEffects = SubResource("Resource_043q1")
+maxEffects = SubResource("Resource_spb0r")
+dialogueOptions = PackedStringArray("The casino is never gonna see this coming", "One venti luck please")
+
+[sub_resource type="Resource" id="Resource_dogf2"]
+script = ExtResource("11_3c3sm")
+effects = {
+ExtResource("1_bbse6"): 0,
+ExtResource("2_hjt0h"): 0,
+ExtResource("3_i3vo7"): 0,
+ExtResource("4_vdw67"): 0,
+ExtResource("5_gkocv"): -5,
+ExtResource("6_7ii4c"): 0,
+ExtResource("7_3x4c3"): 0,
+ExtResource("8_hiuyv"): 0,
+ExtResource("9_mt1oh"): 0,
+ExtResource("10_763cn"): 0
+}
+
+[sub_resource type="Resource" id="Resource_i862y"]
+script = ExtResource("11_3c3sm")
+effects = {
+ExtResource("1_bbse6"): 0,
+ExtResource("2_hjt0h"): 0,
+ExtResource("3_i3vo7"): 0,
+ExtResource("4_vdw67"): 0,
+ExtResource("5_gkocv"): -50,
+ExtResource("6_7ii4c"): 0,
+ExtResource("7_3x4c3"): 0,
+ExtResource("8_hiuyv"): 0,
+ExtResource("9_mt1oh"): 0,
+ExtResource("10_763cn"): 0
+}
+
+[sub_resource type="Resource" id="Resource_qmgaj"]
+script = ExtResource("12_4l0y5")
+minEffects = SubResource("Resource_i862y")
+maxEffects = SubResource("Resource_dogf2")
+dialogueOptions = PackedStringArray("There\'s rats in the cellar!", "I need to kill someone.", "One glass of poison please", "How do you make a poison potion? Hypothetically. For a friend.")
+
+[sub_resource type="Resource" id="Resource_tyi3k"]
+script = ExtResource("11_3c3sm")
+effects = {
+ExtResource("1_bbse6"): 50,
+ExtResource("2_hjt0h"): 50,
+ExtResource("3_i3vo7"): 50,
+ExtResource("4_vdw67"): 50,
+ExtResource("5_gkocv"): 50,
+ExtResource("6_7ii4c"): 50,
+ExtResource("7_3x4c3"): 50,
+ExtResource("8_hiuyv"): 50,
+ExtResource("9_mt1oh"): 50,
+ExtResource("10_763cn"): 50
+}
+
+[sub_resource type="Resource" id="Resource_5gski"]
+script = ExtResource("11_3c3sm")
+effects = {
+ExtResource("1_bbse6"): -50,
+ExtResource("2_hjt0h"): -50,
+ExtResource("3_i3vo7"): 5,
+ExtResource("4_vdw67"): -50,
+ExtResource("5_gkocv"): -50,
+ExtResource("6_7ii4c"): -50,
+ExtResource("7_3x4c3"): -50,
+ExtResource("8_hiuyv"): -50,
+ExtResource("9_mt1oh"): -50,
+ExtResource("10_763cn"): -50
+}
+
+[sub_resource type="Resource" id="Resource_cim0e"]
+script = ExtResource("12_4l0y5")
+minEffects = SubResource("Resource_5gski")
+maxEffects = SubResource("Resource_tyi3k")
+dialogueOptions = PackedStringArray("I\'m not gonna survive a second now that my armor\'s broken.", "I need something to protect me!", "I heard you got shields in a bottle or something?")
+
+[sub_resource type="Resource" id="Resource_7sv00"]
+script = ExtResource("11_3c3sm")
+effects = {
+ExtResource("1_bbse6"): 50,
+ExtResource("2_hjt0h"): 50,
+ExtResource("3_i3vo7"): 50,
+ExtResource("4_vdw67"): 50,
+ExtResource("5_gkocv"): 50,
+ExtResource("6_7ii4c"): 50,
+ExtResource("7_3x4c3"): 50,
+ExtResource("8_hiuyv"): 50,
+ExtResource("9_mt1oh"): 50,
+ExtResource("10_763cn"): 50
+}
+
+[sub_resource type="Resource" id="Resource_mwlvx"]
+script = ExtResource("11_3c3sm")
+effects = {
+ExtResource("1_bbse6"): -50,
+ExtResource("2_hjt0h"): -50,
+ExtResource("3_i3vo7"): -50,
+ExtResource("4_vdw67"): -50,
+ExtResource("5_gkocv"): -50,
+ExtResource("6_7ii4c"): -50,
+ExtResource("7_3x4c3"): -50,
+ExtResource("8_hiuyv"): -50,
+ExtResource("9_mt1oh"): 5,
+ExtResource("10_763cn"): -50
+}
+
+[sub_resource type="Resource" id="Resource_hgoqf"]
+script = ExtResource("12_4l0y5")
+minEffects = SubResource("Resource_mwlvx")
+maxEffects = SubResource("Resource_7sv00")
+dialogueOptions = PackedStringArray("I didn\'t prepare for this race, can you help?", "I need to get home. Quickly.", "I\'m tired of being so slow all the time!")
+
+[sub_resource type="Resource" id="Resource_snjf0"]
+script = ExtResource("13_k7cqo")
+common = [SubResource("Resource_e6l0n"), SubResource("Resource_dtwhi"), SubResource("Resource_eprmw"), SubResource("Resource_2kcb5")]
+uncommon = [SubResource("Resource_cim0e"), SubResource("Resource_hgoqf")]
+rare = [SubResource("Resource_qmgaj")]
+legendary = [SubResource("Resource_eer62")]
+
+[sub_resource type="Resource" id="Resource_36l1o"]
+script = ExtResource("13_k7cqo")
+common = [ExtResource("14_1nic4"), ExtResource("15_qwogy"), ExtResource("16_50eai")]
+uncommon = [ExtResource("20_2oevk"), ExtResource("21_7hecu"), ExtResource("22_nmpin"), ExtResource("23_1x8ak")]
+rare = [ExtResource("18_tajpn"), ExtResource("19_ugavf")]
+legendary = [ExtResource("17_7gqig")]
+
+[sub_resource type="Resource" id="Resource_fjv6r"]
+script = ExtResource("13_k7cqo")
+common = [{
+"cost": 5,
+"id": "nightshade_petals_5_5",
+"item": ExtResource("14_1nic4"),
+"quantity": 5
+}, {
+"cost": 5,
+"id": "frog_leg_4_5",
+"item": ExtResource("20_2oevk"),
+"quantity": 4
+}, {
+"cost": 5,
+"id": "sunflower_seeds_3_5",
+"item": ExtResource("21_7hecu"),
+"quantity": 3
+}]
+uncommon = [{
+"cost": 5,
+"id": "poison_ivy_3_5",
+"item": ExtResource("18_tajpn"),
+"quantity": 3
+}, {
+"cost": 15,
+"id": "eye_of_a_newt_1_15",
+"item": ExtResource("17_7gqig"),
+"quantity": 1
+}, {
+"cost": 10,
+"id": "peppermint_leaves_2_10",
+"item": ExtResource("16_50eai"),
+"quantity": 2
+}]
+rare = [{
+"cost": 5,
+"id": "thistle_root_5_5",
+"item": ExtResource("15_qwogy"),
+"quantity": 5
+}, {
+"cost": 10,
+"id": "pine_resin_3_10",
+"item": ExtResource("19_ugavf"),
+"quantity": 3
+}]
+legendary = [{
+"cost": 5,
+"id": "owl_feather_5_5",
+"item": ExtResource("23_1x8ak"),
+"quantity": 5
+}, {
+"cost": 10,
+"id": "bat_wing_4_10",
+"item": ExtResource("22_nmpin"),
+"quantity": 4
+}]
+
+[resource]
+script = ExtResource("26_e5pmw")
+id = "the_clearing"
+name = "The Clearing"
+ingredients = Array[ExtResource("24_6sop3")]([ExtResource("22_nmpin"), ExtResource("25_e0v3k"), ExtResource("20_2oevk"), ExtResource("14_1nic4"), ExtResource("23_1x8ak"), ExtResource("16_50eai"), ExtResource("19_ugavf"), ExtResource("18_tajpn"), ExtResource("21_7hecu"), ExtResource("15_qwogy")])
+packed_background_scene = ExtResource("26_aya23")
+unlockable_station_id = ""
+unlockable_station_price = 50
+map_weight = 5
+map_cost = 100
+map_color = Color(0.186704, 0.409376, 0.0963534, 1)
+forage_table = SubResource("Resource_36l1o")
+ingredients_shop_table = SubResource("Resource_fjv6r")
+customer_request_table = SubResource("Resource_snjf0")

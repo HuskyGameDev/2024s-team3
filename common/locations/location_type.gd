@@ -7,6 +7,7 @@ class_name Location
 @export var id: String = ""
 @export var name: String = ""
 @export var ingredients: Array[Ingredient]
+@export var packed_background_scene: PackedScene
 
 @export_group("Unlockable Station")
 @export var unlockable_station_id: String

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1d2clndfqfcx"
-path="res://.godot/imported/fresh_moss.png-f50d2e6a4c96f287a52413cc8f1142a9.ctex"
+uid="uid://ltitultb0sdx"
+path="res://.godot/imported/3.png-b2411261f361eee48d5845c28bf05ae0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/items/ingredients/fresh_moss/fresh_moss.png"
-dest_files=["res://.godot/imported/fresh_moss.png-f50d2e6a4c96f287a52413cc8f1142a9.ctex"]
+source_file="res://common/locations/the_outpost/3.png"
+dest_files=["res://.godot/imported/3.png-b2411261f361eee48d5845c28bf05ae0.ctex"]
 
 [params]
 
