@@ -23,7 +23,7 @@ func move_to_location(location_id:String):
 	PlayerData.location = new_location
 	if not PlayerData.visited_locations.map(func(location): return location.id).has(location_id):
 		PlayerData.visited_locations.append(new_location)
-		PlayerData.save_game_files()
+	PlayerData.save_game_files()
 	get_tree().change_scene_to_file("res://screens/main/packed_main.tscn")
 
 
