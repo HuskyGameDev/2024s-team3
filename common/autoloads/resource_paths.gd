@@ -99,7 +99,7 @@ func get_all_ingredient_paths() -> Array:
 
 func get_all_location_ids():
 	return get_all_location_paths().map(func(path): 
-		return path.trim_prefix("res://common/locations/").trim_suffix(".tres")
+		return path.split("/")[-1].trim_suffix(".tres")
 	)
 
 

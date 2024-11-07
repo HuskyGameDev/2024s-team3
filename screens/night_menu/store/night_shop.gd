@@ -43,19 +43,21 @@ func _ready():
 		## Add map options for the current location 
 		## (only shows if the station has already been bought)
 		$StationDisplay.visible = false
-		$MapDisplay.visible = true
 		
 		var available_location_ids = ResourcePaths.get_all_location_ids().filter(func(id): return not PlayerData.unlocked_locations.has(id))
 		var available_locations = available_location_ids.map(func(id): return ResourceLoader.load(ResourcePaths.get_location_path(id)))
 		# weighted map to choose a location
-		var chosen_location = available_locations.reduce(func(accum, location): 
+		available_locations = available_locations.reduce(func(accum, location): 
 			for i in range(0, location.map_weight):
 				accum.append(location)
 			return accum
-		, []).pick_random()
-		$MapDisplay.location_id = chosen_location.id
-		$MapDisplay.map_price = chosen_location.map_cost
-		if chosen_location.map_color: $MapDisplay.map_color = chosen_location.map_color
+		, [])
+		if available_locations.size() > 0:
+			var chosen_location = available_locations.pick_random()
+			$MapDisplay.visible = true
+			$MapDisplay.location_id = chosen_location.id
+			$MapDisplay.map_price = chosen_location.map_cost
+			if chosen_location.map_color: $MapDisplay.map_color = chosen_location.map_color
 
 
 func calculate_ingredient_price(ingredient:Ingredient):
