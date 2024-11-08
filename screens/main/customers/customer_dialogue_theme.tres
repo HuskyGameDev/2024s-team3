@@ -1,4 +1,20 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bbilaxa656p7n"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bbilaxa656p7n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b7geq"]
+content_margin_left = 32.0
+content_margin_top = 16.0
+content_margin_right = 32.0
+content_margin_bottom = 16.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xiwco"]
 content_margin_left = 32.0
@@ -17,6 +33,9 @@ corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
 [resource]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 32
+Label/styles/normal = SubResource("StyleBoxFlat_b7geq")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/font_sizes/normal_font_size = 32
 RichTextLabel/styles/normal = SubResource("StyleBoxFlat_xiwco")

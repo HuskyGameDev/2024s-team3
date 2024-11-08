@@ -3,6 +3,8 @@ extends Node
 @onready var totalCostLabel   := $UiLayer/TotalCostPanelContainer/TotalCostMarginContainer/TotalCostLabel
 @onready var LocationDisplays := $LocationShelf.get_children()
 @onready var ExoticDisplays   := $ExoticShelf.get_children()
+@onready var SpeechBubble     := $UiLayer/SpeechBubble
+@onready var DialogueLabel    := $UiLayer/SpeechBubble/DialogueLabel
 
 var totalCost = 0
 var cart:Array[Ingredient] = []
@@ -12,6 +14,32 @@ var ingredient_price_modifier : Callable :
 		ingredient_price_modifier = function
 		update_display_prices()
 var drop_count: int = 0
+
+
+################# SHOPKEEPER DIALOGUE OPTIONS ################
+func get_station_dialogue(station_name:String):
+	return [
+		"I found this %s outside. For sale!" % station_name,
+		"Do you want a new %s?" % station_name,
+		"Selling a %s, brand new, never used!" % station_name,
+		"You could make more potions if you had this %s" % station_name,
+		"All the best potion makers use a %s" % station_name,
+		"You'd get even more customers with a %s" % station_name,
+		"I'm selling a %s today" % station_name,
+		"You NEED a %s" % station_name
+	].pick_random()
+
+func get_map_dialogue(location_name:String):
+	return [
+		"Have you ever heard of %s?" % location_name,
+		"I've never been to %s, have you?" % location_name,
+		"I found this map to %s" % location_name,
+		"Do you want a map to %s?" % location_name,
+		"I'm selling a map to %s today" % location_name,
+		"You should buy this map to %s" % location_name,
+		"I hear lots of people want potions in %s" % location_name,
+		"Lots of new ingredients in %s" % location_name
+	].pick_random()
 
 ############################ SETUP ###########################
 func _ready():
@@ -33,6 +61,7 @@ func _ready():
 	
 	## Add station option for current location
 	if PlayerData.location.unlockable_station_id != "" and not PlayerData.unlocked_stations.has(PlayerData.location.unlockable_station_id):
+		shopkeeper_speak(get_station_dialogue(PlayerData.location.unlockable_station_id.replace("_", " ")))
 		$StationDisplay.visible = true
 		$MapDisplay.visible = false
 		
@@ -54,6 +83,7 @@ func _ready():
 		, [])
 		if available_locations.size() > 0:
 			var chosen_location = available_locations.pick_random()
+			shopkeeper_speak(get_map_dialogue(chosen_location.name))
 			$MapDisplay.visible = true
 			$MapDisplay.location_id = chosen_location.id
 			$MapDisplay.map_price = chosen_location.map_cost
@@ -80,6 +110,15 @@ func set_ingredient_displays(ingredients:Array[Ingredient], display_nodes:Array[
 		display.spawn_held_nodes(self)
 
 
+####################### SPEAKING #######################
+func shopkeeper_speak(text:String):
+	if DialogueLabel: DialogueLabel.text = text
+	if SpeechBubble:
+		SpeechBubble.visible = true
+		await get_tree().create_timer(3).timeout
+		SpeechBubble.visible = false
+
+
 ####################### CART MECHANICS #######################
 func _on_body_entered_basket(body):
 	if not body is DraggableObject: return
@@ -103,12 +142,11 @@ func updateTotal(changeAmount:int):
 ####################### DROP MECHANICS #######################
 func _on_ingredient_dropped():
 	drop_count += 1
-	#TODO make shopkeeper actually say dialogue
 	match drop_count:
-		1: print("Try not to drop things")
-		3: print("Seriously, be careful")
-		5: print("That's breakable!")
-		10: print("This is your LAST warning!")
+		1: shopkeeper_speak("Try not to drop things")
+		3: shopkeeper_speak("Seriously, be careful")
+		5: shopkeeper_speak("That's breakable!")
+		10: shopkeeper_speak("This is your LAST warning!")
 	if   drop_count > 20: ingredient_price_modifier = func(p): return (drop_count - 20) * 2 * (p + 15)
 	elif drop_count > 15: ingredient_price_modifier = func(p): return p + 5 + 2 * (drop_count - 15)
 	elif drop_count > 10: ingredient_price_modifier = func(p): return p + (drop_count - 10)
@@ -129,13 +167,14 @@ func _on_buy_button_pressed():
 		# add ingredients to inventory
 		for ingredient in cart:
 			PlayerData.add_item_to_inventory(ingredient, 1)
-		#TODO make shopkeeper say something before leaving
+		shopkeeper_speak("Thanks for coming!")
+		await get_tree().create_timer(2).timeout
 		get_tree().change_scene_to_file("res://screens/main/packed_main.tscn")
 	else:
-		#TODO make shopkeeper say this
-		print("Not enough money")
+		shopkeeper_speak("You can't afford that")
 
 
 func _on_exit_button_pressed():
-	#TODO make shopkeeper say something before leaving
+	shopkeeper_speak("See you next time!")
+	await get_tree().create_timer(2).timeout
 	get_tree().change_scene_to_file("res://screens/main/packed_main.tscn")

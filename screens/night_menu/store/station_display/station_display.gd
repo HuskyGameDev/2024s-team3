@@ -1,5 +1,7 @@
 extends Area2D
 
+signal shopkeeper_speak(text:String)
+
 @export var station_id:String
 @export var station_sprite : Texture2D :
 	set(sprite):
@@ -29,9 +31,8 @@ func _on_buy_button_pressed():
 		# make station show in player inventory
 		PlayerData.unlocked_stations.append(station_id)
 		PlayerData.save_game_files()
-		#TODO make shopkeeper say something
+		shopkeeper_speak.emit("Thanks for your purchase!")
 		self.queue_free()
 	else:
-		#TODO make shopkeeper say this
-		print("Not enough money")
+		shopkeeper_speak.emit("You can't afford that")
 	
