@@ -88,6 +88,12 @@ func _ready():
 			$MapDisplay.location_id = chosen_location.id
 			$MapDisplay.map_price = chosen_location.map_cost
 			if chosen_location.map_color: $MapDisplay.map_color = chosen_location.map_color
+		elif PlayerData.reputation >= 50:
+			shopkeeper_speak("I have a very special map for you today")
+			$MapDisplay.visible = true
+			$MapDisplay.location_id = "home"
+			$MapDisplay.map_price = 500
+			$MapDisplay.map_color = Color(77, 232, 209)
 
 
 func calculate_ingredient_price(ingredient:Ingredient):

@@ -1,0 +1,132 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqroa6lycx5nl"]
+
+[ext_resource type="Script" path="res://screens/credits/credits.gd" id="1_iiycx"]
+[ext_resource type="Theme" uid="uid://vv8iinohto2f" path="res://screens/credits/credits_theme.tres" id="1_w405g"]
+[ext_resource type="Texture2D" uid="uid://bhe7g2gg215vm" path="res://common/items/ingredients/thistle_root/thistle_root.png" id="2_pijip"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ixh5"]
+radius = 40.0
+height = 150.0
+
+[node name="Credits" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_w405g")
+script = ExtResource("1_iiycx")
+
+[node name="Ingredients" type="Node2D" parent="."]
+
+[node name="Default" type="RigidBody2D" parent="Ingredients"]
+collision_mask = 0
+gravity_scale = 0.01
+
+[node name="Collider" type="CollisionShape2D" parent="Ingredients/Default"]
+shape = SubResource("CapsuleShape2D_6ixh5")
+
+[node name="Sprite" type="Sprite2D" parent="Ingredients/Default"]
+scale = Vector2(6, 6)
+texture = ExtResource("2_pijip")
+
+[node name="CreditVBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CreditVBox/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Programming"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CreditVBox/VBoxContainer"]
+layout_mode = 2
+text = "Emilie Rummer (Team Lead)"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CreditVBox/VBoxContainer"]
+layout_mode = 2
+text = "Wade Canavan"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="CreditVBox/VBoxContainer"]
+layout_mode = 2
+text = "Ben Kornas"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="CreditVBox/VBoxContainer"]
+layout_mode = 2
+text = "Bridger Mattson"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="CreditVBox/VBoxContainer"]
+layout_mode = 2
+text = "Waylon Alvesteffer"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="CreditVBox/VBoxContainer"]
+layout_mode = 2
+text = "Chris Apfel"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CreditVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CreditVBox/VBoxContainer2"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Sound"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CreditVBox/VBoxContainer2"]
+layout_mode = 2
+text = "Nate Lyons"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CreditVBox/VBoxContainer2"]
+layout_mode = 2
+text = "Rainey Alexiev"
+horizontal_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CreditVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CreditVBox/VBoxContainer3"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Art"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CreditVBox/VBoxContainer3"]
+layout_mode = 2
+text = "Ben Kornas"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CreditVBox/VBoxContainer3"]
+layout_mode = 2
+text = "Emilie Rummer"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="CreditVBox/VBoxContainer3"]
+layout_mode = 2
+text = "PiiiXL on itch.io
+"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="CreditVBox/VBoxContainer3"]
+layout_mode = 2
+text = "CraftPix on craftpix.net"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="CreditVBox/VBoxContainer3"]
+layout_mode = 2
+text = "Glionox on itch.io"
+horizontal_alignment = 1

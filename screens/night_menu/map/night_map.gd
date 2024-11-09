@@ -19,6 +19,9 @@ func _physics_process(_delta):
 
 ## HANDLE SCENE CHANGE
 func move_to_location(location_id:String):
+	if location_id == "home": 
+		get_tree().change_scene_to_file("res://screens/credits/credits.tscn")
+		return
 	var new_location = ResourceLoader.load(ResourcePaths.get_location_path(location_id))
 	PlayerData.location = new_location
 	if not PlayerData.visited_locations.map(func(location): return location.id).has(location_id):
@@ -30,7 +33,16 @@ func move_to_location(location_id:String):
 ## HANDLE AREA MOVEMENT
 func _ready():
 	for LocationArea in $LocationAreas.get_children():
+		if PlayerData.location.id == LocationArea.location.id:
+			# spawn player at their current position
+			Player.global_position = LocationArea.global_position
+			# move camera to player without smoothing animation
+			$Player/Camera.position_smoothing_enabled = false
+			await get_tree().create_timer(0.1).timeout
+			$Player/Camera.position_smoothing_enabled = true
+		# only show unlocked areas on the map
 		if PlayerData.unlocked_locations.has(LocationArea.location.id):
 			LocationArea.connect("move_to_location", move_to_location)
 		else:
 			LocationArea.queue_free()
+	
