@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=15 format=3 uid="uid://bb8ua2k5f5sek"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=19 format=3 uid="uid://bb8ua2k5f5sek"]
 
+[ext_resource type="AudioStream" uid="uid://cc2pxbb57fxwh" path="res://common/audio/ingredients/Magic_Plant_Drop_1.wav" id="1_cp7xb"]
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_nyssi"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_pe3j7"]
+[ext_resource type="AudioStream" uid="uid://dcrdd163tjgda" path="res://common/audio/ingredients/Magic_Plant_Drop_2.wav" id="2_2aevk"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_ivmki"]
 [ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_te7pm"]
 [ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_rvdf8"]
@@ -13,6 +15,8 @@
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_w4i4v"]
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_mymwa"]
 [ext_resource type="Texture2D" uid="uid://f0rp81fiyt7d" path="res://common/items/ingredients/erdtree_branch/erdtree_branch.png" id="12_k5tha"]
+[ext_resource type="AudioStream" uid="uid://b331f45sjksys" path="res://common/audio/ingredients/Magic_Plant_Pickup_1.wav" id="14_ur84n"]
+[ext_resource type="AudioStream" uid="uid://dbmqcc2rxhyvg" path="res://common/audio/ingredients/Magic_Plant_Pickup_2.wav" id="15_0enni"]
 
 [sub_resource type="Resource" id="Resource_3s085"]
 script = ExtResource("11_mymwa")
@@ -33,6 +37,9 @@ ExtResource("10_w4i4v"): 0
 script = ExtResource("1_pe3j7")
 effects = SubResource("Resource_3s085")
 available_actions = 6
+type = 2
+grab_sounds = [ExtResource("14_ur84n"), ExtResource("15_0enni")]
+drop_sounds = [ExtResource("1_cp7xb"), ExtResource("2_2aevk")]
 id = "erdtree_branch"
 name = "Erdtree Branch"
 description = ""

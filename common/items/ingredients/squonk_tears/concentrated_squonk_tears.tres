@@ -32,6 +32,9 @@ ExtResource("10_4grf1"): 0
 script = ExtResource("12_fkqgd")
 effects = SubResource("Resource_b0h7t")
 available_actions = 0
+type = 4
+grab_sounds = []
+drop_sounds = []
 id = "concentrated_squonk_tears"
 name = "Concentrated Squonk Tears"
 description = ""

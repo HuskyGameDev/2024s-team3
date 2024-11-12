@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=14 format=3 uid="uid://bvi73dlp76jdq"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=17 format=3 uid="uid://bvi73dlp76jdq"]
 
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_4xpyf"]
+[ext_resource type="AudioStream" uid="uid://dcrdd163tjgda" path="res://common/audio/ingredients/Magic_Plant_Drop_2.wav" id="1_llhvt"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_pxqvg"]
 [ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_yyi3f"]
 [ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_igcur"]
@@ -12,6 +13,8 @@
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_ium7h"]
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_yh67a"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="12_q0myi"]
+[ext_resource type="AudioStream" uid="uid://b331f45sjksys" path="res://common/audio/ingredients/Magic_Plant_Pickup_1.wav" id="13_fsvvy"]
+[ext_resource type="AudioStream" uid="uid://dbmqcc2rxhyvg" path="res://common/audio/ingredients/Magic_Plant_Pickup_2.wav" id="14_dfd44"]
 
 [sub_resource type="Resource" id="Resource_8uh7d"]
 script = ExtResource("11_yh67a")
@@ -32,6 +35,9 @@ ExtResource("10_ium7h"): 0
 script = ExtResource("12_q0myi")
 effects = SubResource("Resource_8uh7d")
 available_actions = 4
+type = 2
+grab_sounds = [ExtResource("13_fsvvy"), ExtResource("14_dfd44")]
+drop_sounds = [null, ExtResource("1_llhvt")]
 id = "chopped_erdtree_branch"
 name = "Chopped Erdtree Branch"
 description = ""

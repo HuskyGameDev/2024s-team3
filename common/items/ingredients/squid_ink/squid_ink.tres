@@ -33,6 +33,9 @@ ExtResource("10_uqas4"): 0
 script = ExtResource("1_8qikv")
 effects = SubResource("Resource_bobkq")
 available_actions = 16
+type = 3
+grab_sounds = []
+drop_sounds = []
 id = "squid_ink"
 name = "Squid Ink"
 description = ""

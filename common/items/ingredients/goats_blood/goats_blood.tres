@@ -33,6 +33,9 @@ ExtResource("10_lax16"): 0
 script = ExtResource("1_xvcm0")
 effects = SubResource("Resource_k8g4n")
 available_actions = 16
+type = 3
+grab_sounds = []
+drop_sounds = []
 id = "goats_blood"
 name = "Goats Blood"
 description = ""

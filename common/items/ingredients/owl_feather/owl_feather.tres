@@ -33,6 +33,9 @@ ExtResource("10_atc3h"): 0
 script = ExtResource("1_pa7nx")
 effects = SubResource("Resource_4aahd")
 available_actions = 0
+type = 3
+grab_sounds = []
+drop_sounds = []
 id = "owl_feather"
 name = "Owl Feather"
 description = ""

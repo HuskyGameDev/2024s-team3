@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=15 format=3 uid="uid://c833yti5u2s4w"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=18 format=3 uid="uid://c833yti5u2s4w"]
 
+[ext_resource type="AudioStream" uid="uid://dcrdd163tjgda" path="res://common/audio/ingredients/Magic_Plant_Drop_2.wav" id="1_1ac7u"]
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_2vrfv"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_87g35"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_aaldm"]
@@ -13,6 +14,8 @@
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_cwhx0"]
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_s4oqr"]
 [ext_resource type="Texture2D" uid="uid://ba55sk5lvllnn" path="res://common/items/ingredients/mandrake_root/mandrake_root.png" id="12_4ggq0"]
+[ext_resource type="AudioStream" uid="uid://b331f45sjksys" path="res://common/audio/ingredients/Magic_Plant_Pickup_1.wav" id="13_cdw7k"]
+[ext_resource type="AudioStream" uid="uid://dbmqcc2rxhyvg" path="res://common/audio/ingredients/Magic_Plant_Pickup_2.wav" id="14_lxmu2"]
 
 [sub_resource type="Resource" id="Resource_pe5uh"]
 script = ExtResource("11_s4oqr")
@@ -33,6 +36,9 @@ ExtResource("10_cwhx0"): 0
 script = ExtResource("1_87g35")
 effects = SubResource("Resource_pe5uh")
 available_actions = 2
+type = 2
+grab_sounds = [ExtResource("13_cdw7k"), ExtResource("14_lxmu2")]
+drop_sounds = [null, ExtResource("1_1ac7u")]
 id = "mandrake_root"
 name = "Mandrake Root"
 description = ""

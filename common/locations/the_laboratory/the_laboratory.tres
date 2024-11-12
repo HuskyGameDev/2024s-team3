@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Location" load_steps=14 format=3 uid="uid://dng1gtysm0ixr"]
+[gd_resource type="Resource" script_class="Location" load_steps=14 format=3 uid="uid://bp83lxy3frr14"]
 
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_8idmd"]
 [ext_resource type="Resource" uid="uid://dbapctpqmn1t0" path="res://common/items/ingredients/aloe_jelly/aloe_jelly.tres" id="2_6lgb0"]
@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://ciqko2tteabf5" path="res://common/items/ingredients/squid_ink/squid_ink.tres" id="9_kkphu"]
 [ext_resource type="Resource" uid="uid://be1ntjq76fu7q" path="res://common/items/ingredients/snake_oil/snake_oil.tres" id="10_x6bob"]
 [ext_resource type="Resource" uid="uid://bf2anoyweugro" path="res://common/items/ingredients/squonk_tears/squonk_tears.tres" id="11_nnsep"]
-[ext_resource type="PackedScene" uid="uid://blywsbukwoyc" path="res://common/locations/the_laboratory/the_laboratory_background.tscn" id="12_a4jdg"]
+[ext_resource type="PackedScene" path="res://common/locations/the_laboratory/the_laboratory_background.tscn" id="12_a4jdg"]
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="12_g0axt"]
 
 [resource]

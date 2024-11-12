@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Location" load_steps=36 format=3 uid="uid://dkoxk45u8im10"]
+[gd_resource type="Resource" script_class="Location" load_steps=36 format=3 uid="uid://6w6psufqq5vk"]
 
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_oo1fa"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_uf86a"]
@@ -27,7 +27,7 @@
 [ext_resource type="Resource" uid="uid://clgaxse5n6uus" path="res://common/items/ingredients/werewolf_tooth/werewolf_tooth.tres" id="25_lu428"]
 [ext_resource type="Resource" uid="uid://ca0hkro25d6f2" path="res://common/items/ingredients/yeti_fur/yeti_fur.tres" id="26_gxjpp"]
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="27_a6erb"]
-[ext_resource type="PackedScene" uid="uid://tx6eclsydksq" path="res://common/locations/the_city/the_city_background.tscn" id="27_w74sp"]
+[ext_resource type="PackedScene" path="res://common/locations/the_city/the_city_background.tscn" id="27_w74sp"]
 [ext_resource type="Texture2D" uid="uid://lg5bctf1c0wr" path="res://screens/main/stations/mortar_and_pestle/mortarpestle.png" id="28_v0thu"]
 
 [sub_resource type="Resource" id="Resource_u6t24"]

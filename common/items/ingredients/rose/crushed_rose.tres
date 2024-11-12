@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=14 format=3 uid="uid://d4f8a77p2xh7t"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=18 format=3 uid="uid://d4f8a77p2xh7t"]
 
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_0qc3d"]
+[ext_resource type="AudioStream" uid="uid://bnqfl0hst4wk1" path="res://common/audio/ingredients/Foliage_Drop_1.wav" id="1_f6yxd"]
+[ext_resource type="AudioStream" uid="uid://c21dam133k753" path="res://common/audio/ingredients/Foliage_Drop_2.wav" id="2_kx8t6"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_sy8xi"]
 [ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_drjuk"]
 [ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_pjwd4"]
@@ -12,6 +14,8 @@
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_u8ao6"]
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_3wfub"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="12_tfn24"]
+[ext_resource type="AudioStream" uid="uid://ctruinpxcb6r" path="res://common/audio/ingredients/Foliage_Pickup_1.wav" id="14_yn2n6"]
+[ext_resource type="AudioStream" uid="uid://b2801q5jojgtl" path="res://common/audio/ingredients/Foliage_Pickup_2.wav" id="15_twyc1"]
 
 [sub_resource type="Resource" id="Resource_d45jh"]
 script = ExtResource("11_3wfub")
@@ -32,6 +36,9 @@ ExtResource("10_u8ao6"): 0
 script = ExtResource("12_tfn24")
 effects = SubResource("Resource_d45jh")
 available_actions = 0
+type = 1
+grab_sounds = [ExtResource("14_yn2n6"), ExtResource("15_twyc1")]
+drop_sounds = [ExtResource("1_f6yxd"), ExtResource("2_kx8t6")]
 id = "crushed_rose"
 name = "Crushed Rose"
 description = ""

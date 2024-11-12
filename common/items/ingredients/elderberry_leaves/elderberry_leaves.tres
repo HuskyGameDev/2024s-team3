@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=15 format=3 uid="uid://bwjd1q1joj33y"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=19 format=3 uid="uid://bwjd1q1joj33y"]
 
+[ext_resource type="AudioStream" uid="uid://bnqfl0hst4wk1" path="res://common/audio/ingredients/Foliage_Drop_1.wav" id="1_l4nyp"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_r4n8s"]
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_r5dxe"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_3omoh"]
+[ext_resource type="AudioStream" uid="uid://c21dam133k753" path="res://common/audio/ingredients/Foliage_Drop_2.wav" id="2_o0acb"]
 [ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_nyc0q"]
 [ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_ocm1u"]
 [ext_resource type="Resource" uid="uid://2bq51ncoy4qu" path="res://common/items/effects/healing_poison.tres" id="5_3p8q4"]
@@ -13,6 +15,8 @@
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_ss2jp"]
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_dfo8t"]
 [ext_resource type="Texture2D" uid="uid://y8xrea1ficf5" path="res://common/items/ingredients/elderberry_leaves/elderberry_leaves.png" id="12_mudth"]
+[ext_resource type="AudioStream" uid="uid://ctruinpxcb6r" path="res://common/audio/ingredients/Foliage_Pickup_1.wav" id="14_8t1ne"]
+[ext_resource type="AudioStream" uid="uid://b2801q5jojgtl" path="res://common/audio/ingredients/Foliage_Pickup_2.wav" id="15_6tvcq"]
 
 [sub_resource type="Resource" id="Resource_dtxer"]
 script = ExtResource("11_dfo8t")
@@ -33,6 +37,9 @@ ExtResource("10_ss2jp"): 0
 script = ExtResource("1_r4n8s")
 effects = SubResource("Resource_dtxer")
 available_actions = 4
+type = 1
+grab_sounds = [ExtResource("14_8t1ne"), ExtResource("15_6tvcq")]
+drop_sounds = [ExtResource("1_l4nyp"), ExtResource("2_o0acb")]
 id = "elderberry_leaves"
 name = "Elderberry Leaves"
 description = ""

@@ -30,6 +30,11 @@ func _ready():
 	$DescriptionLabel.text = ingredient.description
 	$StackSizeContainer/StackSizeLabel.value = ingredient.stack_size
 	$ImageContainer/ImageLabel.texture = ingredient.image
+	if ingredient.type != null:
+		for i in range(0, $TypeDropdown.item_count):
+			if ingredient.type == Ingredient.Types.get($TypeDropdown.get_item_text(i).to_upper().replace(" ", "_")):
+				$TypeDropdown.select(i)
+				break
 	try_load_image()
 	self.update_effect_summary()
 	
@@ -111,6 +116,13 @@ func _on_concentratable_check_toggled(toggled_on):
 		ingredient.available_actions &= ~Ingredient.Actions.CONCENTRATE
 		remove_variant(Ingredient.Actions.CONCENTRATE)
 	ResourceSaver.save(ingredient, path)
+
+## Triggered when type dropdown changes:
+func _on_type_dropdown_selected(i:int):
+	var type = Ingredient.Types.get($TypeDropdown.get_item_text(i).to_upper().replace(" ", "_"))
+	if type != null:
+		ingredient.type = type
+		ResourceSaver.save(ingredient, path)
 
 ###################### OTHER HANDLING ######################
 ## Attempts to load an image with the same name as the resource
@@ -197,6 +209,7 @@ func create_variant(variation:Ingredient.Actions):
 		new_ingredient.name = new_name
 		new_ingredient.id = new_id
 		new_ingredient.effects = ingredient.effects.duplicate()
+		new_ingredient.type = ingredient.type
 		match variation:
 			Ingredient.Actions.CHOP: new_ingredient.effects.modify_smallest(func(e): return 0)
 			Ingredient.Actions.CRUSH: 

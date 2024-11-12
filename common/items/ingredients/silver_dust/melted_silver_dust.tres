@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=14 format=3 uid="uid://ba6ry55yc4kbm"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=18 format=3 uid="uid://ba6ry55yc4kbm"]
 
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_3v0mi"]
+[ext_resource type="AudioStream" uid="uid://cutdlc3wgmi35" path="res://common/audio/ingredients/Mineral_Drop_1.wav" id="1_hknlt"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_6ga86"]
+[ext_resource type="AudioStream" uid="uid://dgasklyu5ravr" path="res://common/audio/ingredients/Mineral_Drop_2.wav" id="2_iupcj"]
 [ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_po702"]
 [ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_jfwle"]
 [ext_resource type="Resource" uid="uid://2bq51ncoy4qu" path="res://common/items/effects/healing_poison.tres" id="5_pollm"]
@@ -12,6 +14,8 @@
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_jfi50"]
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_w4vc3"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="12_256ir"]
+[ext_resource type="AudioStream" uid="uid://boehtodvkxl3s" path="res://common/audio/ingredients/Mineral_Pickup_1.wav" id="14_uwtg7"]
+[ext_resource type="AudioStream" uid="uid://vns61o4o62bt" path="res://common/audio/ingredients/Mineral_Pickup_2.wav" id="15_7j6sn"]
 
 [sub_resource type="Resource" id="Resource_8pxyn"]
 script = ExtResource("11_w4vc3")
@@ -32,6 +36,9 @@ ExtResource("10_jfi50"): 0
 script = ExtResource("12_256ir")
 effects = SubResource("Resource_8pxyn")
 available_actions = 0
+type = 0
+grab_sounds = [ExtResource("14_uwtg7"), ExtResource("15_7j6sn")]
+drop_sounds = [ExtResource("1_hknlt"), ExtResource("2_iupcj")]
 id = "melted_silver_dust"
 name = "Melted Silver Dust"
 description = ""

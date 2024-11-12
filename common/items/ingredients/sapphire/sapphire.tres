@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=15 format=3 uid="uid://dkhhs3wcd8t71"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=19 format=3 uid="uid://dkhhs3wcd8t71"]
 
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_v50ue"]
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_xyl5g"]
+[ext_resource type="AudioStream" uid="uid://cutdlc3wgmi35" path="res://common/audio/ingredients/Mineral_Drop_1.wav" id="1_y2qiw"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_7p7tw"]
+[ext_resource type="AudioStream" uid="uid://dgasklyu5ravr" path="res://common/audio/ingredients/Mineral_Drop_2.wav" id="2_bohpy"]
 [ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_pglqv"]
 [ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_lecl3"]
 [ext_resource type="Resource" uid="uid://2bq51ncoy4qu" path="res://common/items/effects/healing_poison.tres" id="5_fc6vd"]
@@ -13,6 +15,8 @@
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_r8uwa"]
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_w86op"]
 [ext_resource type="Texture2D" uid="uid://npdtdacybe7o" path="res://common/items/ingredients/sapphire/sapphire.png" id="12_emjo0"]
+[ext_resource type="AudioStream" uid="uid://boehtodvkxl3s" path="res://common/audio/ingredients/Mineral_Pickup_1.wav" id="14_rnjgc"]
+[ext_resource type="AudioStream" uid="uid://vns61o4o62bt" path="res://common/audio/ingredients/Mineral_Pickup_2.wav" id="15_by8bm"]
 
 [sub_resource type="Resource" id="Resource_yxt6f"]
 script = ExtResource("11_w86op")
@@ -33,6 +37,9 @@ ExtResource("10_r8uwa"): -4
 script = ExtResource("1_v50ue")
 effects = SubResource("Resource_yxt6f")
 available_actions = 12
+type = 0
+grab_sounds = [ExtResource("14_rnjgc"), ExtResource("15_by8bm")]
+drop_sounds = [ExtResource("1_y2qiw"), ExtResource("2_bohpy")]
 id = "sapphire"
 name = "Sapphire"
 description = ""

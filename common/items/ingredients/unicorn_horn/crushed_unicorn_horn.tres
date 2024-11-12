@@ -32,6 +32,9 @@ ExtResource("10_k8q1e"): 0
 script = ExtResource("12_fgtef")
 effects = SubResource("Resource_a82m7")
 available_actions = 0
+type = 4
+grab_sounds = []
+drop_sounds = []
 id = "crushed_unicorn_horn"
 name = "Crushed Unicorn Horn"
 description = ""

@@ -32,7 +32,10 @@ ExtResource("10_qf106"): 0
 [resource]
 script = ExtResource("1_wjevr")
 effects = SubResource("Resource_xc8ue")
-available_actions = 0
+available_actions = 8
+type = 3
+grab_sounds = []
+drop_sounds = []
 id = "eye_of_a_newt"
 name = "Eye of a Newt"
 description = "An actual eye of an actual newt"

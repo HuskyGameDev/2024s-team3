@@ -33,6 +33,9 @@ ExtResource("10_ymcoy"): 18
 script = ExtResource("1_l7yny")
 effects = SubResource("Resource_obi66")
 available_actions = 0
+type = 4
+grab_sounds = []
+drop_sounds = []
 id = "yeti_fur"
 name = "Yeti Fur"
 description = ""

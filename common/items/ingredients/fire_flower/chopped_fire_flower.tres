@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=14 format=3 uid="uid://vo2uq7x6vddh"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=17 format=3 uid="uid://vo2uq7x6vddh"]
 
+[ext_resource type="AudioStream" uid="uid://dcrdd163tjgda" path="res://common/audio/ingredients/Magic_Plant_Drop_2.wav" id="1_1sy52"]
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_ecoib"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_lttie"]
 [ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_8622n"]
@@ -12,6 +13,8 @@
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_u6y62"]
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_5v7r0"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="12_so32p"]
+[ext_resource type="AudioStream" uid="uid://b331f45sjksys" path="res://common/audio/ingredients/Magic_Plant_Pickup_1.wav" id="13_5pbhl"]
+[ext_resource type="AudioStream" uid="uid://dbmqcc2rxhyvg" path="res://common/audio/ingredients/Magic_Plant_Pickup_2.wav" id="14_wtv7v"]
 
 [sub_resource type="Resource" id="Resource_o74im"]
 script = ExtResource("11_5v7r0")
@@ -32,6 +35,9 @@ ExtResource("10_u6y62"): 20
 script = ExtResource("12_so32p")
 effects = SubResource("Resource_o74im")
 available_actions = 4
+type = 2
+grab_sounds = [ExtResource("13_5pbhl"), ExtResource("14_wtv7v")]
+drop_sounds = [null, ExtResource("1_1sy52")]
 id = "chopped_fire_flower"
 name = "Chopped Fire Flower"
 description = ""

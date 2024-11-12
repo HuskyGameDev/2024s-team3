@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=15 format=3 uid="uid://chkhceb7m5h2a"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=19 format=3 uid="uid://chkhceb7m5h2a"]
 
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_33wbd"]
+[ext_resource type="AudioStream" uid="uid://bnqfl0hst4wk1" path="res://common/audio/ingredients/Foliage_Drop_1.wav" id="1_offcg"]
+[ext_resource type="AudioStream" uid="uid://c21dam133k753" path="res://common/audio/ingredients/Foliage_Drop_2.wav" id="2_f830j"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_i84hc"]
 [ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_vnjxc"]
 [ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_0801y"]
@@ -13,6 +15,8 @@
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_bjquq"]
 [ext_resource type="Texture2D" uid="uid://1d2clndfqfcx" path="res://common/items/ingredients/fresh_moss/fresh_moss.png" id="12_fny23"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="13_r3pr0"]
+[ext_resource type="AudioStream" uid="uid://ctruinpxcb6r" path="res://common/audio/ingredients/Foliage_Pickup_1.wav" id="14_7efr3"]
+[ext_resource type="AudioStream" uid="uid://b2801q5jojgtl" path="res://common/audio/ingredients/Foliage_Pickup_2.wav" id="15_lqg41"]
 
 [sub_resource type="Resource" id="Resource_3qjgm"]
 script = ExtResource("11_bjquq")
@@ -33,6 +37,9 @@ ExtResource("10_qp6s1"): 0
 script = ExtResource("13_r3pr0")
 effects = SubResource("Resource_3qjgm")
 available_actions = 0
+type = 1
+grab_sounds = [ExtResource("14_7efr3"), ExtResource("15_lqg41")]
+drop_sounds = [ExtResource("1_offcg"), ExtResource("2_f830j")]
 id = "fresh_moss"
 name = "Fresh Moss"
 description = ""

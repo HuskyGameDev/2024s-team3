@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Location" load_steps=55 format=3 uid="uid://bd6g3phtbeto"]
+[gd_resource type="Resource" script_class="Location" load_steps=55 format=3 uid="uid://5d5kwas61ga8"]
 
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_bbse6"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_hjt0h"]
@@ -25,7 +25,7 @@
 [ext_resource type="Resource" uid="uid://cj8ol3qfrfwmh" path="res://common/items/ingredients/owl_feather/owl_feather.tres" id="23_1x8ak"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="24_6sop3"]
 [ext_resource type="Resource" uid="uid://dgiw62hk2ccn6" path="res://common/items/ingredients/eye_of_newt/eye_of_newt.tres" id="25_e0v3k"]
-[ext_resource type="PackedScene" uid="uid://bw28earyu2hwu" path="res://common/locations/the_clearing/the_clearing_background.tscn" id="26_aya23"]
+[ext_resource type="PackedScene" path="res://common/locations/the_clearing/the_clearing_background.tscn" id="26_aya23"]
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="26_e5pmw"]
 
 [sub_resource type="Resource" id="Resource_dsxx7"]

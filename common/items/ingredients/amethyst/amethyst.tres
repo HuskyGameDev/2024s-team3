@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=15 format=3 uid="uid://bqpv673psm14v"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=19 format=3 uid="uid://bqpv673psm14v"]
 
+[ext_resource type="AudioStream" uid="uid://cutdlc3wgmi35" path="res://common/audio/ingredients/Mineral_Drop_1.wav" id="1_583i1"]
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_bt3dg"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_rmx2x"]
+[ext_resource type="AudioStream" uid="uid://dgasklyu5ravr" path="res://common/audio/ingredients/Mineral_Drop_2.wav" id="2_1yese"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_4kqme"]
 [ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_id81e"]
 [ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_sa7av"]
@@ -13,6 +15,8 @@
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_8kamd"]
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_06cj5"]
 [ext_resource type="Texture2D" uid="uid://b7mgtiks1hlnl" path="res://common/items/ingredients/amethyst/amethyst.png" id="12_7wbyj"]
+[ext_resource type="AudioStream" uid="uid://boehtodvkxl3s" path="res://common/audio/ingredients/Mineral_Pickup_1.wav" id="14_xf5mn"]
+[ext_resource type="AudioStream" uid="uid://vns61o4o62bt" path="res://common/audio/ingredients/Mineral_Pickup_2.wav" id="15_ffvoo"]
 
 [sub_resource type="Resource" id="Resource_k22dn"]
 script = ExtResource("11_06cj5")
@@ -33,6 +37,9 @@ ExtResource("10_8kamd"): 0
 script = ExtResource("1_rmx2x")
 effects = SubResource("Resource_k22dn")
 available_actions = 12
+type = 0
+grab_sounds = [ExtResource("14_xf5mn"), ExtResource("15_ffvoo")]
+drop_sounds = [ExtResource("1_583i1"), ExtResource("2_1yese")]
 id = "amethyst"
 name = "Amethyst"
 description = ""

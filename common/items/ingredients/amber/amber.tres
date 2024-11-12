@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=15 format=3 uid="uid://cy3mhdwt0ax"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=19 format=3 uid="uid://cy3mhdwt0ax"]
 
+[ext_resource type="AudioStream" uid="uid://cutdlc3wgmi35" path="res://common/audio/ingredients/Mineral_Drop_1.wav" id="1_m3o7h"]
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_o2kb7"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_vyfpr"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_bgnaj"]
+[ext_resource type="AudioStream" uid="uid://dgasklyu5ravr" path="res://common/audio/ingredients/Mineral_Drop_2.wav" id="2_sftxs"]
 [ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_ajc6p"]
 [ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_xkwey"]
 [ext_resource type="Resource" uid="uid://2bq51ncoy4qu" path="res://common/items/effects/healing_poison.tres" id="5_e5aau"]
@@ -13,6 +15,8 @@
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_bct7u"]
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_bi3mq"]
 [ext_resource type="Texture2D" uid="uid://bx2lxx3anjxup" path="res://common/items/ingredients/amber/amber.png" id="12_1pgi3"]
+[ext_resource type="AudioStream" uid="uid://boehtodvkxl3s" path="res://common/audio/ingredients/Mineral_Pickup_1.wav" id="14_kn1nk"]
+[ext_resource type="AudioStream" uid="uid://vns61o4o62bt" path="res://common/audio/ingredients/Mineral_Pickup_2.wav" id="15_ns1yp"]
 
 [sub_resource type="Resource" id="Resource_fksie"]
 script = ExtResource("11_bi3mq")
@@ -33,6 +37,9 @@ ExtResource("10_bct7u"): 0
 script = ExtResource("1_vyfpr")
 effects = SubResource("Resource_fksie")
 available_actions = 12
+type = 0
+grab_sounds = [ExtResource("14_kn1nk"), ExtResource("15_ns1yp")]
+drop_sounds = [ExtResource("1_m3o7h"), ExtResource("2_sftxs")]
 id = "amber"
 name = "Amber"
 description = ""

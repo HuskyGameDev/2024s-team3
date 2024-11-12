@@ -32,6 +32,9 @@ ExtResource("10_uh3a2"): 0
 script = ExtResource("12_8ffh2")
 effects = SubResource("Resource_tnids")
 available_actions = 0
+type = 4
+grab_sounds = []
+drop_sounds = []
 id = "crushed_dragon_claw"
 name = "Crushed Dragon Claw"
 description = ""

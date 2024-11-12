@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=14 format=3 uid="uid://pd3dqd3ikkbm"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=18 format=3 uid="uid://pd3dqd3ikkbm"]
 
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_dkpol"]
+[ext_resource type="AudioStream" uid="uid://bnqfl0hst4wk1" path="res://common/audio/ingredients/Foliage_Drop_1.wav" id="1_h1vjh"]
+[ext_resource type="AudioStream" uid="uid://c21dam133k753" path="res://common/audio/ingredients/Foliage_Drop_2.wav" id="2_dl1ac"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_yq8i4"]
 [ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_ol06f"]
 [ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_b5ym0"]
@@ -12,6 +14,8 @@
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_i1by5"]
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_t12rq"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="12_mf645"]
+[ext_resource type="AudioStream" uid="uid://ctruinpxcb6r" path="res://common/audio/ingredients/Foliage_Pickup_1.wav" id="14_ytoqj"]
+[ext_resource type="AudioStream" uid="uid://b2801q5jojgtl" path="res://common/audio/ingredients/Foliage_Pickup_2.wav" id="15_m38fy"]
 
 [sub_resource type="Resource" id="Resource_lw4v2"]
 script = ExtResource("11_t12rq")
@@ -32,6 +36,9 @@ ExtResource("10_i1by5"): 6
 script = ExtResource("12_mf645")
 effects = SubResource("Resource_lw4v2")
 available_actions = 0
+type = 1
+grab_sounds = [ExtResource("14_ytoqj"), ExtResource("15_m38fy")]
+drop_sounds = [ExtResource("1_h1vjh"), ExtResource("2_dl1ac")]
 id = "crushed_sunflower_seeds"
 name = "Crushed Sunflower Seeds"
 description = ""

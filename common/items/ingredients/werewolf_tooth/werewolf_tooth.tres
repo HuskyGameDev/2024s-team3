@@ -33,6 +33,9 @@ ExtResource("10_dnquo"): 0
 script = ExtResource("1_nqnv3")
 effects = SubResource("Resource_u8srx")
 available_actions = 4
+type = 4
+grab_sounds = []
+drop_sounds = []
 id = "werewolf_tooth"
 name = "Werewolf Tooth"
 description = ""

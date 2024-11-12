@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=15 format=3 uid="uid://bd41rgq23tqx1"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=19 format=3 uid="uid://bd41rgq23tqx1"]
 
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_33mtf"]
+[ext_resource type="AudioStream" uid="uid://cc2pxbb57fxwh" path="res://common/audio/ingredients/Magic_Plant_Drop_1.wav" id="1_s72cw"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_wcfka"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_0gfq3"]
+[ext_resource type="AudioStream" uid="uid://dcrdd163tjgda" path="res://common/audio/ingredients/Magic_Plant_Drop_2.wav" id="2_keoc2"]
 [ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_d3ou2"]
 [ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_ahdyn"]
 [ext_resource type="Resource" uid="uid://2bq51ncoy4qu" path="res://common/items/effects/healing_poison.tres" id="5_5bkw8"]
@@ -13,6 +15,8 @@
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_jrigp"]
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_wm3w3"]
 [ext_resource type="Texture2D" uid="uid://bhoopdfy8c4k7" path="res://common/items/ingredients/fire_flower/fire_flower.png" id="12_k1d0t"]
+[ext_resource type="AudioStream" uid="uid://b331f45sjksys" path="res://common/audio/ingredients/Magic_Plant_Pickup_1.wav" id="14_h7rr8"]
+[ext_resource type="AudioStream" uid="uid://dbmqcc2rxhyvg" path="res://common/audio/ingredients/Magic_Plant_Pickup_2.wav" id="15_cdhmc"]
 
 [sub_resource type="Resource" id="Resource_2p1nq"]
 script = ExtResource("11_wm3w3")
@@ -33,6 +37,9 @@ ExtResource("10_jrigp"): 20
 script = ExtResource("1_wcfka")
 effects = SubResource("Resource_2p1nq")
 available_actions = 6
+type = 2
+grab_sounds = [ExtResource("14_h7rr8"), ExtResource("15_cdhmc")]
+drop_sounds = [ExtResource("1_s72cw"), ExtResource("2_keoc2")]
 id = "fire_flower"
 name = "Fire Flower"
 description = ""

@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=14 format=3 uid="uid://bn4ml0tjc11kr"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=18 format=3 uid="uid://bn4ml0tjc11kr"]
 
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_0wpo0"]
+[ext_resource type="AudioStream" uid="uid://cutdlc3wgmi35" path="res://common/audio/ingredients/Mineral_Drop_1.wav" id="1_gbkl0"]
+[ext_resource type="AudioStream" uid="uid://dgasklyu5ravr" path="res://common/audio/ingredients/Mineral_Drop_2.wav" id="2_2jl4i"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_rh4nr"]
 [ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_ak5ym"]
 [ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_n1x8y"]
@@ -12,6 +14,8 @@
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_h457o"]
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_1hp4g"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="12_k2bbm"]
+[ext_resource type="AudioStream" uid="uid://boehtodvkxl3s" path="res://common/audio/ingredients/Mineral_Pickup_1.wav" id="14_r8t7b"]
+[ext_resource type="AudioStream" uid="uid://vns61o4o62bt" path="res://common/audio/ingredients/Mineral_Pickup_2.wav" id="15_f6wwq"]
 
 [sub_resource type="Resource" id="Resource_c7ic1"]
 script = ExtResource("11_1hp4g")
@@ -32,6 +36,9 @@ ExtResource("10_h457o"): 0
 script = ExtResource("12_k2bbm")
 effects = SubResource("Resource_c7ic1")
 available_actions = 0
+type = 0
+grab_sounds = [ExtResource("14_r8t7b"), ExtResource("15_f6wwq")]
+drop_sounds = [ExtResource("1_gbkl0"), ExtResource("2_2jl4i")]
 id = "crushed_pine_resin"
 name = "Crushed Pine Resin"
 description = ""

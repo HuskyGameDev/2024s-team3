@@ -37,6 +37,7 @@ text = "Description"
 [node name="StackSizeContainer" type="PanelContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
 theme_override_styles/panel = ExtResource("2_le0w1")
 
 [node name="StackSizeLabel" type="SpinBox" parent="StackSizeContainer"]
@@ -61,6 +62,21 @@ layout_mode = 2
 [node name="ConcentratableCheck" type="CheckBox" parent="."]
 layout_mode = 2
 
+[node name="TypeDropdown" type="OptionButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+item_count = 5
+popup/item_0/text = "Mineral"
+popup/item_1/text = "Plant"
+popup/item_1/id = 1
+popup/item_2/text = "Magic Plant"
+popup/item_2/id = 2
+popup/item_3/text = "Animal"
+popup/item_3/id = 3
+popup/item_4/text = "Magic Animal"
+popup/item_4/id = 4
+
 [node name="DeleteButton" type="Button" parent="."]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
@@ -80,5 +96,6 @@ dialog_autowrap = true
 [connection signal="toggled" from="CrushableCheck" to="." method="_on_crushable_check_toggled"]
 [connection signal="toggled" from="MeltableCheck" to="." method="_on_meltable_check_toggled"]
 [connection signal="toggled" from="ConcentratableCheck" to="." method="_on_concentratable_check_toggled"]
+[connection signal="item_selected" from="TypeDropdown" to="." method="_on_type_dropdown_selected"]
 [connection signal="pressed" from="DeleteButton" to="." method="_on_delete_button_pressed"]
 [connection signal="confirmed" from="DeleteConfirmationDialog" to="." method="_on_delete_confirmed"]

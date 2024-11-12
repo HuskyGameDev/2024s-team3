@@ -33,6 +33,9 @@ ExtResource("10_hy1ar"): 3
 script = ExtResource("1_iiaq4")
 effects = SubResource("Resource_6rxll")
 available_actions = 16
+type = 3
+grab_sounds = []
+drop_sounds = []
 id = "goat_milk"
 name = "Goat Milk"
 description = ""

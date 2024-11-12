@@ -32,6 +32,9 @@ ExtResource("10_sargt"): 0
 script = ExtResource("12_g1ikx")
 effects = SubResource("Resource_o7q2n")
 available_actions = 0
+type = 3
+grab_sounds = []
+drop_sounds = []
 id = "chopped_bat_wing"
 name = "Chopped Bat Wing"
 description = ""

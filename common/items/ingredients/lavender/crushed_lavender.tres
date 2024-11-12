@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=14 format=3 uid="uid://6rdtwv8dslol"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=18 format=3 uid="uid://6rdtwv8dslol"]
 
+[ext_resource type="AudioStream" uid="uid://bnqfl0hst4wk1" path="res://common/audio/ingredients/Foliage_Drop_1.wav" id="1_f408l"]
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_wu1id"]
+[ext_resource type="AudioStream" uid="uid://c21dam133k753" path="res://common/audio/ingredients/Foliage_Drop_2.wav" id="2_3lbit"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_14srb"]
 [ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_nnyuw"]
 [ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_1gcis"]
@@ -12,6 +14,8 @@
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_0uga2"]
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_qtnxs"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="12_7cbvi"]
+[ext_resource type="AudioStream" uid="uid://ctruinpxcb6r" path="res://common/audio/ingredients/Foliage_Pickup_1.wav" id="14_cgm7e"]
+[ext_resource type="AudioStream" uid="uid://b2801q5jojgtl" path="res://common/audio/ingredients/Foliage_Pickup_2.wav" id="15_0g1oh"]
 
 [sub_resource type="Resource" id="Resource_dh5pw"]
 script = ExtResource("11_qtnxs")
@@ -32,6 +36,9 @@ ExtResource("10_0uga2"): 0
 script = ExtResource("12_7cbvi")
 effects = SubResource("Resource_dh5pw")
 available_actions = 0
+type = 1
+grab_sounds = [ExtResource("14_cgm7e"), ExtResource("15_0g1oh")]
+drop_sounds = [ExtResource("1_f408l"), ExtResource("2_3lbit")]
 id = "crushed_lavender"
 name = "Crushed Lavender"
 description = ""

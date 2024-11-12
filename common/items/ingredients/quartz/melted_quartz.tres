@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=14 format=3 uid="uid://riwn35kjgloo"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=18 format=3 uid="uid://riwn35kjgloo"]
 
+[ext_resource type="AudioStream" uid="uid://cutdlc3wgmi35" path="res://common/audio/ingredients/Mineral_Drop_1.wav" id="1_b8t0c"]
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_f8hgc"]
+[ext_resource type="AudioStream" uid="uid://dgasklyu5ravr" path="res://common/audio/ingredients/Mineral_Drop_2.wav" id="2_k2ss3"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_ki8m1"]
 [ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_qod6l"]
 [ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_3yr5x"]
@@ -12,6 +14,8 @@
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_im5fk"]
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_sqqts"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="12_1rgxy"]
+[ext_resource type="AudioStream" uid="uid://boehtodvkxl3s" path="res://common/audio/ingredients/Mineral_Pickup_1.wav" id="14_rrxsu"]
+[ext_resource type="AudioStream" uid="uid://vns61o4o62bt" path="res://common/audio/ingredients/Mineral_Pickup_2.wav" id="15_3ary2"]
 
 [sub_resource type="Resource" id="Resource_l64ou"]
 script = ExtResource("11_sqqts")
@@ -32,6 +36,9 @@ ExtResource("10_im5fk"): 0
 script = ExtResource("12_1rgxy")
 effects = SubResource("Resource_l64ou")
 available_actions = 0
+type = 0
+grab_sounds = [ExtResource("14_rrxsu"), ExtResource("15_3ary2")]
+drop_sounds = [ExtResource("1_b8t0c"), ExtResource("2_k2ss3")]
 id = "melted_quartz"
 name = "Melted Quartz"
 description = ""

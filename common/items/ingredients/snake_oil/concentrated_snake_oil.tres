@@ -32,6 +32,9 @@ ExtResource("10_up61g"): 0
 script = ExtResource("12_oiut2")
 effects = SubResource("Resource_n1jre")
 available_actions = 0
+type = 3
+grab_sounds = []
+drop_sounds = []
 id = "concentrated_snake_oil"
 name = "Concentrated Snake Oil"
 description = ""

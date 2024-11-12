@@ -32,6 +32,9 @@ ExtResource("10_8dmjo"): 0
 script = ExtResource("12_0a3hr")
 effects = SubResource("Resource_3hegw")
 available_actions = 0
+type = 3
+grab_sounds = []
+drop_sounds = []
 id = "concentrated_goats_blood"
 name = "Concentrated Goats Blood"
 description = ""

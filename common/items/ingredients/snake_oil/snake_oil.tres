@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=15 format=3 uid="uid://be1ntjq76fu7q"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=17 format=3 uid="uid://be1ntjq76fu7q"]
 
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_0rast"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_idmaa"]
@@ -13,6 +13,8 @@
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_uttb7"]
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_f74m5"]
 [ext_resource type="Texture2D" uid="uid://b6sh0tkt8sgvu" path="res://common/items/ingredients/snake_oil/snake_oil.png" id="12_jewdk"]
+[ext_resource type="AudioStream" uid="uid://cc2pxbb57fxwh" path="res://common/audio/ingredients/Magic_Plant_Drop_1.wav" id="13_iqudw"]
+[ext_resource type="AudioStream" uid="uid://vns61o4o62bt" path="res://common/audio/ingredients/Mineral_Pickup_2.wav" id="15_reaj5"]
 
 [sub_resource type="Resource" id="Resource_5bpkt"]
 script = ExtResource("11_f74m5")
@@ -33,6 +35,9 @@ ExtResource("10_uttb7"): 0
 script = ExtResource("1_idmaa")
 effects = SubResource("Resource_5bpkt")
 available_actions = 16
+type = 3
+grab_sounds = [ExtResource("13_iqudw")]
+drop_sounds = [ExtResource("15_reaj5")]
 id = "snake_oil"
 name = "Snake Oil"
 description = ""

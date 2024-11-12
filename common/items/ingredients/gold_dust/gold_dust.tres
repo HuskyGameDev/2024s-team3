@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=15 format=3 uid="uid://dqvhrnhf80xi0"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=19 format=3 uid="uid://dqvhrnhf80xi0"]
 
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_kq610"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_lihcd"]
+[ext_resource type="AudioStream" uid="uid://cutdlc3wgmi35" path="res://common/audio/ingredients/Mineral_Drop_1.wav" id="1_qb878"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_6rhte"]
+[ext_resource type="AudioStream" uid="uid://dgasklyu5ravr" path="res://common/audio/ingredients/Mineral_Drop_2.wav" id="2_cscpy"]
 [ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_4xugc"]
 [ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_p8o3b"]
 [ext_resource type="Resource" uid="uid://2bq51ncoy4qu" path="res://common/items/effects/healing_poison.tres" id="5_s8nev"]
@@ -13,6 +15,8 @@
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_snf86"]
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_07tq4"]
 [ext_resource type="Texture2D" uid="uid://bbertuk6wupaj" path="res://common/items/ingredients/gold_dust/gold_dust.png" id="12_h06ge"]
+[ext_resource type="AudioStream" uid="uid://boehtodvkxl3s" path="res://common/audio/ingredients/Mineral_Pickup_1.wav" id="14_th32f"]
+[ext_resource type="AudioStream" uid="uid://vns61o4o62bt" path="res://common/audio/ingredients/Mineral_Pickup_2.wav" id="15_ts55g"]
 
 [sub_resource type="Resource" id="Resource_dfm1c"]
 script = ExtResource("11_07tq4")
@@ -33,6 +37,9 @@ ExtResource("10_snf86"): 0
 script = ExtResource("1_lihcd")
 effects = SubResource("Resource_dfm1c")
 available_actions = 8
+type = 0
+grab_sounds = [ExtResource("14_th32f"), ExtResource("15_ts55g")]
+drop_sounds = [ExtResource("1_qb878"), ExtResource("2_cscpy")]
 id = "gold_dust"
 name = "Gold Dust"
 description = ""

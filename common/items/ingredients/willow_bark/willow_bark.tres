@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=15 format=3 uid="uid://4tiagx12hv4e"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=19 format=3 uid="uid://4tiagx12hv4e"]
 
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_oqcgo"]
+[ext_resource type="AudioStream" uid="uid://bnqfl0hst4wk1" path="res://common/audio/ingredients/Foliage_Drop_1.wav" id="1_pq3x8"]
+[ext_resource type="AudioStream" uid="uid://c21dam133k753" path="res://common/audio/ingredients/Foliage_Drop_2.wav" id="2_2cibw"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_omj4r"]
 [ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_fymu0"]
 [ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_bkm4x"]
@@ -13,6 +15,8 @@
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_p8v74"]
 [ext_resource type="Texture2D" uid="uid://d0hi7w23tbq3s" path="res://common/items/ingredients/willow_bark/willow_bark.png" id="12_0ghxj"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="12_xtcd3"]
+[ext_resource type="AudioStream" uid="uid://ctruinpxcb6r" path="res://common/audio/ingredients/Foliage_Pickup_1.wav" id="14_tyvn6"]
+[ext_resource type="AudioStream" uid="uid://b2801q5jojgtl" path="res://common/audio/ingredients/Foliage_Pickup_2.wav" id="15_2sc11"]
 
 [sub_resource type="Resource" id="Resource_r5g8v"]
 script = ExtResource("11_p8v74")
@@ -33,6 +37,9 @@ ExtResource("10_8c1ic"): -5
 script = ExtResource("12_xtcd3")
 effects = SubResource("Resource_r5g8v")
 available_actions = 4
+type = 1
+grab_sounds = [ExtResource("14_tyvn6"), ExtResource("15_2sc11")]
+drop_sounds = [ExtResource("1_pq3x8"), ExtResource("2_2cibw")]
 id = "willow_bark"
 name = "Willow Bark"
 description = ""

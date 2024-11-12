@@ -32,6 +32,9 @@ ExtResource("10_w7u64"): 0
 script = ExtResource("12_e1gwl")
 effects = SubResource("Resource_g7yhs")
 available_actions = 4
+type = 3
+grab_sounds = []
+drop_sounds = []
 id = "chopped_raw_leech"
 name = "Chopped Raw Leech"
 description = ""

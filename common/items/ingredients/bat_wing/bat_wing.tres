@@ -33,6 +33,9 @@ ExtResource("10_juup1"): 0
 script = ExtResource("1_jwsd2")
 effects = SubResource("Resource_hujbu")
 available_actions = 2
+type = 3
+grab_sounds = []
+drop_sounds = []
 id = "bat_wing"
 name = "Bat Wing"
 description = ""

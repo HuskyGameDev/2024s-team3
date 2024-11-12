@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=15 format=3 uid="uid://bkq4gku6b1dau"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=19 format=3 uid="uid://bkq4gku6b1dau"]
 
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_0hhwx"]
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_ibdcl"]
+[ext_resource type="AudioStream" uid="uid://bnqfl0hst4wk1" path="res://common/audio/ingredients/Foliage_Drop_1.wav" id="1_knt17"]
+[ext_resource type="AudioStream" uid="uid://c21dam133k753" path="res://common/audio/ingredients/Foliage_Drop_2.wav" id="2_4f41a"]
 [ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_wlyla"]
 [ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_joqo7"]
 [ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_t7y7q"]
@@ -13,6 +15,8 @@
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_umn8l"]
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_yf7ko"]
 [ext_resource type="Texture2D" uid="uid://bmut2gthwib5k" path="res://common/items/ingredients/holly_berries/holly_berries.png" id="12_lsvvg"]
+[ext_resource type="AudioStream" uid="uid://ctruinpxcb6r" path="res://common/audio/ingredients/Foliage_Pickup_1.wav" id="14_lhhld"]
+[ext_resource type="AudioStream" uid="uid://b2801q5jojgtl" path="res://common/audio/ingredients/Foliage_Pickup_2.wav" id="15_0rm21"]
 
 [sub_resource type="Resource" id="Resource_w22yd"]
 script = ExtResource("11_yf7ko")
@@ -33,6 +37,9 @@ ExtResource("10_umn8l"): 0
 script = ExtResource("1_0hhwx")
 effects = SubResource("Resource_w22yd")
 available_actions = 6
+type = 1
+grab_sounds = [ExtResource("14_lhhld"), ExtResource("15_0rm21")]
+drop_sounds = [ExtResource("1_knt17"), ExtResource("2_4f41a")]
 id = "holly_berries"
 name = "Holly Berries"
 description = ""

@@ -32,6 +32,9 @@ ExtResource("10_isvnr"): 0
 script = ExtResource("12_nr27g")
 effects = SubResource("Resource_i78b2")
 available_actions = 0
+type = 3
+grab_sounds = []
+drop_sounds = []
 id = "chopped_frog_leg"
 name = "Chopped Frog Leg"
 description = ""

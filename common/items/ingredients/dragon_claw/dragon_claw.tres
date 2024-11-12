@@ -33,6 +33,9 @@ ExtResource("10_vd357"): 16
 script = ExtResource("1_hihpr")
 effects = SubResource("Resource_6oct2")
 available_actions = 4
+type = 4
+grab_sounds = []
+drop_sounds = []
 id = "dragon_claw"
 name = "Dragon Claw"
 description = ""
