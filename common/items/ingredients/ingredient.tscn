@@ -17,6 +17,9 @@ script = ExtResource("1_wdr4g")
 scale = Vector2(6, 6)
 texture = ExtResource("2_2tyjf")
 
+[node name="ChoppedSprite" type="Node2D" parent="."]
+visible = false
+
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qqx7g")
 

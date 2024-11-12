@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Location" load_steps=5 format=3 uid="uid://cjqb6k6smqc57"]
+
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_yiqfl"]
+[ext_resource type="Script" path="res://common/locations/location_type.gd" id="2_72173"]
+[ext_resource type="PackedScene" uid="uid://b0svbhctsvmn4" path="res://common/locations/the_outpost/the_outpost_background.tscn" id="2_yis6e"]
+[ext_resource type="Texture2D" uid="uid://csapsq07wwo5l" path="res://screens/main/stations/cutting_board/cutting_board.png" id="3_u0r83"]
+
+[resource]
+script = ExtResource("2_72173")
+id = "the_outpost"
+name = "The Outpost"
+ingredients = Array[ExtResource("1_yiqfl")]([])
+packed_background_scene = ExtResource("2_yis6e")
+unlockable_station_id = "cutting_board"
+unlockable_station_sprite = ExtResource("3_u0r83")
+unlockable_station_price = 50
+map_weight = 4
+map_cost = 100
+map_color = Color(0.537715, 0.114309, 0.0873477, 1)

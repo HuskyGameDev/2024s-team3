@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5ci642b4ib88"]
+
+[ext_resource type="Script" path="res://screens/night_menu/map/location_label/location_label.gd" id="1_iw51e"]
+[ext_resource type="Texture2D" uid="uid://0mftcd1fvndf" path="res://screens/night_menu/map/outline.png" id="1_ykyic"]
+[ext_resource type="Texture2D" uid="uid://b6rcldg0jvaiy" path="res://screens/night_menu/map/tilemap.png" id="2_iu7gd"]
+[ext_resource type="Material" uid="uid://bvnj6sjxlk4q3" path="res://common/shaders/potion_shader.tres" id="2_tvml3"]
+[ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="2_xa458"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d4n2c"]
+radius = 53.0377
+
+[node name="LocationLabel" type="Area2D"]
+script = ExtResource("1_iw51e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d4n2c")
+
+[node name="MarkerSprite" type="Sprite2D" parent="."]
+material = ExtResource("2_tvml3")
+texture = ExtResource("2_iu7gd")
+region_enabled = true
+region_rect = Rect2(256, 432, 16, 16)
+
+[node name="Label" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 285.0
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+pivot_offset = Vector2(-47, -48)
+theme_override_constants/margin_bottom = 29
+
+[node name="Outline" type="Sprite2D" parent="Label"]
+position = Vector2(141, 144)
+scale = Vector2(6, 6)
+texture = ExtResource("1_ykyic")
+
+[node name="PanelContainer" type="PanelContainer" parent="Label"]
+layout_mode = 2
+theme = ExtResource("2_xa458")
+
+[node name="Label" type="Label" parent="Label/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "The Clearing"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_location_area_entered"]
+[connection signal="body_exited" from="." to="." method="_on_location_area_exited"]
+[connection signal="input_event" from="." to="." method="_on_location_area_click"]
+[connection signal="mouse_entered" from="." to="." method="_on_location_area_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_location_area_mouse_exited"]

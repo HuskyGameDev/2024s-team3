@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://tx6eclsydksq"]
+
+[ext_resource type="Texture2D" uid="uid://cf7jtafm7afg7" path="res://common/locations/the_city/5.png" id="1_46a1o"]
+[ext_resource type="Texture2D" uid="uid://dtfs0sefpixq4" path="res://common/locations/the_city/4.png" id="2_w3byo"]
+[ext_resource type="Texture2D" uid="uid://cratwuc20ncn4" path="res://common/locations/the_city/3.png" id="3_hnrrr"]
+[ext_resource type="Texture2D" uid="uid://0toncjky2cjy" path="res://common/locations/the_city/2.png" id="4_ub1vi"]
+[ext_resource type="Texture2D" uid="uid://cp5t0xvc4i0b3" path="res://common/locations/the_city/1.png" id="5_lmki0"]
+
+[node name="Background" type="Node2D"]
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+texture = ExtResource("1_46a1o")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+texture = ExtResource("2_w3byo")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+texture = ExtResource("3_hnrrr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("4_ub1vi")
+
+[node name="Sprite2D1" type="Sprite2D" parent="."]
+texture = ExtResource("5_lmki0")

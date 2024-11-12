@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bsgio2wgxwjd1"]
 
 [ext_resource type="Texture2D" uid="uid://b2ahbujgm8kxd" path="res://screens/main/pedestal/pedestal.png" id="2_chabx"]
-[ext_resource type="PackedScene" uid="uid://wjks27mwt8qa" path="res://screens/main/shelf_slot/shelf_slot.tscn" id="3_1s04f"]
+[ext_resource type="PackedScene" uid="uid://wjks27mwt8qa" path="res://common/shelf_slot/shelf_slot.tscn" id="3_1s04f"]
 
 [node name="Pedestal" type="Node2D"]
 

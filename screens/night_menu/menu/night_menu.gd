@@ -9,10 +9,7 @@ func _on_buy_button_pressed():
 
 
 func _on_forage_button_pressed():
-	var foragedItems = PlayerData.location.forage_items(3)
-	for i in foragedItems:
-		PlayerData.add_item_to_inventory(i, 1);
-	get_tree().change_scene_to_file("res://screens/main/packed_main.tscn")
+	get_tree().change_scene_to_file("res://screens/night_menu/forage/forage.tscn")
 
 
 func _on_move_button_pressed():	

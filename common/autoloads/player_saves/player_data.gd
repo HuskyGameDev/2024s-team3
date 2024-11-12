@@ -5,7 +5,10 @@ const SAVE_LOCATION = "user://savegame.save"
 const INV_LOCATION = "user://inv_data_file.json" #inventory we save to when each day is done
 const TEMP_INV_LOCATION = "user://temp_inv_data_file.json" #inventory we save to during game play
 
-@export var location: Location = ResourceLoader.load("res://common/locations/the_clearing.tres")
+@export var location: Location = ResourceLoader.load("res://common/locations/the_clearing/the_clearing.tres")
+@export var visited_locations: Array[Location] = [ location ]
+@export var unlocked_locations: Array = [ location.id ]
+@export var unlocked_stations: Array = []
 @export var money: int = 0
 @export var reputation: int = 0
 @export var tutorial_complete: bool = false
@@ -34,6 +37,9 @@ func save_game_files():
 		"money": money, 
 		"reputation": reputation, 
 		"location": location.id,
+		"visited_locations": visited_locations.map(func(l): return l.id),
+		"unlocked_locations": unlocked_locations,
+		"unlocked_stations": unlocked_stations,
 		"tutorial_complete": tutorial_complete
 	}))
 	save_file.close()
@@ -46,15 +52,7 @@ func save_game():
 	var file = FileAccess.open(INV_LOCATION, FileAccess.WRITE)
 	file.store_string(JSON.stringify(content))
 	file.close()
-	
-	var save_file = FileAccess.open(SAVE_LOCATION, FileAccess.WRITE)
-	save_file.store_string(JSON.stringify({
-		"location": location.id,
-		"money": money,
-		"reputation": reputation,
-		"tutorial_complete": tutorial_complete
-	}))
-	save_file.close()
+	save_game_files()
 
 func load_game_files():
 	## Load all variables from file
@@ -66,6 +64,13 @@ func load_game_files():
 			reputation = save_data.get("reputation")
 			var location_id = save_data.get("location")
 			if location_id: location = ResourceLoader.load(ResourcePaths.get_location_path(location_id))
+			var visited_location_ids = save_data.get("visited_locations")
+			if visited_location_ids:
+				visited_locations.clear()
+				for id in visited_location_ids:
+					visited_locations.append(ResourceLoader.load(ResourcePaths.get_location_path(id)))
+			unlocked_locations = save_data.get("unlocked_locations")
+			unlocked_stations = save_data.get("unlocked_stations")
 			tutorial_complete = save_data.get("tutorial_complete")
 		save_file.close()
 

@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://vv8iinohto2f"]
+
+[ext_resource type="FontFile" uid="uid://b7v1xeoebsq10" path="res://ui/fonts/user_interface.ttf" id="1_qo787"]
+[ext_resource type="FontFile" uid="uid://hv6s8x4ynyvt" path="res://ui/fonts/journal.ttf" id="1_xk73y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwix5"]
+bg_color = Color(0.211765, 0.184314, 0.282353, 1)
+
+[resource]
+HeaderSmall/base_type = &"Label"
+HeaderSmall/colors/font_outline_color = Color(0.79175, 0.766794, 0.869621, 1)
+HeaderSmall/constants/outline_size = 4
+HeaderSmall/font_sizes/font_size = 38
+HeaderSmall/fonts/font = ExtResource("1_xk73y")
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_qo787")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_bwix5")

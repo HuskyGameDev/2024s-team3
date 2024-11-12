@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Location" load_steps=14 format=3 uid="uid://bp6uwquo1uiuu"]
+
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_gplof"]
+[ext_resource type="Resource" uid="uid://cy3mhdwt0ax" path="res://common/items/ingredients/amber/amber.tres" id="2_deu1s"]
+[ext_resource type="Resource" uid="uid://bqpv673psm14v" path="res://common/items/ingredients/amethyst/amethyst.tres" id="3_et83t"]
+[ext_resource type="Resource" uid="uid://0potnw15ahty" path="res://common/items/ingredients/diamond/diamond.tres" id="4_h4kxf"]
+[ext_resource type="Resource" uid="uid://cbry8ulugohfg" path="res://common/items/ingredients/emerald/emerald.tres" id="5_fnfpw"]
+[ext_resource type="Resource" uid="uid://c6pknpm4eavsh" path="res://common/items/ingredients/jade/jade.tres" id="6_s6yad"]
+[ext_resource type="Resource" uid="uid://bltnknmlvxxgx" path="res://common/items/ingredients/pearl/pearl.tres" id="7_0cx08"]
+[ext_resource type="Resource" uid="uid://cv7h2o8gwdylm" path="res://common/items/ingredients/quartz/quartz.tres" id="8_xt7eq"]
+[ext_resource type="Resource" uid="uid://2cy5ft5s1xsn" path="res://common/items/ingredients/ruby/ruby.tres" id="9_nswu4"]
+[ext_resource type="Resource" uid="uid://dkhhs3wcd8t71" path="res://common/items/ingredients/sapphire/sapphire.tres" id="10_huo8j"]
+[ext_resource type="Resource" uid="uid://ddkob31lp7vxv" path="res://common/items/ingredients/topaz/topaz.tres" id="11_xp6vc"]
+[ext_resource type="PackedScene" uid="uid://drurrf3syutta" path="res://common/locations/the_temple/the_temple_background.tscn" id="12_805vg"]
+[ext_resource type="Script" path="res://common/locations/location_type.gd" id="12_cnqvg"]
+
+[resource]
+script = ExtResource("12_cnqvg")
+id = "the_temple"
+name = "The Temple"
+ingredients = Array[ExtResource("1_gplof")]([ExtResource("2_deu1s"), ExtResource("3_et83t"), ExtResource("4_h4kxf"), ExtResource("5_fnfpw"), ExtResource("6_s6yad"), ExtResource("7_0cx08"), ExtResource("8_xt7eq"), ExtResource("9_nswu4"), ExtResource("10_huo8j"), ExtResource("11_xp6vc")])
+packed_background_scene = ExtResource("12_805vg")
+unlockable_station_id = "crucible"
+unlockable_station_price = 50
+map_weight = 2
+map_cost = 100
+map_color = Color(0.796078, 0.615686, 0, 1)
