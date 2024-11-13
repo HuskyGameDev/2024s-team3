@@ -32,6 +32,7 @@ ExtResource("10_lax16"): 0
 [resource]
 script = ExtResource("1_xvcm0")
 effects = SubResource("Resource_k8g4n")
+average_color = Color(0.500252, 0.205361, 0.217593, 1)
 available_actions = 16
 id = "goats_blood"
 name = "Goats Blood"

@@ -31,6 +31,7 @@ ExtResource("10_m5dmc"): 0
 [resource]
 script = ExtResource("12_ohgnl")
 effects = SubResource("Resource_uqaqd")
+average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_eye_of_newt"
 name = "Crushed Eye Of Newt"

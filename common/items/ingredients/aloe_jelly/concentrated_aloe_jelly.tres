@@ -31,6 +31,7 @@ ExtResource("10_curpu"): -1
 [resource]
 script = ExtResource("12_6ntte")
 effects = SubResource("Resource_qsrvj")
+average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "concentrated_aloe_jelly"
 name = "Concentrated Aloe Jelly"

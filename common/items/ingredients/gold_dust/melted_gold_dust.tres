@@ -31,6 +31,7 @@ ExtResource("10_7yf2g"): 0
 [resource]
 script = ExtResource("12_5tm7j")
 effects = SubResource("Resource_qrjaw")
+average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "melted_gold_dust"
 name = "Melted Gold Dust"

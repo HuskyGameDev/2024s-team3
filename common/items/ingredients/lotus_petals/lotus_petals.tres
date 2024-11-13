@@ -32,6 +32,7 @@ ExtResource("10_oituc"): 0
 [resource]
 script = ExtResource("1_n3d3s")
 effects = SubResource("Resource_nyuvo")
+average_color = Color(0.488309, 0.43435, 0.370625, 1)
 available_actions = 0
 id = "lotus_petals"
 name = "Lotus Petals"

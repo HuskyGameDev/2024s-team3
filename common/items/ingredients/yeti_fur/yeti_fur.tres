@@ -32,6 +32,7 @@ ExtResource("10_ymcoy"): 18
 [resource]
 script = ExtResource("1_l7yny")
 effects = SubResource("Resource_obi66")
+average_color = Color(0.838003, 0.84042, 0.832639, 1)
 available_actions = 0
 id = "yeti_fur"
 name = "Yeti Fur"

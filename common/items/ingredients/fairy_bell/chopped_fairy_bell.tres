@@ -31,6 +31,7 @@ ExtResource("10_v3x0e"): 0
 [resource]
 script = ExtResource("12_ksw5r")
 effects = SubResource("Resource_jqnc8")
+average_color = Color(0, 0, 0, 1)
 available_actions = 4
 id = "chopped_fairy_bell"
 name = "Chopped Fairy Bell"

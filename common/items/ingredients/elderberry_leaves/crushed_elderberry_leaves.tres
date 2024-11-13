@@ -31,6 +31,7 @@ ExtResource("10_fmke4"): 0
 [resource]
 script = ExtResource("12_g1x78")
 effects = SubResource("Resource_1wgss")
+average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_elderberry_leaves"
 name = "Crushed Elderberry Leaves"

@@ -32,6 +32,7 @@ ExtResource("10_yeuo7"): 0
 [resource]
 script = ExtResource("1_3s34w")
 effects = SubResource("Resource_o4kd0")
+average_color = Color(0.382168, 0.166516, 0.0428524, 1)
 available_actions = 0
 id = "bugbear_hide"
 name = "Bugbear Hide"

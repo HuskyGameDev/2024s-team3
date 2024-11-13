@@ -32,6 +32,7 @@ ExtResource("10_w13oo"): 9
 [resource]
 script = ExtResource("1_btumn")
 effects = SubResource("Resource_ck5x6")
+average_color = Color(0.384525, 0.421237, 0.441267, 1)
 available_actions = 0
 id = "phoenix_ash"
 name = "Phoenix Ash"

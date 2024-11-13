@@ -32,6 +32,7 @@ ExtResource("10_v265a"): 0
 [resource]
 script = ExtResource("1_kcvjn")
 effects = SubResource("Resource_wpiv2")
+average_color = Color(0.938201, 0.525102, 0.129536, 1)
 available_actions = 12
 id = "pine_resin"
 name = "Pine Resin"

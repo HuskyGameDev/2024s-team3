@@ -32,6 +32,7 @@ ExtResource("10_uqas4"): 0
 [resource]
 script = ExtResource("1_8qikv")
 effects = SubResource("Resource_bobkq")
+average_color = Color(0.27025, 0.278882, 0.358823, 1)
 available_actions = 16
 id = "squid_ink"
 name = "Squid Ink"

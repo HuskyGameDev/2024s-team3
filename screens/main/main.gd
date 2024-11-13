@@ -14,8 +14,11 @@ func _ready():
 	
 	PedestalSlot.connect("items_changed", _on_selling_potion_change)
 	
-	$MortarAndPestle.visible = PlayerData.unlocked_stations.has("mortar_and_pestle")
-	$CuttingBoard.visible    = PlayerData.unlocked_stations.has("cutting_board")
+	# disable stations the player doesn't have yet
+	$MortarAndPestle.visible      = PlayerData.unlocked_stations.has("mortar_and_pestle")
+	$MortarAndPestle.process_mode = Node.PROCESS_MODE_INHERIT if PlayerData.unlocked_stations.has("mortar_and_pestle") else Node.PROCESS_MODE_DISABLED
+	$CuttingBoard.visible      = PlayerData.unlocked_stations.has("cutting_board")
+	$CuttingBoard.process_mode = Node.PROCESS_MODE_INHERIT if PlayerData.unlocked_stations.has("cutting_board") else Node.PROCESS_MODE_DISABLED
 
 
 func _on_shelf_body_entered(body):

@@ -32,6 +32,7 @@ ExtResource("10_hy1ar"): 3
 [resource]
 script = ExtResource("1_iiaq4")
 effects = SubResource("Resource_6rxll")
+average_color = Color(0.710598, 0.727092, 0.770373, 1)
 available_actions = 16
 id = "goat_milk"
 name = "Goat Milk"

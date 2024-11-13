@@ -32,6 +32,7 @@ ExtResource("10_u6sx4"): 0
 [resource]
 script = ExtResource("1_1aypd")
 effects = SubResource("Resource_hvr01")
+average_color = Color(0.409399, 0.0728552, 0.0788781, 1)
 available_actions = 0
 id = "harpy_feather"
 name = "Harpy Feather"

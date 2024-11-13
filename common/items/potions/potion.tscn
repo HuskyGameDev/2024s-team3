@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://common/items/potions/potion.gd" id="1_m5pfd"]
 [ext_resource type="Texture2D" uid="uid://cpiu2shqy8d6l" path="res://common/items/ingredients/ingredient_default.png" id="2_nxp7j"]
-[ext_resource type="Material" uid="uid://bvnj6sjxlk4q3" path="res://common/shaders/potion_shader.tres" id="2_tc68q"]
+[ext_resource type="Material" uid="uid://bvnj6sjxlk4q3" path="res://common/shaders/hue_swap.tres" id="2_tc68q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ad3mf"]
 size = Vector2(92, 94)

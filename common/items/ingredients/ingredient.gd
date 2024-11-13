@@ -1,5 +1,8 @@
 extends DraggableObject
 
+const CrushedSprite:Texture2D = preload("res://common/items/ingredients/crushed_ingredient.png")
+const HueSwapMaterial:Material = preload("res://common/shaders/hue_swap.tres")
+
 const IMAGE_SCALE = 6
 
 @export var data: Ingredient
@@ -20,19 +23,18 @@ func _ready():
 	## setup data
 	if data: 
 		set_tooltip(data)
-		if data.id != data.get_base_id():
-			var base_sprite = ResourceLoader.load(ResourcePaths.get_ingredient_path(data.get_base_id())).image
-			if !base_sprite: return
+		if data.image != null: set_up_default_sprite()
+		elif data.id != data.get_base_id():
+			var base_ingredient = ResourceLoader.load(ResourcePaths.get_ingredient_path(data.get_base_id()))
 			if data.id.begins_with(Ingredient.action_to_string(Ingredient.Actions.CHOP)):
-				set_up_chopped_sprite(base_sprite)
-			elif data.id.begins_with(Ingredient.action_to_string(Ingredient.Actions.CHOP)):
-				print_debug("Crushed")
-			elif data.id.begins_with(Ingredient.action_to_string(Ingredient.Actions.CHOP)):
-				print_debug("Melted")
-			elif data.id.begins_with(Ingredient.action_to_string(Ingredient.Actions.CHOP)):
-				print_debug("Concentrated")
-		else: set_up_default_sprite()
-			
+				if base_ingredient.image: set_up_chopped_sprite(base_ingredient.image)
+			elif data.id.begins_with(Ingredient.action_to_string(Ingredient.Actions.CRUSH)):
+				if base_ingredient.average_color: set_up_crushed_sprite(base_ingredient.average_color)
+			elif data.id.begins_with(Ingredient.action_to_string(Ingredient.Actions.MELT)):
+				print_debug("Melted (TODO)")
+			elif data.id.begins_with(Ingredient.action_to_string(Ingredient.Actions.CONCENTRATE)):
+				print_debug("Concentrated (TODO)")
+
 
 # stops rotation of ingredient if its on the shelf
 func _on_body_entered(body):
@@ -55,6 +57,8 @@ func set_up_default_sprite():
 		collider_shape.radius = image_size[0] / 2
 		$"Collider".set_shape(collider_shape)
 		$"Sprite".texture = data.image
+		# remove chopped sprite
+		$ChoppedSprite.queue_free()
 
 
 # ingredient chopped image
@@ -100,4 +104,23 @@ func set_up_chopped_sprite(base_sprite:Texture2D):
 	$"Collider".set_shape(collider_shape)
 	# Remove single sprite
 	$Sprite.queue_free()
-	
+
+
+# ingredient crushed image
+func set_up_crushed_sprite(average_color:Color):
+	# Add shader to sprite
+	var new_material = HueSwapMaterial.duplicate()
+	new_material.set_shader_parameter("from", Color(1, 1, 1))
+	new_material.set_shader_parameter("tolerance", 0)
+	new_material.set_shader_parameter("to", average_color)
+	$"Sprite".material = new_material
+	# Set up collider
+	var image_size = CrushedSprite.get_size() * IMAGE_SCALE
+	var collider_shape = CapsuleShape2D.new()
+	collider_shape.height = image_size[0]
+	collider_shape.radius = image_size[1] / 2
+	$"Collider".rotation_degrees = 90
+	$"Collider".set_shape(collider_shape)
+	$"Sprite".texture = CrushedSprite
+	# Remove chopped sprite
+	$ChoppedSprite.queue_free()

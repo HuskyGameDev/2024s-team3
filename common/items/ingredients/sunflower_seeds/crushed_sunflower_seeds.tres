@@ -31,6 +31,7 @@ ExtResource("10_i1by5"): 6
 [resource]
 script = ExtResource("12_mf645")
 effects = SubResource("Resource_lw4v2")
+average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_sunflower_seeds"
 name = "Crushed Sunflower Seeds"

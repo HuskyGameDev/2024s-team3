@@ -32,6 +32,7 @@ ExtResource("10_wa28p"): 0
 [resource]
 script = ExtResource("1_cc7qr")
 effects = SubResource("Resource_xsnc1")
+average_color = Color(0.217869, 0.327661, 0.178154, 1)
 available_actions = 4
 id = "pipe_weed"
 name = "Pipe Weed"

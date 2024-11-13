@@ -31,6 +31,7 @@ ExtResource("10_ek6h6"): -10
 [resource]
 script = ExtResource("12_tmos3")
 effects = SubResource("Resource_d2d1j")
+average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_willow_bark"
 name = "Crushed Willow Bark"

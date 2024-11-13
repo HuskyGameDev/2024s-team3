@@ -31,6 +31,7 @@ ExtResource("10_5ya0l"): 8
 [resource]
 script = ExtResource("12_nk4k8")
 effects = SubResource("Resource_w80f2")
+average_color = Color(0, 0, 0, 1)
 available_actions = 8
 id = "crushed_ruby"
 name = "Crushed Ruby"

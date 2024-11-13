@@ -32,6 +32,7 @@ ExtResource("10_8kamd"): 0
 [resource]
 script = ExtResource("1_rmx2x")
 effects = SubResource("Resource_k22dn")
+average_color = Color(0.327024, 0.218729, 0.397442, 1)
 available_actions = 12
 id = "amethyst"
 name = "Amethyst"

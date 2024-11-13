@@ -32,6 +32,7 @@ ExtResource("10_jb4bl"): 4
 [resource]
 script = ExtResource("1_vpk6m")
 effects = SubResource("Resource_f4irr")
+average_color = Color(0.409916, 0.154818, 0.154006, 1)
 available_actions = 12
 id = "ruby"
 name = "Ruby"

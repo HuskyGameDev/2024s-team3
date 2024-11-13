@@ -31,6 +31,7 @@ ExtResource("10_uygkw"): 0
 [resource]
 script = ExtResource("12_3givk")
 effects = SubResource("Resource_vueeu")
+average_color = Color(0, 0, 0, 1)
 available_actions = 8
 id = "crushed_pearl"
 name = "Crushed Pearl"

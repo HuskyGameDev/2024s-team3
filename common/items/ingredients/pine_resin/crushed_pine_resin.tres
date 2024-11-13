@@ -31,6 +31,7 @@ ExtResource("10_h457o"): 0
 [resource]
 script = ExtResource("12_k2bbm")
 effects = SubResource("Resource_c7ic1")
+average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_pine_resin"
 name = "Crushed Pine Resin"

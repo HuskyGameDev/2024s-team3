@@ -31,6 +31,7 @@ ExtResource("10_lc34f"): 0
 [resource]
 script = ExtResource("12_mdo3t")
 effects = SubResource("Resource_g58cq")
+average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_pipe_weed"
 name = "Crushed Pipe Weed"

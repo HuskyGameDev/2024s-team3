@@ -31,6 +31,7 @@ ExtResource("10_3xpq7"): 4
 [resource]
 script = ExtResource("12_igkd7")
 effects = SubResource("Resource_hc7c1")
+average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "melted_sapphire"
 name = "Melted Sapphire"

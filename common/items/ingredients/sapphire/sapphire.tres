@@ -32,6 +32,7 @@ ExtResource("10_r8uwa"): -4
 [resource]
 script = ExtResource("1_v50ue")
 effects = SubResource("Resource_yxt6f")
+average_color = Color(0.148505, 0.188407, 0.357399, 1)
 available_actions = 12
 id = "sapphire"
 name = "Sapphire"

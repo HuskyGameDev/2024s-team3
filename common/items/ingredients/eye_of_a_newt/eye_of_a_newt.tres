@@ -32,6 +32,7 @@ ExtResource("10_qf106"): 0
 [resource]
 script = ExtResource("1_wjevr")
 effects = SubResource("Resource_xc8ue")
+average_color = Color(0.897759, 0.777276, 0.678641, 1)
 available_actions = 0
 id = "eye_of_a_newt"
 name = "Eye of a Newt"

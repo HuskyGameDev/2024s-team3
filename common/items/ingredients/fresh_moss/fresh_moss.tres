@@ -32,6 +32,7 @@ ExtResource("10_qp6s1"): 0
 [resource]
 script = ExtResource("13_r3pr0")
 effects = SubResource("Resource_3qjgm")
+average_color = Color(0.424726, 0.577049, 0.175934, 1)
 available_actions = 0
 id = "fresh_moss"
 name = "Fresh Moss"

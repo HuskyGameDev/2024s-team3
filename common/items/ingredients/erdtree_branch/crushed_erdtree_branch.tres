@@ -31,6 +31,7 @@ ExtResource("10_s70f3"): 0
 [resource]
 script = ExtResource("12_cl5ih")
 effects = SubResource("Resource_i8u0a")
+average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_erdtree_branch"
 name = "Crushed Erdtree Branch"

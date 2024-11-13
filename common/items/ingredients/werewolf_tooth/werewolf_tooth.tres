@@ -32,6 +32,7 @@ ExtResource("10_dnquo"): 0
 [resource]
 script = ExtResource("1_nqnv3")
 effects = SubResource("Resource_u8srx")
+average_color = Color(0.696014, 0.633815, 0.41845, 1)
 available_actions = 4
 id = "werewolf_tooth"
 name = "Werewolf Tooth"

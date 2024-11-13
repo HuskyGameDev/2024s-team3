@@ -32,6 +32,7 @@ ExtResource("10_fw2oh"): 0
 [resource]
 script = ExtResource("1_kvuvb")
 effects = SubResource("Resource_btbac")
+average_color = Color(0.0934811, 0.393634, 0.183723, 1)
 available_actions = 12
 id = "emerald"
 name = "Emerald"

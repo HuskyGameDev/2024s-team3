@@ -32,6 +32,7 @@ ExtResource("10_306k8"): 0
 [resource]
 script = ExtResource("1_xqa6f")
 effects = SubResource("Resource_ar3vb")
+average_color = Color(0.121492, 0.703422, 0.438678, 1)
 available_actions = 2
 id = "frog_leg"
 name = "Frog Leg"

@@ -119,10 +119,26 @@ func try_load_image():
 		var image_path = path.get_basename() + ".png"
 		if FileAccess.file_exists(image_path):
 			ingredient.image = load(image_path)
+			calculate_average_color(ingredient.image)
 		else: 
 			ingredient.image = null
 	$ImageContainer/ImageLabel.texture = ingredient.image
 
+## Calculates the average color of a sprite
+func calculate_average_color(sprite:Texture2D):
+	var image = sprite.get_image()
+	var pixel_count = 0
+	var color = Vector3(0, 0, 0)
+	for x in range(image.get_width()):
+		for y in range(image.get_height()):
+			var pixel_color = image.get_pixel(x, y)
+			if pixel_color.a != 0: 
+				color = color + Vector3(pixel_color.r, pixel_color.g, pixel_color.b)
+				pixel_count += 1
+	if pixel_count > 0: 
+		color /= pixel_count
+		ingredient.average_color = Color(color[0], color[1], color[2])
+		ResourceSaver.save(ingredient, path)
 
 ## Triggers after name change debounce
 func _on_name_debounce_complete():

@@ -32,6 +32,7 @@ ExtResource("10_jrigp"): 20
 [resource]
 script = ExtResource("1_wcfka")
 effects = SubResource("Resource_2p1nq")
+average_color = Color(0.476517, 0.274321, 0.238193, 1)
 available_actions = 6
 id = "fire_flower"
 name = "Fire Flower"

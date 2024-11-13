@@ -32,6 +32,7 @@ ExtResource("10_uttb7"): 0
 [resource]
 script = ExtResource("1_idmaa")
 effects = SubResource("Resource_5bpkt")
+average_color = Color(0.466158, 0.470951, 0.351537, 1)
 available_actions = 16
 id = "snake_oil"
 name = "Snake Oil"

@@ -32,6 +32,7 @@ ExtResource("10_pmlh3"): 0
 [resource]
 script = ExtResource("1_5yvt8")
 effects = SubResource("Resource_ym2r3")
+average_color = Color(0.603134, 0.503557, 0.387368, 1)
 available_actions = 12
 id = "fools_gold"
 name = "Fools Gold"

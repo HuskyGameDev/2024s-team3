@@ -31,6 +31,7 @@ ExtResource("10_h5mpj"): 0
 [resource]
 script = ExtResource("12_g8jmh")
 effects = SubResource("Resource_5leyr")
+average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_raw_leech"
 name = "Crushed Raw Leech"

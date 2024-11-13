@@ -32,6 +32,7 @@ ExtResource("10_3g6cd"): 0
 [resource]
 script = ExtResource("1_q82yq")
 effects = SubResource("Resource_vleyx")
+average_color = Color(0.223137, 0.262199, 0.256148, 1)
 available_actions = 4
 id = "lavender"
 name = "Lavender"

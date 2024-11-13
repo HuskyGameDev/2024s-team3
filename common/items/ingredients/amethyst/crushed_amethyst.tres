@@ -31,6 +31,7 @@ ExtResource("10_i8wxe"): 0
 [resource]
 script = ExtResource("12_2tjph")
 effects = SubResource("Resource_djvum")
+average_color = Color(0, 0, 0, 1)
 available_actions = 8
 id = "crushed_amethyst"
 name = "Crushed Amethyst"

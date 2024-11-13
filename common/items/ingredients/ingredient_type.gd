@@ -3,6 +3,7 @@ extends Item
 class_name Ingredient
 
 @export var effects: EffectSet
+@export var average_color: Color
 
 enum Actions {
 	CHOP = 2,

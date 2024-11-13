@@ -32,6 +32,7 @@ ExtResource("10_m4anj"): 3
 [resource]
 script = ExtResource("1_1hsao")
 effects = SubResource("Resource_uaxck")
+average_color = Color(0.503899, 0.42579, 0.415086, 1)
 available_actions = 4
 id = "sunflower_seeds"
 name = "Sunflower Seeds"

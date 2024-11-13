@@ -32,6 +32,7 @@ ExtResource("10_umn8l"): 0
 [resource]
 script = ExtResource("1_0hhwx")
 effects = SubResource("Resource_w22yd")
+average_color = Color(0.386496, 0.235753, 0.145667, 1)
 available_actions = 6
 id = "holly_berries"
 name = "Holly Berries"

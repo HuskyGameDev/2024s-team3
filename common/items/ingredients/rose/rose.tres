@@ -32,6 +32,7 @@ ExtResource("10_nx7to"): 6
 [resource]
 script = ExtResource("1_e45ui")
 effects = SubResource("Resource_jnhss")
+average_color = Color(0.320052, 0.297342, 0.201371, 1)
 available_actions = 6
 id = "rose"
 name = "Rose"

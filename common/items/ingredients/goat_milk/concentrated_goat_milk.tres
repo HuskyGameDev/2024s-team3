@@ -31,6 +31,7 @@ ExtResource("10_0x12n"): 3
 [resource]
 script = ExtResource("12_5w3pg")
 effects = SubResource("Resource_rll16")
+average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "concentrated_goat_milk"
 name = "Concentrated Goat Milk"

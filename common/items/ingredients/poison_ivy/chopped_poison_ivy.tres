@@ -31,6 +31,7 @@ ExtResource("10_8l14t"): 0
 [resource]
 script = ExtResource("12_v0yv1")
 effects = SubResource("Resource_tdmuv")
+average_color = Color(0, 0, 0, 1)
 available_actions = 4
 id = "chopped_poison_ivy"
 name = "Chopped Poison Ivy"

@@ -31,6 +31,7 @@ ExtResource("10_o3gvc"): -4
 [resource]
 script = ExtResource("12_1ky3q")
 effects = SubResource("Resource_nxji5")
+average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "melted_ruby"
 name = "Melted Ruby"

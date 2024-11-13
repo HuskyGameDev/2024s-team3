@@ -31,6 +31,7 @@ ExtResource("10_sargt"): 0
 [resource]
 script = ExtResource("12_g1ikx")
 effects = SubResource("Resource_o7q2n")
+average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "chopped_bat_wing"
 name = "Chopped Bat Wing"

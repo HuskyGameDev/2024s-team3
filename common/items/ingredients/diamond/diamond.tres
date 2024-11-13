@@ -32,6 +32,7 @@ ExtResource("10_1srww"): 0
 [resource]
 script = ExtResource("1_tme85")
 effects = SubResource("Resource_drek4")
+average_color = Color(0.159267, 0.182684, 0.188284, 1)
 available_actions = 8
 id = "diamond"
 name = "Diamond"

@@ -32,6 +32,7 @@ ExtResource("10_uo33x"): 0
 [resource]
 script = ExtResource("1_1r0rm")
 effects = SubResource("Resource_7obtm")
+average_color = Color(0.502136, 0.651397, 0.498053, 1)
 available_actions = 0
 id = "peppermint_leaves"
 name = "Peppermint Leaves"

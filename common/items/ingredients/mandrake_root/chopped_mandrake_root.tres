@@ -31,6 +31,7 @@ ExtResource("10_arxkk"): 0
 [resource]
 script = ExtResource("12_ku2ng")
 effects = SubResource("Resource_yw3bs")
+average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "chopped_mandrake_root"
 name = "Chopped Mandrake Root"

@@ -31,6 +31,7 @@ ExtResource("10_awnwf"): 0
 [resource]
 script = ExtResource("12_72xcg")
 effects = SubResource("Resource_mopnq")
+average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_werewolf_tooth"
 name = "Crushed Werewolf Tooth"

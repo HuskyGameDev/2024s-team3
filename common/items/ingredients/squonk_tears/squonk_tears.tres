@@ -32,6 +32,7 @@ ExtResource("10_n13in"): 0
 [resource]
 script = ExtResource("1_musnq")
 effects = SubResource("Resource_hxcks")
+average_color = Color(0.577407, 0.553059, 0.55875, 1)
 available_actions = 16
 id = "squonk_tears"
 name = "Squonk Tears"

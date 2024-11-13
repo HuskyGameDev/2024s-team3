@@ -32,6 +32,7 @@ ExtResource("10_w4i4v"): 0
 [resource]
 script = ExtResource("1_pe3j7")
 effects = SubResource("Resource_3s085")
+average_color = Color(0.393436, 0.295579, 0.251177, 1)
 available_actions = 6
 id = "erdtree_branch"
 name = "Erdtree Branch"

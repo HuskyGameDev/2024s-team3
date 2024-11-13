@@ -31,6 +31,7 @@ ExtResource("10_vkxu5"): 0
 [resource]
 script = ExtResource("12_7l6ip")
 effects = SubResource("Resource_whvkd")
+average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "concentrated_squid_ink"
 name = "Concentrated Squid Ink"

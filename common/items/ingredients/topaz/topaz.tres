@@ -32,6 +32,7 @@ ExtResource("10_sf23y"): 15
 [resource]
 script = ExtResource("1_wpw62")
 effects = SubResource("Resource_cfbv3")
+average_color = Color(0.429186, 0.268794, 0.0900297, 1)
 available_actions = 12
 id = "topaz"
 name = "Topaz"

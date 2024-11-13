@@ -32,6 +32,7 @@ ExtResource("10_6j1lh"): -1
 [resource]
 script = ExtResource("1_rb24f")
 effects = SubResource("Resource_pf5aj")
+average_color = Color(0.339395, 0.465752, 0.295133, 1)
 available_actions = 16
 id = "aloe_jelly"
 name = "Aloe Jelly"

@@ -32,6 +32,7 @@ ExtResource("10_atc3h"): 0
 [resource]
 script = ExtResource("1_pa7nx")
 effects = SubResource("Resource_4aahd")
+average_color = Color(0.241877, 0.197409, 0.256127, 1)
 available_actions = 0
 id = "owl_feather"
 name = "Owl Feather"

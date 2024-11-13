@@ -32,6 +32,7 @@ ExtResource("10_vd357"): 16
 [resource]
 script = ExtResource("1_hihpr")
 effects = SubResource("Resource_6oct2")
+average_color = Color(0.137855, 0.106059, 0.106059, 1)
 available_actions = 4
 id = "dragon_claw"
 name = "Dragon Claw"

@@ -32,6 +32,7 @@ ExtResource("10_mvekj"): 0
 [resource]
 script = ExtResource("1_wh248")
 effects = SubResource("Resource_hdwgi")
+average_color = Color(0.0737009, 0.0455289, 0.0886838, 1)
 available_actions = 0
 id = "raven_feather"
 name = "Raven Feather"

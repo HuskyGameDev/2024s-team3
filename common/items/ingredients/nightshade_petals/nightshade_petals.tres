@@ -32,6 +32,7 @@ ExtResource("10_2vskd"): 0
 [resource]
 script = ExtResource("1_06aq6")
 effects = SubResource("Resource_g1u86")
+average_color = Color(0.634326, 0.476368, 0.783066, 1)
 available_actions = 0
 id = "nightshade_petals"
 name = "Nightshade Petals"

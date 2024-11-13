@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://2cy5ft5s1xsn" path="res://common/items/ingredients/ruby/ruby.tres" id="9_nswu4"]
 [ext_resource type="Resource" uid="uid://dkhhs3wcd8t71" path="res://common/items/ingredients/sapphire/sapphire.tres" id="10_huo8j"]
 [ext_resource type="Resource" uid="uid://ddkob31lp7vxv" path="res://common/items/ingredients/topaz/topaz.tres" id="11_xp6vc"]
-[ext_resource type="PackedScene" uid="uid://drurrf3syutta" path="res://common/locations/the_temple/the_temple_background.tscn" id="12_805vg"]
+[ext_resource type="PackedScene" path="res://common/locations/the_temple/the_temple_background.tscn" id="12_805vg"]
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="12_cnqvg"]
 
 [resource]

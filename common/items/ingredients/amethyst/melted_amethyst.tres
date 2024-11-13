@@ -31,6 +31,7 @@ ExtResource("10_6n3b8"): 0
 [resource]
 script = ExtResource("12_7xp6p")
 effects = SubResource("Resource_fh1uj")
+average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "melted_amethyst"
 name = "Melted Amethyst"

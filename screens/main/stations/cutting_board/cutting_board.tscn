@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bbletxc4pnnwd"]
 
 [ext_resource type="Script" path="res://screens/main/stations/station.gd" id="1_o6xh1"]
-[ext_resource type="Material" uid="uid://bvnj6sjxlk4q3" path="res://common/shaders/potion_shader.tres" id="2_6ijq0"]
+[ext_resource type="Material" uid="uid://bvnj6sjxlk4q3" path="res://common/shaders/hue_swap.tres" id="2_6ijq0"]
 [ext_resource type="Texture2D" uid="uid://csapsq07wwo5l" path="res://screens/main/stations/cutting_board/cutting_board.png" id="3_076ly"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_obvxd"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bcdky2t6vai4k"]
 
 [ext_resource type="Script" path="res://screens/main/stations/station.gd" id="1_nj2se"]
-[ext_resource type="Material" uid="uid://bvnj6sjxlk4q3" path="res://common/shaders/potion_shader.tres" id="2_jsy22"]
+[ext_resource type="Material" uid="uid://bvnj6sjxlk4q3" path="res://common/shaders/hue_swap.tres" id="2_jsy22"]
 [ext_resource type="Texture2D" uid="uid://lg5bctf1c0wr" path="res://screens/main/stations/mortar_and_pestle/mortarpestle.png" id="3_3b6nx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xffkm"]

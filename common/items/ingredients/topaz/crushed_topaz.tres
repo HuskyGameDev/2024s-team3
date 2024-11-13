@@ -31,6 +31,7 @@ ExtResource("10_ec58v"): 0
 [resource]
 script = ExtResource("12_va2oh")
 effects = SubResource("Resource_0u418")
+average_color = Color(0, 0, 0, 1)
 available_actions = 8
 id = "crushed_topaz"
 name = "Crushed Topaz"

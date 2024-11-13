@@ -31,6 +31,7 @@ ExtResource("10_a5536"): 0
 [resource]
 script = ExtResource("12_3fkgx")
 effects = SubResource("Resource_nfwap")
+average_color = Color(0, 0, 0, 1)
 available_actions = 4
 id = "chopped_holly_berries"
 name = "Chopped Holly Berries"

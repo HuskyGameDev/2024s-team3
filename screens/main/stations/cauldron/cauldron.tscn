@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cjjarcohy2vqe"]
 
 [ext_resource type="Script" path="res://screens/main/stations/cauldron/cauldron.gd" id="1_ygt0y"]
-[ext_resource type="Material" uid="uid://bvnj6sjxlk4q3" path="res://common/shaders/potion_shader.tres" id="2_33gis"]
+[ext_resource type="Material" uid="uid://bvnj6sjxlk4q3" path="res://common/shaders/hue_swap.tres" id="2_33gis"]
 [ext_resource type="Texture2D" uid="uid://cv3kxe3sbuli0" path="res://screens/main/stations/cauldron/cauldron.png" id="2_ffdd2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o7cp0"]

@@ -31,6 +31,7 @@ ExtResource("10_u6y62"): 20
 [resource]
 script = ExtResource("12_so32p")
 effects = SubResource("Resource_o74im")
+average_color = Color(0, 0, 0, 1)
 available_actions = 4
 id = "chopped_fire_flower"
 name = "Chopped Fire Flower"

@@ -31,6 +31,7 @@ ExtResource("10_ha43y"): 0
 [resource]
 script = ExtResource("12_vmsgk")
 effects = SubResource("Resource_da0yb")
+average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_fools_gold"
 name = "Crushed Fools Gold"
