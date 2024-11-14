@@ -31,7 +31,6 @@ func _on_mouse_exited_map():
 func _on_buy_button_pressed():
 	if PlayerData.money >= map_price:
 		PlayerData.money -= map_price
-		$PlayerMoneyPanelContainer/PlayerMoneyMarginContainer/PlayerMoneyLabel.text = "$" + str(PlayerData.money)
 		# make location available
 		PlayerData.unlocked_locations.append(location_id)
 		PlayerData.save_game_files()

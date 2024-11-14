@@ -31,7 +31,6 @@ func _on_mouse_exited_station():
 func _on_buy_button_pressed():
 	if PlayerData.money >= station_price:
 		PlayerData.money -= station_price
-		$PlayerMoneyPanelContainer/PlayerMoneyMarginContainer/PlayerMoneyLabel.text = "$" + str(PlayerData.money)
 		# make station show in player inventory
 		PlayerData.unlocked_stations.append(station_id)
 		PlayerData.save_game_files()
@@ -39,4 +38,3 @@ func _on_buy_button_pressed():
 		self.queue_free()
 	else:
 		shopkeeper_speak.emit("You can't afford that")
-	
