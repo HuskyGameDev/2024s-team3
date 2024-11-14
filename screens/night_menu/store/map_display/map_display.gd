@@ -2,7 +2,10 @@ extends Area2D
 
 signal shopkeeper_speak(text:String)
 
-@export var location_id:String
+@export var location_id : String :
+	set(id):
+		location_id = id
+		if StoreTag: StoreTag.label = "Map to %s" % location_id.capitalize()
 @export var map_price : int : 
 	set(price):
 		map_price = price

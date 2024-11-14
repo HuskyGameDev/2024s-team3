@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dkhqpfitnde45" path="res://screens/night_menu/store/counter.png" id="5_67t3k"]
 [ext_resource type="Texture2D" uid="uid://bpjb84u8xfjkw" path="res://screens/night_menu/store/shelf.png" id="6_fachu"]
 [ext_resource type="PackedScene" uid="uid://dq807i88ymk0c" path="res://screens/night_menu/store/station_display/station_display.tscn" id="7_u5ofj"]
-[ext_resource type="PackedScene" uid="uid://hqh6cclivhet" path="res://screens/night_menu/store/map_display/map_display.tscn" id="8_17nol"]
+[ext_resource type="PackedScene" path="res://screens/night_menu/store/map_display/map_display.tscn" id="8_17nol"]
 [ext_resource type="Theme" uid="uid://bbilaxa656p7n" path="res://screens/main/customers/customer_dialogue_theme.tres" id="9_yqeli"]
 [ext_resource type="Texture2D" uid="uid://crbl2qwkavqgq" path="res://screens/main/customers/speech_bubble_pointer.png" id="10_0af1q"]
 
@@ -116,6 +116,7 @@ text = "Hi :)"
 horizontal_alignment = 1
 
 [node name="PointerRect" type="TextureRect" parent="UiLayer/SpeechBubble"]
+layout_mode = 0
 offset_left = 1258.0
 offset_top = 173.0
 offset_right = 1392.0

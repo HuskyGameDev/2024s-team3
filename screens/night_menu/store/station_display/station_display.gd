@@ -2,7 +2,10 @@ extends Area2D
 
 signal shopkeeper_speak(text:String)
 
-@export var station_id:String
+@export var station_id : String :
+	set(id):
+		station_id = id
+		if StoreTag: StoreTag.label = station_id.capitalize()
 @export var station_sprite : Texture2D :
 	set(sprite):
 		station_sprite = sprite
