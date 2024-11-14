@@ -1,41 +1,48 @@
 extends RigidBody2D
 var beingHeld = false
-var draggingDistance = 0
-var dir = 0
-var dragging = false
+var startPos = Vector2(988, 355)
+var moved = false
+var mousePos = 0
+var hover # true if mouse is above shutter
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	var tween = create_tween()
+	tween.tween_property(self, "position", Vector2(988, 355), 2)
+	await tween.finished
+	moved = true;
 
-
-func _on_input_event(_viewport, event, _shape_idx):
+func _input(event): 
 	if event is InputEventMouseButton:
-		if event.is_pressed() && beingHeld:
-			draggingDistance = position.distance_to(get_viewport().get_mouse_position())
-			dir = (get_viewport().get_mouse_position() - position).normalized().x
-			dragging = true
-			print("click")
-		else:
-			print("unclicked")
-			dragging = false
-	elif event is InputEventMouseMotion:
-		if dragging && beingHeld == false:
-			position.x = (get_viewport().get_mouse_position()).x
-			print("drag")
+		if event.is_pressed() and hover == true: #if mouse was clicked over shutter
+			mousePos = event.position.x #get mouse position
+			beingHeld = true 
+		elif event.is_released(): # called when mouse is unclicked
+			beingHeld = false
+			self.position.x = startPos.x #move shutter back to original position over window
+			self.position.y = startPos.y
+			
+	if event is InputEventMouseMotion: #called when mouse moves
+		if beingHeld == true && event.position.x > 460: 
+			var draggingDistance = event.position.x - mousePos # caluclate how far the mouse has moved
+			if position.x + (draggingDistance) > startPos.x: # prevent window from being dragged left
+				position.x = position.x + (draggingDistance) # move shutter the distance the mouse has moved
+			mousePos = event.position.x # save the mouse position
+			if position.x > 1400: # if shutter was moves to left start day
+				var tween = create_tween() 
+				tween.tween_property(self, "position", Vector2(2400, 340), 2) #tween the shutter the rest of the way open
+				await tween.finished
+				GameTime.end_of_night.emit() # emit signal to GameTime
+				var packed_scene = PackedScene.new() #create new packed main
+				var group = get_tree().get_nodes_in_group("main") # get main scene
+				var main = group[0]
+				packed_scene.pack(main) #gets the main scene and all things it owns 
+				ResourceSaver.save(packed_scene, "res://screens/main/packed_main.tscn" ) # save main scene node
+				get_tree().change_scene_to_file("res://screens/main/packed_main.tscn") # change scene
 
-func _on_mouse_entered():
-	beingHeld = true
-	pass # replace with function body
+func _on_mouse_entered(): #called when mouse enters shutter
+	hover = true
 
-func _on_mouse_exited():
-	beingHeld = false
-	pass # replace with function body
 
-func _integrate_forces(_state):
-	if beingHeld:
-		var mousePos = get_global_mouse_position()
-		var distance = global_position.distance_to(mousePos)
-		var direction = global_position.direction_to(mousePos)
-		rotation = 0 
-		set_linear_velocity(direction * distance * 40)
+func _on_mouse_exited(): #called when mouse exits shutter
+	hover = false
