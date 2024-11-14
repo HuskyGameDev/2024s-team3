@@ -28,17 +28,19 @@ b = Vector2(-343, 159)
 [node name="NightShop" type="Node2D"]
 script = ExtResource("2_xiblk")
 
-[node name="BackgroundLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="Background" type="Panel" parent="BackgroundLayer"]
+[node name="Background" type="Panel" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1931.0
+offset_bottom = 1089.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_hof1g")
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
 
 [node name="UiLayer" type="CanvasLayer" parent="."]
 
@@ -123,6 +125,7 @@ offset_right = 1392.0
 offset_bottom = 277.0
 texture = ExtResource("10_0af1q")
 expand_mode = 1
+layer = 0
 
 [node name="Counter" type="Sprite2D" parent="."]
 position = Vector2(1542.47, 848.809)
@@ -235,8 +238,94 @@ position = Vector2(1204, 620)
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.823529, 0.823529, 0.823529, 1)
 
-[connection signal="pressed" from="UiLayer/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="UiLayer/BuyButton" to="." method="_on_buy_button_pressed"]
+[node name="PlayerMoneyPanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1801.0
+offset_top = 24.0
+offset_right = 1896.0
+offset_bottom = 77.0
+grow_horizontal = 0
+mouse_filter = 2
+theme = ExtResource("4_3akkn")
+
+[node name="PlayerMoneyMarginContainer" type="MarginContainer" parent="PlayerMoneyPanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="PlayerMoneyLabel" type="Label" parent="PlayerMoneyPanelContainer/PlayerMoneyMarginContainer"]
+layout_mode = 2
+text = "$60"
+
+[node name="TotalCostPanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1677.0
+offset_top = 1003.0
+offset_right = 1896.0
+offset_bottom = 1056.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+theme = ExtResource("4_3akkn")
+
+[node name="TotalCostMarginContainer" type="MarginContainer" parent="TotalCostPanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="TotalCostLabel" type="Label" parent="TotalCostPanelContainer/TotalCostMarginContainer"]
+layout_mode = 2
+text = "Total Cost: $0"
+
+[node name="ExitButton" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 90.0
+offset_bottom = 39.0
+text = "Exit Store"
+
+[node name="BuyButton" type="Button" parent="."]
+offset_left = 1756.0
+offset_top = 713.0
+offset_right = 1905.0
+offset_bottom = 744.0
+text = "Buy Cart Contents"
+
+[node name="SpeechBubble" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DialogueLabel" type="Label" parent="SpeechBubble"]
+layout_mode = 0
+offset_left = 976.0
+offset_top = 102.0
+offset_right = 1358.0
+offset_bottom = 179.0
+theme = ExtResource("9_yqeli")
+text = "Hi :)"
+horizontal_alignment = 1
+
+[node name="PointerRect" type="TextureRect" parent="SpeechBubble"]
+layout_mode = 0
+offset_left = 1258.0
+offset_top = 173.0
+offset_right = 1392.0
+offset_bottom = 277.0
+texture = ExtResource("10_0af1q")
+expand_mode = 1
+
 [connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay1" to="." method="_on_ingredient_dropped"]
 [connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay2" to="." method="_on_ingredient_dropped"]
 [connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay3" to="." method="_on_ingredient_dropped"]
@@ -255,3 +344,5 @@ color = Color(0.823529, 0.823529, 0.823529, 1)
 [connection signal="body_exited" from="Basket/PurchaseArea" to="." method="_on_body_exited_basket"]
 [connection signal="shopkeeper_speak" from="StationDisplay" to="." method="shopkeeper_speak"]
 [connection signal="shopkeeper_speak" from="MapDisplay" to="." method="shopkeeper_speak"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]
