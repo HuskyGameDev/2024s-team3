@@ -7,7 +7,7 @@ extends Node
 @onready var DialogueLabel    := $SpeechBubble/DialogueLabel
 
 var totalCost = 0
-var cart:Array[Ingredient] = []
+var cart:Array[DraggableObject] = []
 
 var ingredient_price_modifier : Callable :
 	set(function):
@@ -129,16 +129,14 @@ func shopkeeper_speak(text:String):
 ####################### CART MECHANICS #######################
 func _on_body_entered_basket(body):
 	if not body is DraggableObject: return
-	var ingredient = body.data as Ingredient
-	cart.append(ingredient)
-	updateTotal(calculate_ingredient_price(ingredient))
+	cart.append(body)
+	updateTotal(calculate_ingredient_price(body.data))
 
 
 func _on_body_exited_basket(body):
 	if not body is DraggableObject: return
-	var ingredient = body.data as Ingredient
-	cart.erase(ingredient)
-	updateTotal(-calculate_ingredient_price(ingredient))
+	cart.erase(body)
+	updateTotal(-calculate_ingredient_price(body.data))
 
 
 func updateTotal(changeAmount:int):
@@ -172,10 +170,12 @@ func _on_buy_button_pressed():
 	if PlayerData.money >= totalCost:
 		PlayerData.money -= totalCost
 		# add ingredients to inventory
-		for ingredient in cart:
-			PlayerData.add_item_to_inventory(ingredient, 1)
 		shopkeeper_speak("Thanks for coming!")
 		await get_tree().create_timer(2).timeout
+		for ingredient in cart:
+			PlayerData.add_item_to_inventory(ingredient.data, 1)
+			cart.erase(ingredient)
+			ingredient.queue_free()
 		shop_done.emit()
 	else:
 		shopkeeper_speak("You can't afford that")
