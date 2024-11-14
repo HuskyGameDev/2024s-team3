@@ -11,7 +11,7 @@ extends Node2D
 @onready var timer = $Timer
 @onready var progressBar = $TextureProgressBar
 @onready var label = $Label
-@onready var clockNodeInstance = preload("res://screens/main/ui/clock/new_clock_node.tscn")
+@onready var clockNodeInstance = preload("res://screens/main/ui/clock/clock_node.tscn")
 
 @onready var tween = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_LINEAR)
 
