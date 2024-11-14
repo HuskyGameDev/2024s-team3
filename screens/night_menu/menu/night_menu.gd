@@ -26,11 +26,15 @@ func _on_buy_button_pressed():
 	main.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
 	main.process_mode = Node.PROCESS_MODE_DISABLED
 	
+	#pause shutter
+	$Shutter.visible = false
+	$Shutter.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
+	$Shutter.process_mode = Node.PROCESS_MODE_DISABLED
+	
 	#start Nightshop
 	$NightShop.visible = true
 	$NightShop/NightShop.shop_done.connect(_on_action_done) # connect signal
 	$NightShop.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_ON
-	$NightShop.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _on_forage_button_pressed():
 	var instance = forage.instantiate() # instantiate forage scene
@@ -44,11 +48,14 @@ func _on_move_button_pressed():
 	$CanvasLayer/MoveButton.disabled = true # disable map button from being pressed again
 
 func _on_action_done():
+	#start shutter
+	$Shutter.visible = true
+	$Shutter.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_ON
+	
 	#stop Nightshop
 	$NightShop.visible = false
 	$NightShop.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
-	$NightShop.process_mode = Node.PROCESS_MODE_DISABLED
-	
+
 	var group = get_tree().get_nodes_in_group("main") # get main scene
 	main = group[0]
 	

@@ -122,7 +122,7 @@ func shopkeeper_speak(text:String):
 	if DialogueLabel: DialogueLabel.text = text
 	if SpeechBubble:
 		SpeechBubble.visible = true
-		#await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(3).timeout
 		SpeechBubble.visible = false
 
 
@@ -175,7 +175,7 @@ func _on_buy_button_pressed():
 		for ingredient in cart:
 			PlayerData.add_item_to_inventory(ingredient, 1)
 		shopkeeper_speak("Thanks for coming!")
-		#await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(2).timeout
 		shop_done.emit()
 	else:
 		shopkeeper_speak("You can't afford that")
@@ -183,5 +183,5 @@ func _on_buy_button_pressed():
 
 func _on_exit_button_pressed():
 	shopkeeper_speak("See you next time!")
-	#await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(2).timeout
 	shop_done.emit() # signal to night menu to reload inventory
