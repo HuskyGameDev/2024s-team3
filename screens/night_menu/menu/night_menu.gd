@@ -44,7 +44,7 @@ func _on_forage_button_pressed():
 
 func _on_move_button_pressed():	
 	var instance = map.instantiate() # instantiate map schene
-	add_child(instance)
+	$Map.add_child(instance)
 	$CanvasLayer/MoveButton.disabled = true # disable map button from being pressed again
 
 func _on_action_done():

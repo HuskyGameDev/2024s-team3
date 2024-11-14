@@ -11,6 +11,9 @@ size = Vector2(1089, 483)
 [node name="Menu" type="Node2D"]
 script = ExtResource("3_02p32")
 
+[node name="Map" type="CanvasLayer" parent="."]
+layer = 2
+
 [node name="NightShop" type="CanvasLayer" parent="."]
 physics_interpolation_mode = 2
 layer = 4
