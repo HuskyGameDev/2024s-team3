@@ -100,7 +100,6 @@ func set_on_shelf(val: bool):
 		set_collision_layer_value(shelf_collision_layer, true)
 		set_collision_layer_value(default_collision_layer, false)
 		set_collision_layer_value(holding_collision_layer, false)
-		set_collision_mask_value(1, false)
 		set_collision_mask_value(2, false)
 		set_collision_mask_value(31, false)
 		set_collision_mask_value(32, false)
