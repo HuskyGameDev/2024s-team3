@@ -169,6 +169,7 @@ func update_display_prices():
 func _on_buy_button_pressed():
 	if PlayerData.money >= totalCost:
 		PlayerData.money -= totalCost
+		$PlayerMoneyPanelContainer/PlayerMoneyMarginContainer/PlayerMoneyLabel.text = "$" + str(PlayerData.money)
 		# add ingredients to inventory
 		shopkeeper_speak("Thanks for coming!")
 		await get_tree().create_timer(2).timeout
