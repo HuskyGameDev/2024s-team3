@@ -16,7 +16,8 @@ signal customer_created(customer: Customer)
 
 
 func _ready():
-	create_customer()
+	if GameTime.hour < GameTime.STORE_CLOSE_TIME: # if it is day time
+		create_customer()
 
 
 func create_customer():
@@ -73,3 +74,6 @@ func grace_period_timeout():
 	in_grace_period = false
 	customer_timer.disconnect("timeout", grace_period_timeout)
 	customer_timer.start(REP_DECREASE_PERIOD_LENGTH) 
+	
+func _leave_end_day(): # call function in customer node to end day
+	customer_node._end_day_leave_store()

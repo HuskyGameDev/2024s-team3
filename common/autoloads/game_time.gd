@@ -5,6 +5,7 @@ const STORE_CLOSE_TIME = 17;
 const GAME_TIME_SCALE = 10; # The number of irl seconds per 1 in game hour
 
 signal end_of_day;
+signal end_of_night;
 signal start_of_day;
 signal pause; # signals when game is paused emitted by pause menu and connected to gametime and clock node
 
@@ -15,12 +16,12 @@ func _ready():
 	self.connect("pause", on_pause) # connect pause signal to self
 	self.connect("timeout", _on_timer_timeout);
 	self.connect("end_of_day", _on_end_of_day);
+	self.connect("end_of_night", _on_end_of_night);
 	self.connect("start_of_day", _on_start_of_day);
 
 func _on_timer_timeout():
 	hour = hour + 1;
-	if hour >= STORE_CLOSE_TIME:
-		
+	if hour == STORE_CLOSE_TIME:
 		end_of_day.emit();
 		
 func _on_end_of_day():
@@ -28,12 +29,13 @@ func _on_end_of_day():
 	var packed_scene = PackedScene.new()
 	packed_scene.pack(get_tree().get_current_scene()) #gets the main scene and all things it owns 
 	ResourceSaver.save(packed_scene, "res://screens/main/packed_main.tscn" ) 
+	#self.stop();
 	
-	day += 1;
-	self.stop();
+func _on_end_of_night():
+	day += 1
+	hour = STORE_OPEN_TIME
 	
 func _on_start_of_day():
-	hour = STORE_OPEN_TIME;
 	self.start(GAME_TIME_SCALE);
 
 func start_day():

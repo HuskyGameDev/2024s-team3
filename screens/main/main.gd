@@ -7,9 +7,13 @@ var packed_ingredient_scene = preload("res://common/items/ingredients/ingredient
 @onready var PedestalSlot:Node = $Pedestal/ShelfSlot
 
 func _ready():
-	if get_tree().current_scene == self:
-		GameTime.start_day()
-		GameTime.end_of_day.connect(func(): get_tree().change_scene_to_file("res://screens/night_menu/night_menu.tscn"));
+	if GameTime.hour < GameTime.STORE_CLOSE_TIME: # true if it is daytime
+		GameTime.start_day() #start game timer
+		GameTime.end_of_day.connect(CustomerFactory._leave_end_day) #signal customer to move off the screen
+		#Scene change occurs in customer node
+		$EndDayAndSkip.visible = true # make skip button visible
+	else:
+		$EndDayAndSkip.visible = false # during the night hide skip button
 	
 	$LocationBackgroundSwitcher.update_background()
 	
