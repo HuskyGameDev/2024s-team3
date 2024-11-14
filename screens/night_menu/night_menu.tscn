@@ -135,7 +135,7 @@ text = "Move"
 
 [node name="Main2" parent="." instance=ExtResource("3_3x0fi")]
 
-[node name="InventoryDrawer" parent="Main2" index="13"]
+[node name="InventoryDrawer" parent="Main2" index="12"]
 anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
