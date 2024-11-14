@@ -7,6 +7,10 @@
 script = ExtResource("1_jo8en")
 
 [node name="LocationBackgroundSwitcher" parent="." instance=ExtResource("2_s1xk3")]
+layer = 2
 offset = Vector2(975, 525)
 scale = Vector2(3.5, 3.5)
 transform = Transform2D(3.5, 0, 0, 3.5, 975, 525)
+
+[node name="Sprites" type="CanvasLayer" parent="."]
+layer = 2

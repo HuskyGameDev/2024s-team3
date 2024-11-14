@@ -4,6 +4,8 @@ const NUM_ITEMS = 3
 
 var bottom_of_screen:Vector2
 
+signal forage_done # signal night menu that forage is done
+
 func _ready():
 	## Setup scene
 	$LocationBackgroundSwitcher.update_background()
@@ -18,9 +20,10 @@ func _ready():
 		pos += pos_increment
 		show_forage(foragedItems[i], pos, i)
 	
-	## Go to main
+	## delete self
 	await get_tree().create_timer(3).timeout
-	get_tree().change_scene_to_file("res://screens/main/packed_main.tscn")
+	forage_done.emit()
+	self.queue_free()
 
 
 func show_forage(ingredient:Ingredient, pos:float, index:int):
@@ -29,7 +32,7 @@ func show_forage(ingredient:Ingredient, pos:float, index:int):
 	new_sprite.texture = ingredient.image
 	new_sprite.scale = Vector2(0.1, 0.1)
 	new_sprite.global_position = bottom_of_screen
-	add_child(new_sprite)
+	$Sprites.add_child(new_sprite)
 	
 	## Do animation
 	var tween = get_tree().create_tween()
