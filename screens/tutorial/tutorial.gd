@@ -57,7 +57,7 @@ func _on_inventory_open(open:bool):
 		active_step += 1
 
 
-func _on_potion_made(potion, position):
+func _on_potion_made(_potion, _position):
 	if active_step == 3:
 		cauldron_text.visible = false
 		potion_text.visible = true

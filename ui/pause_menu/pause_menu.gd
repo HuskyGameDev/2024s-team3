@@ -1,7 +1,7 @@
 extends Control
 signal pause_timer # signals timer to pause
 
-func _input(e): # when a user presses the "escape" key pause screen appears and game is paused, or if paused, unpaused
+func _input(_e): # when a user presses the "escape" key pause screen appears and game is paused, or if paused, unpaused
 	if Input.is_action_just_pressed("escape"): # escpe is defined project input map
 		if self.visible == false: # if not visible
 			self.visible = true # make visible

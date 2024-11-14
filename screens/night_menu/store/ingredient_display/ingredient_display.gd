@@ -55,7 +55,7 @@ func recover_fallen_node(node):
 	hold_node(node)
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	## If one of the ingredients that should be in this slot falls off the 
 	## screen, add it back to the slot
 	for node in ingredientNodes:

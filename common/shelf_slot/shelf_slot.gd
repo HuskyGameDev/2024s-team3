@@ -75,7 +75,7 @@ func _on_slot_hover_exited(body):
 
 ## If the player releases an item over the slot, check if
 ## it can be held, then handle holding it
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if isDisabled: return
 	if Input.is_action_just_released("click") \
 	and dragging != null and not dragging.onShelf:
