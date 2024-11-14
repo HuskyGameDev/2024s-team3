@@ -17,7 +17,7 @@ func _physics_process(_delta):
 	Player.move_and_slide()
 
 
-## HANDLE SCENE CHANGE
+## HANDLE SCENE END
 func move_to_location(location_id:String):
 	if location_id == "home": 
 		get_tree().change_scene_to_file("res://screens/credits/credits.tscn")
@@ -27,7 +27,7 @@ func move_to_location(location_id:String):
 	if not PlayerData.visited_locations.map(func(location): return location.id).has(location_id):
 		PlayerData.visited_locations.append(new_location)
 	PlayerData.save_game_files()
-	get_tree().change_scene_to_file("res://screens/main/packed_main.tscn")
+	self.queue_free()  # delete this scene
 
 
 ## HANDLE AREA MOVEMENT
