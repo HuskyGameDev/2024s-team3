@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvciwf2kpo5ce"]
+[gd_scene load_steps=6 format=3 uid="uid://h6ayxc1sdyya"]
 
+[ext_resource type="PackedScene" uid="uid://d2j3rg4f5xnau" path="res://screens/night_menu/store/night_shop.tscn" id="2_qm36f"]
 [ext_resource type="Script" path="res://screens/night_menu/shutter.gd" id="2_s6ou6"]
 [ext_resource type="Script" path="res://screens/night_menu/menu/night_menu.gd" id="3_02p32"]
-[ext_resource type="PackedScene" uid="uid://ccf56fsqfqfc8" path="res://screens/main/packed_main.tscn" id="3_3x0fi"]
+[ext_resource type="PackedScene" uid="uid://d4b330o7ott8u" path="res://screens/main/packed_main.tscn" id="3_3x0fi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhchr"]
 size = Vector2(1089, 483)
@@ -10,8 +11,20 @@ size = Vector2(1089, 483)
 [node name="Menu" type="Node2D"]
 script = ExtResource("3_02p32")
 
+[node name="NightShop" type="CanvasLayer" parent="."]
+process_mode = 4
+physics_interpolation_mode = 2
+layer = 4
+visible = false
+
+[node name="NightShop" parent="NightShop" instance=ExtResource("2_qm36f")]
+
 [node name="Shutter" type="RigidBody2D" parent="."]
+process_mode = 3
+process_priority = 1
 position = Vector2(2400, 340)
+collision_layer = 4096
+collision_mask = 4096
 input_pickable = true
 gravity_scale = 0.0
 lock_rotation = true
@@ -27,31 +40,32 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -549.0
-offset_top = -238.5
+offset_top = -270.5
 offset_right = 549.0
-offset_bottom = 238.5
+offset_bottom = 279.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0.211765, 0.184314, 0.282353, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1881.0
-offset_top = 113.0
-offset_right = 1043.0
-offset_bottom = -491.0
+[node name="CenterContainer" type="CenterContainer" parent="Shutter"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -483.0
+offset_top = -234.0
+offset_right = 543.0
+offset_bottom = 238.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Shutter/CenterContainer"]
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="SalesLabel" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="SalesLabel" type="Label" parent="Shutter/CenterContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme_type_variation = &"HeaderLarge"
@@ -59,25 +73,31 @@ theme_override_font_sizes/font_size = 111
 text = "Today's Sales"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Shutter/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 128
 
-[node name="SalesNumber" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="SalesNumber" type="Label" parent="Shutter/CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme_override_font_sizes/font_size = 70
 text = "$1000"
 horizontal_alignment = 1
 
-[node name="ReputationNumber" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="ReputationNumber" type="Label" parent="Shutter/CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme_override_font_sizes/font_size = 70
 text = "+10 Reputation"
 horizontal_alignment = 1
 
+[node name="MenuLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
 [node name="Darkness" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = -1
 anchor_right = 0.039
 anchor_bottom = 0.109
@@ -85,8 +105,8 @@ offset_left = -5.0
 offset_top = -4.0
 offset_right = 1846.12
 offset_bottom = 957.28
-mouse_filter = 2
-color = Color(0.211765, 0.184314, 0.282353, 0)
+mouse_filter = 1
+color = Color(0.143557, 0.122884, 0.196568, 0.00392157)
 
 [node name="BuyButton" type="Button" parent="CanvasLayer"]
 offset_left = 455.0
@@ -113,17 +133,11 @@ text = "Move"
 
 [node name="Main2" parent="." instance=ExtResource("3_3x0fi")]
 
-[node name="CustomerFactory" parent="Main2" index="0"]
-physics_interpolation_mode = 2
-auto_translate_mode = 2
-
-[node name="NewClock" parent="Main2/CanvasLayer" index="0"]
-process_mode = 4
-physics_interpolation_mode = 2
-
-[node name="Pedestal" parent="Main2" index="6"]
-process_mode = 4
-physics_interpolation_mode = 2
+[node name="InventoryDrawer" parent="Main2" index="12"]
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="input_event" from="Shutter" to="Shutter" method="_on_input_event"]
 [connection signal="mouse_entered" from="Shutter" to="Shutter" method="_on_mouse_entered"]
@@ -133,4 +147,3 @@ physics_interpolation_mode = 2
 [connection signal="pressed" from="CanvasLayer/MoveButton" to="." method="_on_move_button_pressed"]
 
 [editable path="Main2"]
-[editable path="Main2/CanvasLayer/NewClock"]

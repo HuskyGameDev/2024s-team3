@@ -1,27 +1,69 @@
 extends Node
-var modulate_color : Color
+
+var forage = preload("res://screens/night_menu/forage/forage.tscn") # preload night menu scenes
+var shop = preload("res://screens/night_menu/store/night_shop.tscn")
+var map = preload("res://screens/night_menu/map/night_map.tscn")
+
+var main
 
 func _ready():
-	modulate_color.r = 54 # RGB is the color
-	modulate_color.g = 47
-	modulate_color.b = 72
-	modulate_color.a = 100
+	GameTime.hour = GameTime.STORE_CLOSE_TIME
+	$"Shutter/CenterContainer/VBoxContainer/HBoxContainer/SalesNumber".text = "$%d" % PlayerData.moneyToday # change text on shutter to match money earned today
+	$"Shutter/CenterContainer/VBoxContainer/HBoxContainer/ReputationNumber".text = "%d Reputation" % PlayerData.repToday# change text on shutter to match reputation earned today
+	var darkness = $CanvasLayer/Darkness
+	var tween = create_tween() 
+	tween.tween_property(darkness, "modulate:a", 150, 5) #tween transarancy of darkness
 	
-	$"CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer/SalesNumber".text = "$%d" % PlayerData.moneyToday
-	$"CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer/ReputationNumber".text = "%d Reputation" % PlayerData.repToday
-	var tween = create_tween()
-	tween.tween_property($Shutter, "position", Vector2(988, 355), 2)
-	tween.set_parallel()
-	tween.tween_property($CanvasLayer/CenterContainer, "position", Vector2(448, 115), 2)
-	tween.tween_property($CanvasLayer/Darkness, "modulate", Color.RED, 2)
+	var group = get_tree().get_nodes_in_group("main") # set main as node in group main. Necessary as name of main changes
+	main = group[0]
 
-
-
-func _on_buy_button_pressed():
-	get_tree().change_scene_to_file("res://screens/night_menu/store/night_shop.tscn")
+func _on_buy_button_pressed(): 
+	var group = get_tree().get_nodes_in_group("main") # get main scene
+	main = group[0]
+	
+	#pause main
+	main.visible = false
+	main.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
+	main.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	#start Nightshop
+	$NightShop.visible = true
+	$NightShop/NightShop.shop_done.connect(_on_action_done) # connect signal
+	$NightShop.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_ON
+	$NightShop.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _on_forage_button_pressed():
-	get_tree().change_scene_to_file("res://screens/night_menu/forage/forage.tscn")
+	var instance = forage.instantiate() # instantiate forage scene
+	add_child(instance)
+	$CanvasLayer/ForageButton.disabled = true # disable forage button from being pressed again
+	instance.forage_done.connect(_on_action_done) # connect signal
 
 func _on_move_button_pressed():	
-	get_tree().change_scene_to_file("res://screens/night_menu/map/night_map.tscn")
+	var instance = map.instantiate() # instantiate map schene
+	add_child(instance)
+	$CanvasLayer/MoveButton.disabled = true # disable map button from being pressed again
+
+func _on_action_done():
+	#stop Nightshop
+	$NightShop.visible = false
+	$NightShop.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
+	$NightShop.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	var group = get_tree().get_nodes_in_group("main") # get main scene
+	main = group[0]
+	
+	#start main
+	main.visible = true
+	main.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_ON
+	main.process_mode = Node.PROCESS_MODE_INHERIT
+	
+	var packed_scene = PackedScene.new() 
+	packed_scene.pack(main) #gets the main scene and all things it owns 
+	ResourceSaver.save(packed_scene, "res://screens/main/packed_main.tscn" ) # overwrite old packed main with new packed main
+	
+	#reload main to refresh inventory
+	main.queue_free() # delete main scene in scene 
+	var packed_main = load("res://screens/main/packed_main.tscn") # load packed main scene
+	var instance = packed_main.instantiate() # instantiate main scene
+	add_child(instance, true)
+	instance.name = "Main2" 
