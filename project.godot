@@ -47,6 +47,10 @@ enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addon
 
 import/blender/enabled=false
 
+[global_group]
+
+main="main scene"
+
 [input]
 
 click={

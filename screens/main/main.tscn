@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=24 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://screens/main/main.gd" id="1_0ufrw"]
 [ext_resource type="Script" path="res://screens/main/customers/customer_factory.gd" id="2_dnvch"]
@@ -31,7 +31,7 @@ size = Vector2(417, 39.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7pve"]
 size = Vector2(19.1131, 34)
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" groups=["main"]]
 script = ExtResource("1_0ufrw")
 
 [node name="LocationBackgroundSwitcher" parent="." instance=ExtResource("2_k8r2e")]
@@ -39,7 +39,7 @@ offset = Vector2(1000, 350)
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 1000, 350)
 
-[node name="CustomerFactory" type="Node" parent="."]
+[node name="CustomerFactory" type="Node" parent="." groups=["main"]]
 script = ExtResource("2_dnvch")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
@@ -49,6 +49,7 @@ layer = 2
 visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
 
 [node name="NewClock" parent="CanvasLayer" instance=ExtResource("17_n5klg")]
 position = Vector2(165, 165)
