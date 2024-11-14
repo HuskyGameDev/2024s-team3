@@ -51,7 +51,8 @@ func _on_action_done():
 	#start shutter
 	$Shutter.visible = true
 	$Shutter.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_ON
-	
+	$Shutter.process_mode = Node.PROCESS_MODE_ALWAYS
+
 	#stop Nightshop
 	$NightShop.visible = false
 	$NightShop.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
