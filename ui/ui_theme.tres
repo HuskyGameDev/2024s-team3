@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://b7v1xeoebsq10" path="res://ui/fonts/user_interface.ttf" id="2_ui1ll"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_av14e"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+bg_color = Color(0.489609, 0.405034, 0.286838, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -12,7 +12,7 @@ border_width_bottom = 2
 border_color = Color(0.498039, 0.278431, 0.0862745, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sg6c"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+bg_color = Color(0.549782, 0.458053, 0.330121, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -20,7 +20,7 @@ border_width_bottom = 5
 border_color = Color(0.498039, 0.278431, 0.0862745, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7ovi"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+bg_color = Color(0.686275, 0.584314, 0.443137, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -73,6 +73,8 @@ shadow_size = 5
 shadow_offset = Vector2(2, 2)
 
 [resource]
+Button/colors/font_color = Color(0.184314, 0.0588235, 0, 1)
+Button/colors/font_hover_color = Color(0.822769, 0.730997, 0.605571, 1)
 Button/font_sizes/font_size = 16
 Button/styles/focus = SubResource("StyleBoxFlat_av14e")
 Button/styles/hover = SubResource("StyleBoxFlat_0sg6c")

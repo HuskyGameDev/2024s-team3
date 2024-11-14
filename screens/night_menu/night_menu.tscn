@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://h6ayxc1sdyya"]
+[gd_scene load_steps=7 format=3 uid="uid://h6ayxc1sdyya"]
 
 [ext_resource type="PackedScene" uid="uid://d2j3rg4f5xnau" path="res://screens/night_menu/store/night_shop.tscn" id="2_qm36f"]
 [ext_resource type="Script" path="res://screens/night_menu/shutter.gd" id="2_s6ou6"]
 [ext_resource type="Script" path="res://screens/night_menu/menu/night_menu.gd" id="3_02p32"]
 [ext_resource type="PackedScene" uid="uid://d4b330o7ott8u" path="res://screens/main/packed_main.tscn" id="3_3x0fi"]
+[ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="4_kbbvy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhchr"]
 size = Vector2(1089, 483)
@@ -114,6 +115,7 @@ color = Color(0.143557, 0.122884, 0.196568, 0.00392157)
 offset_left = 455.0
 offset_right = 541.0
 offset_bottom = 96.0
+theme = ExtResource("4_kbbvy")
 theme_override_font_sizes/font_size = 64
 text = "$"
 
@@ -122,6 +124,7 @@ offset_left = 583.0
 offset_top = -1.0
 offset_right = 822.0
 offset_bottom = 95.0
+theme = ExtResource("4_kbbvy")
 theme_override_font_sizes/font_size = 64
 text = "Forage"
 
@@ -130,12 +133,13 @@ offset_left = 852.0
 offset_top = -1.0
 offset_right = 1057.0
 offset_bottom = 95.0
+theme = ExtResource("4_kbbvy")
 theme_override_font_sizes/font_size = 64
 text = "Move"
 
 [node name="Main2" parent="." instance=ExtResource("3_3x0fi")]
 
-[node name="InventoryDrawer" parent="Main2" index="12"]
+[node name="InventoryDrawer" parent="Main2" index="11"]
 anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
