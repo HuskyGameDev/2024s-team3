@@ -58,7 +58,8 @@ func recover_fallen_node(node):
 func _physics_process(_delta):
 	## If one of the ingredients that should be in this slot falls off the 
 	## screen, add it back to the slot
-	for node in ingredientNodes:
-		if node.global_position.y >= 1200 and not heldNodes.has(node):
-			call_deferred("recover_fallen_node", node)
-			ingredient_dropped.emit()
+		for node in ingredientNodes:
+			if is_instance_valid(node):
+				if node.global_position.y >= 1200 and not heldNodes.has(node):
+					call_deferred("recover_fallen_node", node)
+					ingredient_dropped.emit()
