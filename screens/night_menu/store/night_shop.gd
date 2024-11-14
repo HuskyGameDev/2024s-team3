@@ -1,10 +1,10 @@
 extends Node
 
-@onready var totalCostLabel   := $UiLayer/TotalCostPanelContainer/TotalCostMarginContainer/TotalCostLabel
+@onready var totalCostLabel   := $TotalCostPanelContainer/TotalCostMarginContainer/TotalCostLabel
 @onready var LocationDisplays := $LocationShelf.get_children()
 @onready var ExoticDisplays   := $ExoticShelf.get_children()
-@onready var SpeechBubble     := $UiLayer/SpeechBubble
-@onready var DialogueLabel    := $UiLayer/SpeechBubble/DialogueLabel
+@onready var SpeechBubble     := $SpeechBubble
+@onready var DialogueLabel    := $SpeechBubble/DialogueLabel
 
 var totalCost = 0
 var cart:Array[Ingredient] = []
@@ -14,6 +14,7 @@ var ingredient_price_modifier : Callable :
 		ingredient_price_modifier = function
 		update_display_prices()
 var drop_count: int = 0
+signal shop_done
 
 
 ################# SHOPKEEPER DIALOGUE OPTIONS ################
@@ -45,7 +46,7 @@ func get_map_dialogue(location_name:String):
 func _ready():
 	ingredient_price_modifier = func(p): return p
 	
-	$UiLayer/PlayerMoneyPanelContainer/PlayerMoneyMarginContainer/PlayerMoneyLabel.text = "$" + str(PlayerData.money)
+	$PlayerMoneyPanelContainer/PlayerMoneyMarginContainer/PlayerMoneyLabel.text = "$" + str(PlayerData.money)
 	
 	## Add ingredient displays for current location
 	var current_location_ingredients = Array(PlayerData.location.ingredients)
@@ -121,7 +122,7 @@ func shopkeeper_speak(text:String):
 	if DialogueLabel: DialogueLabel.text = text
 	if SpeechBubble:
 		SpeechBubble.visible = true
-		await get_tree().create_timer(3).timeout
+		#await get_tree().create_timer(3).timeout
 		SpeechBubble.visible = false
 
 
@@ -174,13 +175,13 @@ func _on_buy_button_pressed():
 		for ingredient in cart:
 			PlayerData.add_item_to_inventory(ingredient, 1)
 		shopkeeper_speak("Thanks for coming!")
-		await get_tree().create_timer(2).timeout
-		get_tree().change_scene_to_file("res://screens/main/packed_main.tscn")
+		#await get_tree().create_timer(2).timeout
+		shop_done.emit()
 	else:
 		shopkeeper_speak("You can't afford that")
 
 
 func _on_exit_button_pressed():
 	shopkeeper_speak("See you next time!")
-	await get_tree().create_timer(2).timeout
-	get_tree().change_scene_to_file("res://screens/main/packed_main.tscn")
+	#await get_tree().create_timer(2).timeout
+	shop_done.emit() # signal to night menu to reload inventory
