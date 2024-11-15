@@ -41,32 +41,32 @@ func _on_ingredient_added(ingredient):
 	if not "data" in ingredient: return
 	if not ingredient.data is Ingredient: return
 	if active_step == 0 and ingredient.data.id == "nightshade_petals":
-		nightshade_text.visible = false
+		nightshade_text.queue_free()
 		inventory_text.visible = true
 		active_step += 1
 	elif active_step == 2 and ingredient.data.id == "thistle_root":
-		thistleroot_text.visible = false
+		thistleroot_text.queue_free()
 		cauldron_text.visible = true
 		active_step += 1
 
 
 func _on_inventory_open(open:bool):
 	if active_step == 1 and open:
-		inventory_text.visible = false
+		inventory_text.queue_free()
 		thistleroot_text.visible = true
 		active_step += 1
 
 
 func _on_potion_made(_potion, _position):
 	if active_step == 3:
-		cauldron_text.visible = false
+		cauldron_text.queue_free()
 		potion_text.visible = true
 		active_step += 1
 
 
 func _on_bell_rung():
 	if active_step == 4:
-		potion_text.visible = false
+		potion_text.queue_free()
 		finish_text.visible = true
 	
 	disable_customer_factory = true
@@ -75,7 +75,20 @@ func _on_bell_rung():
 	await get_tree().create_timer(4).timeout
 	PlayerData.tutorial_complete = true
 	PlayerData.save_game_files()
-	get_tree().change_scene_to_file("res://screens/main/main.tscn")
+	finish_text.queue_free()
+	
+	var cuttingBoard = get_parent().get_node("CuttingBoard")
+	var MortarAndPestle = get_parent().get_node("MortarAndPestle")
+	
+	cuttingBoard.visible = true
+	cuttingBoard.process_mode=Node.PROCESS_MODE_INHERIT
+	cuttingBoard.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_INHERIT
+	
+	MortarAndPestle.visible = true
+	MortarAndPestle.process_mode=Node.PROCESS_MODE_INHERIT
+	MortarAndPestle.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_INHERIT
+	
+	self.queue_free()
 
 
 func _on_customer_enter(child):
