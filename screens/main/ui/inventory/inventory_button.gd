@@ -13,8 +13,14 @@ var heldBody
 var slot
 var inv_data
 var instance
+var timer: Timer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	timer = Timer.new()
+	add_child(timer)
+	instance = tooltip.instantiate() # instantiate tooltip
+	
 	inv_data = PlayerData.read_inv()
 	slot = self.name
 	curIcon = $Icon
@@ -60,22 +66,26 @@ func _on_inv_area_input_event(_viewport, event, _shape_idx):
 				inv_data[slot]["Quantity"] = 1
 				heldBody.queue_free()
 				UpdateItem(item, 1, self.get_index())
-				instance.set_text(item.name, item.description)
+				if instance != null:
+					instance.set_text(item.name, item.description)
 			PlayerData.write_inv(inv_data)
 
 
 func _on_mouse_entered():
-	if instance == null:
-		var ingredient = inv_data[self.name]["Item"]
-		if ingredient != null:
-			var item = ResourceLoader.load(ResourcePaths.get_ingredient_path(ingredient))
-			instance = tooltip.instantiate() # instantiate map scene
-			add_child(instance)
-			instance.position = self.global_position + Vector2(-500,100)
-			instance.set_text(item.name, item.description)
-	else:
-		instance.visible = true
+	if heldBody == null:
+		timer.start(1)
+		await timer.timeout
+		if instance == null:
+			var ingredient = inv_data[self.name]["Item"]
+			if ingredient != null:
+				var item = ResourceLoader.load(ResourcePaths.get_ingredient_path(ingredient))
+				add_child(instance)
+				instance.position = self.global_position + Vector2(-500,100)
+				instance.set_text(item.name, item.description)
+		else:
+			instance.visible = true
 
 func _on_mouse_exited():
 	if instance != null:
 		instance.visible = false
+	timer.stop()
