@@ -21,6 +21,7 @@ func _ready():
 		slots.push_front(i)
 		var inv_slot_new = template_inv_slot.instantiate()
 		inv_slot_new.name = i
+		inv_slot_new.makeObject.connect(make_inventory_object)
 		gridcontainer.add_child(inv_slot_new, true)
 		if inv_data[i]["Item"] != null: #if it has somthing in it, save those attributes to the slot
 			var quantity = str(inv_data[i]["Quantity"])
@@ -40,18 +41,18 @@ func _notification(notification_type):
 			if !is_drag_successful():
 				make_inventory_object(dragSlot)
 
-func make_inventory_object(slotIndex):
+func make_inventory_object(index):
 	inv_data = PlayerData.read_inv()	
-	make_inv_object.emit(slotIndex) #sends signal to main to make the object
-	var quantityNode = get_node("Background/M/V/ScrollContainer/GridContainer/" + str(slotIndex) + "/Icon/Quantity") 
+	make_inv_object.emit(index) #sends signal to main to make the object
+	var quantityNode = get_node("Background/M/V/ScrollContainer/GridContainer/" + str(index) + "/Icon/Quantity") 
 	if int(quantityNode.text) <= 1: #if there was only one thing in that slot, empty the slot
-		var iconNode = get_node("Background/M/V/ScrollContainer/GridContainer/" + str(slotIndex) + "/Icon" )
+		var iconNode = get_node("Background/M/V/ScrollContainer/GridContainer/" + str(index) + "/Icon" )
 		iconNode.texture = null
 		quantityNode.text = ""
-		inv_data[slotIndex]["Item"] = null
+		inv_data[index]["Item"] = null
 	else:  #else decrease the slot quantity by one
 		quantityNode.text =  str(int(quantityNode.text) - 1)
-		inv_data[slotIndex]["Quantity"] = quantityNode.text
+		inv_data[index]["Quantity"] = quantityNode.text
 	PlayerData.write_inv(inv_data)
 
 #insert an item of ingredient resource and quantity amount
