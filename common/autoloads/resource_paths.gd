@@ -3,7 +3,6 @@ extends Node
 
 var location_file_paths: Dictionary = {}
 var ingredient_file_paths: Dictionary = {}
-var customer_sprites: Array[Texture2D] = []
 var potion_sprites: Array[Texture2D] = []
 
 @onready var regex = RegEx.new()
@@ -14,13 +13,6 @@ func _ready():
 	## Find all resources
 	update_ingredient_paths()
 	update_location_paths()
-	
-	## Get all customer sprite files
-	var customer_sprite_paths = _get_all_paths_with_extension("res://screens/main/customers/generic_sprites", ".png")
-	## Add the images to the array
-	for path in customer_sprite_paths:
-		customer_sprites.push_back(load(path))
-	
 	
 	## Get all potion sprite files
 	var potion_sprite_paths = _get_all_paths_with_extension("res://common/items/potions", ".png")
@@ -52,8 +44,9 @@ func update_location_paths():
 
 func _get_all_paths_with_extension(path: String, extension: String) -> Array[String]:  
 	var file_paths: Array[String] = []  
-	var dir = DirAccess.open(path)  
-	dir.list_dir_begin()  
+	var dir = DirAccess.open(path)
+	if not dir: print(path + " does not exist")
+	dir.list_dir_begin()
 	var file_name = dir.get_next()  
 	while file_name != "":  
 		var file_path = path + "/" + file_name  
@@ -118,11 +111,6 @@ func get_all_non_variant_ingredient_paths() -> Array:
 		var action_string = Ingredient.action_to_string(action)
 		paths = paths.filter(func(p): return not p.contains(action_string))
 	return paths
-
-
-func get_random_customer_sprite() -> Texture2D:
-	randomize()
-	return customer_sprites[randi() % customer_sprites.size()]
 
 
 func get_random_potion_sprite() -> Texture2D:

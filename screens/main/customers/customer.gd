@@ -11,7 +11,6 @@ var walk_speed: float = 0.5
 
 func with_data(data: Customer):
 	self.data = data
-	$Sprite.texture = ResourcePaths.get_random_customer_sprite()
 	$DialogueLabel.text = data.order.dialogueOptions[randi() % data.order.dialogueOptions.size()]
 	return self
 

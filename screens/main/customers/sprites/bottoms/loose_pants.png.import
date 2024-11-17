@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci1wbar8fuids"
-path="res://.godot/imported/customer2.png-87df7fe96017edf4c6703709986bfcae.ctex"
+uid="uid://cwfgcrnb2kqof"
+path="res://.godot/imported/loose_pants.png-165ad7c5c6f9adceb9746f3bc2665942.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://screens/main/customers/generic_sprites/customer2.png"
-dest_files=["res://.godot/imported/customer2.png-87df7fe96017edf4c6703709986bfcae.ctex"]
+source_file="res://screens/main/customers/sprites/bottoms/loose_pants.png"
+dest_files=["res://.godot/imported/loose_pants.png-165ad7c5c6f9adceb9746f3bc2665942.ctex"]
 
 [params]
 

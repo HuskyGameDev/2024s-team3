@@ -27,7 +27,7 @@
 [ext_resource type="Resource" uid="uid://clgaxse5n6uus" path="res://common/items/ingredients/werewolf_tooth/werewolf_tooth.tres" id="25_lu428"]
 [ext_resource type="Resource" uid="uid://ca0hkro25d6f2" path="res://common/items/ingredients/yeti_fur/yeti_fur.tres" id="26_gxjpp"]
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="27_a6erb"]
-[ext_resource type="PackedScene" uid="uid://tx6eclsydksq" path="res://common/locations/the_city/the_city_background.tscn" id="27_w74sp"]
+[ext_resource type="PackedScene" path="res://common/locations/the_city/the_city_background.tscn" id="27_w74sp"]
 [ext_resource type="Texture2D" uid="uid://lg5bctf1c0wr" path="res://screens/main/stations/mortar_and_pestle/mortarpestle.png" id="28_v0thu"]
 
 [sub_resource type="Resource" id="Resource_u6t24"]
