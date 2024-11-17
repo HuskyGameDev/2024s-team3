@@ -62,12 +62,12 @@ offset_right = 1303.0
 offset_bottom = 85.0
 text = "Congratulations! You've served your first customer!"
 
-[node name="CuttingBoard" parent="." index="10"]
+[node name="CuttingBoard" parent="." index="11"]
 process_mode = 4
 physics_interpolation_mode = 2
 visible = false
 
-[node name="MortarAndPestle" parent="." index="11"]
+[node name="MortarAndPestle" parent="." index="12"]
 process_mode = 4
 physics_interpolation_mode = 2
 visible = false
