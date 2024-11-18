@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" path="res://screens/night_menu/map/location_label/location_label.gd" id="1_iw51e"]
 [ext_resource type="Texture2D" uid="uid://0mftcd1fvndf" path="res://screens/night_menu/map/outline.png" id="1_ykyic"]
-[ext_resource type="Material" path="res://common/shaders/hue_swap.tres" id="2_8213f"]
-[ext_resource type="Texture2D" uid="uid://b6rcldg0jvaiy" path="res://screens/night_menu/map/tilemap.png" id="2_iu7gd"]
+[ext_resource type="Material" uid="uid://bvnj6sjxlk4q3" path="res://common/shaders/hue_swap.tres" id="2_8213f"]
 [ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="2_xa458"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d4n2c"]
 radius = 53.0377
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xqggf"]
+load_path = "res://.godot/imported/tilemap.png-2f849696caec30488eaa176ec119d1e1.ctex"
 
 [node name="LocationLabel" type="Area2D"]
 script = ExtResource("1_iw51e")
@@ -17,11 +19,13 @@ shape = SubResource("CircleShape2D_d4n2c")
 
 [node name="MarkerSprite" type="Sprite2D" parent="."]
 material = ExtResource("2_8213f")
-texture = ExtResource("2_iu7gd")
+texture = SubResource("CompressedTexture2D_xqggf")
 region_enabled = true
 region_rect = Rect2(256, 432, 16, 16)
 
-[node name="Label" type="MarginContainer" parent="."]
+[node name="Label" type="Control" parent="."]
+z_index = 1
+layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -33,7 +37,6 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.25, 0.25)
 pivot_offset = Vector2(-47, -48)
-theme_override_constants/margin_bottom = 29
 
 [node name="Outline" type="Sprite2D" parent="Label"]
 position = Vector2(141, 144)
@@ -42,6 +45,9 @@ texture = ExtResource("1_ykyic")
 
 [node name="PanelContainer" type="PanelContainer" parent="Label"]
 layout_mode = 2
+offset_top = -64.0
+offset_right = 285.0
+offset_bottom = 26.0
 theme = ExtResource("2_xa458")
 
 [node name="Label" type="Label" parent="Label/PanelContainer"]

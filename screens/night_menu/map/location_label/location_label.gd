@@ -13,7 +13,6 @@ func _ready():
 	OutlineNode.visible = false
 	
 	$Label/PanelContainer/Label.text = location.name
-	$MarkerSprite.material.set_shader_parameter("to", location.map_color)
 
 
 func _on_location_area_entered(body):

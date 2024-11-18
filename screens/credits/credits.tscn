@@ -130,3 +130,8 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Glionox on itch.io"
 horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="CreditVBox/VBoxContainer3"]
+layout_mode = 2
+text = "The Bucketeer / @GeneralWadaling on GitHub"
+horizontal_alignment = 1
