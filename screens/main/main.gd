@@ -11,7 +11,8 @@ func _ready():
 		GameTime.start_day() #start game timer
 		GameTime.end_of_day.connect(CustomerFactory._leave_end_day) #signal customer to move off the screen
 		#Scene change occurs in customer node
-		$EndDayAndSkip.visible = true # make skip button visible
+		if GameTime.day != 1:
+			$EndDayAndSkip.visible = true # make skip button visible
 	else:
 		$EndDayAndSkip.visible = false # during the night hide skip button
 	
