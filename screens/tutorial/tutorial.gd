@@ -16,6 +16,7 @@ extends Node
 
 @onready var disable_customer_factory = false
 
+var skipButton
 var active_step = 0
 
 func _ready():
@@ -27,8 +28,9 @@ func _ready():
 	main_node.get_node("InventoryDrawer").connect("inventory_open", _on_inventory_open)
 	main_node.get_node("BellButton").connect("pressed", _on_bell_rung)
 	main_node.get_node("CustomerFactory").connect("child_entered_tree", _on_customer_enter)
-	
-	## Set visibility
+	skipButton = main_node.get_node("EndDayAndSkip")
+	## Set visibility	
+	skipButton.visible = false
 	nightshade_text.visible = true
 	inventory_text.visible = false
 	thistleroot_text.visible = false
@@ -76,18 +78,7 @@ func _on_bell_rung():
 	PlayerData.tutorial_complete = true
 	PlayerData.save_game_files()
 	finish_text.queue_free()
-	
-	var cuttingBoard = get_parent().get_node("CuttingBoard")
-	var MortarAndPestle = get_parent().get_node("MortarAndPestle")
-	
-	cuttingBoard.visible = true
-	cuttingBoard.process_mode=Node.PROCESS_MODE_INHERIT
-	cuttingBoard.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_INHERIT
-	
-	MortarAndPestle.visible = true
-	MortarAndPestle.process_mode=Node.PROCESS_MODE_INHERIT
-	MortarAndPestle.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_INHERIT
-	
+	skipButton.visible = true
 	self.queue_free()
 
 
