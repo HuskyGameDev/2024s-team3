@@ -20,6 +20,8 @@ func _ready():
 	timer = Timer.new()
 	add_child(timer)
 	instance = tooltip.instantiate() # instantiate tooltip
+	add_child(instance)
+	instance.visible = false
 	
 	inv_data = PlayerData.read_inv()
 	slot = self.name
@@ -75,14 +77,11 @@ func _on_mouse_entered():
 	if heldBody == null:
 		timer.start(1)
 		await timer.timeout
-		if instance == null:
-			var ingredient = inv_data[self.name]["Item"]
-			if ingredient != null:
-				var item = ResourceLoader.load(ResourcePaths.get_ingredient_path(ingredient))
-				add_child(instance)
-				instance.position = self.global_position + Vector2(-500,100)
-				instance.set_text(item.name, item.description)
-		else:
+		var ingredient = inv_data[self.name]["Item"]
+		if ingredient != null:
+			var item = ResourceLoader.load(ResourcePaths.get_ingredient_path(ingredient))
+			instance.position = self.global_position + Vector2(-500,100)
+			instance.set_text(item.name, item.description)
 			instance.visible = true
 
 func _on_mouse_exited():
