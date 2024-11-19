@@ -18,7 +18,6 @@ var skipButton
 var active_step = 0
 
 func _ready():
-	
 	## Connect signals
 	var main_node:Node2D = get_parent()
 	main_node.get_node("Cauldron/ValidArea").connect("body_entered", _on_ingredient_added)
@@ -26,7 +25,7 @@ func _ready():
 	main_node.get_node("InventoryDrawer").connect("inventory_open", _on_inventory_open)
 	main_node.get_node("BellButton").connect("pressed", _on_bell_rung)
 	skipButton = main_node.get_node("EndDayAndSkip")
-	## Set visibility	
+	## Set visibility
 	skipButton.visible = false
 	nightshade_text.visible = true
 	inventory_text.visible = false
@@ -34,6 +33,11 @@ func _ready():
 	cauldron_text.visible = false
 	potion_text.visible = false
 	finish_text.visible = false
+	
+	## Set customer order
+	var tutorial_order = preload("res://screens/tutorial/tutorial_order.tres")
+	main_node.get_node("CustomerFactory/Customer").data.order = tutorial_order
+	main_node.get_node("CustomerFactory/Customer/DialogueLabel").text = tutorial_order.dialogueOptions[0]
 
 
 func _on_ingredient_added(ingredient):
