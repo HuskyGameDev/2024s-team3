@@ -9,7 +9,7 @@ signal end_of_night;
 signal start_of_day;
 signal pause; # signals when game is paused emitted by pause menu and connected to gametime and clock node
 
-var hour:int = 0
+var hour:int = STORE_OPEN_TIME
 var day:int = 1
 
 func _ready():

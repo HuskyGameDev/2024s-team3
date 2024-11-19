@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://doncc4n54yis6"]
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://doncc4n54yis6"]
 
 [ext_resource type="Texture2D" uid="uid://wp5p6fgoep6b" path="res://screens/night_menu/map/tiles/animal_atlas.png" id="1_6ltue"]
 [ext_resource type="Texture2D" uid="uid://dqkygj2q8qak2" path="res://screens/night_menu/map/tiles/desert_atlas.png" id="2_8wp7x"]
+[ext_resource type="Texture2D" uid="uid://s6y3mc4t8qgh" path="res://screens/night_menu/map/tiles/grassland_atlas.png" id="3_dokd1"]
 [ext_resource type="Texture2D" uid="uid://0lea5gilckbe" path="res://screens/night_menu/map/tiles/ocean_atlas.png" id="4_fmakc"]
 [ext_resource type="Texture2D" uid="uid://vbeq58hteals" path="res://screens/night_menu/map/tiles/plains_atlas.png" id="5_4fp4r"]
 [ext_resource type="Texture2D" uid="uid://bamhot464hyjo" path="res://screens/night_menu/map/tiles/snow_atlas.png" id="6_svjfo"]
@@ -41,10 +42,8 @@ texture_region_size = Vector2i(64, 56)
 3:0/0 = 0
 3:1/0 = 0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w2sgv"]
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cq56h"]
-texture = SubResource("CompressedTexture2D_w2sgv")
+texture = ExtResource("3_dokd1")
 texture_region_size = Vector2i(64, 56)
 0:0/0 = 0
 0:1/0 = 0
@@ -107,17 +106,6 @@ texture_region_size = Vector2i(64, 56)
 0:0/0 = 0
 3:0/0 = 0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y0xv0"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e7511"]
-texture = SubResource("CompressedTexture2D_y0xv0")
-texture_region_size = Vector2i(64, 56)
-1:1/0 = 0
-0:1/0 = 0
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pn6bo"]
 texture = ExtResource("7_fx0a0")
 texture_region_size = Vector2i(64, 56)
@@ -147,5 +135,4 @@ sources/13 = SubResource("TileSetAtlasSource_cq56h")
 sources/14 = SubResource("TileSetAtlasSource_o67i0")
 sources/15 = SubResource("TileSetAtlasSource_gvvhj")
 sources/16 = SubResource("TileSetAtlasSource_iw4pv")
-sources/17 = SubResource("TileSetAtlasSource_e7511")
 sources/18 = SubResource("TileSetAtlasSource_pn6bo")
