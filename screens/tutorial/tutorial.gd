@@ -14,8 +14,6 @@ extends Node
 @onready var potion_text = $PotionLabel
 @onready var finish_text = $FinishLabel
 
-@onready var disable_customer_factory = false
-
 var skipButton
 var active_step = 0
 
@@ -27,7 +25,6 @@ func _ready():
 	main_node.get_node("Cauldron").connect("potion_made", _on_potion_made)
 	main_node.get_node("InventoryDrawer").connect("inventory_open", _on_inventory_open)
 	main_node.get_node("BellButton").connect("pressed", _on_bell_rung)
-	main_node.get_node("CustomerFactory").connect("child_entered_tree", _on_customer_enter)
 	skipButton = main_node.get_node("EndDayAndSkip")
 	## Set visibility	
 	skipButton.visible = false
@@ -71,7 +68,6 @@ func _on_bell_rung():
 		potion_text.queue_free()
 		finish_text.visible = true
 	
-	disable_customer_factory = true
 	## Wait 8 seconds then switch out of tutorial scene
 	## This isn't under the if statement because selling a potion means they've understood enough
 	await get_tree().create_timer(4).timeout
@@ -80,9 +76,3 @@ func _on_bell_rung():
 	finish_text.queue_free()
 	skipButton.visible = true
 	self.queue_free()
-
-
-func _on_customer_enter(child):
-	await get_tree().process_frame # wait to give _on_bell_rung a chance to disable
-	if disable_customer_factory:
-		get_parent().get_node("CustomerFactory").remove_child(child)
