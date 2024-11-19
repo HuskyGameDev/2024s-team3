@@ -19,17 +19,17 @@ var paused = false # tracks if game is currently paused
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	GameTime.connect("pause", on_pause) #connrect to pause signal from global script gametime
+	#GameTime.connect("pause", on_pause) #connrect to pause signal from global script gametime
 	get_parent().get_parent().timerWentOff.connect(_rotate)
 	originalSpeed = clockRotationSpeed
 	
 
 
 func _rotate():
-	if paused == false: # only rotate if unpaused
-		startingPoint = position
-		shouldBackRotate = true
-		shouldRotate = true
+	#if paused == false: # only rotate if unpaused
+	startingPoint = position
+	shouldBackRotate = true
+	shouldRotate = true
 
 
 func _physics_process(delta):
@@ -63,8 +63,8 @@ func _physics_process(delta):
 				clockRotationSpeed = originalSpeed
 
  # runs when signaled, pausing or unpausing the rotation of the clock
-func on_pause():
-		if paused == true: # if paused
-			paused = false # unpause
-		else:
-			paused = true # pause
+#func on_pause():
+		#if paused == true: # if paused
+			#paused = false # unpause
+		#else:
+			#paused = true # pause
