@@ -2,9 +2,8 @@ extends Control
 
 func _ready():
 	GameTime.stop()
-	if not PlayerData.tutorial_complete:
+	if not FileAccess.file_exists("res://screens/main/packed_main.tscn"):
 		$"VBoxContainer/Continue".visible = false
-
 
 func _on_exit_pressed():
 	get_tree().quit()
