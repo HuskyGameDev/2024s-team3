@@ -76,12 +76,16 @@ position = Vector2(1559, 361)
 scale = Vector2(8, 8)
 
 [node name="LocationShelf" type="Node2D" parent="."]
+process_mode = 3
+physics_interpolation_mode = 1
 position = Vector2(447, 384)
 
 [node name="IngredientDisplay1" parent="LocationShelf" instance=ExtResource("4_47emv")]
 position = Vector2(-200, -192)
 
 [node name="IngredientDisplay2" parent="LocationShelf" instance=ExtResource("4_47emv")]
+process_mode = 3
+physics_interpolation_mode = 1
 position = Vector2(0, -192)
 
 [node name="IngredientDisplay3" parent="LocationShelf" instance=ExtResource("4_47emv")]
@@ -129,6 +133,7 @@ position = Vector2(1573, 917)
 [node name="PurchaseArea" type="Area2D" parent="Basket"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Basket/PurchaseArea"]
+process_mode = 4
 position = Vector2(3, 0)
 shape = SubResource("RectangleShape2D_82e5e")
 

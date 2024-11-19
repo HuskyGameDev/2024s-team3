@@ -1,6 +1,7 @@
 extends Node
 
 @onready var Player:CharacterBody2D = $Player
+signal move_done
 
 ## PLAYER MOVEMENT
 func _physics_process(_delta):
@@ -27,6 +28,7 @@ func move_to_location(location_id:String):
 	if not PlayerData.visited_locations.map(func(location): return location.id).has(location_id):
 		PlayerData.visited_locations.append(new_location)
 	PlayerData.save_game_files()
+	move_done.emit()
 	self.queue_free()  # delete this scene
 
 

@@ -47,7 +47,22 @@ func _on_forage_button_pressed():
 func _on_move_button_pressed():	
 	var instance = map.instantiate() # instantiate map schene
 	$Map.add_child(instance)
+	instance.move_done.connect(_on_action_done) # connect signal
 	$CanvasLayer/MoveButton.disabled = true # disable map button from being pressed again
+	
+	var group = get_tree().get_nodes_in_group("main") # get main scene
+	main = group[0]
+	#pause main
+	main.visible = false
+	main.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
+	main.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	#pause shutter
+	$Shutter.visible = false
+	$Shutter.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
+	$Shutter.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	
 
 func _on_action_done():
 	#start shutter
@@ -57,6 +72,7 @@ func _on_action_done():
 
 	#stop Nightshop
 	$NightShop.visible = false
+	$NightShop.process_mode = Node.PROCESS_MODE_INHERIT
 	$NightShop.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
 
 	var group = get_tree().get_nodes_in_group("main") # get main scene
