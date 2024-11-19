@@ -15,11 +15,19 @@ extends Node2D
 
 @onready var tween = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_LINEAR)
 
+var paused = false # tracks if game is currently paused
+
 
 signal timerWentOff
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameTime.connect("pause", on_pause) #connrect to pause signal from global script gametime
+	
+	
+	
+	
+	
 	var markers = markerHolder.get_children()
 	for x in numberOfNodes:
 		var instance = clockNodeInstance.instantiate()
@@ -35,6 +43,23 @@ func _ready():
 	
 	tween.tween_property(progressBar,"value", 100, abs(GameTime.STORE_OPEN_TIME - GameTime.STORE_CLOSE_TIME) * GameTime.GAME_TIME_SCALE)
 	timer.start()
+
+
+
+
+
+
+func on_pause():
+	if paused == true: # if paused
+		paused = false # unpause
+		tween.play()
+		timer.paused = false
+	else:
+		paused = true # pause
+		tween.pause()
+		timer.paused = true
+
+
 
 
 func _on_timer_timeout():
