@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2j3rg4f5xnau"]
+[gd_scene load_steps=16 format=3 uid="uid://d2j3rg4f5xnau"]
 
 [ext_resource type="PackedScene" uid="uid://beqshfus1kkk7" path="res://screens/night_menu/store/shopkeeper/shopkeeper.tscn" id="2_ra0ww"]
 [ext_resource type="Script" path="res://screens/night_menu/store/night_shop.gd" id="2_xiblk"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://hqh6cclivhet" path="res://screens/night_menu/store/map_display/map_display.tscn" id="8_17nol"]
 [ext_resource type="Theme" uid="uid://bbilaxa656p7n" path="res://screens/main/customers/customer_dialogue_theme.tres" id="9_yqeli"]
 [ext_resource type="Texture2D" uid="uid://crbl2qwkavqgq" path="res://screens/main/customers/speech_bubble_pointer.png" id="10_0af1q"]
+[ext_resource type="AudioStream" uid="uid://beydu1xu4bbgm" path="res://common/audio/Night_Market.wav" id="11_gn7bv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hof1g"]
 bg_color = Color(0, 0, 0, 1)
@@ -243,6 +244,10 @@ offset_right = 1392.0
 offset_bottom = 277.0
 texture = ExtResource("10_0af1q")
 expand_mode = 1
+
+[node name="Music_Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_gn7bv")
+volume_db = -15.0
 
 [connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay1" to="." method="_on_ingredient_dropped"]
 [connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay2" to="." method="_on_ingredient_dropped"]

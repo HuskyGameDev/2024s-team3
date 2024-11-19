@@ -184,5 +184,8 @@ func _on_buy_button_pressed():
 
 func _on_exit_button_pressed():
 	shopkeeper_speak("See you next time!")
-	await get_tree().create_timer(2).timeout
+	var tween:Tween = get_tree().create_tween()
+	tween.tween_property($Music_Player, "volume_db", linear_to_db(0.04), 2)
+	await tween.finished
+	$Music_Player.stop()
 	shop_done.emit() # signal to night menu to reload inventory
