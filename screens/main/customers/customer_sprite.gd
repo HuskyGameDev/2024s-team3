@@ -59,8 +59,6 @@ const percent_short_hair_male = 0.5
 @onready var sleevesShader:ShaderMaterial = $Sleeves.material
 @onready var hairShader:ShaderMaterial = $Hair.material
 
-@onready var modulator:CanvasModulate = $Modulator
-
 ##### RANDOMIZERS #####
 func randomize_face():
 	$Eyes.texture  = ResourceLoader.load("%s/%s.png" % [EyesDir, eyes.pick_random()])
