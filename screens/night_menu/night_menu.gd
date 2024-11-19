@@ -33,6 +33,8 @@ func _on_buy_button_pressed():
 	
 	#start Nightshop
 	$NightShop.visible = true
+	$NightShop/NightShop/Music_Player.volume_db = -15
+	$NightShop/NightShop/Music_Player.play()
 	$NightShop/NightShop.shop_done.connect(_on_action_done) # connect signal
 	$NightShop.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_ON
 

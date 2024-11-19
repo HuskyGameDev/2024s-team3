@@ -3,6 +3,8 @@ extends Node2D
 const NUM_ITEMS = 3
 
 var bottom_of_screen:Vector2
+@onready var forageSounds:Array[AudioStream] = [preload("res://common/audio/Forage_1.wav"), preload("res://common/audio/Forage_2.wav"), preload("res://common/audio/Forage_3.wav")]
+var rng:RandomNumberGenerator = RandomNumberGenerator.new()
 
 signal forage_done # signal night menu that forage is done
 
@@ -33,6 +35,9 @@ func show_forage(ingredient:Ingredient, pos:float, index:int):
 	new_sprite.scale = Vector2(0.1, 0.1)
 	new_sprite.global_position = bottom_of_screen
 	$Sprites.add_child(new_sprite)
+	var n = rng.randi_range(0,2)
+	$Forager.stream = forageSounds[n]
+	$Forager.play()
 	
 	## Do animation
 	var tween = get_tree().create_tween()
