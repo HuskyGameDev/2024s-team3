@@ -24,7 +24,8 @@ func _ready():
 func leave_store():
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "global_position", END_LOCATION, walk_speed)
-	tween.tween_callback(self.queue_free)
+	await tween.finished # wait for tween to finish
+	self.queue_free()
 
 func _end_day_leave_store(): # at the end of the day
 	var tween = get_tree().create_tween() #move customer out of windoe
