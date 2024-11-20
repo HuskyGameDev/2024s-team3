@@ -16,6 +16,7 @@ var failedDelays:Array[float] = [0.15, 0.4, 0.3]
 var rng:RandomNumberGenerator = RandomNumberGenerator.new()
 
 signal potion_made(potion: Potion, pos: Vector2)
+signal water_spawn
 
 func _ready():
 	SpriteShader.set_shader_parameter("make_flat", true)
@@ -42,6 +43,7 @@ func _on_body_enter_cauldron(body):
 		SpriteShader.set_shader_parameter("make_flat", false)
 		SpriteShader.set_shader_parameter("to", current_effects.get_color())
 		print(current_effects)
+		water_spawn.emit()
 		body.queue_free()
 		return
 	current_effects.add(body.data.effects)

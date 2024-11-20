@@ -4,6 +4,8 @@ const IMAGE_SCALE = 6
 
 # For handling with cauldron
 @export var data: Ingredient
+@export var x_spawn = 245
+@export var y_spawn = 580
 
 func with_data(data: Ingredient):
 	self.data = data
@@ -15,6 +17,7 @@ func _ready():
 	set_default_collision_layer(1)
 	set_holding_collision_layer(31)
 	super()
+	self.position = Vector2(x_spawn, y_spawn)
 
 
 # stops rotation of ingredient if its on the shelf
