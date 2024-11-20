@@ -60,18 +60,18 @@ func load_game_files():
 		var save_file = FileAccess.open(SAVE_LOCATION, FileAccess.READ)
 		var save_data = JSON.parse_string(save_file.get_as_text())
 		if save_data:
-			money = save_data.get("money")
-			reputation = save_data.get("reputation")
-			var location_id = save_data.get("location")
+			money = save_data.get_or_add("money", 0)
+			reputation = save_data.get_or_add("reputation", 0)
+			var location_id = save_data.get_or_add("location", "the_clearing")
 			if location_id: location = ResourceLoader.load(ResourcePaths.get_location_path(location_id))
-			var visited_location_ids = save_data.get("visited_locations")
+			var visited_location_ids = save_data.get_or_add("visited_locations", ["the_clearing"])
 			if visited_location_ids:
 				visited_locations.clear()
 				for id in visited_location_ids:
 					visited_locations.append(ResourceLoader.load(ResourcePaths.get_location_path(id)))
-			unlocked_locations = save_data.get("unlocked_locations")
-			unlocked_stations = save_data.get("unlocked_stations")
-			tutorial_complete = save_data.get("tutorial_complete")
+			unlocked_locations = save_data.get_or_add("unlocked_locations", ["the_clearing"])
+			unlocked_stations = save_data.get_or_add("unlocked_stations", [])
+			tutorial_complete = save_data.get_or_add("tutorial_complete", true)
 		save_file.close()
 
 func read_inv(): #reads temporary inventory to output
