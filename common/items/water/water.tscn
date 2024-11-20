@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://conja6bdcr3m3"]
+
+[ext_resource type="Script" path="res://common/items/water/water.gd" id="1_n5y7o"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="2_qxubd"]
+[ext_resource type="Texture2D" uid="uid://cpiu2shqy8d6l" path="res://common/items/ingredients/ingredient_default.png" id="2_yinlt"]
+
+[sub_resource type="Resource" id="Resource_ynkxe"]
+resource_local_to_scene = true
+resource_name = "Ingredient"
+script = ExtResource("2_qxubd")
+available_actions = 0
+id = "water"
+name = "Water"
+description = "Dillute the potions effects by half."
+stack_size = 0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u56ne"]
+size = Vector2(17, 16)
+
+[node name="Water" type="RigidBody2D"]
+input_pickable = true
+contact_monitor = true
+max_contacts_reported = 1
+angular_damp = 30.0
+script = ExtResource("1_n5y7o")
+data = SubResource("Resource_ynkxe")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_yinlt")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_u56ne")

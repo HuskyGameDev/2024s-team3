@@ -55,6 +55,11 @@ func get_strength(e: Effect):
 func set_strength(e: Effect, strength: int):
 	effects[e] = strength
 
+# Half the strength for all effects (for water)
+func half_strength(e: EffectSet):
+	for effect in self.effects:
+		self.effects[effect] = self.effects[effect]/2
+	
 
 ## Adds another effects set to this one
 func add(e: EffectSet) -> void:
@@ -85,6 +90,7 @@ func get_strongest(n:int = 10) -> Array:
 	if n > all_effects.size():
 		return all_effects.slice(0, n)
 	else: return all_effects
+	
 
 
 ## Returns an array of the weakest n effects
