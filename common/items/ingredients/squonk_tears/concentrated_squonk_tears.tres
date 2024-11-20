@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "concentrated_squonk_tears"
 name = "Concentrated Squonk Tears"
-description = ""
+description = "Somehow even less lucky than the squonk."
 stack_size = 5

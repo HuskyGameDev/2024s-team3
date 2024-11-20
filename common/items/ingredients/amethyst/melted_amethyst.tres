@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "melted_amethyst"
 name = "Melted Amethyst"
-description = ""
+description = "A rather sluggish gem."
 stack_size = 5

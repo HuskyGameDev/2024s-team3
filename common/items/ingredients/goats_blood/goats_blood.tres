@@ -36,6 +36,6 @@ average_color = Color(0.500252, 0.205361, 0.217593, 1)
 available_actions = 16
 id = "goats_blood"
 name = "Goats Blood"
-description = ""
+description = "Really not the safest to consume, incredibly slow and fairly tiring."
 stack_size = 5
 image = ExtResource("12_6lwwf")

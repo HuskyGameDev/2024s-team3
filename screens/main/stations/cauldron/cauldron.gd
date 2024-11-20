@@ -68,7 +68,7 @@ func _on_cauldron_input_event(_viewport, _event, _shape_idx):
 			$Poofer.volume_db = -10
 			delay = 0.4
 			time = 0.5
-			if potion.effects.all_null() || potion.effects.get_strongest_as_strings().size() > 3:
+			if potion.effects.all_null() || potion.effects.get_strongest_as_strings().size() > 4:
 				var index:int = rng.randi_range(0,2)
 				$Poofer.set_stream(failedSounds[index])
 				delay = failedDelays[index]

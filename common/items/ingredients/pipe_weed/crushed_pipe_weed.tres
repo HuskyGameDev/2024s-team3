@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_pipe_weed"
 name = "Crushed Pipe Weed"
-description = ""
+description = "No longer confusing, though that means it's not much of anything anymore."
 stack_size = 5

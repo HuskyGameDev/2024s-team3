@@ -36,6 +36,6 @@ average_color = Color(0.502136, 0.651397, 0.498053, 1)
 available_actions = 0
 id = "peppermint_leaves"
 name = "Peppermint Leaves"
-description = ""
+description = "The minty freshness helps give people energy."
 stack_size = 5
 image = ExtResource("1_6rcdf")

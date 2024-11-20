@@ -36,6 +36,6 @@ average_color = Color(0.4212, 0.663003, 0.696692, 1)
 available_actions = 4
 id = "robin_egg"
 name = "Robin Egg"
-description = ""
+description = "The speed and energy of a robin in a blue package."
 stack_size = 5
 image = ExtResource("12_kxtd4")

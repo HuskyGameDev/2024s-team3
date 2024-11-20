@@ -36,6 +36,6 @@ average_color = Color(0.603134, 0.503557, 0.387368, 1)
 available_actions = 12
 id = "fools_gold"
 name = "Fools Gold"
-description = ""
+description = "Unlucky find, though it still glimmers in the dark."
 stack_size = 5
 image = ExtResource("12_ikign")

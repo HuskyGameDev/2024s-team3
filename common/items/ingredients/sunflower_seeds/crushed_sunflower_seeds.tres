@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_sunflower_seeds"
 name = "Crushed Sunflower Seeds"
-description = ""
+description = "Helps keep things warm."
 stack_size = 5

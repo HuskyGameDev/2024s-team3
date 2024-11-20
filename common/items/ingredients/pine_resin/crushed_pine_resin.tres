@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_pine_resin"
 name = "Crushed Pine Resin"
-description = ""
+description = "Only helps to slow you down."
 stack_size = 5

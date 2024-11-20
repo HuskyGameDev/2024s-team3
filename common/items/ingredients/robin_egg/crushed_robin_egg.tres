@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_robin_egg"
 name = "Crushed Robin Egg"
-description = ""
+description = "Even with the shell still inside, gives a good amount of energy."
 stack_size = 5

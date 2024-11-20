@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "melted_fools_gold"
 name = "Melted Fools Gold"
-description = ""
+description = "Quite lucky, though it glistens no more."
 stack_size = 5

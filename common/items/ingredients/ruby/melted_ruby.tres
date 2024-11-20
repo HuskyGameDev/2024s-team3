@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "melted_ruby"
 name = "Melted Ruby"
-description = ""
+description = "A rather inedible concoction."
 stack_size = 5

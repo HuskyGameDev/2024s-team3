@@ -36,6 +36,6 @@ average_color = Color(0.702487, 0.504112, 0.264769, 1)
 available_actions = 8
 id = "gold_dust"
 name = "Gold Dust"
-description = ""
+description = "What a lucky, shiny find!"
 stack_size = 5
 image = ExtResource("12_h06ge")

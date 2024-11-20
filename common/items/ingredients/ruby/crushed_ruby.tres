@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 8
 id = "crushed_ruby"
 name = "Crushed Ruby"
-description = ""
+description = "Radiates a bit of warmth."
 stack_size = 5

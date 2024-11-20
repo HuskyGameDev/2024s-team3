@@ -36,6 +36,6 @@ average_color = Color(0.393436, 0.295579, 0.251177, 1)
 available_actions = 6
 id = "erdtree_branch"
 name = "Erdtree Branch"
-description = ""
+description = "Incredibly bright and positive in many ways."
 stack_size = 5
 image = ExtResource("12_k5tha")

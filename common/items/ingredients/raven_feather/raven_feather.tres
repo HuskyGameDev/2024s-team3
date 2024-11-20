@@ -36,6 +36,6 @@ average_color = Color(0.0737009, 0.0455289, 0.0886838, 1)
 available_actions = 0
 id = "raven_feather"
 name = "Raven Feather"
-description = ""
+description = "Quoth its source, \"caw.\" Not a great omen, and not a clear one either."
 stack_size = 5
 image = ExtResource("12_0js51")

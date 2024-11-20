@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 4
 id = "chopped_poison_ivy"
 name = "Chopped Poison Ivy"
-description = ""
+description = "For poisoning, poisoning, and maybe also poisoning."
 stack_size = 5

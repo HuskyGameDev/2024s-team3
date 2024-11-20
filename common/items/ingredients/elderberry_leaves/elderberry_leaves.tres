@@ -36,6 +36,6 @@ average_color = Color(0.321194, 0.50602, 0.204966, 1)
 available_actions = 4
 id = "elderberry_leaves"
 name = "Elderberry Leaves"
-description = ""
+description = "Soothes the soul, though it may also leave you vulnerable..."
 stack_size = 5
 image = ExtResource("12_mudth")

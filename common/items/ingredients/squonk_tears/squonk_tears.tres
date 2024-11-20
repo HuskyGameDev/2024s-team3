@@ -36,6 +36,6 @@ average_color = Color(0.577407, 0.553059, 0.55875, 1)
 available_actions = 16
 id = "squonk_tears"
 name = "Squonk Tears"
-description = ""
+description = "Bottled misfortune from the most unlucky creature. How is it even alive?"
 stack_size = 5
 image = ExtResource("12_ikrxp")

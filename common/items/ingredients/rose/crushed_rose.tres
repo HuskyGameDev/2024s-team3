@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_rose"
 name = "Crushed Rose"
-description = ""
+description = "The thorns that remain are definitely not edible."
 stack_size = 5

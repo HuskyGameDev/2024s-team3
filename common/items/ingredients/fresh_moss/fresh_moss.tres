@@ -36,6 +36,6 @@ average_color = Color(0.424726, 0.577049, 0.175934, 1)
 available_actions = 0
 id = "fresh_moss"
 name = "Fresh Moss"
-description = ""
+description = "Strong, energizing, and pretty healthy too."
 stack_size = 5
 image = ExtResource("12_fny23")

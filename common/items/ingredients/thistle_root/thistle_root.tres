@@ -36,6 +36,6 @@ average_color = Color(0.53712, 0.410926, 0.425639, 1)
 available_actions = 2
 id = "thistle_root"
 name = "Thistle Root"
-description = ""
+description = "Keeps you strong and makes your armor a bit stronger too."
 stack_size = 5
 image = ExtResource("12_dix4c")

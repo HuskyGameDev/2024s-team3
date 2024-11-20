@@ -36,6 +36,6 @@ average_color = Color(0.938201, 0.525102, 0.129536, 1)
 available_actions = 12
 id = "pine_resin"
 name = "Pine Resin"
-description = ""
+description = "Sticks to you, sticks with you."
 stack_size = 5
 image = ExtResource("1_snorq")

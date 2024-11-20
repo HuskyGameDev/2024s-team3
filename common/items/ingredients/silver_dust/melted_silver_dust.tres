@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "melted_silver_dust"
 name = "Melted Silver Dust"
-description = ""
+description = "Does the opposite of warding or healing!"
 stack_size = 5

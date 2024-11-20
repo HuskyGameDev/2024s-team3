@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "concentrated_goat_milk"
 name = "Concentrated Goat Milk"
-description = ""
+description = "Even more energizing and warm, though still unpasteurized."
 stack_size = 5

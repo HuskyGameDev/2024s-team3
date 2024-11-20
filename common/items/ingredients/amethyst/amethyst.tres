@@ -36,6 +36,6 @@ average_color = Color(0.327024, 0.218729, 0.397442, 1)
 available_actions = 12
 id = "amethyst"
 name = "Amethyst"
-description = ""
+description = "A quite fast gemstone."
 stack_size = 5
 image = ExtResource("12_7wbyj")

@@ -36,6 +36,6 @@ average_color = Color(0.217869, 0.327661, 0.178154, 1)
 available_actions = 4
 id = "pipe_weed"
 name = "Pipe Weed"
-description = ""
+description = "Feels incredible, though it's not the best for you."
 stack_size = 5
 image = ExtResource("12_ivkrd")

@@ -36,6 +36,6 @@ average_color = Color(0.409916, 0.154818, 0.154006, 1)
 available_actions = 12
 id = "ruby"
 name = "Ruby"
-description = ""
+description = "A powerful healing gem."
 stack_size = 5
 image = ExtResource("12_6fwdr")

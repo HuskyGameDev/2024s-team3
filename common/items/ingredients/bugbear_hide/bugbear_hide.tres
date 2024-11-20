@@ -36,6 +36,6 @@ average_color = Color(0.382168, 0.166516, 0.0428524, 1)
 available_actions = 0
 id = "bugbear_hide"
 name = "Bugbear Hide"
-description = ""
+description = "Gives the powers of a bugbear! You'll need to dilute it a bit, though..."
 stack_size = 5
 image = ExtResource("12_s1341")

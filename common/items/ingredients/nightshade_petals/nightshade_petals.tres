@@ -36,6 +36,6 @@ average_color = Color(0.634326, 0.476368, 0.783066, 1)
 available_actions = 0
 id = "nightshade_petals"
 name = "Nightshade Petals"
-description = ""
+description = "The opposite of poisonous, surprisingly enough."
 stack_size = 5
 image = ExtResource("1_j55rg")

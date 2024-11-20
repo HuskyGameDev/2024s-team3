@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 8
 id = "crushed_topaz"
 name = "Crushed Topaz"
-description = ""
+description = "Slightly confusing in this state."
 stack_size = 5

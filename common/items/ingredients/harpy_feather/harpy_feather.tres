@@ -36,6 +36,6 @@ average_color = Color(0.409399, 0.0728552, 0.0788781, 1)
 available_actions = 0
 id = "harpy_feather"
 name = "Harpy Feather"
-description = ""
+description = "The personification of a storm wind, can make people angry and confused."
 stack_size = 5
 image = ExtResource("12_05w56")

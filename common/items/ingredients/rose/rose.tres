@@ -21,7 +21,7 @@ ExtResource("1_ajybv"): 0,
 ExtResource("2_amr6n"): 0,
 ExtResource("3_vxue6"): 0,
 ExtResource("4_atbsd"): 0,
-ExtResource("5_skayg"): -2,
+ExtResource("5_skayg"): -3,
 ExtResource("6_jcoe0"): 0,
 ExtResource("7_yycor"): 0,
 ExtResource("8_2lqw0"): 0,
@@ -36,6 +36,6 @@ average_color = Color(0.320052, 0.297342, 0.201371, 1)
 available_actions = 6
 id = "rose"
 name = "Rose"
-description = ""
+description = "Warm, if you don't get too many thorns."
 stack_size = 5
 image = ExtResource("12_ockts")

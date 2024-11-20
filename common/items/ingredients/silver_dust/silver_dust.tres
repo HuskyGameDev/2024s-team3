@@ -36,6 +36,6 @@ average_color = Color(0.700381, 0.725913, 0.768091, 1)
 available_actions = 8
 id = "silver_dust"
 name = "Silver Dust"
-description = ""
+description = "Wards off enemies, and is a slight antimicrobial!"
 stack_size = 5
 image = ExtResource("12_f6ivs")

@@ -20,7 +20,7 @@ ExtResource("1_rjmph"): -2,
 ExtResource("2_mdruv"): 0,
 ExtResource("3_bgsvg"): -4,
 ExtResource("4_xe8oo"): -2,
-ExtResource("5_cmjkg"): -9.0,
+ExtResource("5_cmjkg"): -10,
 ExtResource("6_uwhko"): 0,
 ExtResource("7_3aqxb"): -4,
 ExtResource("8_fdsdb"): -1,
@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "concentrated_snake_oil"
 name = "Concentrated Snake Oil"
-description = ""
+description = "Poisons quite well, and does other things if you get enough."
 stack_size = 5

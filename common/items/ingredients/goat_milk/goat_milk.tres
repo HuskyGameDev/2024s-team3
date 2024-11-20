@@ -36,6 +36,6 @@ average_color = Color(0.710598, 0.727092, 0.770373, 1)
 available_actions = 16
 id = "goat_milk"
 name = "Goat Milk"
-description = ""
+description = "Energizing and warm, though it's unpasteurized..."
 stack_size = 5
 image = ExtResource("12_6fn30")

@@ -36,6 +36,6 @@ average_color = Color(0.63621, 0.764055, 0.750906, 1)
 available_actions = 12
 id = "pearl"
 name = "Pearl"
-description = ""
+description = "A quite reflective gem."
 stack_size = 5
 image = ExtResource("12_m6n18")

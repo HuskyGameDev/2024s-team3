@@ -36,6 +36,6 @@ average_color = Color(0.897759, 0.777276, 0.678641, 1)
 available_actions = 0
 id = "eye_of_a_newt"
 name = "Eye of a Newt"
-description = "An actual eye of an actual newt"
+description = "An actual eye of an actual newt."
 stack_size = 5
 image = ExtResource("2_ix7pw")

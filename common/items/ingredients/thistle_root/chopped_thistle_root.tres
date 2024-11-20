@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "chopped_thistle_root"
 name = "Chopped Thistle Root"
-description = ""
+description = "Its binding power keeps you strong."
 stack_size = 5

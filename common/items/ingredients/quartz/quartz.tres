@@ -36,6 +36,6 @@ average_color = Color(0.499077, 0.467747, 0.467746, 1)
 available_actions = 12
 id = "quartz"
 name = "Quartz"
-description = ""
+description = "A quite thoughtful stone."
 stack_size = 5
 image = ExtResource("12_sbc6l")

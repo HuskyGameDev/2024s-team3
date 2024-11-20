@@ -36,6 +36,6 @@ average_color = Color(0.121492, 0.703422, 0.438678, 1)
 available_actions = 2
 id = "frog_leg"
 name = "Frog Leg"
-description = ""
+description = "A fast moving leg in life, tinged with a slight bit of venom."
 stack_size = 5
 image = ExtResource("2_06fr0")

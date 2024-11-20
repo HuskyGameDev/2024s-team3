@@ -36,6 +36,6 @@ average_color = Color(0.339395, 0.465752, 0.295133, 1)
 available_actions = 16
 id = "aloe_jelly"
 name = "Aloe Jelly"
-description = ""
+description = "Calms the skin, heals the wound, cools the burn."
 stack_size = 5
 image = ExtResource("12_80g3n")

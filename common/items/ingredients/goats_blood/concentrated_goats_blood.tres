@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "concentrated_goats_blood"
 name = "Concentrated Goats Blood"
-description = ""
+description = "Even more sluggish than it was."
 stack_size = 5

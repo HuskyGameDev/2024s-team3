@@ -36,6 +36,6 @@ average_color = Color(0.190034, 0.408755, 0.298663, 1)
 available_actions = 12
 id = "jade"
 name = "Jade"
-description = ""
+description = "A quite energizing gem."
 stack_size = 5
 image = ExtResource("12_vsdgc")

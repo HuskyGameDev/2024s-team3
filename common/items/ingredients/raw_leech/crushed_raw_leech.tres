@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_raw_leech"
 name = "Crushed Raw Leech"
-description = ""
+description = "Keeps its victims slow and tired."
 stack_size = 5

@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "melted_pine_resin"
 name = "Melted Pine Resin"
-description = ""
+description = "Leaves someone vulnerable, but can help them get away."
 stack_size = 5

@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "chopped_bat_wing"
 name = "Chopped Bat Wing"
-description = ""
+description = "With the venom gone, this solely helps keep things dark."
 stack_size = 5

@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "chopped_frog_leg"
 name = "Chopped Frog Leg"
-description = ""
+description = "Having removed the venom, it's now perfect for swiftness."
 stack_size = 5

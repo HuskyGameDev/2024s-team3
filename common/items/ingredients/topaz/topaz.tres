@@ -36,6 +36,6 @@ average_color = Color(0.429186, 0.268794, 0.0900297, 1)
 available_actions = 12
 id = "topaz"
 name = "Topaz"
-description = ""
+description = "A very warm gemstone."
 stack_size = 5
 image = ExtResource("12_k4nvv")

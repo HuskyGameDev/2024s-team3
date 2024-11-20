@@ -36,6 +36,6 @@ average_color = Color(0.503899, 0.42579, 0.415086, 1)
 available_actions = 4
 id = "sunflower_seeds"
 name = "Sunflower Seeds"
-description = ""
+description = "Helps keep things bright."
 stack_size = 5
 image = ExtResource("1_ccx8u")

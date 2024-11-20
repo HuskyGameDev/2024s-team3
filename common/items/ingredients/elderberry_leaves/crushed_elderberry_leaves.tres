@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_elderberry_leaves"
 name = "Crushed Elderberry Leaves"
-description = ""
+description = "Leaves people defenseless, without much of an upside."
 stack_size = 5

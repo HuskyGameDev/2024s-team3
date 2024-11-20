@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 4
 id = "chopped_erdtree_branch"
 name = "Chopped Erdtree Branch"
-description = ""
+description = "Bright, healing, and defensive, though no longer strong."
 stack_size = 5

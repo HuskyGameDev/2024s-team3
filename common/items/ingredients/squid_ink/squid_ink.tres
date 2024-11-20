@@ -36,6 +36,6 @@ average_color = Color(0.27025, 0.278882, 0.358823, 1)
 available_actions = 16
 id = "squid_ink"
 name = "Squid Ink"
-description = ""
+description = "Quite dark, if you can hold it down."
 stack_size = 5
 image = ExtResource("12_0qq6p")

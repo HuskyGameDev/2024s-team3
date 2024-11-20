@@ -36,6 +36,6 @@ average_color = Color(0.261102, 0.215752, 0.274422, 1)
 available_actions = 2
 id = "bat_wing"
 name = "Bat Wing"
-description = ""
+description = "Not the most edible, but really helps keep things dark."
 stack_size = 5
 image = ExtResource("2_3cnqy")

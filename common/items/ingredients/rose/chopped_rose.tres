@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 4
 id = "chopped_rose"
 name = "Chopped Rose"
-description = ""
+description = "With its thorns removed, it's just warm."
 stack_size = 5
