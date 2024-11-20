@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://h6ayxc1sdyya"]
+[gd_scene load_steps=10 format=3 uid="uid://h6ayxc1sdyya"]
 
 [ext_resource type="PackedScene" uid="uid://d2j3rg4f5xnau" path="res://screens/night_menu/store/night_shop.tscn" id="2_qm36f"]
 [ext_resource type="Script" path="res://screens/night_menu/shutter.gd" id="2_s6ou6"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" path="res://screens/main/packed_main.tscn" id="3_3x0fi"]
 [ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="4_kbbvy"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="6_reosl"]
+[ext_resource type="AudioStream" uid="uid://c78lgbdormr4o" path="res://common/audio/Night_Menu_Theme.wav" id="7_irenb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhchr"]
 size = Vector2(1089, 483)
@@ -160,6 +161,11 @@ grow_vertical = 1
 
 [node name="Water" parent="Main2" index="15"]
 data = SubResource("Resource_4pjel")
+
+[node name="NightThemePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_irenb")
+volume_db = -40.0
+autoplay = true
 
 [connection signal="input_event" from="Shutter" to="Shutter" method="_on_input_event"]
 [connection signal="mouse_entered" from="Shutter" to="Shutter" method="_on_mouse_entered"]

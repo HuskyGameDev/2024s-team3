@@ -34,6 +34,6 @@ func fadeout():
 	var tween:Tween = get_tree().create_tween()
 	tween.set_parallel()
 	tween.tween_property($ColorRect2, "color", Color(0,0,0,1), 1.5)
-	tween.tween_property($MainPlayer, "volume_db", linear_to_db(0.04), 1.5)
+	tween.tween_property($MainPlayer, "volume_db", -40, 1.5)
 	await tween.finished
 	return true

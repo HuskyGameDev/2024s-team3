@@ -22,7 +22,7 @@
 [ext_resource type="FontFile" uid="uid://dy8mlyjp48kpw" path="res://screens/main/ui/ingredient_book/m5x7.ttf" id="17_hcv40"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="17_kjbhu"]
 [ext_resource type="PackedScene" uid="uid://b6cq5upjosmpf" path="res://screens/main/ui/clock/clock.tscn" id="17_n5klg"]
-[ext_resource type="AudioStream" uid="uid://b2tobla6g3j6y" path="res://common/audio/Ambience.wav" id="20_tng6u"]
+[ext_resource type="AudioStream" uid="uid://cjvldlnrrg48g" path="res://common/audio/Daytime.wav" id="23_7so7s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fs1cp"]
 size = Vector2(0.456603, 0.192607)
@@ -238,9 +238,8 @@ texture_normal = ExtResource("13_x0440")
 stretch_mode = 5
 
 [node name="AmbientPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("20_tng6u")
-volume_db = -10.0
-autoplay = true
+stream = ExtResource("23_7so7s")
+volume_db = -40.0
 
 [connection signal="customer_created" from="CustomerFactory" to="." method="_on_new_customer"]
 [connection signal="pressed" from="IngredientBookButton" to="CanvasLayer/Book" method="_move_up"]

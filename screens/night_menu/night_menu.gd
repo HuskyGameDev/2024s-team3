@@ -13,6 +13,7 @@ func _ready():
 	var darkness = $CanvasLayer/Darkness
 	var tween = create_tween() 
 	tween.tween_property(darkness, "modulate:a", 150, 5) #tween transarancy of darkness
+	tween.parallel().tween_property($NightThemePlayer, "volume_db", -15, 5)
 	
 	var group = get_tree().get_nodes_in_group("main") # set main as node in group main. Necessary as name of main changes
 	main = group[0]
@@ -20,6 +21,11 @@ func _ready():
 func _on_buy_button_pressed(): 
 	var group = get_tree().get_nodes_in_group("main") # get main scene
 	main = group[0]
+	#tween out song
+	var tween:Tween = get_tree().create_tween()
+	tween.tween_property($NightThemePlayer, "volume_db", -40, 3)
+	await tween.finished
+	$NightThemePlayer.stop()
 	
 	#pause main
 	main.visible = false
@@ -45,6 +51,11 @@ func _on_forage_button_pressed():
 	instance.forage_done.connect(_on_action_done) # connect signal
 
 func _on_move_button_pressed():	
+	#tween out song
+	var tween:Tween = get_tree().create_tween()
+	tween.tween_property($NightThemePlayer, "volume_db", -40, 3)
+	await tween.finished
+	$NightThemePlayer.stop()
 	var instance = map.instantiate() # instantiate map schene
 	$Map.add_child(instance)
 	instance.move_done.connect(_on_action_done) # connect signal
@@ -77,6 +88,11 @@ func _on_action_done():
 
 	var group = get_tree().get_nodes_in_group("main") # get main scene
 	main = group[0]
+	
+	#tween out song
+	$NightThemePlayer.play()
+	var tween:Tween = get_tree().create_tween()
+	tween.tween_property($NightThemePlayer, "volume_db", -15, 3)
 	
 	#start main
 	main.visible = true

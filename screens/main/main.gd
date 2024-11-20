@@ -13,8 +13,14 @@ func _ready():
 		#Scene change occurs in customer node
 		if GameTime.day != 1:
 			$EndDayAndSkip.visible = true # make skip button visible
+		#Set up a tween for the music
+		$AmbientPlayer.play()
+		var tween:Tween = get_tree().create_tween()
+		tween.tween_property($AmbientPlayer, "volume_db", -13, 2)
 	else:
 		$EndDayAndSkip.visible = false # during the night hide skip button
+		$AmbientPlayer.volume_db = -40
+		$AmbientPlayer.stop()
 	
 	$LocationBackgroundSwitcher.update_background()
 	

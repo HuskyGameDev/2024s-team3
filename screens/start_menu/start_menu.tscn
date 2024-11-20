@@ -84,7 +84,7 @@ text = "Exit"
 
 [node name="MainPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_svnfd")
-volume_db = -10.0
+volume_db = -15.0
 autoplay = true
 
 [node name="ColorRect2" type="ColorRect" parent="."]

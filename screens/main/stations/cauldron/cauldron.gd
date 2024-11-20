@@ -5,7 +5,7 @@ const CAULDRON_EMPTY_COLOR = Vector3(0.1725, 0.1333, 0.1804)
 var current_effects: EffectSet = EffectSet.new()
 var has_ingredients: bool = false
 
-var volume: int = -25
+var volume: int = -10
 var delay: float = 0.5
 var time: float = 0.5
 
@@ -53,7 +53,7 @@ func _on_body_enter_cauldron(body):
 	body.queue_free()
 	## Set bubbler volume
 	$Bubbler.playing = true
-	volume = (volume*3/4)+5/2
+	volume = (volume*3/4)+5
 	$Bubbler.volume_db = volume
 
 
@@ -65,7 +65,7 @@ func _on_cauldron_input_event(_viewport, _event, _shape_idx):
 			potion.effects = current_effects
 			potion.image = ResourcePaths.get_random_potion_sprite()
 			$Poofer.set_stream(correctSound)
-			$Poofer.volume_db = -10
+			$Poofer.volume_db = -7
 			delay = 0.4
 			time = 0.5
 			if potion.effects.all_null() || potion.effects.get_strongest_as_strings().size() > 4:
@@ -81,4 +81,4 @@ func _on_cauldron_input_event(_viewport, _event, _shape_idx):
 			SpriteShader.set_shader_parameter("to", CAULDRON_EMPTY_COLOR)
 			## stop bubbling
 			$Bubbler.playing = false
-			volume = -25
+			volume = -10
