@@ -9,6 +9,8 @@ var volume: int = -10
 var delay: float = 0.5
 var time: float = 0.5
 
+@onready var anim = $AnimationPlayer
+var globalPotion: Potion
 @onready var SpriteShader:ShaderMaterial = $Sprite.material
 @onready var correctSound:AudioStream = preload("res://common/audio/Finish_Potion.wav")
 @onready var failedSounds:Array[AudioStream] = [preload("res://common/audio/Fail_Potion_1.wav"), preload("res://common/audio/Fail_Potion_2.wav"), preload("res://common/audio/Fail_Potion_3.wav")]
@@ -64,21 +66,36 @@ func _on_cauldron_input_event(_viewport, _event, _shape_idx):
 			var potion = Potion.new()
 			potion.effects = current_effects
 			potion.image = ResourcePaths.get_random_potion_sprite()
+			globalPotion = potion
+			
+			
 			$Poofer.set_stream(correctSound)
 			$Poofer.volume_db = -7
 			delay = 0.4
 			time = 0.5
 			if potion.effects.all_null() || potion.effects.get_strongest_as_strings().size() > 4:
+				anim.play("Fail")
 				var index:int = rng.randi_range(0,2)
 				$Poofer.set_stream(failedSounds[index])
 				delay = failedDelays[index]
 				time = 0
+			else:
+				anim.play("Stir")
 			$Poofer.play(delay)
 			await get_tree().create_timer(time).timeout
-			potion_made.emit(potion, self.global_position - Vector2(0, 100))
-			current_effects = EffectSet.new()
-			SpriteShader.set_shader_parameter("make_flat", true)
-			SpriteShader.set_shader_parameter("to", CAULDRON_EMPTY_COLOR)
-			## stop bubbling
-			$Bubbler.playing = false
-			volume = -10
+			
+			
+			
+
+
+
+
+func emit_potion():
+	potion_made.emit(globalPotion, self.global_position - Vector2(0, 100))
+	current_effects = EffectSet.new()
+	SpriteShader.set_shader_parameter("make_flat", true)
+	SpriteShader.set_shader_parameter("to", CAULDRON_EMPTY_COLOR)
+	## stop bubbling
+	$Bubbler.playing = false
+	volume = -10
+	globalPotion = null
