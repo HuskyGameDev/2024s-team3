@@ -34,6 +34,7 @@ func _ready():
 	potion_text.visible = false
 	finish_text.visible = false
 	
+	
 	## Set customer order
 	var tutorial_order = preload("res://screens/tutorial/tutorial_order.tres")
 	main_node.get_node("CustomerFactory/Customer").data.order = tutorial_order

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bru1ae5j80tii"]
+[gd_scene load_steps=5 format=3 uid="uid://bru1ae5j80tii"]
 
 [ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="1_6s4lj"]
 [ext_resource type="Script" path="res://screens/main/ui/money_and_rep_tracker/money_and_rep_ui.gd" id="2_msplf"]
+[ext_resource type="Texture2D" uid="uid://dg4ckp2wchtv6" path="res://screens/main/ui/money_and_rep_tracker/icons8-thumbs-down-60.png" id="3_fe1tj"]
+[ext_resource type="Texture2D" uid="uid://b0jdydlh03am8" path="res://screens/main/ui/money_and_rep_tracker/icons8-thumbs-up-26.png" id="4_0pc6i"]
 
 [node name="MoneyAndRep" type="PanelContainer"]
 offset_right = 256.0
@@ -29,10 +31,10 @@ text = "$200"
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = ":("
+[node name="Label1" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+position = Vector2(-14, 9)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_fe1tj")
 
 [node name="RepBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
@@ -44,7 +46,6 @@ step = 1.0
 rounded = true
 show_percentage = false
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = ":)"
+[node name="Label2" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+position = Vector2(230, 11)
+texture = ExtResource("4_0pc6i")
