@@ -36,6 +36,6 @@ average_color = Color(0.488309, 0.43435, 0.370625, 1)
 available_actions = 0
 id = "lotus_petals"
 name = "Lotus Petals"
-description = ""
+description = "Stops the armor and dulls the mind."
 stack_size = 5
 image = ExtResource("12_u6fix")

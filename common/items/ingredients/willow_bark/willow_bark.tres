@@ -36,6 +36,6 @@ average_color = Color(0.494567, 0.268179, 0.220364, 1)
 available_actions = 4
 id = "willow_bark"
 name = "Willow Bark"
-description = ""
+description = "Calms, heals, and cools."
 stack_size = 5
 image = ExtResource("12_0ghxj")

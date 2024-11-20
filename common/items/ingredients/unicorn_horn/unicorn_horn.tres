@@ -36,6 +36,6 @@ average_color = Color(0.942589, 0.824627, 0.328157, 1)
 available_actions = 4
 id = "unicorn_horn"
 name = "Unicorn Horn"
-description = ""
+description = "Stolen from a unicorn, its glow is sure to make its thief unlucky."
 stack_size = 5
 image = ExtResource("12_ayte0")

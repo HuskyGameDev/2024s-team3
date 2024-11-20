@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_fire_flower"
 name = "Crushed Fire Flower"
-description = ""
+description = "Bright and dangerous as ever."
 stack_size = 5

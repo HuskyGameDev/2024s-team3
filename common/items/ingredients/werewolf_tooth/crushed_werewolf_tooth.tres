@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_werewolf_tooth"
 name = "Crushed Werewolf Tooth"
-description = ""
+description = "Its protection lost, it only keeps you in the dark."
 stack_size = 5

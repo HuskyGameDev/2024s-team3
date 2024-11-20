@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_willow_bark"
 name = "Crushed Willow Bark"
-description = ""
+description = "Cold, but healthy."
 stack_size = 5

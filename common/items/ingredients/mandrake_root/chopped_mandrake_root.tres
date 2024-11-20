@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "chopped_mandrake_root"
 name = "Chopped Mandrake Root"
-description = ""
+description = "No longer tiring, keeps people angry."
 stack_size = 5

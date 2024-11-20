@@ -36,6 +36,6 @@ average_color = Color(0.476517, 0.274321, 0.238193, 1)
 available_actions = 6
 id = "fire_flower"
 name = "Fire Flower"
-description = ""
+description = "Slightly deadly, but incredibly warm and bright."
 stack_size = 5
 image = ExtResource("12_k1d0t")

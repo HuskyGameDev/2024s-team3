@@ -36,6 +36,6 @@ average_color = Color(0.265677, 0.273169, 0.141352, 1)
 available_actions = 2
 id = "mandrake_root"
 name = "Mandrake Root"
-description = ""
+description = "Harvesting it can agitate and tire quickly."
 stack_size = 5
 image = ExtResource("12_4ggq0")

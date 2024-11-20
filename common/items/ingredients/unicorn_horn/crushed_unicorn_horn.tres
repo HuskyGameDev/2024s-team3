@@ -35,5 +35,5 @@ average_color = Color(0, 0, 0, 1)
 available_actions = 0
 id = "crushed_unicorn_horn"
 name = "Crushed Unicorn Horn"
-description = ""
+description = "Removed from its source, it only glows."
 stack_size = 5
