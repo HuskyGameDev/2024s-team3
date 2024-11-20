@@ -1,11 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://d2j3rg4f5xnau"]
+[gd_scene load_steps=17 format=3 uid="uid://d2j3rg4f5xnau"]
 
 [ext_resource type="PackedScene" uid="uid://beqshfus1kkk7" path="res://screens/night_menu/store/shopkeeper/shopkeeper.tscn" id="2_ra0ww"]
 [ext_resource type="Script" path="res://screens/night_menu/store/night_shop.gd" id="2_xiblk"]
 [ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="4_3akkn"]
 [ext_resource type="PackedScene" uid="uid://clypnxql0jkdx" path="res://screens/night_menu/store/ingredient_display/ingredient_display.tscn" id="4_47emv"]
 [ext_resource type="Texture2D" uid="uid://dkhqpfitnde45" path="res://screens/night_menu/store/counter.png" id="5_67t3k"]
+[ext_resource type="Texture2D" uid="uid://b4pn4skdeludu" path="res://screens/night_menu/store/basket_back.png" id="6_1oriv"]
 [ext_resource type="Texture2D" uid="uid://bpjb84u8xfjkw" path="res://screens/night_menu/store/shelf.png" id="6_fachu"]
+[ext_resource type="Texture2D" uid="uid://cqaeqtiivdqj2" path="res://screens/night_menu/store/basket_front.png" id="7_0pryx"]
 [ext_resource type="PackedScene" uid="uid://dq807i88ymk0c" path="res://screens/night_menu/store/station_display/station_display.tscn" id="7_u5ofj"]
 [ext_resource type="PackedScene" uid="uid://hqh6cclivhet" path="res://screens/night_menu/store/map_display/map_display.tscn" id="8_17nol"]
 [ext_resource type="Theme" uid="uid://bbilaxa656p7n" path="res://screens/main/customers/customer_dialogue_theme.tres" id="9_yqeli"]
@@ -15,21 +17,19 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hof1g"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_82e5e"]
-size = Vector2(688, 317)
-
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_nx75c"]
-a = Vector2(347, 157)
-b = Vector2(-343, 159)
+a = Vector2(103, 50)
+b = Vector2(-216, 49)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_f1ved"]
-a = Vector2(-343, -158)
-b = Vector2(-343, 159)
+a = Vector2(-344, -82)
+b = Vector2(-525, 53)
 
 [node name="NightShop" type="Node2D"]
 script = ExtResource("2_xiblk")
 
 [node name="Background" type="Panel" parent="."]
+z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -47,6 +47,7 @@ layer = -1
 layer = 0
 
 [node name="Counter" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(1542.47, 848.809)
 scale = Vector2(8.19866, 7.00546)
 texture = ExtResource("5_67t3k")
@@ -130,20 +131,35 @@ position = Vector2(296, 2)
 [node name="Basket" type="Node2D" parent="."]
 position = Vector2(1573, 917)
 
+[node name="BasketBack" type="Sprite2D" parent="Basket"]
+z_index = -1
+position = Vector2(6, -43)
+scale = Vector2(12, 12)
+texture = ExtResource("6_1oriv")
+
+[node name="BasketFront" type="Sprite2D" parent="Basket"]
+z_index = 1
+position = Vector2(6, -43)
+scale = Vector2(12, 12)
+texture = ExtResource("7_0pryx")
+
 [node name="PurchaseArea" type="Area2D" parent="Basket"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Basket/PurchaseArea"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Basket/PurchaseArea"]
 process_mode = 4
-position = Vector2(3, 0)
-shape = SubResource("RectangleShape2D_82e5e")
+position = Vector2(5.5, -40.75)
+polygon = PackedVector2Array(-334.5, -46.25, -230.5, -441.25, 257.5, -439.25, 334.5, -29.25, 265.5, 51.75, 150.5, 105.75, 1.5, 118.75, -152.5, 103.75, -261.5, 54.75)
 
 [node name="WallCollider" type="StaticBody2D" parent="Basket"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Basket/WallCollider"]
+position = Vector2(61, 4)
 shape = SubResource("SegmentShape2D_nx75c")
 debug_color = Color(0.544544, 0.00127623, 0.706111, 0.42)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Basket/WallCollider"]
+position = Vector2(189, -31)
+scale = Vector2(1, -1)
 shape = SubResource("SegmentShape2D_f1ved")
 debug_color = Color(0.544544, 0.00127623, 0.706111, 0.42)
 
@@ -215,10 +231,10 @@ offset_bottom = 39.0
 text = "Exit Store"
 
 [node name="BuyButton" type="Button" parent="."]
-offset_left = 1756.0
-offset_top = 713.0
-offset_right = 1905.0
-offset_bottom = 744.0
+offset_left = 1493.0
+offset_top = 1015.0
+offset_right = 1642.0
+offset_bottom = 1046.0
 text = "Buy Cart Contents"
 
 [node name="SpeechBubble" type="Control" parent="."]

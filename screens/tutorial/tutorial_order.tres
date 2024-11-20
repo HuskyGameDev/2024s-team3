@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CustomerOrder" load_steps=15 format=3 uid="uid://c5fceatqqh3h4"]
+[gd_resource type="Resource" script_class="CustomerOrder" load_steps=15 format=3 uid="uid://curn735i165ta"]
 
 [ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_dxy8p"]
 [ext_resource type="Script" path="res://screens/main/customers/customer_order_type.gd" id="1_l8hjc"]
