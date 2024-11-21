@@ -7,7 +7,7 @@ const LootTableEditor = preload("res://addons/resource_manager/loot_table_manage
 @onready var RefreshButton: Button = $TitleHBox/RefreshButton
 @onready var AddButton: Button = $AddHBox/AddButton
 @onready var AddNameText: LineEdit = $AddHBox/AddNameEdit
-@onready var TableBody: VBoxContainer = $TableBody
+@onready var TableBody: VBoxContainer = $BodyScroll/TableBody
 
 ################# Signal Handling #################
 func _on_refresh_button_pressed():
@@ -51,7 +51,7 @@ func add_location_row(path:String):
 func _on_edit_loot_table_button_pressed(location:Location, type:String):
 	# hide location panel things
 	$TitleHBox.visible = false
-	$TableBody.visible = false
+	$BodyScroll.visible = false
 	$AddHBox.visible = false
 	# add effect editor panel as child
 	var loot_table_panel_instance = LootTableEditor.instantiate().with_data(location, type)
@@ -63,5 +63,5 @@ func _on_edit_loot_table_button_pressed(location:Location, type:String):
 func _on_edit_panel_back_pressed():
 	# show location panel things
 	$TitleHBox.visible = true
-	$TableBody.visible = true
+	$BodyScroll.visible = true
 	$AddHBox.visible = true

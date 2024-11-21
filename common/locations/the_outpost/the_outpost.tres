@@ -1,15 +1,95 @@
-[gd_resource type="Resource" script_class="Location" load_steps=5 format=3 uid="uid://cjqb6k6smqc57"]
+[gd_resource type="Resource" script_class="Location" load_steps=34 format=3 uid="uid://cjqb6k6smqc57"]
 
+[ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_0ttwe"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_yiqfl"]
+[ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_2lppx"]
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="2_72173"]
 [ext_resource type="PackedScene" path="res://common/locations/the_outpost/the_outpost_background.tscn" id="2_yis6e"]
+[ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_36i1n"]
 [ext_resource type="Texture2D" uid="uid://csapsq07wwo5l" path="res://screens/main/stations/cutting_board/cutting_board.png" id="3_u0r83"]
+[ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_0t0tt"]
+[ext_resource type="Resource" uid="uid://2bq51ncoy4qu" path="res://common/items/effects/healing_poison.tres" id="5_u1i7i"]
+[ext_resource type="Resource" uid="uid://b0efkhflivhlj" path="res://common/items/effects/light_dark.tres" id="6_2jivl"]
+[ext_resource type="Resource" uid="uid://diti6ufqgwhph" path="res://common/items/effects/luck_misfortune.tres" id="7_u4jx7"]
+[ext_resource type="Resource" uid="uid://b3sw5wyytvesi" path="res://common/items/effects/strength_weakness.tres" id="8_imi5f"]
+[ext_resource type="Resource" uid="uid://dxvuf8wqsbidk" path="res://common/items/effects/swiftness_slowness.tres" id="9_lj0og"]
+[ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_pjbet"]
+[ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_j1wkr"]
+[ext_resource type="Script" path="res://screens/main/customers/customer_order_type.gd" id="12_lwiwg"]
+[ext_resource type="Script" path="res://common/locations/loot_table_type.gd" id="13_up6hm"]
+[ext_resource type="Resource" uid="uid://bwjd1q1joj33y" path="res://common/items/ingredients/elderberry_leaves/elderberry_leaves.tres" id="15_cfofe"]
+[ext_resource type="Resource" uid="uid://cbwcla8csqs4x" path="res://common/items/ingredients/eye_of_a_newt/eye_of_a_newt.tres" id="16_e7i5n"]
+[ext_resource type="Resource" uid="uid://chkhceb7m5h2a" path="res://common/items/ingredients/fresh_moss/fresh_moss.tres" id="17_v4i5q"]
+[ext_resource type="Resource" uid="uid://bkq4gku6b1dau" path="res://common/items/ingredients/holly_berries/holly_berries.tres" id="18_84gou"]
+[ext_resource type="Resource" uid="uid://dee4pkywgcovb" path="res://common/items/ingredients/lavender/lavender.tres" id="19_6oxqv"]
+[ext_resource type="Resource" uid="uid://c833yti5u2s4w" path="res://common/items/ingredients/mandrake_root/mandrake_root.tres" id="20_wliw4"]
+[ext_resource type="Resource" uid="uid://c2j5j4fmuyeds" path="res://common/items/ingredients/raven_feather/raven_feather.tres" id="21_qt6s1"]
+[ext_resource type="Resource" uid="uid://cruk8sedmkyk" path="res://common/items/ingredients/robin_egg/robin_egg.tres" id="22_5jtn5"]
+[ext_resource type="Resource" uid="uid://do13wsgmg2f7p" path="res://common/items/ingredients/rose/rose.tres" id="23_u3qrv"]
+[ext_resource type="Resource" uid="uid://4tiagx12hv4e" path="res://common/items/ingredients/willow_bark/willow_bark.tres" id="24_ri8rv"]
+
+[sub_resource type="Resource" id="Resource_d2wuo"]
+script = ExtResource("11_j1wkr")
+effects = {
+ExtResource("1_0ttwe"): 50,
+ExtResource("2_2lppx"): 50,
+ExtResource("3_36i1n"): 50,
+ExtResource("4_0t0tt"): 50,
+ExtResource("5_u1i7i"): 50,
+ExtResource("6_2jivl"): 50,
+ExtResource("7_u4jx7"): 50,
+ExtResource("8_imi5f"): 50,
+ExtResource("9_lj0og"): 50,
+ExtResource("10_pjbet"): 50
+}
+
+[sub_resource type="Resource" id="Resource_ubqcc"]
+script = ExtResource("11_j1wkr")
+effects = {
+ExtResource("1_0ttwe"): -50,
+ExtResource("2_2lppx"): -50,
+ExtResource("3_36i1n"): -50,
+ExtResource("4_0t0tt"): -50,
+ExtResource("5_u1i7i"): -50,
+ExtResource("6_2jivl"): -50,
+ExtResource("7_u4jx7"): -50,
+ExtResource("8_imi5f"): 10,
+ExtResource("9_lj0og"): -50,
+ExtResource("10_pjbet"): -50
+}
+
+[sub_resource type="Resource" id="Resource_veguh"]
+script = ExtResource("12_lwiwg")
+minEffects = SubResource("Resource_ubqcc")
+maxEffects = SubResource("Resource_d2wuo")
+dialogueOptions = PackedStringArray("We\'re at war here. I need to be stronger!")
+
+[sub_resource type="Resource" id="Resource_osd0r"]
+script = ExtResource("13_up6hm")
+common = [SubResource("Resource_veguh")]
+uncommon = []
+rare = []
+legendary = []
+
+[sub_resource type="Resource" id="Resource_bmjpo"]
+script = ExtResource("13_up6hm")
+common = []
+uncommon = []
+rare = []
+legendary = []
+
+[sub_resource type="Resource" id="Resource_6qqdp"]
+script = ExtResource("13_up6hm")
+common = []
+uncommon = []
+rare = []
+legendary = []
 
 [resource]
 script = ExtResource("2_72173")
 id = "the_outpost"
 name = "The Outpost"
-ingredients = Array[ExtResource("1_yiqfl")]([])
+ingredients = Array[ExtResource("1_yiqfl")]([ExtResource("15_cfofe"), ExtResource("16_e7i5n"), ExtResource("17_v4i5q"), ExtResource("18_84gou"), ExtResource("19_6oxqv"), ExtResource("20_wliw4"), ExtResource("21_qt6s1"), ExtResource("22_5jtn5"), ExtResource("23_u3qrv"), ExtResource("24_ri8rv")])
 packed_background_scene = ExtResource("2_yis6e")
 unlockable_station_id = "cutting_board"
 unlockable_station_sprite = ExtResource("3_u0r83")
@@ -17,3 +97,6 @@ unlockable_station_price = 50
 map_weight = 4
 map_cost = 100
 map_color = Color(0.537715, 0.114309, 0.0873477, 1)
+forage_table = SubResource("Resource_bmjpo")
+ingredients_shop_table = SubResource("Resource_6qqdp")
+customer_request_table = SubResource("Resource_osd0r")

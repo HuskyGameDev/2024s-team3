@@ -31,7 +31,13 @@ text = "Refresh"
 icon = ExtResource("2_8fpis")
 icon_alignment = 2
 
-[node name="TableBody" type="VBoxContainer" parent="."]
+[node name="BodyScroll" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="TableBody" type="VBoxContainer" parent="BodyScroll"]
 layout_mode = 2
 
 [node name="AddHBox" type="HBoxContainer" parent="."]
