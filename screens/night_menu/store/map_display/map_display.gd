@@ -1,6 +1,7 @@
 extends Area2D
 
 signal shopkeeper_speak(text:String)
+signal update_money_label
 
 @export var location_id : String :
 	set(id):
@@ -34,6 +35,7 @@ func _on_buy_button_pressed():
 		# make location available
 		PlayerData.unlocked_locations.append(location_id)
 		PlayerData.save_game_files()
+		update_money_label.emit()
 		shopkeeper_speak.emit("Thanks for your purchase!")
 		self.queue_free()
 	else:

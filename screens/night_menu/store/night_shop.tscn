@@ -287,6 +287,8 @@ volume_db = -15.0
 [connection signal="body_entered" from="Basket/PurchaseArea" to="." method="_on_body_entered_basket"]
 [connection signal="body_exited" from="Basket/PurchaseArea" to="." method="_on_body_exited_basket"]
 [connection signal="shopkeeper_speak" from="StationDisplay" to="." method="shopkeeper_speak"]
+[connection signal="update_money_label" from="StationDisplay" to="." method="_on_map_or_station_purchased"]
 [connection signal="shopkeeper_speak" from="MapDisplay" to="." method="shopkeeper_speak"]
+[connection signal="update_money_label" from="MapDisplay" to="." method="_on_map_or_station_purchased"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]

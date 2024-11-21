@@ -192,3 +192,7 @@ func _on_exit_button_pressed():
 	await tween.finished
 	$Music_Player.stop()
 	shop_done.emit() # signal to night menu to reload inventory
+
+
+func _on_map_or_station_purchased():
+	$PlayerMoneyPanelContainer/PlayerMoneyMarginContainer/PlayerMoneyLabel.text = "$" + str(PlayerData.money)
