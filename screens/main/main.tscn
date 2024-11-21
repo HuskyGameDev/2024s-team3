@@ -69,8 +69,9 @@ visible = false
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
 
-[node name="Book" parent="CanvasLayer" instance=ExtResource("5_la1bq")]
+[node name="Book" parent="CanvasLayer" node_paths=PackedStringArray("bookButton") instance=ExtResource("5_la1bq")]
 position = Vector2(306, 1248)
+bookButton = NodePath("../../IngredientBookButton")
 
 [node name="Room" type="Node2D" parent="."]
 scale = Vector2(6, 6)

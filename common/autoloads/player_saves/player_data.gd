@@ -13,7 +13,9 @@ const TEMP_INV_LOCATION = "user://temp_inv_data_file.json" #inventory we save to
 @export var reputation: int = 0
 @export var tutorial_complete: bool = false
 @export var inventory: Array[InventorySlot] = []
+@export var day: int = 1 # tracks what day of the game the player is on
 
+var bookPageNumber = 0 #This is specifically so I can store what page of the botany book the player was last on
 
 func _ready():
 	if not GameTime.start_of_day.is_connected(_on_start_of_day): GameTime.start_of_day.connect(_on_start_of_day)
@@ -34,6 +36,7 @@ func save_game_files():
 	## Write all variables to file
 	var save_file = FileAccess.open(SAVE_LOCATION, FileAccess.WRITE)
 	save_file.store_string(JSON.stringify({ 
+		"day": day,
 		"money": money, 
 		"reputation": reputation, 
 		"location": location.id,
@@ -60,6 +63,7 @@ func load_game_files():
 		var save_file = FileAccess.open(SAVE_LOCATION, FileAccess.READ)
 		var save_data = JSON.parse_string(save_file.get_as_text())
 		if save_data:
+			day = save_data.get_or_add("day", 1)
 			money = save_data.get_or_add("money", 0)
 			reputation = save_data.get_or_add("reputation", 0)
 			var location_id = save_data.get_or_add("location", "the_clearing")
@@ -116,6 +120,7 @@ func clear_save_files():
 ################ Event Triggers #################
 
 func _on_end_of_day():
+	day = day + 1 # increment the game day
 	save_game()
 
 func _on_start_of_day():

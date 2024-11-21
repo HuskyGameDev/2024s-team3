@@ -153,13 +153,13 @@ text = "Move"
 
 [node name="Main2" parent="." instance=ExtResource("3_3x0fi")]
 
-[node name="InventoryDrawer" parent="Main2" index="13"]
+[node name="InventoryDrawer" parent="Main2" index="14"]
 anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Water" parent="Main2" index="15"]
+[node name="Water" parent="Main2" index="16"]
 data = SubResource("Resource_4pjel")
 
 [node name="NightThemePlayer" type="AudioStreamPlayer" parent="."]

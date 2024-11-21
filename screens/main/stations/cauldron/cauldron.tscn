@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjjarcohy2vqe"]
+[gd_scene load_steps=12 format=3 uid="uid://cjjarcohy2vqe"]
 
 [ext_resource type="Script" path="res://screens/main/stations/cauldron/cauldron.gd" id="1_ygt0y"]
 [ext_resource type="Shader" path="res://common/shaders/hue_swap.gdshader" id="2_5uv7l"]
-[ext_resource type="Texture2D" uid="uid://cv3kxe3sbuli0" path="res://screens/main/stations/cauldron/cauldron.png" id="2_ffdd2"]
+[ext_resource type="Texture2D" uid="uid://dnhqrpysfkohe" path="res://screens/main/stations/cauldron/Cauldron Fail Animation.png" id="3_nnqww"]
 [ext_resource type="AudioStream" uid="uid://c1w4nh53gm57s" path="res://common/audio/Cauldron_Boil.wav" id="4_yrlqp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t3bev"]
@@ -19,13 +19,95 @@ height = 44.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_aaytm"]
 radius = 29.0172
 
+[sub_resource type="Animation" id="Animation_x5q1u"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_vdk2o"]
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_potion"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_t01ru"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 11, 12, 0, 13, 1, 14, 0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_potion"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dd6e4"]
+_data = {
+"Default": SubResource("Animation_x5q1u"),
+"Fail": SubResource("Animation_vdk2o"),
+"Stir": SubResource("Animation_t01ru")
+}
+
 [node name="Cauldron" type="Node2D"]
 script = ExtResource("1_ygt0y")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
 material = SubResource("ShaderMaterial_t3bev")
-position = Vector2(-2, 8)
-texture = ExtResource("2_ffdd2")
+position = Vector2(-2, -6)
+texture = ExtResource("3_nnqww")
+hframes = 4
+vframes = 4
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -41,6 +123,7 @@ metadata/_aseprite_wizard_config_ = {
 "slice": "",
 "source": "res://screens/main/stations/cauldron/Cauldron Fail Animation.aseprite"
 }
+metadata/_aseprite_wizard_source_file_hash_ = "96de2e341e642dab2f80978e70b2696d"
 
 [node name="ValidArea" type="Area2D" parent="."]
 position = Vector2(0, 3)
@@ -73,6 +156,9 @@ stream = ExtResource("4_yrlqp")
 [node name="Poofer" type="AudioStreamPlayer" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dd6e4")
+}
 
 [connection signal="body_entered" from="ValidArea" to="." method="_on_body_enter_cauldron"]
 [connection signal="input_event" from="ClickableArea" to="." method="_on_cauldron_input_event"]

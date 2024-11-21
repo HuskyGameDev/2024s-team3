@@ -11,7 +11,7 @@ func _ready():
 		GameTime.start_day() #start game timer
 		GameTime.end_of_day.connect(CustomerFactory._leave_end_day) #signal customer to move off the screen
 		#Scene change occurs in customer node
-		if GameTime.day != 1:
+		if GameTime.day > 1:
 			$EndDayAndSkip.visible = true # make skip button visible
 		#Set up a tween for the music
 		$AmbientPlayer.play()
