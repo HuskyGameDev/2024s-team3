@@ -14,6 +14,7 @@ const TEMP_INV_LOCATION = "user://temp_inv_data_file.json" #inventory we save to
 @export var tutorial_complete: bool = false
 @export var inventory: Array[InventorySlot] = []
 
+var bookPageNumber = 0 #This is specifically so I can store what page of the botany book the player was last on
 
 func _ready():
 	if not GameTime.start_of_day.is_connected(_on_start_of_day): GameTime.start_of_day.connect(_on_start_of_day)
