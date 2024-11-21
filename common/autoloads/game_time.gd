@@ -32,7 +32,7 @@ func _on_end_of_day():
 	#self.stop();
 	
 func _on_end_of_night():
-	day += 1
+	day = PlayerData.day # set day variables equal
 	hour = STORE_OPEN_TIME
 	
 func _on_start_of_day():
