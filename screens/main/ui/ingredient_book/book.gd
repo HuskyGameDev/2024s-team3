@@ -25,23 +25,20 @@ extends Node2D
 @export var bookButton: TextureButton
 
 
-var playData
+var locations
 var knownIngredients: Array
 
 var up: bool = false
 
-var current_ingr_key
+var current_ingr_key = 0
 @export var max_ingr: int = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	current_ingr_key = PlayerData.bookPageNumber
+	locations = PlayerData.visited_locations # get all loactions player has visited
 	
-	
-	playData = PlayerData.visited_locations
-	
-	for x in playData.size():
-		var location = ResourceLoader.load(ResourcePaths.get_location_path(playData[x].id))
+	for x in locations.size():
+		var location = ResourceLoader.load(ResourcePaths.get_location_path(locations[x].id))
 		for y in location.ingredients.size():
 			knownIngredients.append(location.ingredients[y])
 	
@@ -64,30 +61,19 @@ func _move_up():
 
 
 func _add_one():
-	current_ingr_key += 1
-	_update_data()
+	if current_ingr_key < 10:
+		current_ingr_key += 1
+		_update_data()
 
 
 func _sub_one():
-	current_ingr_key -= 1
-	_update_data()
+	if current_ingr_key > 1:
+		current_ingr_key -= 1
+		_update_data()
 
 func _update_data():
-	
-	
-	
-	
-	
 	var current_ingr: Ingredient
 	current_ingr = knownIngredients[current_ingr_key]
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	#
 	#match current_ingr_key:
@@ -112,7 +98,6 @@ func _update_data():
 		#9:
 			#current_ingr = eyeOfNewt
 	
-	
 	# Change all the data
 	ingrName.text = current_ingr.name
 	description.text = current_ingr.description
@@ -135,12 +120,7 @@ func _update_data():
 	
 	# yada yada
 	
-	
 	PlayerData.bookPageNumber = current_ingr_key
-	
-	
-	
-	
 	
 	pass
 
@@ -150,8 +130,6 @@ func _on_forward_pressed() -> void:
 		anim.play("Forward")
 	else:
 		pass
-	
-	
 
 
 func _on_back_pressed() -> void:
