@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://5vw4066y4850"]
+
+[ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="1_p1kic"]
+[ext_resource type="Script" path="res://screens/night_menu/store/shop_button.gd" id="2_u330e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jj145"]
+
+[node name="ShopButton" type="Button"]
+custom_minimum_size = Vector2(95, 95)
+anchors_preset = -1
+anchor_right = 0.05
+anchor_bottom = 0.089
+offset_bottom = -0.120003
+theme = ExtResource("1_p1kic")
+script = ExtResource("2_u330e")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Quantity" type="Label" parent="Icon"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Quantity2" type="Label" parent="Icon"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Quantity3" type="Label" parent="Icon"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+position = Vector2(1, 1)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+position = Vector2(47.25, 47.25)
+shape = SubResource("RectangleShape2D_jj145")
