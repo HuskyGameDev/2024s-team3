@@ -52,6 +52,13 @@ func _ready():
 	
 	$PlayerMoneyPanelContainer/PlayerMoneyMarginContainer/PlayerMoneyLabel.text = "$" + str(PlayerData.money)
 	
+	## Create new temporary shop inventory
+	var json = FileAccess.open("res://screens/main/ui/inventory/inv_data_file.json", FileAccess.READ)
+	var content = JSON.parse_string(json.get_as_text())
+	var file = FileAccess.open(TEMP_SHOP_INV_LOCATION, FileAccess.WRITE)
+	file.store_string(JSON.stringify(content))
+	file.close()
+	
 	## Add ingredient displays for current location
 	var current_location_ingredients = Array(PlayerData.location.ingredients)
 	set_ingredient_displays(current_location_ingredients, LocationDisplays)
