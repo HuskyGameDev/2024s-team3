@@ -2,6 +2,22 @@ extends Button
 
 var tooltip = preload("res://ui/tooltip/tooltip.tscn")
 
+################## EXPORTED VARS ##################
+@export var quantity : int :
+	set(q):
+		quantity = q
+		if QuantityLabel: QuantityLabel.text = str(quantity)
+@export var price : int :
+	set(p):
+		price = p
+		if PriceLabel: PriceLabel.text = "$%s" % price
+
+@export var ingredient : Ingredient
+
+################## ONREADY VARS ##################
+@onready var QuantityLabel := $QuantityLabel
+@onready var PriceLabel    := $PriceLabel
+
 var curItem
 var curIcon
 var curLabel
@@ -22,9 +38,10 @@ func _ready():
 	instance = tooltip.instantiate() # instantiate tooltip
 	add_child(instance)
 	instance.visible = false
+	QuantityLabel.text = str(quantity)
+	PriceLabel.text = "$%s" % price
 	
-	# REPLACE WITH NEW RANDOMIZATION FOR INVENTORY
-	inv_data = PlayerData.read_inv()
+	self.icon = ingredient.image
 	slot = self.name
 	curIcon = $Icon
 	curLabel = $Icon/Quantity
@@ -33,8 +50,7 @@ func UpdateItem(item:Resource, quantity: int, newIndex :int):
 	self.index = newIndex
 	curItem = item
 	if curItem == null:
-		curIcon.texture= null
-		curLabel.text = ""
+		curIcon.texture = null
 	else:
 		curIcon.texture = item.image
 		curLabel.text = str(quantity)
@@ -55,9 +71,12 @@ func _on_inv_area_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton && not event.pressed  && event.button_index == MOUSE_BUTTON_LEFT:
 		if heldBody != null and heldBody.data is Ingredient:
 			var holding = heldBody.data			
-			inv_data = PlayerData.read_inv()
-			var slotAmount = inv_data[slot]["Quantity"]
+			# inv_data = PlayerData.read_inv()
 			var item = ResourceLoader.load(ResourcePaths.get_ingredient_path(holding.id))
+			# if item.id == ingredient.id:
+				
+			
+			var slotAmount = inv_data[slot]["Quantity"]
 			if inv_data[slot]["Item"] == item.id && int(slotAmount) != item.stack_size: #if this ingredient already exists in inventory
 				if int(slotAmount) + 1 <= item.stack_size: #if adding this quantity to the amount in the stack would be larger than stack size
 					inv_data[slot]["Quantity"] = int(slotAmount) + 1

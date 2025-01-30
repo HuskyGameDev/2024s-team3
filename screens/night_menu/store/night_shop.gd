@@ -1,5 +1,9 @@
 extends Node
 
+# const INV_LOCATION = "user://inv_data_file.json" #inventory we save to when each day is done
+const TEMP_SHOP_INV_LOCATION = "user://temp_shop_inv_data_file.json" #inventory we save to during game play
+const SHOP_INV_LOCATION = "user://shop_data_file.json" #inventory we use for the shop
+
 @onready var totalCostLabel   := $TotalCostPanelContainer/TotalCostMarginContainer/TotalCostLabel
 @onready var LocationDisplays := $LocationShelf.get_children()
 @onready var ExoticDisplays   := $ExoticShelf.get_children()
@@ -196,3 +200,66 @@ func _on_exit_button_pressed():
 
 func _on_map_or_station_purchased():
 	$PlayerMoneyPanelContainer/PlayerMoneyMarginContainer/PlayerMoneyLabel.text = "$" + str(PlayerData.money)
+	
+	
+############################ NEW INVENTORY SHENANIGANS ##########################
+func create_shop_inv(): #creates inventory and fills it with the contents of temp
+	var temp_file = FileAccess.open(TEMP_SHOP_INV_LOCATION, FileAccess.READ)
+	var content = JSON.parse_string(temp_file.get_as_text())
+	temp_file.close()
+	var file = FileAccess.open(SHOP_INV_LOCATION, FileAccess.WRITE)
+	file.store_string(JSON.stringify(content))
+	file.close()
+	
+func read_inv(): #reads temporary inventory to output
+	var file = FileAccess.open(TEMP_SHOP_INV_LOCATION, FileAccess.READ)
+	var content = JSON.parse_string(file.get_as_text())
+	file.close()
+	return content
+	
+func write_inv(data): # writes input to temporary inventory
+	var file = FileAccess.open(TEMP_SHOP_INV_LOCATION, FileAccess.WRITE)
+	file.store_string(JSON.stringify(data))
+	file.close()
+
+func save_shop():
+	#saves temp inv to actual inventory
+	var temp_file = FileAccess.open(TEMP_SHOP_INV_LOCATION, FileAccess.READ)
+	var content = JSON.parse_string(temp_file.get_as_text())
+	temp_file.close()
+	var file = FileAccess.open(SHOP_INV_LOCATION, FileAccess.WRITE)
+	file.store_string(JSON.stringify(content))
+	file.close()
+	
+func add_item_to_inventory(item : Resource, quantity : int):
+	var index = 0;
+	var inv_data = read_inv()
+	for i in  inv_data: #find next available slot to put item
+		var slotAmount = int(inv_data[i]["Quantity"])
+		if inv_data[i]["Item"] == item.id && slotAmount != item.stack_size: #if this ingredient already exists in inventory
+			if slotAmount + quantity > item.stack_size: #if adding this quantity to the amount in the stack would be larger than stack size
+				inv_data[i]["Quantity"] = item.stack_size #fill the slot
+				write_inv(inv_data)
+				add_item_to_inventory(item, slotAmount + quantity - item.stack_size) #add the rest to a different slot
+				break
+			else: #else just update the quantity
+				inv_data[i]["Quantity"] = slotAmount + quantity					
+				break
+		elif inv_data[i]["Item"] == null: #if this slot is empty 
+			if quantity > 0:
+				if quantity <= item.stack_size: #if quantity is not greater than allowed stack size add item to this slot
+
+					inv_data[i]["Item"] = item.id
+					inv_data[i]["Quantity"] = quantity					
+					break
+				else: #else add max stack size to this slot and add the excess to another slot
+					inv_data[i]["Item"] = item.id
+					inv_data[i]["Quantity"] = item.stack_size
+					write_inv(inv_data)
+					add_item_to_inventory(item, quantity - item.stack_size)
+					break
+			else:
+				return
+		index = index + 1
+	write_inv(inv_data)
+	save_shop()
