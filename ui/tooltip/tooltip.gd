@@ -13,6 +13,10 @@ func set_text(new_label, new_description):
 	self.label = new_label
 	update_labels()
 	
+func add_text(text):
+	self.description += text
+	update_labels()
+	
 func update_labels():
 	if description:
 		$VBoxContainer/Body.text = description

@@ -8,19 +8,31 @@ var has_ingredients: bool = false
 var volume: int = -10
 var delay: float = 0.5
 var time: float = 0.5
+var ingredient_count = 0 # keep track of number of ingredients added to cauldron (for tooltip)
 
+const packed_tooltip: PackedScene = preload("res://ui/tooltip/tooltip.tscn")
 @onready var anim = $AnimationPlayer
 var globalPotion: Potion
 @onready var SpriteShader:ShaderMaterial = $Sprite.material
 @onready var correctSound:AudioStream = preload("res://common/audio/Finish_Potion.wav")
 @onready var failedSounds:Array[AudioStream] = [preload("res://common/audio/Fail_Potion_1.wav"), preload("res://common/audio/Fail_Potion_2.wav"), preload("res://common/audio/Fail_Potion_3.wav")]
+var tooltip: Node
+@onready var cauldronRightClicked = $ClickableArea/CollisionShape2D/Button
+
 var failedDelays:Array[float] = [0.15, 0.4, 0.3]
 var rng:RandomNumberGenerator = RandomNumberGenerator.new()
 
 signal potion_made(potion: Potion, pos: Vector2)
 signal water_spawn
 
+
+
 func _ready():
+	tooltip = packed_tooltip.instantiate()
+	tooltip.visible = false
+	add_child(tooltip)
+	tooltip.set_text("Cauldron Ingredients", "")
+	tooltip.hide()
 	SpriteShader.set_shader_parameter("make_flat", true)
 	SpriteShader.set_shader_parameter("to", CAULDRON_EMPTY_COLOR)
 	$Bubbler.stop()
@@ -30,6 +42,13 @@ func _on_body_enter_cauldron(body):
 	print("Not an ingredient")
 	if not "data" in body: return
 	if not body.data is Ingredient: return
+
+	# add ingredient name in cauldron to tooltip
+	ingredient_count += 1
+	if(ingredient_count > 1):
+		tooltip.add_text(", ")
+	tooltip.add_text(body.data.name)
+	
 	## Animate object movement to top of cauldron
 	body.gravity_scale = 0
 	var top_of_cauldron = self.position - Vector2(0, 80)
@@ -62,6 +81,8 @@ func _on_body_enter_cauldron(body):
 func _on_cauldron_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click"):
 		if has_ingredients:
+			tooltip.set_text("Cauldron Ingredients", "")
+			ingredient_count = 0
 			has_ingredients = false
 			var potion = Potion.new()
 			potion.effects = current_effects
@@ -108,3 +129,36 @@ func emit_potion():
 	$Bubbler.playing = false
 	volume = -10
 	globalPotion = null
+
+
+var mouseInside = true ## show tooltip if mouse is over cauldron and right click is pressed
+func _on_clickable_area_mouse_entered() -> void:
+	mouseInside = true
+	
+# show tooltip when cauldron is right clicked
+func _on_button_pressed() -> void:
+	tooltip.global_position = self.global_position
+	
+	var viewport_rect = get_viewport_rect()
+	var tooltip_rect = tooltip.get_rect()
+	while not viewport_rect.encloses(tooltip_rect):
+		## horizontal alignment
+		if viewport_rect.position.x > tooltip_rect.position.x:
+			tooltip.global_position.x += 25
+		elif viewport_rect.end.x < tooltip_rect.end.x:
+			tooltip.global_position.x -= 25
+		## vertical alignment
+		if viewport_rect.position.y > tooltip_rect.position.y:
+			tooltip.global_position.x += 25
+		elif viewport_rect.end.y < tooltip_rect.end.y:
+			tooltip.global_position.y -= 25
+		tooltip_rect = tooltip.get_rect()
+		
+	tooltip.show()
+		
+		
+# hide tooltip when mouse leaves cauldorn area
+func _on_clickable_area_mouse_exited() -> void:
+	tooltip.hide()
+	mouseInside = false
+	
