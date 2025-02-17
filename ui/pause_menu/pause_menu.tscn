@@ -1,7 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://lnfput3ouduw"]
+[gd_scene load_steps=4 format=3 uid="uid://lnfput3ouduw"]
 
 [ext_resource type="Theme" uid="uid://cxupsdd5bfwo7" path="res://ui/pause_menu/pause_theme.tres" id="1_bg1dg"]
-[ext_resource type="Script" path="res://ui/pause_menu/pause_menu.gd" id="2_cht68"]
+[ext_resource type="Script" path="res://ui/pause_menu/settings_popup.gd" id="2_4r8ki"]
+
+[sub_resource type="GDScript" id="GDScript_atvnd"]
+script/source = "extends Control
+signal pause_timer # signals timer to pause
+
+func _input(_e): # when a user presses the \"escape\" key pause screen appears and game is paused, or if paused, unpaused
+	if Input.is_action_just_pressed(\"escape\"): # escpe is defined project input map
+		if self.visible == false: # if not visible
+			self.visible = true # make visible
+			GameTime.emit_signal(\"pause\")
+		else:
+			self.visible = false # make not visible
+			GameTime.emit_signal(\"pause\")
+
+# exit game 
+func _on_quit_button_button_down():
+	get_tree().quit()
+	
+ #change scene to main menu
+func _on_menu_button_button_down():
+	get_tree().change_scene_to_file(\"res://screens/start_menu/start_menu.tscn\")
+
+# resume game
+func _on_resume_button_button_down():
+	self.visible = false # make not visible
+	GameTime.emit_signal(\"pause\")
+
+
+func _on_settings_button_pressed():
+	pass # Replace with function body.
+"
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -11,7 +42,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bg1dg")
-script = ExtResource("2_cht68")
+script = SubResource("GDScript_atvnd")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -88,6 +119,39 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "Quit Game"
 
+[node name="SettingsContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SettingsButton" type="Button" parent="SettingsContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="SettingsPopup" type="Popup" parent="SettingsContainer"]
+script = ExtResource("2_4r8ki")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsContainer/SettingsPopup"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VolumeLabelText" type="Label" parent="SettingsContainer/SettingsPopup/VBoxContainer"]
+layout_mode = 2
+text = "Volume
+"
+
+[node name="VolumeSlider" type="HSlider" parent="SettingsContainer/SettingsPopup/VBoxContainer"]
+layout_mode = 2
+value = 50.0
+
+[node name="VolumeValue" type="Label" parent="SettingsContainer/SettingsPopup/VBoxContainer"]
+layout_mode = 2
+text = "50"
+
 [connection signal="button_down" from="ColorRect/Resume Button" to="." method="_on_resume_button_button_down"]
 [connection signal="button_down" from="ColorRect/Menu Button" to="." method="_on_menu_button_button_down"]
 [connection signal="button_down" from="ColorRect/Quit Button" to="." method="_on_quit_button_button_down"]
+[connection signal="pressed" from="SettingsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="value_changed" from="SettingsContainer/SettingsPopup/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="value_changed" from="SettingsContainer/SettingsPopup/VBoxContainer/VolumeSlider" to="SettingsContainer/SettingsPopup" method="_on_VolumeSlider_value_changed"]
+[connection signal="value_changed" from="SettingsContainer/SettingsPopup/VBoxContainer/VolumeSlider" to="SettingsContainer/SettingsPopup" method="_on_volume_slider_value_changed"]

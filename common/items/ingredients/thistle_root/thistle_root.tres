@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=15 format=3 uid="uid://c3prs0652gh3c"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=14 format=3 uid="uid://c3prs0652gh3c"]
 
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="1_c6kbf"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_cjk3h"]
@@ -12,7 +12,6 @@
 [ext_resource type="Resource" uid="uid://b3sw5wyytvesi" path="res://common/items/effects/strength_weakness.tres" id="8_klaqw"]
 [ext_resource type="Resource" uid="uid://dxvuf8wqsbidk" path="res://common/items/effects/swiftness_slowness.tres" id="9_yuhrj"]
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_yxi2i"]
-[ext_resource type="Texture2D" uid="uid://bhe7g2gg215vm" path="res://common/items/ingredients/thistle_root/thistle_root.png" id="12_dix4c"]
 
 [sub_resource type="Resource" id="Resource_rugig"]
 script = ExtResource("1_c6kbf")
@@ -38,4 +37,3 @@ id = "thistle_root"
 name = "Thistle Root"
 description = "Keeps you strong and makes your armor a bit stronger too."
 stack_size = 5
-image = ExtResource("12_dix4c")
