@@ -22,3 +22,7 @@ func _on_menu_button_button_down():
 func _on_resume_button_button_down():
 	self.visible = false # make not visible
 	GameTime.emit_signal("pause")
+
+
+func _on_settings_button_pressed():
+	pass # Replace with function body.

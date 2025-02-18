@@ -23,4 +23,3 @@ text = "Header"
 [node name="Body" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
-text = "Test full of long text and hopefully a max text size"

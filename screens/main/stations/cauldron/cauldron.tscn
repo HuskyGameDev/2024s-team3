@@ -150,6 +150,15 @@ collision_mask = 524288
 position = Vector2(-1, 4)
 shape = SubResource("CircleShape2D_aaytm")
 
+[node name="Button" type="Button" parent="ClickableArea/CollisionShape2D"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -26.0
+offset_top = -27.0
+offset_right = 25.0
+offset_bottom = 37.0
+mouse_filter = 1
+button_mask = 2
+
 [node name="Bubbler" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_yrlqp")
 
@@ -162,3 +171,6 @@ libraries = {
 
 [connection signal="body_entered" from="ValidArea" to="." method="_on_body_enter_cauldron"]
 [connection signal="input_event" from="ClickableArea" to="." method="_on_cauldron_input_event"]
+[connection signal="mouse_entered" from="ClickableArea" to="." method="_on_clickable_area_mouse_entered"]
+[connection signal="mouse_exited" from="ClickableArea" to="." method="_on_clickable_area_mouse_exited"]
+[connection signal="pressed" from="ClickableArea/CollisionShape2D/Button" to="." method="_on_button_pressed"]
