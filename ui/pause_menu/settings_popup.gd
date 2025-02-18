@@ -1,4 +1,4 @@
-extends Control
+extends Popup
 
 # Declare the nodes we need to reference
 @onready var volume_slider = $VBoxContainer/VolumeSlider
