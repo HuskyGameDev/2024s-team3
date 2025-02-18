@@ -1,26 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://h6ayxc1sdyya"]
+[gd_scene load_steps=8 format=3 uid="uid://kn8c4my0wioy"]
 
 [ext_resource type="PackedScene" uid="uid://d2j3rg4f5xnau" path="res://screens/night_menu/store/night_shop.tscn" id="2_qm36f"]
 [ext_resource type="Script" path="res://screens/night_menu/shutter.gd" id="2_s6ou6"]
 [ext_resource type="Script" path="res://screens/night_menu/night_menu.gd" id="3_02p32"]
 [ext_resource type="PackedScene" path="res://screens/main/packed_main.tscn" id="3_3x0fi"]
 [ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="4_kbbvy"]
-[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="6_reosl"]
 [ext_resource type="AudioStream" uid="uid://c78lgbdormr4o" path="res://common/audio/Night_Menu_Theme.wav" id="7_irenb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhchr"]
 size = Vector2(1089, 483)
-
-[sub_resource type="Resource" id="Resource_4pjel"]
-resource_local_to_scene = true
-resource_name = "Ingredient"
-script = ExtResource("6_reosl")
-average_color = Color(0, 0, 0, 1)
-available_actions = 0
-id = "water"
-name = "Water"
-description = "Dillute the potions effects by half."
-stack_size = 0
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("3_02p32")
@@ -152,15 +140,13 @@ theme_override_font_sizes/font_size = 64
 text = "Move"
 
 [node name="Main2" parent="." instance=ExtResource("3_3x0fi")]
+script = null
 
-[node name="InventoryDrawer" parent="Main2" index="14"]
+[node name="InventoryDrawer" parent="Main2" index="13"]
 anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
-
-[node name="Water" parent="Main2" index="16"]
-data = SubResource("Resource_4pjel")
 
 [node name="NightThemePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_irenb")

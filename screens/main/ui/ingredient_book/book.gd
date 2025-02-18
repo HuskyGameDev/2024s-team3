@@ -4,7 +4,7 @@ extends Node2D
 @onready var ingredient = $Ingredient
 @onready var description = $Description
 @onready var forward = $Forward
-@onready var back = $Back
+@onready var backward = $Backward
 @onready var anim = $"Book Animation"
 @onready var values = $Values
 @onready var ingrName = $Name
@@ -26,39 +26,31 @@ func _ready():
 	locations = PlayerData.visited_locations # get all loactions player has visited
 	
 	var num = 0;
-	for x in locations.size():
-		var location = ResourceLoader.load(ResourcePaths.get_location_path(locations[x].id))
-		for y in location.ingredients.size():
-			knownIngredients.append(location.ingredients[y])
-			num += num
-	print(num);
+	for x in locations.size(): # for each location player has visited
+		var location = ResourceLoader.load(ResourcePaths.get_location_path(locations[x].id)) # get location
+		for y in location.ingredients.size(): # for each ingredient in location
+			var ing = location.ingredients[y]
+			if knownIngredients.has(ing) == false: #if we do not already have this ingedient in known ingredients
+				knownIngredients.append(ing) #add to known ingredients
+				num += 1 
+	num_ingr = num #number of known ingredients
 	_update_data()
 
 func _move_up():
 	if (!up):
 		bookButton.disabled = true
 		bookButton.hide()
-		position = Vector2(306, 858)
+		var tween = create_tween()
+		tween.tween_property(self, "position",Vector2(306, 858), .5)
 		up = true
 	else:
 		bookButton.disabled = false
+		var tween = create_tween()
+		tween.tween_property(self, "position",Vector2(306, 1248), .5)
+		await tween.finished
 		bookButton.show()
-		position = Vector2(306, 1248)
 		up = false
 	
-
-
-
-func _add_one():
-	if current_ingr_key < 10:
-		current_ingr_key += 1
-		_update_data()
-
-
-func _sub_one():
-	if current_ingr_key > 1:
-		current_ingr_key -= 1
-		_update_data()
 
 func _update_data():
 	var current_ingr: Ingredient
@@ -83,18 +75,34 @@ func _update_data():
 	
 	PlayerData.bookPageNumber = current_ingr_key
 	
-	pass
 
-
-func _on_forward_pressed() -> void:
-	if (current_ingr_key < (num_ingr - 1)):
+func _on_forward_pressed() -> void: # button press
+	if (current_ingr_key < (num_ingr - 1)): # 
 		anim.play("Forward")
+		current_ingr_key += 1
+		await get_tree().create_timer(0.5).timeout # wait for 0.5 seconds for animation to fade out before update
+		_update_data()
 	else:
 		pass
+		
+	if (current_ingr_key == (num_ingr - 1)): #if this is last page hide forward button
+		forward.visible = false
+		
+	if backward.visible == false: # if this is no longer first page show backward button
+		backward.visible = true
 
 
-func _on_back_pressed() -> void:
+func _on_back_pressed() -> void: # button press
 	if (current_ingr_key > 0):
 		anim.play("Backward")
+		current_ingr_key -= 1
+		await get_tree().create_timer(0.5).timeout # wait for 0.5 seconds for animation to fade out before update
+		_update_data()
 	else:
 		pass
+		
+	if current_ingr_key == 0: # if this is first page hide back arrow
+		backward.visible = false
+	
+	if  forward.visible == false: #if we are no longer on last page show forward arrow
+		forward.visible = true
