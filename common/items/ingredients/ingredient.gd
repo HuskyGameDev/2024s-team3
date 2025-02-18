@@ -23,7 +23,7 @@ func _ready():
 	Ingredient.Actions.get(1)
 	## setup data
 	if data: 
-		set_tooltip(data)
+		set_tooltip_ingredients(data)
 		if data.image != null: set_up_default_sprite()
 		elif data.id != data.get_base_id():
 			var base_ingredient = ResourceLoader.load(ResourcePaths.get_ingredient_path(data.get_base_id()))
