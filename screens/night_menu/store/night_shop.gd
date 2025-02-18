@@ -109,6 +109,7 @@ func calculate_ingredient_price(ingredient:Ingredient):
 func set_ingredient_displays(ingredients:Array[Ingredient], display_nodes:Array[Node]):
 	ingredients.shuffle()
 	for i in range(0, display_nodes.size()):
+		if i >= ingredients.size(): break
 		var ingredient = ingredients[i]
 		var display = display_nodes[i]
 		display.quantity = randi_range(1, 5)

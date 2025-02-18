@@ -21,12 +21,12 @@ ExtResource("1_aklkh"): 0,
 ExtResource("2_5b23w"): 0,
 ExtResource("3_11ebm"): 0,
 ExtResource("4_mteyw"): 0,
-ExtResource("5_efbyf"): -4,
-ExtResource("6_d5m0i"): -20,
+ExtResource("5_efbyf"): 0,
+ExtResource("6_d5m0i"): -5,
 ExtResource("7_ontiq"): 0,
 ExtResource("8_8425e"): 0,
 ExtResource("9_7tdof"): 0,
-ExtResource("10_uqas4"): 0
+ExtResource("10_uqas4"): -3
 }
 
 [resource]
@@ -36,6 +36,6 @@ average_color = Color(0.27025, 0.278882, 0.358823, 1)
 available_actions = 16
 id = "squid_ink"
 name = "Squid Ink"
-description = "Quite dark, if you can hold it down."
+description = "A dark defense mechanism, still cold to the touch."
 stack_size = 5
 image = ExtResource("12_0qq6p")

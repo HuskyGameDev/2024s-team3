@@ -1,23 +1,23 @@
 {
 		"Inv01": {
-			"Item": "thistle_root",
-			"Quantity": 5
-		},
-		"Inv02": {
-			"Item": "pine_resin",
-			"Quantity": 5
-		},
-		"Inv03": {
 			"Item": "nightshade_petals",
 			"Quantity": 5
 		},
+		"Inv02": {
+			"Item": "sunflower_seeds",
+			"Quantity": 5
+		},
+		"Inv03": {
+			"Item": "frog_leg",
+			"Quantity": 5
+		},
 		"Inv04": {
-			"Item": "peppermint_leaves",
-			"Quantity": 2
+			"Item": "squid_ink",
+			"Quantity": 5
 		},
 		"Inv05": {
-			"Item": "sunflower_seeds",
-			"Quantity": 3
+			"Item": "eye_of_newt",
+			"Quantity": 5
 		},
 		"Inv06": {
 			"Item": null,
