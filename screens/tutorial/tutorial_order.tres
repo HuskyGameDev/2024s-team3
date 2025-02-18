@@ -21,7 +21,7 @@ ExtResource("2_wc2m1"): 0,
 ExtResource("3_os0rh"): 0,
 ExtResource("4_iskql"): 0,
 ExtResource("5_wkuts"): 50,
-ExtResource("6_j2seh"): 0,
+ExtResource("6_j2seh"): 50,
 ExtResource("7_4oxys"): 0,
 ExtResource("8_hnmsd"): 0,
 ExtResource("9_iy37n"): 0,
@@ -36,7 +36,7 @@ ExtResource("2_wc2m1"): 0,
 ExtResource("3_os0rh"): 0,
 ExtResource("4_iskql"): 0,
 ExtResource("5_wkuts"): 5,
-ExtResource("6_j2seh"): 0,
+ExtResource("6_j2seh"): 5,
 ExtResource("7_4oxys"): 0,
 ExtResource("8_hnmsd"): 0,
 ExtResource("9_iy37n"): 0,
@@ -47,4 +47,4 @@ ExtResource("10_sofdh"): 0
 script = ExtResource("1_l8hjc")
 minEffects = SubResource("Resource_b8c2n")
 maxEffects = SubResource("Resource_opn36")
-dialogueOptions = PackedStringArray("Can I get a healing potion please? Should be a nightshade petal and a thistle root.")
+dialogueOptions = PackedStringArray("Can I get a potion of healing and light? It should be a nightshade petal and a sunflower seed.")

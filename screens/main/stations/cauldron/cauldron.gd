@@ -58,15 +58,18 @@ func _on_body_enter_cauldron(body):
 	tween.tween_property(body, "global_position", top_of_cauldron, time_to_animate).from(ingredient_position)
 	await tween.finished
 	## Add effects to cauldron's potion, check if water first
-	has_ingredients = true
 	if body.name == "Water":
-		current_effects.half_strength(current_effects)
-		SpriteShader.set_shader_parameter("make_flat", false)
-		SpriteShader.set_shader_parameter("to", current_effects.get_color())
+		print("Water!")
+		if (current_effects.get_strongest().size() != 0):
+			current_effects.half_strength(current_effects)
+			SpriteShader.set_shader_parameter("make_flat", false)
+			SpriteShader.set_shader_parameter("to", current_effects.get_color())
 		print(current_effects)
+		# body.queue_free()
+		body.free()
 		water_spawn.emit()
-		body.queue_free()
 		return
+	has_ingredients = true
 	current_effects.add(body.data.effects)
 	SpriteShader.set_shader_parameter("make_flat", false)
 	SpriteShader.set_shader_parameter("to", current_effects.get_color())

@@ -63,27 +63,19 @@ func handle_purchase(potion: Potion) -> bool:
 	# calculate potion rep and money factors
 	var strongest_effects = potion.effects.get_strongest(3).filter(func(e): return true if potion.effects.get_strength(e) >= EffectSet.NOTHING_RANGE else false)
 	var reputation_change = 0
-	var money_change = 0
-	for effect in strongest_effects:
-		reputation_change += effect.reputation_factor
+	var total_price:float = 0
+	for effect: Effect in strongest_effects:
 		var effect_strength = potion.effects.get_strength(effect)
-		var strength_factor = 1
-		if abs(effect_strength) < EffectSet.WEAK_RANGE:
-			strength_factor = 0.5
-		elif abs(effect_strength) >= EffectSet.REGULAR_RANGE:
-			strength_factor = 1.5
-		money_change += effect.money_factor * strength_factor
-	
-	# calculate num effects and update money
-	PlayerData.change_money(money_change * pow(1.2, strongest_effects.size()))
+		total_price = total_price + (effect.money_factor*effect_strength/5)
 	
 	# calculate time to make potion and update reputation
-	var time_modifier = 1
 	if current_customer.order.check(potion):
 		PlayerData.change_reputation(1)
+		PlayerData.change_money(floor(total_price))
 		if in_grace_period:
-			PlayerData.change_reputation(1)
+			PlayerData.change_reputation(1) # give an extra reputation if fast enough
 	else:
+		PlayerData.change_money(floor(total_price*0.4))
 		PlayerData.change_reputation(-3)
 	print("New reputation:")
 	print(PlayerData.reputation)

@@ -6,7 +6,7 @@
 script = ExtResource("1_54mc2")
 id = "strength_weakness"
 reputation_factor = 5.0
-money_factor = 5.0
+money_factor = 8.0
 pos_label = "Strengthening"
 pos_color = Color(0.960784, 0.0901961, 0.0313726, 1)
 neg_label = "Weakening"

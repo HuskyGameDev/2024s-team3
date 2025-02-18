@@ -1,10 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://busxwpt8gsgma"]
+[gd_scene load_steps=8 format=3 uid="uid://busxwpt8gsgma"]
 
 [ext_resource type="PackedScene" uid="uid://pvvnkdn6u7y5" path="res://screens/main/main.tscn" id="1_5wofc"]
 [ext_resource type="Script" path="res://screens/tutorial/tutorial.gd" id="2_7hpqk"]
 [ext_resource type="Theme" uid="uid://w8a1t7o5upma" path="res://screens/tutorial/tutorial_theme.tres" id="4_wc777"]
 [ext_resource type="PackedScene" uid="uid://6acoxw3otoc3" path="res://common/items/ingredients/ingredient.tscn" id="4_y6iyk"]
 [ext_resource type="Resource" uid="uid://djqumbpv7xrlh" path="res://common/items/ingredients/nightshade_petals/nightshade_petals.tres" id="5_33flo"]
+[ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="6_qlkwi"]
+
+[sub_resource type="Resource" id="Resource_4pjel"]
+resource_local_to_scene = true
+resource_name = "Ingredient"
+script = ExtResource("6_qlkwi")
+average_color = Color(0, 0, 0, 1)
+available_actions = 0
+id = "water"
+name = "Water"
+description = "Dillute the potions effects by half."
+stack_size = 0
 
 [node name="Main2" instance=ExtResource("1_5wofc")]
 
@@ -16,10 +28,10 @@ script = ExtResource("2_7hpqk")
 
 [node name="NightshadeLabel" type="RichTextLabel" parent="Tutorial" index="0"]
 layout_mode = 0
-offset_left = 460.0
-offset_top = 332.0
-offset_right = 1129.0
-offset_bottom = 512.0
+offset_left = 469.0
+offset_top = 442.0
+offset_right = 1138.0
+offset_bottom = 622.0
 text = "Find the ingredient NIGHTSHADE by hovering your mouse over the ingredients. Click and drag it into the cauldron."
 
 [node name="InventoryLabel" type="RichTextLabel" parent="Tutorial" index="1"]
@@ -30,20 +42,20 @@ offset_right = 1859.0
 offset_bottom = 365.0
 text = "Click the white tab on the right to open your inventory."
 
-[node name="ThistleLabel" type="RichTextLabel" parent="Tutorial" index="2"]
+[node name="SunflowerLabel" type="RichTextLabel" parent="Tutorial" index="2"]
 layout_mode = 0
-offset_left = 459.0
-offset_top = 346.0
-offset_right = 1093.0
-offset_bottom = 488.0
-text = "Find the ingredient THISTLE ROOT in the inventory and drag it into the cauldron."
+offset_left = 1234.0
+offset_top = 881.0
+offset_right = 1932.0
+offset_bottom = 979.0
+text = "Find the ingredient SUNFLOWER SEEDS in the inventory and drag it into the cauldron."
 
 [node name="CauldronLabel" type="RichTextLabel" parent="Tutorial" index="3"]
 layout_mode = 0
-offset_left = 1015.0
-offset_top = 686.0
-offset_right = 1542.0
-offset_bottom = 785.0
+offset_left = 524.0
+offset_top = 629.0
+offset_right = 1395.0
+offset_bottom = 728.0
 text = "Great! Now click on the cauldron to extract your potion."
 
 [node name="PotionLabel" type="RichTextLabel" parent="Tutorial" index="4"]
@@ -62,16 +74,19 @@ offset_right = 1303.0
 offset_bottom = 85.0
 text = "Congratulations! You've served your first customer!"
 
-[node name="CuttingBoard" parent="." index="11"]
+[node name="CuttingBoard" parent="." index="12"]
 process_mode = 4
 physics_interpolation_mode = 2
 visible = false
 
-[node name="MortarAndPestle" parent="." index="12"]
+[node name="MortarAndPestle" parent="." index="13"]
 process_mode = 4
 physics_interpolation_mode = 2
 visible = false
 
 [node name="Ingredient" parent="." index="16" instance=ExtResource("4_y6iyk")]
-position = Vector2(396, 898)
+position = Vector2(1447, 964)
 data = ExtResource("5_33flo")
+
+[node name="Water" parent="." index="17"]
+data = SubResource("Resource_4pjel")
