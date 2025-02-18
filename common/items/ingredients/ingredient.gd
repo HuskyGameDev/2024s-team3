@@ -20,6 +20,7 @@ func _ready():
 	set_holding_collision_layer(31)
 	super()
 	
+	Ingredient.Actions.get(1)
 	## setup data
 	if data: 
 		set_tooltip(data)
@@ -45,7 +46,6 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if body.name == "Right Shelf" or body.name == "Left Shelf":
 		set_on_shelf(false)
-
 
 # default ingredient image
 func set_up_default_sprite():
@@ -124,3 +124,6 @@ func set_up_crushed_sprite(average_color:Color):
 	$"Sprite".texture = CrushedSprite
 	# Remove chopped sprite
 	$ChoppedSprite.queue_free()
+	
+
+	
