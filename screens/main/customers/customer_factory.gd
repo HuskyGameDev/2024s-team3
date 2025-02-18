@@ -7,6 +7,7 @@ static var REP_DECREASE_PERIOD_LENGTH = 60
 
 var current_customer: Customer
 var customer_node: Node
+var recent_requests: Array[String]
 
 @onready var customer_timer: Timer = Timer.new()
 @onready var time_modifier = 1
@@ -22,9 +23,25 @@ func _ready():
 
 func create_customer():
 	current_customer = Customer.new()
-	current_customer.order = PlayerData.location.customer_request_table.get_one_random()
+	var isNew: int = 0
+	var dialogue_number: int = 0
+	while (isNew == 0):
+		print("Started checking dialogue")
+		current_customer.order = PlayerData.location.customer_request_table.get_one_random()
+		dialogue_number = randi() % current_customer.order.dialogueOptions.size()
+		isNew = 1
+		for request:String in recent_requests:
+			if (current_customer.order.dialogueOptions[dialogue_number] == request):
+				isNew = 0
+				print("Failed the dialogue")
+				break
+			print("Passed the dialogue")
+	# at this point, request must be new
+	recent_requests.push_front(current_customer.order.dialogueOptions[dialogue_number])
+	if (recent_requests.size() > 5):
+		recent_requests.pop_back()
 	
-	customer_node = packed_customer_scene.instantiate().with_data(current_customer)
+	customer_node = packed_customer_scene.instantiate().with_data(current_customer, dialogue_number)
 	add_child(customer_node)
 	
 	in_grace_period = true

@@ -9,9 +9,9 @@ var data: Customer
 var walk_speed: float = 0.5
 
 
-func with_data(data: Customer):
+func with_data(data: Customer, number: int):
 	self.data = data
-	$DialogueLabel.text = data.order.dialogueOptions[randi() % data.order.dialogueOptions.size()]
+	$DialogueLabel.text = data.order.dialogueOptions[number]
 	return self
 
 
