@@ -2,8 +2,8 @@ extends Node
 
 var packed_customer_scene = preload("res://screens/main/customers/customer.tscn")
 
-static var GRACE_PERIOD_LENGTH = 5
-static var REP_DECREASE_PERIOD_LENGTH = 60
+static var GRACE_PERIOD_LENGTH = 15
+# static var REP_DECREASE_PERIOD_LENGTH = 60
 
 var current_customer: Customer
 var customer_node: Node
@@ -79,14 +79,14 @@ func handle_purchase(potion: Potion) -> bool:
 	
 	# calculate time to make potion and update reputation
 	var time_modifier = 1
-	if not in_grace_period:
-		var time_to_create = REP_DECREASE_PERIOD_LENGTH - round(customer_timer.time_left)
-		time_modifier = time_to_create / REP_DECREASE_PERIOD_LENGTH
 	if current_customer.order.check(potion):
-		PlayerData.change_reputation(reputation_change * time_modifier)
+		PlayerData.change_reputation(1)
+		if in_grace_period:
+			PlayerData.change_reputation(1)
 	else:
-		PlayerData.change_reputation(-reputation_change * (1 - time_modifier))
-	
+		PlayerData.change_reputation(-3)
+	print("New reputation:")
+	print(PlayerData.reputation)
 	customer_node.leave_store()
 	remove_child(customer_timer)
 	return true
@@ -96,7 +96,6 @@ func handle_purchase(potion: Potion) -> bool:
 func grace_period_timeout():
 	in_grace_period = false
 	customer_timer.disconnect("timeout", grace_period_timeout)
-	customer_timer.start(REP_DECREASE_PERIOD_LENGTH) 
 	
 func _leave_end_day(): # call function in customer node to end day
 	customer_node._end_day_leave_store()
