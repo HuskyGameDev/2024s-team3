@@ -9,18 +9,6 @@ extends Node2D
 @onready var values = $Values
 @onready var ingrName = $Name
 
-#
-#var batWing = preload("res://common/items/ingredients/bat_wing/bat_wing.tres")
-#var frogLeg = preload("res://common/items/ingredients/frog_leg/frog_leg.tres")
-#var nightshade = preload("res://common/items/ingredients/nightshade_petals/nightshade_petals.tres")
-#var owlFeather = preload("res://common/items/ingredients/owl_feather/owl_feather.tres")
-#var peppermint = preload("res://common/items/ingredients/peppermint_leaves/peppermint_leaves.tres")
-#var pineResin = preload("res://common/items/ingredients/pine_resin/pine_resin.tres")
-#var poisonIvy = preload("res://common/items/ingredients/poison_ivy/poison_ivy.tres")
-#var sunFlower = preload("res://common/items/ingredients/sunflower_seeds/sunflower_seeds.tres")
-#var thistleRoot = preload("res://common/items/ingredients/thistle_root/thistle_root.tres")
-#var eyeOfNewt = preload("res://common/items/ingredients/eye_of_a_newt/eye_of_a_newt.tres")
-
 
 @export var bookButton: TextureButton
 
@@ -31,18 +19,19 @@ var knownIngredients: Array
 var up: bool = false
 
 var current_ingr_key = 0
-@export var max_ingr: int = 10
+@export var num_ingr: int = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	locations = PlayerData.visited_locations # get all loactions player has visited
 	
+	var num = 0;
 	for x in locations.size():
 		var location = ResourceLoader.load(ResourcePaths.get_location_path(locations[x].id))
 		for y in location.ingredients.size():
 			knownIngredients.append(location.ingredients[y])
-	
-	
+			num += num
+	print(num);
 	_update_data()
 
 func _move_up():
@@ -75,29 +64,6 @@ func _update_data():
 	var current_ingr: Ingredient
 	current_ingr = knownIngredients[current_ingr_key]
 	
-	#
-	#match current_ingr_key:
-		#0:
-			#current_ingr = thistleRoot
-		#1:
-			#current_ingr = nightshade
-		#2:
-			#current_ingr = sunFlower
-		#3:
-			#current_ingr = pineResin
-		#4:
-			#current_ingr = peppermint
-		#5:
-			#current_ingr = owlFeather
-		#6:
-			#current_ingr = poisonIvy
-		#7:
-			#current_ingr = frogLeg
-		#8:
-			#current_ingr = batWing
-		#9:
-			#current_ingr = eyeOfNewt
-	
 	# Change all the data
 	ingrName.text = current_ingr.name
 	description.text = current_ingr.description
@@ -115,18 +81,13 @@ func _update_data():
 	valuesArray[8].get_node("Value").text = str(current_ingr.effects.get_strength(EffectSet.DEFENSE_VULNERABILITY)) 
 	valuesArray[9].get_node("Value").text = str(current_ingr.effects.get_strength(EffectSet.SWIFTNESS_SLOWNESS)) 
 	
-	#for i in valuesArray.size():
-		#valuesArray[i].value 
-	
-	# yada yada
-	
 	PlayerData.bookPageNumber = current_ingr_key
 	
 	pass
 
 
 func _on_forward_pressed() -> void:
-	if (current_ingr_key < (max_ingr - 1)):
+	if (current_ingr_key < (num_ingr - 1)):
 		anim.play("Forward")
 	else:
 		pass
