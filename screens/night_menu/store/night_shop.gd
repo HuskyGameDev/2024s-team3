@@ -100,8 +100,8 @@ func _ready():
 func calculate_ingredient_price(ingredient:Ingredient):
 	var price = 0
 	for effect in ingredient.effects.get_strongest():
-		price += abs(ingredient.effects.get_strength(effect)) * effect.money_factor
-	price /= 7 ## This number can be changed, anywhere between 5 and 10 is probably reasonable
+		price += abs(ingredient.effects.get_strength(effect)) * effect.money_factor / 5
+	price = price / 2 ## This number can be changed
 	price = ingredient_price_modifier.call(price)
 	return round(price)
 

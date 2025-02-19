@@ -20,16 +20,16 @@
 			"Quantity": 5
 		},
 		"Inv06": {
-			"Item": null,
-			"Quantity": 0
+			"Item": "bison_fur",
+			"Quantity": 5
 		},
 		"Inv07": {
-			"Item": null,
-			"Quantity": 0
+			"Item": "viper_fang",
+			"Quantity": 5
 		},
 		"Inv08": {
-			"Item": null,
-			"Quantity": 0
+			"Item": "ice",
+			"Quantity": 5
 		},
 		"Inv09": {
 			"Item": null,
