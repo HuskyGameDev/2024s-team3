@@ -72,6 +72,7 @@ func _on_bell_rung():
 	if active_step == 4:
 		potion_text.queue_free()
 		finish_text.visible = true
+		active_step = 5;
 	
 	## Wait 8 seconds then switch out of tutorial scene
 	## This isn't under the if statement because selling a potion means they've understood enough
