@@ -42,6 +42,13 @@ func set_holding_collision_layer(layer: int):
 
 func set_tooltip(item: Item):
 	tooltip.set_text(item.name, item.description)
+	
+
+func set_tooltip_ingredients(ingredient: Ingredient):
+	tooltip.set_text(ingredient.name, ingredient.description)
+	tooltip.add_text("\nEffects:")
+	for str in ingredient.effects.get_strongest_as_strings():
+		tooltip.add_text("\n" + str)
 
 
 ############ Drag and Drop Functions ############
