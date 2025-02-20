@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqr8rgteoueon"]
+
+[ext_resource type="Script" path="res://ui/settings_menu/settings_popup.gd" id="1_up5h8"]
+
+[node name="SettingsMenu" type="Node2D"]
+
+[node name="SettingsContainer" type="VBoxContainer" parent="."]
+offset_right = 1917.0
+offset_bottom = 1083.0
+
+[node name="SettingsPopup" type="Popup" parent="SettingsContainer"]
+auto_translate_mode = 1
+position = Vector2i(800, 200)
+size = Vector2i(700, 700)
+visible = true
+unresizable = false
+content_scale_size = Vector2i(18, 0)
+content_scale_mode = 1
+content_scale_aspect = 4
+script = ExtResource("1_up5h8")
+
+[node name="MasterVolumeLabelText" type="Label" parent="SettingsContainer/SettingsPopup"]
+custom_minimum_size = Vector2(0, 300)
+offset_top = 15.0
+offset_right = 118.0
+offset_bottom = 38.0
+theme_override_font_sizes/font_size = 40
+text = "Master Volume
+"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="SettingsContainer/SettingsPopup"]
+offset_top = 80.0
+offset_right = 300.0
+offset_bottom = 96.0
+value = 50.0
+
+[node name="MasterVolumeValue" type="Label" parent="SettingsContainer/SettingsPopup"]
+offset_left = 315.0
+offset_top = 65.0
+offset_right = 349.0
+offset_bottom = 107.0
+theme_override_font_sizes/font_size = 30
+text = "50"
+
+[connection signal="value_changed" from="SettingsContainer/SettingsPopup/MasterVolumeSlider" to="SettingsContainer/SettingsPopup" method="_on_volume_slider_value_changed"]
+[connection signal="value_changed" from="SettingsContainer/SettingsPopup/MasterVolumeSlider" to="SettingsContainer/SettingsPopup" method="_on_VolumeSlider_value_changed"]

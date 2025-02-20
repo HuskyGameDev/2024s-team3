@@ -25,4 +25,4 @@ func _on_resume_button_button_down():
 
 
 func _on_settings_button_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://ui/settings_menu/SettingsMenu.tscn")
