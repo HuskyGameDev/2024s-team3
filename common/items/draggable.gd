@@ -50,6 +50,8 @@ func set_tooltip_ingredients(ingredient: Ingredient):
 	for str in ingredient.effects.get_strongest_as_strings():
 		tooltip.add_text("\n" + str)
 
+func set_water_tooltip():
+	tooltip.set_text("Water", "Dillute the potion's effects in half.")
 
 ############ Drag and Drop Functions ############
 var beingHeld = false

@@ -43,11 +43,6 @@ func _on_body_enter_cauldron(body):
 	if not "data" in body: return
 	if not body.data is Ingredient: return
 
-	# add ingredient name in cauldron to tooltip
-	ingredient_count += 1
-	if(ingredient_count > 1):
-		tooltip.add_text(", ")
-	tooltip.add_text(body.data.name)
 	
 	## Animate object movement to top of cauldron
 	body.gravity_scale = 0
@@ -60,6 +55,10 @@ func _on_body_enter_cauldron(body):
 	## Add effects to cauldron's potion, check if water first
 	if body.name == "Water":
 		print("Water!")
+		if(ingredient_count >= 1):
+			ingredient_count += 1
+			tooltip.add_text(", ")
+			tooltip.add_text(body.data.name)
 		if (current_effects.get_strongest().size() != 0):
 			current_effects.half_strength(current_effects)
 			SpriteShader.set_shader_parameter("make_flat", false)
@@ -69,6 +68,11 @@ func _on_body_enter_cauldron(body):
 		body.free()
 		water_spawn.emit()
 		return
+	# add ingredient name in cauldron to tooltip
+	ingredient_count += 1
+	if(ingredient_count > 1):
+		tooltip.add_text(", ")
+	tooltip.add_text(body.data.name)
 	has_ingredients = true
 	current_effects.add(body.data.effects)
 	SpriteShader.set_shader_parameter("make_flat", false)

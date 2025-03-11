@@ -17,6 +17,11 @@ func _ready():
 	set_default_collision_layer(1)
 	set_holding_collision_layer(31)
 	super()
+	Ingredient.Actions.get(1)
+	if data:
+		set_water_tooltip()
+	
+	
 	self.position = Vector2(x_spawn, y_spawn)
 
 
