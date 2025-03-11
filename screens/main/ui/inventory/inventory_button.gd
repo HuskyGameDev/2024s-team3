@@ -82,6 +82,9 @@ func _on_mouse_entered():
 			var item = ResourceLoader.load(ResourcePaths.get_ingredient_path(ingredient))
 			instance.position = self.global_position + Vector2(-500,100)
 			instance.set_text(item.name, item.description)
+			instance.add_text("\nEffects:")
+			for str in item.effects.get_strongest_as_strings():
+				instance.add_text("\n" + str)
 			instance.visible = true
 
 func _on_mouse_exited():
