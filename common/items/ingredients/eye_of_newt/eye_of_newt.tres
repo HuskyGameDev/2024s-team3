@@ -21,11 +21,11 @@ ExtResource("1_ks7s7"): 0,
 ExtResource("2_2w7v2"): 0,
 ExtResource("3_hejob"): 0,
 ExtResource("4_fhbjl"): 0,
-ExtResource("5_254op"): -2,
+ExtResource("5_254op"): 3,
 ExtResource("6_bxbrp"): 0,
 ExtResource("7_muk2x"): 0,
 ExtResource("8_ydo2s"): 0,
-ExtResource("9_5thjy"): -7,
+ExtResource("9_5thjy"): -5,
 ExtResource("10_nsn5c"): 0
 }
 
@@ -36,6 +36,6 @@ average_color = Color(0.475647, 0.378983, 0.168542, 1)
 available_actions = 4
 id = "eye_of_newt"
 name = "Eye of Newt"
-description = "Helps keep your enemies slow and hurt."
+description = "Helps keep your enemies sluggish, but the taste is impeccable."
 stack_size = 5
 image = ExtResource("12_285do")

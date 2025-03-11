@@ -100,8 +100,8 @@ func _ready():
 func calculate_ingredient_price(ingredient:Ingredient):
 	var price = 0
 	for effect in ingredient.effects.get_strongest():
-		price += abs(ingredient.effects.get_strength(effect)) * effect.money_factor
-	price /= 7 ## This number can be changed, anywhere between 5 and 10 is probably reasonable
+		price += abs(ingredient.effects.get_strength(effect)) * effect.money_factor / 5
+	price = price / 2 ## This number can be changed
 	price = ingredient_price_modifier.call(price)
 	return round(price)
 
@@ -109,6 +109,7 @@ func calculate_ingredient_price(ingredient:Ingredient):
 func set_ingredient_displays(ingredients:Array[Ingredient], display_nodes:Array[Node]):
 	ingredients.shuffle()
 	for i in range(0, display_nodes.size()):
+		if i >= ingredients.size(): break
 		var ingredient = ingredients[i]
 		var display = display_nodes[i]
 		display.quantity = randi_range(1, 5)

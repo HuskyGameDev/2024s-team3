@@ -62,7 +62,7 @@ func _drop_data(_at_position, data):
 				inv_data[origin_slot]["Quantity"] = 0
 				data["origin_node"].get_node("Quantity").set_text(" ")
 				data["target_slot"].get_node("Icon/Quantity").set_text( str(data["origin_quantity"] + data["target_quantity"]))
-		elif data["target_quantity"] + 1 <= item.stack_size: #move just one item
+		elif (data["target_quantity"] as int) + 1 <= item.stack_size: #move just one item
 			inv_data[target_slot]["Quantity"] = data["target_quantity"] + 1
 			inv_data[origin_slot]["Quantity"] = data["origin_quantity"] - 1
 			if data["origin_quantity"] == 1:
@@ -79,7 +79,7 @@ func _drop_data(_at_position, data):
 		texture = data["origin_texture"]
 		inv_data[origin_slot]["Quantity"] = data["target_quantity"]
 		inv_data[target_slot]["Quantity"] = data["origin_quantity"]
-		if data["target_quantity"] == 0:
+		if data["target_quantity"] as int == 0:
 			data["origin_node"].get_node("Quantity").set_text("")
 		else:
 			data["origin_node"].get_node("Quantity").set_text( str(data["target_quantity"]))

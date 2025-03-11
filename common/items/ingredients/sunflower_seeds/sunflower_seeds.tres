@@ -22,7 +22,7 @@ ExtResource("2_cyqp1"): 0,
 ExtResource("3_yoyji"): 0,
 ExtResource("4_dfntn"): 0,
 ExtResource("5_aet0k"): 0,
-ExtResource("6_v8rws"): 10,
+ExtResource("6_v8rws"): 5,
 ExtResource("7_xwxn7"): 0,
 ExtResource("8_31usj"): 0,
 ExtResource("9_6xuqw"): 0,
@@ -36,6 +36,6 @@ average_color = Color(0.503899, 0.42579, 0.415086, 1)
 available_actions = 4
 id = "sunflower_seeds"
 name = "Sunflower Seeds"
-description = "Helps keep things bright."
+description = "Always facing the sun's warm rays."
 stack_size = 5
 image = ExtResource("1_ccx8u")

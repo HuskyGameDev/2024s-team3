@@ -4,7 +4,7 @@ class_name Effect
 
 @export var id:String # ex: healing_poison
 @export_range(0, 10) var reputation_factor:float
-@export_range(0, 10) var money_factor:float
+@export_range(5, 12) var money_factor:float
 
 @export_group("Positive")
 @export var pos_label: String

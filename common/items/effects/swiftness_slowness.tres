@@ -6,7 +6,7 @@
 script = ExtResource("1_r0k8e")
 id = "swiftness_slowness"
 reputation_factor = 5.0
-money_factor = 5.0
+money_factor = 6.0
 pos_label = "Swiftness"
 pos_color = Color(0, 0.665686, 0.875, 1)
 neg_label = "Slowness"

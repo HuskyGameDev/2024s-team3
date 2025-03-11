@@ -1,18 +1,88 @@
-[gd_resource type="Resource" script_class="Location" load_steps=14 format=3 uid="uid://bp6uwquo1uiuu"]
+[gd_resource type="Resource" script_class="Location" load_steps=33 format=3 uid="uid://bp6uwquo1uiuu"]
 
+[ext_resource type="Resource" uid="uid://b3sn4luq5jm8o" path="res://common/items/effects/calming_agitation.tres" id="1_5xgog"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="1_gplof"]
 [ext_resource type="Resource" uid="uid://cy3mhdwt0ax" path="res://common/items/ingredients/amber/amber.tres" id="2_deu1s"]
+[ext_resource type="Resource" uid="uid://dm5g60527ck6" path="res://common/items/effects/clarity_confusion.tres" id="2_pc11q"]
 [ext_resource type="Resource" uid="uid://bqpv673psm14v" path="res://common/items/ingredients/amethyst/amethyst.tres" id="3_et83t"]
+[ext_resource type="Resource" uid="uid://b6on74dd2lt1f" path="res://common/items/effects/defense_vulnerability.tres" id="3_fq342"]
+[ext_resource type="Resource" uid="uid://6wcghjn0u72q" path="res://common/items/effects/energy_fatigue.tres" id="4_elcjk"]
 [ext_resource type="Resource" uid="uid://0potnw15ahty" path="res://common/items/ingredients/diamond/diamond.tres" id="4_h4kxf"]
 [ext_resource type="Resource" uid="uid://cbry8ulugohfg" path="res://common/items/ingredients/emerald/emerald.tres" id="5_fnfpw"]
+[ext_resource type="Resource" uid="uid://2bq51ncoy4qu" path="res://common/items/effects/healing_poison.tres" id="5_tpcyk"]
+[ext_resource type="Resource" uid="uid://b0efkhflivhlj" path="res://common/items/effects/light_dark.tres" id="6_88yk3"]
 [ext_resource type="Resource" uid="uid://c6pknpm4eavsh" path="res://common/items/ingredients/jade/jade.tres" id="6_s6yad"]
 [ext_resource type="Resource" uid="uid://bltnknmlvxxgx" path="res://common/items/ingredients/pearl/pearl.tres" id="7_0cx08"]
+[ext_resource type="Resource" uid="uid://diti6ufqgwhph" path="res://common/items/effects/luck_misfortune.tres" id="7_1nvpt"]
+[ext_resource type="Resource" uid="uid://b3sw5wyytvesi" path="res://common/items/effects/strength_weakness.tres" id="8_w5r8a"]
 [ext_resource type="Resource" uid="uid://cv7h2o8gwdylm" path="res://common/items/ingredients/quartz/quartz.tres" id="8_xt7eq"]
+[ext_resource type="Resource" uid="uid://dxvuf8wqsbidk" path="res://common/items/effects/swiftness_slowness.tres" id="9_ikvmg"]
 [ext_resource type="Resource" uid="uid://2cy5ft5s1xsn" path="res://common/items/ingredients/ruby/ruby.tres" id="9_nswu4"]
+[ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_07vk5"]
 [ext_resource type="Resource" uid="uid://dkhhs3wcd8t71" path="res://common/items/ingredients/sapphire/sapphire.tres" id="10_huo8j"]
+[ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_ao4h7"]
 [ext_resource type="Resource" uid="uid://ddkob31lp7vxv" path="res://common/items/ingredients/topaz/topaz.tres" id="11_xp6vc"]
-[ext_resource type="PackedScene" path="res://common/locations/the_temple/the_temple_background.tscn" id="12_805vg"]
+[ext_resource type="PackedScene" uid="uid://drurrf3syutta" path="res://common/locations/the_temple/the_temple_background.tscn" id="12_805vg"]
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="12_cnqvg"]
+[ext_resource type="Script" path="res://screens/main/customers/customer_order_type.gd" id="12_xs54s"]
+[ext_resource type="Script" path="res://common/locations/loot_table_type.gd" id="13_m53oj"]
+
+[sub_resource type="Resource" id="Resource_7jcm7"]
+script = ExtResource("11_ao4h7")
+effects = {
+ExtResource("1_5xgog"): 50,
+ExtResource("2_pc11q"): 50,
+ExtResource("3_fq342"): 50,
+ExtResource("4_elcjk"): 50,
+ExtResource("5_tpcyk"): 50,
+ExtResource("6_88yk3"): 50,
+ExtResource("7_1nvpt"): 50,
+ExtResource("8_w5r8a"): 50,
+ExtResource("9_ikvmg"): 50,
+ExtResource("10_07vk5"): 50
+}
+
+[sub_resource type="Resource" id="Resource_682vw"]
+script = ExtResource("11_ao4h7")
+effects = {
+ExtResource("1_5xgog"): -50,
+ExtResource("2_pc11q"): -50,
+ExtResource("3_fq342"): -50,
+ExtResource("4_elcjk"): 5,
+ExtResource("5_tpcyk"): -50,
+ExtResource("6_88yk3"): -50,
+ExtResource("7_1nvpt"): -50,
+ExtResource("8_w5r8a"): -50,
+ExtResource("9_ikvmg"): -50,
+ExtResource("10_07vk5"): -50
+}
+
+[sub_resource type="Resource" id="Resource_uc1s2"]
+script = ExtResource("12_xs54s")
+minEffects = SubResource("Resource_682vw")
+maxEffects = SubResource("Resource_7jcm7")
+dialogueOptions = PackedStringArray("I forgot my coffee this morning, you got anything for that?", "I need five hours of energy! Preferably by potion.", "I need to fix my sleep schedule... in the meantime, got an energy potion?", "I got the night shift today. You got something to stop me from falling asleep?", "I need a nice pick-me-up.")
+
+[sub_resource type="Resource" id="Resource_48cd5"]
+script = ExtResource("13_m53oj")
+common = [SubResource("Resource_uc1s2")]
+uncommon = []
+rare = []
+legendary = []
+
+[sub_resource type="Resource" id="Resource_bm7lx"]
+script = ExtResource("13_m53oj")
+common = []
+uncommon = []
+rare = []
+legendary = []
+
+[sub_resource type="Resource" id="Resource_nckd1"]
+script = ExtResource("13_m53oj")
+common = []
+uncommon = []
+rare = []
+legendary = []
 
 [resource]
 script = ExtResource("12_cnqvg")
@@ -25,3 +95,6 @@ unlockable_station_price = 50
 map_weight = 2
 map_cost = 100
 map_color = Color(0.796078, 0.615686, 0, 1)
+forage_table = SubResource("Resource_bm7lx")
+ingredients_shop_table = SubResource("Resource_nckd1")
+customer_request_table = SubResource("Resource_48cd5")
