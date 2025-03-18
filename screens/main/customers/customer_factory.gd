@@ -12,11 +12,14 @@ var recent_requests: Array[String]
 @onready var customer_timer: Timer = Timer.new()
 @onready var time_modifier = 1
 @onready var in_grace_period = true
+@onready var reputationDif = 0;
 
 signal customer_created(customer: Customer)
+signal repChanged(new_rep: int)
 
 
 func _ready():
+	print("This script is attached to:", self)
 	if GameTime.hour < GameTime.STORE_CLOSE_TIME: # if it is day time
 		create_customer()
 
@@ -74,6 +77,7 @@ func handle_purchase(potion: Potion) -> bool:
 	
 	
 	# calculate time to make potion and update reputation
+	reputationDif = PlayerData.reputation
 	if current_customer.order.check(potion):
 		PlayerData.change_reputation(1)
 		# apply bonuses
@@ -86,8 +90,7 @@ func handle_purchase(potion: Potion) -> bool:
 	else:
 		PlayerData.change_money(floor(total_price*0.4))
 		PlayerData.change_reputation(-3)
-	print("New reputation:")
-	print(PlayerData.reputation)
+	emit_signal("repChanged", reputationDif)
 	customer_node.leave_store()
 	remove_child(customer_timer)
 	return true

@@ -12,7 +12,7 @@
 [ext_resource type="Resource" uid="uid://dxvuf8wqsbidk" path="res://common/items/effects/swiftness_slowness.tres" id="9_w4ujn"]
 [ext_resource type="Resource" uid="uid://ya1vir33j5lh" path="res://common/items/effects/warm_cold.tres" id="10_vd357"]
 [ext_resource type="Script" path="res://common/items/effect_set_type.gd" id="11_rq68f"]
-[ext_resource type="Texture2D" uid="uid://bpgekk7oxyw2w" path="res://common/items/ingredients/viper_fang/viper_fang.png" id="12_kblij"]
+[ext_resource type="Texture2D" uid="uid://bpgekk7oxyw2w" path="res://common/items/ingredients/dragon_claw/dragon_claw.png" id="12_kblij"]
 
 [sub_resource type="Resource" id="Resource_6oct2"]
 script = ExtResource("11_rq68f")
