@@ -25,7 +25,10 @@
 [ext_resource type="Resource" uid="uid://cj8ol3qfrfwmh" path="res://common/items/ingredients/owl_feather/owl_feather.tres" id="23_1x8ak"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="24_6sop3"]
 [ext_resource type="Resource" uid="uid://dgiw62hk2ccn6" path="res://common/items/ingredients/eye_of_newt/eye_of_newt.tres" id="25_e0v3k"]
+<<<<<<< Updated upstream
 [ext_resource type="Resource" uid="uid://ciqko2tteabf5" path="res://common/items/ingredients/squid_ink/squid_ink.tres" id="26_3aqfm"]
+=======
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://bw28earyu2hwu" path="res://common/locations/the_clearing/the_clearing_background.tscn" id="26_aya23"]
 [ext_resource type="Script" path="res://common/locations/location_type.gd" id="26_e5pmw"]
 [ext_resource type="Resource" uid="uid://bdm7mr1uxf4ws" path="res://common/items/ingredients/viper_fang/viper_fang.tres" id="27_io0mm"]
