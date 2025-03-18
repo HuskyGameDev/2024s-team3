@@ -46,7 +46,7 @@ func create_customer():
 	
 	in_grace_period = true
 	add_child(customer_timer)
-	customer_timer.connect("timeout", grace_period_timeout)
+	# customer_timer.connect("timeout", grace_period_timeout)
 	customer_timer.start(GRACE_PERIOD_LENGTH)
 
 func skip_customer():

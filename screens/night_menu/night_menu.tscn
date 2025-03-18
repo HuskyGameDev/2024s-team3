@@ -131,21 +131,21 @@ offset_right = 541.0
 offset_bottom = 96.0
 theme = ExtResource("4_kbbvy")
 theme_override_font_sizes/font_size = 64
-text = "$"
+text = " Shop "
 
 [node name="ForageButton" type="Button" parent="CanvasLayer"]
-offset_left = 583.0
+offset_left = 675.0
 offset_top = -1.0
-offset_right = 822.0
+offset_right = 914.0
 offset_bottom = 95.0
 theme = ExtResource("4_kbbvy")
 theme_override_font_sizes/font_size = 64
 text = "Forage"
 
 [node name="MoveButton" type="Button" parent="CanvasLayer"]
-offset_left = 852.0
+offset_left = 940.0
 offset_top = -1.0
-offset_right = 1057.0
+offset_right = 1145.0
 offset_bottom = 95.0
 theme = ExtResource("4_kbbvy")
 theme_override_font_sizes/font_size = 64

@@ -23,7 +23,7 @@ func _on_buy_button_pressed():
 	main = group[0]
 	#tween out song
 	var tween:Tween = get_tree().create_tween()
-	tween.tween_property($NightThemePlayer, "volume_db", -40, 3)
+	tween.tween_property($NightThemePlayer, "volume_db", -40, 0.5)
 	await tween.finished
 	$NightThemePlayer.stop()
 	
@@ -53,7 +53,7 @@ func _on_forage_button_pressed():
 func _on_move_button_pressed():	
 	#tween out song
 	var tween:Tween = get_tree().create_tween()
-	tween.tween_property($NightThemePlayer, "volume_db", -40, 3)
+	tween.tween_property($NightThemePlayer, "volume_db", -40, 0.5)
 	await tween.finished
 	$NightThemePlayer.stop()
 	var instance = map.instantiate() # instantiate map schene
