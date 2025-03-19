@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://screens/main/main.gd" id="1_0ufrw"]
 [ext_resource type="Script" path="res://screens/main/customers/customer_factory.gd" id="2_dnvch"]
-[ext_resource type="PackedScene" path="res://common/locations/location_background_switcher.tscn" id="2_k8r2e"]
+[ext_resource type="PackedScene" uid="uid://cmwfb5dcqfdtx" path="res://common/locations/location_background_switcher.tscn" id="2_k8r2e"]
 [ext_resource type="Texture2D" uid="uid://dbueov7x0qeqe" path="res://screens/main/background.png" id="2_u1ul0"]
 [ext_resource type="PackedScene" uid="uid://lnfput3ouduw" path="res://ui/pause_menu/pause_menu.tscn" id="3_8c0kv"]
 [ext_resource type="Script" path="res://screens/main/stations/water_factory.gd" id="4_u1qqd"]
@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://conja6bdcr3m3" path="res://common/items/water/water.tscn" id="16_p5ujx"]
 [ext_resource type="FontFile" uid="uid://dy8mlyjp48kpw" path="res://screens/main/ui/ingredient_book/m5x7.ttf" id="17_hcv40"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="17_kjbhu"]
-[ext_resource type="PackedScene" path="res://screens/main/ui/clock/clock.tscn" id="17_n5klg"]
+[ext_resource type="PackedScene" uid="uid://b6cq5upjosmpf" path="res://screens/main/ui/clock/clock.tscn" id="17_n5klg"]
 [ext_resource type="AudioStream" uid="uid://cjvldlnrrg48g" path="res://common/audio/Daytime.wav" id="23_7so7s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fs1cp"]

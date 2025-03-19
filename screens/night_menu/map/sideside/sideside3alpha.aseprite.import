@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://ci77tagti5ses"
+path="res://.godot/imported/sideside3alpha.aseprite-2ffa72102e9c7a996e1d077249ec75aa.res"
+
+[deps]
+
+source_file="res://screens/night_menu/map/sideside/sideside3alpha.aseprite"
+dest_files=["res://.godot/imported/sideside3alpha.aseprite-2ffa72102e9c7a996e1d077249ec75aa.res"]
+
+[params]
+
