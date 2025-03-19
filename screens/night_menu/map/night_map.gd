@@ -3,17 +3,46 @@ extends Node
 @onready var Player:CharacterBody2D = $Player
 signal move_done
 
+@onready var chicken: AnimatedSprite2D = $Player/AnimatedSprite2D
+@onready var sidewalk: AnimatedSprite2D = $Player/AnimatedSprite2D
+
+
+
 ## PLAYER MOVEMENT
+func ready():
+	chicken.scale = Vector2(0.5, 0.5)  # Reduces the size to half
+		 
+		
 func _physics_process(_delta):
 	Player.velocity = Vector2.ZERO
 	if Input.is_action_pressed("MapMoveUp"):
 		Player.velocity += Vector2.UP
+		sidewalk.play("topdown")
+		chicken.scale.y = -.5
+		chicken.scale.x = .5
+	if Input.is_action_just_released("MapMoveUp"):
+		sidewalk.stop()
 	if Input.is_action_pressed("MapMoveDown"):
 		Player.velocity += Vector2.DOWN
+		sidewalk.play("topdown")
+		chicken.scale.y = .5
+		chicken.scale.x = .5
+	if Input.is_action_just_released("MapMoveDown"):
+		sidewalk.stop()
 	if Input.is_action_pressed("MapMoveLeft"):
 		Player.velocity += Vector2.LEFT
+		sidewalk.play("sideside")
+		chicken.scale.x = -.5
+		chicken.scale.y = .5
+	if Input.is_action_just_released("MapMoveLeft"):
+		sidewalk.stop()
 	if Input.is_action_pressed("MapMoveRight"):
 		Player.velocity += Vector2.RIGHT
+		sidewalk.play("sideside")
+		chicken.scale.x = .5
+		chicken.scale.y = .5
+	if Input.is_action_just_released("MapMoveRight"):
+		sidewalk.stop()
 	Player.velocity *= 100
 	Player.move_and_slide()
 

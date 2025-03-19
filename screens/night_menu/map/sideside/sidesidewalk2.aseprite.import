@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cvonqxjjw60pc"
+path="res://.godot/imported/sidesidewalk2.aseprite-1d516af75c5c0f5a9753c1108f76aea0.res"
+
+[deps]
+
+source_file="res://screens/night_menu/map/sideside/sidesidewalk2.aseprite"
+dest_files=["res://.godot/imported/sidesidewalk2.aseprite-1d516af75c5c0f5a9753c1108f76aea0.res"]
+
+[params]
+
