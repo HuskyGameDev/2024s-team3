@@ -3,6 +3,12 @@ extends DraggableObject
 const CrushedSprite:Texture2D = preload("res://common/items/ingredients/crushed_ingredient.png")
 const HueSwapMaterial:Material = preload("res://common/shaders/hue_swap.tres")
 
+
+@onready var AnimalPickUp:Array[AudioStream] = [preload("res://common/audio/Animal_Ingredient_Pick_Up_1.wav"), preload("res://common/audio/Animal_Ingredient_Pick_Up_2.wav")]
+@onready var AnimalDrop:AudioStream = preload("res://common/audio/Animal_Ingredient_Put_Down.wav")
+var rng:RandomNumberGenerator = RandomNumberGenerator.new()
+
+
 const IMAGE_SCALE = 6
 
 @export var data: Ingredient
@@ -20,6 +26,7 @@ func _ready():
 	set_holding_collision_layer(31)
 	super()
 	
+	
 	Ingredient.Actions.get(1)
 	## setup data
 	if data: 
@@ -35,17 +42,32 @@ func _ready():
 				print_debug("Melted (TODO)")
 			elif data.id.begins_with(Ingredient.action_to_string(Ingredient.Actions.CONCENTRATE)):
 				print_debug("Concentrated (TODO)")
+				
+				
+	$SFX_Player.stop()
 
 
 # stops rotation of ingredient if its on the shelf
 func _on_body_entered(body):
 	if body.name == "Right Shelf" or body.name == "Left Shelf":
 		set_on_shelf(true)
+	
+	# Plays a sound on drop
+	$SFX_Player.set_stream(AnimalDrop)
+	$SFX_Player.volume_db = -15
+	$SFX_Player.play()
+	
 
 # allows rotation when it leaves the shelf
 func _on_body_exited(body):
 	if body.name == "Right Shelf" or body.name == "Left Shelf":
 		set_on_shelf(false)
+	
+	# Plays a sound on pick up	
+	var rand:int = rng.randi_range(0,1)
+	$SFX_Player.set_stream(AnimalPickUp[rand])
+	$SFX_Player.volume_db = -15
+	$SFX_Player.play()
 
 # default ingredient image
 func set_up_default_sprite():
