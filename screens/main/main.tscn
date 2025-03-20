@@ -242,6 +242,10 @@ stretch_mode = 5
 stream = ExtResource("23_7so7s")
 volume_db = -40.0
 
+[node name="Misc_SFX_Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_7so7s")
+volume_db = -40.0
+
 [connection signal="customer_created" from="CustomerFactory" to="." method="_on_new_customer"]
 [connection signal="pressed" from="IngredientBookButton" to="CanvasLayer/Book" method="_move_up"]
 [connection signal="potion_made" from="Cauldron" to="." method="_on_item_made"]

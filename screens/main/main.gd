@@ -6,6 +6,11 @@ var packed_ingredient_scene = preload("res://common/items/ingredients/ingredient
 @onready var CustomerFactory:Node = $CustomerFactory
 @onready var PedestalSlot:Node = $Pedestal/ShelfSlot
 
+@onready var dayStartSound:AudioStream = preload("res://common/audio/Day_Start_Chime.wav")
+@onready var dayEndSound:AudioStream = preload("res://common/audio/Day_End_Chime.wav")
+
+
+
 func _ready():
 	if GameTime.hour < GameTime.STORE_CLOSE_TIME: # true if it is daytime
 		GameTime.start_day() #start game timer
@@ -17,10 +22,17 @@ func _ready():
 		$AmbientPlayer.play()
 		var tween:Tween = get_tree().create_tween()
 		tween.tween_property($AmbientPlayer, "volume_db", -13, 2)
+		
+		$Misc_SFX_Player.set_stream(dayStartSound)
+		$Misc_SFX_Player.volume_db = -7
+		$Misc_SFX_Player.play()
 	else:
 		$EndDayAndSkip.visible = false # during the night hide skip button
+		
 		$AmbientPlayer.volume_db = -40
 		$AmbientPlayer.stop()
+		
+		
 	
 	$LocationBackgroundSwitcher.update_background()
 	

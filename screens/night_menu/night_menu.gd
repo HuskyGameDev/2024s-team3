@@ -4,6 +4,9 @@ var forage = preload("res://screens/night_menu/forage/forage.tscn") # preload ni
 var shop = preload("res://screens/night_menu/store/night_shop.tscn")
 var map = preload("res://screens/night_menu/map/night_map.tscn")
 
+
+@onready var dayEndSound:AudioStream = preload("res://common/audio/Day_End_Chime.wav")
+
 var main
 
 func _ready():
@@ -17,6 +20,10 @@ func _ready():
 	
 	var group = get_tree().get_nodes_in_group("main") # set main as node in group main. Necessary as name of main changes
 	main = group[0]
+	
+	$Misc_SFX_Player2.set_stream(dayEndSound)
+	$Misc_SFX_Player2.volume_db = -7
+	$Misc_SFX_Player2.play()
 
 func _on_buy_button_pressed(): 
 	var group = get_tree().get_nodes_in_group("main") # get main scene

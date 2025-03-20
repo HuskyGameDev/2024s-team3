@@ -36,6 +36,7 @@ func create_customer():
 				print("Failed the dialogue")
 				break
 			print("Passed the dialogue")
+	
 	# at this point, request must be new
 	recent_requests.push_front(current_customer.order.dialogueOptions[dialogue_number])
 	if (recent_requests.size() > 5):
