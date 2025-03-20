@@ -162,6 +162,8 @@ button_mask = 2
 [node name="Bubbler" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_yrlqp")
 
+[node name="Splasher" type="AudioStreamPlayer" parent="."]
+
 [node name="Poofer" type="AudioStreamPlayer" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -14,8 +14,12 @@ const packed_tooltip: PackedScene = preload("res://ui/tooltip/tooltip.tscn")
 @onready var anim = $AnimationPlayer
 var globalPotion: Potion
 @onready var SpriteShader:ShaderMaterial = $Sprite.material
+
 @onready var correctSound:AudioStream = preload("res://common/audio/Finish_Potion.wav")
 @onready var failedSounds:Array[AudioStream] = [preload("res://common/audio/Fail_Potion_1.wav"), preload("res://common/audio/Fail_Potion_2.wav"), preload("res://common/audio/Fail_Potion_3.wav")]
+@onready var splashSounds:Array[AudioStream] = [preload("res://common/audio/Cauldron_Splash_1.wav"), preload("res://common/audio/Cauldron_Splash_2.wav")]
+
+
 var tooltip: Node
 @onready var cauldronRightClicked = $ClickableArea/CollisionShape2D/Button
 
@@ -36,9 +40,12 @@ func _ready():
 	SpriteShader.set_shader_parameter("make_flat", true)
 	SpriteShader.set_shader_parameter("to", CAULDRON_EMPTY_COLOR)
 	$Bubbler.stop()
+	$Splasher.stop()
 
 
 func _on_body_enter_cauldron(body):
+	var index:int = rng.randi_range(0,1)
+	
 	print("Not an ingredient")
 	if not "data" in body: return
 	if not body.data is Ingredient: return
@@ -75,6 +82,12 @@ func _on_body_enter_cauldron(body):
 	SpriteShader.set_shader_parameter("to", current_effects.get_color())
 	print(current_effects)
 	body.queue_free()
+	
+	# Play splash Sound
+	$Splasher.set_stream(splashSounds[index])
+	$Splasher.volume_db = -7
+	$Splasher.play()
+	
 	## Set bubbler volume
 	$Bubbler.playing = true
 	volume = (volume*3/4)+5
