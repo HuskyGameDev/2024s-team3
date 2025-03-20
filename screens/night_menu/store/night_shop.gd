@@ -5,7 +5,11 @@ extends Node
 @onready var ExoticDisplays   := $ExoticShelf.get_children()
 @onready var SpeechBubble     := $SpeechBubble
 @onready var DialogueLabel    := $SpeechBubble/DialogueLabel
+@onready var buySounds:Array[AudioStream] = [preload("res://common/audio/Buy_Item_1.wav"), preload("res://common/audio/Buy_Item_2.wav"), preload("res://common/audio/Buy_Item_3.wav")]
 
+
+
+var rng:RandomNumberGenerator = RandomNumberGenerator.new()
 var totalCost = 0
 var cart:Array[DraggableObject] = []
 
@@ -171,6 +175,14 @@ func _on_buy_button_pressed():
 	if PlayerData.money >= totalCost:
 		PlayerData.money -= totalCost
 		$PlayerMoneyPanelContainer/PlayerMoneyMarginContainer/PlayerMoneyLabel.text = "$" + str(PlayerData.money)
+		
+		# Play buy sound effect
+		var rand:int = rng.randi_range(0,1)
+		$Buy_Sound_Effect.set_stream(buySounds[rand])
+		$Buy_Sound_Effect.volume_db = -7
+		$Buy_Sound_Effect.play()
+		
+		
 		# add ingredients to inventory
 		shopkeeper_speak("Thanks for coming!")
 		var tween:Tween = get_tree().create_tween()

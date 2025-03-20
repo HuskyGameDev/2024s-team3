@@ -44,7 +44,7 @@ func _ready():
 
 
 func _on_body_enter_cauldron(body):
-	var index:int = rng.randi_range(0,1)
+	
 	
 	print("Not an ingredient")
 	if not "data" in body: return
@@ -83,8 +83,9 @@ func _on_body_enter_cauldron(body):
 	print(current_effects)
 	body.queue_free()
 	
-	# Play splash Sound
-	$Splasher.set_stream(splashSounds[index])
+	# Play splash sound
+	var rand:int = rng.randi_range(0,1)
+	$Splasher.set_stream(splashSounds[rand])
 	$Splasher.volume_db = -7
 	$Splasher.play()
 	

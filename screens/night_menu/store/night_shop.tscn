@@ -270,6 +270,10 @@ expand_mode = 1
 stream = ExtResource("11_gn7bv")
 volume_db = -15.0
 
+[node name="Buy_Sound_Effect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_gn7bv")
+volume_db = -15.0
+
 [connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay1" to="." method="_on_ingredient_dropped"]
 [connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay2" to="." method="_on_ingredient_dropped"]
 [connection signal="ingredient_dropped" from="LocationShelf/IngredientDisplay3" to="." method="_on_ingredient_dropped"]
