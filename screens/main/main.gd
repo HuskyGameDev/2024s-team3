@@ -8,6 +8,7 @@ var packed_ingredient_scene = preload("res://common/items/ingredients/ingredient
 
 @onready var dayStartSound:AudioStream = preload("res://common/audio/Day_Start_Chime.wav")
 @onready var dayEndSound:AudioStream = preload("res://common/audio/Day_End_Chime.wav")
+@onready var shopBellSound:AudioStream = preload("res://common/audio/shop-bell.wav")
 
 
 
@@ -66,6 +67,9 @@ func _on_ring_bell():
 			sellingPotion = null
 			sellingPotionNode.queue_free()
 			CustomerFactory.create_customer()
+			$Misc_SFX_Player.set_stream(dayStartSound)
+			$Misc_SFX_Player.volume_db = -7
+			$Misc_SFX_Player.play()
 
 ##################### STATION HANDLERS #####################
 func _on_item_made(item: Item, pos: Vector2, throw: bool = true):

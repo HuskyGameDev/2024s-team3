@@ -76,14 +76,13 @@ func _on_body_entered(body):
 				$SFX_Player.set_stream(MineralDrop[rand])
 	$SFX_Player.volume_db = -15
 	$SFX_Player.play()
-	
 
 # allows rotation when it leaves the shelf
 func _on_body_exited(body):
 	if body.name == "Right Shelf" or body.name == "Left Shelf":
 		set_on_shelf(false)
 	
-	# Plays a sound on pick up depending on the ingredient type
+	# Plays a sound on drop depending on the ingredient type
 	var rand:int = rng.randi_range(0,1)
 	match self.data.id:
 		"aloe_jelly", "eye_of_a_newt", "frog_leg", "goats_blood", "goat_milk", "owl_feather", "raven_feather", "raw_leech", "robin_egg", "snake_oil", "squid_ink", "viper_fang":
@@ -97,11 +96,7 @@ func _on_body_exited(body):
 		"amber", "amethyst", "diamond", "emerald", "fools_gold", "gold_dust", "ice", "jade", "pearl", "quartz", "ruby", "sapphire", "silver_dust", "topaz":
 				$SFX_Player.set_stream(MineralPickUp[rand])
 	$SFX_Player.volume_db = -15
-	$SFX_Player.play()
-	
-	#if self.data.id == "nightshade_petals":
-		#
-		
+	$SFX_Player.play()	
 
 # default ingredient image
 func set_up_default_sprite():
