@@ -6,6 +6,15 @@ const HueSwapMaterial:Material = preload("res://common/shaders/hue_swap.tres")
 
 @onready var AnimalPickUp:Array[AudioStream] = [preload("res://common/audio/Animal_Ingredient_Pick_Up_1.wav"), preload("res://common/audio/Animal_Ingredient_Pick_Up_2.wav")]
 @onready var AnimalDrop:AudioStream = preload("res://common/audio/Animal_Ingredient_Put_Down.wav")
+@onready var MagicAnimalPickUp:Array[AudioStream] = [preload("res://common/audio/Magic_Animal_Ingredient_Pick_up_1.wav"), preload("res://common/audio/Magic_Animal_Ingredient_Pick_up_2.wav")]
+@onready var MagicAnimalDrop:AudioStream = preload("res://common/audio/Magic_Animal_Ingredient_Put_Down_1.wav")
+@onready var PlantPickUp:Array[AudioStream] = [preload("res://common/audio/Plant_Pickup_1.wav"), preload("res://common/audio/Plant_Pickup_2.wav")]
+@onready var PlantDrop:Array[AudioStream] = [preload("res://common/audio/Plant_Drop_1.wav"), preload("res://common/audio/Plant_Drop_2.wav")]
+@onready var MagicPlantPickUp:Array[AudioStream] = [preload("res://common/audio/Magic_Plant_Pickup_1.wav"), preload("res://common/audio/Magic_Plant_Pickup_2.wav")]
+@onready var MagicPlantDrop:Array[AudioStream] = [preload("res://common/audio/Magic_Plant_Drop_1.wav"), preload("res://common/audio/Magic_Plant_Drop_2.wav")]
+@onready var MineralPickUp:Array[AudioStream] = [preload("res://common/audio/Mineral_Pickup_1.wav"), preload("res://common/audio/Mineral_Pickup_2.wav")]
+@onready var MineralDrop:Array[AudioStream] = [preload("res://common/audio/Mineral_Drop_1.wav"), preload("res://common/audio/Mineral_Drop_2.wav")]
+
 var rng:RandomNumberGenerator = RandomNumberGenerator.new()
 
 
@@ -52,8 +61,19 @@ func _on_body_entered(body):
 	if body.name == "Right Shelf" or body.name == "Left Shelf":
 		set_on_shelf(true)
 	
-	# Plays a sound on drop
-	$SFX_Player.set_stream(AnimalDrop)
+	# Plays a sound on pick up depending on the ingredient type
+	var rand:int = rng.randi_range(0,1)
+	match self.data.id:
+		"aloe_jelly", "eye_of_a_newt", "frog_leg", "goats_blood", "goat_milk", "owl_feather", "raven_feather", "raw_leech", "robin_egg", "snake_oil", "squid_ink", "viper_fang":
+				$SFX_Player.set_stream(AnimalDrop)
+		"bugbear_hide", "dragon_claw", "harpy_feather", "phoenix_ash", "squonk_tears", "unicorn_horn", "werewolf_tooth", "yeti_fur":
+				$SFX_Player.set_stream(MagicAnimalDrop)
+		"bat_wing", "bison_fur", "elderberry_leaves", "eye_of_newt", "fairy_bell", "fire_flower", "fresh_moss", "holly_berries", "lavender", "lotus_petals", "nightshade_petals", "peppermint_leaves", "pine_resin", "poison_ivy", "rose", "sunflower_seeds", "thistle_root", "willow_bark":
+				$SFX_Player.set_stream(PlantDrop[rand])
+		"erdtree_branch", "mandrake_root", "pipe_weed":
+				$SFX_Player.set_stream(MagicPlantDrop[rand])
+		"amber", "amethyst", "diamond", "emerald", "fools_gold", "gold_dust", "ice", "jade", "pearl", "quartz", "ruby", "sapphire", "silver_dust", "topaz":
+				$SFX_Player.set_stream(MineralDrop[rand])
 	$SFX_Player.volume_db = -15
 	$SFX_Player.play()
 	
@@ -63,11 +83,25 @@ func _on_body_exited(body):
 	if body.name == "Right Shelf" or body.name == "Left Shelf":
 		set_on_shelf(false)
 	
-	# Plays a sound on pick up	
+	# Plays a sound on pick up depending on the ingredient type
 	var rand:int = rng.randi_range(0,1)
-	$SFX_Player.set_stream(AnimalPickUp[rand])
+	match self.data.id:
+		"aloe_jelly", "eye_of_a_newt", "frog_leg", "goats_blood", "goat_milk", "owl_feather", "raven_feather", "raw_leech", "robin_egg", "snake_oil", "squid_ink", "viper_fang":
+				$SFX_Player.set_stream(AnimalPickUp[rand])
+		"bugbear_hide", "dragon_claw", "harpy_feather", "phoenix_ash", "squonk_tears", "unicorn_horn", "werewolf_tooth", "yeti_fur":
+				$SFX_Player.set_stream(MagicAnimalPickUp[rand])
+		"bat_wing", "bison_fur", "elderberry_leaves", "eye_of_newt", "fairy_bell", "fire_flower", "fresh_moss", "holly_berries", "lavender", "lotus_petals", "nightshade_petals", "peppermint_leaves", "pine_resin", "poison_ivy", "rose", "sunflower_seeds", "thistle_root", "willow_bark":
+				$SFX_Player.set_stream(PlantPickUp[rand])
+		"erdtree_branch", "mandrake_root", "pipe_weed":
+				$SFX_Player.set_stream(MagicPlantPickUp[rand])
+		"amber", "amethyst", "diamond", "emerald", "fools_gold", "gold_dust", "ice", "jade", "pearl", "quartz", "ruby", "sapphire", "silver_dust", "topaz":
+				$SFX_Player.set_stream(MineralPickUp[rand])
 	$SFX_Player.volume_db = -15
 	$SFX_Player.play()
+	
+	#if self.data.id == "nightshade_petals":
+		#
+		
 
 # default ingredient image
 func set_up_default_sprite():
