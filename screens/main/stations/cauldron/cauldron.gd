@@ -98,7 +98,7 @@ func _on_body_enter_cauldron(body):
 func _on_cauldron_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click"):
 		if has_ingredients:
-			tooltip.set_text("Cauldron Ingredients", "")
+			tooltip.set_text("Cauldron Ingredients", " ")
 			ingredient_count = 0
 			has_ingredients = false
 			var potion = Potion.new()
