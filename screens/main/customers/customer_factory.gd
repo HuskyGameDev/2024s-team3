@@ -25,7 +25,6 @@ signal repChanged(new_rep: int)
 
 
 func _ready():
-	print(PlayerData.reputation)
 	moneyLabel.hide()
 	repLabel.hide()
 	if GameTime.hour < GameTime.STORE_CLOSE_TIME: # if it is day time
@@ -37,17 +36,13 @@ func create_customer():
 	var isNew: int = 0
 	var dialogue_number: int = 0
 	while (isNew == 0):
-		print("Started checking dialogue")
 		current_customer.order = PlayerData.location.customer_request_table.get_one_random()
 		dialogue_number = randi() % current_customer.order.dialogueOptions.size()
 		isNew = 1
 		for request:String in recent_requests:
 			if (current_customer.order.dialogueOptions[dialogue_number] == request):
 				isNew = 0
-				print("Failed the dialogue")
 				break
-			print("Passed the dialogue")
-	
 	# at this point, request must be new
 	recent_requests.push_front(current_customer.order.dialogueOptions[dialogue_number])
 	if (recent_requests.size() > 5):
@@ -112,7 +107,6 @@ func handle_purchase(potion: Potion) -> bool:
 		repLabel.position.x = randf_range(300, 1500)  # randomize x posistion of label
 		repLabel.show() 
 		labelAnim.play("gainreputation") # this animation has green text
-	print(PlayerData.reputation)
 	moneyLabel.text = "+ $" + str(total_price)
 	moneyLabel.show()
 	moneyLabel.position.x = randf_range(300, 1500)
