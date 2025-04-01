@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://pvvnkdn6u7y5"]
+[gd_scene load_steps=36 format=3 uid="uid://pvvnkdn6u7y5"]
 
 [ext_resource type="Script" path="res://screens/main/main.gd" id="1_0ufrw"]
 [ext_resource type="Script" path="res://screens/main/customers/customer_factory.gd" id="2_dnvch"]
@@ -47,14 +47,90 @@ description = "Dillute the potions effects by half."
 stack_size = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_8qn27"]
-font_size = 91
+font_size = 90
 
 [sub_resource type="Animation" id="Animation_e4syw"]
 length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("moneyLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(642, 526)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("moneyLabel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [491.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("moneyLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("repLabel:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [591.0]
+}
+
+[sub_resource type="Animation" id="Animation_uevw6"]
+resource_name = "moneymation"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("moneyLabel:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 3.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [500.0, -124.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("moneyLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.66667),
+"transitions": PackedFloat32Array(2.54912, 2.54912),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_rbiyi"]
-resource_name = "repumation"
-length = 2.0
+resource_name = "losereputation"
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -62,10 +138,10 @@ tracks/0/path = NodePath("repLabel:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 3.93333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [461.0, 125.0]
+"values": [591.0, -2.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -74,17 +150,51 @@ tracks/1/path = NodePath("repLabel:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.04375, 1.93333),
+"times": PackedFloat32Array(0.04375, 3.93333),
 "transitions": PackedFloat32Array(2.21914, 2.21914),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bxx78"]
+resource_name = "gainreputation"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("repLabel:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [591.0, -2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("repLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.04375, 3.93333),
+"transitions": PackedFloat32Array(2.21914, 2.21914),
+"update": 0,
+"values": [Color(0, 1, 0, 1), Color(0, 1, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4lxd1"]
 _data = {
 "RESET": SubResource("Animation_e4syw"),
-"repumation": SubResource("Animation_rbiyi")
+"gainreputation": SubResource("Animation_bxx78"),
+"losereputation": SubResource("Animation_rbiyi"),
+"moneymation": SubResource("Animation_uevw6")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_3kvd8"]
+font_size = 90
+font_color = Color(1, 1, 0, 1)
 
 [node name="Main" type="Node2D" groups=["main"]]
 script = ExtResource("1_0ufrw")
@@ -283,14 +393,29 @@ stream = ExtResource("23_7so7s")
 volume_db = -40.0
 
 [node name="repLabel" type="Label" parent="."]
-offset_left = 1063.0
-offset_top = 461.0
-offset_right = 1231.0
-offset_bottom = 586.0
+modulate = Color(0, 1, 0, 1)
+offset_left = 1105.0
+offset_top = 591.0
+offset_right = 1273.0
+offset_bottom = 716.0
 text = "test"
 label_settings = SubResource("LabelSettings_8qn27")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="repLabel"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_4lxd1")
+}
+
+[node name="moneyLabel" type="Label" parent="."]
+offset_left = 642.0
+offset_top = 526.0
+offset_right = 940.0
+offset_bottom = 650.0
+text = "money"
+label_settings = SubResource("LabelSettings_3kvd8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="moneyLabel"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_4lxd1")

@@ -14,14 +14,19 @@ var recent_requests: Array[String]
 @onready var in_grace_period = true
 @onready var reputationDif = 0;
 @onready var repBonus = 0
+@onready var moneyChange = 0
 @onready var repLabel = $"../repLabel"
 @onready var labelAnim = $"../repLabel/AnimationPlayer"
+@onready var moneyLabelAnim = $"../moneyLabel/AnimationPlayer"
+@onready var moneyLabel = $"../moneyLabel"
 
 signal customer_created(customer: Customer)
 signal repChanged(new_rep: int)
 
 
 func _ready():
+	print(PlayerData.reputation)
+	moneyLabel.hide()
 	repLabel.hide()
 	if GameTime.hour < GameTime.STORE_CLOSE_TIME: # if it is day time
 		create_customer()
@@ -97,12 +102,20 @@ func handle_purchase(potion: Potion) -> bool:
 		PlayerData.change_money(floor(total_price*0.4))
 		PlayerData.change_reputation(-3)
 		repBonus += -3
-	repLabel.text = str(repBonus) + " Rep"
-	if(repBonus > 0):
-		repLabel.text = "+" + str(repBonus) + " Rep"
+	repLabel.text = str(repBonus) + " Rep" 
+	repLabel.position.x = randf_range(300, 1500)   # randomize x posistion of label
 	repLabel.show() 
-	repLabel.position.x = randf_range(500, 1500)  # Random X between 100 and 500
-	labelAnim.play("repumation")
+	labelAnim.play("losereputation") # this animation has red text
+	if(repBonus > 0): 
+		repLabel.text = "+" + str(repBonus) + " Rep"
+		repLabel.position.x = randf_range(300, 1500)  # randomize x posistion of label
+		repLabel.show() 
+		labelAnim.play("gainreputation") # this animation has green text
+	print(PlayerData.reputation)
+	moneyLabel.text = "+ $" + str(total_price)
+	moneyLabel.show()
+	moneyLabel.position.x = randf_range(300, 1500)
+	moneyLabelAnim.play("moneymation")
 	repBonus = 0
 	customer_node.leave_store()
 	remove_child(customer_timer)
