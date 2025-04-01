@@ -13,13 +13,16 @@ var recent_requests: Array[String]
 @onready var time_modifier = 1
 @onready var in_grace_period = true
 @onready var reputationDif = 0;
+@onready var repBonus = 0
+@onready var repLabel = $"../repLabel"
+@onready var labelAnim = $"../repLabel/AnimationPlayer"
 
 signal customer_created(customer: Customer)
 signal repChanged(new_rep: int)
 
 
 func _ready():
-	print("This script is attached to:", self)
+	repLabel.hide()
 	if GameTime.hour < GameTime.STORE_CLOSE_TIME: # if it is day time
 		create_customer()
 
@@ -80,17 +83,27 @@ func handle_purchase(potion: Potion) -> bool:
 	reputationDif = PlayerData.reputation
 	if current_customer.order.check(potion):
 		PlayerData.change_reputation(1)
+		repBonus+= 1
 		# apply bonuses
 		total_price = total_price * (0.8+(0.2*number_effects))
 		if (number_strong_effects > 0): total_price *= 1.5
+		repBonus+= 1
 		
 		PlayerData.change_money(floor(total_price))
 		if in_grace_period:
 			PlayerData.change_reputation(1) # give an extra reputation if fast enough
+			repBonus+= 1
 	else:
 		PlayerData.change_money(floor(total_price*0.4))
 		PlayerData.change_reputation(-3)
-	emit_signal("repChanged", reputationDif)
+		repBonus += -3
+	repLabel.text = str(repBonus) + " Rep"
+	if(repBonus > 0):
+		repLabel.text = "+" + str(repBonus) + " Rep"
+	repLabel.show() 
+	repLabel.position.x = randf_range(500, 1500)  # Random X between 100 and 500
+	labelAnim.play("repumation")
+	repBonus = 0
 	customer_node.leave_store()
 	remove_child(customer_timer)
 	return true
