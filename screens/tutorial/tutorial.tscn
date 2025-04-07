@@ -74,6 +74,11 @@ offset_right = 1303.0
 offset_bottom = 85.0
 text = "Congratulations! You've served your first customer!"
 
+[node name="WelcomeText" type="RichTextLabel" parent="Tutorial" index="6"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="CuttingBoard" parent="." index="12"]
 process_mode = 4
 physics_interpolation_mode = 2

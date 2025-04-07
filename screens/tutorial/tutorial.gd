@@ -7,6 +7,7 @@ extends Node
 ## 4. Put potion on pedestal
 ## 5. Swing bell to sell to customer
 
+@onready var welcome_text = $WelcomeText
 @onready var nightshade_text = $NightshadeLabel
 @onready var inventory_text = $InventoryLabel
 @onready var sunflower_text = $SunflowerLabel
@@ -25,6 +26,7 @@ func _ready():
 	main_node.get_node("InventoryDrawer").connect("inventory_open", _on_inventory_open)
 	main_node.get_node("BellButton").connect("pressed", _on_bell_rung)
 	skipButton = main_node.get_node("EndDayAndSkip")
+	GameTime.emit_signal("pause")
 	## Set visibility
 	skipButton.visible = false
 	nightshade_text.visible = true
@@ -73,6 +75,7 @@ func _on_bell_rung():
 		potion_text.queue_free()
 		finish_text.visible = true
 		active_step = 5;
+		GameTime.emit_signal("pause")
 	
 	## Wait 8 seconds then switch out of tutorial scene
 	## This isn't under the if statement because selling a potion means they've understood enough
