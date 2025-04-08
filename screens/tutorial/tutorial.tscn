@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://busxwpt8gsgma"]
+[gd_scene load_steps=22 format=3 uid="uid://busxwpt8gsgma"]
 
 [ext_resource type="PackedScene" uid="uid://pvvnkdn6u7y5" path="res://screens/main/main.tscn" id="1_5wofc"]
 [ext_resource type="Script" path="res://screens/tutorial/tutorial.gd" id="2_7hpqk"]
@@ -255,6 +255,34 @@ tracks/1/keys = {
 "values": [3.14159]
 }
 
+[sub_resource type="Animation" id="Animation_sfdrx"]
+resource_name = "arrowmove_8"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(323, 382), Vector2(376, 382)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o8w2u"]
 _data = {
 "RESET": SubResource("Animation_2dk0c"),
@@ -264,7 +292,8 @@ _data = {
 "arrowmove_4": SubResource("Animation_msqsn"),
 "arrowmove_5": SubResource("Animation_iqgim"),
 "arrowmove_6": SubResource("Animation_4odem"),
-"arrowmove_7": SubResource("Animation_70s8k")
+"arrowmove_7": SubResource("Animation_70s8k"),
+"arrowmove_8": SubResource("Animation_sfdrx")
 }
 
 [sub_resource type="Resource" id="Resource_4pjel"]
@@ -392,5 +421,5 @@ position = Vector2(1562, 624)
 data = SubResource("Resource_4pjel")
 
 [connection signal="pressed" from="Tutorial/welcome/welcomeButton" to="." method="_on_welcome_button_pressed"]
-[connection signal="pressed" from="Tutorial/welcome/welcomeButton" to="Tutorial" method="_on_button_pressed"]
 [connection signal="pressed" from="Tutorial/welcome/welcomeButton" to="Tutorial" method="_on_welcome_button_pressed"]
+[connection signal="pressed" from="Tutorial/welcome/welcomeButton" to="Tutorial" method="_on_button_pressed"]

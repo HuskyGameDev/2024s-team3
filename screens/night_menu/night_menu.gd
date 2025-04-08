@@ -11,6 +11,7 @@ var main
 
 func _ready():
 	GameTime.hour = GameTime.STORE_CLOSE_TIME
+	GameTime.emit_signal("pause")
 	$"Shutter/CenterContainer/VBoxContainer/HBoxContainer/SalesNumber".text = "$%d" % PlayerData.moneyToday # change text on shutter to match money earned today
 	$"Shutter/CenterContainer/VBoxContainer/HBoxContainer/ReputationNumber".text = "%d Reputation" % PlayerData.repToday# change text on shutter to match reputation earned today
 	var darkness = $CanvasLayer/Darkness

@@ -28,8 +28,8 @@ func _ready():
 		$Misc_SFX_Player.volume_db = -7
 		$Misc_SFX_Player.play()
 	else:
+		GameTime.emit_signal("pause")
 		$EndDayAndSkip.visible = false # during the night hide skip button
-		
 		$AmbientPlayer.volume_db = -40
 		$AmbientPlayer.stop()
 		

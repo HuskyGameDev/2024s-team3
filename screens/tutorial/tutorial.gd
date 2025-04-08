@@ -18,6 +18,7 @@ extends Node
 @onready var welcome = $welcome
 @onready var arrow = $arrow
 @onready var arrowAnim = $arrow/AnimationPlayer
+@onready var endDay = $EndDayAndSkip
 
 var pressed = 0
 var skipButton
@@ -30,6 +31,9 @@ func _ready():
 	main_node.get_node("Cauldron").connect("potion_made", _on_potion_made)
 	main_node.get_node("InventoryDrawer").connect("inventory_open", _on_inventory_open)
 	main_node.get_node("Pedestal/ShelfSlot").connect("items_changed", Callable(self, "_on_pedestal_item_changed"))
+	main_node.get_node("EndDayAndSkip").connect("end_day_pressed", _on_end_day_pressed)
+	main_node.get_node("EndDayAndSkip").connect("confirm_pressed", _on_confirm_pressed)
+
 
 	main_node.get_node("BellButton").connect("pressed", _on_bell_rung)
 	skipButton = main_node.get_node("EndDayAndSkip")
@@ -79,8 +83,10 @@ func _on_welcome_button_pressed() -> void:
 		welcome_continue_button.hide()
 		arrowAnim.play("arrowmove_4")
 		welcome_text.text = "click here to open up your inventory"
+		active_step += 1
 	if pressed == 10:
 		welcome_text.text = "hover over the ingredients to find out their name and effect"
+		
 		
 		
 		
@@ -102,38 +108,52 @@ func _on_welcome_button_pressed() -> void:
 
 func _on_inventory_open(open:bool):
 	print(active_step)
-	if(active_step < 1):
+	if(active_step == 1):
 		welcome_text.text = "find 'nightshade petals' by hovering over the ingredients and drag them to the cauldron"
 		active_step += 1
 		
 func _on_ingredient_added(ingredient):
 		if not "data" in ingredient: return
 		if not ingredient.data is Ingredient: return
-		if ingredient.data.id == "nightshade_petals":
-			welcome_text.text = "Great! now add a sunflower seed to the cauldron as well"
-		if ingredient.data.id == "sunflower_seeds":
-			welcome_text.text = "Right click the cauldron to see the effects, slight effects will have no bearing on the order, and customers generally want weak effect potions unless they specify otherwise, mixing ingredients with opposite effects will cancel/lessen their effects"
+		if(active_step == 2):
+			if ingredient.data.id == "nightshade_petals":
+				active_step += 1
+				welcome_text.text = "Great! now add a sunflower seed to the cauldron as well"
+		if(active_step == 3):
+			if ingredient.data.id == "sunflower_seeds":
+				active_step += 1
+				welcome_text.text = "Right click the cauldron to see the effects, slight effects will have no bearing on the order, and customers generally want weak effect potions unless they specify otherwise, mixing ingredients with opposite effects will cancel/lessen their effects"
 	
 func _on_potion_made(_potion, _position):
-	if(active_step == 2):
+	print(active_step)
+	if(active_step == 4):
 		active_step += 1
 		arrowAnim.play("arrowmove_5")
 		welcome_text.text = "drag the potion here"
 	
 func _on_pedestal_item_changed(held_nodes: Array, new_item):
-	if(active_step == 3):
+	if(active_step == 5):
 		active_step += 1
 		arrowAnim.play("arrowmove_6")
 		welcome_text.text = "Now just click the bell to sell the potion"
 	
 func _on_bell_rung():
-	if(active_step == 4):
+	if(active_step == 6):
 		active_step += 1
 		welcome_text.text = "Click the 'end day' button"
 		arrowAnim.play("arrowmove_7")
 		skipButton.visible = true
+		
+func _on_end_day_pressed():
+	if(active_step == 7):
+		active_step += 1
+		arrowAnim.play("arrowmove_8")
+		welcome_text.text = "now press yes"
 	
-	
+func _on_confirm_pressed():
+	if(active_step == 8):
+		active_step += 1
+		welcome_text.text = "nice"
 
 #func _on_potion_made(_potion, _position):
 	#if active_step == 3:
