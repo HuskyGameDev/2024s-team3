@@ -19,8 +19,10 @@ extends Node
 @onready var arrow = $arrow
 @onready var arrowAnim = $arrow/AnimationPlayer
 @onready var endDay = $EndDayAndSkip
+@onready var welcomePanel = $welcome
+@onready var panelAnim = $welcome/panelMove
 
-var pressed = 0
+
 var skipButton
 var active_step = 0
 
@@ -33,13 +35,14 @@ func _ready():
 	main_node.get_node("Pedestal/ShelfSlot").connect("items_changed", Callable(self, "_on_pedestal_item_changed"))
 	main_node.get_node("EndDayAndSkip").connect("end_day_pressed", _on_end_day_pressed)
 	main_node.get_node("EndDayAndSkip").connect("confirm_pressed", _on_confirm_pressed)
-
+	#main_node.get_node("Cauldron").connect("cauldron_pressed", _on_cauldron_pressed)
 
 	main_node.get_node("BellButton").connect("pressed", _on_bell_rung)
 	skipButton = main_node.get_node("EndDayAndSkip")
 	GameTime.emit_signal("pause")
 	## Set visibility
-	welcome.visible = true
+	if(welcome != null):
+		welcome.visible = true
 	skipButton.visible = false
 	nightshade_text.visible = false
 	inventory_text.visible = false
@@ -47,7 +50,15 @@ func _ready():
 	cauldron_text.visible = false
 	potion_text.visible = false
 	finish_text.visible = false
-	arrow.hide()
+	
+	if(arrow != null):
+		arrow.hide()
+	
+	if(welcomePanel != null):
+		panelAnim.play("welcome_panel")
+		if(TutorialPressed.pressed > 1):
+			panelAnim.play("welcome_panel_2")
+	PlayerData.change_reputation(6) # starting reputation to balance ending the day early
 	
 	
 	## Set customer order
@@ -58,54 +69,79 @@ func _ready():
 		main_node.get_node("CustomerFactory/Customer/DialogueLabel").text = tutorial_order.dialogueOptions[0]
 
 func _on_welcome_button_pressed() -> void:
-	pressed += 1
-	if pressed == 1:
+	TutorialPressed.pressed += 1
+	if TutorialPressed.pressed == 1:
 		welcome_text.text = "your goal is to sell potions as fast as possible to get reputation and money"
-	if pressed == 2:
+	if TutorialPressed.pressed == 2:
 		welcome_text.text = "gaining reputation will allow you to sell potions in new areas"
-	if pressed == 3:
+	if TutorialPressed.pressed == 3:
 		welcome_text.text = "you will be able to spend your money to buy more ingredients at the end of each day"
-	if pressed == 4:
-		welcome_text.text = "Now, lets get you familiar with the potion shack"
-	if pressed == 5:
+	if TutorialPressed.pressed == 4:
+		welcome_text.text = "now, lets get you familiar with the potion shack"
+	if TutorialPressed.pressed == 5:
 		arrow.show()
 		arrowAnim.play("arrowmove")
-		welcome_text.text = "this is the clock it will show you how much time is left to sell potions, for the tutorial it is paused"
-	if pressed == 6:
+		welcome_text.text = "this is the clock"
+	if TutorialPressed.pressed == 6:
+		welcome_text.text = "it will show you how much time is left to sell potions"
+	if TutorialPressed.pressed == 7:
 		arrowAnim.play("arrowmove_2")
-		welcome_text.text = "this is the ingredient book you can click on it to learn about each ingredient"
-	if pressed == 7:
+		welcome_text.text = "this is the ingredient book"
+	if TutorialPressed.pressed == 8:
+		welcome_text.text = "you can click on it to learn about each ingredient"
+	if TutorialPressed.pressed == 9:
 		arrowAnim.play("arrowmove_3")
 		welcome_text.text = "this shows you your current money and reputation"
-	if pressed == 8:
+	if TutorialPressed.pressed == 10:
 		welcome_text.text = "now, lets help this customer"
-	if pressed == 9:
+	if TutorialPressed.pressed == 11:
 		welcome_continue_button.hide()
 		arrowAnim.play("arrowmove_4")
 		welcome_text.text = "click here to open up your inventory"
 		active_step += 1
-	if pressed == 10:
+	if TutorialPressed.pressed == 12:
 		welcome_text.text = "hover over the ingredients to find out their name and effect"
-		
-		
-		
+	if TutorialPressed.pressed == 13:
+		arrow.show()
+		arrowAnim.play("arrowmove_9")
+		welcome_text.text = "clicking this button will bring you to the shop where you can buy ingredients"
+	if TutorialPressed.pressed == 14:
+		welcome_text.text = "to buy ingredients you just click and drag them into the basket"
+	if TutorialPressed.pressed == 15:
+		arrowAnim.play("arrowmove_10")
+		welcome_text.text = "this is the forage button"
+	if TutorialPressed.pressed == 16:
+		welcome_text.text = "you should make sure to press it every night because foraging will get you free ingredients!"
+	if TutorialPressed.pressed == 17:
+		arrowAnim.play("arrowmove_11")
+		welcome_text.text = "this is the move button"
+	if TutorialPressed.pressed == 18:
+		welcome_text.text = "it will bring you to the overworld where you can move using the arrow keys"
+	if TutorialPressed.pressed == 19:
+		welcome_text.text = "in the overworld you may also find new locations which you can enter by clicking on them"
+	if TutorialPressed.pressed == 20:
+		welcome_text.text = "just make sure you have enough reputation!"
+	if TutorialPressed.pressed == 21:
+		arrowAnim.play("arrowmove_12")
+		welcome_text.text = "lastly, this is the curtain"
+	if TutorialPressed.pressed == 22:
+		welcome_text.text = "it displays your net money and reputation gain/loss for the day"
+	if TutorialPressed.pressed == 23:
+		welcome_text.text = "whenever you want to start the next day, just CLICK AND DRAG the curtain to the right"
+	if TutorialPressed.pressed == 24:
+		arrow.hide()
+		welcome_continue_button.hide()
+		welcome_text.text = "This concludes the tutorial, good luck!"
+		await get_tree().create_timer(2).timeout
+		welcomePanel.queue_free()
+		arrow.queue_free()
+		PlayerData.tutorial_complete = true
+		PlayerData.save_game_files()
 		
 		
 	
-	
-
-	#if not "data" in ingredient: return
-	#if not ingredient.data is Ingredient: return
-	#if active_step == 0 and ingredient.data.id == "nightshade_petals":
-		#nightshade_text.queue_free()
-		#inventory_text.visible = true
-		#active_step += 1
-	#elif active_step == 2 and ingredient.data.id == "sunflower_seeds":
-		#sunflower_text.queue_free()
-		#cauldron_text.visible = true
-		#active_step += 1
 		
-
+	
 func _on_inventory_open(open:bool):
 	print(active_step)
 	if(active_step == 1):
@@ -118,11 +154,13 @@ func _on_ingredient_added(ingredient):
 		if(active_step == 2):
 			if ingredient.data.id == "nightshade_petals":
 				active_step += 1
-				welcome_text.text = "Great! now add a sunflower seed to the cauldron as well"
+				welcome_text.text = "great! now add a sunflower seed to the cauldron as well"
 		if(active_step == 3):
 			if ingredient.data.id == "sunflower_seeds":
 				active_step += 1
-				welcome_text.text = "Right click the cauldron to see the effects, slight effects will have no bearing on the order, and customers generally want weak effect potions unless they specify otherwise, mixing ingredients with opposite effects will cancel/lessen their effects"
+				welcome_text.text = "(SCROLL!)\nRight click the cauldron to see the effects, slight effects will have no bearing on the order, customers generally want weak effect potions unless they specify otherwise, mixing ingredients with opposite effects will cancel/lessen their effects, now left click the cauldron to brew the potion"
+				
+				
 	
 func _on_potion_made(_potion, _position):
 	print(active_step)
@@ -135,12 +173,12 @@ func _on_pedestal_item_changed(held_nodes: Array, new_item):
 	if(active_step == 5):
 		active_step += 1
 		arrowAnim.play("arrowmove_6")
-		welcome_text.text = "Now just click the bell to sell the potion"
+		welcome_text.text = "now just click the bell to sell the potion"
 	
 func _on_bell_rung():
 	if(active_step == 6):
 		active_step += 1
-		welcome_text.text = "Click the 'end day' button"
+		welcome_text.text = "click the 'end day' button"
 		arrowAnim.play("arrowmove_7")
 		skipButton.visible = true
 		
@@ -153,27 +191,10 @@ func _on_end_day_pressed():
 func _on_confirm_pressed():
 	if(active_step == 8):
 		active_step += 1
-		welcome_text.text = "nice"
+		welcome_continue_button.show()
+		welcomePanel.z_index = 100
+		welcome_text.text = "welcome to the nightime!"
+		TutorialPressed.pressed += 1
+		
 
-#func _on_potion_made(_potion, _position):
-	#if active_step == 3:
-		#cauldron_text.queue_free()
-		#potion_text.visible = true
-		#active_step += 1
-#
-#
-#func _on_bell_rung():
-	#if active_step == 4:
-		#potion_text.queue_free()
-		#finish_text.visible = true
-		#active_step = 5;
-		#GameTime.emit_signal("pause")
-	#
-	### Wait 8 seconds then switch out of tutorial scene
-	### This isn't under the if statement because selling a potion means they've understood enough
-	#await get_tree().create_timer(4).timeout
-	#PlayerData.tutorial_complete = true
-	#PlayerData.save_game_files()
-	#finish_text.queue_free()
-	#skipButton.visible = true
-	#self.queue_free()
+		

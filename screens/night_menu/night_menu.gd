@@ -8,6 +8,7 @@ var map = preload("res://screens/night_menu/map/night_map.tscn")
 @onready var dayEndSound:AudioStream = preload("res://common/audio/Day_End_Chime.wav")
 
 var main
+signal shop_pressed
 
 func _ready():
 	GameTime.hour = GameTime.STORE_CLOSE_TIME
@@ -27,6 +28,7 @@ func _ready():
 	$Misc_SFX_Player2.play()
 
 func _on_buy_button_pressed(): 
+	shop_pressed.emit()
 	var group = get_tree().get_nodes_in_group("main") # get main scene
 	main = group[0]
 	#tween out song
