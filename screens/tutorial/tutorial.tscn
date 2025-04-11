@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://busxwpt8gsgma"]
+[gd_scene load_steps=30 format=3 uid="uid://busxwpt8gsgma"]
 
 [ext_resource type="PackedScene" uid="uid://pvvnkdn6u7y5" path="res://screens/main/main.tscn" id="1_5wofc"]
 [ext_resource type="Script" path="res://screens/tutorial/tutorial.gd" id="2_7hpqk"]
@@ -19,6 +19,58 @@ border_color = Color(0.498039, 0.278431, 0.0862745, 1)
 [sub_resource type="Theme" id="Theme_aik8s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dal8"]
+
+[sub_resource type="Animation" id="Animation_id0l4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(459, 352)]
+}
+
+[sub_resource type="Animation" id="Animation_iln32"]
+resource_name = "welcome_panel"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(459, 352)]
+}
+
+[sub_resource type="Animation" id="Animation_l3n15"]
+resource_name = "welcome_panel_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(114, 478)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mbd6u"]
+_data = {
+"RESET": SubResource("Animation_id0l4"),
+"welcome_panel": SubResource("Animation_iln32"),
+"welcome_panel_2": SubResource("Animation_l3n15")
+}
 
 [sub_resource type="Animation" id="Animation_2dk0c"]
 length = 0.001
@@ -85,6 +137,90 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [3.14159]
+}
+
+[sub_resource type="Animation" id="Animation_pfqfb"]
+resource_name = "arrowmove_10"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(690, 190), Vector2(690, 233)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_aaq1j"]
+resource_name = "arrowmove_11"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(953, 190), Vector2(953, 229)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_fi0mg"]
+resource_name = "arrowmove_12"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(358, 221), Vector2(309, 221)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_q7cm1"]
@@ -283,17 +419,49 @@ tracks/1/keys = {
 "values": [3.14159]
 }
 
+[sub_resource type="Animation" id="Animation_xcxrc"]
+resource_name = "arrowmove_9"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(486, 189), Vector2(486, 235)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5708]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o8w2u"]
 _data = {
 "RESET": SubResource("Animation_2dk0c"),
 "arrowmove": SubResource("Animation_lj8s5"),
+"arrowmove_10": SubResource("Animation_pfqfb"),
+"arrowmove_11": SubResource("Animation_aaq1j"),
+"arrowmove_12": SubResource("Animation_fi0mg"),
 "arrowmove_2": SubResource("Animation_q7cm1"),
 "arrowmove_3": SubResource("Animation_gytsf"),
 "arrowmove_4": SubResource("Animation_msqsn"),
 "arrowmove_5": SubResource("Animation_iqgim"),
 "arrowmove_6": SubResource("Animation_4odem"),
 "arrowmove_7": SubResource("Animation_70s8k"),
-"arrowmove_8": SubResource("Animation_sfdrx")
+"arrowmove_8": SubResource("Animation_sfdrx"),
+"arrowmove_9": SubResource("Animation_xcxrc")
 }
 
 [sub_resource type="Resource" id="Resource_4pjel"]
@@ -390,9 +558,14 @@ offset_right = 454.0
 offset_bottom = 223.0
 text = "Continue"
 
+[node name="panelMove" type="AnimationPlayer" parent="Tutorial/welcome" index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_mbd6u")
+}
+
 [node name="arrow" type="Sprite2D" parent="Tutorial" index="7"]
 position = Vector2(238, 585)
-scale = Vector2(8.1571, 6.75042)
+scale = Vector2(7.44688, 6.75042)
 texture = ExtResource("4_g5yoa")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Tutorial/arrow" index="0"]
