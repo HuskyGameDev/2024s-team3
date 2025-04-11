@@ -380,7 +380,7 @@ offset_right = 619.0
 offset_bottom = 158.0
 theme = SubResource("Theme_aik8s")
 theme_override_styles/background = SubResource("StyleBoxFlat_3dal8")
-text = "Welcome to the baba yaga's bottles tutorial!"
+text = "Welcome to the Baba Yaga's Bottles tutorial!"
 
 [node name="welcomeButton" type="Button" parent="Tutorial/welcome" index="1"]
 layout_mode = 0
@@ -421,5 +421,5 @@ position = Vector2(1562, 624)
 data = SubResource("Resource_4pjel")
 
 [connection signal="pressed" from="Tutorial/welcome/welcomeButton" to="." method="_on_welcome_button_pressed"]
-[connection signal="pressed" from="Tutorial/welcome/welcomeButton" to="Tutorial" method="_on_welcome_button_pressed"]
 [connection signal="pressed" from="Tutorial/welcome/welcomeButton" to="Tutorial" method="_on_button_pressed"]
+[connection signal="pressed" from="Tutorial/welcome/welcomeButton" to="Tutorial" method="_on_welcome_button_pressed"]
