@@ -62,7 +62,12 @@ func _ready():
 	PlayerData.change_reputation(6) # starting reputation to balance ending the day early
 	
 	
-	
+	## Set customer order
+	var customer = main_node.get_node_or_null("CustomerFactory/Customer")
+	if customer and "data" in customer:
+		var tutorial_order = preload("res://screens/tutorial/tutorial_order.tres")
+		main_node.get_node("CustomerFactory/Customer").data.order = tutorial_order
+		main_node.get_node("CustomerFactory/Customer/DialogueLabel").text = tutorial_order.dialogueOptions[0]
 
 func _on_welcome_button_pressed() -> void:
 	TutorialPressed.pressed += 1
@@ -89,7 +94,7 @@ func _on_welcome_button_pressed() -> void:
 		arrowAnim.play("arrowmove_3")
 		welcome_text.text = "This shows you your current money and reputation."
 	if TutorialPressed.pressed == 10:
-		welcome_text.text = "Now, lets help this customer!"
+		welcome_text.text = "Now, let's help this customer!"
 	if TutorialPressed.pressed == 11:
 		welcome_continue_button.hide()
 		arrowAnim.play("arrowmove_4")
