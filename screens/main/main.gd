@@ -27,7 +27,12 @@ func _ready():
 		$Misc_SFX_Player.set_stream(dayStartSound)
 		$Misc_SFX_Player.volume_db = -7
 		$Misc_SFX_Player.play()
+<<<<<<< Updated upstream
+	else:
+		GameTime.emit_signal("pause")
+=======
 	elif GameTime.hour >= GameTime.STORE_CLOSE_TIME:
+>>>>>>> Stashed changes
 		$EndDayAndSkip.visible = false # during the night hide skip button
 		$AmbientPlayer.volume_db = -40
 		$AmbientPlayer.stop()
