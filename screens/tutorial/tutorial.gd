@@ -147,6 +147,7 @@ func _on_inventory_open(open:bool):
 	print(active_step)
 	if(active_step == 1):
 		welcome_text.text = "Find 'nightshade petals' by hovering over the ingredients and drag them to the cauldron"
+		active_step += 1
 		
 func _on_ingredient_added(ingredient):
 		if not "data" in ingredient: return

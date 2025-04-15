@@ -594,5 +594,5 @@ position = Vector2(1562, 624)
 data = SubResource("Resource_4pjel")
 
 [connection signal="pressed" from="Tutorial/welcome/welcomeButton" to="." method="_on_welcome_button_pressed"]
-[connection signal="pressed" from="Tutorial/welcome/welcomeButton" to="Tutorial" method="_on_button_pressed"]
 [connection signal="pressed" from="Tutorial/welcome/welcomeButton" to="Tutorial" method="_on_welcome_button_pressed"]
+[connection signal="pressed" from="Tutorial/welcome/welcomeButton" to="Tutorial" method="_on_button_pressed"]
