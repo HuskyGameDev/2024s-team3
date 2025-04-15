@@ -28,7 +28,6 @@ var rng:RandomNumberGenerator = RandomNumberGenerator.new()
 
 signal potion_made(potion: Potion, pos: Vector2)
 signal water_spawn
-signal cauldron_pressed
 
 
 
@@ -82,7 +81,8 @@ func _on_body_enter_cauldron(body):
 	print(current_effects)
 	var effect_labels: Array[String] = current_effects.get_strongest_as_strings()
 	var i = 0 # iterator for effect labels
-	tooltip.add_text("Effect Strength Hierarchy: Slight, Weak, (Regular), Strong\n\n")
+	tooltip.add_text("Effect Strength Hierarchy: Slight, Weak, (Regular), Strong")
+	tooltip.add_text("\n")
 	for effect in effect_labels: # dont add comma if it is the first effect 
 		i += 1
 		if i > 1:
@@ -162,7 +162,6 @@ func _on_clickable_area_mouse_entered() -> void:
 	
 # show tooltip when cauldron is right clicked
 func _on_button_pressed() -> void:
-	emit_signal("cauldron_pressed")
 	tooltip.global_position = self.global_position
 	
 	var viewport_rect = get_viewport_rect()
