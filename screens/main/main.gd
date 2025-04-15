@@ -13,7 +13,7 @@ var packed_ingredient_scene = preload("res://common/items/ingredients/ingredient
 
 
 func _ready():
-	if (GameTime.hour >= GameTime.STORE_OPEN_TIME) and (GameTime.hour < GameTime.STORE_CLOSE_TIME): # true if it is daytime
+	if GameTime.hour < GameTime.STORE_CLOSE_TIME: # true if it is daytime
 		GameTime.start_day() #start game timer
 		GameTime.end_of_day.connect(CustomerFactory._leave_end_day) #signal customer to move off the screen
 		#Scene change occurs in customer node
@@ -27,15 +27,12 @@ func _ready():
 		$Misc_SFX_Player.set_stream(dayStartSound)
 		$Misc_SFX_Player.volume_db = -7
 		$Misc_SFX_Player.play()
-<<<<<<< Updated upstream
 	else:
 		GameTime.emit_signal("pause")
-=======
-	elif GameTime.hour >= GameTime.STORE_CLOSE_TIME:
->>>>>>> Stashed changes
 		$EndDayAndSkip.visible = false # during the night hide skip button
 		$AmbientPlayer.volume_db = -40
 		$AmbientPlayer.stop()
+		
 		
 	
 	$LocationBackgroundSwitcher.update_background()

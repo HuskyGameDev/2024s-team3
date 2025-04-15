@@ -37,8 +37,7 @@ func _ready():
 
 	main_node.get_node("BellButton").connect("pressed", _on_bell_rung)
 	skipButton = main_node.get_node("EndDayAndSkip")
-	GameTime.emit_signal("tutorial_time")
-	
+	GameTime.emit_signal("pause")
 	## Set visibility
 	welcome.visible = true
 	skipButton.visible = false
@@ -51,47 +50,42 @@ func _ready():
 	arrow.hide()
 	
 	
-	
+	## Set customer order
+	var customer = main_node.get_node_or_null("CustomerFactory/Customer")
+	if customer and "data" in customer:
+		var tutorial_order = preload("res://screens/tutorial/tutorial_order.tres")
+		main_node.get_node("CustomerFactory/Customer").data.order = tutorial_order
+		main_node.get_node("CustomerFactory/Customer/DialogueLabel").text = tutorial_order.dialogueOptions[0]
 
 func _on_welcome_button_pressed() -> void:
 	pressed += 1
 	if pressed == 1:
-		welcome_text.text = "Your goal is to sell potions as fast as possible to get reputation and money."
+		welcome_text.text = "your goal is to sell potions as fast as possible to get reputation and money"
 	if pressed == 2:
-		welcome_text.text = "Gaining reputation will allow you to sell potions in new areas."
+		welcome_text.text = "gaining reputation will allow you to sell potions in new areas"
 	if pressed == 3:
-		welcome_text.text = "You will be able to spend your money to buy more ingredients at the end of each day."
+		welcome_text.text = "you will be able to spend your money to buy more ingredients at the end of each day"
 	if pressed == 4:
 		welcome_text.text = "Now, lets get you familiar with the potion shack"
 	if pressed == 5:
 		arrow.show()
 		arrowAnim.play("arrowmove")
-		welcome_text.text = "This is the clock it will show you how much time is left to sell potions, for the tutorial it is paused."
+		welcome_text.text = "this is the clock it will show you how much time is left to sell potions, for the tutorial it is paused"
 	if pressed == 6:
 		arrowAnim.play("arrowmove_2")
-		welcome_text.text = "This is the ingredient book you can click on it to learn about each ingredient."
+		welcome_text.text = "this is the ingredient book you can click on it to learn about each ingredient"
 	if pressed == 7:
 		arrowAnim.play("arrowmove_3")
-		welcome_text.text = "This shows you your current money and reputation."
+		welcome_text.text = "this shows you your current money and reputation"
 	if pressed == 8:
-		welcome_text.text = "Now, lets help this customer!"
-		## Set customer order
-		var customer = get_parent().get_node_or_null("CustomerFactory/Customer")
-		if customer and "data" in customer:
-			var tutorial_order = preload("res://screens/tutorial/tutorial_order.tres")
-			get_parent().get_node("CustomerFactory/Customer").data.order = tutorial_order
-			get_parent().get_node("CustomerFactory/Customer/DialogueLabel").text = tutorial_order.dialogueOptions[0]
+		welcome_text.text = "now, lets help this customer"
 	if pressed == 9:
 		welcome_continue_button.hide()
 		arrowAnim.play("arrowmove_4")
-<<<<<<< Updated upstream
 		welcome_text.text = "click here to open up your inventory"
 		active_step += 1
-=======
-		welcome_text.text = "Click here to open up your inventory."
->>>>>>> Stashed changes
 	if pressed == 10:
-		welcome_text.text = "Hover over the ingredients to find out their name and effect."
+		welcome_text.text = "hover over the ingredients to find out their name and effect"
 		
 		
 		
@@ -114,19 +108,13 @@ func _on_welcome_button_pressed() -> void:
 
 func _on_inventory_open(open:bool):
 	print(active_step)
-<<<<<<< Updated upstream
 	if(active_step == 1):
 		welcome_text.text = "find 'nightshade petals' by hovering over the ingredients and drag them to the cauldron"
-=======
-	if(active_step < 1):
-		welcome_text.text = "Find 'nightshade petals' by hovering over the ingredients and drag them to the cauldron."
->>>>>>> Stashed changes
 		active_step += 1
 		
 func _on_ingredient_added(ingredient):
 		if not "data" in ingredient: return
 		if not ingredient.data is Ingredient: return
-<<<<<<< Updated upstream
 		if(active_step == 2):
 			if ingredient.data.id == "nightshade_petals":
 				active_step += 1
@@ -135,30 +123,24 @@ func _on_ingredient_added(ingredient):
 			if ingredient.data.id == "sunflower_seeds":
 				active_step += 1
 				welcome_text.text = "Right click the cauldron to see the effects, slight effects will have no bearing on the order, and customers generally want weak effect potions unless they specify otherwise, mixing ingredients with opposite effects will cancel/lessen their effects"
-=======
-		if ingredient.data.id == "nightshade_petals":
-			welcome_text.text = "Great! Now add a sunflower seed to the cauldron as well."
-		if ingredient.data.id == "sunflower_seeds":
-			welcome_text.text = "Right click the cauldron to see the effects, slight effects will have no bearing on the order, and customers generally want weak effect potions unless they specify otherwise, mixing ingredients with opposite effects will cancel/lessen their effects."
->>>>>>> Stashed changes
 	
 func _on_potion_made(_potion, _position):
 	print(active_step)
 	if(active_step == 4):
 		active_step += 1
 		arrowAnim.play("arrowmove_5")
-		welcome_text.text = "Drag the potion here:"
+		welcome_text.text = "drag the potion here"
 	
 func _on_pedestal_item_changed(held_nodes: Array, new_item):
 	if(active_step == 5):
 		active_step += 1
 		arrowAnim.play("arrowmove_6")
-		welcome_text.text = "Now just click the bell to sell the potion!"
+		welcome_text.text = "Now just click the bell to sell the potion"
 	
 func _on_bell_rung():
 	if(active_step == 6):
 		active_step += 1
-		welcome_text.text = "Click the 'end day' button."
+		welcome_text.text = "Click the 'end day' button"
 		arrowAnim.play("arrowmove_7")
 		skipButton.visible = true
 		
