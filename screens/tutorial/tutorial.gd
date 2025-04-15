@@ -139,6 +139,12 @@ func _on_welcome_button_pressed() -> void:
 		PlayerData.tutorial_complete = true
 		PlayerData.save_game_files()
 		
+		GameTime.hour = GameTime.STORE_OPEN_TIME
+		GameTime.set_paused(false)
+		GameTime.start(GameTime.GAME_TIME_SCALE)
+	
+	# Make sure signals are connected
+		
 		
 	
 		
@@ -163,6 +169,7 @@ func _on_ingredient_added(ingredient):
 	
 func _on_potion_made(_potion, _position):
 	print(active_step)
+	arrow.z_index = 100
 	if(active_step == 4):
 		active_step += 1
 		arrowAnim.play("arrowmove_5")
@@ -189,11 +196,22 @@ func _on_end_day_pressed():
 	
 func _on_confirm_pressed():
 	if(active_step == 8):
+		arrow.visible = false
+		welcomePanel.queue_free()
 		active_step += 1
 		welcome_continue_button.show()
 		welcomePanel.z_index = 100
 		welcome_text.text = "welcome to the nightime!"
 		TutorialPressed.pressed += 1
+		# Save current scene state
+		GameTime._on_end_of_day()
+		
+		# Get reference to the main scene
+		var main_scene = get_tree().get_nodes_in_group("main")[0]
+		
+		# Manually load and instance the night menu scene
+		var night_menu = load("res://screens/night_menu/night_menu.tscn").instantiate()
+		main_scene.add_child(night_menu)
 		
 
 		
