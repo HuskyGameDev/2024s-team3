@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://kn8c4my0wioy"]
+[gd_scene load_steps=11 format=3 uid="uid://h6ayxc1sdyya"]
 
 [ext_resource type="PackedScene" uid="uid://d2j3rg4f5xnau" path="res://screens/night_menu/store/night_shop.tscn" id="2_qm36f"]
 [ext_resource type="Script" path="res://screens/night_menu/shutter.gd" id="2_s6ou6"]
 [ext_resource type="Script" path="res://screens/night_menu/night_menu.gd" id="3_02p32"]
-[ext_resource type="PackedScene" uid="uid://bcwsehpf1dlty" path="res://screens/main/packed_main.tscn" id="3_3x0fi"]
+[ext_resource type="PackedScene" path="res://screens/main/packed_main.tscn" id="3_3x0fi"]
 [ext_resource type="Theme" uid="uid://b3qy32ccw0g8o" path="res://ui/ui_theme.tres" id="4_kbbvy"]
 [ext_resource type="Script" path="res://common/items/ingredients/ingredient_type.gd" id="6_1dnt8"]
 [ext_resource type="AudioStream" uid="uid://bnl4xrdecclml" path="res://common/audio/Day_Start_Chime.wav" id="7_2uywj"]
@@ -155,13 +155,13 @@ text = "Move"
 [node name="Main2" parent="." instance=ExtResource("3_3x0fi")]
 script = null
 
-[node name="InventoryDrawer" parent="Main2" index="13"]
+[node name="InventoryDrawer" parent="Main2" index="25"]
 anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Water" parent="Main2" index="15"]
+[node name="Water" parent="Main2" index="27"]
 data = SubResource("Resource_5me0m")
 
 [node name="Misc_SFX_Player2" type="AudioStreamPlayer" parent="."]

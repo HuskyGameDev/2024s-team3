@@ -14,8 +14,7 @@ func _ready():
 		node.get_node("Collider").shape.radius = 6 * ingredient.image.get_width() / 2
 		# position node
 		node.global_position.y = randi_range(-200, 1500)
-		if randi_range(0, 1): node.global_position.x = randi_range(0, 750) # left
-		else: node.global_position.x = randi_range(1200, 1920) # right
+		node.global_position.x = randi_range(0, 1920) # right
 		# spawn node
 		Objects.append(node)
 		Ingredients.add_child(node)
