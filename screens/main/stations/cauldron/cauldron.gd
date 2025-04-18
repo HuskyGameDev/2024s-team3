@@ -28,6 +28,7 @@ var rng:RandomNumberGenerator = RandomNumberGenerator.new()
 
 signal potion_made(potion: Potion, pos: Vector2)
 signal water_spawn
+signal cauldron_pressed
 
 
 
@@ -35,7 +36,7 @@ func _ready():
 	tooltip = packed_tooltip.instantiate()
 	tooltip.visible = false
 	add_child(tooltip)
-	tooltip.set_text("Cauldron Ingredients", "")
+	tooltip.set_text("Potion Effects", " ")
 	tooltip.hide()
 	SpriteShader.set_shader_parameter("make_flat", true)
 	SpriteShader.set_shader_parameter("to", CAULDRON_EMPTY_COLOR)
@@ -51,10 +52,7 @@ func _on_body_enter_cauldron(body):
 	if not body.data is Ingredient: return
 
 	# add ingredient name in cauldron to tooltip
-	ingredient_count += 1
-	if(ingredient_count > 1):
-		tooltip.add_text(", ")
-	tooltip.add_text(body.data.name)
+	tooltip.set_text("Potion Effects", " ")
 	
 	## Animate object movement to top of cauldron
 	body.gravity_scale = 0
@@ -78,9 +76,18 @@ func _on_body_enter_cauldron(body):
 		return
 	has_ingredients = true
 	current_effects.add(body.data.effects)
+	print(body.data.effects)
 	SpriteShader.set_shader_parameter("make_flat", false)
 	SpriteShader.set_shader_parameter("to", current_effects.get_color())
 	print(current_effects)
+	var effect_labels: Array[String] = current_effects.get_strongest_as_strings()
+	var i = 0 # iterator for effect labels
+	tooltip.add_text("Effect Strength Hierarchy: Slight, Weak, (Regular), Strong\n\n")
+	for effect in effect_labels: # dont add comma if it is the first effect 
+		i += 1
+		if i > 1:
+			tooltip.add_text(", ")
+		tooltip.add_text(str(effect))
 	body.queue_free()
 	
 	# Play splash sound
@@ -98,7 +105,7 @@ func _on_body_enter_cauldron(body):
 func _on_cauldron_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click"):
 		if has_ingredients:
-			tooltip.set_text("Cauldron Ingredients", " ")
+			tooltip.set_text("Potion Effects", " ")
 			ingredient_count = 0
 			has_ingredients = false
 			var potion = Potion.new()
@@ -114,6 +121,7 @@ func _on_cauldron_input_event(_viewport, _event, _shape_idx):
 			var strongest:Array = potion.effects.get_strongest_as_strings()
 			print(strongest.size())
 			var isRightSize:bool = false
+			
 			if (strongest.size()>3):
 				print("Strongest[3]:")
 				var eff:String = strongest[3]
@@ -154,6 +162,7 @@ func _on_clickable_area_mouse_entered() -> void:
 	
 # show tooltip when cauldron is right clicked
 func _on_button_pressed() -> void:
+	emit_signal("cauldron_pressed")
 	tooltip.global_position = self.global_position
 	
 	var viewport_rect = get_viewport_rect()
@@ -170,8 +179,10 @@ func _on_button_pressed() -> void:
 		elif viewport_rect.end.y < tooltip_rect.end.y:
 			tooltip.global_position.y -= 25
 		tooltip_rect = tooltip.get_rect()
-		
+		# Update tooltip with effects list
+	
 	tooltip.show()
+
 		
 		
 # hide tooltip when mouse leaves cauldorn area

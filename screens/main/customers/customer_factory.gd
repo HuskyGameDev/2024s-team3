@@ -27,7 +27,7 @@ signal repChanged(new_rep: int)
 func _ready():
 	moneyLabel.hide()
 	repLabel.hide()
-	if GameTime.hour < GameTime.STORE_CLOSE_TIME: # if it is day time
+	if (GameTime.hour >= GameTime.STORE_OPEN_TIME) and (GameTime.hour < GameTime.STORE_CLOSE_TIME): # if it is day time
 		create_customer()
 
 
