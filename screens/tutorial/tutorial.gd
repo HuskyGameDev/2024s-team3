@@ -169,7 +169,6 @@ func _on_ingredient_added(ingredient):
 	
 func _on_potion_made(_potion, _position):
 	print(active_step)
-	arrow.z_index = 100
 	if(active_step == 4):
 		active_step += 1
 		arrowAnim.play("arrowmove_5")
@@ -200,11 +199,12 @@ func _on_confirm_pressed():
 		welcomePanel.queue_free()
 		active_step += 1
 		welcome_continue_button.show()
-		welcomePanel.z_index = 100
 		welcome_text.text = "welcome to the nightime!"
 		TutorialPressed.pressed += 1
 		# Save current scene state
 		GameTime._on_end_of_day()
+		if(welcomePanel != null):
+			welcomePanel.z_index = 100
 		
 		# Get reference to the main scene
 		var main_scene = get_tree().get_nodes_in_group("main")[0]
