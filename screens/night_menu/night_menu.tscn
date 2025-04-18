@@ -158,6 +158,7 @@ script = null
 [node name="arrow" parent="Main2/Tutorial" index="7"]
 position = Vector2(238, 585)
 rotation = 0.0
+texture = null
 
 [node name="InventoryDrawer" parent="Main2" index="14"]
 anchor_right = 0.0
