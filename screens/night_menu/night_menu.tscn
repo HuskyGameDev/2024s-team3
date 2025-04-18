@@ -155,14 +155,21 @@ text = "Move"
 [node name="Main2" parent="." instance=ExtResource("3_3x0fi")]
 script = null
 
-[node name="InventoryDrawer" parent="Main2" index="25"]
+[node name="arrow" parent="Main2/Tutorial" index="7"]
+position = Vector2(238, 585)
+rotation = 0.0
+
+[node name="InventoryDrawer" parent="Main2" index="14"]
 anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Water" parent="Main2" index="27"]
+[node name="Water" parent="Main2" index="17"]
 data = SubResource("Resource_5me0m")
+
+[node name="moneyLabel" parent="Main2" index="23"]
+modulate = Color(1, 1, 1, 1)
 
 [node name="Misc_SFX_Player2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_2uywj")

@@ -23,7 +23,6 @@ signal timerWentOff
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameTime.connect("pause", on_pause) #connrect to pause signal from global script gametime
-
 	
 	
 	
